@@ -21,11 +21,47 @@ async function init() {
     state.cuts = res.ok ? await res.json() : [];
   } catch { state.cuts = []; }
 
+  autoFillSingleOptions();
+  renderAll();
+  bindScoreInput();
+}
+
+// 단일 옵션이면 자동 선택해 UI 흐름이 막히지 않게
+function autoFillSingleOptions() {
+  const years = [...new Set(state.cuts.map(c => c.gradeYear))];
+  if (state.gradeYear == null && years.length === 1) state.gradeYear = years[0];
+
+  if (state.gradeYear != null && state.type == null) {
+    const types = [...new Set(state.cuts
+      .filter(c => c.gradeYear === state.gradeYear)
+      .map(c => c.type))];
+    if (types.length === 1) state.type = types[0];
+  }
+
+  if (state.type && state.subject == null) {
+    const subjects = [...new Set(state.cuts
+      .filter(c => c.gradeYear === state.gradeYear && c.type === state.type)
+      .map(c => c.subject))];
+    if (subjects.length === 1) state.subject = subjects[0];
+  }
+
+  if (state.subject && state.subSubject == null) {
+    const subs = [...new Set(state.cuts
+      .filter(c =>
+        c.gradeYear === state.gradeYear &&
+        c.type      === state.type &&
+        c.subject   === state.subject &&
+        c.subSubject != null)
+      .map(c => c.subSubject))];
+    if (subs.length === 1) state.subSubject = subs[0];
+  }
+}
+
+function renderAll() {
   renderYearPills();
   renderTypePills();
   renderSubjectPills();
   renderSubSubjectPills();
-  bindScoreInput();
   render();
 }
 
@@ -55,11 +91,8 @@ $('gcYearPills').addEventListener('click', e => {
   const v = btn.dataset.value;
   state.gradeYear = (v === 'preliminary') ? 'preliminary' : Number(v);
   state.type = state.subject = state.subSubject = null;
-  renderYearPills();
-  renderTypePills();
-  renderSubjectPills();
-  renderSubSubjectPills();
-  render();
+  autoFillSingleOptions();
+  renderAll();
 });
 
 // 시험 종류
@@ -88,10 +121,8 @@ $('gcTypePills').addEventListener('click', e => {
   if (!btn) return;
   state.type = btn.dataset.value;
   state.subject = state.subSubject = null;
-  renderTypePills();
-  renderSubjectPills();
-  renderSubSubjectPills();
-  render();
+  autoFillSingleOptions();
+  renderAll();
 });
 
 // 영역 — config.js 순서대로 (있는 것만)
@@ -127,9 +158,8 @@ $('gcSubjectPills').addEventListener('click', e => {
   if (!btn) return;
   state.subject = btn.dataset.value;
   state.subSubject = null;
-  renderSubjectPills();
-  renderSubSubjectPills();
-  render();
+  autoFillSingleOptions();
+  renderAll();
 });
 
 // 선택과목 — 있을 때만 노출
@@ -236,65 +266,67 @@ const GRADE_COLORS = [
 
 // ── 렌더링 ────────────────────────────────────────────────
 function render() {
-  const cut    = findCut();
-  const score  = state.score;
-  const ready  = state.gradeYear && state.type && state.subject;
-  const hasSub = !!cut;
-  const hasInput = score != null;
+  const cut       = findCut();
+  const score     = state.score;
+  const selected  = state.gradeYear != null && state.type && state.subject;
+  const hasMatch  = !!cut;
+  const hasInput  = score != null;
 
-  $('gcEmpty').style.display  = (ready && hasSub && hasInput) ? 'none' : (hasSub ? 'flex' : 'flex');
-  $('gcNoData').style.display = (ready && !hasSub) ? 'flex' : 'none';
-  $('gcOutput').style.display = (ready && hasSub && hasInput) ? 'block' : 'none';
-
-  if (!ready) {
-    $('gcEmpty').style.display = 'flex';
+  // 3가지 상태 처리
+  // 1) 선택 미완료 → empty 화면
+  // 2) 선택 완료 + 데이터 매칭 안 됨 → no-data 화면
+  // 3) 선택 완료 + 매칭 + 점수 입력 → 결과
+  // 4) 선택 완료 + 매칭 + 점수 미입력 → empty (점수 입력 안내)
+  if (!selected) {
+    $('gcEmpty').style.display  = 'flex';
+    $('gcNoData').style.display = 'none';
+    $('gcOutput').style.display = 'none';
     return;
   }
-
-  if (ready && !hasSub) {
+  if (!hasMatch) {
     $('gcEmpty').style.display  = 'none';
     $('gcNoData').style.display = 'flex';
+    $('gcOutput').style.display = 'none';
     return;
   }
-
   if (!hasInput) {
-    $('gcEmpty').style.display = 'flex';
+    $('gcEmpty').style.display  = 'flex';
+    $('gcNoData').style.display = 'none';
+    $('gcOutput').style.display = 'none';
     return;
   }
 
-  // 결과 출력
+  // ── 결과 출력 ─────────────────────────────
+  $('gcEmpty').style.display  = 'none';
+  $('gcNoData').style.display = 'none';
+  $('gcOutput').style.display = 'block';
+
   const grade = computeGrade(score, cut.rawCuts);
   $('gcGradeNum').textContent = grade;
   $('gcGradeNum').style.color = GRADE_COLORS[grade - 1];
 
   const tc = getTypeConf(cut.type);
-  const meta = `${cut.gradeYear === 'preliminary' ? '예비' : cut.gradeYear + '학년도'} · ${tc?.groupLabel ?? ''} ${tc?.label ?? ''} · ${cut.subject}${cut.subSubject ? ' / ' + cut.subSubject : ''}`;
-  $('gcOutMeta').textContent = meta;
+  $('gcOutMeta').textContent =
+    `${cut.gradeYear === 'preliminary' ? '예비' : cut.gradeYear + '학년도'}` +
+    ` · ${tc?.groupLabel ?? ''} ${tc?.label ?? ''}` +
+    ` · ${cut.subject}${cut.subSubject ? ' / ' + cut.subSubject : ''}`;
 
-  // 다음/이전 등급컷과의 차이 계산
-  let stat;
-  if (grade === 1) {
-    const margin = score - cut.rawCuts[0];
-    stat = `1등급컷 ${cut.rawCuts[0]}점에서 +${margin}점`;
-  } else if (grade === 9) {
-    const above = cut.rawCuts[7];
-    stat = `8등급컷 ${above}점까지 ${above - score}점 부족`;
-  } else {
-    const below = cut.rawCuts[grade - 1];   // 다음 등급으로 가려면
-    const above = cut.rawCuts[grade - 2];   // 현재 등급의 컷
-    stat = `${grade}등급컷 ${above}점에서 +${score - above}점 / ${grade - 1}등급까지 ${below + 1 - score}점 부족`;
-    // 실제로는 score - cut[grade-2] = 현재 등급 안에서 위로 얼마, cut[grade-1]+1까지 - 사실상 cut[grade-2]가 자기 등급의 컷
-    // 다시 정리: grade=2면 score >= cuts[1], score < cuts[0]
-    // - cuts[grade-1] = cuts[1] = 2등급 컷 (자기 등급의 컷)
-    // - cuts[grade-2] = cuts[0] = 1등급 컷 (한 등급 위)
-    const myCut    = cut.rawCuts[grade - 1];  // 내 등급의 컷
-    const upperCut = cut.rawCuts[grade - 2];  // 한 등급 위 컷
-    stat = `${grade}등급컷 ${myCut}점에서 +${score - myCut}점 · ${grade - 1}등급까지 ${upperCut - score}점 부족`;
-  }
-  $('gcGradeStat').textContent = stat;
+  $('gcGradeStat').textContent = makeStatText(score, grade, cut.rawCuts);
 
   renderGraph(cut.rawCuts, score, grade);
   renderCutsTable(cut.rawCuts, grade);
+}
+
+function makeStatText(score, grade, cuts) {
+  if (grade === 1) {
+    return `1등급컷 ${cuts[0]}점에서 +${score - cuts[0]}점`;
+  }
+  if (grade === 9) {
+    return `8등급컷 ${cuts[7]}점까지 ${cuts[7] - score}점 부족`;
+  }
+  const myCut    = cuts[grade - 1];   // 내 등급의 컷
+  const upperCut = cuts[grade - 2];   // 한 등급 위 컷
+  return `${grade}등급컷 ${myCut}점에서 +${score - myCut}점 · ${grade - 1}등급까지 ${upperCut - score}점 부족`;
 }
 
 // 그래프: 9등급 가로 segment + 사용자 점수 마커

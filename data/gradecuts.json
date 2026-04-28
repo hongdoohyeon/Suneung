@@ -11,43 +11,5 @@
     "subSubject": "화법과작문",
     "rawCuts": [91, 85, 78, 67, 51, 36, 24, 16],
     "stdCuts": [133, 125, 117, 107, 95, 82, 73, 65]
-  },
-  {
-    "id": 2,
-    "curriculum": "2015",
-    "gradeYear": 2024,
-    "examYear": 2023,
-    "month": 11,
-    "typeGroup": "suneung",
-    "type": "csat",
-    "subject": "국어",
-    "subSubject": "언어와매체",
-    "rawCuts": [88, 81, 73, 62, 47, 33, 22, 15],
-    "stdCuts": [136, 128, 120, 109, 96, 83, 73, 65]
-  },
-  {
-    "id": 3,
-    "curriculum": "2015",
-    "gradeYear": 2024,
-    "examYear": 2023,
-    "month": 11,
-    "typeGroup": "suneung",
-    "type": "csat",
-    "subject": "수학",
-    "subSubject": "미적분",
-    "rawCuts": [84, 76, 65, 52, 38, 25, 16, 10],
-    "stdCuts": [137, 130, 121, 110, 97, 83, 72, 65]
-  },
-  {
-    "id": 4,
-    "curriculum": "2015",
-    "gradeYear": 2024,
-    "examYear": 2023,
-    "month": 11,
-    "typeGroup": "suneung",
-    "type": "csat",
-    "subject": "영어",
-    "subSubject": null,
-    "rawCuts": [90, 80, 70, 60, 50, 40, 30, 20]
   }
 ]
