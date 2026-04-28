@@ -6,55 +6,121 @@ const $ = id => document.getElementById(id);
 
 const state = {
   cuts: [],
-  curriculum: null,   // '2015' | '2009' | '예비' | ...
-  gradeYear:  null,   // number | 'preliminary'
-  type:       null,   // 'csat' | 'june' | ...
+  curriculum: '2015',   // 기본 탭. URL ?tab= 로 덮어쓸 수 있음
+  gradeYear:  null,
+  type:       null,
   subject:    null,
   subSubject: null,
   score:      null,
 };
 
-// ── Init ──────────────────────────────────────────────────
+// 9등급별 색상 (1=짙은 초록 → 9=짙은 적색)
+const GRADE_COLORS = [
+  '#0c5e3f', '#15803d', '#65a30d', '#ca8a04',
+  '#ea580c', '#dc2626', '#b91c1c', '#7f1d1d', '#3f0e0e',
+];
+
+// 9등급 누적 백분율 경계 (1등급 4%, 2등급 누적 11%, ...)
+const PCT_BOUNDARIES = [0, 4, 11, 23, 40, 60, 77, 89, 96, 100];
+
+// ── 시작 ──────────────────────────────────────────────────
 async function init() {
+  // URL ?tab= 처리
+  const urlTab = new URLSearchParams(location.search).get('tab');
+  if (urlTab && CURRICULUM_CONFIG[urlTab]) state.curriculum = urlTab;
+  setActiveTab(state.curriculum);
+
   try {
     const res = await fetch(DATA_URL, { cache: 'no-cache' });
     state.cuts = res.ok ? await res.json() : [];
   } catch { state.cuts = []; }
 
-  autoFillSingleOptions();
+  // 단일 옵션이면 자동 선택 (UI 흐름 부드럽게)
+  autoFillSingles();
   renderAll();
   bindScoreInput();
+  bindCurriculumTabs();
 }
 
-// 단일 옵션이면 자동 선택해 UI 흐름이 막히지 않게
-function autoFillSingleOptions() {
-  const years = [...new Set(state.cuts.map(c => c.gradeYear))];
+function currConf() { return CURRICULUM_CONFIG[state.curriculum]; }
+
+function setActiveTab(curr) {
+  document.querySelectorAll('.nav-tab').forEach(b => {
+    b.classList.toggle('is-active', b.dataset.curriculum === curr);
+  });
+}
+
+function syncUrl() {
+  const url = new URL(location.href);
+  url.searchParams.set('tab', state.curriculum);
+  history.replaceState({}, '', url);
+}
+
+// ── 교육과정 탭 ────────────────────────────────────────────
+function bindCurriculumTabs() {
+  $('curriculumTabs').addEventListener('click', e => {
+    const btn = e.target.closest('.nav-tab');
+    if (!btn) return;
+    state.curriculum = btn.dataset.curriculum;
+    state.gradeYear = state.type = state.subject = state.subSubject = null;
+    setActiveTab(state.curriculum);
+    syncUrl();
+    autoFillSingles();
+    renderAll();
+  });
+}
+
+// ── 자동 선택 (단일 옵션이면 클릭 없이 진행) ──────────────
+function autoFillSingles() {
+  const conf = currConf();
+
+  const years = availableYears();
   if (state.gradeYear == null && years.length === 1) state.gradeYear = years[0];
 
   if (state.gradeYear != null && state.type == null) {
-    const types = [...new Set(state.cuts
-      .filter(c => c.gradeYear === state.gradeYear)
-      .map(c => c.type))];
-    if (types.length === 1) state.type = types[0];
+    const types = availableTypes();
+    if (types.length === 1) state.type = types[0].key;
   }
 
-  if (state.type && state.subject == null) {
-    const subjects = [...new Set(state.cuts
-      .filter(c => c.gradeYear === state.gradeYear && c.type === state.type)
-      .map(c => c.subject))];
+  if (state.subject == null) {
+    const subjects = Object.keys(conf.subjects);
     if (subjects.length === 1) state.subject = subjects[0];
   }
 
   if (state.subject && state.subSubject == null) {
-    const subs = [...new Set(state.cuts
-      .filter(c =>
-        c.gradeYear === state.gradeYear &&
-        c.type      === state.type &&
-        c.subject   === state.subject &&
-        c.subSubject != null)
-      .map(c => c.subSubject))];
+    const subs = conf.subjects[state.subject]?.subs ?? [];
     if (subs.length === 1) state.subSubject = subs[0];
   }
+}
+
+// ── 옵션 목록 헬퍼 ────────────────────────────────────────
+function availableYears() {
+  const conf = currConf();
+  const [min, max] = conf.gradeYearRange;
+  const years = [];
+  for (let y = max; y >= min; y--) years.push(y);
+  return years;
+}
+
+function availableTypes() {
+  const conf = currConf();
+  const types = [];
+  for (const groupKey of conf.availableTypeGroups) {
+    const group = EXAM_TYPE_CONFIG.find(g => g.groupKey === groupKey);
+    if (!group) continue;
+    for (const t of group.types) {
+      types.push({ key: t.key, label: t.label, group: group.groupLabel, month: t.month });
+    }
+  }
+  // 시간 역순: 11(수능) → 10 → 9 → 7 → ...
+  types.sort((a, b) => b.month - a.month);
+  return types;
+}
+
+// ── 칩 렌더 ───────────────────────────────────────────────
+function pill(value, label, active = false, sub = '') {
+  const subSpan = sub ? `<span class="pill__sub">${sub}</span>` : '';
+  return `<button class="pill${active ? ' is-active' : ''}" data-value="${value}">${label}${subSpan}</button>`;
 }
 
 function renderAll() {
@@ -65,139 +131,60 @@ function renderAll() {
   render();
 }
 
-// ── 칩 렌더 헬퍼 ──────────────────────────────────────────
-function pill(value, label, active = false) {
-  return `<button class="gc-pill${active ? ' is-active' : ''}" data-value="${value}">${label}</button>`;
-}
-
-// 학년도 — 데이터 안 있는 학년도는 비활성
 function renderYearPills() {
-  const years = [...new Set(state.cuts.map(c => c.gradeYear))]
-    .sort((a, b) => {
-      if (a === 'preliminary') return -1;
-      if (b === 'preliminary') return 1;
-      return Number(b) - Number(a);
-    });
-  const html = years.map(y => {
-    const label = y === 'preliminary' ? '예비' : `${y}학년도`;
-    return pill(y, label, state.gradeYear === y);
-  }).join('');
-  $('gcYearPills').innerHTML = html || '<span class="gc-empty-pills">데이터 준비 중</span>';
+  const years = availableYears();
+  $('gcYearPills').innerHTML = years.map(y =>
+    pill(String(y), `${y}학년도`, state.gradeYear === y)
+  ).join('');
 }
 
 $('gcYearPills').addEventListener('click', e => {
-  const btn = e.target.closest('.gc-pill');
+  const btn = e.target.closest('.pill');
   if (!btn) return;
-  const v = btn.dataset.value;
-  state.gradeYear = (v === 'preliminary') ? 'preliminary' : Number(v);
-  state.type = state.subject = state.subSubject = null;
-  autoFillSingleOptions();
+  state.gradeYear = Number(btn.dataset.value);
+  state.type = null;
+  autoFillSingles();
   renderAll();
 });
 
-// 시험 종류
 function renderTypePills() {
-  if (state.gradeYear == null) {
-    $('gcTypePills').innerHTML = '<span class="gc-hint">학년도를 먼저 선택하세요</span>';
-    return;
-  }
-  const types = [...new Set(state.cuts
-    .filter(c => c.gradeYear === state.gradeYear)
-    .map(c => c.type))];
-
-  // 시간순 정렬: csat(11) → oct(10) → sept(9) → jul(7) → june(6) → apr(4) → mar(3) → prelim(5)
-  const monthOf = (t) => getTypeConf(t)?.month ?? 0;
-  types.sort((a, b) => monthOf(b) - monthOf(a));
-
-  $('gcTypePills').innerHTML = types.map(t => {
-    const tc = getTypeConf(t);
-    const label = tc ? `${tc.groupLabel} · ${tc.label}` : t;
-    return pill(t, label, state.type === t);
-  }).join('');
+  const types = availableTypes();
+  $('gcTypePills').innerHTML = types.map(t =>
+    pill(t.key, t.label, state.type === t.key)
+  ).join('');
 }
 
 $('gcTypePills').addEventListener('click', e => {
-  const btn = e.target.closest('.gc-pill');
+  const btn = e.target.closest('.pill');
   if (!btn) return;
   state.type = btn.dataset.value;
-  state.subject = state.subSubject = null;
-  autoFillSingleOptions();
+  autoFillSingles();
   renderAll();
 });
 
-// 영역 — config.js 순서대로 (있는 것만)
 function renderSubjectPills() {
-  if (!state.gradeYear || !state.type) {
-    $('gcSubjectPills').innerHTML = '<span class="gc-hint">시험을 먼저 선택하세요</span>';
-    return;
-  }
-  const subjectsInData = [...new Set(state.cuts
-    .filter(c => c.gradeYear === state.gradeYear && c.type === state.type)
-    .map(c => c.subject))];
-
-  // 모든 curriculum subjects 순서를 모아 우선순위 부여
-  const allOrder = [];
-  for (const conf of Object.values(CURRICULUM_CONFIG)) {
-    for (const s of Object.keys(conf.subjects)) {
-      if (!allOrder.includes(s)) allOrder.push(s);
-    }
-  }
-  const idxOf = s => {
-    const i = allOrder.indexOf(s);
-    return i === -1 ? 999 : i;
-  };
-  subjectsInData.sort((a, b) => idxOf(a) - idxOf(b));
-
-  $('gcSubjectPills').innerHTML = subjectsInData.map(s =>
+  const conf = currConf();
+  const subjects = Object.keys(conf.subjects);
+  $('gcSubjectPills').innerHTML = subjects.map(s =>
     pill(s, s, state.subject === s)
   ).join('');
 }
 
 $('gcSubjectPills').addEventListener('click', e => {
-  const btn = e.target.closest('.gc-pill');
+  const btn = e.target.closest('.pill');
   if (!btn) return;
   state.subject = btn.dataset.value;
   state.subSubject = null;
-  autoFillSingleOptions();
+  autoFillSingles();
   renderAll();
 });
 
-// 선택과목 — 있을 때만 노출
 function renderSubSubjectPills() {
+  const conf = currConf();
   const field = $('gcSubSubjectField');
-  if (!state.subject) {
-    field.style.display = 'none';
-    return;
-  }
-  const subs = [...new Set(state.cuts
-    .filter(c =>
-      c.gradeYear === state.gradeYear &&
-      c.type      === state.type &&
-      c.subject   === state.subject &&
-      c.subSubject != null)
-    .map(c => c.subSubject))];
-
-  if (subs.length === 0) {
-    field.style.display = 'none';
-    return;
-  }
-
-  // config 정의 순서대로 정렬
-  const allSubsOrder = [];
-  for (const conf of Object.values(CURRICULUM_CONFIG)) {
-    const def = conf.subjects[state.subject];
-    if (def?.subs) {
-      for (const x of def.subs) {
-        if (!allSubsOrder.includes(x)) allSubsOrder.push(x);
-      }
-    }
-  }
-  const idxOf = s => {
-    const i = allSubsOrder.indexOf(s);
-    return i === -1 ? 999 : i;
-  };
-  subs.sort((a, b) => idxOf(a) - idxOf(b));
-
+  if (!state.subject) { field.style.display = 'none'; return; }
+  const subs = conf.subjects[state.subject]?.subs ?? [];
+  if (subs.length === 0) { field.style.display = 'none'; return; }
   field.style.display = '';
   $('gcSubSubjectPills').innerHTML = subs.map(s =>
     pill(s, s, state.subSubject === s)
@@ -205,115 +192,109 @@ function renderSubSubjectPills() {
 }
 
 $('gcSubSubjectPills').addEventListener('click', e => {
-  const btn = e.target.closest('.gc-pill');
+  const btn = e.target.closest('.pill');
   if (!btn) return;
   state.subSubject = btn.dataset.value;
-  renderSubSubjectPills();
   render();
 });
 
-// 점수 입력
+// ── 점수 입력 ─────────────────────────────────────────────
 function bindScoreInput() {
   $('gcScore').addEventListener('input', e => {
     const v = e.target.value.trim();
     if (v === '') { state.score = null; render(); return; }
-    const n = Number(v);
-    if (Number.isFinite(n) && n >= 0 && n <= 100) {
-      state.score = n;
-    } else if (n > 100) {
-      e.target.value = 100;
-      state.score = 100;
-    } else if (n < 0) {
-      e.target.value = 0;
-      state.score = 0;
-    }
+    let n = Number(v);
+    if (!Number.isFinite(n)) { state.score = null; render(); return; }
+    n = Math.min(100, Math.max(0, n));
+    if (String(n) !== v && (n === 0 || n === 100)) e.target.value = n;
+    state.score = n;
     render();
   });
 }
 
-// ── 매칭 데이터 찾기 ──────────────────────────────────────
+// ── 매칭 ──────────────────────────────────────────────────
 function findCut() {
-  if (!state.gradeYear || !state.type || !state.subject) return null;
+  if (state.gradeYear == null || !state.type || !state.subject) return null;
   return state.cuts.find(c =>
-    c.gradeYear === state.gradeYear &&
-    c.type      === state.type &&
-    c.subject   === state.subject &&
+    c.curriculum === state.curriculum &&
+    c.gradeYear  === state.gradeYear &&
+    c.type       === state.type &&
+    c.subject    === state.subject &&
     ((c.subSubject ?? null) === (state.subSubject ?? null))
   ) ?? null;
 }
 
-// ── 등급 계산 ────────────────────────────────────────────
+// ── 등급/백분율 계산 ──────────────────────────────────────
 function computeGrade(score, cuts) {
-  // cuts: 1~8등급 컷 (descending)
-  // score >= cuts[i] 이면 i+1 등급
   for (let i = 0; i < cuts.length; i++) {
     if (score >= cuts[i]) return i + 1;
   }
   return 9;
 }
 
-const GRADE_COLORS = [
-  '#0c5e3f', // 1등급 deep emerald
-  '#15803d', // 2
-  '#65a30d', // 3
-  '#ca8a04', // 4
-  '#ea580c', // 5
-  '#dc2626', // 6
-  '#b91c1c', // 7
-  '#7f1d1d', // 8
-  '#3f0e0e', // 9
-];
+function computePercentile(score, grade, cuts) {
+  // 자기 등급 안에서 위치 → PCT_BOUNDARIES 안에서 보간
+  const lower = grade === 9 ? 0   : cuts[grade - 1];      // 자기 등급 컷
+  const upper = grade === 1 ? 100 : cuts[grade - 2];      // 한 등급 위 컷 (또는 100)
+  const lo    = PCT_BOUNDARIES[grade - 1];                 // 더 좋은 백분율
+  const hi    = PCT_BOUNDARIES[grade];                     // 더 나쁜 백분율
+  const range = upper - lower;
+  if (range <= 0) return hi;
+  const ratio = (score - lower) / range;                   // 0(컷 동점) ~ 1(다음 등급 직전)
+  return hi - ratio * (hi - lo);                           // 점수 높을수록 더 좋은 백분율
+}
 
-// ── 렌더링 ────────────────────────────────────────────────
+// ── 렌더 ─────────────────────────────────────────────────
 function render() {
   const cut       = findCut();
-  const score     = state.score;
-  const selected  = state.gradeYear != null && state.type && state.subject;
-  const hasMatch  = !!cut;
-  const hasInput  = score != null;
+  const ready     = state.gradeYear != null && state.type && state.subject;
+  const subOk     = !state.subject ||
+                    (currConf().subjects[state.subject]?.subs.length ?? 0) === 0 ||
+                    state.subSubject != null;
+  const allReady  = ready && subOk;
 
-  // 3가지 상태 처리
-  // 1) 선택 미완료 → empty 화면
-  // 2) 선택 완료 + 데이터 매칭 안 됨 → no-data 화면
-  // 3) 선택 완료 + 매칭 + 점수 입력 → 결과
-  // 4) 선택 완료 + 매칭 + 점수 미입력 → empty (점수 입력 안내)
-  if (!selected) {
+  if (!allReady) {
     $('gcEmpty').style.display  = 'flex';
     $('gcNoData').style.display = 'none';
     $('gcOutput').style.display = 'none';
     return;
   }
-  if (!hasMatch) {
+  if (!cut) {
     $('gcEmpty').style.display  = 'none';
     $('gcNoData').style.display = 'flex';
     $('gcOutput').style.display = 'none';
     return;
   }
-  if (!hasInput) {
+  if (state.score == null) {
     $('gcEmpty').style.display  = 'flex';
     $('gcNoData').style.display = 'none';
     $('gcOutput').style.display = 'none';
     return;
   }
 
-  // ── 결과 출력 ─────────────────────────────
+  // 결과 출력
   $('gcEmpty').style.display  = 'none';
   $('gcNoData').style.display = 'none';
   $('gcOutput').style.display = 'block';
 
+  const score = state.score;
   const grade = computeGrade(score, cut.rawCuts);
+  const pct   = computePercentile(score, grade, cut.rawCuts);
+
   $('gcGradeNum').textContent = grade;
   $('gcGradeNum').style.color = GRADE_COLORS[grade - 1];
+  $('gcPctNum').textContent   = pct.toFixed(1);
+  $('gcPctNum').style.color   = GRADE_COLORS[grade - 1];
 
   const tc = getTypeConf(cut.type);
   $('gcOutMeta').textContent =
-    `${cut.gradeYear === 'preliminary' ? '예비' : cut.gradeYear + '학년도'}` +
-    ` · ${tc?.groupLabel ?? ''} ${tc?.label ?? ''}` +
+    `${cut.gradeYear}학년도 · ${tc?.groupLabel ?? ''} ${tc?.label ?? ''}` +
     ` · ${cut.subject}${cut.subSubject ? ' / ' + cut.subSubject : ''}`;
 
   $('gcGradeStat').textContent = makeStatText(score, grade, cut.rawCuts);
 
   renderGraph(cut.rawCuts, score, grade);
+  renderPctGraph(pct, grade);
   renderCutsTable(cut.rawCuts, grade);
 }
 
@@ -324,52 +305,56 @@ function makeStatText(score, grade, cuts) {
   if (grade === 9) {
     return `8등급컷 ${cuts[7]}점까지 ${cuts[7] - score}점 부족`;
   }
-  const myCut    = cuts[grade - 1];   // 내 등급의 컷
-  const upperCut = cuts[grade - 2];   // 한 등급 위 컷
+  const myCut    = cuts[grade - 1];
+  const upperCut = cuts[grade - 2];
   return `${grade}등급컷 ${myCut}점에서 +${score - myCut}점 · ${grade - 1}등급까지 ${upperCut - score}점 부족`;
 }
 
-// 그래프: 9등급 가로 segment + 사용자 점수 마커
+// ── 그래프 ───────────────────────────────────────────────
 function renderGraph(cuts, score, grade) {
-  // cuts: descending [c1, c2, ..., c8]
-  // 등급별 점수 구간 (low, high):
-  //   1등급: [c1, 100]
-  //   2등급: [c2, c1)
-  //   ...
-  //   8등급: [c8, c7)
-  //   9등급: [0, c8)
+  // 9등급 → 1등급 (왼쪽 점수 낮음 → 오른쪽 점수 높음)
   const ranges = [];
-  for (let g = 1; g <= 9; g++) {
-    const high = g === 1 ? 100 : cuts[g - 2];
-    const low  = g === 9 ? 0   : cuts[g - 1];
-    ranges.push({ grade: g, low, high });
+  for (let g = 9; g >= 1; g--) {
+    const lo = g === 9 ? 0   : cuts[g - 1];
+    const hi = g === 1 ? 100 : cuts[g - 2];
+    ranges.push({ grade: g, lo, hi });
   }
 
-  const trackHTML = ranges.map(r => {
-    const width = ((r.high - r.low) / 100) * 100;
-    const color = GRADE_COLORS[r.grade - 1];
-    return `<div class="gc-seg" style="width:${width}%;background:${color};">
+  $('gcGraphTrack').innerHTML = ranges.map(r => {
+    const width = ((r.hi - r.lo) / 100) * 100;
+    const isMy  = r.grade === grade;
+    return `<div class="gc-seg${isMy ? ' is-my' : ''}" style="width:${width}%;background:${GRADE_COLORS[r.grade - 1]};">
               <span class="gc-seg__num">${r.grade}</span>
             </div>`;
   }).join('');
-  $('gcGraphTrack').innerHTML = trackHTML;
 
-  // 등급컷 라인들 (주요 컷 포인트만)
-  const cutHTML = cuts.map((c, i) =>
-    `<div class="gc-cutline" style="left:${c}%;" title="${i + 1}등급 ${c}점">
+  $('gcGraphCuts').innerHTML = cuts.map((c, i) =>
+    `<div class="gc-cutline" style="left:${c}%;">
        <span class="gc-cutline__num">${c}</span>
      </div>`
   ).join('');
-  $('gcGraphCuts').innerHTML = cutHTML;
 
-  // 마커
-  const m = $('gcMarker');
-  m.style.left = `${score}%`;
+  $('gcMarker').style.left = `${score}%`;
   $('gcMarkerLabel').textContent = `${score}점`;
 }
 
+function renderPctGraph(pct, grade) {
+  // 9개 백분율 구간 색상 segment
+  const segs = [];
+  for (let g = 1; g <= 9; g++) {
+    const lo = PCT_BOUNDARIES[g - 1];
+    const hi = PCT_BOUNDARIES[g];
+    const width = hi - lo;
+    segs.push(`<div class="gc-pct-seg" style="width:${width}%;background:${GRADE_COLORS[g - 1]};opacity:${g === grade ? 1 : 0.45};"></div>`);
+  }
+  $('gcPctSegments').innerHTML = segs.join('');
+
+  $('gcPctMarker').style.left = `${pct}%`;
+  $('gcPctMarkerLabel').textContent = `상위 ${pct.toFixed(1)}%`;
+}
+
 function renderCutsTable(cuts, myGrade) {
-  const rows = cuts.map((c, i) => {
+  $('gcCutsTable').innerHTML = cuts.map((c, i) => {
     const g = i + 1;
     const isMy = g === myGrade;
     return `<div class="gc-cuts-table__row${isMy ? ' is-my' : ''}">
@@ -377,8 +362,6 @@ function renderCutsTable(cuts, myGrade) {
               <span class="gc-cuts-table__score">${c}점</span>
             </div>`;
   }).join('');
-  $('gcCutsTable').innerHTML = rows;
 }
 
-// ── 시작 ──────────────────────────────────────────────────
 init();
