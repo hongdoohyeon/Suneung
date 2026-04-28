@@ -105,9 +105,9 @@ function renderAll() {
 }
 
 function renderCurriculumPills() {
-  const html = Object.entries(CURRICULUM_CONFIG)
-    .filter(([key]) => GC_CURRICULA.includes(key))
-    .map(([key, conf]) => pill(key, conf.label, state.curriculum === key))
+  const html = GC_CURRICULA
+    .filter(key => CURRICULUM_CONFIG[key])
+    .map(key => pill(key, CURRICULUM_CONFIG[key].label, state.curriculum === key))
     .join('');
   $('gcCurrPills').innerHTML = html;
 }
@@ -392,9 +392,9 @@ function bindGlobalEvents() {
       n = Math.min(max, Math.max(0, n));
       setSlot(subj, idx, { score: n });
     }
-    // 입력 중에는 카드 전체 re-render 하면 input focus가 사라짐
-    // → 대신 해당 슬롯만 부분 갱신
-    refreshSlot(subj, idx);
+    // input 요소를 교체하면 type=number에서 커서가 앞으로 가서 숫자 순서가 뒤집힘
+    // → input은 건드리지 않고 결과 영역(등급/백분위/그래프)만 갱신
+    refreshSlotResult(subj, idx);
     renderTotal();
   });
 
@@ -405,30 +405,53 @@ function bindGlobalEvents() {
   });
 }
 
+// 선택과목(pill) 변경 시: 슬롯 전체 교체 (input 비활성화 상태 포함)
 function refreshSlot(subj, idx) {
-  const conf     = currConf();
-  const sc       = conf.subjects[subj];
-  const isMulti  = slotsFor(subj) > 1;
-  const slotEl   = document.querySelector(`[data-slot-key="${slotKey(subj, idx)}"]`);
+  const conf    = currConf();
+  const sc      = conf.subjects[subj];
+  const isMulti = slotsFor(subj) > 1;
+  const slotEl  = document.querySelector(`[data-slot-key="${slotKey(subj, idx)}"]`);
   if (!slotEl) return;
-
-  // outerHTML 교체 시 input 포커스가 날아가므로 미리 저장했다가 복원
-  const activeInp = slotEl.contains(document.activeElement) ? document.activeElement : null;
-  const selStart  = activeInp?.selectionStart ?? null;
-
   slotEl.outerHTML = slotHTML(subj, idx, sc, isMulti);
   if (isMulti) {
     const otherIdx = idx === 0 ? 1 : 0;
     const otherEl  = document.querySelector(`[data-slot-key="${slotKey(subj, otherIdx)}"]`);
     if (otherEl) otherEl.outerHTML = slotHTML(subj, otherIdx, sc, isMulti);
   }
+}
 
-  if (activeInp) {
-    const newInp = document.querySelector(`[data-slot-key="${slotKey(subj, idx)}"] input[data-action="set-score"]`);
-    if (newInp) {
-      newInp.focus();
-      if (selStart !== null) try { newInp.setSelectionRange(selStart, selStart); } catch {}
-    }
+// 점수 입력 시: input은 건드리지 않고 결과 영역(등급/백분위/그래프)만 갱신
+function refreshSlotResult(subj, idx) {
+  const slotEl = document.querySelector(`[data-slot-key="${slotKey(subj, idx)}"]`);
+  if (!slotEl) return;
+
+  // 기존 결과 영역 제거
+  slotEl.querySelector('.subj-slot__result')?.remove();
+  slotEl.querySelector('.mini-bar')?.remove();
+  slotEl.querySelector('.subj-slot__hint')?.remove();
+
+  const slot      = getSlot(subj, idx);
+  const cut       = findCut(subj, slot.subSubject);
+  const fullScore = cut?.fullScore ?? defaultFullScore(subj);
+
+  if (cut && slot.score != null) {
+    const grade = computeGrade(slot.score, cut.rawCuts);
+    const pct   = computePercentile(slot.score, grade, cut.rawCuts, fullScore);
+    const frag  = document.createRange().createContextualFragment(`
+      <div class="subj-slot__result">
+        <span class="subj-result__grade" style="color:${GRADE_COLORS[grade - 1]}">${grade}</span>
+        <span class="subj-result__suffix">등급</span>
+        <span class="subj-result__sep">·</span>
+        <span class="subj-result__pct">상위 ${pct.toFixed(1)}%</span>
+      </div>
+      ${miniBarHTML(cut.rawCuts, slot.score, grade, fullScore)}
+    `);
+    slotEl.append(frag);
+  } else if (slot.score != null && !cut) {
+    const hint = document.createElement('div');
+    hint.className = 'subj-slot__hint';
+    hint.textContent = '해당 영역의 등급컷 데이터가 없습니다';
+    slotEl.appendChild(hint);
   }
 }
 
