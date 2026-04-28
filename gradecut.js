@@ -4,6 +4,9 @@ import { CURRICULUM_CONFIG, EXAM_TYPE_CONFIG, getTypeConf } from './config.js';
 const DATA_URL = 'data/gradecuts.json';
 const $ = id => document.getElementById(id);
 
+// 등급컷 계산기에서 지원하는 커리큘럼 목록 (28예비·사관·경찰대·MEET 제외)
+const GC_CURRICULA = ['2015', '2009', 'LEET'];
+
 // ── 상수 ───────────────────────────────────────────────────
 // 9등급 누적 백분율 경계
 const PCT_BOUNDARIES = [0, 4, 11, 23, 40, 60, 77, 89, 96, 100];
@@ -47,7 +50,7 @@ function setSlot(subj, idx, patch) {
 // ── 시작 ───────────────────────────────────────────────────
 async function init() {
   const urlTab = new URLSearchParams(location.search).get('tab');
-  if (urlTab && CURRICULUM_CONFIG[urlTab]) state.curriculum = urlTab;
+  if (urlTab && GC_CURRICULA.includes(urlTab)) state.curriculum = urlTab;
 
   try {
     const res = await fetch(DATA_URL, { cache: 'no-cache' });
@@ -102,9 +105,10 @@ function renderAll() {
 }
 
 function renderCurriculumPills() {
-  const html = Object.entries(CURRICULUM_CONFIG).map(([key, conf]) =>
-    pill(key, conf.label, state.curriculum === key)
-  ).join('');
+  const html = Object.entries(CURRICULUM_CONFIG)
+    .filter(([key]) => GC_CURRICULA.includes(key))
+    .map(([key, conf]) => pill(key, conf.label, state.curriculum === key))
+    .join('');
   $('gcCurrPills').innerHTML = html;
 }
 
