@@ -59,6 +59,7 @@ async function loadExams() {
 function render(skipSubjectFilter = false) {
   renderCards();
   renderActiveTags();
+  updateFilterBadge();
   if (!skipSubjectFilter) renderSubjectFilter();
 }
 
@@ -79,8 +80,8 @@ $('curriculumTabs').addEventListener('click', e => {
   }
 
   syncUrlTab();
-  renderFilterPanel();
-  render();
+  const doRender = () => { renderFilterPanel(); render(); };
+  document.startViewTransition ? document.startViewTransition(doRender) : doRender();
 });
 
 // ── 필터 패널 전체 재구성 ──────────────────────────────────
@@ -265,9 +266,25 @@ $('loadMoreBtn').addEventListener('click', () => { state.page++; renderCards(); 
 
 // 모바일 필터 토글
 $('filterToggle')?.addEventListener('click', () => {
-  const panel = $('filterPanel');
-  panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  const panel  = $('filterPanel');
+  const isOpen = panel.classList.toggle('is-open');
+  const btn    = $('filterToggle');
+  btn.setAttribute('aria-label',    isOpen ? '필터 닫기' : '필터 열기');
+  btn.setAttribute('aria-expanded', String(isOpen));
 });
+
+function updateFilterBadge() {
+  const btn = $('filterToggle');
+  if (!btn) return;
+  const count = document.querySelectorAll('#activeTags .tag').length;
+  let badge   = btn.querySelector('.filter-badge');
+  if (count > 0) {
+    if (!badge) { badge = document.createElement('span'); badge.className = 'filter-badge'; btn.appendChild(badge); }
+    badge.textContent = count;
+  } else if (badge) {
+    badge.remove();
+  }
+}
 
 // ── 카드 렌더 ──────────────────────────────────────────────
 function renderCards() {
@@ -289,7 +306,7 @@ function renderCards() {
   grid.style.display  = 'grid';
 
   const shown = data.slice(0, state.page * PAGE_SIZE);
-  grid.innerHTML = shown.map(cardHTML).join('');
+  grid.innerHTML = shown.map((e, i) => cardHTML(e, i)).join('');
 
   const remaining = data.length - shown.length;
   if (remaining > 0) {
@@ -303,7 +320,7 @@ function renderCards() {
   }
 }
 
-function cardHTML(exam) {
+function cardHTML(exam, idx = 0) {
   const conf    = currConf().subjects[exam.subject] ?? { color: '#9ca3af' };
   const tc      = getTypeConf(exam.type);
   const dy      = getDisplayYear(exam);
@@ -334,8 +351,9 @@ function cardHTML(exam) {
     ? `<a class="btn" href="${exam.solutionUrl}" target="_blank" rel="noopener" download>해설</a>`
     : '';
 
+  const delay = `${Math.min(idx * 28, 220)}ms`;
   return `
-    <article class="card${hasFile ? ' has-files' : ''}" style="--subject-color:${conf.color};">
+    <article class="card${hasFile ? ' has-files' : ''}" style="--subject-color:${conf.color};animation-delay:${delay};">
       <div class="card__meta">${yearChip}${typeChip}</div>
       <h4 class="card__title" title="${escAttr(title)}">${escHtml(title)}</h4>
       <p class="card__sub">${escHtml(subtitle)}</p>
@@ -449,3 +467,12 @@ function escAttr(str) { return escHtml(str); }
 
 // ── 시작 ──────────────────────────────────────────────────
 loadExams();
+
+// Lenis smooth scroll — non-blocking, graceful degradation
+import('https://cdn.jsdelivr.net/npm/lenis@1.1.13/+esm')
+  .then(({ default: Lenis }) => {
+    const lenis = new Lenis({ lerp: 0.085 });
+    const tick  = t => { lenis.raf(t); requestAnimationFrame(tick); };
+    requestAnimationFrame(tick);
+  })
+  .catch(() => {});
