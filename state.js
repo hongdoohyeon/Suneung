@@ -106,31 +106,6 @@ export function subjectCounts() {
   return counts;
 }
 
-// 예비문제는 학년도별로 다른 과목을 가짐 — 22개정(2028) · 15개정(2022) · 09개정(2014)
-const PRELIM_BY_YEAR = [
-  { gradeYear: 2028, subjects: {
-      '국어': [], '수학': [], '영어': [], '한국사': [],
-      '통합사회': [], '통합과학': [],
-      '제2외국어': ['독일어Ⅰ','프랑스어Ⅰ','스페인어Ⅰ','중국어Ⅰ','일본어Ⅰ','러시아어Ⅰ','아랍어Ⅰ','베트남어Ⅰ','한문Ⅰ'],
-  }},
-  { gradeYear: 2022, subjects: {
-      '국어':   ['화법과작문','언어와매체'],
-      '수학':   ['확률과통계','미적분','기하'],
-      '영어':   [], '한국사': [],
-      '사회탐구': ['생활과윤리','윤리와사상','한국지리','세계지리','동아시아사','세계사','정치와법','경제','사회·문화'],
-      '과학탐구': ['물리학Ⅰ','물리학Ⅱ','화학Ⅰ','화학Ⅱ','생명과학Ⅰ','생명과학Ⅱ','지구과학Ⅰ','지구과학Ⅱ'],
-      '제2외국어': ['독일어Ⅰ','프랑스어Ⅰ','스페인어Ⅰ','중국어Ⅰ','일본어Ⅰ','러시아어Ⅰ','아랍어Ⅰ','베트남어Ⅰ','한문Ⅰ'],
-  }},
-  { gradeYear: 2014, subjects: {
-      '국어':   [],
-      '수학':   ['가형','나형'],
-      '영어':   [], '한국사': [],
-      '사회탐구': ['생활과윤리','윤리와사상','한국지리','세계지리','동아시아사','세계사','법과정치','경제','사회·문화'],
-      '과학탐구': ['물리Ⅰ','물리Ⅱ','화학Ⅰ','화학Ⅱ','생명과학Ⅰ','생명과학Ⅱ','지구과학Ⅰ','지구과학Ⅱ'],
-      '제2외국어': ['독일어Ⅰ','프랑스어Ⅰ','스페인어Ⅰ','중국어Ⅰ','일본어Ⅰ','러시아어Ⅰ','아랍어Ⅰ','한문Ⅰ'],
-  }},
-];
-
 // 사관학교: 국어=독서·문학(선택X), 수학만 선택과목 존재(시기별 분기), 영어 단일
 function sagwanSubjectsByYear(gradeYear) {
   if (gradeYear >= 2022) {
@@ -154,8 +129,7 @@ export function buildMockData() {
   let id = 1;
 
   for (const [currKey, conf] of Object.entries(CURRICULUM_CONFIG)) {
-    if (currKey === '예비')   continue;  // 별도 처리
-    if (SPECIAL_EXAMS[currKey]) continue;  // 별도 처리
+    if (SPECIAL_EXAMS[currKey]) continue;  // 사관·경찰대는 학년도별 분기 별도 처리
 
     const [minGY, maxGY] = conf.gradeYearRange;
     const gradeYears = [];
@@ -199,27 +173,6 @@ export function buildMockData() {
             }
           }
         }
-      }
-    }
-  }
-
-  // ── 예비문제 (단일 탭, 학년도로 22/15/09 구분) ──
-  for (const { gradeYear, subjects } of PRELIM_BY_YEAR) {
-    for (const [subjKey, subs] of Object.entries(subjects)) {
-      const subsToAdd = subs.length > 0 ? subs : [null];
-      for (const sub of subsToAdd) {
-        items.push({
-          id: id++,
-          curriculum: '예비',
-          gradeYear,
-          examYear: gradeYear - 1,
-          month: 5,
-          typeGroup: 'preliminary',
-          type: 'prelim',
-          subject: subjKey,
-          subSubject: sub,
-          questionUrl: null, answerUrl: null, solutionUrl: null,
-        });
       }
     }
   }

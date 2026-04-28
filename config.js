@@ -50,26 +50,19 @@ export const CURRICULUM_CONFIG = {
     },
   },
 
-  // ── 예비문제 (22/15/09 개정 예비시험 통합) ─────────────────
-  // 학년도 칩으로 22(2028) / 15(2022) / 09(2014) 구분
+  // ── 28학년도 예비 (2022 개정 평가원 예비시험) ──────────────
   '예비': {
     id: '예비',
-    label: '예비문제',
-    rangeLabel: '평가원 예비시험 모음',
-    gradeYearRange: [2014, 2028],
+    label: '28학년도 예비',
+    rangeLabel: '2022 개정 · 평가원 예비시험',
+    gradeYearRange: [2028, 2028],
     availableTypeGroups: ['preliminary'],
     singleType: true,
     subjects: {
-      '국어':      { icon: '📖', bg: '#fff0e8', color: '#c44b00',
-                    subs: ['화법과작문', '언어와매체'] },
-      '수학':      { icon: '📐', bg: '#eef2ff', color: '#1a4fd6',
-                    subs: ['가형', '나형', '확률과통계', '미적분', '기하'] },
+      '국어':      { icon: '📖', bg: '#fff0e8', color: '#c44b00', subs: [] },
+      '수학':      { icon: '📐', bg: '#eef2ff', color: '#1a4fd6', subs: [] },
       '영어':      { icon: '🌍', bg: '#e8f9ff', color: '#0077a8', subs: [] },
       '한국사':    { icon: '🏛️', bg: '#fdf4e8', color: '#a05c00', subs: [] },
-      '사회탐구':  { icon: '🌏', bg: '#e8ffe8', color: '#2a7a2a',
-                    subs: ['생활과윤리','윤리와사상','한국지리','세계지리','동아시아사','세계사','법과정치','정치와법','경제','사회·문화'] },
-      '과학탐구':  { icon: '🔬', bg: '#f0e8ff', color: '#6b2fbe',
-                    subs: ['물리Ⅰ','물리Ⅱ','물리학Ⅰ','물리학Ⅱ','화학Ⅰ','화학Ⅱ','생명과학Ⅰ','생명과학Ⅱ','지구과학Ⅰ','지구과학Ⅱ'] },
       '통합사회':  { icon: '🌏', bg: '#e8ffe8', color: '#2a7a2a', subs: [] },
       '통합과학':  { icon: '🔬', bg: '#f0e8ff', color: '#6b2fbe', subs: [] },
       '제2외국어': { icon: '🗣️', bg: '#fff5e8', color: '#b35a00',
