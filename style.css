@@ -1297,8 +1297,8 @@ a { color: inherit; text-decoration: none; }
    Responsive Polish
    ═══════════════════════════════════════════════════════════ */
 
-/* Curriculum nav — 가로 스크롤 있음을 오른쪽 fade로 표시 */
-.curriculum-nav { position: relative; }
+/* Curriculum nav — 가로 스크롤 있음을 오른쪽 fade로 표시
+   (position: sticky가 이미 containing block 역할 → relative 추가 불필요) */
 .curriculum-nav::after {
   content: '';
   position: absolute;
