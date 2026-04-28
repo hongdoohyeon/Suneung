@@ -54,6 +54,10 @@
       <div class="nav-group">
         <span class="nav-group__label">수능</span>
         <div class="nav-group__tabs">
+          <button class="nav-tab" data-curriculum="예비">
+            <span class="nav-tab__title">28학년도 예비</span>
+            <span class="nav-tab__sub">2022 개정</span>
+          </button>
           <button class="nav-tab is-active" data-curriculum="2015">
             <span class="nav-tab__title">2015 개정</span>
             <span class="nav-tab__sub">2022~2027</span>
@@ -61,10 +65,6 @@
           <button class="nav-tab" data-curriculum="2009">
             <span class="nav-tab__title">2009 개정</span>
             <span class="nav-tab__sub">2014~2021</span>
-          </button>
-          <button class="nav-tab" data-curriculum="예비">
-            <span class="nav-tab__title">28학년도 예비</span>
-            <span class="nav-tab__sub">2022 개정</span>
           </button>
         </div>
       </div>
@@ -148,6 +148,8 @@
           <input id="searchInput" type="text" placeholder="과목·연도로 검색" autocomplete="off" />
           <button id="clearSearch" class="search__clear" style="display:none" aria-label="검색 지우기">×</button>
         </div>
+        <button class="btn btn--ghost filter-toggle-inline" id="filterToggleInline"
+                aria-label="필터 열기" aria-expanded="false" type="button">필터</button>
         <div class="toolbar__right">
           <span id="resultCount" class="count"></span>
           <button class="btn-text" id="resetBtn">초기화</button>
