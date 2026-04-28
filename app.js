@@ -262,7 +262,13 @@ $('clearSearch').addEventListener('click', () => {
 
 $('resetBtn').addEventListener('click', resetAll);
 $('emptyResetBtn').addEventListener('click', resetAll);
-$('loadMoreBtn').addEventListener('click', () => { state.page++; renderCards(); });
+$('loadMoreWrap').addEventListener('click', e => {
+  const btn = e.target.closest('.pg-btn[data-pg]');
+  if (!btn || btn.disabled) return;
+  state.page = Number(btn.dataset.pg);
+  renderCards();
+  $('cardsGrid').scrollIntoView({ behavior: 'instant', block: 'start' });
+});
 
 // 모바일 필터 토글
 $('filterToggle')?.addEventListener('click', () => {
@@ -305,19 +311,43 @@ function renderCards() {
   empty.style.display = 'none';
   grid.style.display  = 'grid';
 
-  const shown = data.slice(0, state.page * PAGE_SIZE);
+  const totalPages = Math.max(1, Math.ceil(data.length / PAGE_SIZE));
+  state.page = Math.min(Math.max(1, state.page), totalPages);
+  const shown = data.slice((state.page - 1) * PAGE_SIZE, state.page * PAGE_SIZE);
   grid.innerHTML = shown.map((e, i) => cardHTML(e, i)).join('');
+  renderPagination(state.page, totalPages, data.length);
+}
 
-  const remaining = data.length - shown.length;
-  if (remaining > 0) {
-    const pct = (shown.length / data.length * 100).toFixed(0);
-    $('loadProgress').style.setProperty('--progress', `${pct}%`);
-    $('loadMoreBtn').textContent = `${remaining}건 더 보기`;
-    $('loadMoreInfo').textContent = `${shown.length} / ${data.length}`;
-    moreWrap.style.display = 'flex';
+function renderPagination(current, total, totalItems) {
+  const wrap = $('loadMoreWrap');
+  if (total <= 1) { wrap.style.display = 'none'; return; }
+  wrap.style.display = 'flex';
+
+  const pages = [];
+  if (total <= 7) {
+    for (let i = 1; i <= total; i++) pages.push(i);
   } else {
-    moreWrap.style.display = 'none';
+    pages.push(1);
+    if (current > 3) pages.push('…');
+    for (let i = Math.max(2, current - 1); i <= Math.min(total - 1, current + 1); i++) pages.push(i);
+    if (current < total - 2) pages.push('…');
+    pages.push(total);
   }
+
+  const nums = pages.map(p =>
+    p === '…'
+      ? `<span class="pg-ellipsis">…</span>`
+      : `<button class="pg-btn${p === current ? ' is-active' : ''}" data-pg="${p}">${p}</button>`
+  ).join('');
+
+  wrap.innerHTML = `
+    <div class="pagination">
+      <button class="pg-btn pg-arrow" data-pg="${current - 1}" ${current === 1 ? 'disabled' : ''}>‹</button>
+      ${nums}
+      <button class="pg-btn pg-arrow" data-pg="${current + 1}" ${current === total ? 'disabled' : ''}>›</button>
+    </div>
+    <span class="pg-info">${totalItems.toLocaleString()}건 · ${current} / ${total}페이지</span>
+  `;
 }
 
 function cardHTML(exam, idx = 0) {
@@ -467,12 +497,3 @@ function escAttr(str) { return escHtml(str); }
 
 // ── 시작 ──────────────────────────────────────────────────
 loadExams();
-
-// Lenis smooth scroll — non-blocking, graceful degradation
-import('https://cdn.jsdelivr.net/npm/lenis@1.1.13/+esm')
-  .then(({ default: Lenis }) => {
-    const lenis = new Lenis({ lerp: 0.085 });
-    const tick  = t => { lenis.raf(t); requestAnimationFrame(tick); };
-    requestAnimationFrame(tick);
-  })
-  .catch(() => {});
