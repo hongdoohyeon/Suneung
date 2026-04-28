@@ -406,17 +406,29 @@ function bindGlobalEvents() {
 }
 
 function refreshSlot(subj, idx) {
-  const conf  = currConf();
-  const sc    = conf.subjects[subj];
-  const isMulti = slotsFor(subj) > 1;
-  const slotEl = document.querySelector(`[data-slot-key="${slotKey(subj, idx)}"]`);
+  const conf     = currConf();
+  const sc       = conf.subjects[subj];
+  const isMulti  = slotsFor(subj) > 1;
+  const slotEl   = document.querySelector(`[data-slot-key="${slotKey(subj, idx)}"]`);
   if (!slotEl) return;
-  // 슬롯 + (isMulti면 다른 슬롯의 disabled 상태도 갱신해야 함)
+
+  // outerHTML 교체 시 input 포커스가 날아가므로 미리 저장했다가 복원
+  const activeInp = slotEl.contains(document.activeElement) ? document.activeElement : null;
+  const selStart  = activeInp?.selectionStart ?? null;
+
   slotEl.outerHTML = slotHTML(subj, idx, sc, isMulti);
   if (isMulti) {
     const otherIdx = idx === 0 ? 1 : 0;
-    const otherEl = document.querySelector(`[data-slot-key="${slotKey(subj, otherIdx)}"]`);
+    const otherEl  = document.querySelector(`[data-slot-key="${slotKey(subj, otherIdx)}"]`);
     if (otherEl) otherEl.outerHTML = slotHTML(subj, otherIdx, sc, isMulti);
+  }
+
+  if (activeInp) {
+    const newInp = document.querySelector(`[data-slot-key="${slotKey(subj, idx)}"] input[data-action="set-score"]`);
+    if (newInp) {
+      newInp.focus();
+      if (selStart !== null) try { newInp.setSelectionRange(selStart, selStart); } catch {}
+    }
   }
 }
 
