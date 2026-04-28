@@ -1395,7 +1395,8 @@ a { color: inherit; text-decoration: none; }
 }
 @media (max-width: 960px) {
   .filter-toggle-inline { display: inline-flex; }
-  #filterToggle { display: none; }
+  /* archive 페이지(인라인 필터 버튼 존재)에서만 헤더 아이콘 버튼 숨김 */
+  body:has(.filter-toggle-inline) #filterToggle { display: none; }
 }
 
 /* Toolbar — 모바일에서 검색+필터 한 줄, 건수+초기화 아래 줄 */
@@ -1419,4 +1420,101 @@ a { color: inherit; text-decoration: none; }
 /* 카드 min-width 축소 — 좁은 화면에서 찌그러지지 않게 */
 @media (max-width: 600px) {
   .grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); }
+}
+
+/* ╔══════════════════════════════════════════════════════════
+   ║  Gradecut & 공통 모바일 최적화
+   ╚══════════════════════════════════════════════════════════ */
+
+/* gc-exam-head — 모바일에서 액션 버튼들이 줄바꿈 */
+.gc-exam-head__actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+.gc-change-btn {
+  display: none; /* 데스크탑에서 숨김 — 모바일에서만 노출 */
+  height: 32px;
+  padding: 0 12px;
+  font-size: 12px;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+.gc-empty__cta {
+  display: none;
+  margin-top: 14px;
+  padding: 0 22px;
+  height: 40px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* 모바일: 등급컷 시험 변경 버튼 + empty 페이지 CTA 노출 */
+@media (max-width: 960px) {
+  .gc-change-btn { display: inline-flex; align-items: center; }
+  .gc-empty__cta { display: inline-flex; align-items: center; justify-content: center; }
+}
+
+/* 모바일 — 등급컷 페이지 콤팩트 타이포 + 패딩 */
+@media (max-width: 720px) {
+  .gc-exam-head      { flex-wrap: wrap; gap: 8px; }
+  .gc-exam-title     { font-size: 18px; flex: 1 1 100%; }
+  .gc-exam-head__actions { width: 100%; justify-content: flex-end; }
+
+  .gc-empty          { padding: 60px 20px; min-height: 280px; }
+  .gc-empty__title   { font-size: 15px; }
+  .gc-empty__sub     { font-size: 12.5px; }
+
+  .total-card        { padding: 18px 16px 20px; border-radius: 12px; }
+  .total-stats       { gap: 16px; padding: 12px 0 18px; margin-bottom: 14px; }
+  .total-stat__num   { font-size: clamp(28px, 9vw, 36px); }
+  .total-card__head  { margin-bottom: 14px; }
+
+  .subj-card                        { border-radius: 12px; }
+  .subj-card__head                  { padding: 12px 14px 10px; }
+  .subj-card__body                  { padding: 12px 14px 16px; gap: 12px; }
+  .subj-card--multi .subj-card__body { padding: 14px 14px 16px; }
+  .subj-card__title                 { font-size: 14px; }
+
+  .subj-input        { font-size: 16px; height: 38px; }  /* iOS 16px = no zoom */
+}
+
+/* 더 작은 폰: 종합 통계 세로 배치 */
+@media (max-width: 420px) {
+  .total-stats        { flex-direction: column; gap: 14px; }
+  .total-stat__divider { width: 56px; height: 1px; }
+  .gc-exam-head__actions { flex-wrap: wrap; gap: 6px; }
+}
+
+/* 검색 인풋 iOS 자동 줌 방지 (16px 이상이면 줌 없음) */
+@media (max-width: 600px) {
+  #searchInput { font-size: 16px; }
+  .subj-input  { font-size: 16px; }
+}
+
+/* 헤더 — 좁은 화면에서 좌우 패딩과 nav 압축 */
+@media (max-width: 600px) {
+  .site-header__inner { gap: 8px; }
+  .header-nav         { gap: 2px; }
+  .header-nav a       { padding: 6px 9px; font-size: 12.5px; }
+  .icon-btn           { width: 36px; height: 36px; }
+}
+
+/* 활성 태그 줄바꿈 — 좁은 화면에서 readable */
+@media (max-width: 600px) {
+  .active-tags { gap: 5px; }
+  .active-tags .tag { font-size: 11.5px; padding: 3px 8px; }
+}
+
+/* 랜딩 — Hero 글자 크기 + CTA 카드 */
+@media (max-width: 600px) {
+  .hero-min__title { font-size: clamp(48px, 14vw, 80px); margin-bottom: 28px; }
+  .cta-card        { padding: 22px 22px 24px; }
+  .cta-card__title { font-size: 18px; }
+}
+
+/* iOS Safari 100vh 이슈 회피 */
+@supports (-webkit-touch-callout: none) {
+  .landing-min { min-height: -webkit-fill-available; }
 }

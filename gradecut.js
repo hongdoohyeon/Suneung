@@ -403,6 +403,27 @@ function bindGlobalEvents() {
     renderSubjects();
     renderTotal();
   });
+
+  // 모바일 필터 토글
+  function toggleFilter(force) {
+    const panel  = $('filterPanel');
+    const isOpen = force === undefined ? panel.classList.toggle('is-open')
+                                       : panel.classList.toggle('is-open', force);
+    const btn    = $('filterToggle');
+    if (btn) {
+      btn.setAttribute('aria-label',    isOpen ? '시험 선택 닫기' : '시험 선택 열기');
+      btn.setAttribute('aria-expanded', String(isOpen));
+    }
+  }
+  $('filterToggle')?.addEventListener('click', () => toggleFilter());
+  $('gcEmptyCta')?.addEventListener('click', () => {
+    toggleFilter(true);
+    $('filterPanel').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+  $('gcChangeBtn')?.addEventListener('click', () => {
+    toggleFilter(true);
+    $('filterPanel').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
 }
 
 // 선택과목(pill) 변경 시: 슬롯 전체 교체 (input 비활성화 상태 포함)
