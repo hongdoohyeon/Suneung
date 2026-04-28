@@ -369,14 +369,15 @@ function cardHTML(exam, idx = 0) {
     ? `<span class="chiplet chiplet--type" style="--chip-bg:${tc.badgeBg};--chip-color:${tc.badgeColor};">${typeLabel}</span>`
     : '';
 
+  const dl = name => name ? `download="${escAttr(name)}"` : 'download';
   const qBtn = exam.questionUrl
-    ? `<a class="btn btn--primary" href="${exam.questionUrl}" target="_blank" rel="noopener" download>문제지</a>`
+    ? `<a class="btn btn--primary" href="${exam.questionUrl}" target="_blank" rel="noopener" ${dl(exam.questionDownload)}>문제지</a>`
     : `<button class="btn btn--primary" disabled>문제지</button>`;
   const aBtn = exam.answerUrl
-    ? `<a class="btn" href="${exam.answerUrl}" target="_blank" rel="noopener" download>정답</a>`
+    ? `<a class="btn" href="${exam.answerUrl}" target="_blank" rel="noopener" ${dl(exam.answerDownload)}>정답</a>`
     : `<button class="btn" disabled>정답</button>`;
   const sBtn = exam.solutionUrl
-    ? `<a class="btn" href="${exam.solutionUrl}" target="_blank" rel="noopener" download>해설</a>`
+    ? `<a class="btn" href="${exam.solutionUrl}" target="_blank" rel="noopener" ${dl(exam.solutionDownload)}>해설</a>`
     : '';
 
   const delay = `${Math.min(idx * 28, 220)}ms`;
