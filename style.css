@@ -1255,3 +1255,44 @@ a { color: inherit; text-decoration: none; }
   top: calc(var(--header-h) + 28px);
   max-height: calc(100vh - var(--header-h) - 56px);
 }
+
+/* ═══════════════════════════════════════════════════════════
+   Motion & Polish — card stagger · micro-interactions · VT
+   ═══════════════════════════════════════════════════════════ */
+
+/* Card entrance */
+@keyframes card-enter {
+  from { opacity: 0; translate: 0 14px; }
+  to   { opacity: 1; translate: 0 0;   }
+}
+#cardsGrid .card {
+  animation: card-enter 0.45s var(--ease-out) both;
+  animation-play-state: paused;
+}
+#cardsGrid .card.is-visible {
+  animation-play-state: running;
+}
+
+/* Micro-interactions — press feedback */
+.pill:active                { scale: 0.93; }
+.nav-tab:active             { scale: 0.95; }
+.btn:active:not([disabled]) { scale: 0.96; }
+
+/* View Transition — curriculum tab switch */
+.main { view-transition-name: main-content; }
+
+::view-transition-old(main-content) {
+  animation: 160ms ease-in both _vt-out;
+}
+::view-transition-new(main-content) {
+  animation: 360ms var(--ease-out) 60ms both _vt-in;
+}
+@keyframes _vt-out { to   { opacity: 0; transform: translateY(-5px); } }
+@keyframes _vt-in  { from { opacity: 0; transform: translateY(8px);  } }
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  #cardsGrid .card { animation: none !important; opacity: 1; }
+  .pill:active, .nav-tab:active, .btn:active { scale: 1; }
+  .main { view-transition-name: none; }
+}
