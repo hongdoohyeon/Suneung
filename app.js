@@ -271,25 +271,30 @@ $('loadMoreWrap').addEventListener('click', e => {
 });
 
 // 모바일 필터 토글
-$('filterToggle')?.addEventListener('click', () => {
+function toggleFilter() {
   const panel  = $('filterPanel');
   const isOpen = panel.classList.toggle('is-open');
-  const btn    = $('filterToggle');
-  btn.setAttribute('aria-label',    isOpen ? '필터 닫기' : '필터 열기');
-  btn.setAttribute('aria-expanded', String(isOpen));
-});
+  [$('filterToggle'), $('filterToggleInline')].forEach(btn => {
+    if (!btn) return;
+    btn.setAttribute('aria-label',    isOpen ? '필터 닫기' : '필터 열기');
+    btn.setAttribute('aria-expanded', String(isOpen));
+  });
+}
+$('filterToggle')?.addEventListener('click', toggleFilter);
+$('filterToggleInline')?.addEventListener('click', toggleFilter);
 
 function updateFilterBadge() {
-  const btn = $('filterToggle');
-  if (!btn) return;
   const count = document.querySelectorAll('#activeTags .tag').length;
-  let badge   = btn.querySelector('.filter-badge');
-  if (count > 0) {
-    if (!badge) { badge = document.createElement('span'); badge.className = 'filter-badge'; btn.appendChild(badge); }
-    badge.textContent = count;
-  } else if (badge) {
-    badge.remove();
-  }
+  [$('filterToggle'), $('filterToggleInline')].forEach(btn => {
+    if (!btn) return;
+    let badge = btn.querySelector('.filter-badge');
+    if (count > 0) {
+      if (!badge) { badge = document.createElement('span'); badge.className = 'filter-badge'; btn.appendChild(badge); }
+      badge.textContent = count;
+    } else if (badge) {
+      badge.remove();
+    }
+  });
 }
 
 // ── 카드 렌더 ──────────────────────────────────────────────
@@ -323,28 +328,21 @@ function renderPagination(current, total, totalItems) {
   if (total <= 1) { wrap.style.display = 'none'; return; }
   wrap.style.display = 'flex';
 
-  const pages = [];
-  if (total <= 7) {
-    for (let i = 1; i <= total; i++) pages.push(i);
-  } else {
-    pages.push(1);
-    if (current > 3) pages.push('…');
-    for (let i = Math.max(2, current - 1); i <= Math.min(total - 1, current + 1); i++) pages.push(i);
-    if (current < total - 2) pages.push('…');
-    pages.push(total);
-  }
+  const WIN      = 5;
+  const winIdx   = Math.floor((current - 1) / WIN);
+  const winStart = winIdx * WIN + 1;
+  const winEnd   = Math.min(winStart + WIN - 1, total);
 
-  const nums = pages.map(p =>
-    p === '…'
-      ? `<span class="pg-ellipsis">…</span>`
-      : `<button class="pg-btn${p === current ? ' is-active' : ''}" data-pg="${p}">${p}</button>`
-  ).join('');
+  const nums = [];
+  for (let p = winStart; p <= winEnd; p++) {
+    nums.push(`<button class="pg-btn${p === current ? ' is-active' : ''}" data-pg="${p}">${p}</button>`);
+  }
 
   wrap.innerHTML = `
     <div class="pagination">
-      <button class="pg-btn pg-arrow" data-pg="${current - 1}" ${current === 1 ? 'disabled' : ''}>‹</button>
-      ${nums}
-      <button class="pg-btn pg-arrow" data-pg="${current + 1}" ${current === total ? 'disabled' : ''}>›</button>
+      <button class="pg-btn pg-arrow" data-pg="${winStart - 1}" ${winStart <= 1 ? 'disabled' : ''}>‹</button>
+      ${nums.join('')}
+      <button class="pg-btn pg-arrow" data-pg="${winEnd + 1}" ${winEnd >= total ? 'disabled' : ''}>›</button>
     </div>
     <span class="pg-info">${totalItems.toLocaleString()}건 · ${current} / ${total}페이지</span>
   `;
