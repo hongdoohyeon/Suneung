@@ -1,0 +1,15 @@
+# macOS / OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+*.swp
+
+# Logs
+*.log
+
+# Local env (혹시 추가될 경우)
+.env
+.env.local
