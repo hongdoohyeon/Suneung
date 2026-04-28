@@ -13,3 +13,5 @@ Thumbs.db
 # Local env (혹시 추가될 경우)
 .env
 .env.local
+data/files/
+scripts/

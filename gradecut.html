@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0a0a0a" />
+  <meta name="description" content="수능·평가원·교육청 등급컷 계산기. 원점수를 입력하면 등급과 위치를 알려드립니다." />
+
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="apple-touch-icon" href="favicon.svg" />
+
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+  <link rel="stylesheet" as="style" crossorigin
+        href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+
+  <title>등급컷 계산기 — 기출자료실</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="page-gradecut">
+
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a href="index.html" class="brand">
+        <span class="brand__mark" aria-hidden="true">
+          <svg viewBox="0 0 32 32" width="22" height="22" fill="none">
+            <rect width="32" height="32" rx="7" fill="currentColor"/>
+            <rect x="8" y="10.5" width="16" height="2" rx="1" fill="#fff"/>
+            <rect x="8" y="15"   width="16" height="2" rx="1" fill="#fff" opacity=".6"/>
+            <rect x="8" y="19.5" width="10" height="2" rx="1" fill="#fff" opacity=".32"/>
+          </svg>
+        </span>
+        <span class="brand__name">기출자료실</span>
+      </a>
+      <nav class="header-nav">
+        <a href="archive.html">기출 검색</a>
+        <a href="gradecut.html" class="is-active">등급컷</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="gc-main">
+    <div class="container">
+
+      <section class="gc-head">
+        <h1 class="gc-title">등급컷 계산기</h1>
+        <p class="gc-sub">시험을 선택하고 원점수를 입력하면 등급과 위치를 알려드립니다.</p>
+      </section>
+
+      <div class="gc-layout">
+
+        <!-- ── 입력 폼 ─────────────────────────────────────── -->
+        <section class="gc-form" id="gcForm">
+
+          <div class="gc-field">
+            <label class="gc-label">학년도</label>
+            <div class="gc-pills" id="gcYearPills"></div>
+          </div>
+
+          <div class="gc-field">
+            <label class="gc-label">시험</label>
+            <div class="gc-pills" id="gcTypePills"></div>
+          </div>
+
+          <div class="gc-field">
+            <label class="gc-label">영역</label>
+            <div class="gc-pills" id="gcSubjectPills"></div>
+          </div>
+
+          <div class="gc-field" id="gcSubSubjectField" style="display:none;">
+            <label class="gc-label">선택과목</label>
+            <div class="gc-pills" id="gcSubSubjectPills"></div>
+          </div>
+
+          <div class="gc-field">
+            <label class="gc-label" for="gcScore">원점수</label>
+            <div class="gc-score-row">
+              <input type="number" id="gcScore" min="0" max="100" placeholder="0~100" />
+              <span class="gc-score-unit">점</span>
+            </div>
+          </div>
+
+        </section>
+
+        <!-- ── 결과 표시 ───────────────────────────────────── -->
+        <section class="gc-result" id="gcResult">
+          <div class="gc-empty" id="gcEmpty">
+            <div class="gc-empty__icon">
+              <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="3" width="18" height="18" rx="2"/>
+                <path d="M9 11l3 3L22 4"/>
+              </svg>
+            </div>
+            <p class="gc-empty__title">시험을 선택하고 점수를 입력해 주세요</p>
+            <p class="gc-empty__sub">학년도·시험·영역을 모두 고르면 등급이 계산됩니다.</p>
+          </div>
+
+          <div class="gc-output" id="gcOutput" style="display:none;">
+            <div class="gc-grade-card">
+              <span class="gc-grade-eyebrow" id="gcOutMeta">— 학년도 —</span>
+              <div class="gc-grade-display">
+                <span class="gc-grade-num" id="gcGradeNum">—</span>
+                <span class="gc-grade-suffix">등급</span>
+              </div>
+              <p class="gc-grade-stat" id="gcGradeStat">—</p>
+            </div>
+
+            <div class="gc-graph">
+              <div class="gc-graph__head">
+                <span>0점</span>
+                <span class="gc-graph__title">등급 분포</span>
+                <span>100점</span>
+              </div>
+              <div class="gc-graph__track" id="gcGraphTrack"></div>
+              <div class="gc-graph__cuts" id="gcGraphCuts"></div>
+              <div class="gc-graph__marker-wrap">
+                <div class="gc-marker" id="gcMarker">
+                  <span class="gc-marker__dot"></span>
+                  <span class="gc-marker__label" id="gcMarkerLabel">—점</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="gc-cuts-table">
+              <div class="gc-cuts-table__head">등급별 컷</div>
+              <div class="gc-cuts-table__body" id="gcCutsTable"></div>
+            </div>
+          </div>
+
+          <div class="gc-no-data" id="gcNoData" style="display:none;">
+            <p class="gc-no-data__title">해당 시험의 등급컷 데이터가 없습니다</p>
+            <p class="gc-no-data__sub">다른 학년도·시험을 선택하거나, 데이터 추가를 기다려 주세요.</p>
+          </div>
+        </section>
+
+      </div>
+
+    </div>
+  </main>
+
+  <script type="module" src="gradecut.js"></script>
+</body>
+</html>
