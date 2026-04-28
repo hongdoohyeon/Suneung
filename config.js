@@ -20,9 +20,7 @@ export const CURRICULUM_CONFIG = {
       '과학탐구':  { icon: '🔬', bg: '#f0e8ff', color: '#6b2fbe',
                     subs: ['물리학Ⅰ','물리학Ⅱ','화학Ⅰ','화학Ⅱ','생명과학Ⅰ','생명과학Ⅱ','지구과학Ⅰ','지구과학Ⅱ'] },
     },
-    subjectsByTypeGroup: {
-      education: ['국어','수학','영어','한국사'],
-    },
+    subjectsByTypeGroup: {},
   },
 
   '2009': {
@@ -41,9 +39,7 @@ export const CURRICULUM_CONFIG = {
       '과학탐구':  { icon: '🔬', bg: '#f0e8ff', color: '#6b2fbe',
                     subs: ['물리Ⅰ','물리Ⅱ','화학Ⅰ','화학Ⅱ','생명과학Ⅰ','생명과학Ⅱ','지구과학Ⅰ','지구과학Ⅱ'] },
     },
-    subjectsByTypeGroup: {
-      education: ['국어','수학','영어','한국사'],
-    },
+    subjectsByTypeGroup: {},
   },
 
   // ── 28학년도 예비 (2022 개정 평가원 예시문항) ──────────────
