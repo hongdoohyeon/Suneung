@@ -131,7 +131,9 @@ a { color: inherit; text-decoration: none; }
   top: var(--header-h);
   z-index: 70;
   height: var(--nav-h);
-  background: var(--bg);
+  background: rgba(250, 250, 249, 0.88);
+  backdrop-filter: saturate(180%) blur(14px);
+  -webkit-backdrop-filter: saturate(180%) blur(14px);
   border-bottom: 1px solid var(--line);
 }
 
@@ -652,34 +654,69 @@ a { color: inherit; text-decoration: none; }
   animation: shimmer 1.5s infinite linear;
 }
 
-/* ═══ Load more ═══════════════════════════════════════════ */
+/* ═══ Pagination ══════════════════════════════════════════ */
 .load-more {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 10px;
-  padding: 12px 0;
+  padding: 16px 0 4px;
 }
-.load-more__progress {
-  width: 100%;
-  max-width: 220px;
-  height: 2px;
-  background: var(--line);
-  border-radius: 99px;
-  overflow: hidden;
-  position: relative;
+
+.pagination {
+  display: flex;
+  align-items: center;
+  gap: 3px;
 }
-.load-more__progress::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  width: var(--progress, 0%);
+
+.pg-btn {
+  min-width: 34px;
+  height: 34px;
+  padding: 0 6px;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  background: var(--surface);
+  color: var(--ink-2);
+  font-size: 13px;
+  font-weight: 500;
+  font-family: inherit;
+  font-variant-numeric: tabular-nums;
+  cursor: pointer;
+  transition: var(--t);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.pg-btn:hover:not(:disabled):not(.is-active) {
+  background: var(--surface-2);
+  border-color: var(--line-strong);
+  color: var(--ink);
+}
+.pg-btn.is-active {
   background: var(--ink);
-  border-radius: 99px;
-  transition: width .3s var(--ease-out);
+  color: #fff;
+  border-color: var(--ink);
+  font-weight: 700;
 }
-#loadMoreBtn { flex: unset; padding: 0 22px; height: 36px; }
-.load-more__info { font-size: 11.5px; color: var(--ink-4); font-variant-numeric: tabular-nums; }
+.pg-btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+.pg-btn.pg-arrow {
+  font-size: 16px;
+  color: var(--ink-3);
+}
+.pg-ellipsis {
+  min-width: 28px;
+  text-align: center;
+  color: var(--ink-4);
+  font-size: 13px;
+}
+.pg-info {
+  font-size: 11.5px;
+  color: var(--ink-4);
+  font-variant-numeric: tabular-nums;
+}
 
 /* ═══ Empty state ═════════════════════════════════════════ */
 .empty {
