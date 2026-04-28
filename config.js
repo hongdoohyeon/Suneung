@@ -122,9 +122,7 @@ export const CURRICULUM_CONFIG = {
     availableTypeGroups: ['meet'],
     singleType: true,
     subjects: {
-      '언어추론':       { icon: '📖', bg: '#fff0e8', color: '#c44b00', subs: [] },
-      '자연과학추론Ⅰ': { icon: '🧬', bg: '#e8ffe8', color: '#2a7a2a', subs: [] },
-      '자연과학추론Ⅱ': { icon: '🔬', bg: '#f0e8ff', color: '#6b2fbe', subs: [] },
+      '언어추론': { icon: '📖', bg: '#fff0e8', color: '#c44b00', subs: [] },
     },
     subjectsByTypeGroup: {},
   },

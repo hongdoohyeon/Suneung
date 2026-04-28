@@ -871,49 +871,19 @@ a { color: inherit; text-decoration: none; }
 .header-nav a.is-active { color: var(--ink); background: var(--surface-2); }
 
 /* ╔══════════════════════════════════════════════════════════
-   ║  Grade Cut Calculator (gradecut.html)
-   ║  archive 와 동일한 .filter / .pill 시스템 재사용
+/* ╔══════════════════════════════════════════════════════════
+   ║  Grade Cut Calculator — 시험 전체 입력 + 영역별 + 종합
    ╚══════════════════════════════════════════════════════════ */
 .page-gradecut { background: var(--bg); }
 
-/* 점수 입력 — filter section 안에서 사용 */
-.gc-score-row {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-#gcScore {
-  flex: 1;
-  height: 44px;
-  padding: 0 12px;
-  border: 1.5px solid var(--line);
-  border-radius: 9px;
-  background: var(--surface);
-  font-size: 20px;
-  font-weight: 700;
-  font-family: inherit;
-  color: var(--ink);
-  font-variant-numeric: tabular-nums;
-  outline: none;
-  transition: border-color var(--t), box-shadow var(--t);
-  width: 100%;
-}
-#gcScore:focus {
-  border-color: var(--ink);
-  box-shadow: 0 0 0 3px rgba(12,10,9,0.06);
-}
-#gcScore::-webkit-outer-spin-button,
-#gcScore::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
-.gc-score-unit { font-size: 13px; font-weight: 600; color: var(--ink-3); }
-
-/* 빈 상태 / 데이터 없음 */
-.gc-empty, .gc-no-data {
+/* 시험 미선택 안내 */
+.gc-empty {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 80px 20px;
+  padding: 100px 20px;
   gap: 8px;
   background: var(--surface);
   border: 1px solid var(--line);
@@ -924,312 +894,364 @@ a { color: inherit; text-decoration: none; }
 .gc-empty__title { font-size: 16px; font-weight: 700; color: var(--ink); }
 .gc-empty__sub   { font-size: 13px; color: var(--ink-4); }
 
-/* ── 결과 블록 ──────────────────────────────────────────── */
-.gc-output {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-}
+/* 시험 선택 후 wrapper */
+.gc-exam-wrap { display: flex; flex-direction: column; gap: 18px; }
 
-/* 등급 카드 (등급 + 백분율 한 행) */
-.gc-grade-card {
-  background: var(--surface);
-  border: 1px solid var(--line);
-  border-radius: 14px;
-  padding: 28px 24px;
-  text-align: center;
-}
-
-.gc-grade-eyebrow {
-  display: inline-block;
-  font-size: 12px;
-  font-weight: 600;
-  color: var(--ink-4);
-  margin-bottom: 18px;
-  letter-spacing: -0.1px;
-}
-
-.gc-grade-row {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 32px;
-  margin-bottom: 16px;
-}
-
-.gc-grade-block {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 6px;
-  flex: 1;
-  min-width: 0;
-}
-
-.gc-grade-divider {
-  width: 1px;
-  height: 80px;
-  background: var(--line);
-  flex-shrink: 0;
-}
-
-.gc-grade-display {
-  display: flex;
-  align-items: baseline;
-  gap: 4px;
-}
-
-.gc-grade-num,
-.gc-pct-num {
-  font-size: clamp(56px, 9vw, 84px);
-  font-weight: 800;
-  letter-spacing: -0.05em;
-  line-height: 0.9;
-  font-variant-numeric: tabular-nums;
-  transition: color .2s var(--ease);
-}
-
-.gc-grade-suffix {
-  font-size: 20px;
-  font-weight: 600;
-  color: var(--ink-3);
-}
-
-.gc-grade-label {
-  font-size: 12px;
-  font-weight: 600;
-  color: var(--ink-4);
-  letter-spacing: -0.1px;
-}
-
-.gc-grade-stat {
-  font-size: 13px;
-  color: var(--ink-3);
-  line-height: 1.6;
-  max-width: 540px;
-  margin: 0 auto;
-  padding-top: 12px;
-  border-top: 1px solid var(--line-soft);
-}
-
-/* ── 그래프 공통 ────────────────────────────────────────── */
-.gc-graph,
-.gc-pct-graph {
-  background: var(--surface);
-  border: 1px solid var(--line);
-  border-radius: 14px;
-  padding: 22px 24px;
-}
-
-.gc-graph__head {
+.gc-exam-head {
   display: flex;
   justify-content: space-between;
-  align-items: baseline;
-  margin-bottom: 18px;
-  gap: 8px;
+  align-items: center;
+  gap: 12px;
 }
-.gc-graph__title {
-  font-size: 13px;
+.gc-exam-title {
+  font-size: 22px;
   font-weight: 700;
+  letter-spacing: -0.03em;
   color: var(--ink);
-  letter-spacing: -0.1px;
 }
-.gc-graph__hint {
-  font-size: 11px;
-  color: var(--ink-4);
-  font-weight: 500;
-}
-
-/* ── 등급 분포 그래프 ───────────────────────────────────── */
-.gc-graph__track {
-  display: flex;
-  height: 36px;
-  border-radius: 6px;
-  overflow: hidden;
-}
-.gc-seg {
-  height: 100%;
-  display: flex;
+.gc-reset-btn {
+  display: inline-flex;
   align-items: center;
-  justify-content: center;
-  position: relative;
-  transition: filter .2s;
-  filter: saturate(0.7) opacity(0.7);
-}
-.gc-seg.is-my { filter: none; }
-.gc-seg__num {
-  font-size: 11px;
-  font-weight: 700;
-  color: rgba(255,255,255,0.95);
-}
-
-.gc-graph__cuts {
-  position: relative;
-  height: 18px;
-  margin-top: 4px;
-}
-.gc-cutline { position: absolute; top: 0; transform: translateX(-50%); }
-.gc-cutline__num {
-  font-size: 10px;
-  font-weight: 600;
-  color: var(--ink-4);
-  font-variant-numeric: tabular-nums;
-}
-
-.gc-graph__marker-wrap { position: relative; height: 0; }
-.gc-marker {
-  position: absolute;
-  top: -68px;
-  transform: translateX(-50%);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  pointer-events: none;
-  transition: left .25s var(--ease-out);
-}
-.gc-marker__label {
-  background: var(--ink);
-  color: #fff;
-  padding: 4px 9px;
-  border-radius: 6px;
-  font-size: 11.5px;
-  font-weight: 700;
-  font-variant-numeric: tabular-nums;
-  white-space: nowrap;
-  margin-bottom: 4px;
-  position: relative;
-}
-.gc-marker__label::after {
-  content: '';
-  position: absolute;
-  bottom: -4px; left: 50%;
-  transform: translateX(-50%);
-  border: 4px solid transparent;
-  border-top-color: var(--ink);
-  border-bottom: 0;
-}
-.gc-marker__dot {
-  width: 12px;
-  height: 12px;
-  border-radius: 99px;
-  background: #fff;
-  border: 3px solid var(--ink);
-}
-
-.gc-graph__axis {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 12px;
-  font-size: 11px;
-  color: var(--ink-4);
-  font-weight: 500;
-}
-
-/* ── 백분율 그래프 ──────────────────────────────────────── */
-.gc-pct-track {
-  position: relative;
-  height: 36px;
-}
-.gc-pct-segments {
-  display: flex;
-  height: 100%;
-  border-radius: 6px;
-  overflow: hidden;
-}
-.gc-pct-seg {
-  height: 100%;
-  transition: opacity .2s;
-}
-.gc-pct-marker {
-  position: absolute;
-  top: -28px;
-  transform: translateX(-50%);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  pointer-events: none;
-  transition: left .25s var(--ease-out);
-}
-.gc-pct-marker__label {
-  background: var(--ink);
-  color: #fff;
-  padding: 4px 10px;
-  border-radius: 6px;
-  font-size: 11.5px;
-  font-weight: 700;
-  font-variant-numeric: tabular-nums;
-  white-space: nowrap;
-  margin-bottom: 4px;
-  position: relative;
-}
-.gc-pct-marker__label::after {
-  content: '';
-  position: absolute;
-  bottom: -4px; left: 50%;
-  transform: translateX(-50%);
-  border: 4px solid transparent;
-  border-top-color: var(--ink);
-  border-bottom: 0;
-}
-.gc-pct-marker__dot {
-  position: absolute;
-  bottom: -8px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 4px;
-  height: 52px;
-  background: var(--ink);
-  border-radius: 2px;
-}
-
-/* ── 등급별 컷 표 ───────────────────────────────────────── */
-.gc-cuts-table {
-  background: var(--surface);
+  gap: 5px;
+  padding: 7px 12px;
   border: 1px solid var(--line);
-  border-radius: 14px;
-  overflow: hidden;
-}
-.gc-cuts-table__head {
+  border-radius: 8px;
+  background: var(--surface);
   font-size: 12px;
-  font-weight: 700;
-  color: var(--ink-4);
-  padding: 12px 18px;
-  border-bottom: 1px solid var(--line);
-  letter-spacing: -0.1px;
+  font-weight: 600;
+  color: var(--ink-3);
+  font-family: inherit;
+  transition: var(--t);
 }
-.gc-cuts-table__body {
+.gc-reset-btn:hover { color: var(--ink); border-color: var(--line-strong); background: var(--surface-2); }
+
+/* ── 영역 카드 그리드 ───────────────────────────────────── */
+.subj-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
 }
-.gc-cuts-table__row {
-  padding: 12px 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 3px;
-  border-right: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
-  transition: background var(--t);
-}
-.gc-cuts-table__row:nth-child(4n) { border-right: none; }
-.gc-cuts-table__row:nth-last-child(-n+4) { border-bottom: none; }
-.gc-cuts-table__row.is-my { background: var(--surface-2); }
-.gc-cuts-table__grade {
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: -0.1px;
-}
-.gc-cuts-table__score {
-  font-size: 15px;
-  font-weight: 700;
-  color: var(--ink);
-  font-variant-numeric: tabular-nums;
-}
+.subj-card--multi { grid-column: span 2; }
 
 @media (max-width: 720px) {
-  .gc-grade-row { flex-direction: column; gap: 14px; }
-  .gc-grade-divider { width: 60%; height: 1px; }
-  .gc-cuts-table__body { grid-template-columns: repeat(2, 1fr); }
-  .gc-cuts-table__row:nth-child(4n) { border-right: 1px solid var(--line); }
-  .gc-cuts-table__row:nth-child(2n) { border-right: none; }
-  .gc-cuts-table__row:nth-last-child(-n+2) { border-bottom: none; }
+  .subj-grid { grid-template-columns: 1fr; }
+  .subj-card--multi { grid-column: span 1; }
+}
+
+.subj-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  display: flex;
+  flex-direction: column;
+}
+
+.subj-card__head {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 14px 18px 12px;
+  border-bottom: 1px solid var(--line-soft);
+}
+.subj-card__icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 7px;
+  display: grid;
+  place-items: center;
+  font-size: 14px;
+  flex-shrink: 0;
+}
+.subj-card__title {
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+
+.subj-card__body {
+  padding: 14px 18px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.subj-card--multi .subj-card__body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px 22px;
+  padding: 16px 18px 18px;
+}
+@media (max-width: 720px) {
+  .subj-card--multi .subj-card__body { grid-template-columns: 1fr; }
+}
+
+/* ── 슬롯 (개별 입력 단위) ───────────────────────────────── */
+.subj-slot {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  position: relative;
+}
+.subj-card--multi .subj-slot:not(:first-child) {
+  border-left: 1px solid var(--line-soft);
+  padding-left: 22px;
+}
+@media (max-width: 720px) {
+  .subj-card--multi .subj-slot:not(:first-child) {
+    border-left: none;
+    border-top: 1px solid var(--line-soft);
+    padding-left: 0;
+    padding-top: 14px;
+  }
+}
+
+.subj-slot__num {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.7px;
+  color: var(--ink-4);
+}
+
+.subj-slot__subs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+.subj-slot__subs .pill {
+  padding: 4px 10px;
+  font-size: 11.5px;
+}
+.subj-slot__subs .pill.is-disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.subj-slot__input-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.subj-input {
+  flex: 1;
+  height: 40px;
+  padding: 0 12px;
+  border: 1.5px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+  font-size: 18px;
+  font-weight: 700;
+  font-family: inherit;
+  color: var(--ink);
+  font-variant-numeric: tabular-nums;
+  outline: none;
+  transition: border-color var(--t), box-shadow var(--t);
+  width: 100%;
+}
+.subj-input:focus {
+  border-color: var(--ink);
+  box-shadow: 0 0 0 3px rgba(12,10,9,0.06);
+}
+.subj-input:disabled {
+  background: var(--surface-2);
+  color: var(--ink-5);
+  cursor: not-allowed;
+}
+.subj-input::-webkit-outer-spin-button,
+.subj-input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+.subj-input__unit {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--ink-4);
+  white-space: nowrap;
+}
+
+.subj-slot__result {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+.subj-result__grade {
+  font-size: 26px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+}
+.subj-result__suffix { font-size: 13px; font-weight: 600; color: var(--ink-3); }
+.subj-result__sep    { color: var(--ink-5); }
+.subj-result__pct    { font-size: 13px; font-weight: 600; color: var(--ink-2); font-variant-numeric: tabular-nums; }
+
+.subj-slot__hint {
+  font-size: 12px;
+  color: var(--ink-4);
+  font-style: italic;
+  padding: 4px 0;
+}
+
+/* ── Mini Linear Bar (영역 카드 안) ──────────────────────── */
+.mini-bar {
+  margin-top: 4px;
+  padding-bottom: 4px;
+}
+.mini-bar__track {
+  position: relative;
+  height: 8px;
+  background: linear-gradient(to right,
+    rgba(220,38,38,0.18) 0%,
+    rgba(234,88,12,0.18) 30%,
+    rgba(202,138,4,0.18) 50%,
+    rgba(101,163,13,0.18) 70%,
+    rgba(21,128,61,0.20) 100%);
+  border-radius: 99px;
+}
+.mini-bar__tick {
+  position: absolute;
+  top: -2px;
+  width: 1px;
+  height: 12px;
+  background: var(--ink-5);
+  transform: translateX(-50%);
+  opacity: 0.6;
+}
+.mini-bar__marker {
+  position: absolute;
+  top: -4px;
+  transform: translateX(-50%);
+  transition: left .25s var(--ease-out);
+  pointer-events: none;
+}
+.mini-bar__dot {
+  display: block;
+  width: 16px;
+  height: 16px;
+  border-radius: 99px;
+  background: var(--marker-color, var(--ink));
+  border: 3px solid #fff;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.18);
+}
+.mini-bar__axis {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 8px;
+  font-size: 10px;
+  color: var(--ink-5);
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ── 종합 분석 카드 ─────────────────────────────────────── */
+.total-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 22px 22px 24px;
+  margin-top: 6px;
+}
+.total-card__head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+.total-card__title {
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+.total-card__hint {
+  font-size: 12px;
+  color: var(--ink-4);
+  font-weight: 500;
+}
+
+.total-stats {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+  padding: 16px 0 22px;
+  border-bottom: 1px solid var(--line-soft);
+  margin-bottom: 18px;
+}
+.total-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  flex: 1;
+}
+.total-stat__num {
+  font-size: clamp(36px, 5vw, 48px);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  color: var(--ink);
+  font-variant-numeric: tabular-nums;
+}
+.total-stat__label {
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--ink-4);
+}
+.total-stat__divider { width: 1px; height: 56px; background: var(--line); }
+
+/* 영역별 막대 */
+.total-bars {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.total-bar {
+  display: grid;
+  grid-template-columns: 130px 1fr 100px;
+  gap: 12px;
+  align-items: center;
+}
+@media (max-width: 600px) {
+  .total-bar { grid-template-columns: 1fr; gap: 4px; }
+}
+.total-bar__label {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--ink-2);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.total-bar__track {
+  height: 8px;
+  background: var(--surface-2);
+  border-radius: 99px;
+  overflow: hidden;
+}
+.total-bar__fill {
+  height: 100%;
+  border-radius: 99px;
+  transition: width .3s var(--ease-out);
+}
+.total-bar__meta {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  justify-self: end;
+  font-variant-numeric: tabular-nums;
+}
+.total-bar__grade {
+  font-size: 13px;
+  font-weight: 700;
+}
+.total-bar__pct {
+  font-size: 11px;
+  color: var(--ink-4);
+  font-weight: 500;
+}
+
+/* gradecut 페이지는 curriculum-nav 가 없으니 .filter sticky 위치 보정 */
+.page-gradecut .filter {
+  top: calc(var(--header-h) + 28px);
+  max-height: calc(100vh - var(--header-h) - 56px);
 }

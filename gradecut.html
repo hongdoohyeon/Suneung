@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#0a0a0a" />
-  <meta name="description" content="수능·평가원·교육청·LEET·MEET 등급컷 계산기. 원점수를 입력하면 등급과 상위 백분율을 알려드립니다." />
+  <meta name="description" content="수능·평가원·교육청·LEET·MEET 등급컷 계산기. 한 시험 전체 점수를 입력하면 영역별 등급과 종합 백분위를 알려드립니다." />
 
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <link rel="apple-touch-icon" href="favicon.svg" />
@@ -18,7 +18,6 @@
 </head>
 <body class="page-gradecut">
 
-  <!-- ── Header ─────────────────────────────────────────── -->
   <header class="site-header">
     <div class="container site-header__inner">
       <a href="index.html" class="brand">
@@ -39,68 +38,15 @@
     </div>
   </header>
 
-  <!-- ── Curriculum Tabs (archive와 동일) ──────────────── -->
-  <nav class="curriculum-nav" id="curriculumTabs" aria-label="시험 선택">
-    <div class="container curriculum-nav__inner">
-
-      <div class="nav-group">
-        <span class="nav-group__label">수능</span>
-        <div class="nav-group__tabs">
-          <button class="nav-tab is-active" data-curriculum="2015">
-            <span class="nav-tab__title">2015 개정</span>
-            <span class="nav-tab__sub">2022~2027</span>
-          </button>
-          <button class="nav-tab" data-curriculum="2009">
-            <span class="nav-tab__title">2009 개정</span>
-            <span class="nav-tab__sub">2014~2021</span>
-          </button>
-          <button class="nav-tab" data-curriculum="예비">
-            <span class="nav-tab__title">28학년도 예비</span>
-            <span class="nav-tab__sub">2022 개정</span>
-          </button>
-        </div>
-      </div>
-
-      <div class="nav-sep" aria-hidden="true"></div>
-
-      <div class="nav-group">
-        <span class="nav-group__label">사관·경찰</span>
-        <div class="nav-group__tabs">
-          <button class="nav-tab" data-curriculum="사관">
-            <span class="nav-tab__title">사관학교</span>
-            <span class="nav-tab__sub">1차 시험</span>
-          </button>
-          <button class="nav-tab" data-curriculum="경찰대">
-            <span class="nav-tab__title">경찰대학</span>
-            <span class="nav-tab__sub">1차 시험</span>
-          </button>
-        </div>
-      </div>
-
-      <div class="nav-sep" aria-hidden="true"></div>
-
-      <div class="nav-group">
-        <span class="nav-group__label">대입적성</span>
-        <div class="nav-group__tabs">
-          <button class="nav-tab" data-curriculum="LEET">
-            <span class="nav-tab__title">리트</span>
-            <span class="nav-tab__sub">LEET</span>
-          </button>
-          <button class="nav-tab" data-curriculum="MEET">
-            <span class="nav-tab__title">미트</span>
-            <span class="nav-tab__sub">MEET</span>
-          </button>
-        </div>
-      </div>
-
-    </div>
-  </nav>
-
-  <!-- ── Main: filter (left) + result (right) ──────────── -->
   <main class="container main">
 
-    <!-- 필터 (archive의 .filter 와 동일 구조) -->
+    <!-- 사이드바 — 교육과정/학년도/시험 -->
     <aside class="filter" id="filterPanel">
+
+      <div class="filter__section">
+        <h3 class="filter__title">교육과정</h3>
+        <div class="pill-row" id="gcCurrPills"></div>
+      </div>
 
       <div class="filter__section">
         <h3 class="filter__title">학년도</h3>
@@ -112,30 +58,12 @@
         <div class="pill-row" id="gcTypePills"></div>
       </div>
 
-      <div class="filter__section">
-        <h3 class="filter__title">영역</h3>
-        <div class="pill-row" id="gcSubjectPills"></div>
-      </div>
-
-      <div class="filter__section" id="gcSubSubjectField" style="display:none;">
-        <h3 class="filter__title">선택과목</h3>
-        <div class="pill-row" id="gcSubSubjectPills"></div>
-      </div>
-
-      <div class="filter__section">
-        <h3 class="filter__title">원점수</h3>
-        <div class="gc-score-row">
-          <input type="number" id="gcScore" min="0" max="100" placeholder="0~100" />
-          <span class="gc-score-unit">점</span>
-        </div>
-      </div>
-
     </aside>
 
-    <!-- 결과 -->
+    <!-- 메인 — 영역별 점수 입력 + 종합 -->
     <section class="content">
 
-      <!-- 비어있을 때 -->
+      <!-- 시험 미선택 안내 -->
       <div class="gc-empty" id="gcEmpty">
         <div class="gc-empty__icon">
           <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
@@ -143,96 +71,46 @@
             <path d="M9 11l3 3L22 4"/>
           </svg>
         </div>
-        <p class="gc-empty__title">시험을 선택하고 점수를 입력해 주세요</p>
-        <p class="gc-empty__sub">학년도·시험·영역을 모두 고르면 등급이 계산됩니다.</p>
+        <p class="gc-empty__title">시험을 선택해 주세요</p>
+        <p class="gc-empty__sub">교육과정 → 학년도 → 시험을 고르면 영역별 점수 입력란이 나타납니다.</p>
       </div>
 
-      <!-- 데이터 없을 때 -->
-      <div class="gc-no-data" id="gcNoData" style="display:none;">
-        <div class="gc-empty__icon">
-          <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="10"/>
-            <path d="M12 8v4M12 16h.01"/>
-          </svg>
-        </div>
-        <p class="gc-empty__title">해당 시험의 등급컷 데이터가 없습니다</p>
-        <p class="gc-empty__sub">다른 학년도·시험을 선택하거나 데이터 추가를 기다려 주세요.</p>
-      </div>
+      <!-- 시험 선택 후 — 영역별 카드들 -->
+      <div class="gc-exam-wrap" id="gcExamWrap" style="display:none;">
 
-      <!-- 결과 -->
-      <div class="gc-output" id="gcOutput" style="display:none;">
+        <header class="gc-exam-head">
+          <h2 class="gc-exam-title" id="gcExamTitle">— 시험 —</h2>
+          <button class="gc-reset-btn" id="gcResetBtn" type="button">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+              <path d="M3 12a9 9 0 1 0 9-9c-2.5 0-4.8 1-6.6 2.6L3 8"/>
+              <polyline points="3 3 3 8 8 8"/>
+            </svg>
+            점수 초기화
+          </button>
+        </header>
 
-        <!-- 등급 카드 -->
-        <div class="gc-grade-card">
-          <span class="gc-grade-eyebrow" id="gcOutMeta">— 학년도 —</span>
+        <div class="subj-grid" id="gcSubjGrid"></div>
 
-          <div class="gc-grade-row">
-            <div class="gc-grade-block">
-              <div class="gc-grade-display">
-                <span class="gc-grade-num" id="gcGradeNum">—</span>
-                <span class="gc-grade-suffix">등급</span>
-              </div>
-              <span class="gc-grade-label">등급</span>
+        <!-- 종합 분석 -->
+        <div class="total-card" id="gcTotalCard" style="display:none;">
+          <header class="total-card__head">
+            <h3 class="total-card__title">종합 분석</h3>
+            <span class="total-card__hint" id="gcTotalHint">— 영역 입력 —</span>
+          </header>
+
+          <div class="total-stats">
+            <div class="total-stat">
+              <span class="total-stat__num" id="gcAvgGrade">—</span>
+              <span class="total-stat__label">평균 등급</span>
             </div>
-
-            <div class="gc-grade-divider" aria-hidden="true"></div>
-
-            <div class="gc-grade-block">
-              <div class="gc-grade-display">
-                <span class="gc-pct-num" id="gcPctNum">—</span>
-                <span class="gc-grade-suffix">%</span>
-              </div>
-              <span class="gc-grade-label">상위 백분율 (추정)</span>
+            <div class="total-stat__divider"></div>
+            <div class="total-stat">
+              <span class="total-stat__num" id="gcAvgPct">—</span>
+              <span class="total-stat__label">평균 상위 백분율</span>
             </div>
           </div>
 
-          <p class="gc-grade-stat" id="gcGradeStat">—</p>
-        </div>
-
-        <!-- 등급 분포 그래프 -->
-        <div class="gc-graph">
-          <div class="gc-graph__head">
-            <span class="gc-graph__title">등급 분포</span>
-            <span class="gc-graph__hint">9등급 → 1등급 (왼쪽 → 오른쪽)</span>
-          </div>
-          <div class="gc-graph__track" id="gcGraphTrack"></div>
-          <div class="gc-graph__cuts" id="gcGraphCuts"></div>
-          <div class="gc-graph__marker-wrap">
-            <div class="gc-marker" id="gcMarker">
-              <span class="gc-marker__label" id="gcMarkerLabel">—점</span>
-              <span class="gc-marker__dot"></span>
-            </div>
-          </div>
-          <div class="gc-graph__axis">
-            <span>0점</span>
-            <span>100점</span>
-          </div>
-        </div>
-
-        <!-- 백분율 그래프 (상위 % 위치) -->
-        <div class="gc-pct-graph">
-          <div class="gc-graph__head">
-            <span class="gc-graph__title">상위 백분율 위치</span>
-            <span class="gc-graph__hint">상위 0% (최상위) → 100%</span>
-          </div>
-          <div class="gc-pct-track" id="gcPctTrack">
-            <div class="gc-pct-segments" id="gcPctSegments"></div>
-            <div class="gc-pct-marker" id="gcPctMarker">
-              <span class="gc-pct-marker__label" id="gcPctMarkerLabel">—%</span>
-              <span class="gc-pct-marker__dot"></span>
-            </div>
-          </div>
-          <div class="gc-graph__axis">
-            <span>상위 0%</span>
-            <span>50%</span>
-            <span>100%</span>
-          </div>
-        </div>
-
-        <!-- 등급별 컷 표 -->
-        <div class="gc-cuts-table">
-          <div class="gc-cuts-table__head">등급별 원점수 컷</div>
-          <div class="gc-cuts-table__body" id="gcCutsTable"></div>
+          <div class="total-bars" id="gcTotalBars"></div>
         </div>
 
       </div>
