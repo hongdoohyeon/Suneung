@@ -66,7 +66,7 @@ export function availableGradeYears() {
 }
 
 export function filtered() {
-  return state.exams.filter(e => {
+  const items = state.exams.filter(e => {
     if (e.curriculum !== state.curriculum)                                    return false;
     if (state.typeGroup  !== 'all' && e.typeGroup  !== state.typeGroup)       return false;
     if (state.type       !== 'all' && e.type       !== state.type)            return false;
@@ -81,6 +81,30 @@ export function filtered() {
       if (!hay.includes(q)) return false;
     }
     return true;
+  });
+
+  // ── 정렬: config.js 의 subjects/subs 순서가 곧 진실 ──
+  // 학년도↓ → month↓ → 영역(config 정의 순) → 소과목(config 정의 순)
+  const conf = currConf();
+  const subjectKeys = Object.keys(conf.subjects);
+  const idxOrLast = (arr, v) => {
+    const i = arr.indexOf(v);
+    return i === -1 ? 999 : i;
+  };
+
+  return items.sort((a, b) => {
+    // 학년도: 'preliminary' 최상단, 그 외 숫자 desc
+    if (a.gradeYear !== b.gradeYear) {
+      if (a.gradeYear === 'preliminary') return -1;
+      if (b.gradeYear === 'preliminary') return 1;
+      return Number(b.gradeYear) - Number(a.gradeYear);
+    }
+    if (a.month !== b.month) return b.month - a.month;
+    const sa = idxOrLast(subjectKeys, a.subject);
+    const sb = idxOrLast(subjectKeys, b.subject);
+    if (sa !== sb) return sa - sb;
+    const subs = conf.subjects[a.subject]?.subs ?? [];
+    return idxOrLast(subs, a.subSubject) - idxOrLast(subs, b.subSubject);
   });
 }
 

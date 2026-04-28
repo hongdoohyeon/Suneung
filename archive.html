@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0a0a0a" />
+  <meta name="description" content="수능, LEET, MEET 기출문제를 한 곳에서. 학년도·과목별로 빠르게 찾아보세요." />
+
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="apple-touch-icon" href="favicon.svg" />
+
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+  <link rel="stylesheet" as="style" crossorigin
+        href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+
+  <title>기출자료실 — 수능 · LEET · MEET</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ── Header ─────────────────────────────────────────── -->
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a href="index.html" class="brand">
+        <span class="brand__mark" aria-hidden="true">
+          <svg viewBox="0 0 32 32" width="22" height="22" fill="none">
+            <rect width="32" height="32" rx="7" fill="currentColor"/>
+            <rect x="8" y="10.5" width="16" height="2" rx="1" fill="#fff"/>
+            <rect x="8" y="15"   width="16" height="2" rx="1" fill="#fff" opacity=".6"/>
+            <rect x="8" y="19.5" width="10" height="2" rx="1" fill="#fff" opacity=".32"/>
+          </svg>
+        </span>
+        <span class="brand__name">기출자료실</span>
+      </a>
+
+      <button class="icon-btn" id="filterToggle" aria-label="필터 열기" type="button">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <line x1="4"  y1="6"  x2="20" y2="6"/>
+          <line x1="4"  y1="12" x2="14" y2="12"/>
+          <line x1="4"  y1="18" x2="9"  y2="18"/>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- ── Curriculum Nav ─────────────────────────────────── -->
+  <nav class="curriculum-nav" id="curriculumTabs" aria-label="시험 선택">
+    <div class="container curriculum-nav__inner">
+
+      <div class="nav-group">
+        <span class="nav-group__label">수능</span>
+        <div class="nav-group__tabs">
+          <button class="nav-tab is-active" data-curriculum="2015">
+            <span class="nav-tab__title">2015 개정</span>
+            <span class="nav-tab__sub">2022~2027</span>
+          </button>
+          <button class="nav-tab" data-curriculum="2009">
+            <span class="nav-tab__title">2009 개정</span>
+            <span class="nav-tab__sub">2014~2021</span>
+          </button>
+          <button class="nav-tab" data-curriculum="예비">
+            <span class="nav-tab__title">28학년도 예비</span>
+            <span class="nav-tab__sub">2022 개정</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="nav-sep" aria-hidden="true"></div>
+
+      <div class="nav-group">
+        <span class="nav-group__label">사관·경찰</span>
+        <div class="nav-group__tabs">
+          <button class="nav-tab" data-curriculum="사관">
+            <span class="nav-tab__title">사관학교</span>
+            <span class="nav-tab__sub">1차 시험</span>
+          </button>
+          <button class="nav-tab" data-curriculum="경찰대">
+            <span class="nav-tab__title">경찰대학</span>
+            <span class="nav-tab__sub">1차 시험</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="nav-sep" aria-hidden="true"></div>
+
+      <div class="nav-group">
+        <span class="nav-group__label">대입적성</span>
+        <div class="nav-group__tabs">
+          <button class="nav-tab" data-curriculum="LEET">
+            <span class="nav-tab__title">리트</span>
+            <span class="nav-tab__sub">LEET</span>
+          </button>
+          <button class="nav-tab" data-curriculum="MEET">
+            <span class="nav-tab__title">미트</span>
+            <span class="nav-tab__sub">MEET</span>
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </nav>
+
+  <!-- ── Main ───────────────────────────────────────────── -->
+  <main class="container main">
+
+    <!-- Sidebar -->
+    <aside class="filter" id="filterPanel">
+
+      <div class="filter__section" id="typeGroupBlock">
+        <h3 class="filter__title">시험</h3>
+        <div class="pill-row" id="typeGroupFilter"></div>
+        <div class="subtype-row" id="subtypeRow">
+          <div class="subtype-row__inner">
+            <div class="pill-row" id="typeFilter"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="filter__section">
+        <div class="filter__title-row">
+          <h3 class="filter__title" id="yearLabel">학년도</h3>
+          <span class="filter__hint" id="yearNote"></span>
+        </div>
+        <div class="year-row" id="yearFilter"></div>
+      </div>
+
+      <div class="filter__section">
+        <h3 class="filter__title">영역</h3>
+        <div id="subjectFilter"></div>
+      </div>
+
+    </aside>
+
+    <!-- Content -->
+    <section class="content">
+
+      <!-- Toolbar -->
+      <div class="toolbar">
+        <div class="search">
+          <svg class="search__icon" width="16" height="16" viewBox="0 0 20 20" fill="none">
+            <circle cx="9" cy="9" r="6" stroke="currentColor" stroke-width="1.6"/>
+            <path d="M13.5 13.5L17 17" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+          </svg>
+          <input id="searchInput" type="text" placeholder="과목·연도로 검색" autocomplete="off" />
+          <button id="clearSearch" class="search__clear" style="display:none" aria-label="검색 지우기">×</button>
+        </div>
+        <div class="toolbar__right">
+          <span id="resultCount" class="count"></span>
+          <button class="btn-text" id="resetBtn">초기화</button>
+        </div>
+      </div>
+
+      <!-- Active Tags -->
+      <div id="activeTags" class="active-tags"></div>
+
+      <!-- Skeleton -->
+      <div id="skeleton" class="grid">
+        <div class="skel-card"></div><div class="skel-card"></div>
+        <div class="skel-card"></div><div class="skel-card"></div>
+        <div class="skel-card"></div><div class="skel-card"></div>
+      </div>
+
+      <!-- Cards -->
+      <div id="cardsGrid" class="grid" style="display:none;"></div>
+
+      <!-- Load more -->
+      <div id="loadMoreWrap" class="load-more" style="display:none;">
+        <div class="load-more__progress" id="loadProgress"></div>
+        <button id="loadMoreBtn" class="btn">더 보기</button>
+        <span id="loadMoreInfo" class="load-more__info"></span>
+      </div>
+
+      <!-- Empty -->
+      <div id="emptyState" class="empty" style="display:none;">
+        <div class="empty__mark">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+            <circle cx="11" cy="11" r="7"/>
+            <path d="M16.5 16.5L21 21"/>
+          </svg>
+        </div>
+        <p class="empty__title">검색 결과가 없습니다</p>
+        <p class="empty__sub">필터나 검색어를 변경해 보세요.</p>
+        <button class="btn btn--ghost" id="emptyResetBtn">필터 초기화</button>
+      </div>
+
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>출처 · 한국교육과정평가원 · 법학전문대학원협의회 · 의·치학교육입문검사 관리위원회</p>
+      <p class="site-footer__sub">저작권은 각 발행기관에 있으며 교육 목적으로만 이용할 수 있습니다.</p>
+    </div>
+  </footer>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>

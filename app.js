@@ -12,6 +12,30 @@ const DATA_URL = 'data/exams.json';
 
 const $ = id => document.getElementById(id);
 
+// ── URL 파라미터 처리 ──────────────────────────────────────
+function applyUrlTab() {
+  const params = new URLSearchParams(location.search);
+  const tab = params.get('tab');
+  if (tab && CURRICULUM_CONFIG[tab]) {
+    state.curriculum = tab;
+    document.querySelectorAll('.nav-tab').forEach(b => {
+      b.classList.toggle('is-active', b.dataset.curriculum === tab);
+    });
+    const conf = currConf();
+    if (conf.singleType) {
+      const tg = conf.availableTypeGroups[0];
+      state.typeGroup = tg;
+      state.type      = getGroupConf(tg)?.types[0]?.key ?? 'all';
+    }
+  }
+}
+
+function syncUrlTab() {
+  const url = new URL(location.href);
+  url.searchParams.set('tab', state.curriculum);
+  history.replaceState({}, '', url);
+}
+
 // ── 데이터 로드 ────────────────────────────────────────────
 async function loadExams() {
   showSkeleton(true);
@@ -21,9 +45,9 @@ async function loadExams() {
     if (res.ok) real = await res.json();
   } catch { /* 파일 없음 → 목업 사용 */ }
 
-  // 실데이터가 비어있으면 목업으로 폴백 (UI 검증용),
-  // 한 건이라도 있으면 그 데이터만 사용 (실데이터 우선)
   state.exams = (Array.isArray(real) && real.length > 0) ? real : buildMockData();
+
+  applyUrlTab();   // URL ?tab=... 가 있으면 해당 탭으로 진입
 
   state.loading = false;
   showSkeleton(false);
@@ -54,6 +78,7 @@ $('curriculumTabs').addEventListener('click', e => {
     state.type      = getGroupConf(tg)?.types[0]?.key ?? 'all';
   }
 
+  syncUrlTab();
   renderFilterPanel();
   render();
 });
