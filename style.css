@@ -303,7 +303,8 @@ a { color: inherit; text-decoration: none; }
 }
 
 /* ── Subject ──────────────────────────────────────── */
-.subject-list { display: flex; flex-direction: column; gap: 1px; }
+.subject-list { display: flex; flex-direction: column; gap: 2px; }
+.subject-item { display: flex; flex-direction: column; }
 
 .subject-row {
   width: 100%;
