@@ -46,19 +46,18 @@ export const CURRICULUM_CONFIG = {
     },
   },
 
-  // ── 28학년도 예비 (2022 개정 평가원 예비시험) ──────────────
+  // ── 28학년도 예비 (2022 개정 평가원 예시문항) ──────────────
+  // 평가원 2025.04.15 공개 예시문항: 국어 / 수학 / 통합사회 / 통합과학 4개 영역
   '예비': {
     id: '예비',
     label: '28학년도 예비',
-    rangeLabel: '2022 개정 · 평가원 예비시험',
+    rangeLabel: '2022 개정 · 평가원 예시문항',
     gradeYearRange: [2028, 2028],
     availableTypeGroups: ['preliminary'],
     singleType: true,
     subjects: {
       '국어':      { icon: '📖', bg: '#fff0e8', color: '#c44b00', subs: [] },
       '수학':      { icon: '📐', bg: '#eef2ff', color: '#1a4fd6', subs: [] },
-      '영어':      { icon: '🌍', bg: '#e8f9ff', color: '#0077a8', subs: [] },
-      '한국사':    { icon: '🏛️', bg: '#fdf4e8', color: '#a05c00', subs: [] },
       '통합사회':  { icon: '🌏', bg: '#e8ffe8', color: '#2a7a2a', subs: [] },
       '통합과학':  { icon: '🔬', bg: '#f0e8ff', color: '#6b2fbe', subs: [] },
     },
