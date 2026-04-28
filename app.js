@@ -206,7 +206,7 @@ function renderSubjectFilter() {
               data-subject="${escAttr(key)}" style="--subject-color:${conf.color};">
         <span class="subject-row__dot"></span>
         <span class="subject-row__name">${escHtml(key)}</span>
-        ${cnt > 0 ? `<span class="subject-row__count">${cnt}</span>` : ''}
+        <span class="subject-row__count">${cnt > 0 ? cnt : ''}</span>
         <span class="subject-row__caret">›</span>
       </button>
       ${hasSubs ? `<div class="subject-subs ${isOpen ? 'is-open' : ''}"><div class="subject-subs__inner">${subList}</div></div>` : ''}
