@@ -1260,17 +1260,13 @@ a { color: inherit; text-decoration: none; }
    Motion & Polish — card stagger · micro-interactions · VT
    ═══════════════════════════════════════════════════════════ */
 
-/* Card entrance */
+/* Card entrance — delay set inline via JS */
 @keyframes card-enter {
   from { opacity: 0; translate: 0 14px; }
   to   { opacity: 1; translate: 0 0;   }
 }
 #cardsGrid .card {
   animation: card-enter 0.45s var(--ease-out) both;
-  animation-play-state: paused;
-}
-#cardsGrid .card.is-visible {
-  animation-play-state: running;
 }
 
 /* Micro-interactions — press feedback */
@@ -1295,4 +1291,70 @@ a { color: inherit; text-decoration: none; }
   #cardsGrid .card { animation: none !important; opacity: 1; }
   .pill:active, .nav-tab:active, .btn:active { scale: 1; }
   .main { view-transition-name: none; }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   Responsive Polish
+   ═══════════════════════════════════════════════════════════ */
+
+/* Curriculum nav — 가로 스크롤 있음을 오른쪽 fade로 표시 */
+.curriculum-nav { position: relative; }
+.curriculum-nav::after {
+  content: '';
+  position: absolute;
+  top: 0; right: 0; bottom: 0;
+  width: 40px;
+  background: linear-gradient(to right, transparent, var(--bg));
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Filter — 모바일에서 기본 접힘, 토글로 열기 */
+@media (max-width: 960px) {
+  .filter:not(.is-open) {
+    display: none;
+  }
+  .filter.is-open {
+    animation: filter-slide-in 0.22s var(--ease-out);
+  }
+}
+@keyframes filter-slide-in {
+  from { opacity: 0; transform: translateY(-6px); }
+}
+
+/* Filter toggle 배지 — 활성 필터 수 표시 */
+#filterToggle { position: relative; }
+.filter-badge {
+  position: absolute;
+  top: -4px; right: -4px;
+  min-width: 16px; height: 16px;
+  padding: 0 3px;
+  border-radius: 99px;
+  background: var(--pop);
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  pointer-events: none;
+}
+
+/* Toolbar — 좁은 화면에서 검색창을 전체 너비로 */
+@media (max-width: 480px) {
+  .toolbar        { flex-wrap: wrap; gap: 10px; }
+  .search         { flex: 0 0 100%; }
+  .toolbar__right { width: 100%; justify-content: space-between; }
+}
+
+/* Sticky 영역 높이 축소 (모바일에서 화면 더 확보) */
+@media (max-width: 600px) {
+  :root           { --nav-h: 62px; --header-h: 48px; }
+  .brand__name    { font-size: 14px; }
+}
+
+/* 카드 min-width 축소 — 좁은 화면에서 찌그러지지 않게 */
+@media (max-width: 600px) {
+  .grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); }
 }
