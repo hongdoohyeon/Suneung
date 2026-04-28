@@ -308,7 +308,7 @@ a { color: inherit; text-decoration: none; }
 .subject-row {
   width: 100%;
   display: grid;
-  grid-template-columns: auto 1fr auto auto;
+  grid-template-columns: 8px 1fr 22px 10px;
   align-items: center;
   gap: 10px;
   padding: 8px 10px;
@@ -346,6 +346,7 @@ a { color: inherit; text-decoration: none; }
   font-weight: 500;
   font-variant-numeric: tabular-nums;
   line-height: 1;
+  text-align: right;
 }
 
 .subject-row__caret {
