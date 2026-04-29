@@ -96,36 +96,57 @@ function renderHead(exam) {
 }
 
 // ── PDF 렌더 (단일 컬럼, 컨테이너 폭에 맞춰 축소) ──────────
+async function renderPdfPage(pdf, pageNum, dpr, containerWidth) {
+  const page = await pdf.getPage(pageNum);
+  const baseVp = page.getViewport({ scale: 1 });
+  const scale  = Math.min(2, containerWidth / baseVp.width);
+  const vp     = page.getViewport({ scale });
+
+  const canvas = document.createElement('canvas');
+  canvas.className = 'preview__page';
+  canvas.width  = Math.floor(vp.width * dpr);
+  canvas.height = Math.floor(vp.height * dpr);
+  canvas.style.width  = vp.width + 'px';
+  canvas.style.height = vp.height + 'px';
+  const ctx = canvas.getContext('2d');
+  ctx.scale(dpr, dpr);
+
+  await page.render({ canvasContext: ctx, viewport: vp }).promise;
+  return canvas;
+}
+
 async function renderPdf(url, container, metaEl) {
   if (metaEl) metaEl.textContent = '불러오는 중…';
   try {
     const pdfjsLib = await loadPdfjs();
-    const loadingTask = pdfjsLib.getDocument({ url, withCredentials: false });
-    const pdf = await loadingTask.promise;
+    const pdf = await pdfjsLib.getDocument({ url, withCredentials: false }).promise;
 
     container.innerHTML = '';
-    if (metaEl) metaEl.textContent = `${pdf.numPages}쪽`;
+    const total = pdf.numPages;
+    if (metaEl) metaEl.textContent = `${total}쪽`;
 
-    const containerWidth = container.clientWidth || 800;
+    const containerWidth = container.clientWidth || 600;
     const dpr = Math.min(2, window.devicePixelRatio || 1);
 
-    for (let i = 1; i <= pdf.numPages; i++) {
-      const page = await pdf.getPage(i);
-      const baseVp = page.getViewport({ scale: 1 });
-      const scale  = Math.min(2, containerWidth / baseVp.width);
-      const vp     = page.getViewport({ scale });
+    // 첫 페이지만 즉시 렌더 — 나머지는 사용자가 '더보기' 눌러야 펼침
+    const first = await renderPdfPage(pdf, 1, dpr, containerWidth);
+    container.appendChild(first);
 
-      const canvas = document.createElement('canvas');
-      canvas.className = 'preview__page';
-      canvas.width  = Math.floor(vp.width * dpr);
-      canvas.height = Math.floor(vp.height * dpr);
-      canvas.style.width  = vp.width + 'px';
-      canvas.style.height = vp.height + 'px';
-      const ctx = canvas.getContext('2d');
-      ctx.scale(dpr, dpr);
-
-      await page.render({ canvasContext: ctx, viewport: vp }).promise;
-      container.appendChild(canvas);
+    if (total > 1) {
+      const more = document.createElement('button');
+      more.className = 'preview__more';
+      more.type = 'button';
+      more.textContent = `나머지 ${total - 1}쪽 펼치기`;
+      more.addEventListener('click', async () => {
+        more.disabled = true;
+        more.textContent = '불러오는 중…';
+        for (let i = 2; i <= total; i++) {
+          const c = await renderPdfPage(pdf, i, dpr, containerWidth);
+          container.insertBefore(c, more);
+        }
+        more.remove();
+      }, { once: true });
+      container.appendChild(more);
     }
   } catch (err) {
     container.innerHTML = `
