@@ -261,18 +261,50 @@ $('loadMoreWrap').addEventListener('click', e => {
   $('cardsGrid').scrollIntoView({ behavior: 'instant', block: 'start' });
 });
 
-// 모바일 필터 토글
-function toggleFilter() {
-  const panel  = $('filterPanel');
-  const isOpen = panel.classList.toggle('is-open');
+// ── 모바일 필터 바텀시트 ────────────────────────────────────
+// 데스크톱에서는 sticky 사이드바 유지, 모바일(≤960px)에서만 시트로 동작
+function setSheetOpen(open) {
+  const panel    = $('filterPanel');
+  const backdrop = $('filterBackdrop');
+  panel.classList.toggle('is-open', open);
+  if (backdrop) {
+    backdrop.classList.toggle('is-open', open);
+    if (open) backdrop.removeAttribute('hidden');
+    else      backdrop.setAttribute('hidden', '');
+  }
+  document.body.classList.toggle('is-sheet-open', open);
+
   [$('filterToggle'), $('filterToggleInline')].forEach(btn => {
     if (!btn) return;
-    btn.setAttribute('aria-label',    isOpen ? '필터 닫기' : '필터 열기');
-    btn.setAttribute('aria-expanded', String(isOpen));
+    btn.setAttribute('aria-label',    open ? '필터 닫기' : '필터 열기');
+    btn.setAttribute('aria-expanded', String(open));
   });
 }
+function isSheetOpen() {
+  return $('filterPanel').classList.contains('is-open');
+}
+function toggleFilter() { setSheetOpen(!isSheetOpen()); }
+
 $('filterToggle')?.addEventListener('click', toggleFilter);
 $('filterToggleInline')?.addEventListener('click', toggleFilter);
+$('filterSheetClose')?.addEventListener('click', () => setSheetOpen(false));
+$('filterBackdrop')?.addEventListener('click',  () => setSheetOpen(false));
+$('filterSheetApply')?.addEventListener('click', () => setSheetOpen(false));
+$('filterSheetReset')?.addEventListener('click', () => {
+  $('resetBtn')?.click();
+});
+
+// ESC 로 닫기
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape' && isSheetOpen()) setSheetOpen(false);
+});
+
+// 데스크톱으로 리사이즈 시 시트/스크롤락 자동 해제
+const mqlSheet = window.matchMedia('(min-width: 961px)');
+const onMqlSheet = e => { if (e.matches) setSheetOpen(false); };
+mqlSheet.addEventListener
+  ? mqlSheet.addEventListener('change', onMqlSheet)
+  : mqlSheet.addListener(onMqlSheet);
 
 function updateFilterBadge() {
   const count = document.querySelectorAll('#activeTags .tag').length;

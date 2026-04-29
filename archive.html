@@ -107,8 +107,22 @@
   <!-- ── Main ───────────────────────────────────────────── -->
   <main class="container main">
 
-    <!-- Sidebar -->
-    <aside class="filter" id="filterPanel">
+    <!-- Sidebar / Mobile Bottom Sheet -->
+    <aside class="filter" id="filterPanel" aria-label="필터" role="region">
+
+      <!-- 모바일 바텀시트 핸들 + 닫기 (데스크톱에서는 숨김) -->
+      <div class="filter__sheet-head" aria-hidden="false">
+        <span class="filter__sheet-handle" aria-hidden="true"></span>
+        <h2 class="filter__sheet-title">필터</h2>
+        <button class="filter__sheet-close" id="filterSheetClose"
+                type="button" aria-label="필터 닫기">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+               stroke-width="2" stroke-linecap="round">
+            <line x1="18" y1="6"  x2="6"  y2="18"/>
+            <line x1="6"  y1="6"  x2="18" y2="18"/>
+          </svg>
+        </button>
+      </div>
 
       <div class="filter__section" id="typeGroupBlock">
         <h3 class="filter__title">시험</h3>
@@ -133,7 +147,16 @@
         <div id="subjectFilter"></div>
       </div>
 
+      <!-- 모바일 시트 하단 적용 버튼 -->
+      <div class="filter__sheet-actions">
+        <button class="btn btn--ghost" id="filterSheetReset" type="button">초기화</button>
+        <button class="btn btn--primary" id="filterSheetApply" type="button">결과 보기</button>
+      </div>
+
     </aside>
+
+    <!-- Backdrop (모바일 시트 전용) -->
+    <div class="filter-backdrop" id="filterBackdrop" hidden></div>
 
     <!-- Content -->
     <section class="content">
@@ -177,16 +200,29 @@
       </div>
 
       <!-- Empty -->
-      <div id="emptyState" class="empty" style="display:none;">
-        <div class="empty__mark">
-          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
-            <circle cx="11" cy="11" r="7"/>
-            <path d="M16.5 16.5L21 21"/>
+      <div id="emptyState" class="empty" style="display:none;" role="status" aria-live="polite">
+        <div class="empty__illu" aria-hidden="true">
+          <svg width="120" height="96" viewBox="0 0 120 96" fill="none">
+            <!-- 빈 문서 배경 -->
+            <rect x="22" y="14" width="58" height="72" rx="6"
+                  fill="var(--surface-2)" stroke="var(--line-strong)" stroke-width="1.4"/>
+            <line x1="32" y1="32" x2="68" y2="32" stroke="var(--ink-6)" stroke-width="1.6" stroke-linecap="round"/>
+            <line x1="32" y1="42" x2="62" y2="42" stroke="var(--ink-6)" stroke-width="1.6" stroke-linecap="round"/>
+            <line x1="32" y1="52" x2="58" y2="52" stroke="var(--ink-6)" stroke-width="1.6" stroke-linecap="round"/>
+            <!-- 돋보기 -->
+            <circle cx="78" cy="64" r="18"
+                    fill="var(--surface)" stroke="var(--ink-3)" stroke-width="2.2"/>
+            <line x1="91" y1="77" x2="104" y2="90"
+                  stroke="var(--ink-3)" stroke-width="3" stroke-linecap="round"/>
+            <!-- 돋보기 안 점 3개 -->
+            <circle cx="72" cy="64" r="1.6" fill="var(--ink-4)"/>
+            <circle cx="78" cy="64" r="1.6" fill="var(--ink-4)"/>
+            <circle cx="84" cy="64" r="1.6" fill="var(--ink-4)"/>
           </svg>
         </div>
         <p class="empty__title">검색 결과가 없습니다</p>
-        <p class="empty__sub">필터나 검색어를 변경해 보세요.</p>
-        <button class="btn btn--ghost" id="emptyResetBtn">필터 초기화</button>
+        <p class="empty__sub">필터 조건을 줄이거나 검색어를 변경해 보세요.</p>
+        <button class="btn btn--ghost" id="emptyResetBtn" type="button">필터 초기화</button>
       </div>
 
     </section>
