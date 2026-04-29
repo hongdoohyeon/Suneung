@@ -66,6 +66,11 @@ function render(skipSubjectFilter = false) {
 }
 
 // ── 교육과정 탭 ─────────────────────────────────────────────
+function scrollActiveTabIntoView() {
+  const active = document.querySelector('.curriculum-nav .nav-tab.is-active');
+  active?.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+}
+
 $('curriculumTabs').addEventListener('click', e => {
   const btn = e.target.closest('.nav-tab');
   if (!btn) return;
@@ -84,6 +89,15 @@ $('curriculumTabs').addEventListener('click', e => {
   syncUrlTab();
   const doRender = () => { renderFilterPanel(); render(); };
   document.startViewTransition ? document.startViewTransition(doRender) : doRender();
+
+  scrollActiveTabIntoView();
+});
+
+// 페이지 로드 시 활성 탭이 모바일 가로 스크롤에서 가운데로 오도록 (잘림 인지 완화)
+addEventListener('DOMContentLoaded', () => {
+  // smooth scroll보다 즉시 — 첫 진입 시 위치만 잡음
+  const active = document.querySelector('.curriculum-nav .nav-tab.is-active');
+  active?.scrollIntoView({ block: 'nearest', inline: 'center' });
 });
 
 // ── 필터 패널 전체 재구성 ──────────────────────────────────
