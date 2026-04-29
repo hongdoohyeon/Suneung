@@ -150,10 +150,11 @@ export const EXAM_TYPE_CONFIG = [
     groupBg: '#f5f0ff',
     displayMode: 'examYear',
     types: [
-      { key: 'mar', label: '3월 학력평가',  month:  3, badgeBg: '#f5f0ff', badgeColor: '#6b2fbe' },
-      { key: 'apr', label: '4월 학력평가',  month:  4, badgeBg: '#f5f0ff', badgeColor: '#6b2fbe' },
-      { key: 'jul', label: '7월 학력평가',  month:  7, badgeBg: '#f5f0ff', badgeColor: '#6b2fbe' },
-      { key: 'oct', label: '10월 학력평가', month: 10, badgeBg: '#f5f0ff', badgeColor: '#6b2fbe' },
+      // shortLabel: 좁은 사이드바 칩에서만 사용, 카드/태그 등 본문에는 label 그대로
+      { key: 'mar', label: '3월 학력평가',  shortLabel: '3월',  month:  3, badgeBg: '#f5f0ff', badgeColor: '#6b2fbe' },
+      { key: 'apr', label: '4월 학력평가',  shortLabel: '4월',  month:  4, badgeBg: '#f5f0ff', badgeColor: '#6b2fbe' },
+      { key: 'jul', label: '7월 학력평가',  shortLabel: '7월',  month:  7, badgeBg: '#f5f0ff', badgeColor: '#6b2fbe' },
+      { key: 'oct', label: '10월 학력평가', shortLabel: '10월', month: 10, badgeBg: '#f5f0ff', badgeColor: '#6b2fbe' },
     ],
   },
   {

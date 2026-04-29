@@ -140,7 +140,8 @@ function renderSubtypeChips() {
   const g = getGroupConf(state.typeGroup);
   container.innerHTML = [
     pill('all', '전체', state.type === 'all'),
-    ...(g?.types ?? []).map(t => pill(t.key, t.label, state.type === t.key)),
+    // 칩에서는 shortLabel 우선 — 사이드바 폭에서 긴 라벨이 칸을 넘쳐 정렬을 깨뜨리기 때문
+    ...(g?.types ?? []).map(t => pill(t.key, t.shortLabel ?? t.label, state.type === t.key)),
   ].join('');
   row.classList.add('is-open');
 }

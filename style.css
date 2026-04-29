@@ -282,8 +282,14 @@ a { color: inherit; text-decoration: none; }
 /* 칩을 균일 그리드로 깔아 '전체'와 라벨 길이가 다른 칩이 섞여도 정렬이 맞도록 */
 .pill-row {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(74px, 1fr));
+  /* 기본은 짧은 라벨용 (전체/평가원/교육청 등) */
+  grid-template-columns: repeat(auto-fit, minmax(72px, 1fr));
   gap: 6px;
+}
+
+/* 시험 종류(subtype) 칩 — 한 줄 2칸 고정으로 라벨 길이 차이를 흡수 */
+#typeFilter.pill-row {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 .pill {
