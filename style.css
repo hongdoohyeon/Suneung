@@ -84,6 +84,9 @@ html {
 }
 body { overflow-x: clip; }
 
+/* 모바일 탭 시 회색 하이라이트 제거 */
+a, button, [role="button"], [role="tab"] { -webkit-tap-highlight-color: transparent; }
+
 body {
   font-family: 'Pretendard Variable', 'Pretendard', 'Apple SD Gothic Neo',
                'Noto Sans KR', system-ui, sans-serif;
@@ -2122,6 +2125,8 @@ body.is-sheet-open { overflow: hidden; touch-action: none; }
   max-width: 100%;
   /* 사이드바 분리 후엔 site-header + exam padding + preview head 만 빼면 됨 (~150px) */
   max-height: calc(100vh - 160px);
+  /* 모바일 주소창 영향 받는 환경(Safari 등)에서 더 정확한 동적 viewport */
+  max-height: calc(100dvh - 160px);
   background: #fff;
   border: 1px solid var(--line);
   border-radius: 6px;
@@ -2357,11 +2362,11 @@ body.is-sheet-open { overflow: hidden; touch-action: none; }
 /* ── exam 모바일 — 사이드바 해제, 세로 스택 ──────────────── */
 @media (max-width: 960px) {
   .exam {
-    padding-top: 14px;
+    padding-top: 12px;
     padding-bottom: 40px;
     display: flex;
     flex-direction: column;
-    gap: 14px;
+    gap: 12px;
   }
   .exam__side {
     position: static;
@@ -2369,12 +2374,16 @@ body.is-sheet-open { overflow: hidden; touch-action: none; }
   }
   /* 모바일에선 PDF가 viewport 세로 거의 다 차지하면 답답하니 cap 완화 */
   .preview__page { max-height: none; }
-  /* 탭은 모바일에서 다시 가로형이 자연스럽다 */
+  /* 탭은 모바일에서 가로형 + 스크롤 시에도 보이도록 sticky */
   .exam__tabs {
     flex-direction: row;
     gap: 4px;
     border-bottom: 1px solid var(--line);
     padding: 0 2px;
+    position: sticky;
+    top: var(--header-h);
+    z-index: 5;
+    background: var(--bg);
   }
   .exam-tab {
     border-left: 0;
@@ -2382,6 +2391,7 @@ body.is-sheet-open { overflow: hidden; touch-action: none; }
     border-radius: 0;
     margin-bottom: -1px;
     padding: 10px 14px;
+    min-height: var(--tap, 44px);
   }
   .exam-tab:hover { background: transparent; }
   .exam-tab.is-active {
@@ -2389,6 +2399,8 @@ body.is-sheet-open { overflow: hidden; touch-action: none; }
     border-bottom-color: var(--ink);
   }
   .exam__tabs-hint { display: none; }
+  /* 다운로드 버튼 가로 균등 + 터치 영역 확보 */
+  .exam__actions .btn { min-height: var(--tap, 44px); }
 }
 @media (max-width: 720px) {
   .kpi-row { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
