@@ -209,31 +209,17 @@ function setupTabs() {
   activate(params.get('tab') === 'info' ? 'info' : 'paper');
 }
 
-// ── KPI (옵셔널 데이터: exam.stats) ────────────────────────
-function renderKpis(exam) {
-  const s = exam.stats ?? {};
-  const set = (id, raw, suffix = '') => {
-    const el = $(id);
-    if (!el) return;
-    if (raw === null || raw === undefined || raw === '') { el.textContent = '—'; return; }
-    const text = typeof raw === 'number' ? raw.toLocaleString('ko-KR') : String(raw);
-    el.textContent = text + suffix;
-  };
-  set('kpiQuestions',  s.totalQuestions);
-  set('kpiExaminees',  s.examinees, s.examinees ? '명' : '');
-  set('kpiAvgRate',    s.avgRate,   s.avgRate   ? '%'  : '');
-  set('kpi1stCut',     s.firstCut,  s.firstCut  ? '점' : '');
-}
-
 // ── 빠른정답 (옵셔널 데이터: exam.answers 배열) ────────────
 function renderQuickAnswers(exam) {
-  const wrap = $('quickAnswers');
-  const body = $('quickAnswersBody');
+  const wrap  = $('quickAnswers');
+  const body  = $('quickAnswersBody');
+  const count = $('quickAnswersCount');
   if (!Array.isArray(exam.answers) || exam.answers.length === 0) {
     wrap.hidden = true;
-    return;
+    return false;
   }
   wrap.hidden = false;
+  if (count) count.textContent = `총 ${exam.answers.length}문항`;
   const cells = exam.answers.map((a, i) => `
     <div class="qa-cell">
       <span class="qa-cell__num">${i + 1}</span>
@@ -241,6 +227,120 @@ function renderQuickAnswers(exam) {
     </div>
   `).join('');
   body.innerHTML = `<div class="qa-grid">${cells}</div>`;
+  return true;
+}
+
+// ── 등급 분포 (정규분포 곡선 + 등급별 영역 + 컷 점수 라벨) ──
+const GRADE_COLORS = [
+  '#0c5e3f', '#15803d', '#65a30d', '#ca8a04',
+  '#ea580c', '#dc2626', '#b91c1c', '#7f1d1d', '#3f0e0e',
+];
+// 누적 백분율 4·11·23·40·60·77·89·96 의 표준정규 z-score (1→8 등급 컷)
+const GRADE_Z = [1.751, 1.227, 0.739, 0.253, -0.253, -0.739, -1.227, -1.751];
+
+function gradeDistSVG(rawCuts, fullScore) {
+  const W = 600, H = 200;
+  const PAD_X = 16, PAD_TOP = 18, PAD_BOTTOM = 30;
+  const innerW = W - 2 * PAD_X;
+  const innerH = H - PAD_TOP - PAD_BOTTOM;
+  const baseY  = PAD_TOP + innerH;
+  const Z_RANGE = 2.6;
+
+  const xOf = z => PAD_X + ((z + Z_RANGE) / (2 * Z_RANGE)) * innerW;
+  const pdf = z => Math.exp(-z * z / 2);
+  const yOf = z => PAD_TOP + innerH * (1 - pdf(z));
+
+  // 9개 등급 영역 경계 — z 작은(왼=낮은점수=9등급) → 큰(오=높은점수=1등급)
+  const zBounds = [-Z_RANGE, ...[...GRADE_Z].slice().reverse(), Z_RANGE];
+
+  const areaPath = (zStart, zEnd) => {
+    const N = 24;
+    const pts = [];
+    pts.push(`M ${xOf(zStart).toFixed(1)} ${baseY.toFixed(1)}`);
+    for (let i = 0; i <= N; i++) {
+      const z = zStart + (i / N) * (zEnd - zStart);
+      pts.push(`L ${xOf(z).toFixed(1)} ${yOf(z).toFixed(1)}`);
+    }
+    pts.push(`L ${xOf(zEnd).toFixed(1)} ${baseY.toFixed(1)} Z`);
+    return pts.join(' ');
+  };
+
+  let areas = '';
+  for (let g = 1; g <= 9; g++) {
+    const zStart = zBounds[9 - g];
+    const zEnd   = zBounds[10 - g];
+    areas += `<path d="${areaPath(zStart, zEnd)}" fill="${GRADE_COLORS[g - 1]}" opacity="0.88"/>`;
+  }
+
+  // 영역 경계 세로 점선 (1~8등급 컷 위치)
+  const dividers = GRADE_Z.map(z =>
+    `<line x1="${xOf(z).toFixed(1)}" y1="${baseY.toFixed(1)}" x2="${xOf(z).toFixed(1)}" y2="${yOf(z).toFixed(1)}"
+           stroke="rgba(255,255,255,0.55)" stroke-width="1" stroke-dasharray="2 2"/>`
+  ).join('');
+
+  // 곡선 outline
+  const N = 80;
+  const curvePts = [`M ${xOf(-Z_RANGE).toFixed(1)} ${yOf(-Z_RANGE).toFixed(1)}`];
+  for (let i = 1; i <= N; i++) {
+    const z = -Z_RANGE + (i / N) * (2 * Z_RANGE);
+    curvePts.push(`L ${xOf(z).toFixed(1)} ${yOf(z).toFixed(1)}`);
+  }
+  const curve = `<path d="${curvePts.join(' ')}" fill="none" stroke="rgba(0,0,0,0.18)" stroke-width="1.2"/>`;
+
+  // 등급 번호 라벨 (영역 가운데, 곡선 위)
+  const gradeNums = [];
+  for (let g = 1; g <= 9; g++) {
+    const zStart = zBounds[9 - g];
+    const zEnd   = zBounds[10 - g];
+    const zMid   = (zStart + zEnd) / 2;
+    const x = xOf(zMid).toFixed(1);
+    const y = (yOf(zMid) - 5).toFixed(1);
+    gradeNums.push(`<text x="${x}" y="${y}" class="grade-dist__num">${g}</text>`);
+  }
+
+  // 등급 컷 점수 라벨 (1~8 컷, 곡선 밑)
+  const cutLabels = rawCuts.map((c, i) => {
+    const x = xOf(GRADE_Z[i]).toFixed(1);
+    const y = (baseY + 16).toFixed(1);
+    return `<text x="${x}" y="${y}" class="grade-dist__cut">${c}</text>`;
+  }).join('');
+
+  // 베이스라인
+  const baseLine = `<line x1="${PAD_X}" y1="${baseY.toFixed(1)}" x2="${W - PAD_X}" y2="${baseY.toFixed(1)}"
+                          stroke="rgba(0,0,0,0.2)" stroke-width="1"/>`;
+
+  return `
+    <svg viewBox="0 0 ${W} ${H}" class="grade-dist__svg" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+      ${areas}
+      ${dividers}
+      ${curve}
+      ${baseLine}
+      ${gradeNums.join('')}
+      ${cutLabels}
+    </svg>
+    <p class="grade-dist__legend">등급별 원점수 컷 ${fullScore && fullScore !== 100 ? `· 만점 ${fullScore}점` : ''}</p>
+  `;
+}
+
+function renderGradeDist(exam, allCuts) {
+  const wrap = $('gradeDist');
+  const body = $('gradeDistBody');
+  const hint = $('gradeDistHint');
+  const cut = allCuts.find(c =>
+    c.curriculum === exam.curriculum &&
+    String(c.gradeYear) === String(exam.gradeYear) &&
+    c.type === exam.type &&
+    c.subject === exam.subject &&
+    (c.subSubject ?? null) === (exam.subSubject ?? null)
+  );
+  if (!cut || !Array.isArray(cut.rawCuts) || cut.rawCuts.length !== 8) {
+    wrap.hidden = true;
+    return false;
+  }
+  wrap.hidden = false;
+  if (hint) hint.textContent = `1등급 컷 ${cut.rawCuts[0]}점`;
+  body.innerHTML = gradeDistSVG(cut.rawCuts, cut.fullScore ?? 100);
+  return true;
 }
 
 // ── 본 진입점 ──────────────────────────────────────────────
@@ -254,18 +354,23 @@ async function main() {
     return;
   }
 
-  let exams = [];
+  let exams = [], gradecuts = [];
   try {
-    const res = await fetch('data/exams.json', { cache: 'no-cache' });
-    if (res.ok) exams = await res.json();
+    const [examRes, cutRes] = await Promise.all([
+      fetch('data/exams.json',     { cache: 'no-cache' }),
+      fetch('data/gradecuts.json', { cache: 'no-cache' }),
+    ]);
+    if (examRes.ok) exams     = await examRes.json();
+    if (cutRes.ok)  gradecuts = await cutRes.json();
   } catch { /* fall-through */ }
 
   const exam = exams.find(e => e.id === id);
   if (!exam) { showError(); return; }
 
   renderHead(exam);
-  renderKpis(exam);
-  renderQuickAnswers(exam);
+  const hasQA   = renderQuickAnswers(exam);
+  const hasDist = renderGradeDist(exam, gradecuts);
+  $('paneIEmpty').hidden = hasQA || hasDist;
   setupTabs();
 
   // 미리보기 렌더 (문제지만)
