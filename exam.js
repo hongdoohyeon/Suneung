@@ -210,80 +210,6 @@ function setupTabs(onActivate) {
   activate(params.get('tab') === 'info' ? 'info' : 'paper');
 }
 
-// ── 답지 PDF 에서 정답 자동 추출 (런타임 PDF.js 텍스트 파싱) ──
-const CIRCLED_TO_NUM = { '①':'1', '②':'2', '③':'3', '④':'4', '⑤':'5' };
-
-function parseAnswersFromText(text) {
-  const t = String(text || '');
-  const pairs = new Map();
-  // 패턴: (번호 1~50) (구분자 .) 번 공백 등) (원숫자 ①~⑤)
-  // (?!\s*[점등]) 으로 "①점", "①등" 같은 거짓 매칭 회피
-  const re = /(?:^|[^\d])(\d{1,2})\s*(?:번호|번|[.)]|\s)\s*([①②③④⑤])(?!\s*[점등])/g;
-  let m;
-  while ((m = re.exec(t)) != null) {
-    const num = parseInt(m[1], 10);
-    if (num >= 1 && num <= 50 && !pairs.has(num)) {
-      pairs.set(num, CIRCLED_TO_NUM[m[2]]);
-    }
-  }
-  if (pairs.size < 5) return null;
-  const max = Math.max(...pairs.keys());
-  const arr = [];
-  let missing = 0;
-  for (let i = 1; i <= max; i++) {
-    if (pairs.has(i)) arr.push(pairs.get(i));
-    else { arr.push('?'); missing++; }
-  }
-  // 구멍이 너무 많으면 신뢰 X
-  if (missing > Math.max(2, Math.floor(arr.length * 0.2))) return null;
-  return arr;
-}
-
-async function fetchAnswersFromPdf(url) {
-  if (!url) return null;
-  try {
-    const pdfjsLib = await loadPdfjs();
-    const pdf = await pdfjsLib.getDocument({ url, withCredentials: false }).promise;
-    const limit = Math.min(pdf.numPages, 4);   // 답지는 보통 1~3쪽
-    let text = '';
-    for (let i = 1; i <= limit; i++) {
-      const page = await pdf.getPage(i);
-      const tc = await page.getTextContent();
-      text += ' ' + tc.items.map(it => it.str).join(' ');
-    }
-    return parseAnswersFromText(text);
-  } catch {
-    return null;
-  }
-}
-
-// 정보 탭 첫 활성화 시 한 번만 시도 (lazy)
-let _answersTried = false;
-async function ensureAnswers(exam) {
-  if (_answersTried) return;
-  _answersTried = true;
-  if (Array.isArray(exam.answers) && exam.answers.length > 0) return;
-  if (!exam.answerUrl) return;
-
-  const wrap  = $('quickAnswers');
-  const body  = $('quickAnswersBody');
-  const count = $('quickAnswersCount');
-  wrap.hidden = false;
-  if (count) count.textContent = '추출 중…';
-  body.innerHTML = '<div class="qa-loading">답지 PDF에서 정답을 뽑는 중…</div>';
-
-  const answers = await fetchAnswersFromPdf(exam.answerUrl);
-  if (!answers) {
-    wrap.hidden = true;
-    return;
-  }
-  exam.answers = answers;
-  renderQuickAnswers(exam);
-  // 정보 탭 빈 안내 카드는 빠른정답 추가됐으니 숨김
-  const empty = $('paneIEmpty');
-  if (empty) empty.hidden = true;
-}
-
 // ── 빠른정답 (옵셔널 데이터: exam.answers 배열) ────────────
 function renderQuickAnswers(exam) {
   const wrap  = $('quickAnswers');
@@ -435,25 +361,31 @@ async function main() {
     return;
   }
 
-  let exams = [], gradecuts = [];
+  let exams = [], gradecuts = [], answersMap = {};
   try {
-    const [examRes, cutRes] = await Promise.all([
+    const [examRes, cutRes, ansRes] = await Promise.all([
       fetch('data/exams.json',     { cache: 'no-cache' }),
       fetch('data/gradecuts.json', { cache: 'no-cache' }),
+      fetch('data/answers.json',   { cache: 'no-cache' }),
     ]);
-    if (examRes.ok) exams     = await examRes.json();
-    if (cutRes.ok)  gradecuts = await cutRes.json();
+    if (examRes.ok) exams      = await examRes.json();
+    if (cutRes.ok)  gradecuts  = await cutRes.json();
+    if (ansRes.ok)  answersMap = await ansRes.json();
   } catch { /* fall-through */ }
 
   const exam = exams.find(e => e.id === id);
   if (!exam) { showError(); return; }
 
+  // 사전 추출된 정답이 있으면 합쳐 사용 (exam.answers 우선, 없으면 answersMap 폴백)
+  if ((!Array.isArray(exam.answers) || exam.answers.length === 0) && answersMap[id]) {
+    exam.answers = answersMap[id];
+  }
+
   renderHead(exam);
   const hasQA   = renderQuickAnswers(exam);
   const hasDist = renderGradeDist(exam, gradecuts);
   $('paneIEmpty').hidden = hasQA || hasDist;
-  // 정보 탭 첫 활성화 시, 빠른정답 데이터가 없으면 답지 PDF에서 자동 추출 시도
-  setupTabs(key => { if (key === 'info') ensureAnswers(exam); });
+  setupTabs();
 
   // 미리보기 렌더 (문제지만)
   const qViewer = $('previewQViewer'), qMeta = $('previewQMeta');

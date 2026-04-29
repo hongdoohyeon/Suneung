@@ -1,0 +1,11 @@
+{
+  "name": "suneung",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "extract-answers": "node scripts/extract-answers.mjs"
+  },
+  "dependencies": {
+    "pdfjs-dist": "^4.10.38"
+  }
+}
