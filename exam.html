@@ -14,7 +14,7 @@
         href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
 
   <title>자료 상세 — 기출해체분석기</title>
-  <link rel="stylesheet" href="style.css?v=20260430c" />
+  <link rel="stylesheet" href="style.css?v=20260430d" />
 </head>
 <body class="page-exam">
 
@@ -89,44 +89,25 @@
 
       <section class="exam-pane" id="paneI" data-pane="info" role="tabpanel" aria-labelledby="tabInfo" hidden>
 
-        <section class="kpi-row" id="kpiRow" aria-label="시험 통계">
-          <div class="kpi"><span class="kpi__label">총 문항</span>     <span class="kpi__value" id="kpiQuestions">—</span></div>
-          <div class="kpi"><span class="kpi__label">응시 인원</span>   <span class="kpi__value" id="kpiExaminees">—</span></div>
-          <div class="kpi"><span class="kpi__label">평균 정답률</span> <span class="kpi__value" id="kpiAvgRate">—</span></div>
-          <div class="kpi"><span class="kpi__label">1등급 컷</span>    <span class="kpi__value" id="kpi1stCut">—</span></div>
-        </section>
-
         <section class="exam-card" id="quickAnswers" hidden>
           <header class="exam-card__head">
             <h3 class="exam-card__title">빠른정답</h3>
+            <span class="exam-card__hint" id="quickAnswersCount"></span>
           </header>
           <div class="exam-card__body" id="quickAnswersBody"></div>
         </section>
 
-        <section class="exam-card" id="answerRates">
+        <section class="exam-card" id="gradeDist" hidden>
           <header class="exam-card__head">
-            <h3 class="exam-card__title">정답별 응답률</h3>
-            <span class="exam-card__hint">준비 중</span>
+            <h3 class="exam-card__title">등급 분포</h3>
+            <span class="exam-card__hint" id="gradeDistHint"></span>
           </header>
-          <div class="exam-card__body">
-            <div class="rate-chart rate-chart--placeholder" aria-hidden="true">
-              <div class="rate-bar"><span class="rate-bar__num">1</span><span class="rate-bar__track"><span class="rate-bar__fill" style="width:18%"></span></span><span class="rate-bar__pct">—</span></div>
-              <div class="rate-bar"><span class="rate-bar__num">2</span><span class="rate-bar__track"><span class="rate-bar__fill" style="width:34%"></span></span><span class="rate-bar__pct">—</span></div>
-              <div class="rate-bar"><span class="rate-bar__num">3</span><span class="rate-bar__track"><span class="rate-bar__fill" style="width:24%"></span></span><span class="rate-bar__pct">—</span></div>
-              <div class="rate-bar"><span class="rate-bar__num">4</span><span class="rate-bar__track"><span class="rate-bar__fill" style="width:14%"></span></span><span class="rate-bar__pct">—</span></div>
-              <div class="rate-bar"><span class="rate-bar__num">5</span><span class="rate-bar__track"><span class="rate-bar__fill" style="width:10%"></span></span><span class="rate-bar__pct">—</span></div>
-            </div>
-            <p class="exam-card__sub">집계 데이터가 준비되면 막대 비율로 표시됩니다.</p>
-          </div>
+          <div class="exam-card__body" id="gradeDistBody"></div>
         </section>
 
-        <section class="exam-card" id="examNotes">
-          <header class="exam-card__head">
-            <h3 class="exam-card__title">해설 / 코멘트</h3>
-            <span class="exam-card__hint">준비 중</span>
-          </header>
+        <section class="exam-card" id="paneIEmpty" hidden>
           <div class="exam-card__body">
-            <p class="exam-card__sub">해설·코멘트·풀이 메모가 차차 추가될 예정입니다.</p>
+            <p class="exam-card__sub">이 시험에는 빠른정답·등급컷 데이터가 아직 없어요.</p>
           </div>
         </section>
 
