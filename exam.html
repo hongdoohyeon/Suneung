@@ -14,7 +14,7 @@
         href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
 
   <title>자료 상세 — 기출자료실</title>
-  <link rel="stylesheet" href="style.css?v=20260429k" />
+  <link rel="stylesheet" href="style.css?v=20260429l" />
 </head>
 <body class="page-exam">
 
@@ -61,12 +61,30 @@
       <div class="exam__actions" id="examActions"></div>
     </header>
 
-    <!-- 본문 그리드: 미리보기 + 사이드 -->
+    <!-- KPI 메트릭 (옵셔널 데이터 — 없으면 '—' placeholder) -->
+    <section class="kpi-row" id="kpiRow" aria-label="시험 통계">
+      <div class="kpi">
+        <span class="kpi__label">총 문항</span>
+        <span class="kpi__value" id="kpiQuestions">—</span>
+      </div>
+      <div class="kpi">
+        <span class="kpi__label">응시 인원</span>
+        <span class="kpi__value" id="kpiExaminees">—</span>
+      </div>
+      <div class="kpi">
+        <span class="kpi__label">평균 정답률</span>
+        <span class="kpi__value" id="kpiAvgRate">—</span>
+      </div>
+      <div class="kpi">
+        <span class="kpi__label">1등급 컷</span>
+        <span class="kpi__value" id="kpi1stCut">—</span>
+      </div>
+    </section>
+
+    <!-- 본문 그리드: 미리보기 + 사이드 위젯 -->
     <div class="exam__grid">
 
-      <!-- 미리보기 영역: 문제지 -->
       <section class="exam__previews" aria-label="자료 미리보기">
-
         <article class="preview" id="previewQ">
           <header class="preview__head">
             <h2 class="preview__title">문제지</h2>
@@ -76,25 +94,42 @@
             <div class="preview__skeleton" aria-hidden="true"></div>
           </div>
         </article>
-
       </section>
 
-      <!-- 사이드: 빠른정답 + 정답률 + 해설 슬롯 (블로그처럼 점진 확장) -->
       <aside class="exam__side">
 
         <section class="exam-card" id="quickAnswers" hidden>
-          <h3 class="exam-card__title">빠른정답</h3>
+          <header class="exam-card__head">
+            <h3 class="exam-card__title">빠른정답</h3>
+          </header>
           <div class="exam-card__body" id="quickAnswersBody"></div>
         </section>
 
-        <section class="exam-card exam-card--placeholder" id="answerRates">
-          <h3 class="exam-card__title">정답별 응답률</h3>
-          <p class="exam-card__sub">집계 데이터 준비 중입니다.</p>
+        <section class="exam-card" id="answerRates">
+          <header class="exam-card__head">
+            <h3 class="exam-card__title">정답별 응답률</h3>
+            <span class="exam-card__hint">준비 중</span>
+          </header>
+          <div class="exam-card__body">
+            <div class="rate-chart rate-chart--placeholder" aria-hidden="true">
+              <div class="rate-bar"><span class="rate-bar__num">1</span><span class="rate-bar__track"><span class="rate-bar__fill" style="width:18%"></span></span><span class="rate-bar__pct">—</span></div>
+              <div class="rate-bar"><span class="rate-bar__num">2</span><span class="rate-bar__track"><span class="rate-bar__fill" style="width:34%"></span></span><span class="rate-bar__pct">—</span></div>
+              <div class="rate-bar"><span class="rate-bar__num">3</span><span class="rate-bar__track"><span class="rate-bar__fill" style="width:24%"></span></span><span class="rate-bar__pct">—</span></div>
+              <div class="rate-bar"><span class="rate-bar__num">4</span><span class="rate-bar__track"><span class="rate-bar__fill" style="width:14%"></span></span><span class="rate-bar__pct">—</span></div>
+              <div class="rate-bar"><span class="rate-bar__num">5</span><span class="rate-bar__track"><span class="rate-bar__fill" style="width:10%"></span></span><span class="rate-bar__pct">—</span></div>
+            </div>
+            <p class="exam-card__sub">집계 데이터가 준비되면 막대 비율로 표시됩니다.</p>
+          </div>
         </section>
 
-        <section class="exam-card exam-card--placeholder" id="examNotes">
-          <h3 class="exam-card__title">해설 / 코멘트</h3>
-          <p class="exam-card__sub">해설과 코멘트가 추가될 예정입니다.</p>
+        <section class="exam-card" id="examNotes">
+          <header class="exam-card__head">
+            <h3 class="exam-card__title">해설 / 코멘트</h3>
+            <span class="exam-card__hint">준비 중</span>
+          </header>
+          <div class="exam-card__body">
+            <p class="exam-card__sub">해설·코멘트·풀이 메모가 차차 추가될 예정입니다.</p>
+          </div>
         </section>
 
       </aside>
