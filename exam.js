@@ -198,26 +198,14 @@ async function main() {
   renderHead(exam);
   renderQuickAnswers(exam);
 
-  // 미리보기 렌더 (문제지 / 정답지)
-  const qViewer = $('previewQViewer'),  qMeta = $('previewQMeta');
-  const aViewer = $('previewAViewer'),  aMeta = $('previewAMeta');
-
-  // 문제지
+  // 미리보기 렌더 (문제지만)
+  const qViewer = $('previewQViewer'), qMeta = $('previewQMeta');
   if (!exam.questionUrl) {
     renderEmpty(qViewer); qMeta.textContent = '없음';
   } else {
     const ext = urlExtension(exam.questionUrl);
     if (ext === 'pdf') renderPdf(exam.questionUrl, qViewer, qMeta);
     else renderUnsupported(qViewer, ext ?? '파일', exam.questionUrl, exam.questionDownload);
-  }
-
-  // 정답지
-  if (!exam.answerUrl) {
-    renderEmpty(aViewer); aMeta.textContent = '없음';
-  } else {
-    const ext = urlExtension(exam.answerUrl);
-    if (ext === 'pdf') renderPdf(exam.answerUrl, aViewer, aMeta);
-    else renderUnsupported(aViewer, ext ?? '파일', exam.answerUrl, exam.answerDownload);
   }
 }
 
