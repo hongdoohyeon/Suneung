@@ -221,3 +221,39 @@ export function getTypeConf(typeKey) {
 export function getGroupConf(groupKey) {
   return EXAM_TYPE_CONFIG.find(g => g.groupKey === groupKey) ?? null;
 }
+
+// ── 표시용 라벨: 데이터 키는 붙여쓰기 유지, 화면에 보일 때만 띄어쓰기 ──
+const SUB_LABEL = {
+  '화법과작문': '화법과 작문',
+  '언어와매체': '언어와 매체',
+  '확률과통계': '확률과 통계',
+  '생활과윤리': '생활과 윤리',
+  '윤리와사상': '윤리와 사상',
+  '정치와법':   '정치와 법',
+  '법과정치':   '법과 정치',
+};
+
+export function prettySub(key) {
+  if (key == null) return '';
+  return SUB_LABEL[key] ?? key;
+}
+
+// 검색 별칭: 사용자 축약 → 실제 데이터 키 (정확 일치일 때만 확장)
+const SEARCH_ALIASES = {
+  '화작': ['화법과작문'],
+  '언매': ['언어와매체'],
+  '확통': ['확률과통계'],
+  '미적': ['미적분'],
+  '생윤': ['생활과윤리'],
+  '윤사': ['윤리와사상'],
+  '정법': ['정치와법', '법과정치'],
+  '사문': ['사회·문화'],
+  '한지': ['한국지리'],
+  '세지': ['세계지리'],
+  '세사': ['세계사'],
+  '한사': ['한국사'],
+};
+
+export function searchAliasOf(normalizedQ) {
+  return SEARCH_ALIASES[normalizedQ] ?? null;
+}

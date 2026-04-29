@@ -1,5 +1,5 @@
 'use strict';
-import { CURRICULUM_CONFIG, getTypeConf } from './config.js';
+import { CURRICULUM_CONFIG, getTypeConf, prettySub } from './config.js';
 
 // ── PDF.js (jsdelivr CDN, ESM) ─────────────────────────────
 // 모바일에서도 안정적으로 동작하는 mozilla 공식 라이브러리.
@@ -46,7 +46,7 @@ function displayYear(item) {
 function buildTitle(exam) {
   const tc = getTypeConf(exam.type);
   const dy = displayYear(exam);
-  const subj = exam.subSubject ? `${exam.subject}(${exam.subSubject})` : exam.subject;
+  const subj = exam.subSubject ? `${exam.subject}(${prettySub(exam.subSubject)})` : exam.subject;
   const head = exam.gradeYear === 'preliminary'
     ? `예비시험`
     : (tc?.displayMode === 'examYear'
@@ -63,7 +63,7 @@ function buildSubtitle(exam) {
 
 // ── 헤드 렌더 ──────────────────────────────────────────────
 function renderHead(exam) {
-  document.title = `${buildTitle(exam)} — 기출자료실`;
+  document.title = `${buildTitle(exam)} — 기출해체분석기`;
 
   const tc = getTypeConf(exam.type);
   const dy = displayYear(exam);
@@ -71,7 +71,7 @@ function renderHead(exam) {
   const typeChip = tc
     ? `<span class="chiplet chiplet--type" style="--chip-bg:${tc.badgeBg};--chip-color:${tc.badgeColor};">${escHtml(tc.label)}</span>`
     : '';
-  const subjChip = `<span class="chiplet chiplet--soft">${escHtml(exam.subject)}${exam.subSubject ? ` · ${escHtml(exam.subSubject)}` : ''}</span>`;
+  const subjChip = `<span class="chiplet chiplet--soft">${escHtml(exam.subject)}${exam.subSubject ? ` · ${escHtml(prettySub(exam.subSubject))}` : ''}</span>`;
   $('examChips').innerHTML = yearChip + typeChip + subjChip;
 
   $('examTitle').textContent = buildTitle(exam);
@@ -283,7 +283,7 @@ function showError() {
   $('examHead').hidden = true;
   document.querySelectorAll('.exam__tabs, .exam-pane').forEach(el => el.hidden = true);
   $('examError').hidden = false;
-  document.title = '자료를 찾을 수 없습니다 — 기출자료실';
+  document.title = '자료를 찾을 수 없습니다 — 기출해체분석기';
 }
 
 main();

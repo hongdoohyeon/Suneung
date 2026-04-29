@@ -1,5 +1,5 @@
 'use strict';
-import { CURRICULUM_CONFIG, EXAM_TYPE_CONFIG, getTypeConf } from './config.js';
+import { CURRICULUM_CONFIG, EXAM_TYPE_CONFIG, getTypeConf, prettySub } from './config.js';
 
 const DATA_URL = 'data/gradecuts.json';
 const $ = id => document.getElementById(id);
@@ -183,7 +183,7 @@ function slotHTML(subj, slotIdx, subjConf, isMulti) {
         const isDisabled = otherSub === s;
         return `<button class="pill${isActive ? ' is-active' : ''}${isDisabled ? ' is-disabled' : ''}"
                   data-action="set-sub" data-subject="${subj}" data-slot="${slotIdx}" data-sub="${s}"
-                  ${isDisabled ? 'disabled' : ''}>${s}</button>`;
+                  ${isDisabled ? 'disabled' : ''}>${prettySub(s)}</button>`;
       }).join('')
     }</div>`;
   }
@@ -320,7 +320,7 @@ function renderTotal() {
 
   // 영역별 막대 (등급 시각화)
   $('gcTotalBars').innerHTML = entries.map(e => {
-    const label = `${e.subject}${e.subSubject ? ' / ' + e.subSubject : ''}`;
+    const label = `${e.subject}${e.subSubject ? ' / ' + prettySub(e.subSubject) : ''}`;
     return `
       <div class="total-bar">
         <div class="total-bar__label">${label}</div>
