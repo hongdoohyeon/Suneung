@@ -281,7 +281,7 @@ async function main() {
 
 function showError() {
   $('examHead').hidden = true;
-  document.querySelector('.exam__grid').hidden = true;
+  document.querySelectorAll('.exam__tabs, .exam-pane').forEach(el => el.hidden = true);
   $('examError').hidden = false;
   document.title = '자료를 찾을 수 없습니다 — 기출자료실';
 }
