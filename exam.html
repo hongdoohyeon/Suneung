@@ -14,7 +14,7 @@
         href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
 
   <title>자료 상세 — 기출해체분석기</title>
-  <link rel="stylesheet" href="style.css?v=20260430b" />
+  <link rel="stylesheet" href="style.css?v=20260430c" />
 </head>
 <body class="page-exam">
 
@@ -41,95 +41,100 @@
 
   <main class="container exam">
 
-    <!-- 뒤로가기 / 빵 부스러기 -->
-    <nav class="exam__crumb" aria-label="이동">
-      <a href="archive.html" id="backLink" class="exam__back">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-             stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <line x1="19" y1="12" x2="5" y2="12"/>
-          <polyline points="12 19 5 12 12 5"/>
-        </svg>
-        <span>기출 검색으로</span>
-      </a>
-    </nav>
+    <!-- 좌측 메타 사이드바: 뒤로가기 · 칩·제목·부제 · 다운로드 · 탭 -->
+    <aside class="exam__side" id="examSide">
+      <nav class="exam__crumb" aria-label="이동">
+        <a href="archive.html" id="backLink" class="exam__back">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+               stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="19" y1="12" x2="5" y2="12"/>
+            <polyline points="12 19 5 12 12 5"/>
+          </svg>
+          <span>기출 검색으로</span>
+        </a>
+      </nav>
 
-    <!-- 헤드: 학년도/시험/영역 + 다운로드 -->
-    <header class="exam__head" id="examHead">
-      <div class="exam__chips" id="examChips"></div>
-      <h1 class="exam__title" id="examTitle">자료 불러오는 중…</h1>
-      <p  class="exam__sub"   id="examSub"></p>
+      <header class="exam__head" id="examHead">
+        <div class="exam__chips" id="examChips"></div>
+        <h1 class="exam__title" id="examTitle">자료 불러오는 중…</h1>
+        <p  class="exam__sub"   id="examSub"></p>
+      </header>
+
       <div class="exam__actions" id="examActions"></div>
-    </header>
 
-    <!-- 탭 네비 — 문제 / 정보(스포 포함) 분리 -->
-    <nav class="exam__tabs" role="tablist" aria-label="자료 영역 선택">
-      <button class="exam-tab is-active" id="tabPaper" role="tab" type="button"
-              data-tab="paper" aria-selected="true" aria-controls="paneP">문제</button>
-      <button class="exam-tab" id="tabInfo" role="tab" type="button"
-              data-tab="info" aria-selected="false" aria-controls="paneI">정보 · 통계</button>
-      <span class="exam__tabs-hint" aria-hidden="true">정보 탭에는 정답·통계가 포함돼요</span>
-    </nav>
+      <nav class="exam__tabs" role="tablist" aria-label="자료 영역 선택">
+        <button class="exam-tab is-active" id="tabPaper" role="tab" type="button"
+                data-tab="paper" aria-selected="true" aria-controls="paneP">문제</button>
+        <button class="exam-tab" id="tabInfo" role="tab" type="button"
+                data-tab="info" aria-selected="false" aria-controls="paneI">정보 · 통계</button>
+      </nav>
 
-    <!-- 문제 탭 — 미리보기만 -->
-    <section class="exam-pane" id="paneP" data-pane="paper" role="tabpanel" aria-labelledby="tabPaper">
-      <article class="preview" id="previewQ">
-        <header class="preview__head">
-          <h2 class="preview__title">문제지</h2>
-          <span class="preview__meta" id="previewQMeta"></span>
-        </header>
-        <div class="preview__viewer" id="previewQViewer">
-          <div class="preview__skeleton" aria-hidden="true"></div>
-        </div>
-      </article>
-    </section>
+      <p class="exam__tabs-hint">정보 탭에는 정답·통계가 포함돼요</p>
+    </aside>
 
-    <!-- 정보 탭 — KPI / 빠른정답 / 응답률 / 해설 (스포 포함) -->
-    <section class="exam-pane" id="paneI" data-pane="info" role="tabpanel" aria-labelledby="tabInfo" hidden>
+    <!-- 우측 메인: 미리보기 / 정보·통계 -->
+    <div class="exam__main" id="examMain">
 
-      <section class="kpi-row" id="kpiRow" aria-label="시험 통계">
-        <div class="kpi"><span class="kpi__label">총 문항</span>     <span class="kpi__value" id="kpiQuestions">—</span></div>
-        <div class="kpi"><span class="kpi__label">응시 인원</span>   <span class="kpi__value" id="kpiExaminees">—</span></div>
-        <div class="kpi"><span class="kpi__label">평균 정답률</span> <span class="kpi__value" id="kpiAvgRate">—</span></div>
-        <div class="kpi"><span class="kpi__label">1등급 컷</span>    <span class="kpi__value" id="kpi1stCut">—</span></div>
-      </section>
-
-      <section class="exam-card" id="quickAnswers" hidden>
-        <header class="exam-card__head">
-          <h3 class="exam-card__title">빠른정답</h3>
-        </header>
-        <div class="exam-card__body" id="quickAnswersBody"></div>
-      </section>
-
-      <section class="exam-card" id="answerRates">
-        <header class="exam-card__head">
-          <h3 class="exam-card__title">정답별 응답률</h3>
-          <span class="exam-card__hint">준비 중</span>
-        </header>
-        <div class="exam-card__body">
-          <div class="rate-chart rate-chart--placeholder" aria-hidden="true">
-            <div class="rate-bar"><span class="rate-bar__num">1</span><span class="rate-bar__track"><span class="rate-bar__fill" style="width:18%"></span></span><span class="rate-bar__pct">—</span></div>
-            <div class="rate-bar"><span class="rate-bar__num">2</span><span class="rate-bar__track"><span class="rate-bar__fill" style="width:34%"></span></span><span class="rate-bar__pct">—</span></div>
-            <div class="rate-bar"><span class="rate-bar__num">3</span><span class="rate-bar__track"><span class="rate-bar__fill" style="width:24%"></span></span><span class="rate-bar__pct">—</span></div>
-            <div class="rate-bar"><span class="rate-bar__num">4</span><span class="rate-bar__track"><span class="rate-bar__fill" style="width:14%"></span></span><span class="rate-bar__pct">—</span></div>
-            <div class="rate-bar"><span class="rate-bar__num">5</span><span class="rate-bar__track"><span class="rate-bar__fill" style="width:10%"></span></span><span class="rate-bar__pct">—</span></div>
+      <section class="exam-pane" id="paneP" data-pane="paper" role="tabpanel" aria-labelledby="tabPaper">
+        <article class="preview" id="previewQ">
+          <header class="preview__head">
+            <h2 class="preview__title">문제지</h2>
+            <span class="preview__meta" id="previewQMeta"></span>
+          </header>
+          <div class="preview__viewer" id="previewQViewer">
+            <div class="preview__skeleton" aria-hidden="true"></div>
           </div>
-          <p class="exam-card__sub">집계 데이터가 준비되면 막대 비율로 표시됩니다.</p>
-        </div>
+        </article>
       </section>
 
-      <section class="exam-card" id="examNotes">
-        <header class="exam-card__head">
-          <h3 class="exam-card__title">해설 / 코멘트</h3>
-          <span class="exam-card__hint">준비 중</span>
-        </header>
-        <div class="exam-card__body">
-          <p class="exam-card__sub">해설·코멘트·풀이 메모가 차차 추가될 예정입니다.</p>
-        </div>
+      <section class="exam-pane" id="paneI" data-pane="info" role="tabpanel" aria-labelledby="tabInfo" hidden>
+
+        <section class="kpi-row" id="kpiRow" aria-label="시험 통계">
+          <div class="kpi"><span class="kpi__label">총 문항</span>     <span class="kpi__value" id="kpiQuestions">—</span></div>
+          <div class="kpi"><span class="kpi__label">응시 인원</span>   <span class="kpi__value" id="kpiExaminees">—</span></div>
+          <div class="kpi"><span class="kpi__label">평균 정답률</span> <span class="kpi__value" id="kpiAvgRate">—</span></div>
+          <div class="kpi"><span class="kpi__label">1등급 컷</span>    <span class="kpi__value" id="kpi1stCut">—</span></div>
+        </section>
+
+        <section class="exam-card" id="quickAnswers" hidden>
+          <header class="exam-card__head">
+            <h3 class="exam-card__title">빠른정답</h3>
+          </header>
+          <div class="exam-card__body" id="quickAnswersBody"></div>
+        </section>
+
+        <section class="exam-card" id="answerRates">
+          <header class="exam-card__head">
+            <h3 class="exam-card__title">정답별 응답률</h3>
+            <span class="exam-card__hint">준비 중</span>
+          </header>
+          <div class="exam-card__body">
+            <div class="rate-chart rate-chart--placeholder" aria-hidden="true">
+              <div class="rate-bar"><span class="rate-bar__num">1</span><span class="rate-bar__track"><span class="rate-bar__fill" style="width:18%"></span></span><span class="rate-bar__pct">—</span></div>
+              <div class="rate-bar"><span class="rate-bar__num">2</span><span class="rate-bar__track"><span class="rate-bar__fill" style="width:34%"></span></span><span class="rate-bar__pct">—</span></div>
+              <div class="rate-bar"><span class="rate-bar__num">3</span><span class="rate-bar__track"><span class="rate-bar__fill" style="width:24%"></span></span><span class="rate-bar__pct">—</span></div>
+              <div class="rate-bar"><span class="rate-bar__num">4</span><span class="rate-bar__track"><span class="rate-bar__fill" style="width:14%"></span></span><span class="rate-bar__pct">—</span></div>
+              <div class="rate-bar"><span class="rate-bar__num">5</span><span class="rate-bar__track"><span class="rate-bar__fill" style="width:10%"></span></span><span class="rate-bar__pct">—</span></div>
+            </div>
+            <p class="exam-card__sub">집계 데이터가 준비되면 막대 비율로 표시됩니다.</p>
+          </div>
+        </section>
+
+        <section class="exam-card" id="examNotes">
+          <header class="exam-card__head">
+            <h3 class="exam-card__title">해설 / 코멘트</h3>
+            <span class="exam-card__hint">준비 중</span>
+          </header>
+          <div class="exam-card__body">
+            <p class="exam-card__sub">해설·코멘트·풀이 메모가 차차 추가될 예정입니다.</p>
+          </div>
+        </section>
+
       </section>
 
-    </section>
+    </div>
 
-    <!-- 에러/없음 -->
+    <!-- 에러/없음 — grid 양쪽 컬럼 차지 -->
     <div id="examError" class="exam__error" hidden>
       <p class="exam__error-title">자료를 찾을 수 없습니다</p>
       <p class="exam__error-sub">id가 잘못되었거나 데이터가 갱신되지 않은 상태일 수 있어요.</p>

@@ -280,8 +280,8 @@ async function main() {
 }
 
 function showError() {
-  $('examHead').hidden = true;
-  document.querySelectorAll('.exam__tabs, .exam-pane').forEach(el => el.hidden = true);
+  $('examSide').hidden = true;
+  $('examMain').hidden = true;
   $('examError').hidden = false;
   document.title = '자료를 찾을 수 없습니다 — 기출해체분석기';
 }
