@@ -1885,8 +1885,9 @@ body.is-sheet-open { overflow: hidden; touch-action: none; }
    ║  Detail Page (exam.html) — 미리보기 + 빠른정답
    ╚══════════════════════════════════════════════════════════ */
 
-/* archive 카드 전체 클릭 영역 — 카드의 빈 곳을 누르면 상세로 이동.
-   다운로드 버튼 등은 z-index 로 위로 올려 개별 클릭 보장 */
+/* archive 카드 전체 클릭 영역 — 카드 어느 곳을 눌러도 상세로 이동.
+   텍스트/메타는 pointer-events: none 으로 클릭을 link 에 통과시키고,
+   다운로드 버튼만 z-index 로 위에 올려 개별 클릭 보장 */
 .card__link {
   position: absolute;
   inset: 0;
@@ -1900,7 +1901,11 @@ body.is-sheet-open { overflow: hidden; touch-action: none; }
   outline: 2px solid var(--pop);
   outline-offset: 2px;
 }
-.card > *:not(.card__link) { position: relative; z-index: 2; }
+.card__meta,
+.card__title,
+.card__sub,
+.card__divider { pointer-events: none; }
+.card__actions  { position: relative; z-index: 2; }
 
 /* ── exam 메인 레이아웃 ─────────────────────────────────── */
 .exam {
