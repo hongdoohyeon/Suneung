@@ -1,5 +1,5 @@
 'use strict';
-import { CURRICULUM_CONFIG, EXAM_TYPE_CONFIG, getTypeConf, getGroupConf } from './config.js';
+import { CURRICULUM_CONFIG, EXAM_TYPE_CONFIG, getTypeConf, getGroupConf, prettySub } from './config.js';
 import {
   state, PAGE_SIZE,
   resetFilters, currConf,
@@ -215,7 +215,7 @@ function renderSubjectFilter() {
     const cnt      = counts[key] ?? 0;
 
     const subList = conf.subs.map(s => `
-      <button class="sub-row${state.subSubject === s ? ' is-active' : ''}" data-sub="${escAttr(s)}">${escHtml(s)}</button>
+      <button class="sub-row${state.subSubject === s ? ' is-active' : ''}" data-sub="${escAttr(s)}">${escHtml(prettySub(s))}</button>
     `).join('');
 
     return `<div class="subject-item"><button class="subject-row${hasSubs ? ' has-subs' : ''}${isActive ? ' is-active' : ''}${isOpen ? ' is-open' : ''}" data-subject="${escAttr(key)}" style="--subject-color:${conf.color};"><span class="subject-row__dot"></span><span class="subject-row__name">${escHtml(key)}</span><span class="subject-row__count">${cnt > 0 ? cnt : ''}</span><span class="subject-row__caret">›</span></button>${(hasSubs && isOpen) ? `<div class="subject-subs is-open"><div class="subject-subs__inner">${subList}</div></div>` : ''}</div>`;
@@ -395,7 +395,7 @@ function cardHTML(exam, idx = 0) {
   const hasFile = Boolean(exam.questionUrl || exam.answerUrl);
   const isPrelim = exam.gradeYear === 'preliminary';
 
-  const title = exam.subSubject ?? exam.subject;
+  const title = exam.subSubject ? prettySub(exam.subSubject) : exam.subject;
   const typeLabel = isPrelim ? '예비시험' : (tc?.label ?? '');
   const yearPart = isPrelim
     ? '예비시험'
@@ -460,7 +460,7 @@ function renderActiveTags() {
     }
   }
   if (state.subject    !== 'all') tags.push({ label: state.subject,    key: 'subject' });
-  if (state.subSubject !== 'all') tags.push({ label: state.subSubject, key: 'subSubject' });
+  if (state.subSubject !== 'all') tags.push({ label: prettySub(state.subSubject), key: 'subSubject' });
   if (state.query) tags.push({ label: `"${state.query}"`, key: 'query' });
 
   container.innerHTML = tags.map(t => `

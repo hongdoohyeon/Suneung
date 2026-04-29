@@ -1,5 +1,22 @@
 'use strict';
-import { CURRICULUM_CONFIG, EXAM_TYPE_CONFIG, getTypeConf } from './config.js';
+import { CURRICULUM_CONFIG, EXAM_TYPE_CONFIG, getTypeConf, prettySub, searchAliasOf } from './config.js';
+
+// 공백 무시 + 소문자
+const normQ = s => String(s ?? '').toLowerCase().replace(/\s+/g, '');
+
+function matchesQuery(e, query) {
+  const q = normQ(query);
+  if (!q) return true;
+  const tc = getTypeConf(e.type);
+  const hay = normQ([
+    e.subject, e.subSubject, prettySub(e.subSubject),
+    String(e.gradeYear), String(e.examYear),
+    tc?.label, tc?.groupLabel,
+  ].filter(Boolean).join(' '));
+  const aliases = searchAliasOf(q);
+  const needles = aliases ? aliases.map(normQ) : [q];
+  return needles.some(n => hay.includes(n));
+}
 
 export const state = {
   exams:    [],
@@ -74,13 +91,7 @@ export function filtered() {
     if (state.gradeYear  !== 'all' && String(e.gradeYear) !== state.gradeYear) return false;
     if (state.subject    !== 'all' && e.subject    !== state.subject)          return false;
     if (state.subSubject !== 'all' && e.subSubject !== state.subSubject)       return false;
-    if (state.query) {
-      const q = state.query.toLowerCase();
-      const tc = getTypeConf(e.type);
-      const hay = [e.subject, e.subSubject, String(e.gradeYear), String(e.examYear), tc?.label, tc?.groupLabel]
-        .filter(Boolean).join(' ').toLowerCase();
-      if (!hay.includes(q)) return false;
-    }
+    if (state.query && !matchesQuery(e, state.query)) return false;
     return true;
   });
 
@@ -115,13 +126,7 @@ export function subjectCounts() {
     if (state.typeGroup !== 'all' && e.typeGroup !== state.typeGroup) return false;
     if (state.type      !== 'all' && e.type      !== state.type)      return false;
     if (state.gradeYear !== 'all' && String(e.gradeYear) !== state.gradeYear) return false;
-    if (state.query) {
-      const q = state.query.toLowerCase();
-      const tc = getTypeConf(e.type);
-      const hay = [e.subject, e.subSubject, String(e.gradeYear), String(e.examYear), tc?.label, tc?.groupLabel]
-        .filter(Boolean).join(' ').toLowerCase();
-      if (!hay.includes(q)) return false;
-    }
+    if (state.query && !matchesQuery(e, state.query)) return false;
     return true;
   });
   const counts = {};
