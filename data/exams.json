@@ -28072,8 +28072,9 @@
     "subject": "수학",
     "subSubject": null,
     "solutionUrl": null,
-    "questionUrl": null,
-    "answerUrl": "https://suneung-files.hdh061224.workers.dev/police-v1/2010_main_math_a.pdf?name=2010%ED%95%99%EB%85%84%EB%8F%84%20%EA%B2%BD%EC%B0%B0%EB%8C%80%ED%95%99%201%EC%B0%A8%20%EC%88%98%ED%95%99%20%EC%A0%95%EB%8B%B5.pdf"
+    "questionUrl": "pdfs_police/2010/main/2010_main_math_q.hwp",
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/police-v1/2010_main_math_a.pdf?name=2010%ED%95%99%EB%85%84%EB%8F%84%20%EA%B2%BD%EC%B0%B0%EB%8C%80%ED%95%99%201%EC%B0%A8%20%EC%88%98%ED%95%99%20%EC%A0%95%EB%8B%B5.pdf",
+    "questionDownload": "2010학년도 경찰대학 1차 수학 문제지.hwp"
   },
   {
     "id": 1999,
@@ -28160,8 +28161,9 @@
     "subject": "영어",
     "subSubject": null,
     "solutionUrl": null,
-    "questionUrl": null,
-    "answerUrl": "https://suneung-files.hdh061224.workers.dev/police-v1/2010_main_english_a.pdf?name=2010%ED%95%99%EB%85%84%EB%8F%84%20%EA%B2%BD%EC%B0%B0%EB%8C%80%ED%95%99%201%EC%B0%A8%20%EC%98%81%EC%96%B4%20%EC%A0%95%EB%8B%B5.pdf"
+    "questionUrl": "pdfs_police/2010/main/2010_main_english_q.hwp",
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/police-v1/2010_main_english_a.pdf?name=2010%ED%95%99%EB%85%84%EB%8F%84%20%EA%B2%BD%EC%B0%B0%EB%8C%80%ED%95%99%201%EC%B0%A8%20%EC%98%81%EC%96%B4%20%EC%A0%95%EB%8B%B5.pdf",
+    "questionDownload": "2010학년도 경찰대학 1차 영어 문제지.hwp"
   },
   {
     "id": 2005,
@@ -28234,8 +28236,9 @@
     "subject": "수학",
     "subSubject": null,
     "solutionUrl": null,
-    "questionUrl": null,
-    "answerUrl": "https://suneung-files.hdh061224.workers.dev/police-v1/2009_main_math_a.pdf?name=2009%ED%95%99%EB%85%84%EB%8F%84%20%EA%B2%BD%EC%B0%B0%EB%8C%80%ED%95%99%201%EC%B0%A8%20%EC%88%98%ED%95%99%20%EC%A0%95%EB%8B%B5.pdf"
+    "questionUrl": "pdfs_police/2009/main/2009_main_math_q.hwp",
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/police-v1/2009_main_math_a.pdf?name=2009%ED%95%99%EB%85%84%EB%8F%84%20%EA%B2%BD%EC%B0%B0%EB%8C%80%ED%95%99%201%EC%B0%A8%20%EC%88%98%ED%95%99%20%EC%A0%95%EB%8B%B5.pdf",
+    "questionDownload": "2009학년도 경찰대학 1차 수학 문제지.hwp"
   },
   {
     "id": 2010,
@@ -28322,13 +28325,14 @@
     "subject": "영어",
     "subSubject": null,
     "solutionUrl": null,
-    "questionUrl": null,
-    "answerUrl": "https://suneung-files.hdh061224.workers.dev/police-v1/2009_main_english_a.pdf?name=2009%ED%95%99%EB%85%84%EB%8F%84%20%EA%B2%BD%EC%B0%B0%EB%8C%80%ED%95%99%201%EC%B0%A8%20%EC%98%81%EC%96%B4%20%EC%A0%95%EB%8B%B5.pdf"
+    "questionUrl": "pdfs_police/2009/main/2009_main_english_q.hwp",
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/police-v1/2009_main_english_a.pdf?name=2009%ED%95%99%EB%85%84%EB%8F%84%20%EA%B2%BD%EC%B0%B0%EB%8C%80%ED%95%99%201%EC%B0%A8%20%EC%98%81%EC%96%B4%20%EC%A0%95%EB%8B%B5.pdf",
+    "questionDownload": "2009학년도 경찰대학 1차 영어 문제지.hwp"
   },
   {
     "id": 2016,
     "curriculum": "LEET",
-    "gradeYear": 2009,
+    "gradeYear": "preliminary",
     "examYear": 2008,
     "month": 1,
     "typeGroup": "leet",
@@ -28344,7 +28348,7 @@
   {
     "id": 2017,
     "curriculum": "LEET",
-    "gradeYear": 2009,
+    "gradeYear": "preliminary",
     "examYear": 2008,
     "month": 1,
     "typeGroup": "leet",
@@ -28360,7 +28364,7 @@
   {
     "id": 2018,
     "curriculum": "LEET",
-    "gradeYear": 2009,
+    "gradeYear": "preliminary",
     "examYear": 2008,
     "month": 1,
     "typeGroup": "leet",
@@ -28376,7 +28380,7 @@
   {
     "id": 2019,
     "curriculum": "LEET",
-    "gradeYear": 2009,
+    "gradeYear": "preliminary",
     "examYear": 2008,
     "month": 1,
     "typeGroup": "leet",
@@ -28444,8 +28448,9 @@
     "subject": "수학",
     "subSubject": null,
     "solutionUrl": null,
-    "questionUrl": null,
-    "answerUrl": "https://suneung-files.hdh061224.workers.dev/police-v1/2008_main_math_a.pdf?name=2008%ED%95%99%EB%85%84%EB%8F%84%20%EA%B2%BD%EC%B0%B0%EB%8C%80%ED%95%99%201%EC%B0%A8%20%EC%88%98%ED%95%99%20%EC%A0%95%EB%8B%B5.pdf"
+    "questionUrl": "pdfs_police/2008/main/2008_main_math_q.hwp",
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/police-v1/2008_main_math_a.pdf?name=2008%ED%95%99%EB%85%84%EB%8F%84%20%EA%B2%BD%EC%B0%B0%EB%8C%80%ED%95%99%201%EC%B0%A8%20%EC%88%98%ED%95%99%20%EC%A0%95%EB%8B%B5.pdf",
+    "questionDownload": "2008학년도 경찰대학 1차 수학 문제지.hwp"
   },
   {
     "id": 2024,
@@ -28500,8 +28505,9 @@
     "subject": "영어",
     "subSubject": null,
     "solutionUrl": null,
-    "questionUrl": null,
-    "answerUrl": "https://suneung-files.hdh061224.workers.dev/police-v1/2008_main_english_a.pdf?name=2008%ED%95%99%EB%85%84%EB%8F%84%20%EA%B2%BD%EC%B0%B0%EB%8C%80%ED%95%99%201%EC%B0%A8%20%EC%98%81%EC%96%B4%20%EC%A0%95%EB%8B%B5.pdf"
+    "questionUrl": "pdfs_police/2008/main/2008_main_english_q.hwp",
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/police-v1/2008_main_english_a.pdf?name=2008%ED%95%99%EB%85%84%EB%8F%84%20%EA%B2%BD%EC%B0%B0%EB%8C%80%ED%95%99%201%EC%B0%A8%20%EC%98%81%EC%96%B4%20%EC%A0%95%EB%8B%B5.pdf",
+    "questionDownload": "2008학년도 경찰대학 1차 영어 문제지.hwp"
   },
   {
     "id": 2028,
@@ -28558,8 +28564,9 @@
     "subject": "수학",
     "subSubject": null,
     "solutionUrl": null,
-    "questionUrl": null,
-    "answerUrl": "https://suneung-files.hdh061224.workers.dev/police-v1/2007_main_math_a.pdf?name=2007%ED%95%99%EB%85%84%EB%8F%84%20%EA%B2%BD%EC%B0%B0%EB%8C%80%ED%95%99%201%EC%B0%A8%20%EC%88%98%ED%95%99%20%EC%A0%95%EB%8B%B5.pdf"
+    "questionUrl": "pdfs_police/2007/main/2007_main_math_q.hwp",
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/police-v1/2007_main_math_a.pdf?name=2007%ED%95%99%EB%85%84%EB%8F%84%20%EA%B2%BD%EC%B0%B0%EB%8C%80%ED%95%99%201%EC%B0%A8%20%EC%88%98%ED%95%99%20%EC%A0%95%EB%8B%B5.pdf",
+    "questionDownload": "2007학년도 경찰대학 1차 수학 문제지.hwp"
   },
   {
     "id": 2032,
@@ -28614,8 +28621,9 @@
     "subject": "영어",
     "subSubject": null,
     "solutionUrl": null,
-    "questionUrl": null,
-    "answerUrl": "https://suneung-files.hdh061224.workers.dev/police-v1/2007_main_english_a.pdf?name=2007%ED%95%99%EB%85%84%EB%8F%84%20%EA%B2%BD%EC%B0%B0%EB%8C%80%ED%95%99%201%EC%B0%A8%20%EC%98%81%EC%96%B4%20%EC%A0%95%EB%8B%B5.pdf"
+    "questionUrl": "pdfs_police/2007/main/2007_main_english_q.hwp",
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/police-v1/2007_main_english_a.pdf?name=2007%ED%95%99%EB%85%84%EB%8F%84%20%EA%B2%BD%EC%B0%B0%EB%8C%80%ED%95%99%201%EC%B0%A8%20%EC%98%81%EC%96%B4%20%EC%A0%95%EB%8B%B5.pdf",
+    "questionDownload": "2007학년도 경찰대학 1차 영어 문제지.hwp"
   },
   {
     "id": 2036,

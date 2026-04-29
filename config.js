@@ -107,6 +107,8 @@ export const CURRICULUM_CONFIG = {
       '언어이해': { icon: '📖', bg: '#fff0e8', color: '#c44b00', subs: [] },
       '추리논증': { icon: '🧩', bg: '#eef2ff', color: '#1a4fd6', subs: [] },
       '논술':     { icon: '✍️', bg: '#e8f9ff', color: '#0077a8', subs: [] },
+      // 2008.01 예비시험에만 출제된 도입 문항 (이후 본시험에는 미사용)
+      '도입':     { icon: '🪧', bg: '#f5f3ff', color: '#7c3aed', subs: [] },
     },
     subjectsByTypeGroup: {},
   },
