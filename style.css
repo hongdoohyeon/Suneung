@@ -1962,7 +1962,7 @@ body.is-sheet-open { overflow: hidden; touch-action: none; }
   font-weight: 600;
   letter-spacing: -0.1px;
 }
-.chiplet--ink   { background: var(--ink); color: #fff; }
+.chiplet--ink   { background: var(--surface-2); color: var(--ink-2); }
 .chiplet--type  { background: var(--chip-bg, var(--pop-soft)); color: var(--chip-color, var(--pop)); }
 .chiplet--soft  { background: var(--surface-2); color: var(--ink-3); border: 1px solid var(--line); }
 
