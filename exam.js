@@ -178,6 +178,33 @@ function renderEmpty(container) {
     </div>`;
 }
 
+// ── 탭 (문제 / 정보) — URL ?tab=info 동기화 ────────────────
+function setupTabs() {
+  const tabs  = document.querySelectorAll('.exam-tab');
+  const panes = document.querySelectorAll('.exam-pane');
+  if (tabs.length === 0) return;
+
+  function activate(key) {
+    tabs.forEach(t => {
+      const on = t.dataset.tab === key;
+      t.classList.toggle('is-active', on);
+      t.setAttribute('aria-selected', on ? 'true' : 'false');
+      t.tabIndex = on ? 0 : -1;
+    });
+    panes.forEach(p => { p.hidden = p.dataset.pane !== key; });
+    const url = new URL(location.href);
+    if (key === 'paper') url.searchParams.delete('tab');
+    else url.searchParams.set('tab', key);
+    history.replaceState({}, '', url);
+  }
+
+  tabs.forEach(t => t.addEventListener('click', () => activate(t.dataset.tab)));
+
+  // 초기 탭: URL ?tab=info 면 정보, 아니면 문제(스포 방지)
+  const params = new URLSearchParams(location.search);
+  activate(params.get('tab') === 'info' ? 'info' : 'paper');
+}
+
 // ── KPI (옵셔널 데이터: exam.stats) ────────────────────────
 function renderKpis(exam) {
   const s = exam.stats ?? {};
@@ -235,6 +262,7 @@ async function main() {
   renderHead(exam);
   renderKpis(exam);
   renderQuickAnswers(exam);
+  setupTabs();
 
   // 미리보기 렌더 (문제지만)
   const qViewer = $('previewQViewer'), qMeta = $('previewQMeta');

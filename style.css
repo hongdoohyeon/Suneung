@@ -2004,13 +2004,59 @@ body.is-sheet-open { overflow: hidden; touch-action: none; }
   font-feature-settings: 'tnum' 1;
 }
 
-/* 본문 그리드 — 미리보기(좌) / 사이드 위젯(우) */
+/* 본문 그리드 — 더 이상 사용하지 않음 (탭 기반으로 전환) */
 .exam__grid {
   display: grid;
   grid-template-columns: minmax(0, 560px) minmax(0, 460px);
   gap: 32px;
   align-items: start;
   justify-content: center;
+}
+
+/* 탭 네비 — 문제 / 정보 */
+.exam__tabs {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  border-bottom: 1px solid var(--line);
+  padding: 0 2px;
+  margin-top: -4px;
+}
+.exam-tab {
+  appearance: none;
+  background: none;
+  border: 0;
+  padding: 12px 18px;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ink-4);
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+  transition: color 140ms var(--ease), border-color 140ms var(--ease);
+}
+.exam-tab:hover { color: var(--ink-2); }
+.exam-tab.is-active {
+  color: var(--ink);
+  border-bottom-color: var(--ink);
+}
+.exam-tab:focus-visible { outline: 2px solid var(--pop); outline-offset: 2px; border-radius: 4px; }
+.exam__tabs-hint {
+  margin-left: auto;
+  font-size: 11.5px;
+  color: var(--ink-5);
+}
+
+/* 탭 컨텐츠 — 가운데 정렬, 폭 일관 */
+.exam-pane { display: flex; flex-direction: column; }
+.exam-pane[data-pane="paper"] { align-items: center; }
+.exam-pane[data-pane="info"]  { gap: 18px; }
+.exam-pane[data-pane="info"] > .exam-card,
+.exam-pane[data-pane="info"] > .kpi-row {
+  width: 100%;
+  max-width: 720px;
+  align-self: center;
 }
 
 /* 미리보기 영역 */
@@ -2244,6 +2290,10 @@ body.is-sheet-open { overflow: hidden; touch-action: none; }
   .exam__side { position: static; }
   .exam__title { font-size: 22px; }
   .preview { max-width: none; }
+  .exam__tabs-hint { display: none; }
+  .exam-tab { padding: 10px 14px; font-size: 13.5px; }
+  .exam-pane[data-pane="info"] > .exam-card,
+  .exam-pane[data-pane="info"] > .kpi-row { max-width: none; }
 }
 @media (max-width: 720px) {
   .kpi-row { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
