@@ -78,7 +78,11 @@ html {
   /* 페이지 콘텐츠 양에 따라 스크롤바가 나타났다 사라지면 콘텐츠가
      좌우로 밀리는 현상이 생김 → 항상 스크롤바 자리를 예약해서 고정 */
   scrollbar-gutter: stable;
+  /* 모바일에서 어떤 자식이 viewport를 넘쳐도 가로 스크롤이 생기지 않도록 봉쇄.
+     'clip'은 fixed/sticky 잠금이 'hidden'보다 안전 */
+  overflow-x: clip;
 }
+body { overflow-x: clip; }
 
 body {
   font-family: 'Pretendard Variable', 'Pretendard', 'Apple SD Gothic Neo',
@@ -1726,15 +1730,17 @@ body.is-sheet-open { overflow: hidden; touch-action: none; }
   :root              { --nav-h: 54px; --header-h: 48px; }
   .brand__name       { font-size: 14px; }
 
-  /* 카테고리 탭: 두 줄(title+sub) → 한 줄(title만) */
-  .curriculum-nav__inner { gap: 10px; padding-top: 6px; padding-bottom: 6px; align-items: center; }
-  .nav-group         { flex-direction: row; align-items: center; gap: 4px; }
+  /* 카테고리 탭: 두 줄(title+sub) → 한 줄(title만) + 가로 스크롤 fade 강화 */
+  .curriculum-nav__inner { gap: 8px; padding: 6px 14px 6px 14px; align-items: center; }
+  .nav-group         { flex-direction: row; align-items: center; gap: 2px; }
   .nav-group__label  { display: none; }
   .nav-group__tabs   { gap: 2px; }
-  .nav-tab           { flex-direction: row; padding: 7px 10px; gap: 0; }
+  .nav-tab           { flex-direction: row; padding: 7px 9px; gap: 0; border-radius: 7px; }
   .nav-tab__sub      { display: none; }
-  .nav-tab__title    { font-size: 12.5px; line-height: 1.2; }
-  .nav-sep           { margin: 0; }
+  .nav-tab__title    { font-size: 12px; line-height: 1.2; letter-spacing: -0.2px; }
+  .nav-sep           { margin: 0; height: 14px; align-self: center; }
+  /* 가로 스크롤 끝 fade를 좀 더 두껍게 — 잘림이 아닌 스크롤임을 시각적으로 알림 */
+  .curriculum-nav::after { width: 28px; }
 }
 
 /* 모바일 터치 타겟 44×44 보장 — Apple/Google HIG 권장 */
@@ -1746,10 +1752,17 @@ body.is-sheet-open { overflow: hidden; touch-action: none; }
   .icon-btn           { width: var(--tap); height: var(--tap); }
 }
 
-/* 카드 모바일 — 600px 이하 항상 2열 유지(다운로드 버튼이 가까이 보이도록) */
+/* 카드 모바일 — 600px 이하 항상 2열 유지(다운로드 버튼이 가까이 보이도록).
+   grid container chain(.main → .content → .grid)에 min-width: auto가 남아
+   자식의 min-content가 부모 폭을 키우면 viewport를 넘침. cascade를 강제 차단 */
 @media (max-width: 600px) {
-  .grid              { grid-template-columns: 1fr 1fr; gap: 8px; }
+  .main, .main > *, .content, .content > * { min-width: 0; max-width: 100%; }
+  /* flex 1열 fix — 명시적 50% 폭으로 viewport 봉쇄 (minmax보다 강함) */
+  .grid              { display: flex; flex-wrap: wrap; gap: 8px; }
+  .grid > .card,
+  .grid > .skel-card { flex: 0 0 calc(50% - 4px); width: calc(50% - 4px); min-width: 0; }
   .card              { padding: 12px 12px 10px; border-radius: 10px; }
+  .card__title, .card__sub, .card__meta { min-width: 0; max-width: 100%; }
   .card__meta        { margin-bottom: 8px; }
   .card__title       { font-size: 14.5px; }
   .card__sub         { font-size: 11.5px; margin-top: 3px; }
@@ -1837,11 +1850,11 @@ body.is-sheet-open { overflow: hidden; touch-action: none; }
   .subj-input  { font-size: 16px; }
 }
 
-/* 헤더 — 좁은 화면에서 좌우 패딩과 nav 압축 */
+/* 헤더 — 좁은 화면에서 nav 라벨이 폭을 잠식하는 문제 해결: nav 자체 숨김
+   (등급컷은 index 카드/footer에서 진입) */
 @media (max-width: 600px) {
   .site-header__inner { gap: 8px; }
-  .header-nav         { gap: 2px; }
-  .header-nav a       { padding: 6px 9px; font-size: 12.5px; }
+  .header-nav         { display: none; }
   .icon-btn           { width: 36px; height: 36px; }
 }
 
