@@ -1909,23 +1909,23 @@ body.is-sheet-open { overflow: hidden; touch-action: none; }
 
 /* ── exam 메인 레이아웃 ─────────────────────────────────── */
 .exam {
-  padding-top: 14px;
+  padding-top: 10px;
   padding-bottom: 40px;
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 12px;
 }
 
-/* 뒤로가기 */
-.exam__crumb { display: flex; align-items: center; }
+/* 뒤로가기 — 컴팩트하게 */
+.exam__crumb { display: flex; align-items: center; margin-bottom: -4px; }
 .exam__back {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  padding: 6px 10px 6px 6px;
-  border-radius: 8px;
+  gap: 5px;
+  padding: 4px 8px 4px 4px;
+  border-radius: 6px;
   color: var(--ink-3);
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 500;
   text-decoration: none;
   transition: color 140ms var(--ease), background 140ms var(--ease);
@@ -1940,23 +1940,23 @@ body.is-sheet-open { overflow: hidden; touch-action: none; }
     "chips   actions"
     "title   actions"
     "sub     actions";
-  column-gap: 18px;
-  row-gap: 4px;
-  padding-bottom: 12px;
+  column-gap: 16px;
+  row-gap: 2px;
+  padding-bottom: 10px;
   border-bottom: 1px solid var(--line);
   align-items: center;
 }
 .exam__chips    { grid-area: chips;   display: flex; flex-wrap: wrap; gap: 6px; align-self: end; }
 .exam__title    {
   grid-area: title;
-  font-size: 22px;
+  font-size: 20px;
   font-weight: 700;
-  letter-spacing: -0.4px;
+  letter-spacing: -0.3px;
   line-height: 1.3;
   color: var(--ink);
   margin: 0;
 }
-.exam__sub      { grid-area: sub; font-size: 13px; color: var(--ink-4); margin: 0; align-self: start; }
+.exam__sub      { grid-area: sub; font-size: 12.5px; color: var(--ink-4); margin: 0; align-self: start; }
 .exam__actions  { grid-area: actions; display: flex; flex-wrap: wrap; gap: 8px; align-self: center; }
 
 /* chiplet — exam 페이지 전용 작은 chip */
@@ -2086,7 +2086,7 @@ body.is-sheet-open { overflow: hidden; touch-action: none; }
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 14px 18px;
+  padding: 10px 16px;
   border-bottom: 1px solid var(--line);
 }
 .preview__title { font-size: 14px; font-weight: 700; color: var(--ink); margin: 0; }
@@ -2101,8 +2101,11 @@ body.is-sheet-open { overflow: hidden; touch-action: none; }
 }
 .preview__page {
   display: block;
-  max-width: 100%;
+  width: auto;
   height: auto;
+  max-width: 100%;
+  /* 첫 화면에 한 페이지가 들어오도록 viewport 기준 cap (헤드/탭/preview head 합 약 280px) */
+  max-height: calc(100vh - 280px);
   background: #fff;
   border: 1px solid var(--line);
   border-radius: 6px;

@@ -106,8 +106,8 @@ async function renderPdfPage(pdf, pageNum, dpr, containerWidth) {
   canvas.className = 'preview__page';
   canvas.width  = Math.floor(vp.width * dpr);
   canvas.height = Math.floor(vp.height * dpr);
-  canvas.style.width  = vp.width + 'px';
-  canvas.style.height = vp.height + 'px';
+  // 표시 크기는 CSS(max-width / max-height)에 위임, 비율은 aspect-ratio로 보존
+  canvas.style.aspectRatio = `${vp.width} / ${vp.height}`;
   const ctx = canvas.getContext('2d');
   ctx.scale(dpr, dpr);
 
