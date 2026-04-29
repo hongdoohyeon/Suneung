@@ -66,7 +66,7 @@ export const CURRICULUM_CONFIG = {
     id: '사관',
     label: '사관학교',
     rangeLabel: '사관학교 1차 시험',
-    gradeYearRange: [2014, 2026],
+    gradeYearRange: [2006, 2026],
     availableTypeGroups: ['military'],
     singleType: true,
     subjects: {
@@ -83,7 +83,7 @@ export const CURRICULUM_CONFIG = {
     id: '경찰대',
     label: '경찰대학',
     rangeLabel: '경찰대학 1차 시험',
-    gradeYearRange: [2014, 2026],
+    gradeYearRange: [2007, 2026],
     availableTypeGroups: ['police'],
     singleType: true,
     subjects: {
