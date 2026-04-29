@@ -354,7 +354,7 @@ function renderCards() {
     return;
   }
   empty.style.display = 'none';
-  grid.style.display  = 'grid';
+  grid.style.display  = '';
 
   const totalPages = Math.max(1, Math.ceil(data.length / PAGE_SIZE));
   state.page = Math.min(Math.max(1, state.page), totalPages);
@@ -516,8 +516,8 @@ function resetAll() {
 
 // ── 스켈레톤 ───────────────────────────────────────────────
 function showSkeleton(show) {
-  $('skeleton').style.display      = show ? 'grid' : 'none';
-  $('cardsGrid').style.display     = show ? 'none' : 'grid';
+  $('skeleton').style.display      = show ? '' : 'none';
+  $('cardsGrid').style.display     = show ? 'none' : '';
   $('emptyState').style.display    = 'none';
   $('loadMoreWrap').style.display  = 'none';
 }
