@@ -25,7 +25,9 @@ function applyUrlTab() {
     if (conf.singleType) {
       const tg = conf.availableTypeGroups[0];
       state.typeGroup = tg;
-      state.type      = getGroupConf(tg)?.types[0]?.key ?? 'all';
+      // type은 'all' 유지 — LEET처럼 한 typeGroup 안에 본/예비 등 복수 type이
+      // 있는 경우에도 모두 노출되도록 (단일 type 그룹은 'all'과 동일 효과)
+      state.type      = 'all';
     }
   }
 }
@@ -76,7 +78,7 @@ $('curriculumTabs').addEventListener('click', e => {
   if (conf.singleType) {
     const tg = conf.availableTypeGroups[0];
     state.typeGroup = tg;
-    state.type      = getGroupConf(tg)?.types[0]?.key ?? 'all';
+    state.type      = 'all';
   }
 
   syncUrlTab();
@@ -491,7 +493,7 @@ function resetAll() {
   if (conf.singleType) {
     const tg = conf.availableTypeGroups[0];
     state.typeGroup = tg;
-    state.type      = getGroupConf(tg)?.types[0]?.key ?? 'all';
+    state.type      = 'all';
   }
   renderFilterPanel();
   render();

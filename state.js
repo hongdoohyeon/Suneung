@@ -59,8 +59,9 @@ export function availableGradeYears() {
       })
       .map(e => e.gradeYear)
   )].sort((a, b) => {
-    if (a === 'preliminary') return -1;
-    if (b === 'preliminary') return 1;
+    // 'preliminary'는 가장 옛날 시험으로 간주 → 학년도 칩 끝(오른쪽)에 배치
+    if (a === 'preliminary') return 1;
+    if (b === 'preliminary') return -1;
     return Number(b) - Number(a);
   });
 }
@@ -93,10 +94,10 @@ export function filtered() {
   };
 
   return items.sort((a, b) => {
-    // 학년도: 'preliminary' 최상단, 그 외 숫자 desc
+    // 학년도: 숫자 desc, 'preliminary'는 최하단(가장 옛날)
     if (a.gradeYear !== b.gradeYear) {
-      if (a.gradeYear === 'preliminary') return -1;
-      if (b.gradeYear === 'preliminary') return 1;
+      if (a.gradeYear === 'preliminary') return 1;
+      if (b.gradeYear === 'preliminary') return -1;
       return Number(b.gradeYear) - Number(a.gradeYear);
     }
     if (a.month !== b.month) return b.month - a.month;
