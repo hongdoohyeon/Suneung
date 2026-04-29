@@ -1725,8 +1725,8 @@ body.is-sheet-open { overflow: hidden; touch-action: none; }
   .toolbar__right .count { font-size: 12px; color: var(--ink-5); }
   .toolbar__right .btn-text { padding: 0 8px; font-size: 12.5px; }
 
-  /* 모바일: content 내부 행 간격을 toolbar→카드 쪽으로 더 타이트하게 */
-  .content { gap: 10px; }
+  /* 카테고리↔검색창(.main padding-top)과 검색창↔카드(.content gap)을 동일하게 */
+  .content { gap: 18px; }
 }
 
 /* Sticky 영역 높이 — 모바일 nav 한 줄 압축 (sub 라벨 숨김 → 콘텐츠 overflow 방지) */
