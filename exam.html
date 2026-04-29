@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0a0a0a" />
+  <meta name="description" content="기출 자료 상세 — 미리보기와 빠른정답을 한 페이지에서." />
+
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="apple-touch-icon" href="favicon.svg" />
+
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+  <link rel="stylesheet" as="style" crossorigin
+        href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+
+  <title>자료 상세 — 기출자료실</title>
+  <link rel="stylesheet" href="style.css?v=20260429g" />
+</head>
+<body class="page-exam">
+
+  <!-- ── Header ─────────────────────────────────────────── -->
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a href="index.html" class="brand">
+        <span class="brand__mark" aria-hidden="true">
+          <svg viewBox="0 0 32 32" width="22" height="22" fill="none">
+            <rect width="32" height="32" rx="7" fill="currentColor"/>
+            <rect x="8" y="10.5" width="16" height="2" rx="1" fill="#fff"/>
+            <rect x="8" y="15"   width="16" height="2" rx="1" fill="#fff" opacity=".6"/>
+            <rect x="8" y="19.5" width="10" height="2" rx="1" fill="#fff" opacity=".32"/>
+          </svg>
+        </span>
+        <span class="brand__name">기출자료실</span>
+      </a>
+      <nav class="header-nav">
+        <a href="archive.html">기출 검색</a>
+        <a href="gradecut.html">등급컷</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container exam">
+
+    <!-- 뒤로가기 / 빵 부스러기 -->
+    <nav class="exam__crumb" aria-label="이동">
+      <a href="archive.html" id="backLink" class="exam__back">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+             stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <line x1="19" y1="12" x2="5" y2="12"/>
+          <polyline points="12 19 5 12 12 5"/>
+        </svg>
+        <span>기출 검색으로</span>
+      </a>
+    </nav>
+
+    <!-- 헤드: 학년도/시험/영역 + 다운로드 -->
+    <header class="exam__head" id="examHead">
+      <div class="exam__chips" id="examChips"></div>
+      <h1 class="exam__title" id="examTitle">자료 불러오는 중…</h1>
+      <p  class="exam__sub"   id="examSub"></p>
+      <div class="exam__actions" id="examActions"></div>
+    </header>
+
+    <!-- 본문 그리드: 미리보기 + 사이드 -->
+    <div class="exam__grid">
+
+      <!-- 미리보기 영역: 문제지 + 정답지 -->
+      <section class="exam__previews" aria-label="자료 미리보기">
+
+        <article class="preview" id="previewQ">
+          <header class="preview__head">
+            <h2 class="preview__title">문제지</h2>
+            <span class="preview__meta" id="previewQMeta"></span>
+          </header>
+          <div class="preview__viewer" id="previewQViewer">
+            <div class="preview__skeleton" aria-hidden="true"></div>
+          </div>
+        </article>
+
+        <article class="preview" id="previewA">
+          <header class="preview__head">
+            <h2 class="preview__title">정답지</h2>
+            <span class="preview__meta" id="previewAMeta"></span>
+          </header>
+          <div class="preview__viewer" id="previewAViewer">
+            <div class="preview__skeleton" aria-hidden="true"></div>
+          </div>
+        </article>
+
+      </section>
+
+      <!-- 사이드: 빠른정답 + 정답률 + 해설 슬롯 (블로그처럼 점진 확장) -->
+      <aside class="exam__side">
+
+        <section class="exam-card" id="quickAnswers" hidden>
+          <h3 class="exam-card__title">빠른정답</h3>
+          <div class="exam-card__body" id="quickAnswersBody"></div>
+        </section>
+
+        <section class="exam-card exam-card--placeholder" id="answerRates">
+          <h3 class="exam-card__title">정답별 응답률</h3>
+          <p class="exam-card__sub">집계 데이터 준비 중입니다.</p>
+        </section>
+
+        <section class="exam-card exam-card--placeholder" id="examNotes">
+          <h3 class="exam-card__title">해설 / 코멘트</h3>
+          <p class="exam-card__sub">해설과 코멘트가 추가될 예정입니다.</p>
+        </section>
+
+      </aside>
+
+    </div>
+
+    <!-- 에러/없음 -->
+    <div id="examError" class="exam__error" hidden>
+      <p class="exam__error-title">자료를 찾을 수 없습니다</p>
+      <p class="exam__error-sub">id가 잘못되었거나 데이터가 갱신되지 않은 상태일 수 있어요.</p>
+      <a href="archive.html" class="btn btn--ghost" style="margin-top:12px;">기출 검색으로 돌아가기</a>
+    </div>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>출처 · 한국교육과정평가원 · 법학전문대학원협의회 · 의·치학교육입문검사 관리위원회</p>
+      <p class="site-footer__sub">저작권은 각 발행기관에 있으며 교육 목적으로만 이용할 수 있습니다.</p>
+    </div>
+  </footer>
+
+  <script type="module" src="exam.js"></script>
+</body>
+</html>
