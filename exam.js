@@ -191,7 +191,11 @@ function setupTabs() {
       t.setAttribute('aria-selected', on ? 'true' : 'false');
       t.tabIndex = on ? 0 : -1;
     });
-    panes.forEach(p => { p.hidden = p.dataset.pane !== key; });
+    panes.forEach(p => {
+      const on = p.dataset.pane === key;
+      p.hidden = !on;
+      p.style.display = on ? '' : 'none';   // CSS specificity 충돌 회피용 강제
+    });
     const url = new URL(location.href);
     if (key === 'paper') url.searchParams.delete('tab');
     else url.searchParams.set('tab', key);
