@@ -14,4 +14,7 @@ Thumbs.db
 .env
 .env.local
 data/files/
-scripts/
+
+# Node deps (사전 추출 스크립트용)
+node_modules/
+package-lock.json
