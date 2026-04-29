@@ -677,17 +677,8 @@ a { color: inherit; text-decoration: none; }
   margin-top: auto;
 }
 
-/* available emphasis */
+/* available emphasis — 보더만 살짝 강조 (파란 점은 시각 노이즈라 제거) */
 .card.has-files { border-color: var(--ink-6); }
-.card.has-files::before {
-  content: '';
-  position: absolute;
-  top: 14px; right: 14px;
-  width: 6px; height: 6px;
-  border-radius: 99px;
-  background: var(--pop);
-  box-shadow: 0 0 0 3px var(--pop-soft);
-}
 
 /* ═══ Buttons ═════════════════════════════════════════════ */
 .btn {
@@ -903,15 +894,9 @@ a { color: inherit; text-decoration: none; }
 }
 
 @media (max-width: 600px) {
-  .grid { grid-template-columns: 1fr 1fr; gap: 8px; }
-  .nav-tab { padding: 8px 11px; }
-  .nav-tab__title { font-size: 13px; }
   .container { padding: 0 14px; }
   .filter { grid-template-columns: 1fr; }
-}
-
-@media (max-width: 420px) {
-  .grid { grid-template-columns: 1fr; }
+  /* .grid / .nav-tab 모바일 규칙은 파일 후반 통합 모바일 블록에서 정의 */
 }
 
 /* ╔══════════════════════════════════════════════════════════
@@ -1717,22 +1702,39 @@ body.is-sheet-open { overflow: hidden; touch-action: none; }
   body:has(.filter-toggle-inline) #filterToggle { display: none; }
 }
 
-/* Toolbar — 모바일에서 검색+필터 한 줄, 건수+초기화 아래 줄 */
+/* Toolbar — 모바일 2-row grid: [검색 | 필터버튼] / [건수 + 초기화 (우측)] */
 @media (max-width: 600px) {
-  .toolbar        { flex-wrap: wrap; gap: 10px; }
-  .search         { flex: 1 1 0; min-width: 0; }
-  .toolbar__right { order: 3; width: 100%; justify-content: space-between; }
-}
-@media (max-width: 420px) {
-  .search { flex: 0 0 100%; order: 1; }
-  .filter-toggle-inline { order: 2; width: 100%; justify-content: center; }
-  .toolbar__right { order: 3; }
+  .toolbar {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 8px 8px;
+    align-items: center;
+  }
+  .search                { grid-column: 1; grid-row: 1; min-width: 0; }
+  .filter-toggle-inline  { grid-column: 2; grid-row: 1; width: auto; }
+  .toolbar__right        {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    justify-content: flex-end;
+    gap: 10px;
+  }
+  .toolbar__right .count { font-size: 12.5px; }
 }
 
-/* Sticky 영역 높이 축소 (모바일에서 화면 더 확보) */
+/* Sticky 영역 높이 — 모바일 nav 한 줄 압축 (sub 라벨 숨김 → 콘텐츠 overflow 방지) */
 @media (max-width: 600px) {
-  :root           { --nav-h: 62px; --header-h: 48px; }
-  .brand__name    { font-size: 14px; }
+  :root              { --nav-h: 54px; --header-h: 48px; }
+  .brand__name       { font-size: 14px; }
+
+  /* 카테고리 탭: 두 줄(title+sub) → 한 줄(title만) */
+  .curriculum-nav__inner { gap: 10px; padding-top: 6px; padding-bottom: 6px; align-items: center; }
+  .nav-group         { flex-direction: row; align-items: center; gap: 4px; }
+  .nav-group__label  { display: none; }
+  .nav-group__tabs   { gap: 2px; }
+  .nav-tab           { flex-direction: row; padding: 7px 10px; gap: 0; }
+  .nav-tab__sub      { display: none; }
+  .nav-tab__title    { font-size: 12.5px; line-height: 1.2; }
+  .nav-sep           { margin: 0; }
 }
 
 /* 모바일 터치 타겟 44×44 보장 — Apple/Google HIG 권장 */
@@ -1744,9 +1746,24 @@ body.is-sheet-open { overflow: hidden; touch-action: none; }
   .icon-btn           { width: var(--tap); height: var(--tap); }
 }
 
-/* 카드 min-width 축소 — 좁은 화면에서 찌그러지지 않게 */
+/* 카드 모바일 — 600px 이하 항상 2열 유지(다운로드 버튼이 가까이 보이도록) */
 @media (max-width: 600px) {
-  .grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); }
+  .grid              { grid-template-columns: 1fr 1fr; gap: 8px; }
+  .card              { padding: 12px 12px 10px; border-radius: 10px; }
+  .card__meta        { margin-bottom: 8px; }
+  .card__title       { font-size: 14.5px; }
+  .card__sub         { font-size: 11.5px; margin-top: 3px; }
+  .card__divider     { margin: 10px 0 8px; }
+  .card__actions     { gap: 4px; }
+  .card__actions .btn { font-size: 11.5px; padding: 0 8px; min-height: 38px; height: 38px; }
+}
+
+/* 극소 화면 — 카드 1열로 가서 화면이 휑해지는 것 방지: 2열 유지 */
+@media (max-width: 360px) {
+  .grid          { gap: 6px; }
+  .card          { padding: 10px 10px 9px; }
+  .card__title   { font-size: 13.5px; }
+  .card__actions .btn { padding: 0 6px; }
 }
 
 /* ╔══════════════════════════════════════════════════════════
