@@ -877,7 +877,7 @@ a { color: inherit; text-decoration: none; }
   .main {
     grid-template-columns: 1fr;
     gap: 14px;
-    padding-top: 18px;
+    padding-top: 24px;
     padding-bottom: 40px;
   }
 
@@ -1726,7 +1726,7 @@ body.is-sheet-open { overflow: hidden; touch-action: none; }
   .toolbar__right .btn-text { padding: 0 8px; font-size: 12.5px; }
 
   /* 카테고리↔검색창(.main padding-top)과 검색창↔카드(.content gap)을 동일하게 */
-  .content { gap: 18px; }
+  .content { gap: 24px; }
 }
 
 /* Sticky 영역 높이 — 모바일 nav 한 줄 압축 (sub 라벨 숨김 → 콘텐츠 overflow 방지) */
