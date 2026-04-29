@@ -421,8 +421,10 @@ function cardHTML(exam, idx = 0) {
     : '';
 
   const delay = `${Math.min(idx * 28, 220)}ms`;
+  const ariaLabel = `${yearPart} ${title} 상세 보기`;
   return `
     <article class="card${hasFile ? ' has-files' : ''}" style="--subject-color:${conf.color};animation-delay:${delay};">
+      <a class="card__link" href="exam.html?id=${exam.id}" aria-label="${escAttr(ariaLabel)}"></a>
       <div class="card__meta">${yearChip}${typeChip}</div>
       <h4 class="card__title" title="${escAttr(title)}">${escHtml(title)}</h4>
       <p class="card__sub">${escHtml(subtitle)}</p>
