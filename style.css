@@ -2050,6 +2050,7 @@ body.is-sheet-open { overflow: hidden; touch-action: none; }
 
 /* 탭 컨텐츠 — 가운데 정렬, 폭 일관 */
 .exam-pane { display: flex; flex-direction: column; }
+.exam-pane[hidden] { display: none; }   /* author display:flex 가 UA hidden 을 덮어쓰는 것 방지 */
 .exam-pane[data-pane="paper"] { align-items: center; }
 .exam-pane[data-pane="info"]  { gap: 18px; }
 .exam-pane[data-pane="info"] > .exam-card,
