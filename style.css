@@ -1909,11 +1909,11 @@ body.is-sheet-open { overflow: hidden; touch-action: none; }
 
 /* ── exam 메인 레이아웃 ─────────────────────────────────── */
 .exam {
-  padding-top: 24px;
-  padding-bottom: 64px;
+  padding-top: 14px;
+  padding-bottom: 40px;
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 16px;
 }
 
 /* 뒤로가기 */
@@ -1932,29 +1932,32 @@ body.is-sheet-open { overflow: hidden; touch-action: none; }
 }
 .exam__back:hover { color: var(--ink); background: var(--surface-2); }
 
-/* 헤드 */
+/* 헤드 — 2열 grid: 좌(칩·제목·부제) / 우(다운로드 버튼) */
 .exam__head {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  padding-bottom: 22px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-areas:
+    "chips   actions"
+    "title   actions"
+    "sub     actions";
+  column-gap: 18px;
+  row-gap: 4px;
+  padding-bottom: 12px;
   border-bottom: 1px solid var(--line);
+  align-items: center;
 }
-.exam__chips { display: flex; flex-wrap: wrap; gap: 6px; }
-.exam__title {
-  font-size: 26px;
+.exam__chips    { grid-area: chips;   display: flex; flex-wrap: wrap; gap: 6px; align-self: end; }
+.exam__title    {
+  grid-area: title;
+  font-size: 22px;
   font-weight: 700;
   letter-spacing: -0.4px;
   line-height: 1.3;
   color: var(--ink);
   margin: 0;
 }
-.exam__sub {
-  font-size: 13px;
-  color: var(--ink-4);
-  margin: 0;
-}
-.exam__actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 6px; }
+.exam__sub      { grid-area: sub; font-size: 13px; color: var(--ink-4); margin: 0; align-self: start; }
+.exam__actions  { grid-area: actions; display: flex; flex-wrap: wrap; gap: 8px; align-self: center; }
 
 /* chiplet — exam 페이지 전용 작은 chip */
 .chiplet {
@@ -2302,9 +2305,16 @@ body.is-sheet-open { overflow: hidden; touch-action: none; }
   .kpi__value { font-size: 18px; }
 }
 @media (max-width: 600px) {
-  .exam { padding-top: 14px; gap: 14px; }
-  .exam__head { padding-bottom: 14px; gap: 10px; }
+  .exam { padding-top: 12px; gap: 14px; }
+  /* 좁은 화면에서는 헤드를 다시 세로 스택으로 — 다운로드 버튼이 옆에 붙으면 좁다 */
+  .exam__head {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-bottom: 12px;
+  }
   .exam__title { font-size: 20px; }
+  .exam__actions { margin-top: 2px; }
   .exam__actions .btn { flex: 1 1 0; min-height: var(--tap); }
 
   .preview__head    { padding: 11px 14px; }
