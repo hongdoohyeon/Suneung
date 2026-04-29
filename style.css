@@ -1971,12 +1971,46 @@ body.is-sheet-open { overflow: hidden; touch-action: none; }
 .chiplet--type  { background: var(--chip-bg, var(--pop-soft)); color: var(--chip-color, var(--pop)); }
 .chiplet--soft  { background: var(--surface-2); color: var(--ink-3); border: 1px solid var(--line); }
 
-/* 본문 그리드 — 미리보기 / 사이드 */
+/* KPI 메트릭 행 — 대시보드 스타일 */
+.kpi-row {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+.kpi {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 14px 16px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  transition: border-color 140ms var(--ease);
+}
+.kpi:hover { border-color: var(--ink-6); }
+.kpi__label {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--ink-4);
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+}
+.kpi__value {
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.4px;
+  color: var(--ink);
+  line-height: 1.1;
+  font-feature-settings: 'tnum' 1;
+}
+
+/* 본문 그리드 — 미리보기(좌) / 사이드 위젯(우) */
 .exam__grid {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 320px;
-  gap: 28px;
+  grid-template-columns: minmax(0, 560px) minmax(0, 460px);
+  gap: 32px;
   align-items: start;
+  justify-content: center;
 }
 
 /* 미리보기 영역 */
@@ -2096,17 +2130,32 @@ body.is-sheet-open { overflow: hidden; touch-action: none; }
   background: var(--surface);
   border: 1px solid var(--line);
   border-radius: 12px;
-  padding: 16px 16px 18px;
+  padding: 16px 18px 18px;
+}
+.exam-card__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
 }
 .exam-card__title {
   font-size: 13px;
   font-weight: 700;
   letter-spacing: -0.1px;
   color: var(--ink);
-  margin: 0 0 12px;
+  margin: 0;
 }
+.exam-card__hint {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--ink-5);
+  background: var(--surface-2);
+  padding: 3px 9px;
+  border-radius: 99px;
+}
+.exam-card__body { display: flex; flex-direction: column; gap: 12px; }
 .exam-card__sub {
-  font-size: 12.5px;
+  font-size: 12px;
   color: var(--ink-5);
   margin: 0;
   line-height: 1.55;
@@ -2114,6 +2163,45 @@ body.is-sheet-open { overflow: hidden; touch-action: none; }
 .exam-card--placeholder {
   background: var(--surface-2);
   border-style: dashed;
+}
+
+/* 정답별 응답률 차트 (placeholder 가능) */
+.rate-chart {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.rate-chart--placeholder { opacity: 0.6; }
+.rate-bar {
+  display: grid;
+  grid-template-columns: 14px 1fr 28px;
+  align-items: center;
+  gap: 10px;
+}
+.rate-bar__num {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--ink-4);
+  text-align: center;
+}
+.rate-bar__track {
+  height: 6px;
+  background: var(--surface-2);
+  border-radius: 99px;
+  overflow: hidden;
+}
+.rate-bar__fill {
+  display: block;
+  height: 100%;
+  background: var(--ink-5);
+  border-radius: inherit;
+  transition: width 360ms var(--ease-out);
+}
+.rate-bar__pct {
+  font-size: 11px;
+  color: var(--ink-5);
+  text-align: right;
+  font-feature-settings: 'tnum' 1;
 }
 
 /* 빠른정답 grid */
@@ -2148,9 +2236,19 @@ body.is-sheet-open { overflow: hidden; touch-action: none; }
 /* ── exam 모바일 ─────────────────────────────────────────── */
 @media (max-width: 960px) {
   .exam { padding-top: 16px; padding-bottom: 40px; gap: 18px; }
-  .exam__grid { grid-template-columns: 1fr; gap: 16px; }
+  .exam__grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    justify-content: stretch;
+  }
   .exam__side { position: static; }
   .exam__title { font-size: 22px; }
+  .preview { max-width: none; }
+}
+@media (max-width: 720px) {
+  .kpi-row { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+  .kpi { padding: 12px 14px 13px; gap: 6px; }
+  .kpi__value { font-size: 18px; }
 }
 @media (max-width: 600px) {
   .exam { padding-top: 14px; gap: 14px; }
@@ -2166,4 +2264,6 @@ body.is-sheet-open { overflow: hidden; touch-action: none; }
   .qa-grid { gap: 4px; }
   .qa-cell { padding: 6px 2px; }
   .qa-cell__ans { font-size: 13px; }
+
+  .exam-card { padding: 14px 14px 16px; }
 }

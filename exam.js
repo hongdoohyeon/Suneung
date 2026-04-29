@@ -178,6 +178,22 @@ function renderEmpty(container) {
     </div>`;
 }
 
+// ── KPI (옵셔널 데이터: exam.stats) ────────────────────────
+function renderKpis(exam) {
+  const s = exam.stats ?? {};
+  const set = (id, raw, suffix = '') => {
+    const el = $(id);
+    if (!el) return;
+    if (raw === null || raw === undefined || raw === '') { el.textContent = '—'; return; }
+    const text = typeof raw === 'number' ? raw.toLocaleString('ko-KR') : String(raw);
+    el.textContent = text + suffix;
+  };
+  set('kpiQuestions',  s.totalQuestions);
+  set('kpiExaminees',  s.examinees, s.examinees ? '명' : '');
+  set('kpiAvgRate',    s.avgRate,   s.avgRate   ? '%'  : '');
+  set('kpi1stCut',     s.firstCut,  s.firstCut  ? '점' : '');
+}
+
 // ── 빠른정답 (옵셔널 데이터: exam.answers 배열) ────────────
 function renderQuickAnswers(exam) {
   const wrap = $('quickAnswers');
@@ -217,6 +233,7 @@ async function main() {
   if (!exam) { showError(); return; }
 
   renderHead(exam);
+  renderKpis(exam);
   renderQuickAnswers(exam);
 
   // 미리보기 렌더 (문제지만)
