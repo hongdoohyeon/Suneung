@@ -1410,8 +1410,8 @@
     "subject": "언어이해",
     "subSubject": null,
     "solutionUrl": null,
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/leet-v1/2026_main_verbal_q.pdf?name=2026%ED%95%99%EB%85%84%EB%8F%84%20LEET%20%EC%96%B8%EC%96%B4%EC%9D%B4%ED%95%B4%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
-    "answerUrl": "https://suneung-files.hdh061224.workers.dev/leet-v1/2026_main_verbal_a.pdf?name=2026%ED%95%99%EB%85%84%EB%8F%84%20LEET%20%EC%96%B8%EC%96%B4%EC%9D%B4%ED%95%B4%20%EC%A0%95%EB%8B%B5.pdf",
+    "questionUrl": "pdfs_leet/2026/main/2026_main_verbal_q.pdf",
+    "answerUrl": "pdfs_leet/2026/main/2026_main_verbal_a.pdf",
     "questionDownload": "2026학년도 LEET 언어이해 문제지.pdf",
     "answerDownload": "2026학년도 LEET 언어이해 정답.pdf"
   },
@@ -1496,8 +1496,8 @@
     "subject": "추리논증",
     "subSubject": null,
     "solutionUrl": null,
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/leet-v1/2026_main_reasoning_q.pdf?name=2026%ED%95%99%EB%85%84%EB%8F%84%20LEET%20%EC%B6%94%EB%A6%AC%EB%85%BC%EC%A6%9D%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
-    "answerUrl": "https://suneung-files.hdh061224.workers.dev/leet-v1/2026_main_reasoning_a.pdf?name=2026%ED%95%99%EB%85%84%EB%8F%84%20LEET%20%EC%B6%94%EB%A6%AC%EB%85%BC%EC%A6%9D%20%EC%A0%95%EB%8B%B5.pdf",
+    "questionUrl": "pdfs_leet/2026/main/2026_main_reasoning_q.pdf",
+    "answerUrl": "pdfs_leet/2026/main/2026_main_reasoning_a.pdf",
     "questionDownload": "2026학년도 LEET 추리논증 문제지.pdf",
     "answerDownload": "2026학년도 LEET 추리논증 정답.pdf"
   },
@@ -1512,7 +1512,7 @@
     "subject": "논술",
     "subSubject": null,
     "solutionUrl": null,
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/leet-v1/2026_main_essay_q.pdf?name=2026%ED%95%99%EB%85%84%EB%8F%84%20LEET%20%EB%85%BC%EC%88%A0%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
+    "questionUrl": "pdfs_leet/2026/main/2026_main_essay_q.pdf",
     "answerUrl": null,
     "questionDownload": "2026학년도 LEET 논술 문제지.pdf",
     "answerDownload": null
@@ -3502,8 +3502,8 @@
     "subject": "언어이해",
     "subSubject": null,
     "solutionUrl": null,
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/leet-v1/2025_main_verbal_q.pdf?name=2025%ED%95%99%EB%85%84%EB%8F%84%20LEET%20%EC%96%B8%EC%96%B4%EC%9D%B4%ED%95%B4%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
-    "answerUrl": "https://suneung-files.hdh061224.workers.dev/leet-v1/2025_main_verbal_a.pdf?name=2025%ED%95%99%EB%85%84%EB%8F%84%20LEET%20%EC%96%B8%EC%96%B4%EC%9D%B4%ED%95%B4%20%EC%A0%95%EB%8B%B5.pdf",
+    "questionUrl": "pdfs_leet/2025/main/2025_main_verbal_q.pdf",
+    "answerUrl": "pdfs_leet/2025/main/2025_main_verbal_a.pdf",
     "questionDownload": "2025학년도 LEET 언어이해 문제지.pdf",
     "answerDownload": "2025학년도 LEET 언어이해 정답.pdf"
   },
@@ -3588,8 +3588,8 @@
     "subject": "추리논증",
     "subSubject": null,
     "solutionUrl": null,
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/leet-v1/2025_main_reasoning_q.pdf?name=2025%ED%95%99%EB%85%84%EB%8F%84%20LEET%20%EC%B6%94%EB%A6%AC%EB%85%BC%EC%A6%9D%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
-    "answerUrl": "https://suneung-files.hdh061224.workers.dev/leet-v1/2025_main_reasoning_a.pdf?name=2025%ED%95%99%EB%85%84%EB%8F%84%20LEET%20%EC%B6%94%EB%A6%AC%EB%85%BC%EC%A6%9D%20%EC%A0%95%EB%8B%B5.pdf",
+    "questionUrl": "pdfs_leet/2025/main/2025_main_reasoning_q.pdf",
+    "answerUrl": "pdfs_leet/2025/main/2025_main_reasoning_a.pdf",
     "questionDownload": "2025학년도 LEET 추리논증 문제지.pdf",
     "answerDownload": "2025학년도 LEET 추리논증 정답.pdf"
   },
@@ -3604,7 +3604,7 @@
     "subject": "논술",
     "subSubject": null,
     "solutionUrl": null,
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/leet-v1/2025_main_essay_q.pdf?name=2025%ED%95%99%EB%85%84%EB%8F%84%20LEET%20%EB%85%BC%EC%88%A0%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
+    "questionUrl": "pdfs_leet/2025/main/2025_main_essay_q.pdf",
     "answerUrl": null,
     "questionDownload": "2025학년도 LEET 논술 문제지.pdf",
     "answerDownload": null
@@ -5594,8 +5594,8 @@
     "subject": "언어이해",
     "subSubject": null,
     "solutionUrl": null,
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/leet-v1/2024_main_verbal_q.pdf?name=2024%ED%95%99%EB%85%84%EB%8F%84%20LEET%20%EC%96%B8%EC%96%B4%EC%9D%B4%ED%95%B4%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
-    "answerUrl": "https://suneung-files.hdh061224.workers.dev/leet-v1/2024_main_verbal_a.pdf?name=2024%ED%95%99%EB%85%84%EB%8F%84%20LEET%20%EC%96%B8%EC%96%B4%EC%9D%B4%ED%95%B4%20%EC%A0%95%EB%8B%B5.pdf",
+    "questionUrl": "pdfs_leet/2024/main/2024_main_verbal_q.pdf",
+    "answerUrl": "pdfs_leet/2024/main/2024_main_verbal_a.pdf",
     "questionDownload": "2024학년도 LEET 언어이해 문제지.pdf",
     "answerDownload": "2024학년도 LEET 언어이해 정답.pdf"
   },
@@ -5680,8 +5680,8 @@
     "subject": "추리논증",
     "subSubject": null,
     "solutionUrl": null,
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/leet-v1/2024_main_reasoning_q.pdf?name=2024%ED%95%99%EB%85%84%EB%8F%84%20LEET%20%EC%B6%94%EB%A6%AC%EB%85%BC%EC%A6%9D%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
-    "answerUrl": "https://suneung-files.hdh061224.workers.dev/leet-v1/2024_main_reasoning_a.pdf?name=2024%ED%95%99%EB%85%84%EB%8F%84%20LEET%20%EC%B6%94%EB%A6%AC%EB%85%BC%EC%A6%9D%20%EC%A0%95%EB%8B%B5.pdf",
+    "questionUrl": "pdfs_leet/2024/main/2024_main_reasoning_q.pdf",
+    "answerUrl": "pdfs_leet/2024/main/2024_main_reasoning_a.pdf",
     "questionDownload": "2024학년도 LEET 추리논증 문제지.pdf",
     "answerDownload": "2024학년도 LEET 추리논증 정답.pdf"
   },
@@ -5696,7 +5696,7 @@
     "subject": "논술",
     "subSubject": null,
     "solutionUrl": null,
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/leet-v1/2024_main_essay_q.pdf?name=2024%ED%95%99%EB%85%84%EB%8F%84%20LEET%20%EB%85%BC%EC%88%A0%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
+    "questionUrl": "pdfs_leet/2024/main/2024_main_essay_q.pdf",
     "answerUrl": null,
     "questionDownload": "2024학년도 LEET 논술 문제지.pdf",
     "answerDownload": null
@@ -7686,8 +7686,8 @@
     "subject": "언어이해",
     "subSubject": null,
     "solutionUrl": null,
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/leet-v1/2023_main_verbal_q.pdf?name=2023%ED%95%99%EB%85%84%EB%8F%84%20LEET%20%EC%96%B8%EC%96%B4%EC%9D%B4%ED%95%B4%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
-    "answerUrl": "https://suneung-files.hdh061224.workers.dev/leet-v1/2023_main_verbal_a.pdf?name=2023%ED%95%99%EB%85%84%EB%8F%84%20LEET%20%EC%96%B8%EC%96%B4%EC%9D%B4%ED%95%B4%20%EC%A0%95%EB%8B%B5.pdf",
+    "questionUrl": "pdfs_leet/2023/main/2023_main_verbal_q.pdf",
+    "answerUrl": "pdfs_leet/2023/main/2023_main_verbal_a.pdf",
     "questionDownload": "2023학년도 LEET 언어이해 문제지.pdf",
     "answerDownload": "2023학년도 LEET 언어이해 정답.pdf"
   },
@@ -7772,8 +7772,8 @@
     "subject": "추리논증",
     "subSubject": null,
     "solutionUrl": null,
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/leet-v1/2023_main_reasoning_q.pdf?name=2023%ED%95%99%EB%85%84%EB%8F%84%20LEET%20%EC%B6%94%EB%A6%AC%EB%85%BC%EC%A6%9D%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
-    "answerUrl": "https://suneung-files.hdh061224.workers.dev/leet-v1/2023_main_reasoning_a.pdf?name=2023%ED%95%99%EB%85%84%EB%8F%84%20LEET%20%EC%B6%94%EB%A6%AC%EB%85%BC%EC%A6%9D%20%EC%A0%95%EB%8B%B5.pdf",
+    "questionUrl": "pdfs_leet/2023/main/2023_main_reasoning_q.pdf",
+    "answerUrl": "pdfs_leet/2023/main/2023_main_reasoning_a.pdf",
     "questionDownload": "2023학년도 LEET 추리논증 문제지.pdf",
     "answerDownload": "2023학년도 LEET 추리논증 정답.pdf"
   },
@@ -7788,7 +7788,7 @@
     "subject": "논술",
     "subSubject": null,
     "solutionUrl": null,
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/leet-v1/2023_main_essay_q.pdf?name=2023%ED%95%99%EB%85%84%EB%8F%84%20LEET%20%EB%85%BC%EC%88%A0%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
+    "questionUrl": "pdfs_leet/2023/main/2023_main_essay_q.pdf",
     "answerUrl": null,
     "questionDownload": "2023학년도 LEET 논술 문제지.pdf",
     "answerDownload": null
@@ -10044,8 +10044,8 @@
     "subject": "언어이해",
     "subSubject": null,
     "solutionUrl": null,
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/leet-v1/2022_main_verbal_q.pdf?name=2022%ED%95%99%EB%85%84%EB%8F%84%20LEET%20%EC%96%B8%EC%96%B4%EC%9D%B4%ED%95%B4%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
-    "answerUrl": "https://suneung-files.hdh061224.workers.dev/leet-v1/2022_main_verbal_a.pdf?name=2022%ED%95%99%EB%85%84%EB%8F%84%20LEET%20%EC%96%B8%EC%96%B4%EC%9D%B4%ED%95%B4%20%EC%A0%95%EB%8B%B5.pdf",
+    "questionUrl": "pdfs_leet/2022/main/2022_main_verbal_q.pdf",
+    "answerUrl": "pdfs_leet/2022/main/2022_main_verbal_a.pdf",
     "questionDownload": "2022학년도 LEET 언어이해 문제지.pdf",
     "answerDownload": "2022학년도 LEET 언어이해 정답.pdf"
   },
@@ -10130,8 +10130,8 @@
     "subject": "추리논증",
     "subSubject": null,
     "solutionUrl": null,
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/leet-v1/2022_main_reasoning_q.pdf?name=2022%ED%95%99%EB%85%84%EB%8F%84%20LEET%20%EC%B6%94%EB%A6%AC%EB%85%BC%EC%A6%9D%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
-    "answerUrl": "https://suneung-files.hdh061224.workers.dev/leet-v1/2022_main_reasoning_a.pdf?name=2022%ED%95%99%EB%85%84%EB%8F%84%20LEET%20%EC%B6%94%EB%A6%AC%EB%85%BC%EC%A6%9D%20%EC%A0%95%EB%8B%B5.pdf",
+    "questionUrl": "pdfs_leet/2022/main/2022_main_reasoning_q.pdf",
+    "answerUrl": "pdfs_leet/2022/main/2022_main_reasoning_a.pdf",
     "questionDownload": "2022학년도 LEET 추리논증 문제지.pdf",
     "answerDownload": "2022학년도 LEET 추리논증 정답.pdf"
   },
@@ -10146,7 +10146,7 @@
     "subject": "논술",
     "subSubject": null,
     "solutionUrl": null,
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/leet-v1/2022_main_essay_q.pdf?name=2022%ED%95%99%EB%85%84%EB%8F%84%20LEET%20%EB%85%BC%EC%88%A0%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
+    "questionUrl": "pdfs_leet/2022/main/2022_main_essay_q.pdf",
     "answerUrl": null,
     "questionDownload": "2022학년도 LEET 논술 문제지.pdf",
     "answerDownload": null
@@ -12276,10 +12276,10 @@
     "subject": "언어이해",
     "subSubject": null,
     "solutionUrl": null,
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/leet-v1/2021_main_verbal_q.pdf?name=2021%ED%95%99%EB%85%84%EB%8F%84%20LEET%20%EC%96%B8%EC%96%B4%EC%9D%B4%ED%95%B4%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
-    "answerUrl": "https://suneung-files.hdh061224.workers.dev/leet-v1/2021_main_verbal_a.pdf?name=2021%ED%95%99%EB%85%84%EB%8F%84%20LEET%20%EC%96%B8%EC%96%B4%EC%9D%B4%ED%95%B4%20%EC%A0%95%EB%8B%B5.pdf",
-    "questionDownload": "2021학년도 LEET 언어이해 문제지.pdf",
-    "answerDownload": "2021학년도 LEET 언어이해 정답.pdf"
+    "questionUrl": "pdfs_leet/2021/main/2021_main_verbal_q.hwp",
+    "answerUrl": "pdfs_leet/2021/main/2021_main_verbal_a.hwp",
+    "questionDownload": "2021학년도 LEET 언어이해 문제지.hwp",
+    "answerDownload": "2021학년도 LEET 언어이해 정답.hwp"
   },
   {
     "id": 876,
@@ -12320,8 +12320,8 @@
     "subject": "수학",
     "subSubject": "가형",
     "solutionUrl": null,
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2021_main_math_가_q.pdf?name=2021%ED%95%99%EB%85%84%EB%8F%84%20%EC%82%AC%EA%B4%80%ED%95%99%EA%B5%90%201%EC%B0%A8%20%EC%88%98%ED%95%99%28%EA%B0%80%ED%98%95%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
-    "answerUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2021_main_math_가_a.pdf?name=2021%ED%95%99%EB%85%84%EB%8F%84%20%EC%82%AC%EA%B4%80%ED%95%99%EA%B5%90%201%EC%B0%A8%20%EC%88%98%ED%95%99%28%EA%B0%80%ED%98%95%29%20%EC%A0%95%EB%8B%B5.pdf"
+    "questionUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2021_main_math_ga_q.pdf?name=2021%ED%95%99%EB%85%84%EB%8F%84%20%EC%82%AC%EA%B4%80%ED%95%99%EA%B5%90%201%EC%B0%A8%20%EC%88%98%ED%95%99%28%EA%B0%80%ED%98%95%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2021_main_math_ga_a.pdf?name=2021%ED%95%99%EB%85%84%EB%8F%84%20%EC%82%AC%EA%B4%80%ED%95%99%EA%B5%90%201%EC%B0%A8%20%EC%88%98%ED%95%99%28%EA%B0%80%ED%98%95%29%20%EC%A0%95%EB%8B%B5.pdf"
   },
   {
     "id": 879,
@@ -12348,8 +12348,8 @@
     "subject": "수학",
     "subSubject": "나형",
     "solutionUrl": null,
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2021_main_math_나_q.pdf?name=2021%ED%95%99%EB%85%84%EB%8F%84%20%EC%82%AC%EA%B4%80%ED%95%99%EA%B5%90%201%EC%B0%A8%20%EC%88%98%ED%95%99%28%EB%82%98%ED%98%95%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
-    "answerUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2021_main_math_나_a.pdf?name=2021%ED%95%99%EB%85%84%EB%8F%84%20%EC%82%AC%EA%B4%80%ED%95%99%EA%B5%90%201%EC%B0%A8%20%EC%88%98%ED%95%99%28%EB%82%98%ED%98%95%29%20%EC%A0%95%EB%8B%B5.pdf"
+    "questionUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2021_main_math_na_q.pdf?name=2021%ED%95%99%EB%85%84%EB%8F%84%20%EC%82%AC%EA%B4%80%ED%95%99%EA%B5%90%201%EC%B0%A8%20%EC%88%98%ED%95%99%28%EB%82%98%ED%98%95%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2021_main_math_na_a.pdf?name=2021%ED%95%99%EB%85%84%EB%8F%84%20%EC%82%AC%EA%B4%80%ED%95%99%EA%B5%90%201%EC%B0%A8%20%EC%88%98%ED%95%99%28%EB%82%98%ED%98%95%29%20%EC%A0%95%EB%8B%B5.pdf"
   },
   {
     "id": 881,
@@ -12362,10 +12362,10 @@
     "subject": "추리논증",
     "subSubject": null,
     "solutionUrl": null,
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/leet-v1/2021_main_reasoning_q.pdf?name=2021%ED%95%99%EB%85%84%EB%8F%84%20LEET%20%EC%B6%94%EB%A6%AC%EB%85%BC%EC%A6%9D%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
-    "answerUrl": "https://suneung-files.hdh061224.workers.dev/leet-v1/2021_main_reasoning_a.pdf?name=2021%ED%95%99%EB%85%84%EB%8F%84%20LEET%20%EC%B6%94%EB%A6%AC%EB%85%BC%EC%A6%9D%20%EC%A0%95%EB%8B%B5.pdf",
-    "questionDownload": "2021학년도 LEET 추리논증 문제지.pdf",
-    "answerDownload": "2021학년도 LEET 추리논증 정답.pdf"
+    "questionUrl": "pdfs_leet/2021/main/2021_main_reasoning_q.hwp",
+    "answerUrl": "pdfs_leet/2021/main/2021_main_reasoning_a.hwp",
+    "questionDownload": "2021학년도 LEET 추리논증 문제지.hwp",
+    "answerDownload": "2021학년도 LEET 추리논증 정답.hwp"
   },
   {
     "id": 882,
@@ -12378,9 +12378,9 @@
     "subject": "논술",
     "subSubject": null,
     "solutionUrl": null,
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/leet-v1/2021_main_essay_q.pdf?name=2021%ED%95%99%EB%85%84%EB%8F%84%20LEET%20%EB%85%BC%EC%88%A0%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
+    "questionUrl": "pdfs_leet/2021/main/2021_main_essay_q.hwp",
     "answerUrl": null,
-    "questionDownload": "2021학년도 LEET 논술 문제지.pdf",
+    "questionDownload": "2021학년도 LEET 논술 문제지.hwp",
     "answerDownload": null
   },
   {
@@ -14144,10 +14144,10 @@
     "subject": "언어이해",
     "subSubject": null,
     "solutionUrl": null,
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/leet-v1/2020_main_verbal_q.pdf?name=2020%ED%95%99%EB%85%84%EB%8F%84%20LEET%20%EC%96%B8%EC%96%B4%EC%9D%B4%ED%95%B4%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
-    "answerUrl": "https://suneung-files.hdh061224.workers.dev/leet-v1/2020_main_verbal_a.pdf?name=2020%ED%95%99%EB%85%84%EB%8F%84%20LEET%20%EC%96%B8%EC%96%B4%EC%9D%B4%ED%95%B4%20%EC%A0%95%EB%8B%B5.pdf",
-    "questionDownload": "2020학년도 LEET 언어이해 문제지.pdf",
-    "answerDownload": "2020학년도 LEET 언어이해 정답.pdf"
+    "questionUrl": "pdfs_leet/2020/main/2020_main_verbal_q.hwp",
+    "answerUrl": "pdfs_leet/2020/main/2020_main_verbal_a.hwp",
+    "questionDownload": "2020학년도 LEET 언어이해 문제지.hwp",
+    "answerDownload": "2020학년도 LEET 언어이해 정답.hwp"
   },
   {
     "id": 1009,
@@ -14188,8 +14188,8 @@
     "subject": "수학",
     "subSubject": "가형",
     "solutionUrl": null,
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2020_main_math_가_q.pdf?name=2020%ED%95%99%EB%85%84%EB%8F%84%20%EC%82%AC%EA%B4%80%ED%95%99%EA%B5%90%201%EC%B0%A8%20%EC%88%98%ED%95%99%28%EA%B0%80%ED%98%95%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
-    "answerUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2020_main_math_가_a.pdf?name=2020%ED%95%99%EB%85%84%EB%8F%84%20%EC%82%AC%EA%B4%80%ED%95%99%EA%B5%90%201%EC%B0%A8%20%EC%88%98%ED%95%99%28%EA%B0%80%ED%98%95%29%20%EC%A0%95%EB%8B%B5.pdf"
+    "questionUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2020_main_math_ga_q.pdf?name=2020%ED%95%99%EB%85%84%EB%8F%84%20%EC%82%AC%EA%B4%80%ED%95%99%EA%B5%90%201%EC%B0%A8%20%EC%88%98%ED%95%99%28%EA%B0%80%ED%98%95%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2020_main_math_ga_a.pdf?name=2020%ED%95%99%EB%85%84%EB%8F%84%20%EC%82%AC%EA%B4%80%ED%95%99%EA%B5%90%201%EC%B0%A8%20%EC%88%98%ED%95%99%28%EA%B0%80%ED%98%95%29%20%EC%A0%95%EB%8B%B5.pdf"
   },
   {
     "id": 1012,
@@ -14216,8 +14216,8 @@
     "subject": "수학",
     "subSubject": "나형",
     "solutionUrl": null,
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2020_main_math_나_q.pdf?name=2020%ED%95%99%EB%85%84%EB%8F%84%20%EC%82%AC%EA%B4%80%ED%95%99%EA%B5%90%201%EC%B0%A8%20%EC%88%98%ED%95%99%28%EB%82%98%ED%98%95%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
-    "answerUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2020_main_math_나_a.pdf?name=2020%ED%95%99%EB%85%84%EB%8F%84%20%EC%82%AC%EA%B4%80%ED%95%99%EA%B5%90%201%EC%B0%A8%20%EC%88%98%ED%95%99%28%EB%82%98%ED%98%95%29%20%EC%A0%95%EB%8B%B5.pdf"
+    "questionUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2020_main_math_na_q.pdf?name=2020%ED%95%99%EB%85%84%EB%8F%84%20%EC%82%AC%EA%B4%80%ED%95%99%EA%B5%90%201%EC%B0%A8%20%EC%88%98%ED%95%99%28%EB%82%98%ED%98%95%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2020_main_math_na_a.pdf?name=2020%ED%95%99%EB%85%84%EB%8F%84%20%EC%82%AC%EA%B4%80%ED%95%99%EA%B5%90%201%EC%B0%A8%20%EC%88%98%ED%95%99%28%EB%82%98%ED%98%95%29%20%EC%A0%95%EB%8B%B5.pdf"
   },
   {
     "id": 1014,
@@ -14230,10 +14230,10 @@
     "subject": "추리논증",
     "subSubject": null,
     "solutionUrl": null,
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/leet-v1/2020_main_reasoning_q.pdf?name=2020%ED%95%99%EB%85%84%EB%8F%84%20LEET%20%EC%B6%94%EB%A6%AC%EB%85%BC%EC%A6%9D%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
-    "answerUrl": "https://suneung-files.hdh061224.workers.dev/leet-v1/2020_main_reasoning_a.pdf?name=2020%ED%95%99%EB%85%84%EB%8F%84%20LEET%20%EC%B6%94%EB%A6%AC%EB%85%BC%EC%A6%9D%20%EC%A0%95%EB%8B%B5.pdf",
-    "questionDownload": "2020학년도 LEET 추리논증 문제지.pdf",
-    "answerDownload": "2020학년도 LEET 추리논증 정답.pdf"
+    "questionUrl": "pdfs_leet/2020/main/2020_main_reasoning_q.hwp",
+    "answerUrl": "pdfs_leet/2020/main/2020_main_reasoning_a.hwp",
+    "questionDownload": "2020학년도 LEET 추리논증 문제지.hwp",
+    "answerDownload": "2020학년도 LEET 추리논증 정답.hwp"
   },
   {
     "id": 1015,
@@ -14246,9 +14246,9 @@
     "subject": "논술",
     "subSubject": null,
     "solutionUrl": null,
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/leet-v1/2020_main_essay_q.pdf?name=2020%ED%95%99%EB%85%84%EB%8F%84%20LEET%20%EB%85%BC%EC%88%A0%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
+    "questionUrl": "pdfs_leet/2020/main/2020_main_essay_q.hwp",
     "answerUrl": null,
-    "questionDownload": "2020학년도 LEET 논술 문제지.pdf",
+    "questionDownload": "2020학년도 LEET 논술 문제지.hwp",
     "answerDownload": null
   },
   {
@@ -16320,10 +16320,10 @@
     "subject": "언어이해",
     "subSubject": null,
     "solutionUrl": null,
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/leet-v1/2019_main_verbal_q.pdf?name=2019%ED%95%99%EB%85%84%EB%8F%84%20LEET%20%EC%96%B8%EC%96%B4%EC%9D%B4%ED%95%B4%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
-    "answerUrl": "https://suneung-files.hdh061224.workers.dev/leet-v1/2019_main_verbal_a.pdf?name=2019%ED%95%99%EB%85%84%EB%8F%84%20LEET%20%EC%96%B8%EC%96%B4%EC%9D%B4%ED%95%B4%20%EC%A0%95%EB%8B%B5.pdf",
-    "questionDownload": "2019학년도 LEET 언어이해 문제지.pdf",
-    "answerDownload": "2019학년도 LEET 언어이해 정답.pdf"
+    "questionUrl": "pdfs_leet/2019/main/2019_main_verbal_q.hwp",
+    "answerUrl": "pdfs_leet/2019/main/2019_main_verbal_a.hwp",
+    "questionDownload": "2019학년도 LEET 언어이해 문제지.hwp",
+    "answerDownload": "2019학년도 LEET 언어이해 정답.hwp"
   },
   {
     "id": 1164,
@@ -16364,8 +16364,8 @@
     "subject": "수학",
     "subSubject": "가형",
     "solutionUrl": null,
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2019_main_math_가_q.pdf?name=2019%ED%95%99%EB%85%84%EB%8F%84%20%EC%82%AC%EA%B4%80%ED%95%99%EA%B5%90%201%EC%B0%A8%20%EC%88%98%ED%95%99%28%EA%B0%80%ED%98%95%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
-    "answerUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2019_main_math_가_a.pdf?name=2019%ED%95%99%EB%85%84%EB%8F%84%20%EC%82%AC%EA%B4%80%ED%95%99%EA%B5%90%201%EC%B0%A8%20%EC%88%98%ED%95%99%28%EA%B0%80%ED%98%95%29%20%EC%A0%95%EB%8B%B5.pdf"
+    "questionUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2019_main_math_ga_q.pdf?name=2019%ED%95%99%EB%85%84%EB%8F%84%20%EC%82%AC%EA%B4%80%ED%95%99%EA%B5%90%201%EC%B0%A8%20%EC%88%98%ED%95%99%28%EA%B0%80%ED%98%95%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2019_main_math_ga_a.pdf?name=2019%ED%95%99%EB%85%84%EB%8F%84%20%EC%82%AC%EA%B4%80%ED%95%99%EA%B5%90%201%EC%B0%A8%20%EC%88%98%ED%95%99%28%EA%B0%80%ED%98%95%29%20%EC%A0%95%EB%8B%B5.pdf"
   },
   {
     "id": 1167,
@@ -16392,8 +16392,8 @@
     "subject": "수학",
     "subSubject": "나형",
     "solutionUrl": null,
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2019_main_math_나_q.pdf?name=2019%ED%95%99%EB%85%84%EB%8F%84%20%EC%82%AC%EA%B4%80%ED%95%99%EA%B5%90%201%EC%B0%A8%20%EC%88%98%ED%95%99%28%EB%82%98%ED%98%95%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
-    "answerUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2019_main_math_나_a.pdf?name=2019%ED%95%99%EB%85%84%EB%8F%84%20%EC%82%AC%EA%B4%80%ED%95%99%EA%B5%90%201%EC%B0%A8%20%EC%88%98%ED%95%99%28%EB%82%98%ED%98%95%29%20%EC%A0%95%EB%8B%B5.pdf"
+    "questionUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2019_main_math_na_q.pdf?name=2019%ED%95%99%EB%85%84%EB%8F%84%20%EC%82%AC%EA%B4%80%ED%95%99%EA%B5%90%201%EC%B0%A8%20%EC%88%98%ED%95%99%28%EB%82%98%ED%98%95%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2019_main_math_na_a.pdf?name=2019%ED%95%99%EB%85%84%EB%8F%84%20%EC%82%AC%EA%B4%80%ED%95%99%EA%B5%90%201%EC%B0%A8%20%EC%88%98%ED%95%99%28%EB%82%98%ED%98%95%29%20%EC%A0%95%EB%8B%B5.pdf"
   },
   {
     "id": 1169,
@@ -16406,10 +16406,10 @@
     "subject": "추리논증",
     "subSubject": null,
     "solutionUrl": null,
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/leet-v1/2019_main_reasoning_q.pdf?name=2019%ED%95%99%EB%85%84%EB%8F%84%20LEET%20%EC%B6%94%EB%A6%AC%EB%85%BC%EC%A6%9D%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
-    "answerUrl": "https://suneung-files.hdh061224.workers.dev/leet-v1/2019_main_reasoning_a.pdf?name=2019%ED%95%99%EB%85%84%EB%8F%84%20LEET%20%EC%B6%94%EB%A6%AC%EB%85%BC%EC%A6%9D%20%EC%A0%95%EB%8B%B5.pdf",
-    "questionDownload": "2019학년도 LEET 추리논증 문제지.pdf",
-    "answerDownload": "2019학년도 LEET 추리논증 정답.pdf"
+    "questionUrl": "pdfs_leet/2019/main/2019_main_reasoning_q.hwp",
+    "answerUrl": "pdfs_leet/2019/main/2019_main_reasoning_a.hwp",
+    "questionDownload": "2019학년도 LEET 추리논증 문제지.hwp",
+    "answerDownload": "2019학년도 LEET 추리논증 정답.hwp"
   },
   {
     "id": 1170,
@@ -16422,9 +16422,9 @@
     "subject": "논술",
     "subSubject": null,
     "solutionUrl": null,
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/leet-v1/2019_main_essay_q.pdf?name=2019%ED%95%99%EB%85%84%EB%8F%84%20LEET%20%EB%85%BC%EC%88%A0%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
+    "questionUrl": "pdfs_leet/2019/main/2019_main_essay_q.hwp",
     "answerUrl": null,
-    "questionDownload": "2019학년도 LEET 논술 문제지.pdf",
+    "questionDownload": "2019학년도 LEET 논술 문제지.hwp",
     "answerDownload": null
   },
   {
@@ -18510,7 +18510,7 @@
     "subject": "국어",
     "subSubject": null,
     "solutionUrl": null,
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2018_main_korean_q.pdf?name=2018%ED%95%99%EB%85%84%EB%8F%84%20%EC%82%AC%EA%B4%80%ED%95%99%EA%B5%90%201%EC%B0%A8%20%EA%B5%AD%EC%96%B4%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
+    "questionUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2018_main_korean_q.hwp?name=2018%ED%95%99%EB%85%84%EB%8F%84%20%EC%82%AC%EA%B4%80%ED%95%99%EA%B5%90%201%EC%B0%A8%20%EA%B5%AD%EC%96%B4%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
     "answerUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2018_main_korean_a.pdf?name=2018%ED%95%99%EB%85%84%EB%8F%84%20%EC%82%AC%EA%B4%80%ED%95%99%EA%B5%90%201%EC%B0%A8%20%EA%B5%AD%EC%96%B4%20%EC%A0%95%EB%8B%B5.pdf"
   },
   {
@@ -18538,10 +18538,10 @@
     "subject": "언어이해",
     "subSubject": null,
     "solutionUrl": null,
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/leet-v1/2018_main_verbal_q.pdf?name=2018%ED%95%99%EB%85%84%EB%8F%84%20LEET%20%EC%96%B8%EC%96%B4%EC%9D%B4%ED%95%B4%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
-    "answerUrl": "https://suneung-files.hdh061224.workers.dev/leet-v1/2018_main_verbal_a.pdf?name=2018%ED%95%99%EB%85%84%EB%8F%84%20LEET%20%EC%96%B8%EC%96%B4%EC%9D%B4%ED%95%B4%20%EC%A0%95%EB%8B%B5.pdf",
-    "questionDownload": "2018학년도 LEET 언어이해 문제지.pdf",
-    "answerDownload": "2018학년도 LEET 언어이해 정답.pdf"
+    "questionUrl": "pdfs_leet/2018/main/2018_main_verbal_q.hwp",
+    "answerUrl": "pdfs_leet/2018/main/2018_main_verbal_a.hwp",
+    "questionDownload": "2018학년도 LEET 언어이해 문제지.hwp",
+    "answerDownload": "2018학년도 LEET 언어이해 정답.hwp"
   },
   {
     "id": 1322,
@@ -18582,8 +18582,8 @@
     "subject": "수학",
     "subSubject": "가형",
     "solutionUrl": null,
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2018_main_math_가_q.pdf?name=2018%ED%95%99%EB%85%84%EB%8F%84%20%EC%82%AC%EA%B4%80%ED%95%99%EA%B5%90%201%EC%B0%A8%20%EC%88%98%ED%95%99%28%EA%B0%80%ED%98%95%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
-    "answerUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2018_main_math_가_a.pdf?name=2018%ED%95%99%EB%85%84%EB%8F%84%20%EC%82%AC%EA%B4%80%ED%95%99%EA%B5%90%201%EC%B0%A8%20%EC%88%98%ED%95%99%28%EA%B0%80%ED%98%95%29%20%EC%A0%95%EB%8B%B5.pdf"
+    "questionUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2018_main_math_ga_q.hwp?name=2018%ED%95%99%EB%85%84%EB%8F%84%20%EC%82%AC%EA%B4%80%ED%95%99%EA%B5%90%201%EC%B0%A8%20%EC%88%98%ED%95%99%28%EA%B0%80%ED%98%95%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2018_main_math_ga_a.pdf?name=2018%ED%95%99%EB%85%84%EB%8F%84%20%EC%82%AC%EA%B4%80%ED%95%99%EA%B5%90%201%EC%B0%A8%20%EC%88%98%ED%95%99%28%EA%B0%80%ED%98%95%29%20%EC%A0%95%EB%8B%B5.pdf"
   },
   {
     "id": 1325,
@@ -18610,8 +18610,8 @@
     "subject": "수학",
     "subSubject": "나형",
     "solutionUrl": null,
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2018_main_math_나_q.pdf?name=2018%ED%95%99%EB%85%84%EB%8F%84%20%EC%82%AC%EA%B4%80%ED%95%99%EA%B5%90%201%EC%B0%A8%20%EC%88%98%ED%95%99%28%EB%82%98%ED%98%95%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
-    "answerUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2018_main_math_나_a.pdf?name=2018%ED%95%99%EB%85%84%EB%8F%84%20%EC%82%AC%EA%B4%80%ED%95%99%EA%B5%90%201%EC%B0%A8%20%EC%88%98%ED%95%99%28%EB%82%98%ED%98%95%29%20%EC%A0%95%EB%8B%B5.pdf"
+    "questionUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2018_main_math_na_q.hwp?name=2018%ED%95%99%EB%85%84%EB%8F%84%20%EC%82%AC%EA%B4%80%ED%95%99%EA%B5%90%201%EC%B0%A8%20%EC%88%98%ED%95%99%28%EB%82%98%ED%98%95%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2018_main_math_na_a.pdf?name=2018%ED%95%99%EB%85%84%EB%8F%84%20%EC%82%AC%EA%B4%80%ED%95%99%EA%B5%90%201%EC%B0%A8%20%EC%88%98%ED%95%99%28%EB%82%98%ED%98%95%29%20%EC%A0%95%EB%8B%B5.pdf"
   },
   {
     "id": 1327,
@@ -18624,10 +18624,10 @@
     "subject": "추리논증",
     "subSubject": null,
     "solutionUrl": null,
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/leet-v1/2018_main_reasoning_q.pdf?name=2018%ED%95%99%EB%85%84%EB%8F%84%20LEET%20%EC%B6%94%EB%A6%AC%EB%85%BC%EC%A6%9D%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
-    "answerUrl": "https://suneung-files.hdh061224.workers.dev/leet-v1/2018_main_reasoning_a.pdf?name=2018%ED%95%99%EB%85%84%EB%8F%84%20LEET%20%EC%B6%94%EB%A6%AC%EB%85%BC%EC%A6%9D%20%EC%A0%95%EB%8B%B5.pdf",
-    "questionDownload": "2018학년도 LEET 추리논증 문제지.pdf",
-    "answerDownload": "2018학년도 LEET 추리논증 정답.pdf"
+    "questionUrl": "pdfs_leet/2018/main/2018_main_reasoning_q.hwp",
+    "answerUrl": "pdfs_leet/2018/main/2018_main_reasoning_a.hwp",
+    "questionDownload": "2018학년도 LEET 추리논증 문제지.hwp",
+    "answerDownload": "2018학년도 LEET 추리논증 정답.hwp"
   },
   {
     "id": 1328,
@@ -18640,9 +18640,9 @@
     "subject": "논술",
     "subSubject": null,
     "solutionUrl": null,
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/leet-v1/2018_main_essay_q.pdf?name=2018%ED%95%99%EB%85%84%EB%8F%84%20LEET%20%EB%85%BC%EC%88%A0%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
+    "questionUrl": "pdfs_leet/2018/main/2018_main_essay_q.hwp",
     "answerUrl": null,
-    "questionDownload": "2018학년도 LEET 논술 문제지.pdf",
+    "questionDownload": "2018학년도 LEET 논술 문제지.hwp",
     "answerDownload": null
   },
   {
@@ -18670,8 +18670,8 @@
     "subject": "영어",
     "subSubject": null,
     "solutionUrl": null,
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2018_main_english_q.pdf?name=2018%ED%95%99%EB%85%84%EB%8F%84%20%EC%82%AC%EA%B4%80%ED%95%99%EA%B5%90%201%EC%B0%A8%20%EC%98%81%EC%96%B4%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
-    "answerUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2018_main_english_a.pdf?name=2018%ED%95%99%EB%85%84%EB%8F%84%20%EC%82%AC%EA%B4%80%ED%95%99%EA%B5%90%201%EC%B0%A8%20%EC%98%81%EC%96%B4%20%EC%A0%95%EB%8B%B5.pdf"
+    "questionUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2018_main_english_q.hwp?name=2018%ED%95%99%EB%85%84%EB%8F%84%20%EC%82%AC%EA%B4%80%ED%95%99%EA%B5%90%201%EC%B0%A8%20%EC%98%81%EC%96%B4%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2018_main_english_a.hwp?name=2018%ED%95%99%EB%85%84%EB%8F%84%20%EC%82%AC%EA%B4%80%ED%95%99%EA%B5%90%201%EC%B0%A8%20%EC%98%81%EC%96%B4%20%EC%A0%95%EB%8B%B5.pdf"
   },
   {
     "id": 1331,
@@ -20756,10 +20756,10 @@
     "subject": "언어이해",
     "subSubject": null,
     "solutionUrl": null,
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/leet-v1/2017_main_verbal_q.pdf?name=2017%ED%95%99%EB%85%84%EB%8F%84%20LEET%20%EC%96%B8%EC%96%B4%EC%9D%B4%ED%95%B4%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
-    "answerUrl": "https://suneung-files.hdh061224.workers.dev/leet-v1/2017_main_verbal_a.pdf?name=2017%ED%95%99%EB%85%84%EB%8F%84%20LEET%20%EC%96%B8%EC%96%B4%EC%9D%B4%ED%95%B4%20%EC%A0%95%EB%8B%B5.pdf",
-    "questionDownload": "2017학년도 LEET 언어이해 문제지.pdf",
-    "answerDownload": "2017학년도 LEET 언어이해 정답.pdf"
+    "questionUrl": "pdfs_leet/2017/main/2017_main_verbal_q.hwp",
+    "answerUrl": "pdfs_leet/2017/main/2017_main_verbal_a.hwp",
+    "questionDownload": "2017학년도 LEET 언어이해 문제지.hwp",
+    "answerDownload": "2017학년도 LEET 언어이해 정답.hwp"
   },
   {
     "id": 1480,
@@ -20800,8 +20800,8 @@
     "subject": "수학",
     "subSubject": "가형",
     "solutionUrl": null,
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2017_main_math_가_q.pdf?name=2017%ED%95%99%EB%85%84%EB%8F%84%20%EC%82%AC%EA%B4%80%ED%95%99%EA%B5%90%201%EC%B0%A8%20%EC%88%98%ED%95%99%28%EA%B0%80%ED%98%95%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
-    "answerUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2017_main_math_가_a.pdf?name=2017%ED%95%99%EB%85%84%EB%8F%84%20%EC%82%AC%EA%B4%80%ED%95%99%EA%B5%90%201%EC%B0%A8%20%EC%88%98%ED%95%99%28%EA%B0%80%ED%98%95%29%20%EC%A0%95%EB%8B%B5.pdf"
+    "questionUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2017_main_math_ga_q.pdf?name=2017%ED%95%99%EB%85%84%EB%8F%84%20%EC%82%AC%EA%B4%80%ED%95%99%EA%B5%90%201%EC%B0%A8%20%EC%88%98%ED%95%99%28%EA%B0%80%ED%98%95%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2017_main_math_ga_a.pdf?name=2017%ED%95%99%EB%85%84%EB%8F%84%20%EC%82%AC%EA%B4%80%ED%95%99%EA%B5%90%201%EC%B0%A8%20%EC%88%98%ED%95%99%28%EA%B0%80%ED%98%95%29%20%EC%A0%95%EB%8B%B5.pdf"
   },
   {
     "id": 1483,
@@ -20828,8 +20828,8 @@
     "subject": "수학",
     "subSubject": "나형",
     "solutionUrl": null,
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2017_main_math_나_q.pdf?name=2017%ED%95%99%EB%85%84%EB%8F%84%20%EC%82%AC%EA%B4%80%ED%95%99%EA%B5%90%201%EC%B0%A8%20%EC%88%98%ED%95%99%28%EB%82%98%ED%98%95%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
-    "answerUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2017_main_math_나_a.pdf?name=2017%ED%95%99%EB%85%84%EB%8F%84%20%EC%82%AC%EA%B4%80%ED%95%99%EA%B5%90%201%EC%B0%A8%20%EC%88%98%ED%95%99%28%EB%82%98%ED%98%95%29%20%EC%A0%95%EB%8B%B5.pdf"
+    "questionUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2017_main_math_na_q.pdf?name=2017%ED%95%99%EB%85%84%EB%8F%84%20%EC%82%AC%EA%B4%80%ED%95%99%EA%B5%90%201%EC%B0%A8%20%EC%88%98%ED%95%99%28%EB%82%98%ED%98%95%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2017_main_math_na_a.pdf?name=2017%ED%95%99%EB%85%84%EB%8F%84%20%EC%82%AC%EA%B4%80%ED%95%99%EA%B5%90%201%EC%B0%A8%20%EC%88%98%ED%95%99%28%EB%82%98%ED%98%95%29%20%EC%A0%95%EB%8B%B5.pdf"
   },
   {
     "id": 1485,
@@ -20842,10 +20842,10 @@
     "subject": "추리논증",
     "subSubject": null,
     "solutionUrl": null,
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/leet-v1/2017_main_reasoning_q.pdf?name=2017%ED%95%99%EB%85%84%EB%8F%84%20LEET%20%EC%B6%94%EB%A6%AC%EB%85%BC%EC%A6%9D%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
-    "answerUrl": "https://suneung-files.hdh061224.workers.dev/leet-v1/2017_main_reasoning_a.pdf?name=2017%ED%95%99%EB%85%84%EB%8F%84%20LEET%20%EC%B6%94%EB%A6%AC%EB%85%BC%EC%A6%9D%20%EC%A0%95%EB%8B%B5.pdf",
-    "questionDownload": "2017학년도 LEET 추리논증 문제지.pdf",
-    "answerDownload": "2017학년도 LEET 추리논증 정답.pdf"
+    "questionUrl": "pdfs_leet/2017/main/2017_main_reasoning_q.hwp",
+    "answerUrl": "pdfs_leet/2017/main/2017_main_reasoning_a.hwp",
+    "questionDownload": "2017학년도 LEET 추리논증 문제지.hwp",
+    "answerDownload": "2017학년도 LEET 추리논증 정답.hwp"
   },
   {
     "id": 1486,
@@ -20858,9 +20858,9 @@
     "subject": "논술",
     "subSubject": null,
     "solutionUrl": null,
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/leet-v1/2017_main_essay_q.pdf?name=2017%ED%95%99%EB%85%84%EB%8F%84%20LEET%20%EB%85%BC%EC%88%A0%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
+    "questionUrl": "pdfs_leet/2017/main/2017_main_essay_q.hwp",
     "answerUrl": null,
-    "questionDownload": "2017학년도 LEET 논술 문제지.pdf",
+    "questionDownload": "2017학년도 LEET 논술 문제지.hwp",
     "answerDownload": null
   },
   {
@@ -22974,10 +22974,10 @@
     "subject": "언어이해",
     "subSubject": null,
     "solutionUrl": null,
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/leet-v1/2016_main_verbal_q.pdf?name=2016%ED%95%99%EB%85%84%EB%8F%84%20LEET%20%EC%96%B8%EC%96%B4%EC%9D%B4%ED%95%B4%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
-    "answerUrl": "https://suneung-files.hdh061224.workers.dev/leet-v1/2016_main_verbal_a.pdf?name=2016%ED%95%99%EB%85%84%EB%8F%84%20LEET%20%EC%96%B8%EC%96%B4%EC%9D%B4%ED%95%B4%20%EC%A0%95%EB%8B%B5.pdf",
-    "questionDownload": "2016학년도 LEET 언어이해 문제지.pdf",
-    "answerDownload": "2016학년도 LEET 언어이해 정답.pdf"
+    "questionUrl": "pdfs_leet/2016/main/2016_main_verbal_q.hwp",
+    "answerUrl": "pdfs_leet/2016/main/2016_main_verbal_a.hwp",
+    "questionDownload": "2016학년도 LEET 언어이해 문제지.hwp",
+    "answerDownload": "2016학년도 LEET 언어이해 정답.hwp"
   },
   {
     "id": 1638,
@@ -23060,10 +23060,10 @@
     "subject": "추리논증",
     "subSubject": null,
     "solutionUrl": null,
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/leet-v1/2016_main_reasoning_q.pdf?name=2016%ED%95%99%EB%85%84%EB%8F%84%20LEET%20%EC%B6%94%EB%A6%AC%EB%85%BC%EC%A6%9D%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
-    "answerUrl": "https://suneung-files.hdh061224.workers.dev/leet-v1/2016_main_reasoning_a.pdf?name=2016%ED%95%99%EB%85%84%EB%8F%84%20LEET%20%EC%B6%94%EB%A6%AC%EB%85%BC%EC%A6%9D%20%EC%A0%95%EB%8B%B5.pdf",
-    "questionDownload": "2016학년도 LEET 추리논증 문제지.pdf",
-    "answerDownload": "2016학년도 LEET 추리논증 정답.pdf"
+    "questionUrl": "pdfs_leet/2016/main/2016_main_reasoning_q.hwp",
+    "answerUrl": "pdfs_leet/2016/main/2016_main_reasoning_a.hwp",
+    "questionDownload": "2016학년도 LEET 추리논증 문제지.hwp",
+    "answerDownload": "2016학년도 LEET 추리논증 정답.hwp"
   },
   {
     "id": 1644,
@@ -23076,9 +23076,9 @@
     "subject": "논술",
     "subSubject": null,
     "solutionUrl": null,
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/leet-v1/2016_main_essay_q.pdf?name=2016%ED%95%99%EB%85%84%EB%8F%84%20LEET%20%EB%85%BC%EC%88%A0%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
+    "questionUrl": "pdfs_leet/2016/main/2016_main_essay_q.hwp",
     "answerUrl": null,
-    "questionDownload": "2016학년도 LEET 논술 문제지.pdf",
+    "questionDownload": "2016학년도 LEET 논술 문제지.hwp",
     "answerDownload": null
   },
   {
@@ -25220,10 +25220,10 @@
     "subject": "언어이해",
     "subSubject": null,
     "solutionUrl": null,
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/leet-v1/2015_main_verbal_q.pdf?name=2015%ED%95%99%EB%85%84%EB%8F%84%20LEET%20%EC%96%B8%EC%96%B4%EC%9D%B4%ED%95%B4%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
-    "answerUrl": "https://suneung-files.hdh061224.workers.dev/leet-v1/2015_main_verbal_a.pdf?name=2015%ED%95%99%EB%85%84%EB%8F%84%20LEET%20%EC%96%B8%EC%96%B4%EC%9D%B4%ED%95%B4%20%EC%A0%95%EB%8B%B5.pdf",
-    "questionDownload": "2015학년도 LEET 언어이해 문제지.pdf",
-    "answerDownload": "2015학년도 LEET 언어이해 정답.pdf"
+    "questionUrl": "pdfs_leet/2015/main/2015_main_verbal_q.hwp",
+    "answerUrl": "pdfs_leet/2015/main/2015_main_verbal_a.hwp",
+    "questionDownload": "2015학년도 LEET 언어이해 문제지.hwp",
+    "answerDownload": "2015학년도 LEET 언어이해 정답.hwp"
   },
   {
     "id": 1798,
@@ -25264,8 +25264,8 @@
     "subject": "수학",
     "subSubject": "가형",
     "solutionUrl": null,
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2015_main_math_가_q.pdf?name=2015%ED%95%99%EB%85%84%EB%8F%84%20%EC%82%AC%EA%B4%80%ED%95%99%EA%B5%90%201%EC%B0%A8%20%EC%88%98%ED%95%99%28%EA%B0%80%ED%98%95%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
-    "answerUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2015_main_math_가_a.pdf?name=2015%ED%95%99%EB%85%84%EB%8F%84%20%EC%82%AC%EA%B4%80%ED%95%99%EA%B5%90%201%EC%B0%A8%20%EC%88%98%ED%95%99%28%EA%B0%80%ED%98%95%29%20%EC%A0%95%EB%8B%B5.pdf"
+    "questionUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2015_main_math_ga_q.pdf?name=2015%ED%95%99%EB%85%84%EB%8F%84%20%EC%82%AC%EA%B4%80%ED%95%99%EA%B5%90%201%EC%B0%A8%20%EC%88%98%ED%95%99%28%EA%B0%80%ED%98%95%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2015_main_math_ga_a.pdf?name=2015%ED%95%99%EB%85%84%EB%8F%84%20%EC%82%AC%EA%B4%80%ED%95%99%EA%B5%90%201%EC%B0%A8%20%EC%88%98%ED%95%99%28%EA%B0%80%ED%98%95%29%20%EC%A0%95%EB%8B%B5.pdf"
   },
   {
     "id": 1801,
@@ -25292,8 +25292,8 @@
     "subject": "수학",
     "subSubject": "나형",
     "solutionUrl": null,
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2015_main_math_나_q.pdf?name=2015%ED%95%99%EB%85%84%EB%8F%84%20%EC%82%AC%EA%B4%80%ED%95%99%EA%B5%90%201%EC%B0%A8%20%EC%88%98%ED%95%99%28%EB%82%98%ED%98%95%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
-    "answerUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2015_main_math_나_a.pdf?name=2015%ED%95%99%EB%85%84%EB%8F%84%20%EC%82%AC%EA%B4%80%ED%95%99%EA%B5%90%201%EC%B0%A8%20%EC%88%98%ED%95%99%28%EB%82%98%ED%98%95%29%20%EC%A0%95%EB%8B%B5.pdf"
+    "questionUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2015_main_math_na_q.pdf?name=2015%ED%95%99%EB%85%84%EB%8F%84%20%EC%82%AC%EA%B4%80%ED%95%99%EA%B5%90%201%EC%B0%A8%20%EC%88%98%ED%95%99%28%EB%82%98%ED%98%95%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2015_main_math_na_a.pdf?name=2015%ED%95%99%EB%85%84%EB%8F%84%20%EC%82%AC%EA%B4%80%ED%95%99%EA%B5%90%201%EC%B0%A8%20%EC%88%98%ED%95%99%28%EB%82%98%ED%98%95%29%20%EC%A0%95%EB%8B%B5.pdf"
   },
   {
     "id": 1803,
@@ -25306,10 +25306,10 @@
     "subject": "추리논증",
     "subSubject": null,
     "solutionUrl": null,
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/leet-v1/2015_main_reasoning_q.pdf?name=2015%ED%95%99%EB%85%84%EB%8F%84%20LEET%20%EC%B6%94%EB%A6%AC%EB%85%BC%EC%A6%9D%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
-    "answerUrl": "https://suneung-files.hdh061224.workers.dev/leet-v1/2015_main_reasoning_a.pdf?name=2015%ED%95%99%EB%85%84%EB%8F%84%20LEET%20%EC%B6%94%EB%A6%AC%EB%85%BC%EC%A6%9D%20%EC%A0%95%EB%8B%B5.pdf",
-    "questionDownload": "2015학년도 LEET 추리논증 문제지.pdf",
-    "answerDownload": "2015학년도 LEET 추리논증 정답.pdf"
+    "questionUrl": "pdfs_leet/2015/main/2015_main_reasoning_q.hwp",
+    "answerUrl": "pdfs_leet/2015/main/2015_main_reasoning_a.hwp",
+    "questionDownload": "2015학년도 LEET 추리논증 문제지.hwp",
+    "answerDownload": "2015학년도 LEET 추리논증 정답.hwp"
   },
   {
     "id": 1804,
@@ -25322,9 +25322,9 @@
     "subject": "논술",
     "subSubject": null,
     "solutionUrl": null,
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/leet-v1/2015_main_essay_q.pdf?name=2015%ED%95%99%EB%85%84%EB%8F%84%20LEET%20%EB%85%BC%EC%88%A0%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
+    "questionUrl": "pdfs_leet/2015/main/2015_main_essay_q.hwp",
     "answerUrl": null,
-    "questionDownload": "2015학년도 LEET 논술 문제지.pdf",
+    "questionDownload": "2015학년도 LEET 논술 문제지.hwp",
     "answerDownload": null
   },
   {
@@ -27102,10 +27102,10 @@
     "subject": "언어이해",
     "subSubject": null,
     "solutionUrl": null,
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/leet-v1/2014_main_verbal_q.pdf?name=2014%ED%95%99%EB%85%84%EB%8F%84%20LEET%20%EC%96%B8%EC%96%B4%EC%9D%B4%ED%95%B4%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
-    "answerUrl": "https://suneung-files.hdh061224.workers.dev/leet-v1/2014_main_verbal_a.pdf?name=2014%ED%95%99%EB%85%84%EB%8F%84%20LEET%20%EC%96%B8%EC%96%B4%EC%9D%B4%ED%95%B4%20%EC%A0%95%EB%8B%B5.pdf",
-    "questionDownload": "2014학년도 LEET 언어이해 문제지.pdf",
-    "answerDownload": "2014학년도 LEET 언어이해 정답.pdf"
+    "questionUrl": "pdfs_leet/2014/main/2014_main_verbal_q.hwp",
+    "answerUrl": "pdfs_leet/2014/main/2014_main_verbal_a.hwp",
+    "questionDownload": "2014학년도 LEET 언어이해 문제지.hwp",
+    "answerDownload": "2014학년도 LEET 언어이해 정답.hwp"
   },
   {
     "id": 1932,
@@ -27132,8 +27132,8 @@
     "subject": "수학",
     "subSubject": "가형",
     "solutionUrl": null,
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2014_main_math_가_q.pdf?name=2014%ED%95%99%EB%85%84%EB%8F%84%20%EC%82%AC%EA%B4%80%ED%95%99%EA%B5%90%201%EC%B0%A8%20%EC%88%98%ED%95%99%28%EA%B0%80%ED%98%95%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
-    "answerUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2014_main_math_가_a.pdf?name=2014%ED%95%99%EB%85%84%EB%8F%84%20%EC%82%AC%EA%B4%80%ED%95%99%EA%B5%90%201%EC%B0%A8%20%EC%88%98%ED%95%99%28%EA%B0%80%ED%98%95%29%20%EC%A0%95%EB%8B%B5.pdf"
+    "questionUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2014_main_math_ga_q.pdf?name=2014%ED%95%99%EB%85%84%EB%8F%84%20%EC%82%AC%EA%B4%80%ED%95%99%EA%B5%90%201%EC%B0%A8%20%EC%88%98%ED%95%99%28%EA%B0%80%ED%98%95%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2014_main_math_ga_a.pdf?name=2014%ED%95%99%EB%85%84%EB%8F%84%20%EC%82%AC%EA%B4%80%ED%95%99%EA%B5%90%201%EC%B0%A8%20%EC%88%98%ED%95%99%28%EA%B0%80%ED%98%95%29%20%EC%A0%95%EB%8B%B5.pdf"
   },
   {
     "id": 1934,
@@ -27146,8 +27146,8 @@
     "subject": "수학",
     "subSubject": "나형",
     "solutionUrl": null,
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2014_main_math_나_q.pdf?name=2014%ED%95%99%EB%85%84%EB%8F%84%20%EC%82%AC%EA%B4%80%ED%95%99%EA%B5%90%201%EC%B0%A8%20%EC%88%98%ED%95%99%28%EB%82%98%ED%98%95%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
-    "answerUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2014_main_math_나_a.pdf?name=2014%ED%95%99%EB%85%84%EB%8F%84%20%EC%82%AC%EA%B4%80%ED%95%99%EA%B5%90%201%EC%B0%A8%20%EC%88%98%ED%95%99%28%EB%82%98%ED%98%95%29%20%EC%A0%95%EB%8B%B5.pdf"
+    "questionUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2014_main_math_na_q.pdf?name=2014%ED%95%99%EB%85%84%EB%8F%84%20%EC%82%AC%EA%B4%80%ED%95%99%EA%B5%90%201%EC%B0%A8%20%EC%88%98%ED%95%99%28%EB%82%98%ED%98%95%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2014_main_math_na_a.pdf?name=2014%ED%95%99%EB%85%84%EB%8F%84%20%EC%82%AC%EA%B4%80%ED%95%99%EA%B5%90%201%EC%B0%A8%20%EC%88%98%ED%95%99%28%EB%82%98%ED%98%95%29%20%EC%A0%95%EB%8B%B5.pdf"
   },
   {
     "id": 1935,
@@ -27160,10 +27160,10 @@
     "subject": "추리논증",
     "subSubject": null,
     "solutionUrl": null,
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/leet-v1/2014_main_reasoning_q.pdf?name=2014%ED%95%99%EB%85%84%EB%8F%84%20LEET%20%EC%B6%94%EB%A6%AC%EB%85%BC%EC%A6%9D%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
-    "answerUrl": "https://suneung-files.hdh061224.workers.dev/leet-v1/2014_main_reasoning_a.pdf?name=2014%ED%95%99%EB%85%84%EB%8F%84%20LEET%20%EC%B6%94%EB%A6%AC%EB%85%BC%EC%A6%9D%20%EC%A0%95%EB%8B%B5.pdf",
-    "questionDownload": "2014학년도 LEET 추리논증 문제지.pdf",
-    "answerDownload": "2014학년도 LEET 추리논증 정답.pdf"
+    "questionUrl": "pdfs_leet/2014/main/2014_main_reasoning_q.hwp",
+    "answerUrl": "pdfs_leet/2014/main/2014_main_reasoning_a.hwp",
+    "questionDownload": "2014학년도 LEET 추리논증 문제지.hwp",
+    "answerDownload": "2014학년도 LEET 추리논증 정답.hwp"
   },
   {
     "id": 1936,
@@ -27176,9 +27176,9 @@
     "subject": "논술",
     "subSubject": null,
     "solutionUrl": null,
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/leet-v1/2014_main_essay_q.pdf?name=2014%ED%95%99%EB%85%84%EB%8F%84%20LEET%20%EB%85%BC%EC%88%A0%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
+    "questionUrl": "pdfs_leet/2014/main/2014_main_essay_q.hwp",
     "answerUrl": null,
-    "questionDownload": "2014학년도 LEET 논술 문제지.pdf",
+    "questionDownload": "2014학년도 LEET 논술 문제지.hwp",
     "answerDownload": null
   },
   {
@@ -27570,10 +27570,10 @@
     "subject": "언어이해",
     "subSubject": null,
     "solutionUrl": null,
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/leet-v1/2013_main_verbal_q.pdf?name=2013%ED%95%99%EB%85%84%EB%8F%84%20LEET%20%EC%96%B8%EC%96%B4%EC%9D%B4%ED%95%B4%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
-    "answerUrl": "https://suneung-files.hdh061224.workers.dev/leet-v1/2013_main_verbal_a.pdf?name=2013%ED%95%99%EB%85%84%EB%8F%84%20LEET%20%EC%96%B8%EC%96%B4%EC%9D%B4%ED%95%B4%20%EC%A0%95%EB%8B%B5.pdf",
-    "questionDownload": "2013학년도 LEET 언어이해 문제지.pdf",
-    "answerDownload": "2013학년도 LEET 언어이해 정답.pdf"
+    "questionUrl": "pdfs_leet/2013/main/2013_main_verbal_q.hwp",
+    "answerUrl": "pdfs_leet/2013/main/2013_main_verbal_a.hwp",
+    "questionDownload": "2013학년도 LEET 언어이해 문제지.hwp",
+    "answerDownload": "2013학년도 LEET 언어이해 정답.hwp"
   },
   {
     "id": 1965,
@@ -27600,8 +27600,8 @@
     "subject": "수학",
     "subSubject": "가형",
     "solutionUrl": null,
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2013_main_math_가_q.pdf?name=2013%ED%95%99%EB%85%84%EB%8F%84%20%EC%82%AC%EA%B4%80%ED%95%99%EA%B5%90%201%EC%B0%A8%20%EC%88%98%ED%95%99%28%EA%B0%80%ED%98%95%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
-    "answerUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2013_main_math_가_a.pdf?name=2013%ED%95%99%EB%85%84%EB%8F%84%20%EC%82%AC%EA%B4%80%ED%95%99%EA%B5%90%201%EC%B0%A8%20%EC%88%98%ED%95%99%28%EA%B0%80%ED%98%95%29%20%EC%A0%95%EB%8B%B5.pdf"
+    "questionUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2013_main_math_ga_q.pdf?name=2013%ED%95%99%EB%85%84%EB%8F%84%20%EC%82%AC%EA%B4%80%ED%95%99%EA%B5%90%201%EC%B0%A8%20%EC%88%98%ED%95%99%28%EA%B0%80%ED%98%95%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2013_main_math_ga_a.pdf?name=2013%ED%95%99%EB%85%84%EB%8F%84%20%EC%82%AC%EA%B4%80%ED%95%99%EA%B5%90%201%EC%B0%A8%20%EC%88%98%ED%95%99%28%EA%B0%80%ED%98%95%29%20%EC%A0%95%EB%8B%B5.pdf"
   },
   {
     "id": 1967,
@@ -27614,8 +27614,8 @@
     "subject": "수학",
     "subSubject": "나형",
     "solutionUrl": null,
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2013_main_math_나_q.pdf?name=2013%ED%95%99%EB%85%84%EB%8F%84%20%EC%82%AC%EA%B4%80%ED%95%99%EA%B5%90%201%EC%B0%A8%20%EC%88%98%ED%95%99%28%EB%82%98%ED%98%95%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
-    "answerUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2013_main_math_나_a.pdf?name=2013%ED%95%99%EB%85%84%EB%8F%84%20%EC%82%AC%EA%B4%80%ED%95%99%EA%B5%90%201%EC%B0%A8%20%EC%88%98%ED%95%99%28%EB%82%98%ED%98%95%29%20%EC%A0%95%EB%8B%B5.pdf"
+    "questionUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2013_main_math_na_q.pdf?name=2013%ED%95%99%EB%85%84%EB%8F%84%20%EC%82%AC%EA%B4%80%ED%95%99%EA%B5%90%201%EC%B0%A8%20%EC%88%98%ED%95%99%28%EB%82%98%ED%98%95%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2013_main_math_na_a.pdf?name=2013%ED%95%99%EB%85%84%EB%8F%84%20%EC%82%AC%EA%B4%80%ED%95%99%EA%B5%90%201%EC%B0%A8%20%EC%88%98%ED%95%99%28%EB%82%98%ED%98%95%29%20%EC%A0%95%EB%8B%B5.pdf"
   },
   {
     "id": 1968,
@@ -27628,10 +27628,10 @@
     "subject": "추리논증",
     "subSubject": null,
     "solutionUrl": null,
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/leet-v1/2013_main_reasoning_q.pdf?name=2013%ED%95%99%EB%85%84%EB%8F%84%20LEET%20%EC%B6%94%EB%A6%AC%EB%85%BC%EC%A6%9D%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
-    "answerUrl": "https://suneung-files.hdh061224.workers.dev/leet-v1/2013_main_reasoning_a.pdf?name=2013%ED%95%99%EB%85%84%EB%8F%84%20LEET%20%EC%B6%94%EB%A6%AC%EB%85%BC%EC%A6%9D%20%EC%A0%95%EB%8B%B5.pdf",
-    "questionDownload": "2013학년도 LEET 추리논증 문제지.pdf",
-    "answerDownload": "2013학년도 LEET 추리논증 정답.pdf"
+    "questionUrl": "pdfs_leet/2013/main/2013_main_reasoning_q.hwp",
+    "answerUrl": "pdfs_leet/2013/main/2013_main_reasoning_a.hwp",
+    "questionDownload": "2013학년도 LEET 추리논증 문제지.hwp",
+    "answerDownload": "2013학년도 LEET 추리논증 정답.hwp"
   },
   {
     "id": 1969,
@@ -27644,9 +27644,9 @@
     "subject": "논술",
     "subSubject": null,
     "solutionUrl": null,
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/leet-v1/2013_main_essay_q.pdf?name=2013%ED%95%99%EB%85%84%EB%8F%84%20LEET%20%EB%85%BC%EC%88%A0%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
+    "questionUrl": "pdfs_leet/2013/main/2013_main_essay_q.hwp",
     "answerUrl": null,
-    "questionDownload": "2013학년도 LEET 논술 문제지.pdf",
+    "questionDownload": "2013학년도 LEET 논술 문제지.hwp",
     "answerDownload": null
   },
   {
@@ -27688,8 +27688,8 @@
     "subject": "언어추론",
     "subSubject": null,
     "solutionUrl": null,
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/meet-v1/2012_main_verbal_q.pdf?name=2012%ED%95%99%EB%85%84%EB%8F%84%20MEET%20%EC%96%B8%EC%96%B4%EC%B6%94%EB%A1%A0%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
-    "answerUrl": "https://suneung-files.hdh061224.workers.dev/meet-v1/2012_main_verbal_a.pdf?name=2012%ED%95%99%EB%85%84%EB%8F%84%20MEET%20%EC%96%B8%EC%96%B4%EC%B6%94%EB%A1%A0%20%EC%A0%95%EB%8B%B5.pdf",
+    "questionUrl": "pdfs_meet/2012/main/2012_main_verbal_q.pdf",
+    "answerUrl": "pdfs_meet/2012/main/2012_main_verbal_a.pdf",
     "questionDownload": "2012학년도 MEET 언어추론 문제지.pdf",
     "answerDownload": "2012학년도 MEET 언어추론 정답.pdf"
   },
@@ -27732,10 +27732,10 @@
     "subject": "언어이해",
     "subSubject": null,
     "solutionUrl": null,
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/leet-v1/2012_main_verbal_q.pdf?name=2012%ED%95%99%EB%85%84%EB%8F%84%20LEET%20%EC%96%B8%EC%96%B4%EC%9D%B4%ED%95%B4%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
-    "answerUrl": "https://suneung-files.hdh061224.workers.dev/leet-v1/2012_main_verbal_a.pdf?name=2012%ED%95%99%EB%85%84%EB%8F%84%20LEET%20%EC%96%B8%EC%96%B4%EC%9D%B4%ED%95%B4%20%EC%A0%95%EB%8B%B5.pdf",
-    "questionDownload": "2012학년도 LEET 언어이해 문제지.pdf",
-    "answerDownload": "2012학년도 LEET 언어이해 정답.pdf"
+    "questionUrl": "pdfs_leet/2012/main/2012_main_verbal_q.hwp",
+    "answerUrl": "pdfs_leet/2012/main/2012_main_verbal_a.hwp",
+    "questionDownload": "2012학년도 LEET 언어이해 문제지.hwp",
+    "answerDownload": "2012학년도 LEET 언어이해 정답.hwp"
   },
   {
     "id": 1976,
@@ -27762,8 +27762,8 @@
     "subject": "수학",
     "subSubject": "가형",
     "solutionUrl": null,
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2012_main_math_가_q.pdf?name=2012%ED%95%99%EB%85%84%EB%8F%84%20%EC%82%AC%EA%B4%80%ED%95%99%EA%B5%90%201%EC%B0%A8%20%EC%88%98%ED%95%99%28%EA%B0%80%ED%98%95%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
-    "answerUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2012_main_math_가_a.pdf?name=2012%ED%95%99%EB%85%84%EB%8F%84%20%EC%82%AC%EA%B4%80%ED%95%99%EA%B5%90%201%EC%B0%A8%20%EC%88%98%ED%95%99%28%EA%B0%80%ED%98%95%29%20%EC%A0%95%EB%8B%B5.pdf"
+    "questionUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2012_main_math_ga_q.pdf?name=2012%ED%95%99%EB%85%84%EB%8F%84%20%EC%82%AC%EA%B4%80%ED%95%99%EA%B5%90%201%EC%B0%A8%20%EC%88%98%ED%95%99%28%EA%B0%80%ED%98%95%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2012_main_math_ga_a.pdf?name=2012%ED%95%99%EB%85%84%EB%8F%84%20%EC%82%AC%EA%B4%80%ED%95%99%EA%B5%90%201%EC%B0%A8%20%EC%88%98%ED%95%99%28%EA%B0%80%ED%98%95%29%20%EC%A0%95%EB%8B%B5.pdf"
   },
   {
     "id": 1978,
@@ -27776,8 +27776,8 @@
     "subject": "수학",
     "subSubject": "나형",
     "solutionUrl": null,
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2012_main_math_나_q.pdf?name=2012%ED%95%99%EB%85%84%EB%8F%84%20%EC%82%AC%EA%B4%80%ED%95%99%EA%B5%90%201%EC%B0%A8%20%EC%88%98%ED%95%99%28%EB%82%98%ED%98%95%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
-    "answerUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2012_main_math_나_a.pdf?name=2012%ED%95%99%EB%85%84%EB%8F%84%20%EC%82%AC%EA%B4%80%ED%95%99%EA%B5%90%201%EC%B0%A8%20%EC%88%98%ED%95%99%28%EB%82%98%ED%98%95%29%20%EC%A0%95%EB%8B%B5.pdf"
+    "questionUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2012_main_math_na_q.pdf?name=2012%ED%95%99%EB%85%84%EB%8F%84%20%EC%82%AC%EA%B4%80%ED%95%99%EA%B5%90%201%EC%B0%A8%20%EC%88%98%ED%95%99%28%EB%82%98%ED%98%95%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2012_main_math_na_a.pdf?name=2012%ED%95%99%EB%85%84%EB%8F%84%20%EC%82%AC%EA%B4%80%ED%95%99%EA%B5%90%201%EC%B0%A8%20%EC%88%98%ED%95%99%28%EB%82%98%ED%98%95%29%20%EC%A0%95%EB%8B%B5.pdf"
   },
   {
     "id": 1979,
@@ -27790,10 +27790,10 @@
     "subject": "추리논증",
     "subSubject": null,
     "solutionUrl": null,
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/leet-v1/2012_main_reasoning_q.pdf?name=2012%ED%95%99%EB%85%84%EB%8F%84%20LEET%20%EC%B6%94%EB%A6%AC%EB%85%BC%EC%A6%9D%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
-    "answerUrl": "https://suneung-files.hdh061224.workers.dev/leet-v1/2012_main_reasoning_a.pdf?name=2012%ED%95%99%EB%85%84%EB%8F%84%20LEET%20%EC%B6%94%EB%A6%AC%EB%85%BC%EC%A6%9D%20%EC%A0%95%EB%8B%B5.pdf",
-    "questionDownload": "2012학년도 LEET 추리논증 문제지.pdf",
-    "answerDownload": "2012학년도 LEET 추리논증 정답.pdf"
+    "questionUrl": "pdfs_leet/2012/main/2012_main_reasoning_q.hwp",
+    "answerUrl": "pdfs_leet/2012/main/2012_main_reasoning_a.hwp",
+    "questionDownload": "2012학년도 LEET 추리논증 문제지.hwp",
+    "answerDownload": "2012학년도 LEET 추리논증 정답.hwp"
   },
   {
     "id": 1980,
@@ -27806,9 +27806,9 @@
     "subject": "논술",
     "subSubject": null,
     "solutionUrl": null,
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/leet-v1/2012_main_essay_q.pdf?name=2012%ED%95%99%EB%85%84%EB%8F%84%20LEET%20%EB%85%BC%EC%88%A0%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
+    "questionUrl": "pdfs_leet/2012/main/2012_main_essay_q.hwp",
     "answerUrl": null,
-    "questionDownload": "2012학년도 LEET 논술 문제지.pdf",
+    "questionDownload": "2012학년도 LEET 논술 문제지.hwp",
     "answerDownload": null
   },
   {
@@ -27850,8 +27850,8 @@
     "subject": "언어추론",
     "subSubject": null,
     "solutionUrl": null,
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/meet-v1/2011_main_verbal_q.pdf?name=2011%ED%95%99%EB%85%84%EB%8F%84%20MEET%20%EC%96%B8%EC%96%B4%EC%B6%94%EB%A1%A0%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
-    "answerUrl": "https://suneung-files.hdh061224.workers.dev/meet-v1/2011_main_verbal_a.pdf?name=2011%ED%95%99%EB%85%84%EB%8F%84%20MEET%20%EC%96%B8%EC%96%B4%EC%B6%94%EB%A1%A0%20%EC%A0%95%EB%8B%B5.pdf",
+    "questionUrl": "pdfs_meet/2011/main/2011_main_verbal_q.pdf",
+    "answerUrl": "pdfs_meet/2011/main/2011_main_verbal_a.pdf",
     "questionDownload": "2011학년도 MEET 언어추론 문제지.pdf",
     "answerDownload": "2011학년도 MEET 언어추론 정답.pdf"
   },
@@ -27894,10 +27894,10 @@
     "subject": "언어이해",
     "subSubject": null,
     "solutionUrl": null,
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/leet-v1/2011_main_verbal_q.pdf?name=2011%ED%95%99%EB%85%84%EB%8F%84%20LEET%20%EC%96%B8%EC%96%B4%EC%9D%B4%ED%95%B4%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
-    "answerUrl": "https://suneung-files.hdh061224.workers.dev/leet-v1/2011_main_verbal_a.pdf?name=2011%ED%95%99%EB%85%84%EB%8F%84%20LEET%20%EC%96%B8%EC%96%B4%EC%9D%B4%ED%95%B4%20%EC%A0%95%EB%8B%B5.pdf",
-    "questionDownload": "2011학년도 LEET 언어이해 문제지.pdf",
-    "answerDownload": "2011학년도 LEET 언어이해 정답.pdf"
+    "questionUrl": "pdfs_leet/2011/main/2011_main_verbal_q.hwp",
+    "answerUrl": "pdfs_leet/2011/main/2011_main_verbal_a.hwp",
+    "questionDownload": "2011학년도 LEET 언어이해 문제지.hwp",
+    "answerDownload": "2011학년도 LEET 언어이해 정답.hwp"
   },
   {
     "id": 1987,
@@ -27924,8 +27924,8 @@
     "subject": "수학",
     "subSubject": "가형",
     "solutionUrl": null,
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2011_main_math_가_q.pdf?name=2011%ED%95%99%EB%85%84%EB%8F%84%20%EC%82%AC%EA%B4%80%ED%95%99%EA%B5%90%201%EC%B0%A8%20%EC%88%98%ED%95%99%28%EA%B0%80%ED%98%95%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
-    "answerUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2011_main_math_가_a.pdf?name=2011%ED%95%99%EB%85%84%EB%8F%84%20%EC%82%AC%EA%B4%80%ED%95%99%EA%B5%90%201%EC%B0%A8%20%EC%88%98%ED%95%99%28%EA%B0%80%ED%98%95%29%20%EC%A0%95%EB%8B%B5.pdf"
+    "questionUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2011_main_math_ga_q.pdf?name=2011%ED%95%99%EB%85%84%EB%8F%84%20%EC%82%AC%EA%B4%80%ED%95%99%EA%B5%90%201%EC%B0%A8%20%EC%88%98%ED%95%99%28%EA%B0%80%ED%98%95%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2011_main_math_ga_a.pdf?name=2011%ED%95%99%EB%85%84%EB%8F%84%20%EC%82%AC%EA%B4%80%ED%95%99%EA%B5%90%201%EC%B0%A8%20%EC%88%98%ED%95%99%28%EA%B0%80%ED%98%95%29%20%EC%A0%95%EB%8B%B5.pdf"
   },
   {
     "id": 1989,
@@ -27938,8 +27938,8 @@
     "subject": "수학",
     "subSubject": "나형",
     "solutionUrl": null,
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2011_main_math_나_q.pdf?name=2011%ED%95%99%EB%85%84%EB%8F%84%20%EC%82%AC%EA%B4%80%ED%95%99%EA%B5%90%201%EC%B0%A8%20%EC%88%98%ED%95%99%28%EB%82%98%ED%98%95%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
-    "answerUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2011_main_math_나_a.pdf?name=2011%ED%95%99%EB%85%84%EB%8F%84%20%EC%82%AC%EA%B4%80%ED%95%99%EA%B5%90%201%EC%B0%A8%20%EC%88%98%ED%95%99%28%EB%82%98%ED%98%95%29%20%EC%A0%95%EB%8B%B5.pdf"
+    "questionUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2011_main_math_na_q.pdf?name=2011%ED%95%99%EB%85%84%EB%8F%84%20%EC%82%AC%EA%B4%80%ED%95%99%EA%B5%90%201%EC%B0%A8%20%EC%88%98%ED%95%99%28%EB%82%98%ED%98%95%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2011_main_math_na_a.pdf?name=2011%ED%95%99%EB%85%84%EB%8F%84%20%EC%82%AC%EA%B4%80%ED%95%99%EA%B5%90%201%EC%B0%A8%20%EC%88%98%ED%95%99%28%EB%82%98%ED%98%95%29%20%EC%A0%95%EB%8B%B5.pdf"
   },
   {
     "id": 1990,
@@ -27952,10 +27952,10 @@
     "subject": "추리논증",
     "subSubject": null,
     "solutionUrl": null,
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/leet-v1/2011_main_reasoning_q.pdf?name=2011%ED%95%99%EB%85%84%EB%8F%84%20LEET%20%EC%B6%94%EB%A6%AC%EB%85%BC%EC%A6%9D%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
-    "answerUrl": "https://suneung-files.hdh061224.workers.dev/leet-v1/2011_main_reasoning_a.pdf?name=2011%ED%95%99%EB%85%84%EB%8F%84%20LEET%20%EC%B6%94%EB%A6%AC%EB%85%BC%EC%A6%9D%20%EC%A0%95%EB%8B%B5.pdf",
-    "questionDownload": "2011학년도 LEET 추리논증 문제지.pdf",
-    "answerDownload": "2011학년도 LEET 추리논증 정답.pdf"
+    "questionUrl": "pdfs_leet/2011/main/2011_main_reasoning_q.hwp",
+    "answerUrl": "pdfs_leet/2011/main/2011_main_reasoning_a.hwp",
+    "questionDownload": "2011학년도 LEET 추리논증 문제지.hwp",
+    "answerDownload": "2011학년도 LEET 추리논증 정답.hwp"
   },
   {
     "id": 1991,
@@ -27968,9 +27968,9 @@
     "subject": "논술",
     "subSubject": null,
     "solutionUrl": null,
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/leet-v1/2011_main_essay_q.pdf?name=2011%ED%95%99%EB%85%84%EB%8F%84%20LEET%20%EB%85%BC%EC%88%A0%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
+    "questionUrl": "pdfs_leet/2011/main/2011_main_essay_q.hwp",
     "answerUrl": null,
-    "questionDownload": "2011학년도 LEET 논술 문제지.pdf",
+    "questionDownload": "2011학년도 LEET 논술 문제지.hwp",
     "answerDownload": null
   },
   {
@@ -28012,8 +28012,8 @@
     "subject": "언어추론",
     "subSubject": null,
     "solutionUrl": null,
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/meet-v1/2010_main_verbal_q.pdf?name=2010%ED%95%99%EB%85%84%EB%8F%84%20MEET%20%EC%96%B8%EC%96%B4%EC%B6%94%EB%A1%A0%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
-    "answerUrl": "https://suneung-files.hdh061224.workers.dev/meet-v1/2010_main_verbal_a.pdf?name=2010%ED%95%99%EB%85%84%EB%8F%84%20MEET%20%EC%96%B8%EC%96%B4%EC%B6%94%EB%A1%A0%20%EC%A0%95%EB%8B%B5.pdf",
+    "questionUrl": "pdfs_meet/2010/main/2010_main_verbal_q.pdf",
+    "answerUrl": "pdfs_meet/2010/main/2010_main_verbal_a.pdf",
     "questionDownload": "2010학년도 MEET 언어추론 문제지.pdf",
     "answerDownload": "2010학년도 MEET 언어추론 정답.pdf"
   },
@@ -28056,10 +28056,10 @@
     "subject": "언어이해",
     "subSubject": null,
     "solutionUrl": null,
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/leet-v1/2010_main_verbal_q.pdf?name=2010%ED%95%99%EB%85%84%EB%8F%84%20LEET%20%EC%96%B8%EC%96%B4%EC%9D%B4%ED%95%B4%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
-    "answerUrl": "https://suneung-files.hdh061224.workers.dev/leet-v1/2010_main_verbal_a.pdf?name=2010%ED%95%99%EB%85%84%EB%8F%84%20LEET%20%EC%96%B8%EC%96%B4%EC%9D%B4%ED%95%B4%20%EC%A0%95%EB%8B%B5.pdf",
-    "questionDownload": "2010학년도 LEET 언어이해 문제지.pdf",
-    "answerDownload": "2010학년도 LEET 언어이해 정답.pdf"
+    "questionUrl": "pdfs_leet/2010/main/2010_main_verbal_q.hwp",
+    "answerUrl": "pdfs_leet/2010/main/2010_main_verbal_a.hwp",
+    "questionDownload": "2010학년도 LEET 언어이해 문제지.hwp",
+    "answerDownload": "2010학년도 LEET 언어이해 정답.hwp"
   },
   {
     "id": 1998,
@@ -28073,8 +28073,7 @@
     "subSubject": null,
     "solutionUrl": null,
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/police-v1/2010_main_math_q.pdf?name=2010%ED%95%99%EB%85%84%EB%8F%84%20%EA%B2%BD%EC%B0%B0%EB%8C%80%ED%95%99%201%EC%B0%A8%20%EC%88%98%ED%95%99%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
-    "answerUrl": "https://suneung-files.hdh061224.workers.dev/police-v1/2010_main_math_a.pdf?name=2010%ED%95%99%EB%85%84%EB%8F%84%20%EA%B2%BD%EC%B0%B0%EB%8C%80%ED%95%99%201%EC%B0%A8%20%EC%88%98%ED%95%99%20%EC%A0%95%EB%8B%B5.pdf",
-    "questionDownload": "2010학년도 경찰대학 1차 수학 문제지.pdf"
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/police-v1/2010_main_math_a.pdf?name=2010%ED%95%99%EB%85%84%EB%8F%84%20%EA%B2%BD%EC%B0%B0%EB%8C%80%ED%95%99%201%EC%B0%A8%20%EC%88%98%ED%95%99%20%EC%A0%95%EB%8B%B5.pdf"
   },
   {
     "id": 1999,
@@ -28087,8 +28086,8 @@
     "subject": "수학",
     "subSubject": "가형",
     "solutionUrl": null,
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2010_main_math_가_q.pdf?name=2010%ED%95%99%EB%85%84%EB%8F%84%20%EC%82%AC%EA%B4%80%ED%95%99%EA%B5%90%201%EC%B0%A8%20%EC%88%98%ED%95%99%28%EA%B0%80%ED%98%95%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
-    "answerUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2010_main_math_가_a.pdf?name=2010%ED%95%99%EB%85%84%EB%8F%84%20%EC%82%AC%EA%B4%80%ED%95%99%EA%B5%90%201%EC%B0%A8%20%EC%88%98%ED%95%99%28%EA%B0%80%ED%98%95%29%20%EC%A0%95%EB%8B%B5.pdf"
+    "questionUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2010_main_math_ga_q.pdf?name=2010%ED%95%99%EB%85%84%EB%8F%84%20%EC%82%AC%EA%B4%80%ED%95%99%EA%B5%90%201%EC%B0%A8%20%EC%88%98%ED%95%99%28%EA%B0%80%ED%98%95%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2010_main_math_ga_a.pdf?name=2010%ED%95%99%EB%85%84%EB%8F%84%20%EC%82%AC%EA%B4%80%ED%95%99%EA%B5%90%201%EC%B0%A8%20%EC%88%98%ED%95%99%28%EA%B0%80%ED%98%95%29%20%EC%A0%95%EB%8B%B5.pdf"
   },
   {
     "id": 2000,
@@ -28101,8 +28100,8 @@
     "subject": "수학",
     "subSubject": "나형",
     "solutionUrl": null,
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2010_main_math_나_q.pdf?name=2010%ED%95%99%EB%85%84%EB%8F%84%20%EC%82%AC%EA%B4%80%ED%95%99%EA%B5%90%201%EC%B0%A8%20%EC%88%98%ED%95%99%28%EB%82%98%ED%98%95%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
-    "answerUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2010_main_math_나_a.pdf?name=2010%ED%95%99%EB%85%84%EB%8F%84%20%EC%82%AC%EA%B4%80%ED%95%99%EA%B5%90%201%EC%B0%A8%20%EC%88%98%ED%95%99%28%EB%82%98%ED%98%95%29%20%EC%A0%95%EB%8B%B5.pdf"
+    "questionUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2010_main_math_na_q.pdf?name=2010%ED%95%99%EB%85%84%EB%8F%84%20%EC%82%AC%EA%B4%80%ED%95%99%EA%B5%90%201%EC%B0%A8%20%EC%88%98%ED%95%99%28%EB%82%98%ED%98%95%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2010_main_math_na_a.pdf?name=2010%ED%95%99%EB%85%84%EB%8F%84%20%EC%82%AC%EA%B4%80%ED%95%99%EA%B5%90%201%EC%B0%A8%20%EC%88%98%ED%95%99%28%EB%82%98%ED%98%95%29%20%EC%A0%95%EB%8B%B5.pdf"
   },
   {
     "id": 2001,
@@ -28115,10 +28114,10 @@
     "subject": "추리논증",
     "subSubject": null,
     "solutionUrl": null,
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/leet-v1/2010_main_reasoning_q.pdf?name=2010%ED%95%99%EB%85%84%EB%8F%84%20LEET%20%EC%B6%94%EB%A6%AC%EB%85%BC%EC%A6%9D%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
-    "answerUrl": "https://suneung-files.hdh061224.workers.dev/leet-v1/2010_main_reasoning_a.pdf?name=2010%ED%95%99%EB%85%84%EB%8F%84%20LEET%20%EC%B6%94%EB%A6%AC%EB%85%BC%EC%A6%9D%20%EC%A0%95%EB%8B%B5.pdf",
-    "questionDownload": "2010학년도 LEET 추리논증 문제지.pdf",
-    "answerDownload": "2010학년도 LEET 추리논증 정답.pdf"
+    "questionUrl": "pdfs_leet/2010/main/2010_main_reasoning_q.hwp",
+    "answerUrl": "pdfs_leet/2010/main/2010_main_reasoning_a.hwp",
+    "questionDownload": "2010학년도 LEET 추리논증 문제지.hwp",
+    "answerDownload": "2010학년도 LEET 추리논증 정답.hwp"
   },
   {
     "id": 2002,
@@ -28131,9 +28130,9 @@
     "subject": "논술",
     "subSubject": null,
     "solutionUrl": null,
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/leet-v1/2010_main_essay_q.pdf?name=2010%ED%95%99%EB%85%84%EB%8F%84%20LEET%20%EB%85%BC%EC%88%A0%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
+    "questionUrl": "pdfs_leet/2010/main/2010_main_essay_q.hwp",
     "answerUrl": null,
-    "questionDownload": "2010학년도 LEET 논술 문제지.pdf",
+    "questionDownload": "2010학년도 LEET 논술 문제지.hwp",
     "answerDownload": null
   },
   {
@@ -28162,8 +28161,7 @@
     "subSubject": null,
     "solutionUrl": null,
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/police-v1/2010_main_english_q.pdf?name=2010%ED%95%99%EB%85%84%EB%8F%84%20%EA%B2%BD%EC%B0%B0%EB%8C%80%ED%95%99%201%EC%B0%A8%20%EC%98%81%EC%96%B4%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
-    "answerUrl": "https://suneung-files.hdh061224.workers.dev/police-v1/2010_main_english_a.pdf?name=2010%ED%95%99%EB%85%84%EB%8F%84%20%EA%B2%BD%EC%B0%B0%EB%8C%80%ED%95%99%201%EC%B0%A8%20%EC%98%81%EC%96%B4%20%EC%A0%95%EB%8B%B5.pdf",
-    "questionDownload": "2010학년도 경찰대학 1차 영어 문제지.pdf"
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/police-v1/2010_main_english_a.pdf?name=2010%ED%95%99%EB%85%84%EB%8F%84%20%EA%B2%BD%EC%B0%B0%EB%8C%80%ED%95%99%201%EC%B0%A8%20%EC%98%81%EC%96%B4%20%EC%A0%95%EB%8B%B5.pdf"
   },
   {
     "id": 2005,
@@ -28176,8 +28174,8 @@
     "subject": "언어추론",
     "subSubject": null,
     "solutionUrl": null,
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/meet-v1/2009_main_verbal_q.pdf?name=2009%ED%95%99%EB%85%84%EB%8F%84%20MEET%20%EC%96%B8%EC%96%B4%EC%B6%94%EB%A1%A0%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
-    "answerUrl": "https://suneung-files.hdh061224.workers.dev/meet-v1/2009_main_verbal_a.pdf?name=2009%ED%95%99%EB%85%84%EB%8F%84%20MEET%20%EC%96%B8%EC%96%B4%EC%B6%94%EB%A1%A0%20%EC%A0%95%EB%8B%B5.pdf",
+    "questionUrl": "pdfs_meet/2009/main/2009_main_verbal_q.pdf",
+    "answerUrl": "pdfs_meet/2009/main/2009_main_verbal_a.pdf",
     "questionDownload": "2009학년도 MEET 언어추론 문제지.pdf",
     "answerDownload": "2009학년도 MEET 언어추론 정답.pdf"
   },
@@ -28220,10 +28218,10 @@
     "subject": "언어이해",
     "subSubject": null,
     "solutionUrl": null,
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/leet-v1/2009_main_verbal_q.pdf?name=2009%ED%95%99%EB%85%84%EB%8F%84%20LEET%20%EC%96%B8%EC%96%B4%EC%9D%B4%ED%95%B4%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
-    "answerUrl": "https://suneung-files.hdh061224.workers.dev/leet-v1/2009_main_verbal_a.pdf?name=2009%ED%95%99%EB%85%84%EB%8F%84%20LEET%20%EC%96%B8%EC%96%B4%EC%9D%B4%ED%95%B4%20%EC%A0%95%EB%8B%B5.pdf",
-    "questionDownload": "2009학년도 LEET 언어이해 문제지.pdf",
-    "answerDownload": "2009학년도 LEET 언어이해 정답.pdf"
+    "questionUrl": "pdfs_leet/2009/main/2009_main_verbal_q.hwp",
+    "answerUrl": "pdfs_leet/2009/main/2009_main_verbal_a.hwp",
+    "questionDownload": "2009학년도 LEET 언어이해 문제지.hwp",
+    "answerDownload": "2009학년도 LEET 언어이해 정답.hwp"
   },
   {
     "id": 2009,
@@ -28237,8 +28235,7 @@
     "subSubject": null,
     "solutionUrl": null,
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/police-v1/2009_main_math_q.pdf?name=2009%ED%95%99%EB%85%84%EB%8F%84%20%EA%B2%BD%EC%B0%B0%EB%8C%80%ED%95%99%201%EC%B0%A8%20%EC%88%98%ED%95%99%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
-    "answerUrl": "https://suneung-files.hdh061224.workers.dev/police-v1/2009_main_math_a.pdf?name=2009%ED%95%99%EB%85%84%EB%8F%84%20%EA%B2%BD%EC%B0%B0%EB%8C%80%ED%95%99%201%EC%B0%A8%20%EC%88%98%ED%95%99%20%EC%A0%95%EB%8B%B5.pdf",
-    "questionDownload": "2009학년도 경찰대학 1차 수학 문제지.pdf"
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/police-v1/2009_main_math_a.pdf?name=2009%ED%95%99%EB%85%84%EB%8F%84%20%EA%B2%BD%EC%B0%B0%EB%8C%80%ED%95%99%201%EC%B0%A8%20%EC%88%98%ED%95%99%20%EC%A0%95%EB%8B%B5.pdf"
   },
   {
     "id": 2010,
@@ -28251,8 +28248,8 @@
     "subject": "수학",
     "subSubject": "가형",
     "solutionUrl": null,
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2009_main_math_가_q.pdf?name=2009%ED%95%99%EB%85%84%EB%8F%84%20%EC%82%AC%EA%B4%80%ED%95%99%EA%B5%90%201%EC%B0%A8%20%EC%88%98%ED%95%99%28%EA%B0%80%ED%98%95%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
-    "answerUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2009_main_math_가_a.pdf?name=2009%ED%95%99%EB%85%84%EB%8F%84%20%EC%82%AC%EA%B4%80%ED%95%99%EA%B5%90%201%EC%B0%A8%20%EC%88%98%ED%95%99%28%EA%B0%80%ED%98%95%29%20%EC%A0%95%EB%8B%B5.pdf"
+    "questionUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2009_main_math_ga_q.pdf?name=2009%ED%95%99%EB%85%84%EB%8F%84%20%EC%82%AC%EA%B4%80%ED%95%99%EA%B5%90%201%EC%B0%A8%20%EC%88%98%ED%95%99%28%EA%B0%80%ED%98%95%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2009_main_math_ga_a.pdf?name=2009%ED%95%99%EB%85%84%EB%8F%84%20%EC%82%AC%EA%B4%80%ED%95%99%EA%B5%90%201%EC%B0%A8%20%EC%88%98%ED%95%99%28%EA%B0%80%ED%98%95%29%20%EC%A0%95%EB%8B%B5.pdf"
   },
   {
     "id": 2011,
@@ -28265,8 +28262,8 @@
     "subject": "수학",
     "subSubject": "나형",
     "solutionUrl": null,
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2009_main_math_나_q.pdf?name=2009%ED%95%99%EB%85%84%EB%8F%84%20%EC%82%AC%EA%B4%80%ED%95%99%EA%B5%90%201%EC%B0%A8%20%EC%88%98%ED%95%99%28%EB%82%98%ED%98%95%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
-    "answerUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2009_main_math_나_a.pdf?name=2009%ED%95%99%EB%85%84%EB%8F%84%20%EC%82%AC%EA%B4%80%ED%95%99%EA%B5%90%201%EC%B0%A8%20%EC%88%98%ED%95%99%28%EB%82%98%ED%98%95%29%20%EC%A0%95%EB%8B%B5.pdf"
+    "questionUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2009_main_math_na_q.pdf?name=2009%ED%95%99%EB%85%84%EB%8F%84%20%EC%82%AC%EA%B4%80%ED%95%99%EA%B5%90%201%EC%B0%A8%20%EC%88%98%ED%95%99%28%EB%82%98%ED%98%95%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2009_main_math_na_a.pdf?name=2009%ED%95%99%EB%85%84%EB%8F%84%20%EC%82%AC%EA%B4%80%ED%95%99%EA%B5%90%201%EC%B0%A8%20%EC%88%98%ED%95%99%28%EB%82%98%ED%98%95%29%20%EC%A0%95%EB%8B%B5.pdf"
   },
   {
     "id": 2012,
@@ -28279,10 +28276,10 @@
     "subject": "추리논증",
     "subSubject": null,
     "solutionUrl": null,
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/leet-v1/2009_main_reasoning_q.pdf?name=2009%ED%95%99%EB%85%84%EB%8F%84%20LEET%20%EC%B6%94%EB%A6%AC%EB%85%BC%EC%A6%9D%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
-    "answerUrl": "https://suneung-files.hdh061224.workers.dev/leet-v1/2009_main_reasoning_a.pdf?name=2009%ED%95%99%EB%85%84%EB%8F%84%20LEET%20%EC%B6%94%EB%A6%AC%EB%85%BC%EC%A6%9D%20%EC%A0%95%EB%8B%B5.pdf",
-    "questionDownload": "2009학년도 LEET 추리논증 문제지.pdf",
-    "answerDownload": "2009학년도 LEET 추리논증 정답.pdf"
+    "questionUrl": "pdfs_leet/2009/main/2009_main_reasoning_q.hwp",
+    "answerUrl": "pdfs_leet/2009/main/2009_main_reasoning_a.hwp",
+    "questionDownload": "2009학년도 LEET 추리논증 문제지.hwp",
+    "answerDownload": "2009학년도 LEET 추리논증 정답.hwp"
   },
   {
     "id": 2013,
@@ -28295,9 +28292,9 @@
     "subject": "논술",
     "subSubject": null,
     "solutionUrl": null,
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/leet-v1/2009_main_essay_q.pdf?name=2009%ED%95%99%EB%85%84%EB%8F%84%20LEET%20%EB%85%BC%EC%88%A0%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
+    "questionUrl": "pdfs_leet/2009/main/2009_main_essay_q.hwp",
     "answerUrl": null,
-    "questionDownload": "2009학년도 LEET 논술 문제지.pdf",
+    "questionDownload": "2009학년도 LEET 논술 문제지.hwp",
     "answerDownload": null
   },
   {
@@ -28326,8 +28323,7 @@
     "subSubject": null,
     "solutionUrl": null,
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/police-v1/2009_main_english_q.pdf?name=2009%ED%95%99%EB%85%84%EB%8F%84%20%EA%B2%BD%EC%B0%B0%EB%8C%80%ED%95%99%201%EC%B0%A8%20%EC%98%81%EC%96%B4%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
-    "answerUrl": "https://suneung-files.hdh061224.workers.dev/police-v1/2009_main_english_a.pdf?name=2009%ED%95%99%EB%85%84%EB%8F%84%20%EA%B2%BD%EC%B0%B0%EB%8C%80%ED%95%99%201%EC%B0%A8%20%EC%98%81%EC%96%B4%20%EC%A0%95%EB%8B%B5.pdf",
-    "questionDownload": "2009학년도 경찰대학 1차 영어 문제지.pdf"
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/police-v1/2009_main_english_a.pdf?name=2009%ED%95%99%EB%85%84%EB%8F%84%20%EA%B2%BD%EC%B0%B0%EB%8C%80%ED%95%99%201%EC%B0%A8%20%EC%98%81%EC%96%B4%20%EC%A0%95%EB%8B%B5.pdf"
   },
   {
     "id": 2016,
@@ -28340,10 +28336,10 @@
     "subject": "언어이해",
     "subSubject": null,
     "solutionUrl": null,
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/leet-v1/2009_prelim_verbal_q.pdf?name=%EC%98%88%EB%B9%84%EC%8B%9C%ED%97%98%20LEET%20%EC%96%B8%EC%96%B4%EC%9D%B4%ED%95%B4%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
-    "answerUrl": "https://suneung-files.hdh061224.workers.dev/leet-v1/2009_prelim_verbal_a.pdf?name=%EC%98%88%EB%B9%84%EC%8B%9C%ED%97%98%20LEET%20%EC%96%B8%EC%96%B4%EC%9D%B4%ED%95%B4%20%EC%A0%95%EB%8B%B5.pdf",
-    "questionDownload": "예비시험 LEET 언어이해 문제지.pdf",
-    "answerDownload": "예비시험 LEET 언어이해 정답.pdf"
+    "questionUrl": "pdfs_leet/2009/prelim/2009_prelim_verbal_q.hwp",
+    "answerUrl": "pdfs_leet/2009/prelim/2009_prelim_verbal_a.hwp",
+    "questionDownload": "예비시험 LEET 언어이해 문제지.hwp",
+    "answerDownload": "예비시험 LEET 언어이해 정답.hwp"
   },
   {
     "id": 2017,
@@ -28356,10 +28352,10 @@
     "subject": "추리논증",
     "subSubject": null,
     "solutionUrl": null,
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/leet-v1/2009_prelim_reasoning_q.pdf?name=%EC%98%88%EB%B9%84%EC%8B%9C%ED%97%98%20LEET%20%EC%B6%94%EB%A6%AC%EB%85%BC%EC%A6%9D%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
-    "answerUrl": "https://suneung-files.hdh061224.workers.dev/leet-v1/2009_prelim_reasoning_a.pdf?name=%EC%98%88%EB%B9%84%EC%8B%9C%ED%97%98%20LEET%20%EC%B6%94%EB%A6%AC%EB%85%BC%EC%A6%9D%20%EC%A0%95%EB%8B%B5.pdf",
-    "questionDownload": "예비시험 LEET 추리논증 문제지.pdf",
-    "answerDownload": "예비시험 LEET 추리논증 정답.pdf"
+    "questionUrl": "pdfs_leet/2009/prelim/2009_prelim_reasoning_q.hwp",
+    "answerUrl": "pdfs_leet/2009/prelim/2009_prelim_reasoning_a.hwp",
+    "questionDownload": "예비시험 LEET 추리논증 문제지.hwp",
+    "answerDownload": "예비시험 LEET 추리논증 정답.hwp"
   },
   {
     "id": 2018,
@@ -28372,9 +28368,9 @@
     "subject": "논술",
     "subSubject": null,
     "solutionUrl": null,
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/leet-v1/2009_prelim_essay_q.pdf?name=%EC%98%88%EB%B9%84%EC%8B%9C%ED%97%98%20LEET%20%EB%85%BC%EC%88%A0%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
+    "questionUrl": "pdfs_leet/2009/prelim/2009_prelim_essay_q.hwp",
     "answerUrl": null,
-    "questionDownload": "예비시험 LEET 논술 문제지.pdf",
+    "questionDownload": "예비시험 LEET 논술 문제지.hwp",
     "answerDownload": null
   },
   {
@@ -28388,9 +28384,9 @@
     "subject": "도입",
     "subSubject": null,
     "solutionUrl": null,
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/leet-v1/2009_prelim_intro_q.pdf?name=%EC%98%88%EB%B9%84%EC%8B%9C%ED%97%98%20LEET%20%EB%8F%84%EC%9E%85%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
+    "questionUrl": "pdfs_leet/2009/prelim/2009_prelim_intro_q.hwp",
     "answerUrl": null,
-    "questionDownload": "예비시험 LEET 도입 문제지.pdf",
+    "questionDownload": "예비시험 LEET 도입 문제지.hwp",
     "answerDownload": null
   },
   {
@@ -28404,10 +28400,10 @@
     "subject": "언어추론",
     "subSubject": null,
     "solutionUrl": null,
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/meet-v1/2008_main_verbal_q.pdf?name=2008%ED%95%99%EB%85%84%EB%8F%84%20MEET%20%EC%96%B8%EC%96%B4%EC%B6%94%EB%A1%A0%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
-    "answerUrl": "https://suneung-files.hdh061224.workers.dev/meet-v1/2008_main_verbal_a.pdf?name=2008%ED%95%99%EB%85%84%EB%8F%84%20MEET%20%EC%96%B8%EC%96%B4%EC%B6%94%EB%A1%A0%20%EC%A0%95%EB%8B%B5.pdf",
-    "questionDownload": "2008학년도 MEET 언어추론 문제지.pdf",
-    "answerDownload": "2008학년도 MEET 언어추론 정답.pdf"
+    "questionUrl": "pdfs_meet/2008/main/2008_main_verbal_q.hwp",
+    "answerUrl": "pdfs_meet/2008/main/2008_main_verbal_a.hwp",
+    "questionDownload": "2008학년도 MEET 언어추론 문제지.hwp",
+    "answerDownload": "2008학년도 MEET 언어추론 정답.hwp"
   },
   {
     "id": 2021,
@@ -28449,8 +28445,7 @@
     "subSubject": null,
     "solutionUrl": null,
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/police-v1/2008_main_math_q.pdf?name=2008%ED%95%99%EB%85%84%EB%8F%84%20%EA%B2%BD%EC%B0%B0%EB%8C%80%ED%95%99%201%EC%B0%A8%20%EC%88%98%ED%95%99%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
-    "answerUrl": "https://suneung-files.hdh061224.workers.dev/police-v1/2008_main_math_a.pdf?name=2008%ED%95%99%EB%85%84%EB%8F%84%20%EA%B2%BD%EC%B0%B0%EB%8C%80%ED%95%99%201%EC%B0%A8%20%EC%88%98%ED%95%99%20%EC%A0%95%EB%8B%B5.pdf",
-    "questionDownload": "2008학년도 경찰대학 1차 수학 문제지.pdf"
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/police-v1/2008_main_math_a.pdf?name=2008%ED%95%99%EB%85%84%EB%8F%84%20%EA%B2%BD%EC%B0%B0%EB%8C%80%ED%95%99%201%EC%B0%A8%20%EC%88%98%ED%95%99%20%EC%A0%95%EB%8B%B5.pdf"
   },
   {
     "id": 2024,
@@ -28463,7 +28458,7 @@
     "subject": "수학",
     "subSubject": "가형",
     "solutionUrl": null,
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2008_main_math_가_q.pdf?name=2008%ED%95%99%EB%85%84%EB%8F%84%20%EC%82%AC%EA%B4%80%ED%95%99%EA%B5%90%201%EC%B0%A8%20%EC%88%98%ED%95%99%28%EA%B0%80%ED%98%95%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
+    "questionUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2008_main_math_ga_q.pdf?name=2008%ED%95%99%EB%85%84%EB%8F%84%20%EC%82%AC%EA%B4%80%ED%95%99%EA%B5%90%201%EC%B0%A8%20%EC%88%98%ED%95%99%28%EA%B0%80%ED%98%95%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
     "answerUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2008_main_math_a.pdf?name=2008%ED%95%99%EB%85%84%EB%8F%84%20%EC%82%AC%EA%B4%80%ED%95%99%EA%B5%90%201%EC%B0%A8%20%EC%88%98%ED%95%99%28%EA%B0%80%ED%98%95%29%20%EC%A0%95%EB%8B%B5.pdf"
   },
   {
@@ -28477,7 +28472,7 @@
     "subject": "수학",
     "subSubject": "나형",
     "solutionUrl": null,
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2008_main_math_나_q.pdf?name=2008%ED%95%99%EB%85%84%EB%8F%84%20%EC%82%AC%EA%B4%80%ED%95%99%EA%B5%90%201%EC%B0%A8%20%EC%88%98%ED%95%99%28%EB%82%98%ED%98%95%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
+    "questionUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2008_main_math_na_q.pdf?name=2008%ED%95%99%EB%85%84%EB%8F%84%20%EC%82%AC%EA%B4%80%ED%95%99%EA%B5%90%201%EC%B0%A8%20%EC%88%98%ED%95%99%28%EB%82%98%ED%98%95%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
     "answerUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2008_main_math_a.pdf?name=2008%ED%95%99%EB%85%84%EB%8F%84%20%EC%82%AC%EA%B4%80%ED%95%99%EA%B5%90%201%EC%B0%A8%20%EC%88%98%ED%95%99%28%EB%82%98%ED%98%95%29%20%EC%A0%95%EB%8B%B5.pdf"
   },
   {
@@ -28506,8 +28501,7 @@
     "subSubject": null,
     "solutionUrl": null,
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/police-v1/2008_main_english_q.pdf?name=2008%ED%95%99%EB%85%84%EB%8F%84%20%EA%B2%BD%EC%B0%B0%EB%8C%80%ED%95%99%201%EC%B0%A8%20%EC%98%81%EC%96%B4%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
-    "answerUrl": "https://suneung-files.hdh061224.workers.dev/police-v1/2008_main_english_a.pdf?name=2008%ED%95%99%EB%85%84%EB%8F%84%20%EA%B2%BD%EC%B0%B0%EB%8C%80%ED%95%99%201%EC%B0%A8%20%EC%98%81%EC%96%B4%20%EC%A0%95%EB%8B%B5.pdf",
-    "questionDownload": "2008학년도 경찰대학 1차 영어 문제지.pdf"
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/police-v1/2008_main_english_a.pdf?name=2008%ED%95%99%EB%85%84%EB%8F%84%20%EA%B2%BD%EC%B0%B0%EB%8C%80%ED%95%99%201%EC%B0%A8%20%EC%98%81%EC%96%B4%20%EC%A0%95%EB%8B%B5.pdf"
   },
   {
     "id": 2028,
@@ -28520,10 +28514,10 @@
     "subject": "언어추론",
     "subSubject": null,
     "solutionUrl": null,
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/meet-v1/2007_main_verbal_q.pdf?name=2007%ED%95%99%EB%85%84%EB%8F%84%20MEET%20%EC%96%B8%EC%96%B4%EC%B6%94%EB%A1%A0%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
-    "answerUrl": "https://suneung-files.hdh061224.workers.dev/meet-v1/2007_main_verbal_a.pdf?name=2007%ED%95%99%EB%85%84%EB%8F%84%20MEET%20%EC%96%B8%EC%96%B4%EC%B6%94%EB%A1%A0%20%EC%A0%95%EB%8B%B5.pdf",
-    "questionDownload": "2007학년도 MEET 언어추론 문제지.pdf",
-    "answerDownload": "2007학년도 MEET 언어추론 정답.pdf"
+    "questionUrl": "pdfs_meet/2007/main/2007_main_verbal_q.hwp",
+    "answerUrl": "pdfs_meet/2007/main/2007_main_verbal_a.hwp",
+    "questionDownload": "2007학년도 MEET 언어추론 문제지.hwp",
+    "answerDownload": "2007학년도 MEET 언어추론 정답.hwp"
   },
   {
     "id": 2029,
@@ -28565,8 +28559,7 @@
     "subSubject": null,
     "solutionUrl": null,
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/police-v1/2007_main_math_q.pdf?name=2007%ED%95%99%EB%85%84%EB%8F%84%20%EA%B2%BD%EC%B0%B0%EB%8C%80%ED%95%99%201%EC%B0%A8%20%EC%88%98%ED%95%99%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
-    "answerUrl": "https://suneung-files.hdh061224.workers.dev/police-v1/2007_main_math_a.pdf?name=2007%ED%95%99%EB%85%84%EB%8F%84%20%EA%B2%BD%EC%B0%B0%EB%8C%80%ED%95%99%201%EC%B0%A8%20%EC%88%98%ED%95%99%20%EC%A0%95%EB%8B%B5.pdf",
-    "questionDownload": "2007학년도 경찰대학 1차 수학 문제지.pdf"
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/police-v1/2007_main_math_a.pdf?name=2007%ED%95%99%EB%85%84%EB%8F%84%20%EA%B2%BD%EC%B0%B0%EB%8C%80%ED%95%99%201%EC%B0%A8%20%EC%88%98%ED%95%99%20%EC%A0%95%EB%8B%B5.pdf"
   },
   {
     "id": 2032,
@@ -28579,7 +28572,7 @@
     "subject": "수학",
     "subSubject": "가형",
     "solutionUrl": null,
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2007_main_math_가_q.pdf?name=2007%ED%95%99%EB%85%84%EB%8F%84%20%EC%82%AC%EA%B4%80%ED%95%99%EA%B5%90%201%EC%B0%A8%20%EC%88%98%ED%95%99%28%EA%B0%80%ED%98%95%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
+    "questionUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2007_main_math_ga_q.pdf?name=2007%ED%95%99%EB%85%84%EB%8F%84%20%EC%82%AC%EA%B4%80%ED%95%99%EA%B5%90%201%EC%B0%A8%20%EC%88%98%ED%95%99%28%EA%B0%80%ED%98%95%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
     "answerUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2007_main_math_a.pdf?name=2007%ED%95%99%EB%85%84%EB%8F%84%20%EC%82%AC%EA%B4%80%ED%95%99%EA%B5%90%201%EC%B0%A8%20%EC%88%98%ED%95%99%28%EA%B0%80%ED%98%95%29%20%EC%A0%95%EB%8B%B5.pdf"
   },
   {
@@ -28593,7 +28586,7 @@
     "subject": "수학",
     "subSubject": "나형",
     "solutionUrl": null,
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2007_main_math_나_q.pdf?name=2007%ED%95%99%EB%85%84%EB%8F%84%20%EC%82%AC%EA%B4%80%ED%95%99%EA%B5%90%201%EC%B0%A8%20%EC%88%98%ED%95%99%28%EB%82%98%ED%98%95%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
+    "questionUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2007_main_math_na_q.pdf?name=2007%ED%95%99%EB%85%84%EB%8F%84%20%EC%82%AC%EA%B4%80%ED%95%99%EA%B5%90%201%EC%B0%A8%20%EC%88%98%ED%95%99%28%EB%82%98%ED%98%95%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
     "answerUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2007_main_math_a.pdf?name=2007%ED%95%99%EB%85%84%EB%8F%84%20%EC%82%AC%EA%B4%80%ED%95%99%EA%B5%90%201%EC%B0%A8%20%EC%88%98%ED%95%99%28%EB%82%98%ED%98%95%29%20%EC%A0%95%EB%8B%B5.pdf"
   },
   {
@@ -28622,8 +28615,7 @@
     "subSubject": null,
     "solutionUrl": null,
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/police-v1/2007_main_english_q.pdf?name=2007%ED%95%99%EB%85%84%EB%8F%84%20%EA%B2%BD%EC%B0%B0%EB%8C%80%ED%95%99%201%EC%B0%A8%20%EC%98%81%EC%96%B4%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
-    "answerUrl": "https://suneung-files.hdh061224.workers.dev/police-v1/2007_main_english_a.pdf?name=2007%ED%95%99%EB%85%84%EB%8F%84%20%EA%B2%BD%EC%B0%B0%EB%8C%80%ED%95%99%201%EC%B0%A8%20%EC%98%81%EC%96%B4%20%EC%A0%95%EB%8B%B5.pdf",
-    "questionDownload": "2007학년도 경찰대학 1차 영어 문제지.pdf"
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/police-v1/2007_main_english_a.pdf?name=2007%ED%95%99%EB%85%84%EB%8F%84%20%EA%B2%BD%EC%B0%B0%EB%8C%80%ED%95%99%201%EC%B0%A8%20%EC%98%81%EC%96%B4%20%EC%A0%95%EB%8B%B5.pdf"
   },
   {
     "id": 2036,
@@ -28636,10 +28628,10 @@
     "subject": "언어추론",
     "subSubject": null,
     "solutionUrl": null,
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/meet-v1/2006_main_verbal_q.pdf?name=2006%ED%95%99%EB%85%84%EB%8F%84%20MEET%20%EC%96%B8%EC%96%B4%EC%B6%94%EB%A1%A0%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
-    "answerUrl": "https://suneung-files.hdh061224.workers.dev/meet-v1/2006_main_verbal_a.pdf?name=2006%ED%95%99%EB%85%84%EB%8F%84%20MEET%20%EC%96%B8%EC%96%B4%EC%B6%94%EB%A1%A0%20%EC%A0%95%EB%8B%B5.pdf",
-    "questionDownload": "2006학년도 MEET 언어추론 문제지.pdf",
-    "answerDownload": "2006학년도 MEET 언어추론 정답.pdf"
+    "questionUrl": "pdfs_meet/2006/main/2006_main_verbal_q.hwp",
+    "answerUrl": "pdfs_meet/2006/main/2006_main_verbal_a.hwp",
+    "questionDownload": "2006학년도 MEET 언어추론 문제지.hwp",
+    "answerDownload": "2006학년도 MEET 언어추론 정답.hwp"
   },
   {
     "id": 2037,
@@ -28657,6 +28649,34 @@
   },
   {
     "id": 2038,
+    "curriculum": "경찰대",
+    "gradeYear": 2006,
+    "examYear": 2005,
+    "month": 7,
+    "typeGroup": "police",
+    "type": "police_annual",
+    "subject": "국어",
+    "subSubject": null,
+    "solutionUrl": null,
+    "questionUrl": "https://suneung-files.hdh061224.workers.dev/police-v1/2006_main_korean_q.hwp?name=2006%ED%95%99%EB%85%84%EB%8F%84%20%EA%B2%BD%EC%B0%B0%EB%8C%80%ED%95%99%201%EC%B0%A8%20%EA%B5%AD%EC%96%B4%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/police-v1/2006_main_korean_a.hwp?name=2006%ED%95%99%EB%85%84%EB%8F%84%20%EA%B2%BD%EC%B0%B0%EB%8C%80%ED%95%99%201%EC%B0%A8%20%EA%B5%AD%EC%96%B4%20%EC%A0%95%EB%8B%B5.pdf"
+  },
+  {
+    "id": 2039,
+    "curriculum": "경찰대",
+    "gradeYear": 2006,
+    "examYear": 2005,
+    "month": 7,
+    "typeGroup": "police",
+    "type": "police_annual",
+    "subject": "수학",
+    "subSubject": null,
+    "solutionUrl": null,
+    "questionUrl": "https://suneung-files.hdh061224.workers.dev/police-v1/2006_main_math_q.hwp?name=2006%ED%95%99%EB%85%84%EB%8F%84%20%EA%B2%BD%EC%B0%B0%EB%8C%80%ED%95%99%201%EC%B0%A8%20%EC%88%98%ED%95%99%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/police-v1/2006_main_math_a.hwp?name=2006%ED%95%99%EB%85%84%EB%8F%84%20%EA%B2%BD%EC%B0%B0%EB%8C%80%ED%95%99%201%EC%B0%A8%20%EC%88%98%ED%95%99%20%EC%A0%95%EB%8B%B5.pdf"
+  },
+  {
+    "id": 2040,
     "curriculum": "사관",
     "gradeYear": 2006,
     "examYear": 2005,
@@ -28666,11 +28686,11 @@
     "subject": "수학",
     "subSubject": "가형",
     "solutionUrl": null,
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2006_main_math_가_q.pdf?name=2006%ED%95%99%EB%85%84%EB%8F%84%20%EC%82%AC%EA%B4%80%ED%95%99%EA%B5%90%201%EC%B0%A8%20%EC%88%98%ED%95%99%28%EA%B0%80%ED%98%95%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
+    "questionUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2006_main_math_ga_q.pdf?name=2006%ED%95%99%EB%85%84%EB%8F%84%20%EC%82%AC%EA%B4%80%ED%95%99%EA%B5%90%201%EC%B0%A8%20%EC%88%98%ED%95%99%28%EA%B0%80%ED%98%95%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
     "answerUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2006_main_math_a.pdf?name=2006%ED%95%99%EB%85%84%EB%8F%84%20%EC%82%AC%EA%B4%80%ED%95%99%EA%B5%90%201%EC%B0%A8%20%EC%88%98%ED%95%99%28%EA%B0%80%ED%98%95%29%20%EC%A0%95%EB%8B%B5.pdf"
   },
   {
-    "id": 2039,
+    "id": 2041,
     "curriculum": "사관",
     "gradeYear": 2006,
     "examYear": 2005,
@@ -28680,11 +28700,11 @@
     "subject": "수학",
     "subSubject": "나형",
     "solutionUrl": null,
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2006_main_math_나_q.pdf?name=2006%ED%95%99%EB%85%84%EB%8F%84%20%EC%82%AC%EA%B4%80%ED%95%99%EA%B5%90%201%EC%B0%A8%20%EC%88%98%ED%95%99%28%EB%82%98%ED%98%95%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
+    "questionUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2006_main_math_na_q.pdf?name=2006%ED%95%99%EB%85%84%EB%8F%84%20%EC%82%AC%EA%B4%80%ED%95%99%EA%B5%90%201%EC%B0%A8%20%EC%88%98%ED%95%99%28%EB%82%98%ED%98%95%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
     "answerUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2006_main_math_a.pdf?name=2006%ED%95%99%EB%85%84%EB%8F%84%20%EC%82%AC%EA%B4%80%ED%95%99%EA%B5%90%201%EC%B0%A8%20%EC%88%98%ED%95%99%28%EB%82%98%ED%98%95%29%20%EC%A0%95%EB%8B%B5.pdf"
   },
   {
-    "id": 2040,
+    "id": 2042,
     "curriculum": "사관",
     "gradeYear": 2006,
     "examYear": 2005,
@@ -28698,7 +28718,21 @@
     "answerUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2006_main_english_a.pdf?name=2006%ED%95%99%EB%85%84%EB%8F%84%20%EC%82%AC%EA%B4%80%ED%95%99%EA%B5%90%201%EC%B0%A8%20%EC%98%81%EC%96%B4%20%EC%A0%95%EB%8B%B5.pdf"
   },
   {
-    "id": 2041,
+    "id": 2043,
+    "curriculum": "경찰대",
+    "gradeYear": 2006,
+    "examYear": 2005,
+    "month": 7,
+    "typeGroup": "police",
+    "type": "police_annual",
+    "subject": "영어",
+    "subSubject": null,
+    "solutionUrl": null,
+    "questionUrl": "https://suneung-files.hdh061224.workers.dev/police-v1/2006_main_english_q.hwp?name=2006%ED%95%99%EB%85%84%EB%8F%84%20%EA%B2%BD%EC%B0%B0%EB%8C%80%ED%95%99%201%EC%B0%A8%20%EC%98%81%EC%96%B4%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/police-v1/2006_main_english_a.hwp?name=2006%ED%95%99%EB%85%84%EB%8F%84%20%EA%B2%BD%EC%B0%B0%EB%8C%80%ED%95%99%201%EC%B0%A8%20%EC%98%81%EC%96%B4%20%EC%A0%95%EB%8B%B5.pdf"
+  },
+  {
+    "id": 2044,
     "curriculum": "MEET",
     "gradeYear": 2005,
     "examYear": 2004,
@@ -28708,13 +28742,13 @@
     "subject": "언어추론",
     "subSubject": null,
     "solutionUrl": null,
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/meet-v1/2005_main_verbal_q.pdf?name=2005%ED%95%99%EB%85%84%EB%8F%84%20MEET%20%EC%96%B8%EC%96%B4%EC%B6%94%EB%A1%A0%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
-    "answerUrl": "https://suneung-files.hdh061224.workers.dev/meet-v1/2005_main_verbal_a.pdf?name=2005%ED%95%99%EB%85%84%EB%8F%84%20MEET%20%EC%96%B8%EC%96%B4%EC%B6%94%EB%A1%A0%20%EC%A0%95%EB%8B%B5.pdf",
-    "questionDownload": "2005학년도 MEET 언어추론 문제지.pdf",
-    "answerDownload": "2005학년도 MEET 언어추론 정답.pdf"
+    "questionUrl": "pdfs_meet/2005/main/2005_main_verbal_q.hwp",
+    "answerUrl": "pdfs_meet/2005/main/2005_main_verbal_a.hwp",
+    "questionDownload": "2005학년도 MEET 언어추론 문제지.hwp",
+    "answerDownload": "2005학년도 MEET 언어추론 정답.hwp"
   },
   {
-    "id": 2042,
+    "id": 2045,
     "curriculum": "MEET",
     "gradeYear": 2005,
     "examYear": 2004,
@@ -28724,9 +28758,9 @@
     "subject": "언어추론",
     "subSubject": null,
     "solutionUrl": null,
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/meet-v1/2005_prelim_verbal_q.pdf?name=%EC%98%88%EB%B9%84%EC%8B%9C%ED%97%98%20MEET%20%EC%96%B8%EC%96%B4%EC%B6%94%EB%A1%A0%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
-    "answerUrl": "https://suneung-files.hdh061224.workers.dev/meet-v1/2005_prelim_verbal_a.pdf?name=%EC%98%88%EB%B9%84%EC%8B%9C%ED%97%98%20MEET%20%EC%96%B8%EC%96%B4%EC%B6%94%EB%A1%A0%20%EC%A0%95%EB%8B%B5.pdf",
-    "questionDownload": "예비시험 MEET 언어추론 문제지.pdf",
-    "answerDownload": "예비시험 MEET 언어추론 정답.pdf"
+    "questionUrl": "pdfs_meet/2005/prelim/2005_prelim_verbal_q.hwp",
+    "answerUrl": "pdfs_meet/2005/prelim/2005_prelim_verbal_a.hwp",
+    "questionDownload": "예비시험 MEET 언어추론 문제지.hwp",
+    "answerDownload": "예비시험 MEET 언어추론 정답.hwp"
   }
 ]

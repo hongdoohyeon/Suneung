@@ -282,28 +282,63 @@ def from_saw(db: Path, items: list):
         items.append(item)
 
 
-# ── 경찰대학 처리 (파일시스템 스캔) ────────────────────────────
+# ── 경찰대학 처리 (파일시스템 스캔 + release 자산 보강) ──────────
 def from_police(pdfs_dir: Path, items: list):
-    """경찰대학 1차 시험 — police.db가 비어 있으므로 pdfs_police/ 디렉토리를 직접 스캔."""
+    """경찰대학 1차 시험 — police.db가 비어 있으므로 pdfs_police/ 디렉토리 + release 자산을 합쳐 스캔.
+
+    로컬에 HWP만 있고 release에 PDF로 변환된 파일이 있는 경우, PDF URL을 우선 사용.
+    """
     # {(year, subject): {'q': rel_path, 'a': rel_path}} 형태로 수집
     groups: dict[tuple, dict] = {}
-    for pdf in sorted(pdfs_dir.rglob('*.pdf')):
-        rel = str(pdf.relative_to(pdfs_dir.parent))  # pdfs_police/2013/main/...
-        parts = pdf.stem.split('_')  # e.g. 2013_main_korean_q
+
+    def assign(year: int, subj: str, doc_type: str, rel: str):
+        """기존 항목이 없거나 PDF가 HWP를 덮어쓸 때만 추가."""
+        if subj == 'all':
+            for s in ('korean', 'math', 'english'):
+                groups.setdefault((year, s), {})
+                if doc_type == 'a':
+                    cur = groups[(year, s)].get('a_all')
+                    if cur is None or (rel.endswith('.pdf') and not cur.endswith('.pdf')):
+                        groups[(year, s)]['a_all'] = rel
+            return
+        groups.setdefault((year, subj), {})
+        cur = groups[(year, subj)].get(doc_type)
+        if cur is None or (rel.endswith('.pdf') and not cur.endswith('.pdf')):
+            groups[(year, subj)][doc_type] = rel
+
+    # 1. 로컬 PDF/HWP 스캔
+    for f in sorted(list(pdfs_dir.rglob('*.pdf')) + list(pdfs_dir.rglob('*.hwp'))):
+        rel = str(f.relative_to(pdfs_dir.parent))  # pdfs_police/2013/main/...
+        parts = f.stem.split('_')  # e.g. 2013_main_korean_q
         if len(parts) < 4:
             continue
         year_str, _, subj, doc_type = parts[0], parts[1], parts[2], parts[3]
-        year = int(year_str)
-        if subj == 'all':  # 전 과목 통합 정답지 — 개별 과목 정답으로 사용
-            for s in ('korean', 'math', 'english'):
-                gkey = (year, s)
-                groups.setdefault(gkey, {})
-                if doc_type == 'a' and 'a_all' not in groups[gkey]:
-                    groups[gkey]['a_all'] = rel
+        try:
+            year = int(year_str)
+        except ValueError:
             continue
-        gkey = (year, subj)
-        groups.setdefault(gkey, {})
-        groups[gkey][doc_type] = rel
+        assign(year, subj, doc_type, rel)
+
+    # 2. release police-v1 PDF 자산 보강 (로컬에 PDF가 없는 경우의 fallback)
+    import subprocess
+    r = subprocess.run(
+        ['gh', 'release', 'view', 'police-v1', '-R', 'hongdoohyeon/Suneung',
+         '--json', 'assets', '--jq', '.assets[].name'],
+        capture_output=True, text=True
+    )
+    if r.returncode == 0:
+        for name in r.stdout.strip().split('\n'):
+            if not name.endswith('.pdf'):
+                continue
+            parts = Path(name).stem.split('_')
+            if len(parts) < 4:
+                continue
+            year_str, _, subj, doc_type = parts[0], parts[1], parts[2], parts[3]
+            try:
+                year = int(year_str)
+            except ValueError:
+                continue
+            assign(year, subj, doc_type, f'pdfs_police/{year}/main/{name}')
 
     for (year, subj), files in groups.items():
         q_path = files.get('q')
