@@ -184,9 +184,20 @@ function triplesFromRow(rowItems) {
 function blockPairs(rows) {
   const pairs = [];
   for (const row of rows) {
-    const labelIdx = row.items.findIndex(it => /^정답$/.test(it.s));
-    if (labelIdx < 0) continue;
-    const ansItems = row.items.slice(labelIdx + 1)
+    // '정답' 라벨: 단일 토큰 "정답" 또는 분리된 "정"+"답" 두 토큰
+    let dataStart = -1;
+    const single = row.items.findIndex(it => /^정답$/.test(it.s));
+    if (single >= 0) {
+      dataStart = single + 1;
+    } else {
+      for (let k = 0; k < row.items.length - 1; k++) {
+        if (/^정$/.test(row.items[k].s) && /^답$/.test(row.items[k + 1].s)) {
+          dataStart = k + 2; break;
+        }
+      }
+    }
+    if (dataStart < 0) continue;
+    const ansItems = row.items.slice(dataStart)
       .filter(it => CIRCLED_TO_NUM[it.s] !== undefined || /^\d{1,4}$/.test(it.s));
     if (ansItems.length < 5) continue;
 
