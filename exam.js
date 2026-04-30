@@ -226,12 +226,16 @@ function renderQuickAnswers(exam) {
       ? `총 ${exam.answers.length}문항 · ${missing}개 미확인`
       : `총 ${exam.answers.length}문항`;
   }
-  const cells = exam.answers.map((a, i) => `
-    <div class="qa-cell${a === '?' ? ' qa-cell--missing' : ''}">
+  const cells = exam.answers.map((a, i) => {
+    const isMissing = a === '?';
+    const display = isMissing ? '—' : escHtml(a);
+    const title = isMissing ? ' title="정답 미제공 (PDF 추출 한계)"' : '';
+    return `
+    <div class="qa-cell${isMissing ? ' qa-cell--missing' : ''}"${title}>
       <span class="qa-cell__num">${i + 1}</span>
-      <span class="qa-cell__ans">${escHtml(a)}</span>
-    </div>
-  `).join('');
+      <span class="qa-cell__ans">${display}</span>
+    </div>`;
+  }).join('');
   body.innerHTML = `<div class="qa-grid">${cells}</div>`;
   return true;
 }
