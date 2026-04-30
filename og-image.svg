@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <rect width="1200" height="630" fill="#0a0a0a"/>
+  <!-- subtle gradient overlay -->
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fafafa" stop-opacity="0.04"/>
+      <stop offset="1" stop-color="#fafafa" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#g)"/>
+
+  <!-- bar logo (favicon scaled) -->
+  <g transform="translate(96, 230)">
+    <rect width="160" height="160" rx="32" fill="#fafafa" opacity="0.06"/>
+    <rect x="40"  y="84" width="14" height="56" rx="3" fill="#fafafa" opacity="0.55"/>
+    <rect x="73"  y="56" width="14" height="84" rx="3" fill="#fafafa" opacity="0.78"/>
+    <rect x="106" y="36" width="14" height="104" rx="3" fill="#fafafa"/>
+  </g>
+
+  <!-- title -->
+  <text x="304" y="318" fill="#fafafa"
+        font-family="Pretendard, -apple-system, system-ui, sans-serif"
+        font-weight="800" font-size="96" letter-spacing="-0.02em">기출해체분석기</text>
+
+  <!-- subtitle -->
+  <text x="304" y="378" fill="#fafafa" opacity="0.62"
+        font-family="Pretendard, -apple-system, system-ui, sans-serif"
+        font-weight="500" font-size="32" letter-spacing="-0.01em">수능 · 평가원 · 교육청 · LEET · MEET · 사관 · 경찰대</text>
+
+  <!-- footer chips -->
+  <g transform="translate(304, 432)" font-family="Pretendard, -apple-system, system-ui, sans-serif" font-size="24" font-weight="600">
+    <g>
+      <rect x="0" y="0" width="180" height="48" rx="24" fill="#fafafa" opacity="0.08"/>
+      <text x="90" y="32" fill="#fafafa" opacity="0.85" text-anchor="middle">기출 분석</text>
+    </g>
+    <g transform="translate(196, 0)">
+      <rect x="0" y="0" width="180" height="48" rx="24" fill="#fafafa" opacity="0.08"/>
+      <text x="90" y="32" fill="#fafafa" opacity="0.85" text-anchor="middle">빠른 정답</text>
+    </g>
+    <g transform="translate(392, 0)">
+      <rect x="0" y="0" width="180" height="48" rx="24" fill="#fafafa" opacity="0.08"/>
+      <text x="90" y="32" fill="#fafafa" opacity="0.85" text-anchor="middle">등급컷</text>
+    </g>
+  </g>
+</svg>
