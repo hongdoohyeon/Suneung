@@ -1,0 +1,137 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Exams",
+  "description": "기출 시험 메타데이터 카탈로그. data/exams.json 의 스키마.",
+  "type": "array",
+  "items": { "$ref": "#/definitions/Exam" },
+  "definitions": {
+    "Exam": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "curriculum",
+        "gradeYear",
+        "examYear",
+        "month",
+        "typeGroup",
+        "type",
+        "subject",
+        "subSubject",
+        "solutionUrl",
+        "questionUrl",
+        "answerUrl"
+      ],
+      "properties": {
+        "id": {
+          "type": "integer",
+          "minimum": 1,
+          "description": "전역 유니크 식별자."
+        },
+        "curriculum": {
+          "type": "string",
+          "enum": ["2009", "2015", "사관", "경찰대", "LEET", "MEET", "예비"],
+          "description": "교육과정 또는 시험군. 수능은 2009/2015, 그 외는 시험명."
+        },
+        "gradeYear": {
+          "type": "integer",
+          "minimum": 2000,
+          "maximum": 2100,
+          "description": "학년도 (예: 2026학년도 수능)."
+        },
+        "examYear": {
+          "type": "integer",
+          "minimum": 2000,
+          "maximum": 2100,
+          "description": "실제 시험 시행 연도."
+        },
+        "month": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 12,
+          "description": "시행 월."
+        },
+        "typeGroup": {
+          "type": "string",
+          "enum": [
+            "education",
+            "suneung",
+            "military",
+            "police",
+            "leet",
+            "meet",
+            "preliminary"
+          ],
+          "description": "시험 카테고리(상위)."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "csat",
+            "june",
+            "sept",
+            "mar",
+            "apr",
+            "jul",
+            "oct",
+            "prelim",
+            "leet_annual",
+            "meet_annual",
+            "military_annual",
+            "police_annual"
+          ],
+          "description": "시험 회차/시기(하위)."
+        },
+        "subject": {
+          "type": "string",
+          "enum": [
+            "국어",
+            "수학",
+            "영어",
+            "한국사",
+            "사회탐구",
+            "과학탐구",
+            "통합사회",
+            "통합과학",
+            "언어이해",
+            "추리논증",
+            "논술",
+            "언어추론",
+            "도입"
+          ]
+        },
+        "subSubject": {
+          "type": ["string", "null"],
+          "description": "탐구 영역 세부 과목 또는 가/나형 등. 해당 없으면 null."
+        },
+        "solutionUrl": {
+          "anyOf": [
+            { "type": "null" },
+            { "type": "string", "format": "uri" }
+          ],
+          "description": "해설 PDF URL. 외부 호스팅이면 worker 도메인이어야 함."
+        },
+        "questionUrl": {
+          "type": "string",
+          "format": "uri",
+          "description": "문제지 PDF URL. 외부 호스팅이면 worker 도메인이어야 함."
+        },
+        "answerUrl": {
+          "anyOf": [
+            { "type": "null" },
+            { "type": "string", "format": "uri" }
+          ],
+          "description": "정답 PDF URL. 없을 수 있음(예: 논술)."
+        },
+        "questionDownload": {
+          "type": ["string", "null"],
+          "description": "다운로드 시 보일 한국어 파일명. ?name= 인코딩에 사용. 문제지가 없는 항목은 null."
+        },
+        "answerDownload": {
+          "type": ["string", "null"],
+          "description": "정답 PDF 다운로드 파일명. 정답이 없는 항목(논술 등)은 null."
+        }
+      }
+    }
+  }
+}
