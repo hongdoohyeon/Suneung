@@ -40,6 +40,25 @@ const ID_FILTER   = (argVal('--ids', '') || '').split(',').map(s => s.trim()).fi
 // ── 상수 ──────────────────────────────────────────────────
 const CIRCLED_TO_NUM = { '①': '1', '②': '2', '③': '3', '④': '4', '⑤': '5' };
 
+// 표준 문항 수 (수능/평가원/교육청/예비). normalize-answers.mjs 와 동일.
+// 알면 V2 가 max 를 강제하고 컬럼 외부 트리플을 차단해서 정확도가 크게 향상됨.
+const SUNEUNG_LIKE = new Set(['suneung', 'education']);
+const SUNEUNG_LENGTH = {
+  '국어': 45, '영어': 45, '수학': 30, '한국사': 20, '사회탐구': 20, '과학탐구': 20,
+};
+const PRELIM_LENGTH = {
+  '국어': 45, '수학': 30, '통합사회': 25, '통합과학': 24,
+};
+function expectedLengthFor(exam) {
+  if (SUNEUNG_LIKE.has(exam?.typeGroup)) return SUNEUNG_LENGTH[exam.subject] ?? null;
+  if (exam?.typeGroup === 'preliminary') return PRELIM_LENGTH[exam.subject] ?? null;
+  return null;
+}
+
+// 컬럼 매칭 시 헤더 x 좌표로부터 허용 가로 반경 (포인트 단위, PDF.js 좌표).
+// 다컬럼 답안표에서 인접 컬럼 답이 흘러들어오는 것을 차단.
+const COLUMN_HALF_WIDTH = 60;
+
 // 답지 컬럼 헤더로 등장 가능한 과목명 (정규화 키 비교)
 const SUBJECT_HEADERS = [
   // 수학
@@ -265,8 +284,15 @@ function buildAnswersV2(items, exam) {
     if (h) headerX = h.x;
   }
 
+  // 컬럼 거리 제한: 헤더x 가 잡혔으면 ±COLUMN_HALF_WIDTH 밖의 트리플은 제외.
+  // (다른 과목 컬럼의 단답형이 새어 들어오는 것을 차단)
+  const inColumn = headerX == null
+    ? (_t => true)
+    : (t => Math.abs(t.x - headerX) <= COLUMN_HALF_WIDTH);
+
   const pairs = new Map();
   for (const t of triples) {
+    if (!inColumn(t)) continue;
     if (!pairs.has(t.num)) {
       pairs.set(t.num, t);
       continue;
@@ -282,19 +308,27 @@ function buildAnswersV2(items, exam) {
   }
 
   if (pairs.size < 5) return null;
-  const max = Math.max(...pairs.keys());
+
+  // 표준 문항 수가 알려졌으면 max 를 그것으로 강제 → 부풀려짐 방지.
+  // 모르면 종래대로 max(번호) 사용.
+  const expected = expectedLengthFor(exam);
+  const max = expected ?? Math.max(...pairs.keys());
+
   const arr = [];
   let missing = 0;
   for (let i = 1; i <= max; i++) {
     if (pairs.has(i)) arr.push(String(pairs.get(i).ans));
     else { arr.push('?'); missing++; }
   }
-  if (missing > Math.max(2, Math.floor(arr.length * 0.3))) return null;
+  // expected 가 알려지면 길이가 강제되므로 임계를 풀어줌.
+  // 모르면(LEET 등) 종래대로 엄격 (0.3).
+  const limit = expected ? 0.5 : 0.3;
+  if (missing > Math.max(2, Math.floor(arr.length * limit))) return null;
   return arr;
 }
 
 // ── V1: 단순 정규식 (fallback) ────────────────────────────
-function parseAnswersV1(text) {
+function parseAnswersV1(text, exam) {
   const t = String(text || '');
   const pairs = new Map();
   const re = /(?:^|[^\d])(\d{1,2})\s*(?:번|[.)]|\s+)\s*((?:[①②③④⑤])|(?:\d{1,3}))(?!\d)/g;
@@ -309,14 +343,15 @@ function parseAnswersV1(text) {
     pairs.set(num, ans);
   }
   if (pairs.size < 5) return null;
-  const max = Math.max(...pairs.keys());
+  const expected = expectedLengthFor(exam);
+  const max = expected ?? Math.max(...pairs.keys());
   const arr = [];
   let missing = 0;
   for (let i = 1; i <= max; i++) {
     if (pairs.has(i)) arr.push(pairs.get(i));
     else { arr.push('?'); missing++; }
   }
-  if (missing > Math.max(2, Math.floor(arr.length * 0.3))) return null;
+  if (missing > Math.max(2, Math.floor(arr.length * 0.4))) return null;
   return arr;
 }
 
@@ -390,7 +425,7 @@ async function main() {
         const flatText = items.map(it => it.s).join(' ');
         for (const exam of group) {
           let arr = buildAnswersV2(items, exam);
-          if (!arr) arr = parseAnswersV1(flatText);
+          if (!arr) arr = parseAnswersV1(flatText, exam);
           if (arr) { out[String(exam.id)] = arr; ok++; }
           else recordFail(exam, 'parse-fail');
           done++;

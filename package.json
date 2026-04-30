@@ -4,6 +4,7 @@
   "type": "module",
   "scripts": {
     "extract-answers": "node scripts/extract-answers.mjs",
+    "normalize-answers": "node scripts/normalize-answers.mjs --write",
     "validate": "node scripts/validate-exams.mjs",
     "build-data": "python3 scripts/build-data.py && npm run validate"
   },
