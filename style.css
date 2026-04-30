@@ -2315,6 +2315,11 @@ body.is-sheet-open { overflow: hidden; touch-action: none; }
   font-feature-settings: 'tnum' 1;
   line-height: 1.1;
 }
+.qa-cell--missing {
+  border-style: dashed;
+  background: var(--surface-2);
+}
+.qa-cell--missing .qa-cell__ans { color: var(--ink-5); }
 .qa-loading {
   padding: 22px 14px;
   text-align: center;

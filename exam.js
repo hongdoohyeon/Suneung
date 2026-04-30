@@ -212,14 +212,13 @@ function setupTabs(onActivate) {
 
 // ── 빠른정답 (옵셔널 데이터: exam.answers 배열) ────────────
 function renderQuickAnswers(exam) {
-  const wrap  = $('quickAnswers');
   const body  = $('quickAnswersBody');
   const count = $('quickAnswersCount');
   if (!Array.isArray(exam.answers) || exam.answers.length === 0) {
-    wrap.hidden = true;
+    if (count) count.textContent = '준비 중';
+    body.innerHTML = `<p class="exam-card__sub">이 시험의 정답 데이터가 아직 없어요. 답지 PDF는 위 [정답 다운로드] 버튼으로 받을 수 있어요.</p>`;
     return false;
   }
-  wrap.hidden = false;
   // 빠진 답이 있으면 추출 신뢰도가 떨어진 것 — 라벨로 안내
   const missing = exam.answers.filter(a => a === '?').length;
   if (count) {
@@ -228,7 +227,7 @@ function renderQuickAnswers(exam) {
       : `총 ${exam.answers.length}문항`;
   }
   const cells = exam.answers.map((a, i) => `
-    <div class="qa-cell">
+    <div class="qa-cell${a === '?' ? ' qa-cell--missing' : ''}">
       <span class="qa-cell__num">${i + 1}</span>
       <span class="qa-cell__ans">${escHtml(a)}</span>
     </div>
@@ -330,7 +329,6 @@ function gradeDistSVG(rawCuts, fullScore) {
 }
 
 function renderGradeDist(exam, allCuts) {
-  const wrap = $('gradeDist');
   const body = $('gradeDistBody');
   const hint = $('gradeDistHint');
   const cut = allCuts.find(c =>
@@ -341,10 +339,10 @@ function renderGradeDist(exam, allCuts) {
     (c.subSubject ?? null) === (exam.subSubject ?? null)
   );
   if (!cut || !Array.isArray(cut.rawCuts) || cut.rawCuts.length !== 8) {
-    wrap.hidden = true;
+    if (hint) hint.textContent = '준비 중';
+    body.innerHTML = `<p class="exam-card__sub">이 시험의 등급컷 데이터가 아직 없어요.</p>`;
     return false;
   }
-  wrap.hidden = false;
   if (hint) hint.textContent = `1등급 컷 ${cut.rawCuts[0]}점`;
   body.innerHTML = gradeDistSVG(cut.rawCuts, cut.fullScore ?? 100);
   return true;
@@ -382,9 +380,8 @@ async function main() {
   }
 
   renderHead(exam);
-  const hasQA   = renderQuickAnswers(exam);
-  const hasDist = renderGradeDist(exam, gradecuts);
-  $('paneIEmpty').hidden = hasQA || hasDist;
+  renderQuickAnswers(exam);
+  renderGradeDist(exam, gradecuts);
   setupTabs();
 
   // 미리보기 렌더 (문제지만)
