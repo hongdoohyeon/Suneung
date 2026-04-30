@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://hongdoohyeon.github.io/Suneung/sitemap.xml
