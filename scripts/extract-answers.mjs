@@ -38,13 +38,19 @@ const CIRCLED_TO_NUM = { '①': '1', '②': '2', '③': '3', '④': '4', '⑤': 
 function parseAnswersFromText(text) {
   const t = String(text || '');
   const pairs = new Map();
-  const re = /(?:^|[^\d])(\d{1,2})\s*(?:번호|번|[.)]|\s)\s*([①②③④⑤])(?!\s*[점등])/g;
+  // 패턴: (번호 1~50) (구분자: 번/./)/공백) (답: 원숫자 ①~⑤ 또는 1~3자리 정수)
+  // 답 뒤에 추가 숫자 오면 거짓 매칭 가능성 → (?!\d) 로 차단
+  const re = /(?:^|[^\d])(\d{1,2})\s*(?:번|[.)]|\s+)\s*((?:[①②③④⑤])|(?:\d{1,3}))(?!\d)/g;
   let m;
   while ((m = re.exec(t)) != null) {
     const num = parseInt(m[1], 10);
-    if (num >= 1 && num <= 50 && !pairs.has(num)) {
-      pairs.set(num, CIRCLED_TO_NUM[m[2]]);
-    }
+    if (num < 1 || num > 50) continue;
+    if (pairs.has(num)) continue;
+    let ans = m[2];
+    if (CIRCLED_TO_NUM[ans]) ans = CIRCLED_TO_NUM[ans];
+    // 답이 0 이거나 비정상이면 skip
+    if (ans === '0' || ans === '') continue;
+    pairs.set(num, ans);
   }
   if (pairs.size < 5) return null;
   const max = Math.max(...pairs.keys());
@@ -54,7 +60,8 @@ function parseAnswersFromText(text) {
     if (pairs.has(i)) arr.push(pairs.get(i));
     else { arr.push('?'); missing++; }
   }
-  if (missing > Math.max(2, Math.floor(arr.length * 0.2))) return null;
+  // 임계값 완화: 30% 누락까지 허용 (수능 수학은 단답 9/30 = 30%)
+  if (missing > Math.max(2, Math.floor(arr.length * 0.3))) return null;
   return arr;
 }
 
@@ -66,32 +73,52 @@ async function getPdfjs() {
   return _pdfjs;
 }
 
+// 결과: { ok: true, answers } 또는 { ok: false, reason }
 async function fetchAndParse(url) {
-  if (!url) return null;
+  if (!url) return { ok: false, reason: 'no-url' };
   const lib = await getPdfjs();
-  const ac = new AbortController();
-  const timer = setTimeout(() => ac.abort(), 60_000); // 60s timeout
+
+  // ── 1) 다운로드 ────────────────────────────────────────
   let buf;
   try {
-    const res = await fetch(url, { signal: ac.signal });
-    if (!res.ok) return null;
-    buf = new Uint8Array(await res.arrayBuffer());
-  } finally {
-    clearTimeout(timer);
+    const ac = new AbortController();
+    const timer = setTimeout(() => ac.abort(), 60_000);
+    try {
+      const res = await fetch(url, { signal: ac.signal });
+      if (!res.ok) return { ok: false, reason: `http-${res.status}` };
+      buf = new Uint8Array(await res.arrayBuffer());
+    } finally {
+      clearTimeout(timer);
+    }
+  } catch (e) {
+    return { ok: false, reason: e?.name === 'AbortError' ? 'timeout' : 'fetch-error' };
   }
-  const pdf = await lib.getDocument({
-    data: buf,
-    disableFontFace: true,
-    useSystemFonts: false,
-  }).promise;
-  const limit = Math.min(pdf.numPages, 4);
+
+  // ── 2) PDF 텍스트 추출 ────────────────────────────────
   let text = '';
-  for (let i = 1; i <= limit; i++) {
-    const page = await pdf.getPage(i);
-    const tc = await page.getTextContent();
-    text += ' ' + tc.items.map(it => it.str).join(' ');
+  try {
+    const pdf = await lib.getDocument({
+      data: buf,
+      disableFontFace: true,
+      useSystemFonts: false,
+    }).promise;
+    const limit = Math.min(pdf.numPages, 4);
+    for (let i = 1; i <= limit; i++) {
+      const page = await pdf.getPage(i);
+      const tc = await page.getTextContent();
+      text += ' ' + tc.items.map(it => it.str).join(' ');
+    }
+  } catch {
+    return { ok: false, reason: 'pdf-error' };
   }
-  return parseAnswersFromText(text);
+  if (!text.trim() || text.replace(/\s+/g, '').length < 10) {
+    return { ok: false, reason: 'no-text' };   // 이미지 스캔 PDF 가능성
+  }
+
+  // ── 3) 정답 패턴 매칭 ─────────────────────────────────
+  const arr = parseAnswersFromText(text);
+  if (!arr) return { ok: false, reason: 'parse-fail' };
+  return { ok: true, answers: arr };
 }
 
 // ── I/O ──────────────────────────────────────────────────
@@ -137,18 +164,38 @@ async function main() {
   const SAVE_EVERY = 25;
   const t0 = Date.now();
 
+  // 실패 사유 누적
+  const failures = [];           // {id, subject, sub, type, gradeYear, reason, url}
+  const reasonCount = Object.create(null);
+
   const queue = [...targets];
 
   async function worker() {
     while (queue.length) {
       const exam = queue.shift();
       if (!exam) break;
+      let result;
       try {
-        const ans = await fetchAndParse(exam.answerUrl);
-        if (ans) { out[String(exam.id)] = ans; ok++; }
-        else     { fail++; }
+        result = await fetchAndParse(exam.answerUrl);
       } catch {
+        result = { ok: false, reason: 'unknown-error' };
+      }
+      if (result.ok) {
+        out[String(exam.id)] = result.answers;
+        ok++;
+      } else {
         fail++;
+        reasonCount[result.reason] = (reasonCount[result.reason] || 0) + 1;
+        failures.push({
+          id: exam.id,
+          curriculum: exam.curriculum,
+          gradeYear: exam.gradeYear,
+          type: exam.type,
+          subject: exam.subject,
+          sub: exam.subSubject,
+          reason: result.reason,
+          url: exam.answerUrl,
+        });
       }
       done++;
       const pct = ((done / targets.length) * 100).toFixed(1);
@@ -163,6 +210,21 @@ async function main() {
   await Promise.all(Array.from({ length: CONCURRENCY }, worker));
   await saveOut(out);
   console.log(`\n완료. ${ok} 성공 · ${fail} 실패 · ${((Date.now() - t0) / 1000).toFixed(1)}s`);
+
+  if (failures.length > 0) {
+    // 사유 요약
+    console.log('\n실패 사유:');
+    const sorted = Object.entries(reasonCount).sort((a, b) => b[1] - a[1]);
+    for (const [r, c] of sorted) console.log(`  ${r.padEnd(14)} ${c}건`);
+
+    // 상세 보고서 — 디버깅·재시도용
+    const reportPath = path.join(ROOT, 'data', 'answers-fails.json');
+    await fs.writeFile(reportPath, JSON.stringify(failures, null, 2) + '\n');
+    console.log(`\n상세 보고서: data/answers-fails.json (${failures.length}건)`);
+    console.log('  · no-text     이미지 스캔 PDF 가능성 — 재시도해도 동일');
+    console.log('  · parse-fail  텍스트는 있으나 패턴 안 맞음 — URL 열어서 답지 포맷 확인 필요');
+    console.log('  · http-XXX / fetch-error / timeout — 네트워크 일시 오류 가능, 재실행으로 자동 재시도');
+  }
 }
 
 main().catch(e => { console.error(e); process.exit(1); });
