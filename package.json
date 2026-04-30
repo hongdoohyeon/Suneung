@@ -3,7 +3,9 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "extract-answers": "node scripts/extract-answers.mjs"
+    "extract-answers": "node scripts/extract-answers.mjs",
+    "validate": "node scripts/validate-exams.mjs",
+    "build-data": "python3 scripts/build-data.py && npm run validate"
   },
   "dependencies": {
     "pdfjs-dist": "^4.10.38"
