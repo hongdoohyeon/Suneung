@@ -21,3 +21,4 @@ package-lock.json
 
 # 사전 추출 실패 디버그 보고서 (재실행마다 갱신)
 data/answers-fails.json
+data/audit-report.json
