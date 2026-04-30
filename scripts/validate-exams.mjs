@@ -10,10 +10,25 @@ import { dirname, resolve } from 'node:path';
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(HERE, '..');
-const DATA_PATH   = resolve(ROOT, 'data/exams.json');
-const SCHEMA_PATH = resolve(ROOT, 'data/exams.schema.json');
+const DATA_PATH    = resolve(ROOT, 'data/exams.json');
+const SCHEMA_PATH  = resolve(ROOT, 'data/exams.schema.json');
+const ANSWERS_PATH = resolve(ROOT, 'data/answers.json');
 
 const WORKER_HOST = 'suneung-files.hdh061224.workers.dev';
+
+// 표준 문항 수 (normalize-answers.mjs 와 동일 정의 — 단일 진실 소스로 유지)
+const SUNEUNG_LIKE = new Set(['suneung', 'education']);
+const SUNEUNG_LENGTH = {
+  '국어': 45, '영어': 45, '수학': 30, '한국사': 20, '사회탐구': 20, '과학탐구': 20,
+};
+const PRELIM_LENGTH = {
+  '국어': 45, '수학': 30, '통합사회': 25, '통합과학': 24,
+};
+function expectedAnswerLength(exam) {
+  if (SUNEUNG_LIKE.has(exam.typeGroup)) return SUNEUNG_LENGTH[exam.subject] ?? null;
+  if (exam.typeGroup === 'preliminary')  return PRELIM_LENGTH[exam.subject] ?? null;
+  return null;
+}
 
 const errors = [];
 const warns  = [];
@@ -151,6 +166,43 @@ function validateBusinessRules(data) {
   }
 }
 
+async function validateAnswers(exams) {
+  let raw;
+  try { raw = await readFile(ANSWERS_PATH, 'utf-8'); }
+  catch { return; }   // answers.json 없으면 skip
+  let answers;
+  try { answers = JSON.parse(raw); }
+  catch (e) { err(`answers.json 파싱 실패: ${e.message}`); return; }
+
+  const examById = new Map(exams.map(e => [e.id, e]));
+  let lengthMismatch = 0, totalChecked = 0;
+  const samples = [];
+  for (const [eid_str, arr] of Object.entries(answers)) {
+    if (!Array.isArray(arr)) {
+      err(`answers id=${eid_str} 배열이 아님`);
+      continue;
+    }
+    const exam = examById.get(Number(eid_str));
+    if (!exam) {
+      warn(`answers id=${eid_str} 매칭 시험 없음 (orphan)`);
+      continue;
+    }
+    const expected = expectedAnswerLength(exam);
+    if (expected == null) continue;   // LEET/MEET 등 기준 미정의
+    totalChecked++;
+    if (arr.length !== expected) {
+      lengthMismatch++;
+      if (samples.length < 10) samples.push(`id=${exam.id} ${exam.subject} ${arr.length}≠${expected}`);
+    }
+  }
+  if (lengthMismatch > 0) {
+    err(`answers 길이 불일치 ${lengthMismatch}/${totalChecked}건 (정상화 필요: npm run normalize-answers)`);
+    for (const s of samples) errors.push('  ' + s);
+  } else if (totalChecked > 0) {
+    console.log(`answers 길이 검증: ${totalChecked}건 모두 정상`);
+  }
+}
+
 function summarize(data) {
   const c = {};
   for (const ex of data) {
@@ -174,6 +226,7 @@ function summarize(data) {
 
   validateAgainstSchema(data, schema);
   validateBusinessRules(data);
+  await validateAnswers(data);
 
   const sum = summarize(data);
   console.log(`총 항목: ${data.length}`);
