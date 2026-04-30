@@ -14,7 +14,7 @@
         href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
 
   <title>자료 상세 — 기출해체분석기</title>
-  <link rel="stylesheet" href="style.css?v=20260430g" />
+  <link rel="stylesheet" href="style.css?v=20260430h" />
 </head>
 <body class="page-exam">
 
@@ -66,10 +66,10 @@
         <button class="exam-tab is-active" id="tabPaper" role="tab" type="button"
                 data-tab="paper" aria-selected="true" aria-controls="paneP">문제</button>
         <button class="exam-tab" id="tabInfo" role="tab" type="button"
-                data-tab="info" aria-selected="false" aria-controls="paneI">정보 · 통계</button>
+                data-tab="info" aria-selected="false" aria-controls="paneI">빠답 · 통계</button>
       </nav>
 
-      <p class="exam__tabs-hint">정보 탭에는 정답·통계가 포함돼요</p>
+      <p class="exam__tabs-hint">'빠답 · 통계' 탭에는 정답이 포함돼요</p>
     </aside>
 
     <!-- 우측 메인: 미리보기 / 정보·통계 -->
@@ -89,7 +89,7 @@
 
       <section class="exam-pane" id="paneI" data-pane="info" role="tabpanel" aria-labelledby="tabInfo" hidden>
 
-        <section class="exam-card" id="quickAnswers" hidden>
+        <section class="exam-card" id="quickAnswers">
           <header class="exam-card__head">
             <h3 class="exam-card__title">빠른정답</h3>
             <span class="exam-card__hint" id="quickAnswersCount"></span>
@@ -97,18 +97,12 @@
           <div class="exam-card__body" id="quickAnswersBody"></div>
         </section>
 
-        <section class="exam-card" id="gradeDist" hidden>
+        <section class="exam-card" id="gradeDist">
           <header class="exam-card__head">
             <h3 class="exam-card__title">등급 분포</h3>
             <span class="exam-card__hint" id="gradeDistHint"></span>
           </header>
           <div class="exam-card__body" id="gradeDistBody"></div>
-        </section>
-
-        <section class="exam-card" id="paneIEmpty" hidden>
-          <div class="exam-card__body">
-            <p class="exam-card__sub">이 시험에는 빠른정답·등급컷 데이터가 아직 없어요.</p>
-          </div>
         </section>
 
       </section>
