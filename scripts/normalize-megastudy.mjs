@@ -77,53 +77,73 @@ const sampleSubj = new Set(), sampleType = new Set();
 for (const item of raw) {
   const type = siteType(item.typeRaw, item.month, item.examYear);
   if (!type) { typeNull++; sampleType.add(item.typeRaw); continue; }
+  // 학년도 보정: 같은 해의 학평/모평/수능은 모두 examYear+1 학년도 cohort 시험
+  const gradeYear = item.examYear + 1;
   const map = SUBJ_MAP[item.subjectName];
   if (!map) { subjNull++; sampleSubj.add(item.subjectName); continue; }
   const [subject, subSubject] = map;
 
-  // rows: ['최고점'/'1등급'~'8등급', 표준점수, 백분위, 누적비율]
-  // 등급별 표준점수 추출
-  const cuts = {};
+  // rows 컬럼 구조 — 만점/등급 row 길이로 결정
+  //   5컬럼: [등급, 원점수, 표준점수, 백분위, 누적비율]   (사탐/과탐 + 일부 구 국·수)
+  //   4컬럼: [등급, 표준점수, 백분위, 누적비율]           (현행 국어/수학)
+  const sampleRow = item.rows.find(r => /^\d등급$/.test(r[0])) || item.rows[1] || [];
+  const fiveCol = sampleRow.length >= 5;
+  const RAW_COL = fiveCol ? 1 : null;
+  const STD_COL = fiveCol ? 2 : 1;
+  const PCT_COL = fiveCol ? 3 : 2;
+  const CUM_COL = fiveCol ? 4 : 3;
+
+  const rawScores = {};
+  const stdScores = {};
   const percentile = {};
   const cumPct = {};
-  let highest = null;
+  let highestRaw = null, highestStd = null;
   for (const row of item.rows) {
     const label = row[0];
-    if (label === '최고점') {
-      highest = parseInt((row[1]||'').replace(/[^\d]/g,''), 10) || null;
+    if (label === '최고점' || label === '만점') {
+      if (RAW_COL != null) highestRaw = parseInt((row[RAW_COL]||'').replace(/[^\d]/g,''), 10) || null;
+      highestStd = parseInt((row[STD_COL]||'').replace(/[^\d]/g,''), 10) || null;
       continue;
     }
     const m = label.match(/^(\d)등급$/);
     if (!m) continue;
     const g = Number(m[1]);
-    const score = parseInt((row[1]||'').replace(/[^\d]/g,''), 10);
-    const pct = parseInt((row[2]||'').replace(/[^\d]/g,''), 10);
-    const cum = parseFloat((row[3]||'').replace(/[^\d.]/g,''));
-    if (Number.isFinite(score)) cuts[g] = score;
+    if (RAW_COL != null) {
+      const rawStr = (row[RAW_COL]||'').replace(/\s/g,'');
+      const rawNum = rawStr ? parseInt(rawStr.split('~')[0].replace(/[^\d]/g,''), 10) : NaN;
+      if (Number.isFinite(rawNum)) rawScores[g] = rawNum;
+    }
+    const std = parseInt((row[STD_COL]||'').replace(/[^\d]/g,''), 10);
+    const pct = parseInt((row[PCT_COL]||'').replace(/[^\d]/g,''), 10);
+    const cum = parseFloat((row[CUM_COL]||'').replace(/[^\d.]/g,''));
+    if (Number.isFinite(std)) stdScores[g] = std;
     if (Number.isFinite(pct)) percentile[g] = pct;
     if (Number.isFinite(cum)) cumPct[g] = cum;
   }
-  // 1~8등급 컷 모음
-  const standardCuts = [1,2,3,4,5,6,7,8].map(g => cuts[g] ?? null);
-  if (standardCuts.filter(v => v!=null).length < 6) continue;   // 너무 부족하면 skip
+  // 1~8등급 컷
+  const standardCuts = [1,2,3,4,5,6,7,8].map(g => stdScores[g] ?? null);
+  const rawCuts = RAW_COL != null ? [1,2,3,4,5,6,7,8].map(g => rawScores[g] ?? null) : null;
+  if (standardCuts.filter(v => v!=null).length < 6) continue;
 
-  const key = `${item.gradeYear}|${type}|${subject}|${subSubject ?? ''}`;
+  const key = `${gradeYear}|${type}|${subject}|${subSubject ?? ''}`;
   if (seen.has(key)) continue;
   seen.add(key);
 
   records.push({
-    curriculum: curriculumFor(item.gradeYear),
-    gradeYear: item.gradeYear,
+    curriculum: curriculumFor(gradeYear),
+    gradeYear: gradeYear,
     examYear: item.examYear,
     month: item.month,
     typeGroup: 'suneung',
     type,
     subject,
     subSubject,
+    rawCuts,
     standardCuts,
     standardPercentile: [1,2,3,4,5,6,7,8].map(g => percentile[g] ?? null),
     cumulativePercent: [1,2,3,4,5,6,7,8].map(g => cumPct[g] ?? null),
-    highestStandardScore: highest,
+    highestStandardScore: highestStd,
+    fullScore: highestRaw,
     source: 'megastudy',
     examSeq: item.examSeq,
   });

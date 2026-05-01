@@ -25,13 +25,15 @@ async function readJsonOr(p, fallback) {
   catch { return fallback; }
 }
 
-const [exams, megastudy, hwpxData, recentData, existing] = await Promise.all([
+const [exams, megastudy, hwpxData, recentData, etoosArchived] = await Promise.all([
   readFile(EXAMS_PATH, 'utf-8').then(JSON.parse),
   readJsonOr(path.resolve(ROOT, 'data/raw/megastudy/gradecuts-normalized.json'), []),
   readJsonOr('/tmp/csat_gc_normalized_v3.json', []),
   readJsonOr('/tmp/recent_csat_gc.json', []),
-  readJsonOr(OUT_PATH, []),
+  readJsonOr(path.resolve(ROOT, 'data/raw/etoos/rawcuts-normalized.json'), []),
 ]);
+// 매번 raw 소스에서 재빌드. 기존 출력 파일은 무시 (구 normalize 의 잘못된 gradeYear/std 데이터 유입 방지).
+const existing = [];
 
 function makeKey(curr, yr, type, subj, sub) {
   return `${curr}|${yr}|${type}|${subj}|${sub ?? ''}`;
@@ -111,12 +113,32 @@ for (const r of megastudy) {
       subSubject: exam.subSubject ?? r.subSubject,
     });
     rec.standardCuts = r.standardCuts;
+    if (Array.isArray(r.rawCuts) && r.rawCuts.some(v => v != null)) rec.rawCuts = r.rawCuts;
     if (r.standardPercentile?.some(v => v != null)) rec.standardPercentile = r.standardPercentile;
     if (r.cumulativePercent?.some(v => v != null)) rec.cumulativePercent = r.cumulativePercent;
     if (r.highestStandardScore != null) rec.highestStandardScore = r.highestStandardScore;
+    if (r.fullScore != null) rec.fullScore = r.fullScore;
     rec.source = 'megastudy';
     megaApplied++;
   }
+}
+
+// 5a. 이투스 archived rawCuts (시험 직후 캡처본 → 학원 추정 원점수 등급컷)
+//     megastudy 표준점수가 이미 들어있는 record 에 rawCuts 만 추가.
+let etoosApplied = 0;
+for (const r of etoosArchived) {
+  if (!Array.isArray(r.rawCuts) || !r.rawCuts.some(v => v != null)) continue;
+  const rec = ensureRecord(r);
+  // 사용자 입력 rawCuts 보존
+  if (Array.isArray(rec.rawCuts) && rec.rawCuts.length === 8 && rec.source !== 'megastudy') continue;
+  rec.rawCuts = r.rawCuts;
+  if (r.fullScore != null) rec.fullScore = r.fullScore;
+  // standardCuts/표점/백분위는 megastudy 가 있으면 그쪽 우선, 없으면 etoos 값 사용
+  if (!rec.standardCuts && r.standardCuts) rec.standardCuts = r.standardCuts;
+  if (!rec.standardPercentile && r.standardPercentile) rec.standardPercentile = r.standardPercentile;
+  if (rec.highestStandardScore == null && r.highestStandardScore != null) rec.highestStandardScore = r.highestStandardScore;
+  rec.source = rec.source ? `${rec.source}+etoos-raw` : 'etoos-archived';
+  etoosApplied++;
 }
 
 // 5. 절대평가 영역 (영어/한국사) 원점수 등급컷 자동 추가.
@@ -133,6 +155,17 @@ const ABSOLUTE_CUTS = {
 let absoluteApplied = 0;
 for (const exam of exams) {
   const ab = ABSOLUTE_CUTS[exam.subject];
+  if (ab && exam.gradeYear >= ab.absoluteSince) {
+    // 절대평가 시기 영어/한국사: standardCuts 는 의미 없음 (실제 표점이 아니라 절대 컷). 제거.
+    const k = makeKey(exam.curriculum, exam.gradeYear, exam.type, exam.subject, exam.subSubject);
+    const rec = resultMap.get(k);
+    if (rec) {
+      delete rec.standardCuts;
+      delete rec.standardPercentile;
+      delete rec.cumulativePercent;
+      delete rec.highestStandardScore;
+    }
+  }
   if (!ab) continue;
   // 절대평가 시행 이전 시험은 상대평가라 패스 (학평/모평은 제도 적용 시점이 모호하지만
   // 사이트 표시 단순화 위해 동일 기준 사용)
@@ -177,6 +210,7 @@ console.log(`기존 rawCuts: ${existing.length}건`);
 console.log(`hwpx 적재: ${hwpxApplied}건`);
 console.log(`recent 적재: ${recentApplied}건`);
 console.log(`megastudy 적재: ${megaApplied}건`);
+console.log(`etoos archived rawCuts: ${etoosApplied}건`);
 console.log(`절대평가 자동 추가: ${absoluteApplied}건`);
 console.log(`최종: ${out.length}건`);
 
