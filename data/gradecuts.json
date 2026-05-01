@@ -941,8 +941,8 @@
       30,
       20
     ],
-    "fullScore": 100,
     "absolute": true,
+    "fullScore": 100,
     "id": 19
   },
   {
@@ -965,8 +965,8 @@
       10,
       5
     ],
-    "fullScore": 50,
     "absolute": true,
+    "fullScore": 50,
     "id": 20
   },
   {
@@ -2127,8 +2127,8 @@
       30,
       20
     ],
-    "fullScore": 100,
     "absolute": true,
+    "fullScore": 100,
     "id": 43
   },
   {
@@ -2151,8 +2151,8 @@
       10,
       5
     ],
-    "fullScore": 50,
     "absolute": true,
+    "fullScore": 50,
     "id": 44
   },
   {
@@ -3313,8 +3313,8 @@
       30,
       20
     ],
-    "fullScore": 100,
     "absolute": true,
+    "fullScore": 100,
     "id": 67
   },
   {
@@ -3337,8 +3337,8 @@
       10,
       5
     ],
-    "fullScore": 50,
     "absolute": true,
+    "fullScore": 50,
     "id": 68
   },
   {
@@ -4499,8 +4499,8 @@
       30,
       20
     ],
-    "fullScore": 100,
     "absolute": true,
+    "fullScore": 100,
     "id": 91
   },
   {
@@ -4523,8 +4523,8 @@
       10,
       5
     ],
-    "fullScore": 50,
     "absolute": true,
+    "fullScore": 50,
     "id": 92
   },
   {
@@ -5685,8 +5685,8 @@
       30,
       20
     ],
-    "fullScore": 100,
     "absolute": true,
+    "fullScore": 100,
     "id": 115
   },
   {
@@ -5709,8 +5709,8 @@
       10,
       5
     ],
-    "fullScore": 50,
     "absolute": true,
+    "fullScore": 50,
     "id": 116
   },
   {
@@ -6871,8 +6871,8 @@
       30,
       20
     ],
-    "fullScore": 100,
     "absolute": true,
+    "fullScore": 100,
     "id": 139
   },
   {
@@ -6895,8 +6895,8 @@
       10,
       5
     ],
-    "fullScore": 50,
     "absolute": true,
+    "fullScore": 50,
     "id": 140
   },
   {
@@ -7914,7 +7914,8 @@
     "type": "apr",
     "subject": "영어",
     "subSubject": null,
-    "standardCuts": [
+    "source": "megastudy",
+    "rawCuts": [
       90,
       80,
       70,
@@ -7924,20 +7925,9 @@
       30,
       20
     ],
-    "standardPercentile": [
-      426,
-      1378,
-      2998,
-      4973,
-      6603,
-      7807,
-      8682,
-      9683
-    ],
-    "highestStandardScore": 100,
-    "source": "megastudy",
-    "id": 160,
-    "fullScore": 100
+    "absolute": true,
+    "fullScore": 100,
+    "id": 160
   },
   {
     "curriculum": "2015",
@@ -7948,7 +7938,8 @@
     "type": "apr",
     "subject": "한국사",
     "subSubject": null,
-    "standardCuts": [
+    "source": "megastudy",
+    "rawCuts": [
       40,
       35,
       30,
@@ -7958,20 +7949,9 @@
       10,
       5
     ],
-    "standardPercentile": [
-      1547,
-      276,
-      4173,
-      5603,
-      6828,
-      7822,
-      9356,
-      9886
-    ],
-    "highestStandardScore": 50,
-    "source": "megastudy",
-    "id": 161,
-    "fullScore": 50
+    "absolute": true,
+    "fullScore": 50,
+    "id": 161
   },
   {
     "curriculum": "2015",
@@ -8915,8 +8895,8 @@
       30,
       20
     ],
-    "fullScore": 100,
     "absolute": true,
+    "fullScore": 100,
     "id": 180
   },
   {
@@ -8939,8 +8919,8 @@
       10,
       5
     ],
-    "fullScore": 50,
     "absolute": true,
+    "fullScore": 50,
     "id": 181
   },
   {
@@ -8962,9 +8942,9 @@
       30,
       20
     ],
-    "fullScore": 100,
     "absolute": true,
     "source": "absolute-standard",
+    "fullScore": 100,
     "id": 182
   },
   {
@@ -8986,9 +8966,9 @@
       30,
       20
     ],
-    "fullScore": 100,
     "absolute": true,
     "source": "absolute-standard",
+    "fullScore": 100,
     "id": 183
   },
   {
@@ -10149,8 +10129,8 @@
       30,
       20
     ],
-    "fullScore": 100,
     "absolute": true,
+    "fullScore": 100,
     "id": 206
   },
   {
@@ -10173,8 +10153,8 @@
       10,
       5
     ],
-    "fullScore": 50,
     "absolute": true,
+    "fullScore": 50,
     "id": 207
   },
   {
@@ -11335,8 +11315,8 @@
       30,
       20
     ],
-    "fullScore": 100,
     "absolute": true,
+    "fullScore": 100,
     "id": 230
   },
   {
@@ -11359,8 +11339,8 @@
       10,
       5
     ],
-    "fullScore": 50,
     "absolute": true,
+    "fullScore": 50,
     "id": 231
   },
   {
@@ -12521,8 +12501,8 @@
       30,
       20
     ],
-    "fullScore": 100,
     "absolute": true,
+    "fullScore": 100,
     "id": 254
   },
   {
@@ -12545,8 +12525,8 @@
       10,
       5
     ],
-    "fullScore": 50,
     "absolute": true,
+    "fullScore": 50,
     "id": 255
   },
   {
@@ -13707,8 +13687,8 @@
       30,
       20
     ],
-    "fullScore": 100,
     "absolute": true,
+    "fullScore": 100,
     "id": 278
   },
   {
@@ -13731,8 +13711,8 @@
       10,
       5
     ],
-    "fullScore": 50,
     "absolute": true,
+    "fullScore": 50,
     "id": 279
   },
   {
@@ -14893,8 +14873,8 @@
       30,
       20
     ],
-    "fullScore": 100,
     "absolute": true,
+    "fullScore": 100,
     "id": 302
   },
   {
@@ -14917,8 +14897,8 @@
       10,
       5
     ],
-    "fullScore": 50,
     "absolute": true,
+    "fullScore": 50,
     "id": 303
   },
   {
@@ -15936,7 +15916,8 @@
     "type": "apr",
     "subject": "영어",
     "subSubject": null,
-    "standardCuts": [
+    "source": "megastudy",
+    "rawCuts": [
       90,
       80,
       70,
@@ -15946,20 +15927,9 @@
       30,
       20
     ],
-    "standardPercentile": [
-      625,
-      166,
-      3152,
-      486,
-      6327,
-      7504,
-      8455,
-      9401
-    ],
-    "highestStandardScore": 100,
-    "source": "megastudy",
-    "id": 323,
-    "fullScore": 100
+    "absolute": true,
+    "fullScore": 100,
+    "id": 323
   },
   {
     "curriculum": "2015",
@@ -15970,7 +15940,8 @@
     "type": "apr",
     "subject": "한국사",
     "subSubject": null,
-    "standardCuts": [
+    "source": "megastudy",
+    "rawCuts": [
       40,
       35,
       30,
@@ -15980,20 +15951,9 @@
       10,
       5
     ],
-    "standardPercentile": [
-      126,
-      236,
-      3831,
-      5483,
-      6941,
-      8102,
-      9061,
-      9903
-    ],
-    "highestStandardScore": 50,
-    "source": "megastudy",
-    "id": 324,
-    "fullScore": 50
+    "absolute": true,
+    "fullScore": 50,
+    "id": 324
   },
   {
     "curriculum": "2015",
@@ -16937,8 +16897,8 @@
       30,
       20
     ],
-    "fullScore": 100,
     "absolute": true,
+    "fullScore": 100,
     "id": 343
   },
   {
@@ -16961,8 +16921,8 @@
       10,
       5
     ],
-    "fullScore": 50,
     "absolute": true,
+    "fullScore": 50,
     "id": 344
   },
   {
@@ -16984,9 +16944,9 @@
       30,
       20
     ],
-    "fullScore": 100,
     "absolute": true,
     "source": "absolute-standard",
+    "fullScore": 100,
     "id": 345
   },
   {
@@ -17008,9 +16968,9 @@
       30,
       20
     ],
-    "fullScore": 100,
     "absolute": true,
     "source": "absolute-standard",
+    "fullScore": 100,
     "id": 346
   },
   {
@@ -18171,8 +18131,8 @@
       30,
       20
     ],
-    "fullScore": 100,
     "absolute": true,
+    "fullScore": 100,
     "id": 369
   },
   {
@@ -18195,8 +18155,8 @@
       10,
       5
     ],
-    "fullScore": 50,
     "absolute": true,
+    "fullScore": 50,
     "id": 370
   },
   {
@@ -19357,8 +19317,8 @@
       30,
       20
     ],
-    "fullScore": 100,
     "absolute": true,
+    "fullScore": 100,
     "id": 393
   },
   {
@@ -19381,8 +19341,8 @@
       10,
       5
     ],
-    "fullScore": 50,
     "absolute": true,
+    "fullScore": 50,
     "id": 394
   },
   {
@@ -20543,8 +20503,8 @@
       30,
       20
     ],
-    "fullScore": 100,
     "absolute": true,
+    "fullScore": 100,
     "id": 417
   },
   {
@@ -20567,8 +20527,8 @@
       10,
       5
     ],
-    "fullScore": 50,
     "absolute": true,
+    "fullScore": 50,
     "id": 418
   },
   {
@@ -21729,8 +21689,8 @@
       30,
       20
     ],
-    "fullScore": 100,
     "absolute": true,
+    "fullScore": 100,
     "id": 441
   },
   {
@@ -21753,8 +21713,8 @@
       10,
       5
     ],
-    "fullScore": 50,
     "absolute": true,
+    "fullScore": 50,
     "id": 442
   },
   {
@@ -22915,8 +22875,8 @@
       30,
       20
     ],
-    "fullScore": 100,
     "absolute": true,
+    "fullScore": 100,
     "id": 465
   },
   {
@@ -22939,8 +22899,8 @@
       10,
       5
     ],
-    "fullScore": 50,
     "absolute": true,
+    "fullScore": 50,
     "id": 466
   },
   {
@@ -23958,7 +23918,8 @@
     "type": "apr",
     "subject": "영어",
     "subSubject": null,
-    "standardCuts": [
+    "source": "megastudy",
+    "rawCuts": [
       90,
       80,
       70,
@@ -23968,20 +23929,9 @@
       30,
       20
     ],
-    "standardPercentile": [
-      497,
-      163,
-      313,
-      4752,
-      6186,
-      7454,
-      8545,
-      9449
-    ],
-    "highestStandardScore": 100,
-    "source": "megastudy",
-    "id": 486,
-    "fullScore": 100
+    "absolute": true,
+    "fullScore": 100,
+    "id": 486
   },
   {
     "curriculum": "2015",
@@ -23992,7 +23942,8 @@
     "type": "apr",
     "subject": "한국사",
     "subSubject": null,
-    "standardCuts": [
+    "source": "megastudy",
+    "rawCuts": [
       40,
       35,
       30,
@@ -24002,20 +23953,9 @@
       10,
       5
     ],
-    "standardPercentile": [
-      547,
-      1198,
-      218,
-      356,
-      5333,
-      7146,
-      8838,
-      9863
-    ],
-    "highestStandardScore": 50,
-    "source": "megastudy",
-    "id": 487,
-    "fullScore": 50
+    "absolute": true,
+    "fullScore": 50,
+    "id": 487
   },
   {
     "curriculum": "2015",
@@ -24959,8 +24899,8 @@
       30,
       20
     ],
-    "fullScore": 100,
     "absolute": true,
+    "fullScore": 100,
     "id": 506
   },
   {
@@ -24983,8 +24923,8 @@
       10,
       5
     ],
-    "fullScore": 50,
     "absolute": true,
+    "fullScore": 50,
     "id": 507
   },
   {
@@ -25006,9 +24946,9 @@
       30,
       20
     ],
-    "fullScore": 100,
     "absolute": true,
     "source": "absolute-standard",
+    "fullScore": 100,
     "id": 508
   },
   {
@@ -25030,9 +24970,9 @@
       30,
       20
     ],
-    "fullScore": 100,
     "absolute": true,
     "source": "absolute-standard",
+    "fullScore": 100,
     "id": 509
   },
   {
@@ -26193,8 +26133,8 @@
       30,
       20
     ],
-    "fullScore": 100,
     "absolute": true,
+    "fullScore": 100,
     "id": 532
   },
   {
@@ -26217,8 +26157,8 @@
       10,
       5
     ],
-    "fullScore": 50,
     "absolute": true,
+    "fullScore": 50,
     "id": 533
   },
   {
@@ -26240,9 +26180,9 @@
       30,
       20
     ],
-    "fullScore": 100,
     "absolute": true,
     "source": "absolute-standard",
+    "fullScore": 100,
     "id": 534
   },
   {
@@ -26264,9 +26204,9 @@
       10,
       5
     ],
-    "fullScore": 50,
     "absolute": true,
     "source": "absolute-standard",
+    "fullScore": 50,
     "id": 535
   },
   {
@@ -27427,8 +27367,8 @@
       30,
       20
     ],
-    "fullScore": 100,
     "absolute": true,
+    "fullScore": 100,
     "id": 558
   },
   {
@@ -27451,8 +27391,8 @@
       10,
       5
     ],
-    "fullScore": 50,
     "absolute": true,
+    "fullScore": 50,
     "id": 559
   },
   {
@@ -28613,8 +28553,8 @@
       30,
       20
     ],
-    "fullScore": 100,
     "absolute": true,
+    "fullScore": 100,
     "id": 582
   },
   {
@@ -28637,8 +28577,8 @@
       10,
       5
     ],
-    "fullScore": 50,
     "absolute": true,
+    "fullScore": 50,
     "id": 583
   },
   {
@@ -29799,8 +29739,8 @@
       30,
       20
     ],
-    "fullScore": 100,
     "absolute": true,
+    "fullScore": 100,
     "id": 606
   },
   {
@@ -29823,8 +29763,8 @@
       10,
       5
     ],
-    "fullScore": 50,
     "absolute": true,
+    "fullScore": 50,
     "id": 607
   },
   {
@@ -30985,8 +30925,8 @@
       30,
       20
     ],
-    "fullScore": 100,
     "absolute": true,
+    "fullScore": 100,
     "id": 630
   },
   {
@@ -31009,8 +30949,8 @@
       10,
       5
     ],
-    "fullScore": 50,
     "absolute": true,
+    "fullScore": 50,
     "id": 631
   },
   {
@@ -31955,8 +31895,8 @@
       30,
       20
     ],
-    "fullScore": 100,
     "absolute": true,
+    "fullScore": 100,
     "id": 650
   },
   {
@@ -31979,8 +31919,8 @@
       10,
       5
     ],
-    "fullScore": 50,
     "absolute": true,
+    "fullScore": 50,
     "id": 651
   },
   {
@@ -32002,9 +31942,9 @@
       30,
       20
     ],
-    "fullScore": 100,
     "absolute": true,
     "source": "absolute-standard",
+    "fullScore": 100,
     "id": 652
   },
   {
@@ -32026,9 +31966,9 @@
       30,
       20
     ],
-    "fullScore": 100,
     "absolute": true,
     "source": "absolute-standard",
+    "fullScore": 100,
     "id": 653
   },
   {
@@ -33189,8 +33129,8 @@
       30,
       20
     ],
-    "fullScore": 100,
     "absolute": true,
+    "fullScore": 100,
     "id": 676
   },
   {
@@ -33213,8 +33153,8 @@
       10,
       5
     ],
-    "fullScore": 50,
     "absolute": true,
+    "fullScore": 50,
     "id": 677
   },
   {
@@ -34375,8 +34315,8 @@
       30,
       20
     ],
-    "fullScore": 100,
     "absolute": true,
+    "fullScore": 100,
     "id": 700
   },
   {
@@ -34399,8 +34339,8 @@
       10,
       5
     ],
-    "fullScore": 50,
     "absolute": true,
+    "fullScore": 50,
     "id": 701
   },
   {
@@ -35561,8 +35501,8 @@
       30,
       20
     ],
-    "fullScore": 100,
     "absolute": true,
+    "fullScore": 100,
     "id": 724
   },
   {
@@ -35585,8 +35525,8 @@
       10,
       5
     ],
-    "fullScore": 50,
     "absolute": true,
+    "fullScore": 50,
     "id": 725
   },
   {
@@ -36747,8 +36687,8 @@
       30,
       20
     ],
-    "fullScore": 100,
     "absolute": true,
+    "fullScore": 100,
     "id": 748
   },
   {
@@ -36771,8 +36711,8 @@
       10,
       5
     ],
-    "fullScore": 50,
     "absolute": true,
+    "fullScore": 50,
     "id": 749
   },
   {
@@ -37933,8 +37873,8 @@
       30,
       20
     ],
-    "fullScore": 100,
     "absolute": true,
+    "fullScore": 100,
     "id": 772
   },
   {
@@ -37957,8 +37897,8 @@
       10,
       5
     ],
-    "fullScore": 50,
     "absolute": true,
+    "fullScore": 50,
     "id": 773
   },
   {
@@ -39119,8 +39059,8 @@
       30,
       20
     ],
-    "fullScore": 100,
     "absolute": true,
+    "fullScore": 100,
     "id": 796
   },
   {
@@ -39143,8 +39083,8 @@
       10,
       5
     ],
-    "fullScore": 50,
     "absolute": true,
+    "fullScore": 50,
     "id": 797
   },
   {
@@ -40089,8 +40029,8 @@
       30,
       20
     ],
-    "fullScore": 100,
     "absolute": true,
+    "fullScore": 100,
     "id": 816
   },
   {
@@ -40113,8 +40053,8 @@
       10,
       5
     ],
-    "fullScore": 50,
     "absolute": true,
+    "fullScore": 50,
     "id": 817
   },
   {
@@ -40136,9 +40076,9 @@
       30,
       20
     ],
-    "fullScore": 100,
     "absolute": true,
     "source": "absolute-standard",
+    "fullScore": 100,
     "id": 818
   },
   {
@@ -40160,9 +40100,9 @@
       30,
       20
     ],
-    "fullScore": 100,
     "absolute": true,
     "source": "absolute-standard",
+    "fullScore": 100,
     "id": 819
   },
   {
@@ -41265,8 +41205,8 @@
       30,
       20
     ],
-    "fullScore": 100,
     "absolute": true,
+    "fullScore": 100,
     "id": 840
   },
   {
@@ -41289,8 +41229,8 @@
       10,
       5
     ],
-    "fullScore": 50,
     "absolute": true,
+    "fullScore": 50,
     "id": 841
   },
   {
@@ -42393,8 +42333,8 @@
       30,
       20
     ],
-    "fullScore": 100,
     "absolute": true,
+    "fullScore": 100,
     "id": 862
   },
   {
@@ -42417,8 +42357,8 @@
       10,
       5
     ],
-    "fullScore": 50,
     "absolute": true,
+    "fullScore": 50,
     "id": 863
   },
   {
@@ -43521,8 +43461,8 @@
       30,
       20
     ],
-    "fullScore": 100,
     "absolute": true,
+    "fullScore": 100,
     "id": 884
   },
   {
@@ -43545,8 +43485,8 @@
       10,
       5
     ],
-    "fullScore": 50,
     "absolute": true,
+    "fullScore": 50,
     "id": 885
   },
   {
@@ -44649,8 +44589,8 @@
       30,
       20
     ],
-    "fullScore": 100,
     "absolute": true,
+    "fullScore": 100,
     "id": 906
   },
   {
@@ -44673,8 +44613,8 @@
       10,
       5
     ],
-    "fullScore": 50,
     "absolute": true,
+    "fullScore": 50,
     "id": 907
   },
   {
@@ -45777,8 +45717,8 @@
       30,
       20
     ],
-    "fullScore": 100,
     "absolute": true,
+    "fullScore": 100,
     "id": 928
   },
   {
@@ -45801,8 +45741,8 @@
       10,
       5
     ],
-    "fullScore": 50,
     "absolute": true,
+    "fullScore": 50,
     "id": 929
   },
   {
@@ -46905,8 +46845,8 @@
       30,
       20
     ],
-    "fullScore": 100,
     "absolute": true,
+    "fullScore": 100,
     "id": 950
   },
   {
@@ -46929,8 +46869,8 @@
       10,
       5
     ],
-    "fullScore": 50,
     "absolute": true,
+    "fullScore": 50,
     "id": 951
   },
   {
@@ -46952,9 +46892,9 @@
       30,
       20
     ],
-    "fullScore": 100,
     "absolute": true,
     "source": "absolute-standard",
+    "fullScore": 100,
     "id": 952
   },
   {
@@ -46976,9 +46916,9 @@
       30,
       20
     ],
-    "fullScore": 100,
     "absolute": true,
     "source": "absolute-standard",
+    "fullScore": 100,
     "id": 953
   },
   {
@@ -48081,8 +48021,8 @@
       30,
       20
     ],
-    "fullScore": 100,
     "absolute": true,
+    "fullScore": 100,
     "id": 974
   },
   {
@@ -48457,8 +48397,8 @@
       10,
       5
     ],
-    "fullScore": 50,
     "absolute": true,
+    "fullScore": 50,
     "id": 991
   },
   {
@@ -49561,8 +49501,8 @@
       30,
       20
     ],
-    "fullScore": 100,
     "absolute": true,
+    "fullScore": 100,
     "id": 1012
   },
   {
@@ -49585,8 +49525,8 @@
       10,
       5
     ],
-    "fullScore": 50,
     "absolute": true,
+    "fullScore": 50,
     "id": 1013
   },
   {
@@ -50689,8 +50629,8 @@
       30,
       20
     ],
-    "fullScore": 100,
     "absolute": true,
+    "fullScore": 100,
     "id": 1034
   },
   {
@@ -50713,8 +50653,8 @@
       10,
       5
     ],
-    "fullScore": 50,
     "absolute": true,
+    "fullScore": 50,
     "id": 1035
   },
   {
@@ -51817,8 +51757,8 @@
       30,
       20
     ],
-    "fullScore": 100,
     "absolute": true,
+    "fullScore": 100,
     "id": 1056
   },
   {
@@ -51841,8 +51781,8 @@
       10,
       5
     ],
-    "fullScore": 50,
     "absolute": true,
+    "fullScore": 50,
     "id": 1057
   },
   {
@@ -52945,8 +52885,8 @@
       30,
       20
     ],
-    "fullScore": 100,
     "absolute": true,
+    "fullScore": 100,
     "id": 1078
   },
   {
@@ -52969,8 +52909,8 @@
       10,
       5
     ],
-    "fullScore": 50,
     "absolute": true,
+    "fullScore": 50,
     "id": 1079
   },
   {
@@ -54073,8 +54013,8 @@
       30,
       20
     ],
-    "fullScore": 100,
     "absolute": true,
+    "fullScore": 100,
     "id": 1100
   },
   {
@@ -54097,8 +54037,8 @@
       10,
       5
     ],
-    "fullScore": 50,
     "absolute": true,
+    "fullScore": 50,
     "id": 1101
   },
   {
@@ -54985,8 +54925,8 @@
       30,
       20
     ],
-    "fullScore": 100,
     "absolute": true,
+    "fullScore": 100,
     "id": 1118
   },
   {
@@ -55009,8 +54949,8 @@
       10,
       5
     ],
-    "fullScore": 50,
     "absolute": true,
+    "fullScore": 50,
     "id": 1119
   },
   {
@@ -55032,9 +54972,9 @@
       30,
       20
     ],
-    "fullScore": 100,
     "absolute": true,
     "source": "absolute-standard",
+    "fullScore": 100,
     "id": 1120
   },
   {
@@ -55056,9 +54996,9 @@
       30,
       20
     ],
-    "fullScore": 100,
     "absolute": true,
     "source": "absolute-standard",
+    "fullScore": 100,
     "id": 1121
   },
   {
@@ -56161,8 +56101,8 @@
       30,
       20
     ],
-    "fullScore": 100,
     "absolute": true,
+    "fullScore": 100,
     "id": 1142
   },
   {
@@ -56537,8 +56477,8 @@
       10,
       5
     ],
-    "fullScore": 50,
     "absolute": true,
+    "fullScore": 50,
     "id": 1159
   },
   {
@@ -57641,8 +57581,8 @@
       30,
       20
     ],
-    "fullScore": 100,
     "absolute": true,
+    "fullScore": 100,
     "id": 1180
   },
   {
@@ -57665,8 +57605,8 @@
       10,
       5
     ],
-    "fullScore": 50,
     "absolute": true,
+    "fullScore": 50,
     "id": 1181
   },
   {
@@ -58769,8 +58709,8 @@
       30,
       20
     ],
-    "fullScore": 100,
     "absolute": true,
+    "fullScore": 100,
     "id": 1202
   },
   {
@@ -58793,8 +58733,8 @@
       10,
       5
     ],
-    "fullScore": 50,
     "absolute": true,
+    "fullScore": 50,
     "id": 1203
   },
   {
@@ -59897,8 +59837,8 @@
       30,
       20
     ],
-    "fullScore": 100,
     "absolute": true,
+    "fullScore": 100,
     "id": 1224
   },
   {
@@ -59921,8 +59861,8 @@
       10,
       5
     ],
-    "fullScore": 50,
     "absolute": true,
+    "fullScore": 50,
     "id": 1225
   },
   {
@@ -61025,8 +60965,8 @@
       30,
       20
     ],
-    "fullScore": 100,
     "absolute": true,
+    "fullScore": 100,
     "id": 1246
   },
   {
@@ -61049,8 +60989,8 @@
       10,
       5
     ],
-    "fullScore": 50,
     "absolute": true,
+    "fullScore": 50,
     "id": 1247
   },
   {
@@ -62153,8 +62093,8 @@
       30,
       20
     ],
-    "fullScore": 100,
     "absolute": true,
+    "fullScore": 100,
     "id": 1268
   },
   {
@@ -62177,8 +62117,8 @@
       10,
       5
     ],
-    "fullScore": 50,
     "absolute": true,
+    "fullScore": 50,
     "id": 1269
   },
   {
@@ -63065,8 +63005,8 @@
       30,
       20
     ],
-    "fullScore": 100,
     "absolute": true,
+    "fullScore": 100,
     "id": 1286
   },
   {
@@ -63089,8 +63029,8 @@
       10,
       5
     ],
-    "fullScore": 50,
     "absolute": true,
+    "fullScore": 50,
     "id": 1287
   },
   {
@@ -63112,9 +63052,9 @@
       30,
       20
     ],
-    "fullScore": 100,
     "absolute": true,
     "source": "absolute-standard",
+    "fullScore": 100,
     "id": 1288
   },
   {
@@ -63136,9 +63076,9 @@
       30,
       20
     ],
-    "fullScore": 100,
     "absolute": true,
     "source": "absolute-standard",
+    "fullScore": 100,
     "id": 1289
   },
   {
@@ -64241,8 +64181,8 @@
       30,
       20
     ],
-    "fullScore": 100,
     "absolute": true,
+    "fullScore": 100,
     "id": 1310
   },
   {
@@ -64617,8 +64557,8 @@
       10,
       5
     ],
-    "fullScore": 50,
     "absolute": true,
+    "fullScore": 50,
     "id": 1327
   },
   {
@@ -65721,8 +65661,8 @@
       30,
       20
     ],
-    "fullScore": 100,
     "absolute": true,
+    "fullScore": 100,
     "id": 1348
   },
   {
@@ -65745,8 +65685,8 @@
       10,
       5
     ],
-    "fullScore": 50,
     "absolute": true,
+    "fullScore": 50,
     "id": 1349
   },
   {
@@ -66849,8 +66789,8 @@
       30,
       20
     ],
-    "fullScore": 100,
     "absolute": true,
+    "fullScore": 100,
     "id": 1370
   },
   {
@@ -66873,8 +66813,8 @@
       10,
       5
     ],
-    "fullScore": 50,
     "absolute": true,
+    "fullScore": 50,
     "id": 1371
   },
   {
@@ -67977,8 +67917,8 @@
       30,
       20
     ],
-    "fullScore": 100,
     "absolute": true,
+    "fullScore": 100,
     "id": 1392
   },
   {
@@ -68001,8 +67941,8 @@
       10,
       5
     ],
-    "fullScore": 50,
     "absolute": true,
+    "fullScore": 50,
     "id": 1393
   },
   {
@@ -69105,8 +69045,8 @@
       30,
       20
     ],
-    "fullScore": 100,
     "absolute": true,
+    "fullScore": 100,
     "id": 1414
   },
   {
@@ -69129,8 +69069,8 @@
       10,
       5
     ],
-    "fullScore": 50,
     "absolute": true,
+    "fullScore": 50,
     "id": 1415
   },
   {
@@ -70233,8 +70173,8 @@
       30,
       20
     ],
-    "fullScore": 100,
     "absolute": true,
+    "fullScore": 100,
     "id": 1436
   },
   {
@@ -70257,8 +70197,8 @@
       10,
       5
     ],
-    "fullScore": 50,
     "absolute": true,
+    "fullScore": 50,
     "id": 1437
   },
   {
@@ -71145,8 +71085,8 @@
       30,
       20
     ],
-    "fullScore": 100,
     "absolute": true,
+    "fullScore": 100,
     "id": 1454
   },
   {
@@ -71169,8 +71109,8 @@
       10,
       5
     ],
-    "fullScore": 50,
     "absolute": true,
+    "fullScore": 50,
     "id": 1455
   },
   {
@@ -71192,9 +71132,9 @@
       30,
       20
     ],
-    "fullScore": 100,
     "absolute": true,
     "source": "absolute-standard",
+    "fullScore": 100,
     "id": 1456
   },
   {
@@ -71216,9 +71156,9 @@
       30,
       20
     ],
-    "fullScore": 100,
     "absolute": true,
     "source": "absolute-standard",
+    "fullScore": 100,
     "id": 1457
   },
   {
@@ -72727,8 +72667,8 @@
       10,
       5
     ],
-    "fullScore": 50,
     "absolute": true,
+    "fullScore": 50,
     "id": 1495
   },
   {
@@ -73874,7 +73814,8 @@
     "type": "sept",
     "subject": "한국사",
     "subSubject": null,
-    "standardCuts": [
+    "source": "megastudy",
+    "rawCuts": [
       40,
       35,
       30,
@@ -73884,20 +73825,9 @@
       10,
       5
     ],
-    "standardPercentile": [
-      325,
-      4847,
-      6322,
-      7524,
-      8347,
-      892,
-      9492,
-      995
-    ],
-    "highestStandardScore": 50,
-    "source": "megastudy",
-    "id": 1517,
-    "fullScore": 50
+    "absolute": true,
+    "fullScore": 50,
+    "id": 1517
   },
   {
     "curriculum": "2009",
@@ -75042,7 +74972,8 @@
     "type": "june",
     "subject": "한국사",
     "subSubject": null,
-    "standardCuts": [
+    "source": "megastudy",
+    "rawCuts": [
       40,
       35,
       30,
@@ -75052,20 +74983,9 @@
       10,
       5
     ],
-    "standardPercentile": [
-      2895,
-      4553,
-      6242,
-      7692,
-      8645,
-      922,
-      979,
-      9967
-    ],
-    "highestStandardScore": 50,
-    "source": "megastudy",
-    "id": 1539,
-    "fullScore": 50
+    "absolute": true,
+    "fullScore": 50,
+    "id": 1539
   },
   {
     "curriculum": "2009",
@@ -76221,8 +76141,8 @@
       10,
       5
     ],
-    "fullScore": 50,
     "absolute": true,
+    "fullScore": 50,
     "id": 1561
   },
   {
@@ -77379,8 +77299,8 @@
       10,
       5
     ],
-    "fullScore": 50,
     "absolute": true,
+    "fullScore": 50,
     "id": 1583
   },
   {
@@ -78537,8 +78457,8 @@
       10,
       5
     ],
-    "fullScore": 50,
     "absolute": true,
+    "fullScore": 50,
     "id": 1605
   },
   {
@@ -79479,8 +79399,8 @@
       10,
       5
     ],
-    "fullScore": 50,
     "absolute": true,
+    "fullScore": 50,
     "id": 1623
   },
   {

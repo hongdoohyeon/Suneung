@@ -1,15 +1,16 @@
 #!/usr/bin/env node
 // 모은 등급컷 데이터를 data/gradecuts.json 으로 통합.
+// 사이트 표시는 무조건 원점수(rawCuts) 기준.
 //
-// 출처
-//   1) data/raw/megastudy/gradecuts-normalized.json - 메가스터디 2016~2026 (1443건)
-//   2) /tmp/csat_gc_normalized_v3.json              - 평가원 hwpx 2005~2020 (459건)
-//   3) /tmp/recent_csat_gc.json                     - 평가원 매년 갱신 (28건 fan-out)
-//   4) data/gradecuts.json 기존                      - rawCuts 11건 (사용자 입력)
+// 출처 (raw 소스에서 매번 fresh 빌드 — 기존 출력 파일 무시)
+//   1) data/raw/megastudy/gradecuts-normalized.json - 메가스터디 2016~2026
+//   2) /tmp/csat_gc_normalized_v3.json              - 평가원 hwpx 2005~2020
+//   3) /tmp/recent_csat_gc.json                     - 평가원 매년 갱신 fan-out
+//   4) data/raw/etoos/rawcuts-normalized.json       - 이투스 wayback archive (raw)
 //
-// 우선순위 (같은 시험이면 뒤가 덮어씀):
-//   기존 rawCuts (보존) → 평가원 hwpx → 평가원 recent → 메가스터디 (가장 우선)
-// 메가스터디는 표준점수 외에 백분위·누적비율·최고점도 제공.
+// 적용 순서 (뒤가 우선):
+//   hwpx → 평가원 recent → 메가스터디 (raw + std + 백분위 + 누적) → 이투스 archive (raw 보강) → 절대평가 자동
+// 표준점수/백분위/누적은 데이터로만 보존 (사이트 미표시).
 
 import { readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
@@ -98,8 +99,8 @@ for (const r of recentData) {
   }
 }
 
-// 4. 메가스터디 (가장 우선) — 표준점수+백분위+누적비율+최고점.
-//    국어/수학의 통합형 시기는 단일 record (subSubject=null) 로 들어옴 → 사이트의 모든 변형으로 fan-out.
+// 4. 메가스터디 — 가능하면 원점수(5컬럼 raw 데이터), 그 외는 표준점수+백분위 (데이터 보존용).
+//    국어/수학의 통합형 시기는 단일 record (subSubject=null) → 사이트 모든 변형으로 fan-out.
 let megaApplied = 0;
 for (const r of megastudy) {
   const targets = (r.subSubject == null && (r.subject === '국어' || r.subject === '수학'))
@@ -123,8 +124,8 @@ for (const r of megastudy) {
   }
 }
 
-// 5a. 이투스 archived rawCuts (시험 직후 캡처본 → 학원 추정 원점수 등급컷)
-//     megastudy 표준점수가 이미 들어있는 record 에 rawCuts 만 추가.
+// 5a. 이투스 wayback archive (시험 직후 캡처본의 원점수 등급컷)
+//     megastudy 가 이미 있는 record 에는 rawCuts 만 보강.
 let etoosApplied = 0;
 for (const r of etoosArchived) {
   if (!Array.isArray(r.rawCuts) || !r.rawCuts.some(v => v != null)) continue;
@@ -144,40 +145,49 @@ for (const r of etoosArchived) {
 // 5. 절대평가 영역 (영어/한국사) 원점수 등급컷 자동 추가.
 //    - 영어: 100점 만점, 1~8등급 컷 = 90/80/70/60/50/40/30/20
 //    - 한국사: 50점 만점, 1~8등급 컷 = 40/35/30/25/20/15/10/5
-//    - 영어 절대평가 시행: 2018학년도 수능 ~. 그 이전(2014~2017 수능, 학평)은 상대평가라 제외.
+//    - 영어 절대평가 시행: 2018학년도 수능 ~. 그 이전 시험은 상대평가라 제외.
 //    - 한국사 필수화 + 절대평가: 2017학년도 수능부터.
-//    - 학평/모평은 시점에 따라 상대평가 였을 수 있으나, 발표 이후 제도는 절대평가로 통일됨 (편의상 적용).
+//    - 학평/모평도 동일 절대평가 기준 (편의상 통일).
 const ABSOLUTE_CUTS = {
   '영어':   { fullScore: 100, cuts: [90, 80, 70, 60, 50, 40, 30, 20], absoluteSince: 2018 },
   '한국사': { fullScore: 50,  cuts: [40, 35, 30, 25, 20, 15, 10, 5],  absoluteSince: 2017 },
 };
 
 let absoluteApplied = 0;
-for (const exam of exams) {
-  const ab = ABSOLUTE_CUTS[exam.subject];
-  if (ab && exam.gradeYear >= ab.absoluteSince) {
-    // 절대평가 시기 영어/한국사: standardCuts 는 의미 없음 (실제 표점이 아니라 절대 컷). 제거.
-    const k = makeKey(exam.curriculum, exam.gradeYear, exam.type, exam.subject, exam.subSubject);
-    const rec = resultMap.get(k);
-    if (rec) {
-      delete rec.standardCuts;
-      delete rec.standardPercentile;
-      delete rec.cumulativePercent;
-      delete rec.highestStandardScore;
-    }
+// 사이트 시험 + 빌드된 모든 record 둘 다 순회 (megastudy-only 레코드도 정리하기 위해)
+const absoluteTargets = new Set();
+for (const e of exams) {
+  const ab = ABSOLUTE_CUTS[e.subject];
+  if (ab && e.gradeYear >= ab.absoluteSince) {
+    absoluteTargets.add(makeKey(e.curriculum, e.gradeYear, e.type, e.subject, e.subSubject));
   }
+}
+for (const [k, rec] of resultMap) {
+  const ab = ABSOLUTE_CUTS[rec.subject];
   if (!ab) continue;
-  // 절대평가 시행 이전 시험은 상대평가라 패스 (학평/모평은 제도 적용 시점이 모호하지만
-  // 사이트 표시 단순화 위해 동일 기준 사용)
-  if (exam.gradeYear < ab.absoluteSince) continue;
-  const rec = ensureRecord(exam);
-  // 이미 rawCuts 가 사용자 입력으로 있으면 보존 (덮어쓰지 않음)
-  if (Array.isArray(rec.rawCuts) && rec.rawCuts.length === 8) continue;
-  rec.rawCuts = ab.cuts.slice();
+  if (rec.gradeYear >= ab.absoluteSince) absoluteTargets.add(k);
+}
+for (const k of absoluteTargets) {
+  // 사이트 미존재 record 도 ensureRecord 로 정리
+  const parts = k.split('|');
+  const meta = { curriculum: parts[0], gradeYear: +parts[1], type: parts[2], subject: parts[3], subSubject: parts[4] || null };
+  const rec = ensureRecord(meta);
+  // 절대평가 시기 영어/한국사: standardCuts 는 의미 없음 (절대 컷이 std 컬럼에 들어간 것). 제거.
+  delete rec.standardCuts;
+  delete rec.standardPercentile;
+  delete rec.cumulativePercent;
+  delete rec.highestStandardScore;
+  const ab = ABSOLUTE_CUTS[rec.subject];
+  // rawCuts 보강 (이미 있으면 보존)
+  if (!Array.isArray(rec.rawCuts) || !rec.rawCuts.some(v => v != null)) {
+    rec.rawCuts = ab.cuts.slice();
+    rec.absolute = true;
+    rec.source = rec.source || 'absolute-standard';
+    absoluteApplied++;
+  } else {
+    rec.absolute = true;
+  }
   rec.fullScore = ab.fullScore;
-  rec.absolute = true;
-  rec.source = rec.source || 'absolute-standard';
-  absoluteApplied++;
 }
 
 // 6. fullScore 채우기
