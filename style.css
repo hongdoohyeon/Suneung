@@ -2337,18 +2337,10 @@ body.is-sheet-open { overflow: hidden; touch-action: none; }
   height: auto;
   max-height: 260px;
 }
-/* 9 등급 막대 색상.
-   1등급 = 깊은 forest green (jewel accent), 2~9등급 = warm stone monotone fade. */
-.grade-dist__bar { transition: opacity 140ms var(--ease); }
-.grade-dist__bar--g1 { fill: #064e3b; }   /* emerald-900 — jewel accent */
-.grade-dist__bar--g2 { fill: #292524; }   /* stone-900 */
-.grade-dist__bar--g3 { fill: #44403c; }   /* stone-700 */
-.grade-dist__bar--g4 { fill: #57534e; }   /* stone-600 */
-.grade-dist__bar--g5 { fill: #8a8580; }   /* stone-500 */
-.grade-dist__bar--g6 { fill: #b8b4ad; }   /* stone-400 */
-.grade-dist__bar--g7 { fill: #cfc9c1; }   /* stone-350 */
-.grade-dist__bar--g8 { fill: #e0ddd6; }   /* stone-200 */
-.grade-dist__bar--g9 { fill: #ebeae6; }   /* line (가장 옅음) */
+/* 9 등급 막대 색상 — 그라데이션/페이드 X.
+   1등급 = ink (가장 진함), 나머지 모두 동일한 ink-3. 두 단계 대비만. */
+.grade-dist__bar          { fill: var(--ink-3); }   /* 2~9등급 공통 */
+.grade-dist__bar--g1      { fill: var(--ink); }     /* 1등급 강조 */
 
 .grade-dist__baseline {
   stroke: var(--ink);

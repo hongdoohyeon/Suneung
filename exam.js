@@ -286,7 +286,7 @@ function gradeDistSVG(rawCuts, fullScore) {
     const g = gradeOf(zCenter);
     // h 가 너무 작으면 (edge) 1.5px 최소 보장
     const hh = Math.max(h, 1.5);
-    bars += `<rect x="${x.toFixed(1)}" y="${(baseY - hh).toFixed(1)}" width="${barW.toFixed(1)}" height="${hh.toFixed(1)}" class="grade-dist__bar grade-dist__bar--g${g}" rx="1.5"/>`;
+    bars += `<rect x="${x.toFixed(1)}" y="${(baseY - hh).toFixed(1)}" width="${barW.toFixed(1)}" height="${hh.toFixed(1)}" class="grade-dist__bar grade-dist__bar--g${g}" rx="1"/>`;
   }
 
   // 베이스라인
