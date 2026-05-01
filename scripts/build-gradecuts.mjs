@@ -119,7 +119,35 @@ for (const r of megastudy) {
   }
 }
 
-// 5. fullScore 채우기
+// 5. 절대평가 영역 (영어/한국사) 원점수 등급컷 자동 추가.
+//    - 영어: 100점 만점, 1~8등급 컷 = 90/80/70/60/50/40/30/20
+//    - 한국사: 50점 만점, 1~8등급 컷 = 40/35/30/25/20/15/10/5
+//    - 영어 절대평가 시행: 2018학년도 수능 ~. 그 이전(2014~2017 수능, 학평)은 상대평가라 제외.
+//    - 한국사 필수화 + 절대평가: 2017학년도 수능부터.
+//    - 학평/모평은 시점에 따라 상대평가 였을 수 있으나, 발표 이후 제도는 절대평가로 통일됨 (편의상 적용).
+const ABSOLUTE_CUTS = {
+  '영어':   { fullScore: 100, cuts: [90, 80, 70, 60, 50, 40, 30, 20], absoluteSince: 2018 },
+  '한국사': { fullScore: 50,  cuts: [40, 35, 30, 25, 20, 15, 10, 5],  absoluteSince: 2017 },
+};
+
+let absoluteApplied = 0;
+for (const exam of exams) {
+  const ab = ABSOLUTE_CUTS[exam.subject];
+  if (!ab) continue;
+  // 절대평가 시행 이전 시험은 상대평가라 패스 (학평/모평은 제도 적용 시점이 모호하지만
+  // 사이트 표시 단순화 위해 동일 기준 사용)
+  if (exam.gradeYear < ab.absoluteSince) continue;
+  const rec = ensureRecord(exam);
+  // 이미 rawCuts 가 사용자 입력으로 있으면 보존 (덮어쓰지 않음)
+  if (Array.isArray(rec.rawCuts) && rec.rawCuts.length === 8) continue;
+  rec.rawCuts = ab.cuts.slice();
+  rec.fullScore = ab.fullScore;
+  rec.absolute = true;
+  rec.source = rec.source || 'absolute-standard';
+  absoluteApplied++;
+}
+
+// 6. fullScore 채우기
 const FULL_SCORE = {
   '국어': 100, '수학': 100, '영어': 100, '한국사': 50,
   '사회탐구': 50, '과학탐구': 50, '통합사회': 50, '통합과학': 50,
@@ -149,6 +177,7 @@ console.log(`기존 rawCuts: ${existing.length}건`);
 console.log(`hwpx 적재: ${hwpxApplied}건`);
 console.log(`recent 적재: ${recentApplied}건`);
 console.log(`megastudy 적재: ${megaApplied}건`);
+console.log(`절대평가 자동 추가: ${absoluteApplied}건`);
 console.log(`최종: ${out.length}건`);
 
 const withRaw = out.filter(r => Array.isArray(r.rawCuts) && r.rawCuts.length).length;
