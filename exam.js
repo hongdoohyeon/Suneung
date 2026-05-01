@@ -240,54 +240,37 @@ function renderQuickAnswers(exam) {
   return true;
 }
 
-// ── 등급 분포 (정규분포 곡선 + 등급별 영역 + 컷 점수 라벨) ──
+// ── 등급 분포 (정규분포 곡선 + linearGradient 채움 + 컷 라벨) ──
 // 누적 백분율 4·11·23·40·60·77·89·96 의 표준정규 z-score (1→8 등급 컷)
 const GRADE_Z = [1.751, 1.227, 0.739, 0.253, -0.253, -0.739, -1.227, -1.751];
 
 function gradeDistSVG(rawCuts, fullScore) {
-  const W = 640, H = 240;
-  const PAD_X = 22, PAD_TOP = 22, PAD_BOTTOM = 60;
+  const W = 640, H = 220;
+  const PAD_X = 24, PAD_TOP = 24, PAD_BOTTOM = 60;
   const innerW = W - 2 * PAD_X;
   const innerH = H - PAD_TOP - PAD_BOTTOM;
   const baseY  = PAD_TOP + innerH;
   const Z_RANGE = 2.6;
 
-  const xOf = z => PAD_X + ((z + Z_RANGE) / (2 * Z_RANGE)) * innerW;
+  // 1등급(고성취) = 왼쪽. z 부호 뒤집어 x 매핑 (왼=고점, 오=저점).
+  const xOf = z => PAD_X + ((-z + Z_RANGE) / (2 * Z_RANGE)) * innerW;
   const pdf = z => Math.exp(-z * z / 2);
   const yOf = z => PAD_TOP + innerH * (1 - pdf(z));
 
-  // 9개 등급 영역 경계 — z 작은(왼=낮은점수=9등급) → 큰(오=높은점수=1등급)
-  const zBounds = [-Z_RANGE, ...[...GRADE_Z].slice().reverse(), Z_RANGE];
-
-  const areaPath = (zStart, zEnd) => {
-    const N = 24;
-    const pts = [`M ${xOf(zStart).toFixed(1)} ${baseY.toFixed(1)}`];
-    for (let i = 0; i <= N; i++) {
-      const z = zStart + (i / N) * (zEnd - zStart);
-      pts.push(`L ${xOf(z).toFixed(1)} ${yOf(z).toFixed(1)}`);
-    }
-    pts.push(`L ${xOf(zEnd).toFixed(1)} ${baseY.toFixed(1)} Z`);
-    return pts.join(' ');
-  };
-
-  // 9 등급 영역 채움 (색상은 CSS 변수로)
-  let areas = '';
-  for (let g = 1; g <= 9; g++) {
-    const zStart = zBounds[9 - g];
-    const zEnd   = zBounds[10 - g];
-    areas += `<path d="${areaPath(zStart, zEnd)}" class="grade-dist__region grade-dist__region--g${g}"/>`;
+  // 곡선 채움 (단일 path → linearGradient 적용)
+  const N = 120;
+  const fillPts = [`M ${xOf(Z_RANGE).toFixed(1)} ${baseY.toFixed(1)}`];
+  for (let i = 0; i <= N; i++) {
+    const z = Z_RANGE - (i / N) * (2 * Z_RANGE);   // z 큰값 → 작은값 (왼→오)
+    fillPts.push(`L ${xOf(z).toFixed(1)} ${yOf(z).toFixed(1)}`);
   }
+  fillPts.push(`L ${xOf(-Z_RANGE).toFixed(1)} ${baseY.toFixed(1)} Z`);
+  const fillPath = fillPts.join(' ');
 
-  // 영역 경계 (베이스라인부터 곡선까지 1px hairline)
-  const dividers = GRADE_Z.map(z =>
-    `<line x1="${xOf(z).toFixed(1)}" y1="${baseY.toFixed(1)}" x2="${xOf(z).toFixed(1)}" y2="${yOf(z).toFixed(1)}" class="grade-dist__divider"/>`
-  ).join('');
-
-  // 곡선 outline (얇은 ink stroke)
-  const N = 100;
-  const curvePts = [`M ${xOf(-Z_RANGE).toFixed(1)} ${yOf(-Z_RANGE).toFixed(1)}`];
+  // 곡선 outline
+  const curvePts = [`M ${xOf(Z_RANGE).toFixed(1)} ${yOf(Z_RANGE).toFixed(1)}`];
   for (let i = 1; i <= N; i++) {
-    const z = -Z_RANGE + (i / N) * (2 * Z_RANGE);
+    const z = Z_RANGE - (i / N) * (2 * Z_RANGE);
     curvePts.push(`L ${xOf(z).toFixed(1)} ${yOf(z).toFixed(1)}`);
   }
   const curve = `<path d="${curvePts.join(' ')}" class="grade-dist__curve"/>`;
@@ -295,34 +278,45 @@ function gradeDistSVG(rawCuts, fullScore) {
   // 베이스라인
   const baseLine = `<line x1="${PAD_X}" y1="${baseY.toFixed(1)}" x2="${W - PAD_X}" y2="${baseY.toFixed(1)}" class="grade-dist__baseline"/>`;
 
-  // 컷 위치 tick 마크 (1~8 등급 경계)
+  // 컷 위치 tick (1~8 등급 경계)
   const ticks = GRADE_Z.map(z => {
     const x = xOf(z).toFixed(1);
-    return `<line x1="${x}" y1="${baseY.toFixed(1)}" x2="${x}" y2="${(baseY + 5).toFixed(1)}" class="grade-dist__tick"/>`;
+    return `<line x1="${x}" y1="${baseY.toFixed(1)}" x2="${x}" y2="${(baseY + 4).toFixed(1)}" class="grade-dist__tick"/>`;
   }).join('');
 
-  // 컷 점수 라벨 (tick 아래)
+  // 컷 점수 라벨 (1~8등급 컷 = 해당 등급의 최저 점수)
   const cutLabels = rawCuts.map((c, i) => {
     const x = xOf(GRADE_Z[i]).toFixed(1);
     const label = (c == null) ? '·' : c;
-    return `<text x="${x}" y="${(baseY + 18).toFixed(1)}" class="grade-dist__cut">${label}</text>`;
+    return `<text x="${x}" y="${(baseY + 16).toFixed(1)}" class="grade-dist__cut">${label}</text>`;
   }).join('');
 
-  // 등급 번호 (각 영역 가운데, 컷 점수 아래 row)
+  // 등급 번호 (각 영역 가운데, 컷 점수 아래)
+  const zBounds = [Z_RANGE, ...GRADE_Z, -Z_RANGE];   // 왼(1등급 outer) → 오(9등급 outer)
   const gradeNums = [];
   for (let g = 1; g <= 9; g++) {
-    const zStart = zBounds[9 - g];
-    const zEnd   = zBounds[10 - g];
+    const zStart = zBounds[g - 1];
+    const zEnd   = zBounds[g];
     const zMid   = (zStart + zEnd) / 2;
     const x = xOf(zMid).toFixed(1);
-    const y = (baseY + 40).toFixed(1);
+    const y = (baseY + 36).toFixed(1);
     gradeNums.push(`<text x="${x}" y="${y}" class="grade-dist__num">${g}</text>`);
   }
 
   return `
     <svg viewBox="0 0 ${W} ${H}" class="grade-dist__svg" preserveAspectRatio="xMidYMid meet" role="img" aria-label="등급별 원점수 컷 분포">
-      ${areas}
-      ${dividers}
+      <defs>
+        <linearGradient id="gradeDistFill" x1="${PAD_X}" y1="0" x2="${W - PAD_X}" y2="0" gradientUnits="userSpaceOnUse">
+          <stop offset="0%"   stop-color="#1e3a8a"/>
+          <stop offset="20%"  stop-color="#3b82f6"/>
+          <stop offset="40%"  stop-color="#bfdbfe"/>
+          <stop offset="50%"  stop-color="#e7e5e4"/>
+          <stop offset="60%"  stop-color="#fde68a"/>
+          <stop offset="80%"  stop-color="#f97316"/>
+          <stop offset="100%" stop-color="#9a3412"/>
+        </linearGradient>
+      </defs>
+      <path d="${fillPath}" class="grade-dist__fill" fill="url(#gradeDistFill)"/>
       ${curve}
       ${baseLine}
       ${ticks}
