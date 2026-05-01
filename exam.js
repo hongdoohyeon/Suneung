@@ -240,7 +240,8 @@ function renderQuickAnswers(exam) {
   return true;
 }
 
-// ── 등급 분포 (정규분포 곡선 + linearGradient 채움 + 컷 라벨) ──
+// ── 등급 분포 (정규분포 곡선 + 9개 discrete 영역 + 컷 라벨) ──
+// editorial monochrome — warm stone scale + 1등급만 site accent.
 // 누적 백분율 4·11·23·40·60·77·89·96 의 표준정규 z-score (1→8 등급 컷)
 const GRADE_Z = [1.751, 1.227, 0.739, 0.253, -0.253, -0.739, -1.227, -1.751];
 
@@ -252,22 +253,33 @@ function gradeDistSVG(rawCuts, fullScore) {
   const baseY  = PAD_TOP + innerH;
   const Z_RANGE = 2.6;
 
-  // 1등급(고성취) = 왼쪽. z 부호 뒤집어 x 매핑 (왼=고점, 오=저점).
+  // 1등급(고성취) = 왼쪽. z 부호 뒤집어 x 매핑.
   const xOf = z => PAD_X + ((-z + Z_RANGE) / (2 * Z_RANGE)) * innerW;
   const pdf = z => Math.exp(-z * z / 2);
   const yOf = z => PAD_TOP + innerH * (1 - pdf(z));
 
-  // 곡선 채움 (단일 path → linearGradient 적용)
-  const N = 120;
-  const fillPts = [`M ${xOf(Z_RANGE).toFixed(1)} ${baseY.toFixed(1)}`];
-  for (let i = 0; i <= N; i++) {
-    const z = Z_RANGE - (i / N) * (2 * Z_RANGE);   // z 큰값 → 작은값 (왼→오)
-    fillPts.push(`L ${xOf(z).toFixed(1)} ${yOf(z).toFixed(1)}`);
+  // zBounds: [Z_RANGE, GRADE_Z..., -Z_RANGE] = 1등급 outer → 9등급 outer
+  const zBounds = [Z_RANGE, ...GRADE_Z, -Z_RANGE];
+
+  const areaPath = (zStart, zEnd) => {
+    const N = 24;
+    const pts = [`M ${xOf(zStart).toFixed(1)} ${baseY.toFixed(1)}`];
+    for (let i = 0; i <= N; i++) {
+      const z = zStart + (i / N) * (zEnd - zStart);
+      pts.push(`L ${xOf(z).toFixed(1)} ${yOf(z).toFixed(1)}`);
+    }
+    pts.push(`L ${xOf(zEnd).toFixed(1)} ${baseY.toFixed(1)} Z`);
+    return pts.join(' ');
+  };
+
+  // 9 등급 영역 (g=1 left, g=9 right)
+  let areas = '';
+  for (let g = 1; g <= 9; g++) {
+    areas += `<path d="${areaPath(zBounds[g - 1], zBounds[g])}" class="grade-dist__region grade-dist__region--g${g}"/>`;
   }
-  fillPts.push(`L ${xOf(-Z_RANGE).toFixed(1)} ${baseY.toFixed(1)} Z`);
-  const fillPath = fillPts.join(' ');
 
   // 곡선 outline
+  const N = 100;
   const curvePts = [`M ${xOf(Z_RANGE).toFixed(1)} ${yOf(Z_RANGE).toFixed(1)}`];
   for (let i = 1; i <= N; i++) {
     const z = Z_RANGE - (i / N) * (2 * Z_RANGE);
@@ -278,45 +290,31 @@ function gradeDistSVG(rawCuts, fullScore) {
   // 베이스라인
   const baseLine = `<line x1="${PAD_X}" y1="${baseY.toFixed(1)}" x2="${W - PAD_X}" y2="${baseY.toFixed(1)}" class="grade-dist__baseline"/>`;
 
-  // 컷 위치 tick (1~8 등급 경계)
+  // 컷 tick (1~8 등급 경계)
   const ticks = GRADE_Z.map(z => {
     const x = xOf(z).toFixed(1);
     return `<line x1="${x}" y1="${baseY.toFixed(1)}" x2="${x}" y2="${(baseY + 4).toFixed(1)}" class="grade-dist__tick"/>`;
   }).join('');
 
-  // 컷 점수 라벨 (1~8등급 컷 = 해당 등급의 최저 점수)
+  // 컷 점수 라벨
   const cutLabels = rawCuts.map((c, i) => {
     const x = xOf(GRADE_Z[i]).toFixed(1);
     const label = (c == null) ? '·' : c;
     return `<text x="${x}" y="${(baseY + 16).toFixed(1)}" class="grade-dist__cut">${label}</text>`;
   }).join('');
 
-  // 등급 번호 (각 영역 가운데, 컷 점수 아래)
-  const zBounds = [Z_RANGE, ...GRADE_Z, -Z_RANGE];   // 왼(1등급 outer) → 오(9등급 outer)
+  // 등급 번호 (각 영역 가운데, 컷 점수 아래 row)
   const gradeNums = [];
   for (let g = 1; g <= 9; g++) {
-    const zStart = zBounds[g - 1];
-    const zEnd   = zBounds[g];
-    const zMid   = (zStart + zEnd) / 2;
+    const zMid = (zBounds[g - 1] + zBounds[g]) / 2;
     const x = xOf(zMid).toFixed(1);
     const y = (baseY + 36).toFixed(1);
-    gradeNums.push(`<text x="${x}" y="${y}" class="grade-dist__num">${g}</text>`);
+    gradeNums.push(`<text x="${x}" y="${y}" class="grade-dist__num grade-dist__num--g${g}">${g}</text>`);
   }
 
   return `
     <svg viewBox="0 0 ${W} ${H}" class="grade-dist__svg" preserveAspectRatio="xMidYMid meet" role="img" aria-label="등급별 원점수 컷 분포">
-      <defs>
-        <linearGradient id="gradeDistFill" x1="${PAD_X}" y1="0" x2="${W - PAD_X}" y2="0" gradientUnits="userSpaceOnUse">
-          <stop offset="0%"   stop-color="#1e3a8a"/>
-          <stop offset="20%"  stop-color="#3b82f6"/>
-          <stop offset="40%"  stop-color="#bfdbfe"/>
-          <stop offset="50%"  stop-color="#e7e5e4"/>
-          <stop offset="60%"  stop-color="#fde68a"/>
-          <stop offset="80%"  stop-color="#f97316"/>
-          <stop offset="100%" stop-color="#9a3412"/>
-        </linearGradient>
-      </defs>
-      <path d="${fillPath}" class="grade-dist__fill" fill="url(#gradeDistFill)"/>
+      ${areas}
       ${curve}
       ${baseLine}
       ${ticks}

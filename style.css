@@ -2330,33 +2330,48 @@ body.is-sheet-open { overflow: hidden; touch-action: none; }
   background: var(--surface-2);
 }
 
-/* 등급 분포 — 정규분포 곡선 + linearGradient 채움 (editorial / single-flow palette) */
+/* 등급 분포 — editorial monochrome (warm stone scale + 1등급 액센트) */
 .grade-dist__svg {
   display: block;
   width: 100%;
   height: auto;
   max-height: 260px;
 }
-/* 채움: 1등급(왼=blue accent) → 5등급(중립 stone) → 9등급(오=orange) 매끄러운 그라데이션 */
-.grade-dist__fill { opacity: 0.96; }
-.grade-dist__curve {
-  fill: none;
-  stroke: rgba(12, 10, 9, 0.16);
+/* 9 등급 영역 — warm stone scale. 1등급(짙은 ink) → 9등급(옅은 stone).
+   Stripe / Linear / NYT bell curve 스타일. */
+.grade-dist__region {
+  stroke: rgba(255, 255, 255, 0.6);
   stroke-width: 1;
 }
+.grade-dist__region--g1 { fill: #0c0a09; }   /* ink (가장 진함) */
+.grade-dist__region--g2 { fill: #292524; }   /* stone-900 */
+.grade-dist__region--g3 { fill: #44403c; }   /* stone-700 */
+.grade-dist__region--g4 { fill: #78716c; }   /* stone-500 */
+.grade-dist__region--g5 { fill: #a8a29e; }   /* stone-400 */
+.grade-dist__region--g6 { fill: #c8c2bb; }   /* stone-350 */
+.grade-dist__region--g7 { fill: #d8d6cf; }   /* line-strong */
+.grade-dist__region--g8 { fill: #e7e5e4; }   /* stone-200 */
+.grade-dist__region--g9 { fill: #f3f2ee; }   /* line-soft (가장 옅음) */
+
+.grade-dist__curve {
+  fill: none;
+  stroke: var(--ink);
+  stroke-width: 1.2;
+  stroke-linejoin: round;
+}
 .grade-dist__baseline {
-  stroke: var(--line-strong);
+  stroke: var(--ink);
   stroke-width: 1;
 }
 .grade-dist__tick {
-  stroke: var(--ink-5);
+  stroke: var(--ink-4);
   stroke-width: 1;
 }
 .grade-dist__cut {
   text-anchor: middle;
   font-size: 11.5px;
   font-weight: 600;
-  fill: var(--ink-2);
+  fill: var(--ink);
   font-family: inherit;
   font-feature-settings: 'tnum' 1;
   letter-spacing: 0.1px;
@@ -2365,7 +2380,7 @@ body.is-sheet-open { overflow: hidden; touch-action: none; }
 .grade-dist__num {
   text-anchor: middle;
   font-size: 10.5px;
-  font-weight: 500;
+  font-weight: 600;
   fill: var(--ink-4);
   font-family: inherit;
   font-feature-settings: 'tnum' 1;
