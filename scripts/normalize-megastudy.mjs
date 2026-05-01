@@ -61,9 +61,11 @@ const SUBJ_MAP = {
   '지구과학 II': ['과학탐구', '지구과학Ⅱ'],
 };
 
-// curriculum 추정
+// curriculum 추정 — 사이트의 실제 분포 기준
+//   2014~2021학년도: 2009 개정 교육과정
+//   2022~학년도:    2015 개정 교육과정 (통합형 수능 도입)
 function curriculumFor(year) {
-  if (year >= 2014) return '2015';
+  if (year >= 2022) return '2015';
   return '2009';
 }
 
