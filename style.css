@@ -2337,10 +2337,11 @@ body.is-sheet-open { overflow: hidden; touch-action: none; }
   height: auto;
   max-height: 260px;
 }
-/* 9 등급 막대 색상 — 그라데이션/페이드 X.
-   1등급 = ink (가장 진함), 나머지 모두 동일한 ink-3. 두 단계 대비만. */
-.grade-dist__bar          { fill: var(--ink-3); }   /* 2~9등급 공통 */
-.grade-dist__bar--g1      { fill: var(--ink); }     /* 1등급 강조 */
+/* 9 등급 막대 색상.
+   1등급 = 사이트 액센트 블루 (--pop-darker). 2~9등급 = warm ink-3 동일 톤.
+   warm stone neutrals 위 cool blue 한 점 — NYT/Stripe 식 single-accent histogram. */
+.grade-dist__bar          { fill: var(--ink-3); }
+.grade-dist__bar--g1      { fill: var(--pop-darker); }
 
 .grade-dist__baseline {
   stroke: var(--ink);
@@ -2370,6 +2371,8 @@ body.is-sheet-open { overflow: hidden; touch-action: none; }
   letter-spacing: 0.4px;
   pointer-events: none;
 }
+/* 1등급 라벨도 액센트 블루로 — 막대와 시각 연결 */
+.grade-dist__num--g1 { fill: var(--pop-darker); font-weight: 700; }
 .grade-dist__legend {
   margin: 12px 0 0;
   text-align: center;
