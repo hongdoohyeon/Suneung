@@ -2330,35 +2330,26 @@ body.is-sheet-open { overflow: hidden; touch-action: none; }
   background: var(--surface-2);
 }
 
-/* 등급 분포 — editorial monochrome (warm stone scale + 1등급 액센트) */
+/* 등급 분포 — 표준정규분포 히스토그램 (forest green 1등급 + warm stone scale) */
 .grade-dist__svg {
   display: block;
   width: 100%;
   height: auto;
   max-height: 260px;
 }
-/* 9 등급 영역 — warm stone scale. 1등급(짙은 ink) → 9등급(옅은 stone).
-   Stripe / Linear / NYT bell curve 스타일. */
-.grade-dist__region {
-  stroke: rgba(255, 255, 255, 0.6);
-  stroke-width: 1;
-}
-.grade-dist__region--g1 { fill: #0c0a09; }   /* ink (가장 진함) */
-.grade-dist__region--g2 { fill: #292524; }   /* stone-900 */
-.grade-dist__region--g3 { fill: #44403c; }   /* stone-700 */
-.grade-dist__region--g4 { fill: #78716c; }   /* stone-500 */
-.grade-dist__region--g5 { fill: #a8a29e; }   /* stone-400 */
-.grade-dist__region--g6 { fill: #c8c2bb; }   /* stone-350 */
-.grade-dist__region--g7 { fill: #d8d6cf; }   /* line-strong */
-.grade-dist__region--g8 { fill: #e7e5e4; }   /* stone-200 */
-.grade-dist__region--g9 { fill: #f3f2ee; }   /* line-soft (가장 옅음) */
+/* 9 등급 막대 색상.
+   1등급 = 깊은 forest green (jewel accent), 2~9등급 = warm stone monotone fade. */
+.grade-dist__bar { transition: opacity 140ms var(--ease); }
+.grade-dist__bar--g1 { fill: #064e3b; }   /* emerald-900 — jewel accent */
+.grade-dist__bar--g2 { fill: #292524; }   /* stone-900 */
+.grade-dist__bar--g3 { fill: #44403c; }   /* stone-700 */
+.grade-dist__bar--g4 { fill: #57534e; }   /* stone-600 */
+.grade-dist__bar--g5 { fill: #8a8580; }   /* stone-500 */
+.grade-dist__bar--g6 { fill: #b8b4ad; }   /* stone-400 */
+.grade-dist__bar--g7 { fill: #cfc9c1; }   /* stone-350 */
+.grade-dist__bar--g8 { fill: #e0ddd6; }   /* stone-200 */
+.grade-dist__bar--g9 { fill: #ebeae6; }   /* line (가장 옅음) */
 
-.grade-dist__curve {
-  fill: none;
-  stroke: var(--ink);
-  stroke-width: 1.2;
-  stroke-linejoin: round;
-}
 .grade-dist__baseline {
   stroke: var(--ink);
   stroke-width: 1;

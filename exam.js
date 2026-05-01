@@ -240,52 +240,54 @@ function renderQuickAnswers(exam) {
   return true;
 }
 
-// ── 등급 분포 (정규분포 곡선 + 9개 discrete 영역 + 컷 라벨) ──
-// editorial monochrome — warm stone scale + 1등급만 site accent.
+// ── 등급 분포 (정규분포 히스토그램 막대) ──
+// 막대 N개로 표준정규분포 envelope 형성 + 등급별 색상.
 // 누적 백분율 4·11·23·40·60·77·89·96 의 표준정규 z-score (1→8 등급 컷)
 const GRADE_Z = [1.751, 1.227, 0.739, 0.253, -0.253, -0.739, -1.227, -1.751];
 
 function gradeDistSVG(rawCuts, fullScore) {
   const W = 640, H = 220;
-  const PAD_X = 24, PAD_TOP = 24, PAD_BOTTOM = 60;
+  const PAD_X = 28, PAD_TOP = 22, PAD_BOTTOM = 60;
   const innerW = W - 2 * PAD_X;
   const innerH = H - PAD_TOP - PAD_BOTTOM;
   const baseY  = PAD_TOP + innerH;
-  const Z_RANGE = 2.6;
+  const Z_RANGE = 2.4;     // 너무 멀리 가면 막대가 안 보일 만큼 작아짐
 
   // 1등급(고성취) = 왼쪽. z 부호 뒤집어 x 매핑.
   const xOf = z => PAD_X + ((-z + Z_RANGE) / (2 * Z_RANGE)) * innerW;
   const pdf = z => Math.exp(-z * z / 2);
-  const yOf = z => PAD_TOP + innerH * (1 - pdf(z));
 
-  // zBounds: [Z_RANGE, GRADE_Z..., -Z_RANGE] = 1등급 outer → 9등급 outer
+  // zBounds: 1등급 outer → 9등급 outer
   const zBounds = [Z_RANGE, ...GRADE_Z, -Z_RANGE];
 
-  const areaPath = (zStart, zEnd) => {
-    const N = 24;
-    const pts = [`M ${xOf(zStart).toFixed(1)} ${baseY.toFixed(1)}`];
-    for (let i = 0; i <= N; i++) {
-      const z = zStart + (i / N) * (zEnd - zStart);
-      pts.push(`L ${xOf(z).toFixed(1)} ${yOf(z).toFixed(1)}`);
+  const gradeOf = z => {
+    for (let g = 1; g <= 9; g++) {
+      if (z <= zBounds[g - 1] && z > zBounds[g]) return g;
     }
-    pts.push(`L ${xOf(zEnd).toFixed(1)} ${baseY.toFixed(1)} Z`);
-    return pts.join(' ');
+    return 9;
   };
 
-  // 9 등급 영역 (g=1 left, g=9 right)
-  let areas = '';
-  for (let g = 1; g <= 9; g++) {
-    areas += `<path d="${areaPath(zBounds[g - 1], zBounds[g])}" class="grade-dist__region grade-dist__region--g${g}"/>`;
-  }
+  // 막대: 36개 (가독성 + 분포 envelope 명확히)
+  const N_BARS = 36;
+  const slot = innerW / N_BARS;
+  const gap = 1.6;
+  const barW = slot - gap;
 
-  // 곡선 outline
-  const N = 100;
-  const curvePts = [`M ${xOf(Z_RANGE).toFixed(1)} ${yOf(Z_RANGE).toFixed(1)}`];
-  for (let i = 1; i <= N; i++) {
-    const z = Z_RANGE - (i / N) * (2 * Z_RANGE);
-    curvePts.push(`L ${xOf(z).toFixed(1)} ${yOf(z).toFixed(1)}`);
+  // 정규화 (가장 큰 막대가 innerH 의 95% 까지 차도록)
+  const maxPdf = pdf(0);
+  const heightOf = z => (pdf(z) / maxPdf) * innerH * 0.96;
+
+  let bars = '';
+  for (let i = 0; i < N_BARS; i++) {
+    const zCenter = Z_RANGE - ((i + 0.5) / N_BARS) * (2 * Z_RANGE);
+    const h = heightOf(zCenter);
+    const x = PAD_X + i * slot + gap / 2;
+    const y = baseY - h;
+    const g = gradeOf(zCenter);
+    // h 가 너무 작으면 (edge) 1.5px 최소 보장
+    const hh = Math.max(h, 1.5);
+    bars += `<rect x="${x.toFixed(1)}" y="${(baseY - hh).toFixed(1)}" width="${barW.toFixed(1)}" height="${hh.toFixed(1)}" class="grade-dist__bar grade-dist__bar--g${g}" rx="1.5"/>`;
   }
-  const curve = `<path d="${curvePts.join(' ')}" class="grade-dist__curve"/>`;
 
   // 베이스라인
   const baseLine = `<line x1="${PAD_X}" y1="${baseY.toFixed(1)}" x2="${W - PAD_X}" y2="${baseY.toFixed(1)}" class="grade-dist__baseline"/>`;
@@ -314,8 +316,7 @@ function gradeDistSVG(rawCuts, fullScore) {
 
   return `
     <svg viewBox="0 0 ${W} ${H}" class="grade-dist__svg" preserveAspectRatio="xMidYMid meet" role="img" aria-label="등급별 원점수 컷 분포">
-      ${areas}
-      ${curve}
+      ${bars}
       ${baseLine}
       ${ticks}
       ${cutLabels}
