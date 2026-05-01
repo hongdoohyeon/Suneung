@@ -5,8 +5,9 @@
 // 종료 코드: 0 = OK, 1 = 검증 실패.
 
 import { readFile } from 'node:fs/promises';
+import { existsSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
-import { dirname, resolve } from 'node:path';
+import { dirname, resolve, normalize, isAbsolute } from 'node:path';
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(HERE, '..');
@@ -117,15 +118,19 @@ function validateBusinessRules(data) {
     if (ids.length > 1) err(`동일 조합 중복 ${k} → ids=${ids.join(',')}`);
   }
 
-  // 3. URL 도메인 검증 — http로 시작하는 URL은 worker 호스트여야 함
+  // 3. URL 검증 — 외부 URL은 worker 호스트만, 상대 경로는 실제 파일 존재 필요
   const urlKeys = ['questionUrl', 'answerUrl', 'solutionUrl'];
   for (const ex of data) {
     for (const k of urlKeys) {
       const v = ex[k];
       if (!v || typeof v !== 'string') continue;
-      if (v.startsWith('http')) {
+      if (/^[a-z][a-z0-9+.-]*:/i.test(v)) {
         try {
           const u = new URL(v);
+          if (!['http:', 'https:'].includes(u.protocol)) {
+            err(`id=${ex.id} ${k} 허용되지 않는 URL 스킴: ${u.protocol}`);
+            continue;
+          }
           if (u.hostname !== WORKER_HOST) {
             warn(`id=${ex.id} ${k} 외부 호스트: ${u.hostname}`);
           }
@@ -133,8 +138,14 @@ function validateBusinessRules(data) {
           err(`id=${ex.id} ${k} URL 파싱 실패: ${v}`);
         }
       } else {
-        // 상대 경로 — 외부 호스팅으로 통일했으므로 발견 시 경고
-        warn(`id=${ex.id} ${k} 상대 경로 (로컬): ${v}`);
+        if (v.startsWith('//') || isAbsolute(v)) {
+          err(`id=${ex.id} ${k} 안전하지 않은 경로: ${v}`);
+          continue;
+        }
+        const localPath = resolve(ROOT, normalize(v.split(/[?#]/, 1)[0]));
+        if (!localPath.startsWith(ROOT) || !existsSync(localPath)) {
+          err(`id=${ex.id} ${k} 상대 경로 파일 없음: ${v}`);
+        }
       }
     }
   }
