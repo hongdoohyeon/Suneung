@@ -270,7 +270,7 @@ $('clearSearch').addEventListener('click', () => {
 
 $('resetBtn').addEventListener('click', resetAll);
 $('emptyResetBtn').addEventListener('click', resetAll);
-$('loadMoreWrap').addEventListener('click', e => {
+$('paginationWrap').addEventListener('click', e => {
   const btn = e.target.closest('.pg-btn[data-pg]');
   if (!btn || btn.disabled) return;
   state.page = Number(btn.dataset.pg);
@@ -342,7 +342,7 @@ function renderCards() {
   const data     = filtered();
   const grid     = $('cardsGrid');
   const empty    = $('emptyState');
-  const moreWrap = $('loadMoreWrap');
+  const moreWrap = $('paginationWrap');
   const countEl  = $('resultCount');
 
   countEl.textContent = `${data.length.toLocaleString()}건`;
@@ -364,7 +364,7 @@ function renderCards() {
 }
 
 function renderPagination(current, total, totalItems) {
-  const wrap = $('loadMoreWrap');
+  const wrap = $('paginationWrap');
   if (total <= 1) { wrap.style.display = 'none'; return; }
   wrap.style.display = 'flex';
 
@@ -521,7 +521,7 @@ function showSkeleton(show) {
   $('skeleton').style.display      = show ? '' : 'none';
   $('cardsGrid').style.display     = show ? 'none' : '';
   $('emptyState').style.display    = 'none';
-  $('loadMoreWrap').style.display  = 'none';
+  $('paginationWrap').style.display  = 'none';
 }
 
 // ── helpers ───────────────────────────────────────────────

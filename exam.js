@@ -5,7 +5,7 @@ import { CURRICULUM_CONFIG, getTypeConf, prettySub } from './config.js';
 // 모바일에서도 안정적으로 동작하는 mozilla 공식 라이브러리.
 // 무료 (MIT) — 별도 비용 없음. 단, PDF는 cross-origin이므로
 // Cloudflare Worker 응답에 'Access-Control-Allow-Origin' 헤더가 필요함.
-const PDFJS_VER = '4.7.76';
+const PDFJS_VER = '4.10.38';
 const PDFJS_BASE = `https://cdn.jsdelivr.net/npm/pdfjs-dist@${PDFJS_VER}/build`;
 
 let pdfjsLibPromise = null;
@@ -24,6 +24,22 @@ const $ = id => document.getElementById(id);
 const escHtml = s => String(s ?? '').replace(/[&<>"']/g, c => (
   { '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[c]
 ));
+
+function safeUrl(url) {
+  const raw = String(url ?? '').trim();
+  if (!raw) return '';
+  if (/^[a-z][a-z0-9+.-]*:/i.test(raw)) {
+    try {
+      const u = new URL(raw);
+      return (u.protocol === 'http:' || u.protocol === 'https:') ? raw : '';
+    } catch {
+      return '';
+    }
+  }
+  if (raw.startsWith('//')) return '';
+  if (raw.startsWith('/') || raw.startsWith('./') || raw.startsWith('../')) return raw;
+  return /^[\w./%+\-~()[\]]+(?:\?[^\s<>"']*)?(?:#[^\s<>"']*)?$/u.test(raw) ? raw : '';
+}
 
 // ── URL 확장자 추출 (?쿼리 스트립) ─────────────────────────
 function urlExtension(url) {
@@ -80,14 +96,17 @@ function renderHead(exam) {
   // 다운로드 액션
   const dl = name => name ? `download="${escHtml(name)}"` : 'download';
   const buttons = [];
-  if (exam.questionUrl) buttons.push(
-    `<a class="btn btn--primary" href="${exam.questionUrl}" target="_blank" rel="noopener" ${dl(exam.questionDownload)}>문제지 다운로드</a>`
+  const questionUrl = safeUrl(exam.questionUrl);
+  const answerUrl = safeUrl(exam.answerUrl);
+  const solutionUrl = safeUrl(exam.solutionUrl);
+  if (questionUrl) buttons.push(
+    `<a class="btn btn--primary" href="${escHtml(questionUrl)}" target="_blank" rel="noopener" ${dl(exam.questionDownload)}>문제지 다운로드</a>`
   );
-  if (exam.answerUrl) buttons.push(
-    `<a class="btn" href="${exam.answerUrl}" target="_blank" rel="noopener" ${dl(exam.answerDownload)}>정답 다운로드</a>`
+  if (answerUrl) buttons.push(
+    `<a class="btn" href="${escHtml(answerUrl)}" target="_blank" rel="noopener" ${dl(exam.answerDownload)}>정답 다운로드</a>`
   );
-  if (exam.solutionUrl) buttons.push(
-    `<a class="btn" href="${exam.solutionUrl}" target="_blank" rel="noopener" ${dl(exam.solutionDownload)}>해설 다운로드</a>`
+  if (solutionUrl) buttons.push(
+    `<a class="btn" href="${escHtml(solutionUrl)}" target="_blank" rel="noopener" ${dl(exam.solutionDownload)}>해설 다운로드</a>`
   );
   $('examActions').innerHTML = buttons.join('');
 
@@ -118,8 +137,10 @@ async function renderPdfPage(pdf, pageNum, dpr, containerWidth) {
 async function renderPdf(url, container, metaEl) {
   if (metaEl) metaEl.textContent = '불러오는 중…';
   try {
+    const safe = safeUrl(url);
+    if (!safe) throw new Error('안전하지 않은 파일 URL입니다.');
     const pdfjsLib = await loadPdfjs();
-    const pdf = await pdfjsLib.getDocument({ url, withCredentials: false }).promise;
+    const pdf = await pdfjsLib.getDocument({ url: safe, withCredentials: false }).promise;
 
     container.innerHTML = '';
     const total = pdf.numPages;
@@ -161,12 +182,13 @@ async function renderPdf(url, container, metaEl) {
 
 // ── HWP 등 미리보기 불가 포맷 ──────────────────────────────
 function renderUnsupported(container, ext, downloadUrl, downloadName) {
+  const safeDownloadUrl = safeUrl(downloadUrl);
   container.innerHTML = `
     <div class="preview__unsupported">
       <p class="preview__unsupported-title">${escHtml(ext.toUpperCase())} 파일은 미리보기를 지원하지 않아요</p>
       <p class="preview__unsupported-sub">한글뷰어 등 외부 프로그램으로 열어 주세요.</p>
-      ${downloadUrl
-        ? `<a class="btn btn--primary" href="${downloadUrl}" target="_blank" rel="noopener" download="${escHtml(downloadName ?? '')}" style="margin-top:10px;">파일 다운로드</a>`
+      ${safeDownloadUrl
+        ? `<a class="btn btn--primary" href="${escHtml(safeDownloadUrl)}" target="_blank" rel="noopener" download="${escHtml(downloadName ?? '')}" style="margin-top:10px;">파일 다운로드</a>`
         : ''}
     </div>`;
 }
