@@ -342,14 +342,35 @@ function renderGradeDist(exam, allCuts) {
     c.subject === exam.subject &&
     (c.subSubject ?? null) === (exam.subSubject ?? null)
   );
-  if (!cut || !Array.isArray(cut.rawCuts) || cut.rawCuts.length !== 8) {
+  if (!cut) {
     if (hint) hint.textContent = '준비 중';
     body.innerHTML = `<p class="exam-card__sub">이 시험의 등급컷 데이터가 아직 없어요.</p>`;
     return false;
   }
-  if (hint) hint.textContent = `1등급 컷 ${cut.rawCuts[0]}점`;
-  body.innerHTML = gradeDistSVG(cut.rawCuts, cut.fullScore ?? 100);
-  return true;
+
+  // 표시 우선순위:
+  //   영어/한국사 (절대평가) 또는 사용자 입력 → rawCuts (원점수)
+  //   국어/수학/탐구 등 상대평가 → standardCuts (표준점수)
+  const hasRaw = Array.isArray(cut.rawCuts) && cut.rawCuts.length === 8;
+  const hasStd = Array.isArray(cut.standardCuts) && cut.standardCuts.length === 8;
+
+  if (hasRaw) {
+    if (hint) hint.textContent = `1등급 컷 ${cut.rawCuts[0]}점${cut.absolute ? ' · 절대평가' : ''}`;
+    body.innerHTML = gradeDistSVG(cut.rawCuts, cut.fullScore ?? 100);
+    return true;
+  }
+  if (hasStd) {
+    // 표준점수: fullScore 200 (국·수) 또는 100 (탐구)
+    const stdMax = cut.highestStandardScore ?? (cut.subject === '국어' || cut.subject === '수학' ? 200 : 100);
+    if (hint) hint.textContent = `1등급 컷 ${cut.standardCuts[0]} (표준점수)`;
+    body.innerHTML = gradeDistSVG(cut.standardCuts, stdMax)
+      + `<p class="exam-card__sub" style="margin-top:8px;font-size:13px;color:var(--ink-4);">※ 표준점수 기준 (원점수 등급컷은 학원별 추정치라 미제공)</p>`;
+    return true;
+  }
+
+  if (hint) hint.textContent = '준비 중';
+  body.innerHTML = `<p class="exam-card__sub">이 시험의 등급컷 데이터가 아직 없어요.</p>`;
+  return false;
 }
 
 // ── 본 진입점 ──────────────────────────────────────────────
