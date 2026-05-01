@@ -6,6 +6,7 @@
     "extract-answers": "node scripts/extract-answers.mjs",
     "normalize-answers": "node scripts/normalize-answers.mjs --write",
     "audit-missing": "node scripts/audit-missing.mjs",
+    "build-gradecuts": "node scripts/build-gradecuts.mjs",
     "validate": "node scripts/validate-exams.mjs",
     "build-data": "python3 scripts/build-data.py && npm run validate"
   },
