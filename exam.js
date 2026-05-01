@@ -297,14 +297,14 @@ function gradeDistSVG(rawCuts, fullScore) {
   }
   const curve = `<path d="${curvePts.join(' ')}" fill="none" stroke="rgba(0,0,0,0.18)" stroke-width="1.2"/>`;
 
-  // 등급 번호 라벨 (영역 가운데, 곡선 위)
+  // 등급 번호 라벨 — 각 영역 하단 (베이스라인 위, 색상 위에 흰 글씨)
   const gradeNums = [];
   for (let g = 1; g <= 9; g++) {
     const zStart = zBounds[9 - g];
     const zEnd   = zBounds[10 - g];
     const zMid   = (zStart + zEnd) / 2;
     const x = xOf(zMid).toFixed(1);
-    const y = (yOf(zMid) - 5).toFixed(1);
+    const y = (baseY - 6).toFixed(1);
     gradeNums.push(`<text x="${x}" y="${y}" class="grade-dist__num">${g}</text>`);
   }
 
@@ -312,7 +312,8 @@ function gradeDistSVG(rawCuts, fullScore) {
   const cutLabels = rawCuts.map((c, i) => {
     const x = xOf(GRADE_Z[i]).toFixed(1);
     const y = (baseY + 16).toFixed(1);
-    return `<text x="${x}" y="${y}" class="grade-dist__cut">${c}</text>`;
+    const label = (c == null) ? '-' : c;
+    return `<text x="${x}" y="${y}" class="grade-dist__cut">${label}</text>`;
   }).join('');
 
   // 베이스라인
