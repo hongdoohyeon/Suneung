@@ -33,8 +33,10 @@ const [exams, megastudy, hwpxData, recentData, etoosArchived] = await Promise.al
   readJsonOr('/tmp/recent_csat_gc.json', []),
   readJsonOr(path.resolve(ROOT, 'data/raw/etoos/rawcuts-normalized.json'), []),
 ]);
-// 매번 raw 소스에서 재빌드. 기존 출력 파일은 무시 (구 normalize 의 잘못된 gradeYear/std 데이터 유입 방지).
-const existing = [];
+// 기존 출력 파일을 seed로 사용해, 현재 환경에 없는 보조 raw 소스(/tmp 평가원 추출물 등)가
+// 재빌드 과정에서 삭제되지 않게 한다. 아래 source 적용 순서가 기존 값을 덮어쓰므로
+// megastudy/etoos 최신 raw 보강은 계속 반영된다.
+const existing = await readJsonOr(OUT_PATH, []);
 
 function makeKey(curr, yr, type, subj, sub) {
   return `${curr}|${yr}|${type}|${subj}|${sub ?? ''}`;
@@ -126,10 +128,30 @@ for (const r of megastudy) {
 
 // 5a. 이투스 wayback archive (시험 직후 캡처본의 원점수 등급컷)
 //     megastudy 가 이미 있는 record 에는 rawCuts 만 보강.
+function compatibleStandardCuts(existingCuts, incomingCuts) {
+  if (!Array.isArray(existingCuts) || !Array.isArray(incomingCuts)) return true;
+  const diffs = [];
+  for (let i = 0; i < Math.min(existingCuts.length, incomingCuts.length); i++) {
+    const a = existingCuts[i], b = incomingCuts[i];
+    if (Number.isFinite(a) && Number.isFinite(b)) diffs.push(Math.abs(a - b));
+  }
+  if (diffs.length < 6) return true;
+  const max = Math.max(...diffs);
+  const avg = diffs.reduce((sum, v) => sum + v, 0) / diffs.length;
+  // 이투스 원점수 표는 표 헤더에 과목명이 없어서 순서 매핑에 의존한다.
+  // 기존 표준점수와 크게 어긋나면 과목 오프셋 가능성이 높으므로 raw 보강을 차단한다.
+  return max <= 6 && avg <= 3;
+}
+
 let etoosApplied = 0;
+let etoosSkippedByStdMismatch = 0;
 for (const r of etoosArchived) {
   if (!Array.isArray(r.rawCuts) || !r.rawCuts.some(v => v != null)) continue;
   const rec = ensureRecord(r);
+  if (!compatibleStandardCuts(rec.standardCuts, r.standardCuts)) {
+    etoosSkippedByStdMismatch++;
+    continue;
+  }
   // 사용자 입력 rawCuts 보존
   if (Array.isArray(rec.rawCuts) && rec.rawCuts.length === 8 && rec.source !== 'megastudy') continue;
   rec.rawCuts = r.rawCuts;
@@ -220,7 +242,7 @@ console.log(`기존 rawCuts: ${existing.length}건`);
 console.log(`hwpx 적재: ${hwpxApplied}건`);
 console.log(`recent 적재: ${recentApplied}건`);
 console.log(`megastudy 적재: ${megaApplied}건`);
-console.log(`etoos archived rawCuts: ${etoosApplied}건`);
+console.log(`etoos archived rawCuts: ${etoosApplied}건 (표준점수 불일치 skip ${etoosSkippedByStdMismatch}건)`);
 console.log(`절대평가 자동 추가: ${absoluteApplied}건`);
 console.log(`최종: ${out.length}건`);
 
