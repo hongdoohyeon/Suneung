@@ -13,11 +13,11 @@ export const CURRICULUM_CONFIG = {
     subjects: {
       '국어':      { icon: '📖', bg: '#fff0e8', color: '#c44b00', subs: ['화법과작문', '언어와매체'] },
       '수학':      { icon: '📐', bg: '#eef2ff', color: '#1a4fd6', subs: ['확률과통계', '미적분', '기하'] },
-      '영어':      { icon: '🌍', bg: '#e8f9ff', color: '#0077a8', subs: [] },
-      '한국사':    { icon: '🏛️', bg: '#fdf4e8', color: '#a05c00', subs: [] },
+      '영어':      { icon: '🌍', bg: '#e6f5fb', color: '#0077a8', subs: [] },
+      '한국사':    { icon: '🏛️', bg: '#fdf3e7', color: '#8f5610', subs: [] },
       '과학탐구':  { icon: '🔬', bg: '#f0e8ff', color: '#6b2fbe',
                     subs: ['물리학Ⅰ','화학Ⅰ','생명과학Ⅰ','지구과학Ⅰ','물리학Ⅱ','화학Ⅱ','생명과학Ⅱ','지구과학Ⅱ'] },
-      '사회탐구':  { icon: '🌏', bg: '#e8ffe8', color: '#2a7a2a',
+      '사회탐구':  { icon: '🌏', bg: '#ecf5e8', color: '#2a7a2a',
                     subs: ['생활과윤리','윤리와사상','한국지리','세계지리','동아시아사','세계사','경제','정치와법','사회·문화'] },
     },
     subjectsByTypeGroup: {},
@@ -32,11 +32,11 @@ export const CURRICULUM_CONFIG = {
     subjects: {
       '국어':      { icon: '📖', bg: '#fff0e8', color: '#c44b00', subs: [] },
       '수학':      { icon: '📐', bg: '#eef2ff', color: '#1a4fd6', subs: ['가형', '나형'] },
-      '영어':      { icon: '🌍', bg: '#e8f9ff', color: '#0077a8', subs: [] },
-      '한국사':    { icon: '🏛️', bg: '#fdf4e8', color: '#a05c00', subs: [] },
+      '영어':      { icon: '🌍', bg: '#e6f5fb', color: '#0077a8', subs: [] },
+      '한국사':    { icon: '🏛️', bg: '#fdf3e7', color: '#8f5610', subs: [] },
       '과학탐구':  { icon: '🔬', bg: '#f0e8ff', color: '#6b2fbe',
                     subs: ['물리Ⅰ','화학Ⅰ','생명과학Ⅰ','지구과학Ⅰ','물리Ⅱ','화학Ⅱ','생명과학Ⅱ','지구과학Ⅱ'] },
-      '사회탐구':  { icon: '🌏', bg: '#e8ffe8', color: '#2a7a2a',
+      '사회탐구':  { icon: '🌏', bg: '#ecf5e8', color: '#2a7a2a',
                     subs: ['생활과윤리','윤리와사상','한국지리','세계지리','동아시아사','세계사','법과정치','경제','사회·문화'] },
     },
     subjectsByTypeGroup: {},
@@ -55,7 +55,7 @@ export const CURRICULUM_CONFIG = {
       '국어':      { icon: '📖', bg: '#fff0e8', color: '#c44b00', subs: [] },
       '수학':      { icon: '📐', bg: '#eef2ff', color: '#1a4fd6', subs: [] },
       '통합과학':  { icon: '🔬', bg: '#f0e8ff', color: '#6b2fbe', subs: [] },
-      '통합사회':  { icon: '🌏', bg: '#e8ffe8', color: '#2a7a2a', subs: [] },
+      '통합사회':  { icon: '🌏', bg: '#ecf5e8', color: '#2a7a2a', subs: [] },
     },
     subjectsByTypeGroup: {},
   },
@@ -106,7 +106,7 @@ export const CURRICULUM_CONFIG = {
     subjects: {
       '언어이해': { icon: '📖', bg: '#fff0e8', color: '#c44b00', subs: [] },
       '추리논증': { icon: '🧩', bg: '#eef2ff', color: '#1a4fd6', subs: [] },
-      '논술':     { icon: '✍️', bg: '#e8f9ff', color: '#0077a8', subs: [] },
+      '논술':     { icon: '✍️', bg: '#e6f5fb', color: '#0077a8', subs: [] },
       // 2008.01 예비시험에만 출제된 도입 문항 (이후 본시험에는 미사용)
       '도입':     { icon: '🪧', bg: '#f5f3ff', color: '#7c3aed', subs: [] },
     },
@@ -131,40 +131,44 @@ export const CURRICULUM_CONFIG = {
 };
 
 export const EXAM_TYPE_CONFIG = [
+  // ── 색 팔레트 원칙 ──────────────────────────────────────
+  // (1) 같은 그룹의 모든 type 배지는 같은 색. 라벨이 구분 담당.
+  // (2) 평가원 그룹 = 사이트 액센트 (#0066cc) 와 정렬 — 메인 평가의 위계.
+  // (3) 영역색과 hue 충돌 회피: 교육청 = 슬레이트 (보라X), 사관 = 다크 브론즈 (한국사와 분리).
   {
     groupKey: 'suneung',
     groupLabel: '평가원',
-    groupColor: '#1a4fd6',
-    groupBg: '#eef2ff',
+    groupColor: '#0066cc',
+    groupBg: '#e6f0fa',
     displayMode: 'gradeYear',
     types: [
-      { key: 'csat', label: '수능',     month: 11, badgeBg: '#fff0e8', badgeColor: '#c44b00' },
-      { key: 'june', label: '6월 모의', month:  6, badgeBg: '#e8f4ff', badgeColor: '#0062c4' },
-      { key: 'sept', label: '9월 모의', month:  9, badgeBg: '#e8fff3', badgeColor: '#007a3d' },
+      { key: 'csat', label: '수능',     month: 11, badgeBg: '#e6f0fa', badgeColor: '#0066cc' },
+      { key: 'june', label: '6월 모의', month:  6, badgeBg: '#e6f0fa', badgeColor: '#0066cc' },
+      { key: 'sept', label: '9월 모의', month:  9, badgeBg: '#e6f0fa', badgeColor: '#0066cc' },
     ],
   },
   {
     groupKey: 'education',
     groupLabel: '교육청',
-    groupColor: '#6b2fbe',
-    groupBg: '#f5f0ff',
+    groupColor: '#475569',
+    groupBg: '#eef1f4',
     displayMode: 'examYear',
     types: [
       // shortLabel: 좁은 사이드바 칩에서만 사용, 카드/태그 등 본문에는 label 그대로
-      { key: 'mar', label: '3월 학력평가',  shortLabel: '3월',  month:  3, badgeBg: '#f5f0ff', badgeColor: '#6b2fbe' },
-      { key: 'apr', label: '4월 학력평가',  shortLabel: '4월',  month:  4, badgeBg: '#f5f0ff', badgeColor: '#6b2fbe' },
-      { key: 'jul', label: '7월 학력평가',  shortLabel: '7월',  month:  7, badgeBg: '#f5f0ff', badgeColor: '#6b2fbe' },
-      { key: 'oct', label: '10월 학력평가', shortLabel: '10월', month: 10, badgeBg: '#f5f0ff', badgeColor: '#6b2fbe' },
+      { key: 'mar', label: '3월 학력평가',  shortLabel: '3월',  month:  3, badgeBg: '#eef1f4', badgeColor: '#475569' },
+      { key: 'apr', label: '4월 학력평가',  shortLabel: '4월',  month:  4, badgeBg: '#eef1f4', badgeColor: '#475569' },
+      { key: 'jul', label: '7월 학력평가',  shortLabel: '7월',  month:  7, badgeBg: '#eef1f4', badgeColor: '#475569' },
+      { key: 'oct', label: '10월 학력평가', shortLabel: '10월', month: 10, badgeBg: '#eef1f4', badgeColor: '#475569' },
     ],
   },
   {
     groupKey: 'military',
     groupLabel: '사관학교',
-    groupColor: '#a05c00',
-    groupBg: '#fdf4e8',
+    groupColor: '#6b4220',
+    groupBg: '#efe9df',
     displayMode: 'gradeYear',
     types: [
-      { key: 'military_annual', label: '1차 시험', month: 7, badgeBg: '#fdf4e8', badgeColor: '#a05c00' },
+      { key: 'military_annual', label: '1차 시험', month: 7, badgeBg: '#efe9df', badgeColor: '#6b4220' },
     ],
   },
   {
