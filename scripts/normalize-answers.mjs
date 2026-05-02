@@ -37,8 +37,9 @@ const PRELIM_LENGTH = {  // 2028 예비시험
 };
 
 function expectedLength(exam) {
+  // 평가원 예비(prelim) 는 typeGroup='suneung' 이지만 문항수가 다름 → type 우선 분기
+  if (exam.type === 'prelim') return PRELIM_LENGTH[exam.subject] ?? null;
   if (SUNEUNG_LIKE.has(exam.typeGroup)) return SUNEUNG_LENGTH[exam.subject] ?? null;
-  if (exam.typeGroup === 'preliminary') return PRELIM_LENGTH[exam.subject] ?? null;
   // LEET/MEET/사관/경찰대: 시기별 문항 수 변화가 커서 미정의
   return null;
 }

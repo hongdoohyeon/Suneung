@@ -218,7 +218,10 @@ a { color: inherit; text-decoration: none; }
 
 .nav-tab {
   flex-shrink: 0;
-  padding: 7px 13px;
+  /* 카테고리 박스 폭 통일 — 모든 탭이 같은 폭으로 정렬되어 일관된 인상.
+     데스크톱에서만 적용; 모바일은 콤팩트 모드에서 자연 폭. */
+  min-width: 132px;
+  padding: 7px 14px;
   border: none;
   background: none;
   border-radius: 8px;
@@ -257,20 +260,15 @@ a { color: inherit; text-decoration: none; }
 }
 
 /* ═══ Filter Sidebar ══════════════════════════════════════ */
+/* 사이드바는 sticky 만 — 자체 스크롤 영역 X. 휠은 항상 페이지 전체 스크롤로 자연스럽게 흘러감.
+   페이지 본문이 사이드바보다 길기 때문에 사이드바가 잘릴 일은 거의 없음. */
 .filter {
   position: sticky;
   top: calc(var(--header-h) + var(--nav-h) + 28px);
   display: flex;
   flex-direction: column;
   gap: 28px;
-  max-height: calc(100vh - var(--header-h) - var(--nav-h) - 56px);
-  overflow-y: auto;
-  padding-right: 4px;
-  scrollbar-width: thin;
-  scrollbar-color: var(--ink-6) transparent;
 }
-.filter::-webkit-scrollbar { width: 4px; }
-.filter::-webkit-scrollbar-thumb { background: var(--ink-6); border-radius: 99px; }
 
 .filter__section { display: flex; flex-direction: column; gap: 10px; }
 
@@ -1515,7 +1513,6 @@ a { color: inherit; text-decoration: none; }
 /* gradecut 페이지는 curriculum-nav 가 없으니 .filter sticky 위치 보정 */
 .page-gradecut .filter {
   top: calc(var(--header-h) + 28px);
-  max-height: calc(100vh - var(--header-h) - 56px);
 }
 
 /* ═══════════════════════════════════════════════════════════
@@ -1766,7 +1763,7 @@ body.is-sheet-open { overflow: hidden; touch-action: none; }
   .nav-group         { flex-direction: row; align-items: center; gap: 2px; }
   .nav-group__label  { display: none; }
   .nav-group__tabs   { gap: 2px; }
-  .nav-tab           { flex-direction: row; padding: 7px 9px; gap: 0; border-radius: 8px; }
+  .nav-tab           { flex-direction: row; padding: 7px 9px; gap: 0; border-radius: 8px; min-width: 0; }
   .nav-tab__sub      { display: none; }
   .nav-tab__title    { font-size: 12px; line-height: 1.2; letter-spacing: -0.2px; }
   .nav-sep           { margin: 0; height: 14px; align-self: center; }
