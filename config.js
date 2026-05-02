@@ -3,6 +3,39 @@
 // 모든 시험: gradeYear = examYear + 1 (수능/LEET/MEET 동일 공식)
 // 표시만 다름 — gradeYear 기준 "학년도", examYear 기준 "년 X월" (교육청)
 
+// ╔══════════════════════════════════════════════════════════
+// ║  TAB_CONFIG — archive 페이지 카테고리 탭 (8개)
+// ║  탭 = "사용자가 인지하는 카테고리" (예: 고3, 사관·경찰)
+// ║  curriculum = 데이터 단위 (2015 개정, 2009 개정, 사관, 경찰대 등)
+// ║  한 탭이 여러 curriculum을 묶을 수 있음.
+// ╚══════════════════════════════════════════════════════════
+export const TAB_CONFIG = [
+  // ── 데이터 있는 탭 ──────────────────────────────────────
+  { key: 'senior',     label: '고3',       sub: '수능·평가원·학평', curriculums: ['2015', '2009', '예비'] },
+  { key: 'mp',         label: '사관·경찰', sub: '1차 시험',         curriculums: ['사관', '경찰대'] },
+  { key: 'gradschool', label: 'LEET·MEET', sub: '전문대학원',       curriculums: ['LEET', 'MEET'] },
+  // ── 빈 탭 (데이터 채워지면 placeholder 해제) ───────────
+  { key: 'junior',     label: '고2',       sub: '학력평가', curriculums: [], placeholder: true },
+  { key: 'freshman',   label: '고1',       sub: '학력평가', curriculums: [], placeholder: true },
+  { key: 'ged',        label: '검정고시',  sub: '준비 중',  curriculums: [], placeholder: true },
+  { key: 'essay',      label: '논술',      sub: '준비 중',  curriculums: [], placeholder: true },
+  { key: 'admissions', label: '입시자료',  sub: '준비 중',  curriculums: [], placeholder: true },
+];
+
+export function getTabConf(tabKey) {
+  return TAB_CONFIG.find(t => t.key === tabKey) ?? null;
+}
+
+// 옛 URL 파라미터 (?tab=2015 등) 호환 — curriculum 키가 들어오면 새 탭으로 매핑
+const LEGACY_CURRICULUM_TO_TAB = {
+  '2015': 'senior', '2009': 'senior', '예비': 'senior',
+  '사관': 'mp', '경찰대': 'mp',
+  'LEET': 'gradschool', 'MEET': 'gradschool',
+};
+export function legacyTabKey(maybeOld) {
+  return LEGACY_CURRICULUM_TO_TAB[maybeOld] ?? maybeOld;
+}
+
 export const CURRICULUM_CONFIG = {
   '2015': {
     id: '2015',

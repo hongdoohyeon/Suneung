@@ -1,11 +1,32 @@
 'use strict';
-import { CURRICULUM_CONFIG, EXAM_TYPE_CONFIG, getTypeConf, getGroupConf, prettySub } from './config.js';
+import {
+  CURRICULUM_CONFIG, EXAM_TYPE_CONFIG, TAB_CONFIG,
+  getTypeConf, getGroupConf, getTabConf, legacyTabKey, prettySub,
+} from './config.js';
 import {
   state, PAGE_SIZE,
-  resetFilters, currConf,
+  resetFilters,
   getDisplayYear, availableGradeYears,
   filtered, subjectCounts, buildMockData,
+  tabCurriculums, tabCurriculumConfs, tabSubjects, curriculumOfGradeYear,
 } from './state.js';
+
+const tabConf = () => getTabConf(state.tab);
+
+// 탭이 포함하는 모든 typeGroup 합집합 (UI 칩 렌더용)
+const tabAvailableTypeGroups = () => {
+  const set = new Set();
+  for (const c of tabCurriculumConfs()) {
+    for (const tg of c.availableTypeGroups) set.add(tg);
+  }
+  return [...set];
+};
+// 탭이 단일 typeGroup + 모든 curriculum 이 singleType 일 때 → typeGroup 칩 숨김
+const tabIsSingleType = () => {
+  const tgs = tabAvailableTypeGroups();
+  if (tgs.length !== 1) return false;
+  return tabCurriculumConfs().every(c => c.singleType);
+};
 
 // 정적 JSON 데이터 파일 — 백엔드 없이 data/exams.json 만 갱신하면 사이트가 갱신됨
 const DATA_URL = 'data/exams.json';
@@ -15,26 +36,25 @@ const $ = id => document.getElementById(id);
 // ── URL 파라미터 처리 ──────────────────────────────────────
 function applyUrlTab() {
   const params = new URLSearchParams(location.search);
-  const tab = params.get('tab');
-  if (tab && CURRICULUM_CONFIG[tab]) {
-    state.curriculum = tab;
-    document.querySelectorAll('.nav-tab').forEach(b => {
-      b.classList.toggle('is-active', b.dataset.curriculum === tab);
-    });
-    const conf = currConf();
-    if (conf.singleType) {
-      const tg = conf.availableTypeGroups[0];
-      state.typeGroup = tg;
-      // type은 'all' 유지 — LEET처럼 한 typeGroup 안에 본/예비 등 복수 type이
-      // 있는 경우에도 모두 노출되도록 (단일 type 그룹은 'all'과 동일 효과)
-      state.type      = 'all';
-    }
+  const raw = params.get('tab');
+  if (!raw) return;
+  // 옛 URL (?tab=2015 / ?tab=사관 등) 들어오면 새 탭 키로 매핑
+  const tab = legacyTabKey(raw);
+  if (!getTabConf(tab)) return;
+
+  state.tab = tab;
+  document.querySelectorAll('.nav-tab').forEach(b => {
+    b.classList.toggle('is-active', b.dataset.tab === tab);
+  });
+  if (tabIsSingleType()) {
+    state.typeGroup = tabAvailableTypeGroups()[0];
+    state.type      = 'all';
   }
 }
 
 function syncUrlTab() {
   const url = new URL(location.href);
-  url.searchParams.set('tab', state.curriculum);
+  url.searchParams.set('tab', state.tab);
   history.replaceState({}, '', url);
 }
 
@@ -76,13 +96,11 @@ $('curriculumTabs').addEventListener('click', e => {
   if (!btn) return;
   document.querySelectorAll('.nav-tab').forEach(b => b.classList.remove('is-active'));
   btn.classList.add('is-active');
-  state.curriculum = btn.dataset.curriculum;
+  state.tab = btn.dataset.tab;
   resetFilters();
 
-  const conf = currConf();
-  if (conf.singleType) {
-    const tg = conf.availableTypeGroups[0];
-    state.typeGroup = tg;
+  if (tabIsSingleType()) {
+    state.typeGroup = tabAvailableTypeGroups()[0];
     state.type      = 'all';
   }
 
@@ -102,8 +120,7 @@ addEventListener('DOMContentLoaded', () => {
 
 // ── 필터 패널 전체 재구성 ──────────────────────────────────
 function renderFilterPanel() {
-  const conf = currConf();
-  $('typeGroupBlock').style.display = conf.singleType ? 'none' : '';
+  $('typeGroupBlock').style.display = tabIsSingleType() ? 'none' : '';
 
   renderTypeGroupChips();
   renderSubtypeChips();
@@ -113,11 +130,11 @@ function renderFilterPanel() {
 
 // ── 시험 주최 (그룹 pill) ──────────────────────────────────
 function renderTypeGroupChips() {
-  const conf      = currConf();
   const container = $('typeGroupFilter');
-  if (conf.singleType) { container.innerHTML = ''; return; }
+  if (tabIsSingleType()) { container.innerHTML = ''; return; }
 
-  const groups = EXAM_TYPE_CONFIG.filter(g => conf.availableTypeGroups.includes(g.groupKey));
+  const allowed = tabAvailableTypeGroups();
+  const groups = EXAM_TYPE_CONFIG.filter(g => allowed.includes(g.groupKey));
   const html = [
     pill('all', '전체', state.typeGroup === 'all', 'is-group'),
     ...groups.map(g =>
@@ -146,7 +163,7 @@ $('typeGroupFilter').addEventListener('click', e => {
 function renderSubtypeChips() {
   const row       = $('subtypeRow');
   const container = $('typeFilter');
-  if (state.typeGroup === 'all' || currConf().singleType) {
+  if (state.typeGroup === 'all' || tabIsSingleType()) {
     row.classList.remove('is-open');
     container.innerHTML = '';
     return;
@@ -170,6 +187,18 @@ $('typeFilter').addEventListener('click', e => {
 });
 
 // ── 학년도 ─────────────────────────────────────────────────
+// 학년도 라벨: 일반은 "2027학년도" / 교육청은 "2026년" / 28예비처럼 예비 curriculum 은 "28예비".
+// LEET 의 'preliminary' sentinel (mock 데이터) 은 "예비".
+function yearChipLabel(y, isEdu) {
+  if (y === 'preliminary') return '예비';
+  const conf = curriculumOfGradeYear(y);
+  if (conf?.id === '예비' && typeof y === 'number') {
+    return `${String(y).slice(-2)}예비`;
+  }
+  const disp = isEdu ? y - 1 : y;
+  return `${disp}${isEdu ? '년' : '학년도'}`;
+}
+
 function renderYearChips() {
   const container = $('yearFilter');
   const label     = $('yearLabel');
@@ -179,18 +208,27 @@ function renderYearChips() {
   label.textContent = isEdu ? '시행연도' : '학년도';
   note.textContent  = isEdu ? '교육청 기준' : '';
 
-  const years  = availableGradeYears();
-  const suffix = isEdu ? '년' : '학년도';
+  const years = availableGradeYears();
 
-  const all  = pill('all', '전체', state.gradeYear === 'all', '', 'data-year="all"');
-  const rest = years.map(y => {
-    if (y === 'preliminary') {
-      return pill('preliminary', '예비', state.gradeYear === 'preliminary', '', 'data-year="preliminary"');
+  // 탭이 여러 curriculum 합치는 경우 학년도 영역에 "── 2015 개정 ──" 식 헤더 삽입 (B안).
+  // 단일 curriculum 탭은 헤더 없이 평탄.
+  const showHeaders = tabCurriculums().length > 1;
+
+  const out = [pill('all', '전체', state.gradeYear === 'all', '', 'data-year="all"')];
+  let lastCurrId = null;
+  for (const y of years) {
+    if (showHeaders) {
+      const conf = curriculumOfGradeYear(y);
+      const currId = conf?.id ?? null;
+      if (currId && currId !== lastCurrId) {
+        out.push(`<div class="year-row__header" role="presentation">${escHtml(conf.label)}</div>`);
+        lastCurrId = currId;
+      }
     }
-    const disp = isEdu ? y - 1 : y;
-    return pill(String(y), `${disp}${suffix}`, state.gradeYear === String(y), '', `data-year="${y}"`);
-  });
-  container.innerHTML = [all, ...rest].join('');
+    const value = y === 'preliminary' ? 'preliminary' : String(y);
+    out.push(pill(value, yearChipLabel(y, isEdu), state.gradeYear === value, '', `data-year="${value}"`));
+  }
+  container.innerHTML = out.join('');
 }
 
 $('yearFilter').addEventListener('click', e => {
@@ -205,7 +243,7 @@ $('yearFilter').addEventListener('click', e => {
 // ── 영역 (subject list) ────────────────────────────────────
 function renderSubjectFilter() {
   const container = $('subjectFilter');
-  const subjects  = currConf().subjects;
+  const subjects  = tabSubjects();   // 탭의 모든 curriculum 영역 union
   const counts    = subjectCounts();
 
   const inner = Object.entries(subjects).map(([key, conf]) => {
@@ -238,7 +276,7 @@ $('subjectFilter').addEventListener('click', e => {
   }
   if (subjBtn) {
     const key     = subjBtn.dataset.subject;
-    const hasSubs = (currConf().subjects[key]?.subs.length ?? 0) > 0;
+    const hasSubs = (tabSubjects()[key]?.subs.length ?? 0) > 0;
     if (state.subject === key) {
       state.subject = state.subSubject = 'all';
     } else {
@@ -344,13 +382,15 @@ function renderCards() {
   const empty    = $('emptyState');
   const moreWrap = $('paginationWrap');
   const countEl  = $('resultCount');
+  const isPlaceholder = Boolean(tabConf()?.placeholder);
 
-  countEl.textContent = `${data.length.toLocaleString()}건`;
+  countEl.textContent = isPlaceholder ? '' : `${data.length.toLocaleString()}건`;
 
-  if (data.length === 0) {
+  if (isPlaceholder || data.length === 0) {
     grid.style.display     = 'none';
     moreWrap.style.display = 'none';
     empty.style.display    = 'flex';
+    updateEmptyState(isPlaceholder);
     return;
   }
   empty.style.display = 'none';
@@ -389,7 +429,7 @@ function renderPagination(current, total, totalItems) {
 }
 
 function cardHTML(exam, idx = 0) {
-  const conf    = currConf().subjects[exam.subject] ?? { color: '#9ca3af' };
+  const conf    = tabSubjects()[exam.subject] ?? { color: '#9ca3af' };
   const tc      = getTypeConf(exam.type);
   const dy      = getDisplayYear(exam);
   const hasFile = Boolean(exam.questionUrl || exam.answerUrl);
@@ -439,7 +479,7 @@ function renderActiveTags() {
   const container = $('activeTags');
   const tags = [];
   const isEdu = state.typeGroup === 'education';
-  const isSingle = currConf().singleType;
+  const isSingle = tabIsSingleType();
 
   // singleType 탭에서는 타입그룹/타입이 자동 선택이므로 태그 노출 생략
   if (state.typeGroup !== 'all' && !isSingle) {
@@ -451,13 +491,8 @@ function renderActiveTags() {
     tags.push({ label: tc?.label ?? state.type, key: 'type' });
   }
   if (state.gradeYear !== 'all') {
-    if (state.gradeYear === 'preliminary') {
-      tags.push({ label: '예비', key: 'gradeYear' });
-    } else {
-      const disp   = isEdu ? Number(state.gradeYear) - 1 : state.gradeYear;
-      const suffix = isEdu ? '년' : '학년도';
-      tags.push({ label: `${disp}${suffix}`, key: 'gradeYear' });
-    }
+    const yVal = state.gradeYear === 'preliminary' ? 'preliminary' : Number(state.gradeYear);
+    tags.push({ label: yearChipLabel(yVal, isEdu), key: 'gradeYear' });
   }
   if (state.subject    !== 'all') tags.push({ label: state.subject,    key: 'subject' });
   if (state.subSubject !== 'all') tags.push({ label: prettySub(state.subSubject), key: 'subSubject' });
@@ -502,14 +537,12 @@ $('activeTags').addEventListener('click', e => {
 
 // ── 초기화 ─────────────────────────────────────────────────
 function resetAll() {
-  const conf = currConf();
   resetFilters();
   $('searchInput').value = '';
   $('clearSearch').style.display = 'none';
 
-  if (conf.singleType) {
-    const tg = conf.availableTypeGroups[0];
-    state.typeGroup = tg;
+  if (tabIsSingleType()) {
+    state.typeGroup = tabAvailableTypeGroups()[0];
     state.type      = 'all';
   }
   renderFilterPanel();
@@ -522,6 +555,27 @@ function showSkeleton(show) {
   $('cardsGrid').style.display     = show ? 'none' : '';
   $('emptyState').style.display    = 'none';
   $('paginationWrap').style.display  = 'none';
+}
+
+// ── 빈 상태 라벨 — placeholder 탭 (고2/고1/검정고시/논술/입시자료) 와
+//                  실제 "결과 없음" 을 분리 ────────────────────────
+function updateEmptyState(isPlaceholder) {
+  const empty = $('emptyState');
+  const title = empty.querySelector('.empty__title');
+  const sub   = empty.querySelector('.empty__sub');
+  const btn   = $('emptyResetBtn');
+  if (isPlaceholder) {
+    const t = tabConf();
+    if (title) title.textContent = `${t?.label ?? ''} 자료는 준비 중이에요`;
+    if (sub)   sub.textContent   = '데이터가 채워지는 대로 이 페이지에서 바로 보실 수 있어요.';
+    if (btn)   btn.style.display = 'none';
+    empty.classList.add('is-placeholder');
+  } else {
+    if (title) title.textContent = '검색 결과가 없습니다';
+    if (sub)   sub.textContent   = '필터 조건을 줄이거나 검색어를 변경해 보세요.';
+    if (btn)   btn.style.display = '';
+    empty.classList.remove('is-placeholder');
+  }
 }
 
 // ── helpers ───────────────────────────────────────────────

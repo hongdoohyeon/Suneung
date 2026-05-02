@@ -238,6 +238,13 @@ a { color: inherit; text-decoration: none; }
 .nav-tab__title { font-size: 13px; font-weight: 600; letter-spacing: -0.1px; }
 .nav-tab__sub   { font-size: 10.5px; font-weight: 500; opacity: 0.62; letter-spacing: 0.2px; }
 
+/* placeholder 탭 — 데이터가 아직 없는 카테고리 (고2/고1/검정고시/논술/입시자료).
+   클릭은 가능, 시각적으로 흐리게 처리해 "곧 오는 영역" 임을 신호. */
+.nav-tab.is-placeholder { color: var(--ink-5); }
+.nav-tab.is-placeholder .nav-tab__sub { opacity: 0.55; }
+.nav-tab.is-placeholder:hover { color: var(--ink-3); background: var(--surface-2); }
+.nav-tab.is-placeholder.is-active { background: var(--ink-3); color: #fff; }
+
 /* ═══ Main Layout ═════════════════════════════════════════ */
 .main {
   flex: 1;
@@ -371,6 +378,20 @@ a { color: inherit; text-decoration: none; }
   font-variant-numeric: tabular-nums;
   border-radius: 8px;
 }
+
+/* 학년도 칩 그룹 헤더 — "고3" 처럼 여러 curriculum 합치는 탭에서
+   "── 2015 개정 ──" / "── 2009 개정 ──" 식 구분 (B안). 첫 헤더는 위 마진 0. */
+.year-row__header {
+  grid-column: 1 / -1;
+  font-size: 10.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.7px;
+  color: var(--ink-4);
+  padding: 6px 2px 2px;
+  margin-top: 6px;
+}
+.year-row__header:first-child { margin-top: 0; padding-top: 0; }
 
 /* ── Subject ──────────────────────────────────────── */
 .subject-list { display: flex; flex-direction: column; gap: 2px; }
@@ -852,6 +873,8 @@ a { color: inherit; text-decoration: none; }
 .empty__mark  { color: var(--ink-5); margin-bottom: 4px; }
 .empty__title { font-size: 16px; font-weight: 700; color: var(--ink); }
 .empty__sub   { font-size: 13px; color: var(--ink-4); max-width: 320px; line-height: 1.6; }
+/* placeholder 탭: 일러스트만 살짝 더 흐리게 — "결과 없음" 과 톤 분리 */
+.empty.is-placeholder .empty__illu { opacity: 0.6; }
 .empty .btn   {
   margin-top: 14px;
   flex: unset;

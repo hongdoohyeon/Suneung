@@ -1,5 +1,8 @@
 'use strict';
-import { CURRICULUM_CONFIG, EXAM_TYPE_CONFIG, getTypeConf, prettySub, searchAliasOf } from './config.js';
+import {
+  CURRICULUM_CONFIG, EXAM_TYPE_CONFIG, TAB_CONFIG,
+  getTypeConf, getTabConf, prettySub, searchAliasOf,
+} from './config.js';
 
 // 공백 무시 + 소문자
 const normQ = s => String(s ?? '').toLowerCase().replace(/\s+/g, '');
@@ -22,7 +25,7 @@ export const state = {
   exams:    [],
   loading:  true,
 
-  curriculum: '2015',
+  tab:      'senior',  // 카테고리 탭 키 — TAB_CONFIG 의 key
 
   typeGroup:  'all',
   type:       'all',
@@ -48,8 +51,50 @@ export function resetFilters() {
   state.page       = 1;
 }
 
-export function currConf() {
-  return CURRICULUM_CONFIG[state.curriculum];
+// 현재 탭이 포함하는 curriculum 키 배열 (예: 'senior' → ['2015','2009','예비'])
+export function tabCurriculums() {
+  return getTabConf(state.tab)?.curriculums ?? [];
+}
+
+// 탭 안의 모든 curriculum 정의 합집합 (영역 union 등 화면 구성용)
+export function tabCurriculumConfs() {
+  return tabCurriculums()
+    .map(k => CURRICULUM_CONFIG[k])
+    .filter(Boolean);
+}
+
+// 탭이 포함하는 모든 curriculum 의 영역 union (정렬: 첫 curriculum 기준 + 추가분 뒤에)
+export function tabSubjects() {
+  const merged = {};
+  for (const conf of tabCurriculumConfs()) {
+    for (const [key, val] of Object.entries(conf.subjects)) {
+      if (!merged[key]) {
+        merged[key] = { ...val, subs: [...val.subs] };
+      } else {
+        // subs union (중복 없이 순서 유지)
+        for (const s of val.subs) {
+          if (!merged[key].subs.includes(s)) merged[key].subs.push(s);
+        }
+      }
+    }
+  }
+  return merged;
+}
+
+// 학년도 → curriculum 역매핑 (학년도 칩 그룹 헤더에 사용)
+// 'preliminary' (28예비) → '예비' / 2022~ → '2015' / 2014~2021 → '2009' / 사관·경찰·LEET·MEET 은 자체
+export function curriculumOfGradeYear(gradeYear) {
+  for (const conf of tabCurriculumConfs()) {
+    const [min, max] = conf.gradeYearRange;
+    if (gradeYear === 'preliminary' && conf.id === '예비') return conf;
+    if (typeof gradeYear === 'number' && gradeYear >= min && gradeYear <= max) return conf;
+  }
+  return null;
+}
+
+// 학년도 정렬 키: preliminary(28예비) = 2028 로 간주 → 가장 미래(앞) 위치
+function gradeYearSortKey(gy) {
+  return gy === 'preliminary' ? 2028 : Number(gy);
 }
 
 export function getDisplayYear(item) {
@@ -65,27 +110,24 @@ export function getDisplayYear(item) {
 }
 
 export function availableGradeYears() {
-  const curr = state.curriculum;
-  const tg   = state.typeGroup;
+  const allowed = tabCurriculums();
+  const tg = state.typeGroup;
   return [...new Set(
     state.exams
       .filter(e => {
-        if (e.curriculum !== curr) return false;
+        if (!allowed.includes(e.curriculum)) return false;
         if (tg !== 'all' && e.typeGroup !== tg) return false;
         return true;
       })
       .map(e => e.gradeYear)
-  )].sort((a, b) => {
-    // 'preliminary'는 가장 옛날 시험으로 간주 → 학년도 칩 끝(오른쪽)에 배치
-    if (a === 'preliminary') return 1;
-    if (b === 'preliminary') return -1;
-    return Number(b) - Number(a);
-  });
+  )].sort((a, b) => gradeYearSortKey(b) - gradeYearSortKey(a));
 }
 
 export function filtered() {
+  const allowed = tabCurriculums();
+
   const items = state.exams.filter(e => {
-    if (e.curriculum !== state.curriculum)                                    return false;
+    if (!allowed.includes(e.curriculum))                                       return false;
     if (state.typeGroup  !== 'all' && e.typeGroup  !== state.typeGroup)       return false;
     if (state.type       !== 'all' && e.type       !== state.type)            return false;
     if (state.gradeYear  !== 'all' && String(e.gradeYear) !== state.gradeYear) return false;
@@ -95,34 +137,32 @@ export function filtered() {
     return true;
   });
 
-  // ── 정렬: config.js 의 subjects/subs 순서가 곧 진실 ──
-  // 학년도↓ → month↓ → 영역(config 정의 순) → 소과목(config 정의 순)
-  const conf = currConf();
-  const subjectKeys = Object.keys(conf.subjects);
+  // ── 정렬: 학년도(미래→과거, preliminary=2028) → month↓ → 영역(첫 curriculum 정의 순) → 소과목 ──
+  const subjectKeys = Object.keys(tabSubjects());
   const idxOrLast = (arr, v) => {
     const i = arr.indexOf(v);
     return i === -1 ? 999 : i;
   };
 
   return items.sort((a, b) => {
-    // 학년도: 숫자 desc, 'preliminary'는 최하단(가장 옛날)
     if (a.gradeYear !== b.gradeYear) {
-      if (a.gradeYear === 'preliminary') return 1;
-      if (b.gradeYear === 'preliminary') return -1;
-      return Number(b.gradeYear) - Number(a.gradeYear);
+      return gradeYearSortKey(b.gradeYear) - gradeYearSortKey(a.gradeYear);
     }
     if (a.month !== b.month) return b.month - a.month;
     const sa = idxOrLast(subjectKeys, a.subject);
     const sb = idxOrLast(subjectKeys, b.subject);
     if (sa !== sb) return sa - sb;
-    const subs = conf.subjects[a.subject]?.subs ?? [];
+    // subs 순서: a.subject 가 정의된 첫 curriculum 의 subs 사용
+    const subjConf = tabSubjects()[a.subject];
+    const subs = subjConf?.subs ?? [];
     return idxOrLast(subs, a.subSubject) - idxOrLast(subs, b.subSubject);
   });
 }
 
 export function subjectCounts() {
+  const allowed = tabCurriculums();
   const base = state.exams.filter(e => {
-    if (e.curriculum !== state.curriculum) return false;
+    if (!allowed.includes(e.curriculum)) return false;
     if (state.typeGroup !== 'all' && e.typeGroup !== state.typeGroup) return false;
     if (state.type      !== 'all' && e.type      !== state.type)      return false;
     if (state.gradeYear !== 'all' && String(e.gradeYear) !== state.gradeYear) return false;
