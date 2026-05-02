@@ -25,10 +25,10 @@
   --ink-5:  #b8b4ad;
   --ink-6:  #e0ddd6;
 
-  /* accents */
-  --pop:        #2563eb;
-  --pop-soft:   #eff6ff;
-  --pop-darker: #1d4ed8;
+  /* accents — Apple Action Blue */
+  --pop:        #0066cc;
+  --pop-soft:   #e6f0fa;
+  --pop-darker: #0058b3;
 
   /* mobile sheet tokens */
   --sheet-radius:   20px;
@@ -38,7 +38,7 @@
   --tap:            44px;       /* 모바일 최소 터치 영역 */
 
   /* CTA card tokens (다크모드 대비 — :root 한 곳에서 관리) */
-  --cta-radius:        20px;
+  --cta-radius:        18px;
   --cta-eyebrow:       var(--ink-4);
   --cta-dark-bg:       var(--ink);
   --cta-dark-bg-hover: #1a1815;
@@ -50,15 +50,18 @@
   --cta-light-fg:      var(--ink);
   --cta-light-sub:     var(--ink-3);
   --cta-light-line:    var(--line);
-  --cta-shadow:        0 1px 2px rgba(12,10,9,.04);
-  --cta-shadow-hover:  0 18px 40px rgba(12,10,9,0.12), 0 4px 14px rgba(12,10,9,0.06);
-  --cta-shadow-dark-hover: 0 18px 40px rgba(12,10,9,0.30), 0 4px 14px rgba(12,10,9,0.18);
+  /* CTA hover: shadow 제거 — Apple 식 "border + 작은 lift" 만 */
+  --cta-shadow:            none;
+  --cta-shadow-hover:       none;
+  --cta-shadow-dark-hover:  none;
 
-  /* shadows */
+  /* shadows — UI 에는 거의 안 쓰고, 사진/문서(PDF page)에만 사용 */
   --sh-xs: 0 1px 2px rgba(12,10,9,.04);
-  --sh-sm: 0 1px 3px rgba(12,10,9,.05), 0 1px 2px rgba(12,10,9,.03);
-  --sh-md: 0 4px 12px rgba(12,10,9,.06), 0 2px 4px rgba(12,10,9,.04);
-  --sh-lg: 0 16px 48px rgba(12,10,9,.10), 0 4px 16px rgba(12,10,9,.06);
+  --sh-sm: 0 1px 2px rgba(12,10,9,.04);
+  --sh-md: 0 2px 8px rgba(12,10,9,.05);
+  --sh-lg: 0 8px 24px rgba(12,10,9,.06);
+  /* Apple 식 product shadow — PDF 페이지 등 "물체가 표면 위에 놓인" 인상 */
+  --sh-paper: 0 5px 30px rgba(0,0,0,0.18);
 
   /* layout */
   --max-w:      1280px;
@@ -218,7 +221,7 @@ a { color: inherit; text-decoration: none; }
   padding: 7px 13px;
   border: none;
   background: none;
-  border-radius: 9px;
+  border-radius: 8px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -335,8 +338,6 @@ a { color: inherit; text-decoration: none; }
   background: var(--ink);
   color: #fff;
   border-color: var(--ink);
-  box-shadow: 0 1px 0 rgba(255,255,255,0.04) inset,
-              0 4px 14px rgba(12,10,9,0.18);
 }
 .pill.is-active:hover { background: var(--ink-2); border-color: var(--ink-2); }
 
@@ -382,7 +383,7 @@ a { color: inherit; text-decoration: none; }
   align-items: center;
   gap: 10px;
   padding: 0 10px;
-  border-radius: 7px;
+  border-radius: 8px;
   border: none;
   background: none;
   text-align: left;
@@ -450,7 +451,7 @@ a { color: inherit; text-decoration: none; }
   padding: 6px 10px;
   border: none;
   background: none;
-  border-radius: 5px;
+  border-radius: 6px;
   text-align: left;
   color: var(--ink-3);
   font-size: 12px;
@@ -503,8 +504,8 @@ a { color: inherit; text-decoration: none; }
 }
 #searchInput::placeholder { color: var(--ink-4); }
 #searchInput:focus {
-  border-color: var(--ink);
-  box-shadow: 0 0 0 3px rgba(12,10,9,0.06);
+  border-color: var(--pop);
+  box-shadow: 0 0 0 3px var(--pop-soft);
 }
 
 .search__clear {
@@ -626,9 +627,8 @@ a { color: inherit; text-decoration: none; }
   will-change: transform;
 }
 .card:hover {
-  border-color: var(--ink-6);
-  box-shadow: var(--sh-lg);
-  transform: translateY(-2px);
+  border-color: var(--ink-5);
+  transform: translateY(-1px);
   background: var(--surface);
 }
 .card:focus-within { box-shadow: 0 0 0 3px var(--pop-soft); border-color: var(--pop); }
@@ -645,7 +645,7 @@ a { color: inherit; text-decoration: none; }
   font-size: 10.5px;
   font-weight: 700;
   padding: 2px 7px;
-  border-radius: 4px;
+  border-radius: 6px;
   letter-spacing: 0.1px;
   font-variant-numeric: tabular-nums;
 }
@@ -696,7 +696,7 @@ a { color: inherit; text-decoration: none; }
   height: 32px;
   padding: 0 12px;
   border: 1px solid var(--line);
-  border-radius: 7px;
+  border-radius: 8px;
   background: var(--surface);
   color: var(--ink-2);
   font-size: 12px;
@@ -787,7 +787,7 @@ a { color: inherit; text-decoration: none; }
   height: 34px;
   padding: 0 6px;
   border: 1px solid var(--line);
-  border-radius: 7px;
+  border-radius: 8px;
   background: var(--surface);
   color: var(--ink-2);
   font-size: 13px;
@@ -842,7 +842,7 @@ a { color: inherit; text-decoration: none; }
 }
 .empty__illu {
   margin-bottom: 12px;
-  filter: drop-shadow(0 6px 14px rgba(12,10,9,0.06));
+  filter: drop-shadow(0 4px 10px rgba(12,10,9,0.04));
   animation: empty-float 4s ease-in-out infinite;
 }
 @keyframes empty-float {
@@ -1052,14 +1052,12 @@ a { color: inherit; text-decoration: none; }
   background: var(--cta-dark-bg);
   color: var(--cta-dark-fg);
   border: 1px solid var(--cta-dark-bg);
-  box-shadow: 0 4px 14px rgba(12,10,9,0.18);
 }
 .cta-card--dark .cta-card__icon-wrap { background: rgba(255,255,255,0.08); }
 .cta-card--dark .cta-card__sub       { color: var(--cta-dark-sub); opacity: 1; }
 .cta-card--dark:hover {
   background: var(--cta-dark-bg-hover);
-  transform: translateY(-3px);
-  box-shadow: var(--cta-shadow-dark-hover);
+  transform: translateY(-2px);
 }
 .cta-card--dark:hover .cta-card__icon-wrap { background: rgba(255,255,255,0.14); }
 
@@ -1067,13 +1065,11 @@ a { color: inherit; text-decoration: none; }
   background: var(--cta-light-bg);
   color: var(--cta-light-fg);
   border: 1px solid var(--cta-light-line);
-  box-shadow: var(--cta-shadow);
 }
 .cta-card--light .cta-card__sub { color: var(--cta-light-sub); opacity: 1; }
 .cta-card--light:hover {
   border-color: var(--ink);
-  transform: translateY(-3px);
-  box-shadow: var(--cta-shadow-hover);
+  transform: translateY(-2px);
 }
 .cta-card--light:hover .cta-card__icon-wrap { background: rgba(12,10,9,0.06); }
 
@@ -1104,7 +1100,7 @@ a { color: inherit; text-decoration: none; }
 }
 .header-nav a {
   padding: 7px 12px;
-  border-radius: 7px;
+  border-radius: 8px;
   font-size: 13px;
   font-weight: 600;
   color: var(--ink-3);
@@ -1293,8 +1289,8 @@ a { color: inherit; text-decoration: none; }
   width: 100%;
 }
 .subj-input:focus {
-  border-color: var(--ink);
-  box-shadow: 0 0 0 3px rgba(12,10,9,0.06);
+  border-color: var(--pop);
+  box-shadow: 0 0 0 3px var(--pop-soft);
 }
 .subj-input:disabled {
   background: var(--surface-2);
@@ -1373,7 +1369,7 @@ a { color: inherit; text-decoration: none; }
   border-radius: 99px;
   background: var(--marker-color, var(--ink));
   border: 3px solid #fff;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.18);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12);
 }
 .mini-bar__axis {
   display: flex;
@@ -1512,10 +1508,13 @@ a { color: inherit; text-decoration: none; }
   animation: card-enter 0.45s var(--ease-out) both;
 }
 
-/* Micro-interactions — press feedback */
-.pill:active                { scale: 0.93; }
+/* Micro-interactions — press feedback (Apple system-wide 0.95) */
+.pill:active                { scale: 0.95; }
 .nav-tab:active             { scale: 0.95; }
-.btn:active:not([disabled]) { scale: 0.96; }
+.btn:active:not([disabled]) { scale: 0.95; }
+.cta-card:active            { scale: 0.99; }
+.pg-btn:active:not(:disabled):not(.is-active) { scale: 0.95; }
+.qa-cell:active             { scale: 0.97; }
 
 /* View Transition — curriculum tab switch */
 .main { view-transition-name: main-content; }
@@ -1532,7 +1531,8 @@ a { color: inherit; text-decoration: none; }
 /* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
   #cardsGrid .card { animation: none !important; opacity: 1; }
-  .pill:active, .nav-tab:active, .btn:active { scale: 1; }
+  .pill:active, .nav-tab:active, .btn:active,
+  .cta-card:active, .pg-btn:active, .qa-cell:active { scale: 1; }
   .main { view-transition-name: none; }
 }
 
@@ -1743,7 +1743,7 @@ body.is-sheet-open { overflow: hidden; touch-action: none; }
   .nav-group         { flex-direction: row; align-items: center; gap: 2px; }
   .nav-group__label  { display: none; }
   .nav-group__tabs   { gap: 2px; }
-  .nav-tab           { flex-direction: row; padding: 7px 9px; gap: 0; border-radius: 7px; }
+  .nav-tab           { flex-direction: row; padding: 7px 9px; gap: 0; border-radius: 8px; }
   .nav-tab__sub      { display: none; }
   .nav-tab__title    { font-size: 12px; line-height: 1.2; letter-spacing: -0.2px; }
   .nav-sep           { margin: 0; height: 14px; align-self: center; }
@@ -2128,9 +2128,11 @@ body.is-sheet-open { overflow: hidden; touch-action: none; }
   /* 모바일 주소창 영향 받는 환경(Safari 등)에서 더 정확한 동적 viewport */
   max-height: calc(100dvh - 160px);
   background: #fff;
-  border: 1px solid var(--line);
-  border-radius: 6px;
-  box-shadow: var(--sh-md);
+  /* Apple 식 product shadow — UI 에서 그림자가 나오는 유일한 곳.
+     "종이 한 장이 회색 표면 위에 떠 있다" 느낌이 핵심 */
+  border: 1px solid var(--line-soft);
+  border-radius: 8px;
+  box-shadow: var(--sh-paper);
   margin: 0 auto;
 }
 .preview__more {
@@ -2298,7 +2300,6 @@ body.is-sheet-open { overflow: hidden; touch-action: none; }
 .qa-cell:hover {
   border-color: var(--ink-5);
   background: var(--surface-2);
-  transform: translateY(-1px);
 }
 .qa-cell__num {
   font-size: 10.5px;
