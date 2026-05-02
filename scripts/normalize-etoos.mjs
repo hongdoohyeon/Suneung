@@ -2,7 +2,9 @@
 // 이투스 archived raw → 사이트 형식 normalize.
 // 표 순서로 영역 매핑 (표 헤더에 영역명 없음, 사이트 영역 정의 순서로 매칭).
 //
-// 입력:  data/raw/etoos/rawcuts-archived-v2.json (시험 직후 캡처, 원점수 채워짐)
+// 입력:
+//   - data/raw/etoos/rawcuts-archived-v2.json (시험 직후 캡처, 원점수 채워짐)
+//   - data/raw/etoos/rawcuts-direct.json      (활성 페이지 직접 수집, 최근 시험 보강)
 // 출력:  data/raw/etoos/rawcuts-normalized.json
 
 import { readFile, writeFile } from 'node:fs/promises';
@@ -11,13 +13,26 @@ import { fileURLToPath } from 'node:url';
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(HERE, '..');
-const SRC = path.resolve(ROOT, 'data/raw/etoos/rawcuts-archived-v2.json');
+const SOURCES = [
+  { path: path.resolve(ROOT, 'data/raw/etoos/rawcuts-archived-v2.json'), source: 'etoos-archived' },
+  { path: path.resolve(ROOT, 'data/raw/etoos/rawcuts-direct.json'), source: 'etoos-direct' },
+];
 const OUT = path.resolve(ROOT, 'data/raw/etoos/rawcuts-normalized.json');
 const EXAMS = path.resolve(ROOT, 'data/exams.json');
 
-const raw = JSON.parse(await readFile(SRC, 'utf-8'));
+async function readJsonOr(p, fallback) {
+  try { return JSON.parse(await readFile(p, 'utf-8')); }
+  catch { return fallback; }
+}
+
+const raw = [];
+for (const src of SOURCES) {
+  const items = await readJsonOr(src.path, []);
+  for (const item of items) raw.push({ ...item, _source: src.source });
+  console.log(`입력(${path.relative(ROOT, src.path)}): ${items.length}건 시험`);
+}
 const sites = JSON.parse(await readFile(EXAMS, 'utf-8'));
-console.log(`입력: ${raw.length}건 시험`);
+console.log(`입력 합계: ${raw.length}건 시험`);
 
 // 표 → cuts 추출
 function parseTable(t) {
@@ -67,11 +82,11 @@ function siteTypeFor(examYear, month, typeRaw) {
   if (tr === '수능' || month === 11) return 'csat';
   if (tr === '모의평가') {
     if (month === 6) return 'june';
-    if (month === 9) return 'sept';
+    if (month === 8 || month === 9) return 'sept';
   }
   if (tr === '학력평가') {
     if (month === 3) return 'mar';
-    if (month === 4) return 'apr';
+    if (month === 4 || month === 5) return 'apr';
     if (month === 7) return 'jul';
     if (month === 10) return 'oct';
   }
@@ -80,14 +95,18 @@ function siteTypeFor(examYear, month, typeRaw) {
 
 // 이투스 표 순서: 국어 → 영어(절대평가 시 stdMax='-' 자동 필터) → 수학 → 한국사(절대) → 사탐 → 과탐 → 직탐 → 제2외
 // 사탐/과탐은 평가원 교육과정 순. SKIP 항목은 표는 있지만 사이트에 없는 영역 (영어/한국사 상대평가일 때).
+// 2022학년도 이후 통합형 국어/수학은 공통 영역(null) 표가 아니라 선택과목별 표만 제공된다.
 function buildEtoosOrder(gradeYear) {
   const order = [];
   // 국어
   if (gradeYear <= 2016) {
     order.push({ subject: '국어', subSubject: 'A형' });
     order.push({ subject: '국어', subSubject: 'B형' });
-  } else {
+  } else if (gradeYear <= 2021) {
     order.push({ subject: '국어', subSubject: null });
+  } else {
+    order.push({ subject: '국어', subSubject: '화법과작문' });
+    order.push({ subject: '국어', subSubject: '언어와매체' });
   }
   // 영어: 2018학년도부터 절대평가 → stdMax='-' 자동 필터됨 (validCls 에 안 들어감)
   // 2017학년도 이전: 영어 상대평가 → 표 valid 하지만 사이트에서 제외 → SKIP
@@ -102,8 +121,6 @@ function buildEtoosOrder(gradeYear) {
     order.push({ subject: '수학', subSubject: '가형' });
     order.push({ subject: '수학', subSubject: '나형' });
   } else {
-    order.push({ subject: '국어', subSubject: '화법과작문' });
-    order.push({ subject: '국어', subSubject: '언어와매체' });
     order.push({ subject: '수학', subSubject: '확률과통계' });
     order.push({ subject: '수학', subSubject: '미적분' });
     order.push({ subject: '수학', subSubject: '기하' });
@@ -131,13 +148,14 @@ for (const item of raw) {
   }
   // megastudy/etoos data 의 gradeYear 가 examYear 로 잘못 들어옴 → +1 보정 (수능 기준 학년도)
   const gradeYear = item.examYear + 1;
-  const validCls = cls.filter(c => c.fullScore && c.stdMax && Number.isFinite(c.fullScore) && Number.isFinite(c.stdMax));
+  const orderedCls = cls.filter(c =>
+    (Number.isFinite(c.fullScore) || Number.isFinite(c.stdMax)) &&
+    (Array.isArray(c.rawCuts) || Array.isArray(c.standardCuts))
+  );
 
   const etoosOrder = buildEtoosOrder(gradeYear);
-  if (validCls.length < etoosOrder.length) {
-    console.log(`  [표 부족] ${item.examDate} (${siteType}, gy=${gradeYear}) etoos=${validCls.length}개 vs expected=${etoosOrder.length}개`);
-    skipCnt++;
-    continue;
+  if (orderedCls.length < etoosOrder.length) {
+    console.log(`  [표 일부 부족] ${item.examDate} (${siteType}, gy=${gradeYear}) etoos=${orderedCls.length}개 vs expected=${etoosOrder.length}개 — 있는 표만 반영`);
   }
 
   // 사이트의 (gradeYear, type) 영역 lookup
@@ -148,7 +166,8 @@ for (const item of raw) {
   let matched = 0;
   for (let i = 0; i < etoosOrder.length; i++) {
     const o = etoosOrder[i];
-    const c = validCls[i];
+    const c = orderedCls[i];
+    if (!c) continue;
     if (o.skip) continue;
     const key = `${o.subject}|${o.subSubject ?? ''}`;
     const exam = siteByKey.get(key);
@@ -168,7 +187,7 @@ for (const item of raw) {
       standardPercentile: c.standardPercentile,
       fullScore: c.fullScore,
       highestStandardScore: c.stdMax,
-      source: 'etoos-archived',
+      source: item._source || 'etoos-archived',
       snapshotTs: item.snapshotTs,
     });
     matched++;
