@@ -163,16 +163,18 @@ $('typeGroupFilter').addEventListener('click', e => {
 function renderSubtypeChips() {
   const row       = $('subtypeRow');
   const container = $('typeFilter');
-  if (state.typeGroup === 'all' || tabIsSingleType()) {
+  const g         = getGroupConf(state.typeGroup);
+  // type 이 1개뿐인 그룹 (사관/경찰 1차시험, LEET/MEET 본시험) 은 칩 자체를 숨김 — 의미 없는 '전체/본시험' 두 칸 회피
+  const skip = state.typeGroup === 'all' || tabIsSingleType() || (g?.types?.length ?? 0) <= 1;
+  if (skip) {
     row.classList.remove('is-open');
     container.innerHTML = '';
     return;
   }
-  const g = getGroupConf(state.typeGroup);
   container.innerHTML = [
     pill('all', '전체', state.type === 'all'),
     // 칩에서는 shortLabel 우선 — 사이드바 폭에서 긴 라벨이 칸을 넘쳐 정렬을 깨뜨리기 때문
-    ...(g?.types ?? []).map(t => pill(t.key, t.shortLabel ?? t.label, state.type === t.key)),
+    ...g.types.map(t => pill(t.key, t.shortLabel ?? t.label, state.type === t.key)),
   ].join('');
   row.classList.add('is-open');
 }

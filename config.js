@@ -77,13 +77,14 @@ export const CURRICULUM_CONFIG = {
 
   // ── 28학년도 예비 (2022 개정 평가원 예시문항) ──────────────
   // 평가원 2025.04.15 공개 예시문항: 국어 / 수학 / 통합사회 / 통합과학 4개 영역
+  // typeGroup 은 '평가원'(suneung) — 예비도 평가원 출제이므로 같은 그룹에 흡수.
   '예비': {
     id: '예비',
     label: '28학년도 예비',
     rangeLabel: '2022 개정 · 평가원 예시문항',
     gradeYearRange: [2028, 2028],
-    availableTypeGroups: ['preliminary'],
-    singleType: true,
+    availableTypeGroups: ['suneung'],
+    singleType: false,
     subjects: {
       '국어':      { icon: '📖', bg: '#fff0e8', color: '#c44b00', subs: [] },
       '수학':      { icon: '📐', bg: '#eef2ff', color: '#1a4fd6', subs: [] },
@@ -175,9 +176,10 @@ export const EXAM_TYPE_CONFIG = [
     groupBg: '#e6f0fa',
     displayMode: 'gradeYear',
     types: [
-      { key: 'csat', label: '수능',     month: 11, badgeBg: '#e6f0fa', badgeColor: '#0066cc' },
-      { key: 'june', label: '6월 모의', month:  6, badgeBg: '#e6f0fa', badgeColor: '#0066cc' },
-      { key: 'sept', label: '9월 모의', month:  9, badgeBg: '#e6f0fa', badgeColor: '#0066cc' },
+      { key: 'csat',   label: '수능',     month: 11, badgeBg: '#e6f0fa', badgeColor: '#0066cc' },
+      { key: 'june',   label: '6월 모의', month:  6, badgeBg: '#e6f0fa', badgeColor: '#0066cc' },
+      { key: 'sept',   label: '9월 모의', month:  9, badgeBg: '#e6f0fa', badgeColor: '#0066cc' },
+      { key: 'prelim', label: '예비시험', month:  5, badgeBg: '#e6f0fa', badgeColor: '#0066cc' },
     ],
   },
   {
@@ -212,16 +214,6 @@ export const EXAM_TYPE_CONFIG = [
     displayMode: 'gradeYear',
     types: [
       { key: 'police_annual', label: '1차 시험', month: 7, badgeBg: '#e0f2fe', badgeColor: '#0c4a6e' },
-    ],
-  },
-  {
-    groupKey: 'preliminary',
-    groupLabel: '평가원 예비',
-    groupColor: '#7c3aed',
-    groupBg: '#f5f3ff',
-    displayMode: 'gradeYear',
-    types: [
-      { key: 'prelim', label: '예비시험', month: 5, badgeBg: '#f5f3ff', badgeColor: '#7c3aed' },
     ],
   },
   {

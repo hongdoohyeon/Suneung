@@ -26,8 +26,9 @@ const PRELIM_LENGTH = {
   '국어': 45, '수학': 30, '통합사회': 25, '통합과학': 24,
 };
 function expectedAnswerLength(exam) {
+  // 평가원 예비(prelim) 는 typeGroup='suneung' 이지만 문항수가 다름 → type 우선 분기
+  if (exam.type === 'prelim') return PRELIM_LENGTH[exam.subject] ?? null;
   if (SUNEUNG_LIKE.has(exam.typeGroup)) return SUNEUNG_LENGTH[exam.subject] ?? null;
-  if (exam.typeGroup === 'preliminary')  return PRELIM_LENGTH[exam.subject] ?? null;
   return null;
 }
 
@@ -160,14 +161,14 @@ function validateBusinessRules(data) {
   }
 
   // 5. typeGroup ↔ type 정합성 (대표 매핑)
+  // 평가원 예비(prelim) 는 평가원(suneung) 그룹에 흡수 — 'preliminary' typeGroup 폐기.
   const tgTypeMap = {
     education:   new Set(['mar', 'apr', 'jul', 'oct']),
-    suneung:     new Set(['csat', 'june', 'sept']),
+    suneung:     new Set(['csat', 'june', 'sept', 'prelim']),
     military:    new Set(['military_annual']),
     police:      new Set(['police_annual']),
     leet:        new Set(['leet_annual', 'prelim']),
     meet:        new Set(['meet_annual', 'prelim']),
-    preliminary: new Set(['prelim']),
   };
   for (const ex of data) {
     const allowed = tgTypeMap[ex.typeGroup];

@@ -50,8 +50,8 @@ const PRELIM_LENGTH = {
   '국어': 45, '수학': 30, '통합사회': 25, '통합과학': 24,
 };
 function expectedLengthFor(exam) {
+  if (exam?.type === 'prelim') return PRELIM_LENGTH[exam.subject] ?? null;
   if (SUNEUNG_LIKE.has(exam?.typeGroup)) return SUNEUNG_LENGTH[exam.subject] ?? null;
-  if (exam?.typeGroup === 'preliminary') return PRELIM_LENGTH[exam.subject] ?? null;
   return null;
 }
 

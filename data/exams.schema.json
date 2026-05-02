@@ -59,8 +59,7 @@
             "military",
             "police",
             "leet",
-            "meet",
-            "preliminary"
+            "meet"
           ],
           "description": "시험 카테고리(상위)."
         },

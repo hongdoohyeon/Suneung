@@ -134,11 +134,12 @@ SUBJECT_ORDER = {
 }
 
 EXAM_TYPE = {
-    # db 값        (사이트 type, typeGroup,    month)
-    'csat':       ('csat',     'suneung',     11),
-    'mock06':     ('june',     'suneung',      6),
-    'mock09':     ('sept',     'suneung',      9),
-    'prelim':     ('prelim',   'preliminary',  5),
+    # db 값        (사이트 type, typeGroup,  month)
+    'csat':       ('csat',     'suneung',   11),
+    'mock06':     ('june',     'suneung',    6),
+    'mock09':     ('sept',     'suneung',    9),
+    # 평가원 예비(prelim) 도 평가원(suneung) 그룹에 흡수
+    'prelim':     ('prelim',   'suneung',    5),
 }
 
 CURRICULUM = {'2015': '2015', '2009': '2009', '2028': '예비'}
