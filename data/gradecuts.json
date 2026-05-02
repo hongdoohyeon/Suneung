@@ -35765,9 +35765,19 @@
       96.43
     ],
     "highestStandardScore": 127,
-    "source": "megastudy",
+    "source": "megastudy+crux-raw",
     "id": 705,
-    "fullScore": 100
+    "fullScore": 100,
+    "rawCuts": [
+      96,
+      92,
+      85,
+      76,
+      66,
+      50,
+      25,
+      15
+    ]
   },
   {
     "curriculum": "2015",
@@ -35809,9 +35819,19 @@
       96.43
     ],
     "highestStandardScore": 127,
-    "source": "megastudy",
+    "source": "megastudy+crux-raw",
     "id": 706,
-    "fullScore": 100
+    "fullScore": 100,
+    "rawCuts": [
+      100,
+      95,
+      89,
+      81,
+      70,
+      53,
+      29,
+      18
+    ]
   },
   {
     "curriculum": "2015",
@@ -36339,9 +36359,19 @@
       97.03
     ],
     "highestStandardScore": 145,
-    "source": "megastudy",
+    "source": "megastudy+crux-raw",
     "id": 716,
-    "fullScore": 100
+    "fullScore": 100,
+    "rawCuts": [
+      88,
+      79,
+      68,
+      55,
+      34,
+      17,
+      12,
+      8
+    ]
   },
   {
     "curriculum": "2015",
@@ -36383,9 +36413,19 @@
       97.03
     ],
     "highestStandardScore": 145,
-    "source": "megastudy",
+    "source": "megastudy+crux-raw",
     "id": 717,
-    "fullScore": 100
+    "fullScore": 100,
+    "rawCuts": [
+      85,
+      76,
+      65,
+      52,
+      31,
+      15,
+      11,
+      7
+    ]
   },
   {
     "curriculum": "2015",
@@ -36427,9 +36467,19 @@
       97.03
     ],
     "highestStandardScore": 145,
-    "source": "megastudy",
+    "source": "megastudy+crux-raw",
     "id": 718,
-    "fullScore": 100
+    "fullScore": 100,
+    "rawCuts": [
+      91,
+      82,
+      71,
+      57,
+      36,
+      19,
+      14,
+      10
+    ]
   },
   {
     "curriculum": "2015",
@@ -82419,7 +82469,18 @@
       36
     ],
     "id": 1658,
-    "fullScore": 50
+    "fullScore": 50,
+    "rawCuts": [
+      48,
+      44,
+      38,
+      27,
+      17,
+      12,
+      9,
+      5
+    ],
+    "source": "exammoa-megastudy-archive"
   },
   {
     "curriculum": "2009",
@@ -82441,7 +82502,18 @@
       34
     ],
     "id": 1659,
-    "fullScore": 50
+    "fullScore": 50,
+    "rawCuts": [
+      46,
+      43,
+      38,
+      33,
+      23,
+      15,
+      11,
+      7
+    ],
+    "source": "exammoa-megastudy-archive"
   },
   {
     "curriculum": "2009",
@@ -82463,7 +82535,18 @@
       34
     ],
     "id": 1660,
-    "fullScore": 50
+    "fullScore": 50,
+    "rawCuts": [
+      50,
+      47,
+      42,
+      34,
+      23,
+      16,
+      11,
+      7
+    ],
+    "source": "exammoa-megastudy-archive"
   },
   {
     "curriculum": "2009",
@@ -82485,7 +82568,18 @@
       33
     ],
     "id": 1661,
-    "fullScore": 50
+    "fullScore": 50,
+    "rawCuts": [
+      47,
+      44,
+      41,
+      36,
+      26,
+      17,
+      13,
+      9
+    ],
+    "source": "exammoa-megastudy-archive"
   },
   {
     "curriculum": "2009",
@@ -82507,7 +82601,18 @@
       32
     ],
     "id": 1662,
-    "fullScore": 50
+    "fullScore": 50,
+    "rawCuts": [
+      50,
+      47,
+      45,
+      38,
+      28,
+      20,
+      14,
+      8
+    ],
+    "source": "exammoa-megastudy-archive"
   },
   {
     "curriculum": "2009",
@@ -82529,7 +82634,18 @@
       34
     ],
     "id": 1663,
-    "fullScore": 50
+    "fullScore": 50,
+    "rawCuts": [
+      50,
+      47,
+      44,
+      37,
+      26,
+      16,
+      10,
+      8
+    ],
+    "source": "exammoa-megastudy-archive"
   },
   {
     "curriculum": "2009",
@@ -82551,7 +82667,18 @@
       32
     ],
     "id": 1664,
-    "fullScore": 50
+    "fullScore": 50,
+    "rawCuts": [
+      50,
+      47,
+      45,
+      39,
+      30,
+      20,
+      14,
+      9
+    ],
+    "source": "exammoa-megastudy-archive"
   },
   {
     "curriculum": "2009",
@@ -82573,7 +82700,18 @@
       34
     ],
     "id": 1665,
-    "fullScore": 50
+    "fullScore": 50,
+    "rawCuts": [
+      47,
+      43,
+      39,
+      34,
+      22,
+      15,
+      9,
+      7
+    ],
+    "source": "exammoa-megastudy-archive"
   },
   {
     "curriculum": "2009",
@@ -82595,7 +82733,18 @@
       33
     ],
     "id": 1666,
-    "fullScore": 50
+    "fullScore": 50,
+    "rawCuts": [
+      50,
+      47,
+      44,
+      38,
+      27,
+      19,
+      12,
+      8
+    ],
+    "source": "exammoa-megastudy-archive"
   },
   {
     "curriculum": "2009",
@@ -82859,7 +83008,3890 @@
       35
     ],
     "id": 1678,
-    "fullScore": 50
+    "fullScore": 50,
+    "rawCuts": [
+      50,
+      48,
+      46,
+      37,
+      21,
+      15,
+      12,
+      8
+    ],
+    "source": "exammoa-megastudy-archive"
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2016,
+    "examYear": 2015,
+    "month": 10,
+    "typeGroup": "education",
+    "type": "oct",
+    "subject": "과학탐구",
+    "subSubject": "물리Ⅰ",
+    "rawCuts": [
+      50,
+      47,
+      41,
+      33,
+      20,
+      13,
+      10,
+      6
+    ],
+    "fullScore": 50,
+    "standardCuts": [
+      66,
+      64,
+      60,
+      54,
+      45,
+      40,
+      38,
+      35
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1679,
+    "standardPercentile": [
+      97,
+      90,
+      77,
+      60,
+      39,
+      22,
+      12,
+      3
+    ],
+    "highestStandardScore": 66
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2016,
+    "examYear": 2015,
+    "month": 10,
+    "typeGroup": "education",
+    "type": "oct",
+    "subject": "과학탐구",
+    "subSubject": "물리Ⅱ",
+    "rawCuts": [
+      47,
+      42,
+      26,
+      14,
+      11,
+      10,
+      7,
+      5
+    ],
+    "fullScore": 50,
+    "standardCuts": [
+      72,
+      68,
+      56,
+      47,
+      45,
+      44,
+      42,
+      40
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1680,
+    "standardPercentile": [
+      95,
+      88,
+      76,
+      59,
+      41,
+      25,
+      13,
+      5
+    ],
+    "highestStandardScore": 74
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2016,
+    "examYear": 2015,
+    "month": 10,
+    "typeGroup": "education",
+    "type": "oct",
+    "subject": "과학탐구",
+    "subSubject": "생명과학Ⅰ",
+    "rawCuts": [
+      44,
+      41,
+      35,
+      27,
+      18,
+      13,
+      9,
+      7
+    ],
+    "fullScore": 50,
+    "standardCuts": [
+      67,
+      64,
+      59,
+      53,
+      45,
+      41,
+      38,
+      36
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1681,
+    "standardPercentile": [
+      95,
+      89,
+      76,
+      61,
+      39,
+      23,
+      11,
+      3
+    ],
+    "highestStandardScore": 72
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2016,
+    "examYear": 2015,
+    "month": 10,
+    "typeGroup": "education",
+    "type": "oct",
+    "subject": "과학탐구",
+    "subSubject": "생명과학Ⅱ",
+    "rawCuts": [
+      50,
+      46,
+      43,
+      31,
+      19,
+      11,
+      8,
+      5
+    ],
+    "fullScore": 50,
+    "standardCuts": [
+      65,
+      63,
+      61,
+      53,
+      45,
+      40,
+      38,
+      36
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1682,
+    "standardPercentile": [
+      96,
+      86,
+      78,
+      58,
+      41,
+      22,
+      10,
+      3
+    ],
+    "highestStandardScore": 65
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2016,
+    "examYear": 2015,
+    "month": 10,
+    "typeGroup": "education",
+    "type": "oct",
+    "subject": "과학탐구",
+    "subSubject": "지구과학Ⅰ",
+    "rawCuts": [
+      47,
+      44,
+      39,
+      31,
+      23,
+      15,
+      10,
+      8
+    ],
+    "fullScore": 50,
+    "standardCuts": [
+      66,
+      64,
+      60,
+      53,
+      47,
+      41,
+      37,
+      35
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1683,
+    "standardPercentile": [
+      95,
+      90,
+      78,
+      58,
+      41,
+      25,
+      10,
+      4
+    ],
+    "highestStandardScore": 68
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2016,
+    "examYear": 2015,
+    "month": 10,
+    "typeGroup": "education",
+    "type": "oct",
+    "subject": "과학탐구",
+    "subSubject": "지구과학Ⅱ",
+    "rawCuts": [
+      50,
+      46,
+      37,
+      22,
+      13,
+      10,
+      7,
+      4
+    ],
+    "fullScore": 50,
+    "standardCuts": [
+      68,
+      66,
+      60,
+      50,
+      44,
+      42,
+      40,
+      38
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1684,
+    "standardPercentile": [
+      96,
+      89,
+      76,
+      60,
+      41,
+      27,
+      12,
+      3
+    ],
+    "highestStandardScore": 68
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2016,
+    "examYear": 2015,
+    "month": 10,
+    "typeGroup": "education",
+    "type": "oct",
+    "subject": "과학탐구",
+    "subSubject": "화학Ⅰ",
+    "rawCuts": [
+      50,
+      47,
+      41,
+      33,
+      23,
+      14,
+      10,
+      7
+    ],
+    "fullScore": 50,
+    "standardCuts": [
+      66,
+      64,
+      60,
+      54,
+      47,
+      40,
+      37,
+      35
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1685,
+    "standardPercentile": [
+      97,
+      90,
+      78,
+      59,
+      41,
+      23,
+      10,
+      3
+    ],
+    "highestStandardScore": 66
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2016,
+    "examYear": 2015,
+    "month": 10,
+    "typeGroup": "education",
+    "type": "oct",
+    "subject": "과학탐구",
+    "subSubject": "화학Ⅱ",
+    "rawCuts": [
+      45,
+      40,
+      32,
+      17,
+      12,
+      9,
+      8,
+      5
+    ],
+    "fullScore": 50,
+    "standardCuts": [
+      70,
+      66,
+      60,
+      48,
+      44,
+      42,
+      41,
+      39
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1686,
+    "standardPercentile": [
+      96,
+      88,
+      77,
+      59,
+      39,
+      20,
+      12,
+      4
+    ],
+    "highestStandardScore": 74
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2016,
+    "examYear": 2015,
+    "month": 10,
+    "typeGroup": "education",
+    "type": "oct",
+    "subject": "국어",
+    "subSubject": "가형",
+    "rawCuts": [
+      96,
+      91,
+      84,
+      72,
+      55,
+      34,
+      24,
+      18
+    ],
+    "fullScore": 100,
+    "standardCuts": [
+      128,
+      124,
+      118,
+      109,
+      96,
+      80,
+      72,
+      67
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1687,
+    "standardPercentile": [
+      94,
+      87,
+      76,
+      59,
+      39,
+      23,
+      11,
+      3
+    ],
+    "highestStandardScore": 131
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2016,
+    "examYear": 2015,
+    "month": 10,
+    "typeGroup": "education",
+    "type": "oct",
+    "subject": "국어",
+    "subSubject": "나형",
+    "rawCuts": [
+      97,
+      93,
+      85,
+      74,
+      57,
+      34,
+      21,
+      17
+    ],
+    "fullScore": 100,
+    "standardCuts": [
+      127,
+      124,
+      118,
+      110,
+      97,
+      80,
+      70,
+      67
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1688,
+    "standardPercentile": [
+      95,
+      89,
+      76,
+      59,
+      40,
+      23,
+      11,
+      5
+    ],
+    "highestStandardScore": 129
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2016,
+    "examYear": 2015,
+    "month": 10,
+    "typeGroup": "education",
+    "type": "oct",
+    "subject": "사회탐구",
+    "subSubject": "경제",
+    "rawCuts": [
+      50,
+      47,
+      33,
+      16,
+      11,
+      10,
+      7,
+      4
+    ],
+    "fullScore": 50,
+    "standardCuts": [
+      70,
+      68,
+      59,
+      47,
+      44,
+      43,
+      41,
+      39
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1689,
+    "standardPercentile": [
+      96,
+      90,
+      76,
+      59,
+      40,
+      25,
+      9,
+      3
+    ],
+    "highestStandardScore": 70
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2016,
+    "examYear": 2015,
+    "month": 10,
+    "typeGroup": "education",
+    "type": "oct",
+    "subject": "사회탐구",
+    "subSubject": "동아시아사",
+    "rawCuts": [
+      46,
+      41,
+      37,
+      28,
+      18,
+      12,
+      10,
+      6
+    ],
+    "fullScore": 50,
+    "standardCuts": [
+      67,
+      63,
+      60,
+      53,
+      45,
+      40,
+      39,
+      36
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1690,
+    "standardPercentile": [
+      97,
+      86,
+      77,
+      59,
+      39,
+      21,
+      13,
+      4
+    ],
+    "highestStandardScore": 70
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2016,
+    "examYear": 2015,
+    "month": 10,
+    "typeGroup": "education",
+    "type": "oct",
+    "subject": "사회탐구",
+    "subSubject": "법과정치",
+    "rawCuts": [
+      47,
+      43,
+      39,
+      29,
+      18,
+      13,
+      9,
+      6
+    ],
+    "fullScore": 50,
+    "standardCuts": [
+      66,
+      63,
+      60,
+      53,
+      45,
+      41,
+      38,
+      36
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1691,
+    "standardPercentile": [
+      95,
+      87,
+      77,
+      59,
+      40,
+      22,
+      10,
+      4
+    ],
+    "highestStandardScore": 68
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2016,
+    "examYear": 2015,
+    "month": 10,
+    "typeGroup": "education",
+    "type": "oct",
+    "subject": "사회탐구",
+    "subSubject": "사회·문화",
+    "rawCuts": [
+      50,
+      47,
+      44,
+      37,
+      27,
+      14,
+      9,
+      7
+    ],
+    "fullScore": 50,
+    "standardCuts": [
+      64,
+      62,
+      60,
+      55,
+      48,
+      39,
+      35,
+      34
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1692,
+    "standardPercentile": [
+      96,
+      88,
+      79,
+      59,
+      40,
+      22,
+      9,
+      4
+    ],
+    "highestStandardScore": 64
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2016,
+    "examYear": 2015,
+    "month": 10,
+    "typeGroup": "education",
+    "type": "oct",
+    "subject": "사회탐구",
+    "subSubject": "생활과윤리",
+    "rawCuts": [
+      50,
+      null,
+      46,
+      40,
+      31,
+      17,
+      11,
+      6
+    ],
+    "fullScore": 50,
+    "standardCuts": [
+      61,
+      null,
+      59,
+      55,
+      49,
+      39,
+      35,
+      32
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1693,
+    "standardPercentile": [
+      92,
+      null,
+      77,
+      57,
+      38,
+      23,
+      11,
+      2
+    ],
+    "highestStandardScore": 61
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2016,
+    "examYear": 2015,
+    "month": 10,
+    "typeGroup": "education",
+    "type": "oct",
+    "subject": "사회탐구",
+    "subSubject": "세계사",
+    "rawCuts": [
+      50,
+      44,
+      40,
+      31,
+      20,
+      13,
+      10,
+      7
+    ],
+    "fullScore": 50,
+    "standardCuts": [
+      67,
+      63,
+      60,
+      53,
+      45,
+      40,
+      38,
+      36
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1694,
+    "standardPercentile": [
+      97,
+      85,
+      77,
+      59,
+      39,
+      24,
+      10,
+      5
+    ],
+    "highestStandardScore": 67
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2016,
+    "examYear": 2015,
+    "month": 10,
+    "typeGroup": "education",
+    "type": "oct",
+    "subject": "사회탐구",
+    "subSubject": "세계지리",
+    "rawCuts": [
+      50,
+      47,
+      44,
+      37,
+      24,
+      15,
+      9,
+      8
+    ],
+    "fullScore": 50,
+    "standardCuts": [
+      64,
+      62,
+      60,
+      55,
+      46,
+      40,
+      36,
+      35
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1695,
+    "standardPercentile": [
+      96,
+      87,
+      77,
+      60,
+      39,
+      24,
+      8,
+      4
+    ],
+    "highestStandardScore": 64
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2016,
+    "examYear": 2015,
+    "month": 10,
+    "typeGroup": "education",
+    "type": "oct",
+    "subject": "사회탐구",
+    "subSubject": "윤리와사상",
+    "rawCuts": [
+      50,
+      47,
+      45,
+      36,
+      22,
+      13,
+      9,
+      7
+    ],
+    "fullScore": 50,
+    "standardCuts": [
+      64,
+      62,
+      61,
+      55,
+      46,
+      40,
+      37,
+      36
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1696,
+    "standardPercentile": [
+      96,
+      87,
+      79,
+      58,
+      40,
+      25,
+      9,
+      5
+    ],
+    "highestStandardScore": 64
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2016,
+    "examYear": 2015,
+    "month": 10,
+    "typeGroup": "education",
+    "type": "oct",
+    "subject": "사회탐구",
+    "subSubject": "한국지리",
+    "rawCuts": [
+      50,
+      47,
+      44,
+      37,
+      27,
+      17,
+      11,
+      8
+    ],
+    "fullScore": 50,
+    "standardCuts": [
+      64,
+      62,
+      60,
+      55,
+      48,
+      40,
+      36,
+      34
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1697,
+    "standardPercentile": [
+      97,
+      88,
+      78,
+      60,
+      40,
+      23,
+      11,
+      6
+    ],
+    "highestStandardScore": 64
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2016,
+    "examYear": 2015,
+    "month": 10,
+    "typeGroup": "education",
+    "type": "oct",
+    "subject": "수학",
+    "subSubject": "가형",
+    "rawCuts": [
+      92,
+      88,
+      80,
+      71,
+      55,
+      33,
+      17,
+      12
+    ],
+    "fullScore": 100,
+    "standardCuts": [
+      126,
+      123,
+      117,
+      110,
+      98,
+      81,
+      69,
+      65
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1698,
+    "standardPercentile": [
+      94,
+      88,
+      76,
+      60,
+      39,
+      22,
+      11,
+      3
+    ],
+    "highestStandardScore": 132
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2016,
+    "examYear": 2015,
+    "month": 10,
+    "typeGroup": "education",
+    "type": "oct",
+    "subject": "수학",
+    "subSubject": "나형",
+    "rawCuts": [
+      88,
+      77,
+      64,
+      46,
+      27,
+      17,
+      12,
+      10
+    ],
+    "fullScore": 100,
+    "standardCuts": [
+      138,
+      129,
+      119,
+      104,
+      89,
+      81,
+      77,
+      75
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1699,
+    "standardPercentile": [
+      96,
+      89,
+      77,
+      60,
+      39,
+      22,
+      8,
+      4
+    ],
+    "highestStandardScore": 148
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2016,
+    "examYear": 2015,
+    "month": 10,
+    "typeGroup": "education",
+    "type": "oct",
+    "subject": "영어",
+    "subSubject": null,
+    "rawCuts": [
+      100,
+      95,
+      87,
+      72,
+      55,
+      38,
+      22,
+      19
+    ],
+    "fullScore": 100,
+    "standardCuts": [
+      129,
+      125,
+      119,
+      108,
+      95,
+      82,
+      70,
+      67
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1700,
+    "standardPercentile": [
+      97,
+      88,
+      76,
+      59,
+      40,
+      23,
+      9,
+      4
+    ],
+    "highestStandardScore": 129
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2016,
+    "examYear": 2015,
+    "month": 10,
+    "typeGroup": "education",
+    "type": "oct",
+    "subject": "한국사",
+    "subSubject": null,
+    "rawCuts": [
+      50,
+      45,
+      39,
+      29,
+      16,
+      11,
+      7,
+      5
+    ],
+    "fullScore": 50,
+    "standardCuts": [
+      67,
+      64,
+      60,
+      53,
+      44,
+      41,
+      38,
+      37
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1701,
+    "standardPercentile": [
+      97,
+      87,
+      76,
+      60,
+      39,
+      24,
+      9,
+      3
+    ],
+    "highestStandardScore": 67
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2016,
+    "examYear": 2015,
+    "month": 7,
+    "typeGroup": "education",
+    "type": "jul",
+    "subject": "과학탐구",
+    "subSubject": "물리Ⅰ",
+    "rawCuts": [
+      44,
+      37,
+      31,
+      24,
+      17,
+      13,
+      10,
+      7
+    ],
+    "fullScore": 50,
+    "standardCuts": [
+      70,
+      64,
+      58,
+      52,
+      46,
+      42,
+      39,
+      37
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1702,
+    "standardPercentile": [
+      96,
+      88,
+      76,
+      60,
+      42,
+      25,
+      13,
+      6
+    ],
+    "highestStandardScore": 75
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2016,
+    "examYear": 2015,
+    "month": 7,
+    "typeGroup": "education",
+    "type": "jul",
+    "subject": "과학탐구",
+    "subSubject": "물리Ⅱ",
+    "rawCuts": [
+      45,
+      36,
+      19,
+      13,
+      11,
+      9,
+      6,
+      3
+    ],
+    "fullScore": 50,
+    "standardCuts": [
+      75,
+      67,
+      53,
+      47,
+      46,
+      44,
+      41,
+      39
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1703,
+    "standardPercentile": [
+      95,
+      89,
+      77,
+      58,
+      43,
+      23,
+      9,
+      3
+    ],
+    "highestStandardScore": 79
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2016,
+    "examYear": 2015,
+    "month": 7,
+    "typeGroup": "education",
+    "type": "jul",
+    "subject": "과학탐구",
+    "subSubject": "생명과학Ⅰ",
+    "rawCuts": [
+      40,
+      35,
+      29,
+      23,
+      18,
+      14,
+      10,
+      8
+    ],
+    "fullScore": 50,
+    "standardCuts": [
+      69,
+      64,
+      58,
+      51,
+      46,
+      42,
+      38,
+      36
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1704,
+    "standardPercentile": [
+      96,
+      89,
+      76,
+      58,
+      40,
+      24,
+      9,
+      4
+    ],
+    "highestStandardScore": 80
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2016,
+    "examYear": 2015,
+    "month": 7,
+    "typeGroup": "education",
+    "type": "jul",
+    "subject": "과학탐구",
+    "subSubject": "생명과학Ⅱ",
+    "rawCuts": [
+      44,
+      40,
+      32,
+      21,
+      15,
+      11,
+      9,
+      6
+    ],
+    "fullScore": 50,
+    "standardCuts": [
+      69,
+      65,
+      59,
+      50,
+      45,
+      41,
+      40,
+      37
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1705,
+    "standardPercentile": [
+      94,
+      89,
+      78,
+      57,
+      39,
+      22,
+      15,
+      4
+    ],
+    "highestStandardScore": 74
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2016,
+    "examYear": 2015,
+    "month": 7,
+    "typeGroup": "education",
+    "type": "jul",
+    "subject": "과학탐구",
+    "subSubject": "지구과학Ⅰ",
+    "rawCuts": [
+      44,
+      39,
+      33,
+      27,
+      21,
+      16,
+      12,
+      8
+    ],
+    "fullScore": 50,
+    "standardCuts": [
+      69,
+      64,
+      58,
+      52,
+      46,
+      42,
+      38,
+      34
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1706,
+    "standardPercentile": [
+      96,
+      89,
+      76,
+      59,
+      39,
+      23,
+      10,
+      3
+    ],
+    "highestStandardScore": 74
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2016,
+    "examYear": 2015,
+    "month": 7,
+    "typeGroup": "education",
+    "type": "jul",
+    "subject": "과학탐구",
+    "subSubject": "지구과학Ⅱ",
+    "rawCuts": [
+      42,
+      35,
+      26,
+      18,
+      13,
+      10,
+      8,
+      5
+    ],
+    "fullScore": 50,
+    "standardCuts": [
+      72,
+      65,
+      57,
+      50,
+      45,
+      42,
+      40,
+      38
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1707,
+    "standardPercentile": [
+      95,
+      88,
+      76,
+      61,
+      41,
+      20,
+      11,
+      4
+    ],
+    "highestStandardScore": 79
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2016,
+    "examYear": 2015,
+    "month": 7,
+    "typeGroup": "education",
+    "type": "jul",
+    "subject": "과학탐구",
+    "subSubject": "화학Ⅰ",
+    "rawCuts": [
+      45,
+      40,
+      34,
+      27,
+      19,
+      13,
+      10,
+      6
+    ],
+    "fullScore": 50,
+    "standardCuts": [
+      68,
+      64,
+      59,
+      53,
+      46,
+      41,
+      39,
+      35
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1708,
+    "standardPercentile": [
+      95,
+      89,
+      77,
+      60,
+      40,
+      24,
+      15,
+      3
+    ],
+    "highestStandardScore": 72
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2016,
+    "examYear": 2015,
+    "month": 7,
+    "typeGroup": "education",
+    "type": "jul",
+    "subject": "과학탐구",
+    "subSubject": "화학Ⅱ",
+    "rawCuts": [
+      44,
+      34,
+      21,
+      14,
+      12,
+      9,
+      7,
+      4
+    ],
+    "fullScore": 50,
+    "standardCuts": [
+      75,
+      66,
+      54,
+      48,
+      46,
+      43,
+      41,
+      39
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1709,
+    "standardPercentile": [
+      96,
+      88,
+      76,
+      58,
+      45,
+      23,
+      11,
+      3
+    ],
+    "highestStandardScore": 81
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2016,
+    "examYear": 2015,
+    "month": 7,
+    "typeGroup": "education",
+    "type": "jul",
+    "subject": "국어",
+    "subSubject": "가형",
+    "rawCuts": [
+      98,
+      94,
+      88,
+      80,
+      67,
+      48,
+      27,
+      19
+    ],
+    "fullScore": 100,
+    "standardCuts": [
+      125,
+      122,
+      117,
+      110,
+      100,
+      84,
+      67,
+      61
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1710,
+    "standardPercentile": [
+      96,
+      90,
+      77,
+      59,
+      39,
+      22,
+      11,
+      4
+    ],
+    "highestStandardScore": 126
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2016,
+    "examYear": 2015,
+    "month": 7,
+    "typeGroup": "education",
+    "type": "jul",
+    "subject": "국어",
+    "subSubject": "나형",
+    "rawCuts": [
+      98,
+      94,
+      89,
+      82,
+      69,
+      48,
+      26,
+      19
+    ],
+    "fullScore": 100,
+    "standardCuts": [
+      124,
+      121,
+      117,
+      111,
+      101,
+      84,
+      67,
+      61
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1711,
+    "standardPercentile": [
+      96,
+      88,
+      76,
+      60,
+      41,
+      22,
+      11,
+      4
+    ],
+    "highestStandardScore": 125
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2016,
+    "examYear": 2015,
+    "month": 7,
+    "typeGroup": "education",
+    "type": "jul",
+    "subject": "사회탐구",
+    "subSubject": "경제",
+    "rawCuts": [
+      43,
+      30,
+      20,
+      14,
+      10,
+      8,
+      7,
+      5
+    ],
+    "fullScore": 50,
+    "standardCuts": [
+      76,
+      64,
+      54,
+      48,
+      45,
+      43,
+      42,
+      40
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1712,
+    "standardPercentile": [
+      96,
+      88,
+      76,
+      60,
+      39,
+      18,
+      9,
+      4
+    ],
+    "highestStandardScore": 83
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2016,
+    "examYear": 2015,
+    "month": 7,
+    "typeGroup": "education",
+    "type": "jul",
+    "subject": "사회탐구",
+    "subSubject": "동아시아사",
+    "rawCuts": [
+      50,
+      44,
+      39,
+      31,
+      21,
+      13,
+      10,
+      6
+    ],
+    "fullScore": 50,
+    "standardCuts": [
+      67,
+      63,
+      59,
+      53,
+      46,
+      40,
+      38,
+      35
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1713,
+    "standardPercentile": [
+      97,
+      86,
+      76,
+      59,
+      39,
+      21,
+      14,
+      3
+    ],
+    "highestStandardScore": 67
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2016,
+    "examYear": 2015,
+    "month": 7,
+    "typeGroup": "education",
+    "type": "jul",
+    "subject": "사회탐구",
+    "subSubject": "법과정치",
+    "rawCuts": [
+      47,
+      41,
+      35,
+      26,
+      18,
+      13,
+      10,
+      7
+    ],
+    "fullScore": 50,
+    "standardCuts": [
+      69,
+      64,
+      59,
+      52,
+      45,
+      41,
+      39,
+      36
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1714,
+    "standardPercentile": [
+      96,
+      88,
+      76,
+      59,
+      39,
+      22,
+      12,
+      5
+    ],
+    "highestStandardScore": 71
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2016,
+    "examYear": 2015,
+    "month": 7,
+    "typeGroup": "education",
+    "type": "jul",
+    "subject": "사회탐구",
+    "subSubject": "사회·문화",
+    "rawCuts": [
+      47,
+      44,
+      41,
+      34,
+      28,
+      18,
+      11,
+      7
+    ],
+    "fullScore": 50,
+    "standardCuts": [
+      64,
+      62,
+      59,
+      54,
+      49,
+      41,
+      35,
+      32
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1715,
+    "standardPercentile": [
+      93,
+      88,
+      78,
+      59,
+      41,
+      23,
+      9,
+      3
+    ],
+    "highestStandardScore": 66
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2016,
+    "examYear": 2015,
+    "month": 7,
+    "typeGroup": "education",
+    "type": "jul",
+    "subject": "사회탐구",
+    "subSubject": "생활과윤리",
+    "rawCuts": [
+      47,
+      44,
+      38,
+      32,
+      25,
+      17,
+      12,
+      7
+    ],
+    "fullScore": 50,
+    "standardCuts": [
+      66,
+      64,
+      59,
+      54,
+      48,
+      41,
+      37,
+      33
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1716,
+    "standardPercentile": [
+      94,
+      90,
+      77,
+      62,
+      42,
+      22,
+      12,
+      3
+    ],
+    "highestStandardScore": 69
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2016,
+    "examYear": 2015,
+    "month": 7,
+    "typeGroup": "education",
+    "type": "jul",
+    "subject": "사회탐구",
+    "subSubject": "세계사",
+    "rawCuts": [
+      50,
+      46,
+      39,
+      28,
+      19,
+      15,
+      9,
+      6
+    ],
+    "fullScore": 50,
+    "standardCuts": [
+      68,
+      65,
+      60,
+      52,
+      45,
+      42,
+      38,
+      36
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1717,
+    "standardPercentile": [
+      97,
+      89,
+      78,
+      59,
+      39,
+      27,
+      11,
+      4
+    ],
+    "highestStandardScore": 68
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2016,
+    "examYear": 2015,
+    "month": 7,
+    "typeGroup": "education",
+    "type": "jul",
+    "subject": "사회탐구",
+    "subSubject": "세계지리",
+    "rawCuts": [
+      47,
+      45,
+      38,
+      30,
+      21,
+      14,
+      10,
+      7
+    ],
+    "fullScore": 50,
+    "standardCuts": [
+      66,
+      64,
+      59,
+      53,
+      46,
+      40,
+      37,
+      35
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1718,
+    "standardPercentile": [
+      94,
+      90,
+      76,
+      59,
+      39,
+      22,
+      11,
+      3
+    ],
+    "highestStandardScore": 68
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2016,
+    "examYear": 2015,
+    "month": 7,
+    "typeGroup": "education",
+    "type": "jul",
+    "subject": "사회탐구",
+    "subSubject": "윤리와사상",
+    "rawCuts": [
+      47,
+      41,
+      33,
+      23,
+      15,
+      11,
+      7,
+      6
+    ],
+    "fullScore": 50,
+    "standardCuts": [
+      70,
+      65,
+      59,
+      51,
+      45,
+      42,
+      39,
+      38
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1719,
+    "standardPercentile": [
+      96,
+      89,
+      77,
+      60,
+      40,
+      25,
+      13,
+      7
+    ],
+    "highestStandardScore": 72
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2016,
+    "examYear": 2015,
+    "month": 7,
+    "typeGroup": "education",
+    "type": "jul",
+    "subject": "사회탐구",
+    "subSubject": "한국지리",
+    "rawCuts": [
+      47,
+      42,
+      38,
+      31,
+      23,
+      17,
+      10,
+      8
+    ],
+    "fullScore": 50,
+    "standardCuts": [
+      67,
+      63,
+      59,
+      53,
+      47,
+      42,
+      36,
+      34
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1720,
+    "standardPercentile": [
+      96,
+      87,
+      77,
+      60,
+      40,
+      25,
+      8,
+      4
+    ],
+    "highestStandardScore": 69
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2016,
+    "examYear": 2015,
+    "month": 7,
+    "typeGroup": "education",
+    "type": "jul",
+    "subject": "수학",
+    "subSubject": "가형",
+    "rawCuts": [
+      96,
+      92,
+      81,
+      65,
+      45,
+      26,
+      16,
+      12
+    ],
+    "fullScore": 100,
+    "standardCuts": [
+      130,
+      127,
+      119,
+      108,
+      94,
+      80,
+      73,
+      70
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1721,
+    "standardPercentile": [
+      95,
+      89,
+      76,
+      60,
+      40,
+      23,
+      11,
+      4
+    ],
+    "highestStandardScore": 133
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2016,
+    "examYear": 2015,
+    "month": 7,
+    "typeGroup": "education",
+    "type": "jul",
+    "subject": "수학",
+    "subSubject": "나형",
+    "rawCuts": [
+      92,
+      77,
+      61,
+      43,
+      27,
+      17,
+      12,
+      11
+    ],
+    "fullScore": 100,
+    "standardCuts": [
+      141,
+      129,
+      116,
+      102,
+      89,
+      81,
+      77,
+      76
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1722,
+    "standardPercentile": [
+      96,
+      89,
+      76,
+      58,
+      38,
+      21,
+      8,
+      4
+    ],
+    "highestStandardScore": 148
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2016,
+    "examYear": 2015,
+    "month": 7,
+    "typeGroup": "education",
+    "type": "jul",
+    "subject": "영어",
+    "subSubject": null,
+    "rawCuts": [
+      91,
+      83,
+      71,
+      57,
+      42,
+      30,
+      22,
+      18
+    ],
+    "fullScore": 100,
+    "standardCuts": [
+      135,
+      128,
+      118,
+      105,
+      92,
+      82,
+      75,
+      71
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1723,
+    "standardPercentile": [
+      96,
+      89,
+      76,
+      60,
+      40,
+      23,
+      10,
+      4
+    ],
+    "highestStandardScore": 143
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2016,
+    "examYear": 2015,
+    "month": 7,
+    "typeGroup": "education",
+    "type": "jul",
+    "subject": "한국사",
+    "subSubject": null,
+    "rawCuts": [
+      50,
+      45,
+      39,
+      28,
+      16,
+      12,
+      9,
+      5
+    ],
+    "fullScore": 50,
+    "standardCuts": [
+      68,
+      64,
+      60,
+      52,
+      44,
+      41,
+      39,
+      36
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1724,
+    "standardPercentile": [
+      97,
+      87,
+      76,
+      59,
+      37,
+      23,
+      13,
+      2
+    ],
+    "highestStandardScore": 68
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2016,
+    "examYear": 2015,
+    "month": 4,
+    "typeGroup": "education",
+    "type": "apr",
+    "subject": "과학탐구",
+    "subSubject": "물리Ⅰ",
+    "rawCuts": [
+      42,
+      36,
+      29,
+      22,
+      17,
+      12,
+      10,
+      6
+    ],
+    "fullScore": 50,
+    "standardCuts": [
+      70,
+      64,
+      58,
+      51,
+      46,
+      41,
+      39,
+      36
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1725,
+    "standardPercentile": [
+      95,
+      89,
+      77,
+      59,
+      41,
+      21,
+      13,
+      3
+    ],
+    "highestStandardScore": 78
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2016,
+    "examYear": 2015,
+    "month": 4,
+    "typeGroup": "education",
+    "type": "apr",
+    "subject": "과학탐구",
+    "subSubject": "물리Ⅱ",
+    "rawCuts": [
+      46,
+      40,
+      27,
+      17,
+      12,
+      9,
+      7,
+      5
+    ],
+    "fullScore": 50,
+    "standardCuts": [
+      72,
+      67,
+      57,
+      49,
+      45,
+      42,
+      41,
+      39
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1726,
+    "standardPercentile": [
+      96,
+      89,
+      77,
+      62,
+      41,
+      21,
+      12,
+      4
+    ],
+    "highestStandardScore": 75
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2016,
+    "examYear": 2015,
+    "month": 4,
+    "typeGroup": "education",
+    "type": "apr",
+    "subject": "과학탐구",
+    "subSubject": "생명과학Ⅰ",
+    "rawCuts": [
+      47,
+      44,
+      38,
+      29,
+      22,
+      16,
+      12,
+      8
+    ],
+    "fullScore": 50,
+    "standardCuts": [
+      67,
+      64,
+      59,
+      52,
+      46,
+      41,
+      38,
+      35
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1727,
+    "standardPercentile": [
+      93,
+      87,
+      77,
+      59,
+      41,
+      22,
+      10,
+      3
+    ],
+    "highestStandardScore": 69
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2016,
+    "examYear": 2015,
+    "month": 4,
+    "typeGroup": "education",
+    "type": "apr",
+    "subject": "과학탐구",
+    "subSubject": "생명과학Ⅱ",
+    "rawCuts": [
+      50,
+      47,
+      40,
+      29,
+      20,
+      14,
+      10,
+      7
+    ],
+    "fullScore": 50,
+    "standardCuts": [
+      67,
+      65,
+      60,
+      52,
+      45,
+      41,
+      38,
+      36
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1728,
+    "standardPercentile": [
+      96,
+      89,
+      76,
+      61,
+      39,
+      21,
+      10,
+      5
+    ],
+    "highestStandardScore": 67
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2016,
+    "examYear": 2015,
+    "month": 4,
+    "typeGroup": "education",
+    "type": "apr",
+    "subject": "과학탐구",
+    "subSubject": "지구과학Ⅰ",
+    "rawCuts": [
+      43,
+      36,
+      30,
+      25,
+      19,
+      14,
+      10,
+      7
+    ],
+    "fullScore": 50,
+    "standardCuts": [
+      70,
+      63,
+      57,
+      52,
+      47,
+      42,
+      38,
+      35
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1729,
+    "standardPercentile": [
+      95,
+      88,
+      76,
+      61,
+      41,
+      23,
+      10,
+      3
+    ],
+    "highestStandardScore": 77
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2016,
+    "examYear": 2015,
+    "month": 4,
+    "typeGroup": "education",
+    "type": "apr",
+    "subject": "과학탐구",
+    "subSubject": "지구과학Ⅱ",
+    "rawCuts": [
+      47,
+      40,
+      31,
+      21,
+      14,
+      9,
+      8,
+      5
+    ],
+    "fullScore": 50,
+    "standardCuts": [
+      70,
+      65,
+      58,
+      50,
+      45,
+      41,
+      40,
+      38
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1730,
+    "standardPercentile": [
+      96,
+      87,
+      76,
+      59,
+      42,
+      19,
+      10,
+      4
+    ],
+    "highestStandardScore": 72
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2016,
+    "examYear": 2015,
+    "month": 4,
+    "typeGroup": "education",
+    "type": "apr",
+    "subject": "과학탐구",
+    "subSubject": "화학Ⅰ",
+    "rawCuts": [
+      44,
+      38,
+      30,
+      23,
+      18,
+      14,
+      10,
+      8
+    ],
+    "fullScore": 50,
+    "standardCuts": [
+      70,
+      65,
+      57,
+      51,
+      46,
+      42,
+      39,
+      37
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1731,
+    "standardPercentile": [
+      95,
+      89,
+      76,
+      59,
+      41,
+      24,
+      11,
+      5
+    ],
+    "highestStandardScore": 76
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2016,
+    "examYear": 2015,
+    "month": 4,
+    "typeGroup": "education",
+    "type": "apr",
+    "subject": "과학탐구",
+    "subSubject": "화학Ⅱ",
+    "rawCuts": [
+      42,
+      34,
+      23,
+      17,
+      13,
+      10,
+      7,
+      5
+    ],
+    "fullScore": 50,
+    "standardCuts": [
+      73,
+      66,
+      55,
+      49,
+      46,
+      43,
+      40,
+      38
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1732,
+    "standardPercentile": [
+      95,
+      89,
+      76,
+      59,
+      43,
+      23,
+      9,
+      4
+    ],
+    "highestStandardScore": 81
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2016,
+    "examYear": 2015,
+    "month": 4,
+    "typeGroup": "education",
+    "type": "apr",
+    "subject": "국어",
+    "subSubject": "가형",
+    "rawCuts": [
+      98,
+      95,
+      89,
+      81,
+      68,
+      53,
+      34,
+      22
+    ],
+    "fullScore": 100,
+    "standardCuts": [
+      125,
+      122,
+      117,
+      110,
+      99,
+      85,
+      69,
+      58
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1733,
+    "standardPercentile": [
+      96,
+      89,
+      76,
+      60,
+      40,
+      23,
+      10,
+      3
+    ],
+    "highestStandardScore": 127
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2016,
+    "examYear": 2015,
+    "month": 4,
+    "typeGroup": "education",
+    "type": "apr",
+    "subject": "국어",
+    "subSubject": "나형",
+    "rawCuts": [
+      94,
+      88,
+      79,
+      68,
+      56,
+      43,
+      30,
+      22
+    ],
+    "fullScore": 100,
+    "standardCuts": [
+      131,
+      126,
+      117,
+      107,
+      96,
+      84,
+      72,
+      64
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1734,
+    "standardPercentile": [
+      95,
+      89,
+      77,
+      59,
+      40,
+      22,
+      10,
+      4
+    ],
+    "highestStandardScore": 137
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2016,
+    "examYear": 2015,
+    "month": 4,
+    "typeGroup": "education",
+    "type": "apr",
+    "subject": "사회탐구",
+    "subSubject": "경제",
+    "rawCuts": [
+      40,
+      32,
+      23,
+      16,
+      12,
+      10,
+      8,
+      5
+    ],
+    "fullScore": 50,
+    "standardCuts": [
+      73,
+      65,
+      56,
+      49,
+      45,
+      43,
+      41,
+      38
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1735,
+    "standardPercentile": [
+      95,
+      88,
+      76,
+      60,
+      40,
+      23,
+      13,
+      4
+    ],
+    "highestStandardScore": 83
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2016,
+    "examYear": 2015,
+    "month": 4,
+    "typeGroup": "education",
+    "type": "apr",
+    "subject": "사회탐구",
+    "subSubject": "동아시아사",
+    "rawCuts": [
+      46,
+      39,
+      28,
+      20,
+      14,
+      10,
+      8,
+      5
+    ],
+    "fullScore": 50,
+    "standardCuts": [
+      72,
+      66,
+      57,
+      50,
+      45,
+      42,
+      40,
+      38
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1736,
+    "standardPercentile": [
+      95,
+      89,
+      76,
+      60,
+      40,
+      21,
+      12,
+      4
+    ],
+    "highestStandardScore": 75
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2016,
+    "examYear": 2015,
+    "month": 4,
+    "typeGroup": "education",
+    "type": "apr",
+    "subject": "사회탐구",
+    "subSubject": "법과정치",
+    "rawCuts": [
+      41,
+      35,
+      28,
+      22,
+      15,
+      12,
+      9,
+      6
+    ],
+    "fullScore": 50,
+    "standardCuts": [
+      70,
+      64,
+      57,
+      51,
+      45,
+      42,
+      39,
+      36
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1737,
+    "standardPercentile": [
+      95,
+      89,
+      76,
+      59,
+      36,
+      24,
+      10,
+      4
+    ],
+    "highestStandardScore": 79
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2016,
+    "examYear": 2015,
+    "month": 4,
+    "typeGroup": "education",
+    "type": "apr",
+    "subject": "사회탐구",
+    "subSubject": "사회·문화",
+    "rawCuts": [
+      47,
+      44,
+      39,
+      33,
+      26,
+      19,
+      12,
+      9
+    ],
+    "fullScore": 50,
+    "standardCuts": [
+      66,
+      63,
+      59,
+      54,
+      48,
+      42,
+      36,
+      33
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1738,
+    "standardPercentile": [
+      95,
+      89,
+      77,
+      60,
+      39,
+      23,
+      10,
+      4
+    ],
+    "highestStandardScore": 68
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2016,
+    "examYear": 2015,
+    "month": 4,
+    "typeGroup": "education",
+    "type": "apr",
+    "subject": "사회탐구",
+    "subSubject": "생활과윤리",
+    "rawCuts": [
+      47,
+      45,
+      41,
+      33,
+      27,
+      19,
+      13,
+      9
+    ],
+    "fullScore": 50,
+    "standardCuts": [
+      64,
+      63,
+      59,
+      53,
+      48,
+      41,
+      36,
+      33
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1739,
+    "standardPercentile": [
+      93,
+      89,
+      78,
+      57,
+      39,
+      22,
+      12,
+      4
+    ],
+    "highestStandardScore": 67
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2016,
+    "examYear": 2015,
+    "month": 4,
+    "typeGroup": "education",
+    "type": "apr",
+    "subject": "사회탐구",
+    "subSubject": "세계사",
+    "rawCuts": [
+      47,
+      40,
+      29,
+      21,
+      15,
+      11,
+      8,
+      6
+    ],
+    "fullScore": 50,
+    "standardCuts": [
+      72,
+      66,
+      57,
+      50,
+      45,
+      42,
+      39,
+      38
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1740,
+    "standardPercentile": [
+      95,
+      89,
+      77,
+      61,
+      38,
+      21,
+      10,
+      5
+    ],
+    "highestStandardScore": 74
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2016,
+    "examYear": 2015,
+    "month": 4,
+    "typeGroup": "education",
+    "type": "apr",
+    "subject": "사회탐구",
+    "subSubject": "세계지리",
+    "rawCuts": [
+      50,
+      47,
+      42,
+      34,
+      26,
+      19,
+      12,
+      7
+    ],
+    "fullScore": 50,
+    "standardCuts": [
+      66,
+      64,
+      60,
+      53,
+      47,
+      41,
+      36,
+      32
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1741,
+    "standardPercentile": [
+      96,
+      90,
+      78,
+      59,
+      39,
+      22,
+      10,
+      3
+    ],
+    "highestStandardScore": 66
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2016,
+    "examYear": 2015,
+    "month": 4,
+    "typeGroup": "education",
+    "type": "apr",
+    "subject": "사회탐구",
+    "subSubject": "윤리와사상",
+    "rawCuts": [
+      47,
+      42,
+      33,
+      24,
+      16,
+      12,
+      8,
+      7
+    ],
+    "fullScore": 50,
+    "standardCuts": [
+      69,
+      65,
+      58,
+      51,
+      45,
+      42,
+      39,
+      38
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1742,
+    "standardPercentile": [
+      95,
+      88,
+      76,
+      61,
+      38,
+      25,
+      12,
+      6
+    ],
+    "highestStandardScore": 72
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2016,
+    "examYear": 2015,
+    "month": 4,
+    "typeGroup": "education",
+    "type": "apr",
+    "subject": "사회탐구",
+    "subSubject": "한국지리",
+    "rawCuts": [
+      48,
+      44,
+      39,
+      33,
+      26,
+      21,
+      15,
+      9
+    ],
+    "fullScore": 50,
+    "standardCuts": [
+      66,
+      63,
+      58,
+      53,
+      47,
+      42,
+      37,
+      31
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1743,
+    "standardPercentile": [
+      96,
+      88,
+      76,
+      59,
+      38,
+      22,
+      11,
+      3
+    ],
+    "highestStandardScore": 68
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2016,
+    "examYear": 2015,
+    "month": 4,
+    "typeGroup": "education",
+    "type": "apr",
+    "subject": "수학",
+    "subSubject": "가형",
+    "rawCuts": [
+      89,
+      79,
+      66,
+      54,
+      40,
+      27,
+      19,
+      13
+    ],
+    "fullScore": 100,
+    "standardCuts": [
+      136,
+      128,
+      116,
+      106,
+      93,
+      82,
+      75,
+      70
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1744,
+    "standardPercentile": [
+      96,
+      89,
+      77,
+      61,
+      40,
+      22,
+      11,
+      4
+    ],
+    "highestStandardScore": 146
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2016,
+    "examYear": 2015,
+    "month": 4,
+    "typeGroup": "education",
+    "type": "apr",
+    "subject": "수학",
+    "subSubject": "나형",
+    "rawCuts": [
+      92,
+      79,
+      61,
+      42,
+      29,
+      19,
+      15,
+      10
+    ],
+    "fullScore": 100,
+    "standardCuts": [
+      141,
+      131,
+      116,
+      101,
+      90,
+      82,
+      79,
+      75
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1745,
+    "standardPercentile": [
+      96,
+      89,
+      77,
+      59,
+      40,
+      22,
+      13,
+      3
+    ],
+    "highestStandardScore": 148
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2016,
+    "examYear": 2015,
+    "month": 4,
+    "typeGroup": "education",
+    "type": "apr",
+    "subject": "영어",
+    "subSubject": null,
+    "rawCuts": [
+      97,
+      94,
+      84,
+      70,
+      55,
+      42,
+      30,
+      21
+    ],
+    "fullScore": 100,
+    "standardCuts": [
+      130,
+      127,
+      119,
+      107,
+      94,
+      83,
+      73,
+      65
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1746,
+    "standardPercentile": [
+      94,
+      89,
+      77,
+      60,
+      40,
+      23,
+      11,
+      3
+    ],
+    "highestStandardScore": 132
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2016,
+    "examYear": 2015,
+    "month": 4,
+    "typeGroup": "education",
+    "type": "apr",
+    "subject": "한국사",
+    "subSubject": null,
+    "rawCuts": [
+      50,
+      47,
+      40,
+      28,
+      16,
+      12,
+      7,
+      5
+    ],
+    "fullScore": 50,
+    "standardCuts": [
+      67,
+      65,
+      60,
+      52,
+      44,
+      41,
+      38,
+      36
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1747,
+    "standardPercentile": [
+      96,
+      89,
+      77,
+      59,
+      37,
+      24,
+      9,
+      2
+    ],
+    "highestStandardScore": 67
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2016,
+    "examYear": 2015,
+    "month": 3,
+    "typeGroup": "education",
+    "type": "mar",
+    "subject": "과학탐구",
+    "subSubject": "물리Ⅰ",
+    "rawCuts": [
+      42,
+      33,
+      24,
+      17,
+      14,
+      11,
+      8,
+      6
+    ],
+    "fullScore": 50,
+    "standardCuts": [
+      73,
+      64,
+      55,
+      49,
+      46,
+      43,
+      40,
+      38
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1748,
+    "standardPercentile": [
+      96,
+      88,
+      76,
+      56,
+      40,
+      23,
+      9,
+      4
+    ],
+    "highestStandardScore": 81
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2016,
+    "examYear": 2015,
+    "month": 3,
+    "typeGroup": "education",
+    "type": "mar",
+    "subject": "과학탐구",
+    "subSubject": "생명과학Ⅰ",
+    "rawCuts": [
+      41,
+      35,
+      28,
+      22,
+      17,
+      13,
+      10,
+      7
+    ],
+    "fullScore": 50,
+    "standardCuts": [
+      70,
+      64,
+      57,
+      51,
+      46,
+      42,
+      39,
+      36
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1749,
+    "standardPercentile": [
+      95,
+      88,
+      75,
+      58,
+      39,
+      22,
+      11,
+      3
+    ],
+    "highestStandardScore": 79
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2016,
+    "examYear": 2015,
+    "month": 3,
+    "typeGroup": "education",
+    "type": "mar",
+    "subject": "과학탐구",
+    "subSubject": "지구과학Ⅰ",
+    "rawCuts": [
+      41,
+      35,
+      29,
+      24,
+      19,
+      14,
+      10,
+      7
+    ],
+    "fullScore": 50,
+    "standardCuts": [
+      69,
+      63,
+      57,
+      52,
+      47,
+      42,
+      38,
+      35
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1750,
+    "standardPercentile": [
+      95,
+      88,
+      76,
+      60,
+      41,
+      22,
+      9,
+      3
+    ],
+    "highestStandardScore": 78
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2016,
+    "examYear": 2015,
+    "month": 3,
+    "typeGroup": "education",
+    "type": "mar",
+    "subject": "과학탐구",
+    "subSubject": "화학Ⅰ",
+    "rawCuts": [
+      43,
+      36,
+      29,
+      21,
+      14,
+      9,
+      8,
+      5
+    ],
+    "fullScore": 50,
+    "standardCuts": [
+      70,
+      64,
+      58,
+      51,
+      45,
+      41,
+      40,
+      37
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1751,
+    "standardPercentile": [
+      95,
+      87,
+      77,
+      61,
+      39,
+      18,
+      11,
+      3
+    ],
+    "highestStandardScore": 76
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2016,
+    "examYear": 2015,
+    "month": 3,
+    "typeGroup": "education",
+    "type": "mar",
+    "subject": "국어",
+    "subSubject": "가형",
+    "rawCuts": [
+      95,
+      90,
+      83,
+      72,
+      60,
+      46,
+      31,
+      20
+    ],
+    "fullScore": 100,
+    "standardCuts": [
+      128,
+      124,
+      118,
+      108,
+      97,
+      84,
+      71,
+      61
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1752,
+    "standardPercentile": [
+      96,
+      88,
+      77,
+      59,
+      39,
+      22,
+      11,
+      3
+    ],
+    "highestStandardScore": 133
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2016,
+    "examYear": 2015,
+    "month": 3,
+    "typeGroup": "education",
+    "type": "mar",
+    "subject": "국어",
+    "subSubject": "나형",
+    "rawCuts": [
+      96,
+      91,
+      84,
+      74,
+      60,
+      45,
+      33,
+      23
+    ],
+    "fullScore": 100,
+    "standardCuts": [
+      129,
+      124,
+      118,
+      109,
+      96,
+      83,
+      72,
+      63
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1753,
+    "standardPercentile": [
+      96,
+      88,
+      76,
+      60,
+      40,
+      22,
+      11,
+      4
+    ],
+    "highestStandardScore": 133
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2016,
+    "examYear": 2015,
+    "month": 3,
+    "typeGroup": "education",
+    "type": "mar",
+    "subject": "사회탐구",
+    "subSubject": "경제",
+    "rawCuts": [
+      47,
+      39,
+      30,
+      21,
+      13,
+      11,
+      7,
+      6
+    ],
+    "fullScore": 50,
+    "standardCuts": [
+      72,
+      65,
+      58,
+      50,
+      44,
+      42,
+      39,
+      38
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1754,
+    "standardPercentile": [
+      96,
+      88,
+      78,
+      59,
+      35,
+      24,
+      9,
+      4
+    ],
+    "highestStandardScore": 74
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2016,
+    "examYear": 2015,
+    "month": 3,
+    "typeGroup": "education",
+    "type": "mar",
+    "subject": "사회탐구",
+    "subSubject": "동아시아사",
+    "rawCuts": [
+      47,
+      41,
+      34,
+      27,
+      20,
+      15,
+      12,
+      8
+    ],
+    "fullScore": 50,
+    "standardCuts": [
+      70,
+      64,
+      58,
+      52,
+      46,
+      41,
+      39,
+      35
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1755,
+    "standardPercentile": [
+      97,
+      88,
+      76,
+      60,
+      38,
+      22,
+      13,
+      3
+    ],
+    "highestStandardScore": 72
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2016,
+    "examYear": 2015,
+    "month": 3,
+    "typeGroup": "education",
+    "type": "mar",
+    "subject": "사회탐구",
+    "subSubject": "법과정치",
+    "rawCuts": [
+      44,
+      38,
+      30,
+      22,
+      16,
+      12,
+      9,
+      6
+    ],
+    "fullScore": 50,
+    "standardCuts": [
+      70,
+      65,
+      58,
+      51,
+      45,
+      42,
+      39,
+      36
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1756,
+    "standardPercentile": [
+      95,
+      89,
+      77,
+      59,
+      39,
+      23,
+      10,
+      4
+    ],
+    "highestStandardScore": 75
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2016,
+    "examYear": 2015,
+    "month": 3,
+    "typeGroup": "education",
+    "type": "mar",
+    "subject": "사회탐구",
+    "subSubject": "사회·문화",
+    "rawCuts": [
+      43,
+      38,
+      33,
+      27,
+      21,
+      15,
+      11,
+      8
+    ],
+    "fullScore": 50,
+    "standardCuts": [
+      68,
+      63,
+      58,
+      53,
+      47,
+      41,
+      37,
+      35
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1757,
+    "standardPercentile": [
+      96,
+      89,
+      78,
+      60,
+      40,
+      21,
+      11,
+      6
+    ],
+    "highestStandardScore": 75
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2016,
+    "examYear": 2015,
+    "month": 3,
+    "typeGroup": "education",
+    "type": "mar",
+    "subject": "사회탐구",
+    "subSubject": "생활과윤리",
+    "rawCuts": [
+      44,
+      39,
+      34,
+      28,
+      22,
+      15,
+      9,
+      8
+    ],
+    "fullScore": 50,
+    "standardCuts": [
+      67,
+      63,
+      58,
+      53,
+      47,
+      41,
+      36,
+      35
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1758,
+    "standardPercentile": [
+      95,
+      88,
+      77,
+      59,
+      41,
+      22,
+      8,
+      4
+    ],
+    "highestStandardScore": 73
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2016,
+    "examYear": 2015,
+    "month": 3,
+    "typeGroup": "education",
+    "type": "mar",
+    "subject": "사회탐구",
+    "subSubject": "세계사",
+    "rawCuts": [
+      47,
+      40,
+      32,
+      24,
+      18,
+      13,
+      9,
+      6
+    ],
+    "fullScore": 50,
+    "standardCuts": [
+      71,
+      65,
+      58,
+      51,
+      46,
+      42,
+      38,
+      36
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1759,
+    "standardPercentile": [
+      96,
+      88,
+      77,
+      59,
+      40,
+      24,
+      9,
+      3
+    ],
+    "highestStandardScore": 73
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2016,
+    "examYear": 2015,
+    "month": 3,
+    "typeGroup": "education",
+    "type": "mar",
+    "subject": "사회탐구",
+    "subSubject": "세계지리",
+    "rawCuts": [
+      43,
+      37,
+      29,
+      22,
+      15,
+      12,
+      9,
+      6
+    ],
+    "fullScore": 50,
+    "standardCuts": [
+      70,
+      65,
+      57,
+      51,
+      45,
+      42,
+      39,
+      36
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1760,
+    "standardPercentile": [
+      95,
+      89,
+      76,
+      60,
+      37,
+      23,
+      11,
+      3
+    ],
+    "highestStandardScore": 77
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2016,
+    "examYear": 2015,
+    "month": 3,
+    "typeGroup": "education",
+    "type": "mar",
+    "subject": "사회탐구",
+    "subSubject": "윤리와사상",
+    "rawCuts": [
+      48,
+      42,
+      34,
+      27,
+      20,
+      13,
+      10,
+      7
+    ],
+    "fullScore": 50,
+    "standardCuts": [
+      69,
+      64,
+      58,
+      52,
+      46,
+      41,
+      38,
+      36
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1761,
+    "standardPercentile": [
+      96,
+      88,
+      76,
+      60,
+      41,
+      23,
+      12,
+      4
+    ],
+    "highestStandardScore": 71
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2016,
+    "examYear": 2015,
+    "month": 3,
+    "typeGroup": "education",
+    "type": "mar",
+    "subject": "사회탐구",
+    "subSubject": "한국지리",
+    "rawCuts": [
+      43,
+      37,
+      31,
+      24,
+      19,
+      14,
+      11,
+      8
+    ],
+    "fullScore": 50,
+    "standardCuts": [
+      70,
+      64,
+      58,
+      51,
+      46,
+      41,
+      38,
+      35
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1762,
+    "standardPercentile": [
+      96,
+      88,
+      77,
+      58,
+      40,
+      21,
+      11,
+      4
+    ],
+    "highestStandardScore": 77
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2016,
+    "examYear": 2015,
+    "month": 3,
+    "typeGroup": "education",
+    "type": "mar",
+    "subject": "수학",
+    "subSubject": "가형",
+    "rawCuts": [
+      92,
+      80,
+      66,
+      49,
+      35,
+      25,
+      17,
+      12
+    ],
+    "fullScore": 100,
+    "standardCuts": [
+      139,
+      129,
+      117,
+      103,
+      91,
+      83,
+      76,
+      72
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1763,
+    "standardPercentile": [
+      96,
+      89,
+      77,
+      59,
+      39,
+      24,
+      10,
+      3
+    ],
+    "highestStandardScore": 145
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2016,
+    "examYear": 2015,
+    "month": 3,
+    "typeGroup": "education",
+    "type": "mar",
+    "subject": "수학",
+    "subSubject": "나형",
+    "rawCuts": [
+      81,
+      69,
+      52,
+      36,
+      25,
+      17,
+      13,
+      10
+    ],
+    "fullScore": 100,
+    "standardCuts": [
+      141,
+      130,
+      115,
+      100,
+      90,
+      83,
+      79,
+      76
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1764,
+    "standardPercentile": [
+      95,
+      89,
+      76,
+      60,
+      40,
+      21,
+      9,
+      4
+    ],
+    "highestStandardScore": 159
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2016,
+    "examYear": 2015,
+    "month": 3,
+    "typeGroup": "education",
+    "type": "mar",
+    "subject": "영어",
+    "subSubject": null,
+    "rawCuts": [
+      100,
+      95,
+      85,
+      71,
+      54,
+      40,
+      27,
+      18
+    ],
+    "fullScore": 100,
+    "standardCuts": [
+      131,
+      127,
+      119,
+      107,
+      94,
+      82,
+      72,
+      65
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1765,
+    "standardPercentile": [
+      97,
+      90,
+      77,
+      59,
+      38,
+      22,
+      10,
+      3
+    ],
+    "highestStandardScore": 131
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2016,
+    "examYear": 2015,
+    "month": 3,
+    "typeGroup": "education",
+    "type": "mar",
+    "subject": "한국사",
+    "subSubject": null,
+    "rawCuts": [
+      47,
+      41,
+      32,
+      23,
+      16,
+      11,
+      8,
+      6
+    ],
+    "fullScore": 50,
+    "standardCuts": [
+      69,
+      65,
+      58,
+      51,
+      45,
+      41,
+      39,
+      37
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1766,
+    "standardPercentile": [
+      95,
+      88,
+      76,
+      60,
+      39,
+      22,
+      10,
+      3
+    ],
+    "highestStandardScore": 72
   },
   {
     "curriculum": "2009",
@@ -82880,8 +86912,30 @@
       36,
       33
     ],
-    "id": 1679,
-    "fullScore": 50
+    "id": 1767,
+    "fullScore": 50,
+    "rawCuts": [
+      50,
+      48,
+      45,
+      40,
+      27,
+      18,
+      12,
+      8
+    ],
+    "source": "ebsi-past-gradecuts",
+    "standardPercentile": [
+      97,
+      91,
+      79,
+      62,
+      39,
+      23,
+      11,
+      4
+    ],
+    "highestStandardScore": 64
   },
   {
     "curriculum": "2009",
@@ -82902,8 +86956,30 @@
       37,
       34
     ],
-    "id": 1680,
-    "fullScore": 50
+    "id": 1768,
+    "fullScore": 50,
+    "rawCuts": [
+      48,
+      45,
+      42,
+      37,
+      27,
+      19,
+      14,
+      11
+    ],
+    "source": "ebsi-past-gradecuts",
+    "standardPercentile": [
+      96,
+      87,
+      78,
+      61,
+      42,
+      24,
+      11,
+      5
+    ],
+    "highestStandardScore": 66
   },
   {
     "curriculum": "2009",
@@ -82924,8 +87000,30 @@
       36,
       33
     ],
-    "id": 1681,
-    "fullScore": 50
+    "id": 1769,
+    "fullScore": 50,
+    "rawCuts": [
+      48,
+      45,
+      40,
+      35,
+      27,
+      19,
+      13,
+      10
+    ],
+    "source": "ebsi-past-gradecuts",
+    "standardPercentile": [
+      97,
+      90,
+      78,
+      60,
+      41,
+      23,
+      11,
+      4
+    ],
+    "highestStandardScore": 67
   },
   {
     "curriculum": "2009",
@@ -82946,8 +87044,30 @@
       37,
       33
     ],
-    "id": 1682,
-    "fullScore": 50
+    "id": 1770,
+    "fullScore": 50,
+    "rawCuts": [
+      50,
+      47,
+      44,
+      36,
+      26,
+      19,
+      14,
+      9
+    ],
+    "source": "ebsi-past-gradecuts",
+    "standardPercentile": [
+      97,
+      90,
+      78,
+      59,
+      39,
+      24,
+      12,
+      4
+    ],
+    "highestStandardScore": 65
   },
   {
     "curriculum": "2009",
@@ -82968,8 +87088,30 @@
       36,
       31
     ],
-    "id": 1683,
-    "fullScore": 50
+    "id": 1771,
+    "fullScore": 50,
+    "rawCuts": [
+      45,
+      42,
+      40,
+      36,
+      30,
+      23,
+      16,
+      11
+    ],
+    "source": "ebsi-past-gradecuts",
+    "standardPercentile": [
+      96,
+      86,
+      78,
+      61,
+      41,
+      24,
+      11,
+      4
+    ],
+    "highestStandardScore": 68
   },
   {
     "curriculum": "2009",
@@ -82990,8 +87132,30 @@
       37,
       34
     ],
-    "id": 1684,
-    "fullScore": 50
+    "id": 1772,
+    "fullScore": 50,
+    "rawCuts": [
+      48,
+      45,
+      40,
+      33,
+      23,
+      16,
+      12,
+      8
+    ],
+    "source": "ebsi-past-gradecuts",
+    "standardPercentile": [
+      97,
+      90,
+      75,
+      60,
+      39,
+      22,
+      11,
+      3
+    ],
+    "highestStandardScore": 67
   },
   {
     "curriculum": "2009",
@@ -83012,8 +87176,30 @@
       36,
       33
     ],
-    "id": 1685,
-    "fullScore": 50
+    "id": 1773,
+    "fullScore": 50,
+    "rawCuts": [
+      47,
+      44,
+      40,
+      35,
+      26,
+      19,
+      13,
+      9
+    ],
+    "source": "ebsi-past-gradecuts",
+    "standardPercentile": [
+      96,
+      92,
+      78,
+      62,
+      39,
+      24,
+      11,
+      4
+    ],
+    "highestStandardScore": 68
   },
   {
     "curriculum": "2009",
@@ -83034,8 +87220,30 @@
       37,
       34
     ],
-    "id": 1686,
-    "fullScore": 50
+    "id": 1774,
+    "fullScore": 50,
+    "rawCuts": [
+      47,
+      45,
+      41,
+      35,
+      23,
+      16,
+      12,
+      8
+    ],
+    "source": "ebsi-past-gradecuts",
+    "standardPercentile": [
+      96,
+      89,
+      79,
+      61,
+      40,
+      25,
+      12,
+      4
+    ],
+    "highestStandardScore": 67
   },
   {
     "curriculum": "2009",
@@ -83056,8 +87264,30 @@
       36,
       32
     ],
-    "id": 1687,
-    "fullScore": 50
+    "id": 1775,
+    "fullScore": 50,
+    "rawCuts": [
+      47,
+      45,
+      41,
+      37,
+      27,
+      20,
+      13,
+      8
+    ],
+    "source": "ebsi-past-gradecuts",
+    "standardPercentile": [
+      95,
+      90,
+      76,
+      61,
+      38,
+      23,
+      11,
+      3
+    ],
+    "highestStandardScore": 66
   },
   {
     "curriculum": "2009",
@@ -83078,7 +87308,7 @@
       39,
       37
     ],
-    "id": 1688,
+    "id": 1776,
     "fullScore": 50
   },
   {
@@ -83100,7 +87330,7 @@
       null,
       40
     ],
-    "id": 1689,
+    "id": 1777,
     "fullScore": 50
   },
   {
@@ -83122,7 +87352,7 @@
       37,
       35
     ],
-    "id": 1690,
+    "id": 1778,
     "fullScore": 50
   },
   {
@@ -83144,7 +87374,7 @@
       41,
       38
     ],
-    "id": 1691,
+    "id": 1779,
     "fullScore": 50
   },
   {
@@ -83166,7 +87396,7 @@
       36,
       35
     ],
-    "id": 1692,
+    "id": 1780,
     "fullScore": 50
   },
   {
@@ -83188,7 +87418,7 @@
       37,
       35
     ],
-    "id": 1693,
+    "id": 1781,
     "fullScore": 50
   },
   {
@@ -83210,7 +87440,7 @@
       38,
       36
     ],
-    "id": 1694,
+    "id": 1782,
     "fullScore": 50
   },
   {
@@ -83232,7 +87462,7 @@
       38,
       36
     ],
-    "id": 1695,
+    "id": 1783,
     "fullScore": 50
   },
   {
@@ -83254,7 +87484,7 @@
       78,
       73
     ],
-    "id": 1696,
+    "id": 1784,
     "fullScore": 50
   },
   {
@@ -83276,7 +87506,7 @@
       77,
       74
     ],
-    "id": 1697,
+    "id": 1785,
     "fullScore": 50
   },
   {
@@ -83298,7 +87528,7 @@
       75,
       69
     ],
-    "id": 1698,
+    "id": 1786,
     "fullScore": 50
   },
   {
@@ -83320,8 +87550,3902 @@
       38,
       36
     ],
-    "id": 1699,
-    "fullScore": 50
+    "id": 1787,
+    "fullScore": 50,
+    "rawCuts": [
+      47,
+      44,
+      40,
+      32,
+      19,
+      14,
+      9,
+      6
+    ],
+    "source": "ebsi-past-gradecuts",
+    "standardPercentile": [
+      95,
+      89,
+      75,
+      60,
+      40,
+      26,
+      14,
+      6
+    ],
+    "highestStandardScore": 67
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2015,
+    "examYear": 2014,
+    "month": 10,
+    "typeGroup": "education",
+    "type": "oct",
+    "subject": "과학탐구",
+    "subSubject": "물리Ⅰ",
+    "rawCuts": [
+      46,
+      40,
+      34,
+      25,
+      17,
+      12,
+      9,
+      6
+    ],
+    "fullScore": 50,
+    "standardCuts": [
+      69,
+      64,
+      59,
+      52,
+      45,
+      41,
+      39,
+      36
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1788,
+    "standardPercentile": [
+      96,
+      88,
+      76,
+      60,
+      40,
+      23,
+      14,
+      3
+    ],
+    "highestStandardScore": 72
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2015,
+    "examYear": 2014,
+    "month": 10,
+    "typeGroup": "education",
+    "type": "oct",
+    "subject": "과학탐구",
+    "subSubject": "물리Ⅱ",
+    "rawCuts": [
+      50,
+      45,
+      35,
+      16,
+      13,
+      10,
+      7,
+      5
+    ],
+    "fullScore": 50,
+    "standardCuts": [
+      70,
+      67,
+      60,
+      47,
+      45,
+      43,
+      41,
+      39
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1789,
+    "standardPercentile": [
+      97,
+      89,
+      76,
+      59,
+      44,
+      26,
+      11,
+      4
+    ],
+    "highestStandardScore": 70
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2015,
+    "examYear": 2014,
+    "month": 10,
+    "typeGroup": "education",
+    "type": "oct",
+    "subject": "과학탐구",
+    "subSubject": "생명과학Ⅰ",
+    "rawCuts": [
+      40,
+      35,
+      29,
+      22,
+      16,
+      12,
+      9,
+      6
+    ],
+    "fullScore": 50,
+    "standardCuts": [
+      69,
+      64,
+      58,
+      51,
+      45,
+      41,
+      38,
+      35
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1790,
+    "standardPercentile": [
+      95,
+      89,
+      77,
+      59,
+      38,
+      21,
+      10,
+      3
+    ],
+    "highestStandardScore": 79
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2015,
+    "examYear": 2014,
+    "month": 10,
+    "typeGroup": "education",
+    "type": "oct",
+    "subject": "과학탐구",
+    "subSubject": "생명과학Ⅱ",
+    "rawCuts": [
+      47,
+      45,
+      39,
+      29,
+      18,
+      13,
+      8,
+      6
+    ],
+    "fullScore": 50,
+    "standardCuts": [
+      66,
+      64,
+      60,
+      53,
+      45,
+      41,
+      38,
+      36
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1791,
+    "standardPercentile": [
+      93,
+      89,
+      76,
+      60,
+      40,
+      25,
+      9,
+      3
+    ],
+    "highestStandardScore": 68
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2015,
+    "examYear": 2014,
+    "month": 10,
+    "typeGroup": "education",
+    "type": "oct",
+    "subject": "과학탐구",
+    "subSubject": "지구과학Ⅰ",
+    "rawCuts": [
+      42,
+      39,
+      33,
+      27,
+      20,
+      14,
+      10,
+      7
+    ],
+    "fullScore": 50,
+    "standardCuts": [
+      67,
+      64,
+      58,
+      53,
+      47,
+      41,
+      37,
+      35
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1792,
+    "standardPercentile": [
+      95,
+      90,
+      76,
+      60,
+      41,
+      23,
+      11,
+      4
+    ],
+    "highestStandardScore": 74
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2015,
+    "examYear": 2014,
+    "month": 10,
+    "typeGroup": "education",
+    "type": "oct",
+    "subject": "과학탐구",
+    "subSubject": "지구과학Ⅱ",
+    "rawCuts": [
+      47,
+      42,
+      32,
+      19,
+      13,
+      10,
+      7,
+      5
+    ],
+    "fullScore": 50,
+    "standardCuts": [
+      70,
+      66,
+      59,
+      49,
+      44,
+      42,
+      40,
+      38
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1793,
+    "standardPercentile": [
+      96,
+      89,
+      77,
+      58,
+      40,
+      25,
+      10,
+      3
+    ],
+    "highestStandardScore": 72
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2015,
+    "examYear": 2014,
+    "month": 10,
+    "typeGroup": "education",
+    "type": "oct",
+    "subject": "과학탐구",
+    "subSubject": "화학Ⅰ",
+    "rawCuts": [
+      50,
+      47,
+      42,
+      37,
+      27,
+      14,
+      10,
+      7
+    ],
+    "fullScore": 50,
+    "standardCuts": [
+      64,
+      62,
+      59,
+      55,
+      48,
+      39,
+      36,
+      34
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1794,
+    "standardPercentile": [
+      97,
+      89,
+      74,
+      59,
+      40,
+      21,
+      11,
+      4
+    ],
+    "highestStandardScore": 64
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2015,
+    "examYear": 2014,
+    "month": 10,
+    "typeGroup": "education",
+    "type": "oct",
+    "subject": "과학탐구",
+    "subSubject": "화학Ⅱ",
+    "rawCuts": [
+      48,
+      44,
+      39,
+      26,
+      13,
+      10,
+      8,
+      5
+    ],
+    "fullScore": 50,
+    "standardCuts": [
+      67,
+      64,
+      61,
+      52,
+      43,
+      41,
+      40,
+      38
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1795,
+    "standardPercentile": [
+      95,
+      87,
+      77,
+      59,
+      38,
+      22,
+      14,
+      4
+    ],
+    "highestStandardScore": 68
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2015,
+    "examYear": 2014,
+    "month": 10,
+    "typeGroup": "education",
+    "type": "oct",
+    "subject": "국어",
+    "subSubject": "가형",
+    "rawCuts": [
+      100,
+      98,
+      95,
+      88,
+      75,
+      44,
+      22,
+      16
+    ],
+    "fullScore": 100,
+    "standardCuts": [
+      120,
+      119,
+      117,
+      112,
+      103,
+      81,
+      66,
+      62
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1796,
+    "standardPercentile": [
+      95,
+      86,
+      77,
+      59,
+      40,
+      22,
+      10,
+      4
+    ],
+    "highestStandardScore": 120
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2015,
+    "examYear": 2014,
+    "month": 10,
+    "typeGroup": "education",
+    "type": "oct",
+    "subject": "국어",
+    "subSubject": "나형",
+    "rawCuts": [
+      100,
+      null,
+      96,
+      93,
+      83,
+      52,
+      23,
+      18
+    ],
+    "fullScore": 100,
+    "standardCuts": [
+      118,
+      null,
+      115,
+      113,
+      106,
+      84,
+      64,
+      60
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1797,
+    "standardPercentile": [
+      93,
+      null,
+      75,
+      62,
+      41,
+      23,
+      11,
+      4
+    ],
+    "highestStandardScore": 118
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2015,
+    "examYear": 2014,
+    "month": 10,
+    "typeGroup": "education",
+    "type": "oct",
+    "subject": "사회탐구",
+    "subSubject": "경제",
+    "rawCuts": [
+      48,
+      44,
+      34,
+      22,
+      13,
+      12,
+      8,
+      5
+    ],
+    "fullScore": 50,
+    "standardCuts": [
+      69,
+      66,
+      59,
+      50,
+      44,
+      43,
+      40,
+      38
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1798,
+    "standardPercentile": [
+      95,
+      89,
+      75,
+      60,
+      40,
+      28,
+      11,
+      3
+    ],
+    "highestStandardScore": 70
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2015,
+    "examYear": 2014,
+    "month": 10,
+    "typeGroup": "education",
+    "type": "oct",
+    "subject": "사회탐구",
+    "subSubject": "동아시아사",
+    "rawCuts": [
+      48,
+      45,
+      41,
+      36,
+      25,
+      14,
+      11,
+      7
+    ],
+    "fullScore": 50,
+    "standardCuts": [
+      64,
+      62,
+      59,
+      55,
+      47,
+      39,
+      37,
+      34
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1799,
+    "standardPercentile": [
+      96,
+      87,
+      75,
+      60,
+      39,
+      22,
+      12,
+      3
+    ],
+    "highestStandardScore": 65
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2015,
+    "examYear": 2014,
+    "month": 10,
+    "typeGroup": "education",
+    "type": "oct",
+    "subject": "사회탐구",
+    "subSubject": "법과정치",
+    "rawCuts": [
+      47,
+      45,
+      39,
+      30,
+      19,
+      12,
+      9,
+      6
+    ],
+    "fullScore": 50,
+    "standardCuts": [
+      66,
+      64,
+      60,
+      53,
+      45,
+      40,
+      38,
+      36
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1800,
+    "standardPercentile": [
+      95,
+      90,
+      77,
+      59,
+      40,
+      23,
+      10,
+      4
+    ],
+    "highestStandardScore": 68
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2015,
+    "examYear": 2014,
+    "month": 10,
+    "typeGroup": "education",
+    "type": "oct",
+    "subject": "사회탐구",
+    "subSubject": "사회·문화",
+    "rawCuts": [
+      48,
+      47,
+      43,
+      38,
+      30,
+      20,
+      12,
+      8
+    ],
+    "fullScore": 50,
+    "standardCuts": [
+      63,
+      62,
+      59,
+      55,
+      49,
+      41,
+      35,
+      32
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1801,
+    "standardPercentile": [
+      96,
+      92,
+      77,
+      60,
+      40,
+      23,
+      10,
+      3
+    ],
+    "highestStandardScore": 64
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2015,
+    "examYear": 2014,
+    "month": 10,
+    "typeGroup": "education",
+    "type": "oct",
+    "subject": "사회탐구",
+    "subSubject": "생활과윤리",
+    "rawCuts": [
+      44,
+      41,
+      38,
+      33,
+      28,
+      18,
+      11,
+      7
+    ],
+    "fullScore": 50,
+    "standardCuts": [
+      63,
+      61,
+      58,
+      54,
+      50,
+      41,
+      35,
+      32
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1802,
+    "standardPercentile": [
+      93,
+      85,
+      75,
+      58,
+      42,
+      22,
+      12,
+      4
+    ],
+    "highestStandardScore": 68
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2015,
+    "examYear": 2014,
+    "month": 10,
+    "typeGroup": "education",
+    "type": "oct",
+    "subject": "사회탐구",
+    "subSubject": "세계사",
+    "rawCuts": [
+      50,
+      47,
+      41,
+      31,
+      17,
+      11,
+      8,
+      5
+    ],
+    "fullScore": 50,
+    "standardCuts": [
+      66,
+      64,
+      60,
+      53,
+      44,
+      40,
+      38,
+      36
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1803,
+    "standardPercentile": [
+      96,
+      89,
+      75,
+      59,
+      39,
+      21,
+      9,
+      3
+    ],
+    "highestStandardScore": 66
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2015,
+    "examYear": 2014,
+    "month": 10,
+    "typeGroup": "education",
+    "type": "oct",
+    "subject": "사회탐구",
+    "subSubject": "세계지리",
+    "rawCuts": [
+      50,
+      47,
+      41,
+      36,
+      25,
+      16,
+      11,
+      6
+    ],
+    "fullScore": 50,
+    "standardCuts": [
+      65,
+      63,
+      59,
+      55,
+      47,
+      40,
+      36,
+      33
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1804,
+    "standardPercentile": [
+      97,
+      91,
+      75,
+      60,
+      38,
+      22,
+      12,
+      3
+    ],
+    "highestStandardScore": 65
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2015,
+    "examYear": 2014,
+    "month": 10,
+    "typeGroup": "education",
+    "type": "oct",
+    "subject": "사회탐구",
+    "subSubject": "윤리와사상",
+    "rawCuts": [
+      50,
+      47,
+      41,
+      33,
+      21,
+      12,
+      9,
+      6
+    ],
+    "fullScore": 50,
+    "standardCuts": [
+      66,
+      64,
+      60,
+      54,
+      46,
+      40,
+      38,
+      36
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1805,
+    "standardPercentile": [
+      97,
+      90,
+      77,
+      60,
+      40,
+      25,
+      14,
+      4
+    ],
+    "highestStandardScore": 66
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2015,
+    "examYear": 2014,
+    "month": 10,
+    "typeGroup": "education",
+    "type": "oct",
+    "subject": "사회탐구",
+    "subSubject": "한국지리",
+    "rawCuts": [
+      46,
+      44,
+      40,
+      33,
+      24,
+      15,
+      11,
+      7
+    ],
+    "fullScore": 50,
+    "standardCuts": [
+      64,
+      62,
+      59,
+      54,
+      47,
+      40,
+      37,
+      34
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1806,
+    "standardPercentile": [
+      94,
+      87,
+      76,
+      59,
+      39,
+      22,
+      14,
+      4
+    ],
+    "highestStandardScore": 67
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2015,
+    "examYear": 2014,
+    "month": 10,
+    "typeGroup": "education",
+    "type": "oct",
+    "subject": "수학",
+    "subSubject": "가형",
+    "rawCuts": [
+      96,
+      88,
+      80,
+      67,
+      51,
+      30,
+      16,
+      12
+    ],
+    "fullScore": 100,
+    "standardCuts": [
+      130,
+      124,
+      118,
+      108,
+      96,
+      81,
+      70,
+      67
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1807,
+    "standardPercentile": [
+      94,
+      87,
+      77,
+      60,
+      39,
+      22,
+      10,
+      4
+    ],
+    "highestStandardScore": 133
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2015,
+    "examYear": 2014,
+    "month": 10,
+    "typeGroup": "education",
+    "type": "oct",
+    "subject": "수학",
+    "subSubject": "나형",
+    "rawCuts": [
+      88,
+      76,
+      55,
+      35,
+      23,
+      17,
+      12,
+      8
+    ],
+    "fullScore": 100,
+    "standardCuts": [
+      142,
+      132,
+      115,
+      99,
+      89,
+      84,
+      80,
+      77
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1808,
+    "standardPercentile": [
+      95,
+      89,
+      77,
+      59,
+      40,
+      24,
+      11,
+      3
+    ],
+    "highestStandardScore": 151
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2015,
+    "examYear": 2014,
+    "month": 10,
+    "typeGroup": "education",
+    "type": "oct",
+    "subject": "영어",
+    "subSubject": null,
+    "rawCuts": [
+      97,
+      92,
+      85,
+      72,
+      54,
+      36,
+      22,
+      18
+    ],
+    "fullScore": 100,
+    "standardCuts": [
+      129,
+      125,
+      119,
+      109,
+      95,
+      81,
+      70,
+      67
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1809,
+    "standardPercentile": [
+      96,
+      89,
+      77,
+      60,
+      40,
+      23,
+      9,
+      3
+    ],
+    "highestStandardScore": 131
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2015,
+    "examYear": 2014,
+    "month": 10,
+    "typeGroup": "education",
+    "type": "oct",
+    "subject": "한국사",
+    "subSubject": null,
+    "rawCuts": [
+      50,
+      null,
+      44,
+      36,
+      24,
+      13,
+      7,
+      6
+    ],
+    "fullScore": 50,
+    "standardCuts": [
+      64,
+      null,
+      60,
+      55,
+      47,
+      40,
+      36,
+      35
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1810,
+    "standardPercentile": [
+      94,
+      null,
+      76,
+      60,
+      41,
+      23,
+      8,
+      3
+    ],
+    "highestStandardScore": 64
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2015,
+    "examYear": 2014,
+    "month": 7,
+    "typeGroup": "education",
+    "type": "jul",
+    "subject": "과학탐구",
+    "subSubject": "물리Ⅰ",
+    "rawCuts": [
+      45,
+      42,
+      35,
+      28,
+      19,
+      13,
+      9,
+      7
+    ],
+    "fullScore": 50,
+    "standardCuts": [
+      67,
+      64,
+      59,
+      53,
+      46,
+      41,
+      38,
+      36
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1811,
+    "standardPercentile": [
+      95,
+      89,
+      76,
+      60,
+      41,
+      23,
+      11,
+      4
+    ],
+    "highestStandardScore": 71
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2015,
+    "examYear": 2014,
+    "month": 7,
+    "typeGroup": "education",
+    "type": "jul",
+    "subject": "과학탐구",
+    "subSubject": "물리Ⅱ",
+    "rawCuts": [
+      47,
+      42,
+      27,
+      15,
+      11,
+      7,
+      null,
+      5
+    ],
+    "fullScore": 50,
+    "standardCuts": [
+      72,
+      68,
+      57,
+      48,
+      45,
+      42,
+      null,
+      40
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1812,
+    "standardPercentile": [
+      95,
+      89,
+      77,
+      61,
+      43,
+      17,
+      null,
+      5
+    ],
+    "highestStandardScore": 74
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2015,
+    "examYear": 2014,
+    "month": 7,
+    "typeGroup": "education",
+    "type": "jul",
+    "subject": "과학탐구",
+    "subSubject": "생명과학Ⅰ",
+    "rawCuts": [
+      38,
+      32,
+      27,
+      21,
+      16,
+      12,
+      10,
+      6
+    ],
+    "fullScore": 50,
+    "standardCuts": [
+      70,
+      63,
+      58,
+      51,
+      46,
+      41,
+      39,
+      35
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1813,
+    "standardPercentile": [
+      96,
+      88,
+      77,
+      59,
+      39,
+      21,
+      12,
+      3
+    ],
+    "highestStandardScore": 83
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2015,
+    "examYear": 2014,
+    "month": 7,
+    "typeGroup": "education",
+    "type": "jul",
+    "subject": "과학탐구",
+    "subSubject": "생명과학Ⅱ",
+    "rawCuts": [
+      45,
+      39,
+      32,
+      24,
+      17,
+      11,
+      7,
+      5
+    ],
+    "fullScore": 50,
+    "standardCuts": [
+      69,
+      64,
+      58,
+      52,
+      46,
+      41,
+      38,
+      36
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1814,
+    "standardPercentile": [
+      96,
+      88,
+      76,
+      61,
+      41,
+      22,
+      8,
+      3
+    ],
+    "highestStandardScore": 73
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2015,
+    "examYear": 2014,
+    "month": 7,
+    "typeGroup": "education",
+    "type": "jul",
+    "subject": "과학탐구",
+    "subSubject": "지구과학Ⅰ",
+    "rawCuts": [
+      38,
+      33,
+      27,
+      22,
+      17,
+      13,
+      10,
+      7
+    ],
+    "fullScore": 50,
+    "standardCuts": [
+      69,
+      64,
+      57,
+      52,
+      46,
+      42,
+      38,
+      35
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1815,
+    "standardPercentile": [
+      96,
+      89,
+      75,
+      58,
+      38,
+      22,
+      10,
+      4
+    ],
+    "highestStandardScore": 83
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2015,
+    "examYear": 2014,
+    "month": 7,
+    "typeGroup": "education",
+    "type": "jul",
+    "subject": "과학탐구",
+    "subSubject": "지구과학Ⅱ",
+    "rawCuts": [
+      43,
+      35,
+      26,
+      17,
+      13,
+      9,
+      7,
+      5
+    ],
+    "fullScore": 50,
+    "standardCuts": [
+      72,
+      65,
+      57,
+      49,
+      45,
+      42,
+      40,
+      38
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1816,
+    "standardPercentile": [
+      96,
+      89,
+      77,
+      58,
+      40,
+      20,
+      10,
+      5
+    ],
+    "highestStandardScore": 79
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2015,
+    "examYear": 2014,
+    "month": 7,
+    "typeGroup": "education",
+    "type": "jul",
+    "subject": "과학탐구",
+    "subSubject": "화학Ⅰ",
+    "rawCuts": [
+      44,
+      38,
+      34,
+      27,
+      19,
+      14,
+      10,
+      7
+    ],
+    "fullScore": 50,
+    "standardCuts": [
+      68,
+      63,
+      59,
+      53,
+      46,
+      41,
+      38,
+      35
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1817,
+    "standardPercentile": [
+      95,
+      87,
+      78,
+      60,
+      40,
+      23,
+      11,
+      3
+    ],
+    "highestStandardScore": 73
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2015,
+    "examYear": 2014,
+    "month": 7,
+    "typeGroup": "education",
+    "type": "jul",
+    "subject": "과학탐구",
+    "subSubject": "화학Ⅱ",
+    "rawCuts": [
+      45,
+      39,
+      29,
+      17,
+      14,
+      11,
+      8,
+      5
+    ],
+    "fullScore": 50,
+    "standardCuts": [
+      71,
+      66,
+      58,
+      48,
+      45,
+      43,
+      40,
+      38
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1818,
+    "standardPercentile": [
+      95,
+      88,
+      77,
+      57,
+      41,
+      27,
+      10,
+      3
+    ],
+    "highestStandardScore": 75
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2015,
+    "examYear": 2014,
+    "month": 7,
+    "typeGroup": "education",
+    "type": "jul",
+    "subject": "국어",
+    "subSubject": "가형",
+    "rawCuts": [
+      94,
+      89,
+      83,
+      73,
+      60,
+      42,
+      26,
+      18
+    ],
+    "fullScore": 100,
+    "standardCuts": [
+      127,
+      123,
+      118,
+      109,
+      98,
+      83,
+      69,
+      63
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1819,
+    "standardPercentile": [
+      96,
+      88,
+      77,
+      59,
+      39,
+      23,
+      11,
+      3
+    ],
+    "highestStandardScore": 132
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2015,
+    "examYear": 2014,
+    "month": 7,
+    "typeGroup": "education",
+    "type": "jul",
+    "subject": "국어",
+    "subSubject": "나형",
+    "rawCuts": [
+      95,
+      93,
+      87,
+      78,
+      66,
+      47,
+      26,
+      20
+    ],
+    "fullScore": 100,
+    "standardCuts": [
+      124,
+      122,
+      117,
+      110,
+      100,
+      84,
+      67,
+      62
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1820,
+    "standardPercentile": [
+      94,
+      89,
+      76,
+      59,
+      40,
+      23,
+      10,
+      4
+    ],
+    "highestStandardScore": 128
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2015,
+    "examYear": 2014,
+    "month": 7,
+    "typeGroup": "education",
+    "type": "jul",
+    "subject": "사회탐구",
+    "subSubject": "경제",
+    "rawCuts": [
+      45,
+      37,
+      26,
+      15,
+      10,
+      9,
+      6,
+      4
+    ],
+    "fullScore": 50,
+    "standardCuts": [
+      72,
+      66,
+      57,
+      48,
+      44,
+      43,
+      41,
+      39
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1821,
+    "standardPercentile": [
+      95,
+      88,
+      77,
+      58,
+      35,
+      23,
+      9,
+      3
+    ],
+    "highestStandardScore": 76
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2015,
+    "examYear": 2014,
+    "month": 7,
+    "typeGroup": "education",
+    "type": "jul",
+    "subject": "사회탐구",
+    "subSubject": "동아시아사",
+    "rawCuts": [
+      47,
+      42,
+      36,
+      28,
+      19,
+      13,
+      8,
+      5
+    ],
+    "fullScore": 50,
+    "standardCuts": [
+      68,
+      64,
+      59,
+      53,
+      46,
+      41,
+      37,
+      35
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1822,
+    "standardPercentile": [
+      96,
+      89,
+      77,
+      60,
+      39,
+      24,
+      8,
+      3
+    ],
+    "highestStandardScore": 70
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2015,
+    "examYear": 2014,
+    "month": 7,
+    "typeGroup": "education",
+    "type": "jul",
+    "subject": "사회탐구",
+    "subSubject": "법과정치",
+    "rawCuts": [
+      43,
+      37,
+      31,
+      25,
+      18,
+      13,
+      9,
+      7
+    ],
+    "fullScore": 50,
+    "standardCuts": [
+      69,
+      63,
+      58,
+      52,
+      46,
+      41,
+      38,
+      36
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1823,
+    "standardPercentile": [
+      96,
+      88,
+      76,
+      60,
+      39,
+      22,
+      12,
+      4
+    ],
+    "highestStandardScore": 75
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2015,
+    "examYear": 2014,
+    "month": 7,
+    "typeGroup": "education",
+    "type": "jul",
+    "subject": "사회탐구",
+    "subSubject": "사회·문화",
+    "rawCuts": [
+      47,
+      41,
+      37,
+      30,
+      21,
+      14,
+      11,
+      7
+    ],
+    "fullScore": 50,
+    "standardCuts": [
+      68,
+      63,
+      59,
+      53,
+      46,
+      40,
+      37,
+      34
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1824,
+    "standardPercentile": [
+      97,
+      87,
+      77,
+      59,
+      37,
+      20,
+      10,
+      4
+    ],
+    "highestStandardScore": 70
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2015,
+    "examYear": 2014,
+    "month": 7,
+    "typeGroup": "education",
+    "type": "jul",
+    "subject": "사회탐구",
+    "subSubject": "생활과윤리",
+    "rawCuts": [
+      47,
+      44,
+      39,
+      33,
+      26,
+      17,
+      11,
+      7
+    ],
+    "fullScore": 50,
+    "standardCuts": [
+      66,
+      63,
+      59,
+      54,
+      48,
+      41,
+      36,
+      33
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1825,
+    "standardPercentile": [
+      96,
+      90,
+      78,
+      60,
+      39,
+      23,
+      11,
+      4
+    ],
+    "highestStandardScore": 68
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2015,
+    "examYear": 2014,
+    "month": 7,
+    "typeGroup": "education",
+    "type": "jul",
+    "subject": "사회탐구",
+    "subSubject": "세계사",
+    "rawCuts": [
+      45,
+      39,
+      31,
+      22,
+      15,
+      10,
+      8,
+      5
+    ],
+    "fullScore": 50,
+    "standardCuts": [
+      70,
+      65,
+      58,
+      51,
+      45,
+      41,
+      39,
+      37
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1826,
+    "standardPercentile": [
+      95,
+      89,
+      76,
+      59,
+      39,
+      20,
+      12,
+      3
+    ],
+    "highestStandardScore": 74
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2015,
+    "examYear": 2014,
+    "month": 7,
+    "typeGroup": "education",
+    "type": "jul",
+    "subject": "사회탐구",
+    "subSubject": "세계지리",
+    "rawCuts": [
+      45,
+      41,
+      36,
+      30,
+      23,
+      16,
+      12,
+      8
+    ],
+    "fullScore": 50,
+    "standardCuts": [
+      67,
+      63,
+      59,
+      53,
+      47,
+      41,
+      37,
+      34
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1827,
+    "standardPercentile": [
+      96,
+      88,
+      76,
+      60,
+      40,
+      23,
+      10,
+      3
+    ],
+    "highestStandardScore": 71
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2015,
+    "examYear": 2014,
+    "month": 7,
+    "typeGroup": "education",
+    "type": "jul",
+    "subject": "사회탐구",
+    "subSubject": "윤리와사상",
+    "rawCuts": [
+      50,
+      46,
+      39,
+      27,
+      17,
+      10,
+      7,
+      6
+    ],
+    "fullScore": 50,
+    "standardCuts": [
+      68,
+      65,
+      60,
+      52,
+      45,
+      40,
+      38,
+      37
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1828,
+    "standardPercentile": [
+      97,
+      88,
+      77,
+      60,
+      40,
+      20,
+      8,
+      3
+    ],
+    "highestStandardScore": 68
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2015,
+    "examYear": 2014,
+    "month": 7,
+    "typeGroup": "education",
+    "type": "jul",
+    "subject": "사회탐구",
+    "subSubject": "한국지리",
+    "rawCuts": [
+      44,
+      39,
+      32,
+      26,
+      19,
+      13,
+      10,
+      7
+    ],
+    "fullScore": 50,
+    "standardCuts": [
+      69,
+      64,
+      58,
+      52,
+      46,
+      41,
+      38,
+      35
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1829,
+    "standardPercentile": [
+      96,
+      89,
+      76,
+      60,
+      39,
+      22,
+      10,
+      4
+    ],
+    "highestStandardScore": 74
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2015,
+    "examYear": 2014,
+    "month": 7,
+    "typeGroup": "education",
+    "type": "jul",
+    "subject": "수학",
+    "subSubject": "가형",
+    "rawCuts": [
+      92,
+      81,
+      72,
+      60,
+      44,
+      30,
+      19,
+      13
+    ],
+    "fullScore": 100,
+    "standardCuts": [
+      134,
+      125,
+      117,
+      107,
+      94,
+      82,
+      73,
+      68
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1830,
+    "standardPercentile": [
+      96,
+      88,
+      76,
+      60,
+      39,
+      23,
+      11,
+      4
+    ],
+    "highestStandardScore": 141
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2015,
+    "examYear": 2014,
+    "month": 7,
+    "typeGroup": "education",
+    "type": "jul",
+    "subject": "수학",
+    "subSubject": "나형",
+    "rawCuts": [
+      80,
+      63,
+      46,
+      31,
+      20,
+      15,
+      12,
+      8
+    ],
+    "fullScore": 100,
+    "standardCuts": [
+      145,
+      129,
+      113,
+      99,
+      89,
+      84,
+      81,
+      78
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1831,
+    "standardPercentile": [
+      96,
+      89,
+      76,
+      59,
+      39,
+      24,
+      12,
+      3
+    ],
+    "highestStandardScore": 164
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2015,
+    "examYear": 2014,
+    "month": 7,
+    "typeGroup": "education",
+    "type": "jul",
+    "subject": "영어",
+    "subSubject": null,
+    "rawCuts": [
+      95,
+      88,
+      76,
+      61,
+      45,
+      30,
+      20,
+      16
+    ],
+    "fullScore": 100,
+    "standardCuts": [
+      133,
+      127,
+      118,
+      106,
+      93,
+      81,
+      73,
+      69
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1832,
+    "standardPercentile": [
+      96,
+      88,
+      76,
+      59,
+      40,
+      22,
+      9,
+      3
+    ],
+    "highestStandardScore": 137
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2015,
+    "examYear": 2014,
+    "month": 7,
+    "typeGroup": "education",
+    "type": "jul",
+    "subject": "한국사",
+    "subSubject": null,
+    "rawCuts": [
+      50,
+      47,
+      40,
+      28,
+      16,
+      10,
+      9,
+      6
+    ],
+    "fullScore": 50,
+    "standardCuts": [
+      67,
+      65,
+      60,
+      52,
+      44,
+      40,
+      39,
+      37
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1833,
+    "standardPercentile": [
+      95,
+      88,
+      76,
+      59,
+      39,
+      18,
+      10,
+      3
+    ],
+    "highestStandardScore": 67
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2015,
+    "examYear": 2014,
+    "month": 4,
+    "typeGroup": "education",
+    "type": "apr",
+    "subject": "과학탐구",
+    "subSubject": "물리Ⅰ",
+    "rawCuts": [
+      47,
+      41,
+      33,
+      26,
+      19,
+      13,
+      10,
+      7
+    ],
+    "fullScore": 50,
+    "standardCuts": [
+      69,
+      64,
+      58,
+      52,
+      46,
+      41,
+      38,
+      36
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1834,
+    "standardPercentile": [
+      96,
+      88,
+      76,
+      60,
+      39,
+      21,
+      11,
+      5
+    ],
+    "highestStandardScore": 72
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2015,
+    "examYear": 2014,
+    "month": 4,
+    "typeGroup": "education",
+    "type": "apr",
+    "subject": "과학탐구",
+    "subSubject": "물리Ⅱ",
+    "rawCuts": [
+      45,
+      39,
+      31,
+      18,
+      12,
+      9,
+      7,
+      4
+    ],
+    "fullScore": 50,
+    "standardCuts": [
+      70,
+      65,
+      59,
+      49,
+      44,
+      42,
+      40,
+      38
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1835,
+    "standardPercentile": [
+      95,
+      87,
+      77,
+      60,
+      36,
+      21,
+      10,
+      4
+    ],
+    "highestStandardScore": 74
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2015,
+    "examYear": 2014,
+    "month": 4,
+    "typeGroup": "education",
+    "type": "apr",
+    "subject": "과학탐구",
+    "subSubject": "생명과학Ⅰ",
+    "rawCuts": [
+      47,
+      44,
+      37,
+      29,
+      22,
+      17,
+      11,
+      9
+    ],
+    "fullScore": 50,
+    "standardCuts": [
+      67,
+      65,
+      59,
+      52,
+      46,
+      42,
+      37,
+      35
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1836,
+    "standardPercentile": [
+      95,
+      90,
+      76,
+      59,
+      39,
+      24,
+      9,
+      4
+    ],
+    "highestStandardScore": 70
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2015,
+    "examYear": 2014,
+    "month": 4,
+    "typeGroup": "education",
+    "type": "apr",
+    "subject": "과학탐구",
+    "subSubject": "생명과학Ⅱ",
+    "rawCuts": [
+      50,
+      45,
+      38,
+      28,
+      19,
+      14,
+      10,
+      6
+    ],
+    "fullScore": 50,
+    "standardCuts": [
+      69,
+      65,
+      59,
+      52,
+      45,
+      41,
+      38,
+      35
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1837,
+    "standardPercentile": [
+      97,
+      89,
+      77,
+      60,
+      37,
+      21,
+      11,
+      3
+    ],
+    "highestStandardScore": 69
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2015,
+    "examYear": 2014,
+    "month": 4,
+    "typeGroup": "education",
+    "type": "apr",
+    "subject": "과학탐구",
+    "subSubject": "지구과학Ⅰ",
+    "rawCuts": [
+      43,
+      37,
+      31,
+      25,
+      19,
+      15,
+      11,
+      8
+    ],
+    "fullScore": 50,
+    "standardCuts": [
+      69,
+      63,
+      58,
+      52,
+      46,
+      42,
+      38,
+      35
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1838,
+    "standardPercentile": [
+      96,
+      88,
+      76,
+      58,
+      38,
+      24,
+      11,
+      4
+    ],
+    "highestStandardScore": 76
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2015,
+    "examYear": 2014,
+    "month": 4,
+    "typeGroup": "education",
+    "type": "apr",
+    "subject": "과학탐구",
+    "subSubject": "지구과학Ⅱ",
+    "rawCuts": [
+      45,
+      39,
+      31,
+      22,
+      14,
+      9,
+      7,
+      4
+    ],
+    "fullScore": 50,
+    "standardCuts": [
+      70,
+      65,
+      58,
+      51,
+      45,
+      41,
+      39,
+      37
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1839,
+    "standardPercentile": [
+      95,
+      88,
+      77,
+      60,
+      40,
+      20,
+      10,
+      4
+    ],
+    "highestStandardScore": 74
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2015,
+    "examYear": 2014,
+    "month": 4,
+    "typeGroup": "education",
+    "type": "apr",
+    "subject": "과학탐구",
+    "subSubject": "화학Ⅰ",
+    "rawCuts": [
+      43,
+      38,
+      33,
+      26,
+      20,
+      15,
+      11,
+      8
+    ],
+    "fullScore": 50,
+    "standardCuts": [
+      68,
+      64,
+      59,
+      52,
+      46,
+      41,
+      38,
+      35
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1840,
+    "standardPercentile": [
+      95,
+      89,
+      78,
+      59,
+      40,
+      22,
+      10,
+      3
+    ],
+    "highestStandardScore": 75
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2015,
+    "examYear": 2014,
+    "month": 4,
+    "typeGroup": "education",
+    "type": "apr",
+    "subject": "과학탐구",
+    "subSubject": "화학Ⅱ",
+    "rawCuts": [
+      44,
+      38,
+      29,
+      19,
+      14,
+      10,
+      8,
+      5
+    ],
+    "fullScore": 50,
+    "standardCuts": [
+      71,
+      66,
+      58,
+      49,
+      45,
+      42,
+      40,
+      37
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1841,
+    "standardPercentile": [
+      96,
+      89,
+      76,
+      58,
+      41,
+      22,
+      11,
+      3
+    ],
+    "highestStandardScore": 76
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2015,
+    "examYear": 2014,
+    "month": 4,
+    "typeGroup": "education",
+    "type": "apr",
+    "subject": "국어",
+    "subSubject": "가형",
+    "rawCuts": [
+      91,
+      84,
+      75,
+      65,
+      54,
+      43,
+      30,
+      22
+    ],
+    "fullScore": 100,
+    "standardCuts": [
+      132,
+      125,
+      116,
+      106,
+      96,
+      85,
+      72,
+      64
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1842,
+    "standardPercentile": [
+      95,
+      89,
+      77,
+      59,
+      39,
+      23,
+      10,
+      3
+    ],
+    "highestStandardScore": 141
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2015,
+    "examYear": 2014,
+    "month": 4,
+    "typeGroup": "education",
+    "type": "apr",
+    "subject": "국어",
+    "subSubject": "나형",
+    "rawCuts": [
+      93,
+      86,
+      78,
+      68,
+      57,
+      45,
+      32,
+      21
+    ],
+    "fullScore": 100,
+    "standardCuts": [
+      132,
+      125,
+      117,
+      107,
+      96,
+      85,
+      72,
+      61
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1843,
+    "standardPercentile": [
+      96,
+      88,
+      77,
+      59,
+      40,
+      23,
+      11,
+      3
+    ],
+    "highestStandardScore": 138
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2015,
+    "examYear": 2014,
+    "month": 4,
+    "typeGroup": "education",
+    "type": "apr",
+    "subject": "사회탐구",
+    "subSubject": "경제",
+    "rawCuts": [
+      43,
+      35,
+      26,
+      18,
+      13,
+      9,
+      7,
+      5
+    ],
+    "fullScore": 50,
+    "standardCuts": [
+      72,
+      65,
+      57,
+      50,
+      45,
+      42,
+      40,
+      38
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1844,
+    "standardPercentile": [
+      96,
+      88,
+      76,
+      59,
+      41,
+      22,
+      9,
+      4
+    ],
+    "highestStandardScore": 78
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2015,
+    "examYear": 2014,
+    "month": 4,
+    "typeGroup": "education",
+    "type": "apr",
+    "subject": "사회탐구",
+    "subSubject": "동아시아사",
+    "rawCuts": [
+      47,
+      40,
+      32,
+      24,
+      16,
+      12,
+      9,
+      6
+    ],
+    "fullScore": 50,
+    "standardCuts": [
+      71,
+      65,
+      58,
+      51,
+      45,
+      41,
+      39,
+      36
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1845,
+    "standardPercentile": [
+      96,
+      89,
+      77,
+      59,
+      37,
+      22,
+      13,
+      3
+    ],
+    "highestStandardScore": 73
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2015,
+    "examYear": 2014,
+    "month": 4,
+    "typeGroup": "education",
+    "type": "apr",
+    "subject": "사회탐구",
+    "subSubject": "법과정치",
+    "rawCuts": [
+      40,
+      33,
+      27,
+      21,
+      16,
+      11,
+      9,
+      6
+    ],
+    "fullScore": 50,
+    "standardCuts": [
+      71,
+      64,
+      57,
+      51,
+      46,
+      41,
+      39,
+      36
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1846,
+    "standardPercentile": [
+      96,
+      88,
+      77,
+      60,
+      41,
+      21,
+      11,
+      3
+    ],
+    "highestStandardScore": 81
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2015,
+    "examYear": 2014,
+    "month": 4,
+    "typeGroup": "education",
+    "type": "apr",
+    "subject": "사회탐구",
+    "subSubject": "사회·문화",
+    "rawCuts": [
+      45,
+      42,
+      37,
+      31,
+      25,
+      18,
+      11,
+      8
+    ],
+    "fullScore": 50,
+    "standardCuts": [
+      66,
+      63,
+      59,
+      53,
+      48,
+      42,
+      36,
+      33
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1847,
+    "standardPercentile": [
+      95,
+      90,
+      79,
+      59,
+      40,
+      23,
+      10,
+      4
+    ],
+    "highestStandardScore": 70
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2015,
+    "examYear": 2014,
+    "month": 4,
+    "typeGroup": "education",
+    "type": "apr",
+    "subject": "사회탐구",
+    "subSubject": "생활과윤리",
+    "rawCuts": [
+      48,
+      43,
+      40,
+      36,
+      30,
+      23,
+      14,
+      9
+    ],
+    "fullScore": 50,
+    "standardCuts": [
+      65,
+      61,
+      58,
+      54,
+      49,
+      43,
+      35,
+      30
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1848,
+    "standardPercentile": [
+      96,
+      87,
+      76,
+      61,
+      40,
+      22,
+      11,
+      4
+    ],
+    "highestStandardScore": 67
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2015,
+    "examYear": 2014,
+    "month": 4,
+    "typeGroup": "education",
+    "type": "apr",
+    "subject": "사회탐구",
+    "subSubject": "세계사",
+    "rawCuts": [
+      47,
+      39,
+      31,
+      21,
+      15,
+      11,
+      8,
+      6
+    ],
+    "fullScore": 50,
+    "standardCuts": [
+      71,
+      65,
+      58,
+      50,
+      45,
+      42,
+      39,
+      38
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1849,
+    "standardPercentile": [
+      96,
+      88,
+      77,
+      58,
+      39,
+      24,
+      11,
+      6
+    ],
+    "highestStandardScore": 74
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2015,
+    "examYear": 2014,
+    "month": 4,
+    "typeGroup": "education",
+    "type": "apr",
+    "subject": "사회탐구",
+    "subSubject": "세계지리",
+    "rawCuts": [
+      47,
+      44,
+      38,
+      32,
+      26,
+      19,
+      12,
+      9
+    ],
+    "fullScore": 50,
+    "standardCuts": [
+      65,
+      63,
+      58,
+      53,
+      48,
+      42,
+      36,
+      33
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1850,
+    "standardPercentile": [
+      94,
+      88,
+      75,
+      58,
+      41,
+      23,
+      10,
+      4
+    ],
+    "highestStandardScore": 68
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2015,
+    "examYear": 2014,
+    "month": 4,
+    "typeGroup": "education",
+    "type": "apr",
+    "subject": "사회탐구",
+    "subSubject": "윤리와사상",
+    "rawCuts": [
+      48,
+      44,
+      35,
+      28,
+      21,
+      15,
+      11,
+      8
+    ],
+    "fullScore": 50,
+    "standardCuts": [
+      68,
+      65,
+      58,
+      52,
+      46,
+      41,
+      38,
+      36
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1851,
+    "standardPercentile": [
+      95,
+      89,
+      75,
+      59,
+      39,
+      22,
+      12,
+      5
+    ],
+    "highestStandardScore": 70
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2015,
+    "examYear": 2014,
+    "month": 4,
+    "typeGroup": "education",
+    "type": "apr",
+    "subject": "사회탐구",
+    "subSubject": "한국지리",
+    "rawCuts": [
+      47,
+      43,
+      39,
+      33,
+      28,
+      22,
+      16,
+      10
+    ],
+    "fullScore": 50,
+    "standardCuts": [
+      66,
+      62,
+      59,
+      53,
+      48,
+      42,
+      37,
+      31
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1852,
+    "standardPercentile": [
+      96,
+      88,
+      78,
+      58,
+      40,
+      22,
+      11,
+      3
+    ],
+    "highestStandardScore": 69
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2015,
+    "examYear": 2014,
+    "month": 4,
+    "typeGroup": "education",
+    "type": "apr",
+    "subject": "수학",
+    "subSubject": "가형",
+    "rawCuts": [
+      80,
+      68,
+      57,
+      47,
+      36,
+      26,
+      19,
+      13
+    ],
+    "fullScore": 100,
+    "standardCuts": [
+      139,
+      126,
+      115,
+      105,
+      93,
+      83,
+      76,
+      70
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1853,
+    "standardPercentile": [
+      96,
+      89,
+      76,
+      60,
+      40,
+      22,
+      11,
+      4
+    ],
+    "highestStandardScore": 159
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2015,
+    "examYear": 2014,
+    "month": 4,
+    "typeGroup": "education",
+    "type": "apr",
+    "subject": "수학",
+    "subSubject": "나형",
+    "rawCuts": [
+      82,
+      63,
+      46,
+      31,
+      21,
+      15,
+      12,
+      9
+    ],
+    "fullScore": 100,
+    "standardCuts": [
+      146,
+      129,
+      113,
+      99,
+      90,
+      84,
+      81,
+      78
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1854,
+    "standardPercentile": [
+      95,
+      89,
+      77,
+      60,
+      39,
+      22,
+      11,
+      4
+    ],
+    "highestStandardScore": 163
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2015,
+    "examYear": 2014,
+    "month": 4,
+    "typeGroup": "education",
+    "type": "apr",
+    "subject": "영어",
+    "subSubject": null,
+    "rawCuts": [
+      93,
+      85,
+      73,
+      60,
+      45,
+      32,
+      25,
+      18
+    ],
+    "fullScore": 100,
+    "standardCuts": [
+      135,
+      128,
+      117,
+      106,
+      93,
+      81,
+      75,
+      69
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1855,
+    "standardPercentile": [
+      96,
+      89,
+      76,
+      60,
+      40,
+      21,
+      11,
+      3
+    ],
+    "highestStandardScore": 141
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2015,
+    "examYear": 2014,
+    "month": 4,
+    "typeGroup": "education",
+    "type": "apr",
+    "subject": "한국사",
+    "subSubject": null,
+    "rawCuts": [
+      50,
+      45,
+      36,
+      25,
+      15,
+      11,
+      8,
+      6
+    ],
+    "fullScore": 50,
+    "standardCuts": [
+      69,
+      65,
+      59,
+      51,
+      44,
+      41,
+      39,
+      37
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1856,
+    "standardPercentile": [
+      97,
+      87,
+      76,
+      60,
+      37,
+      21,
+      11,
+      4
+    ],
+    "highestStandardScore": 69
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2015,
+    "examYear": 2014,
+    "month": 3,
+    "typeGroup": "education",
+    "type": "mar",
+    "subject": "과학탐구",
+    "subSubject": "물리Ⅰ",
+    "rawCuts": [
+      43,
+      36,
+      28,
+      21,
+      16,
+      11,
+      8,
+      5
+    ],
+    "fullScore": 50,
+    "standardCuts": [
+      71,
+      64,
+      57,
+      51,
+      46,
+      41,
+      39,
+      36
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1857,
+    "standardPercentile": [
+      96,
+      88,
+      76,
+      59,
+      40,
+      21,
+      11,
+      3
+    ],
+    "highestStandardScore": 77
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2015,
+    "examYear": 2014,
+    "month": 3,
+    "typeGroup": "education",
+    "type": "mar",
+    "subject": "과학탐구",
+    "subSubject": "생명과학Ⅰ",
+    "rawCuts": [
+      42,
+      36,
+      29,
+      22,
+      17,
+      13,
+      9,
+      7
+    ],
+    "fullScore": 50,
+    "standardCuts": [
+      70,
+      64,
+      58,
+      51,
+      46,
+      42,
+      38,
+      36
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1858,
+    "standardPercentile": [
+      96,
+      89,
+      76,
+      58,
+      40,
+      24,
+      9,
+      4
+    ],
+    "highestStandardScore": 78
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2015,
+    "examYear": 2014,
+    "month": 3,
+    "typeGroup": "education",
+    "type": "mar",
+    "subject": "과학탐구",
+    "subSubject": "지구과학Ⅰ",
+    "rawCuts": [
+      44,
+      38,
+      32,
+      26,
+      20,
+      15,
+      11,
+      7
+    ],
+    "fullScore": 50,
+    "standardCuts": [
+      69,
+      64,
+      58,
+      52,
+      47,
+      42,
+      38,
+      34
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1859,
+    "standardPercentile": [
+      96,
+      89,
+      76,
+      60,
+      40,
+      23,
+      12,
+      3
+    ],
+    "highestStandardScore": 75
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2015,
+    "examYear": 2014,
+    "month": 3,
+    "typeGroup": "education",
+    "type": "mar",
+    "subject": "과학탐구",
+    "subSubject": "화학Ⅰ",
+    "rawCuts": [
+      45,
+      41,
+      34,
+      25,
+      17,
+      12,
+      8,
+      7
+    ],
+    "fullScore": 50,
+    "standardCuts": [
+      68,
+      65,
+      59,
+      52,
+      45,
+      41,
+      38,
+      37
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1860,
+    "standardPercentile": [
+      95,
+      89,
+      76,
+      61,
+      39,
+      21,
+      9,
+      5
+    ],
+    "highestStandardScore": 72
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2015,
+    "examYear": 2014,
+    "month": 3,
+    "typeGroup": "education",
+    "type": "mar",
+    "subject": "국어",
+    "subSubject": "가형",
+    "rawCuts": [
+      96,
+      92,
+      86,
+      76,
+      64,
+      49,
+      32,
+      21
+    ],
+    "fullScore": 100,
+    "standardCuts": [
+      126,
+      123,
+      118,
+      109,
+      98,
+      85,
+      70,
+      60
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1861,
+    "standardPercentile": [
+      95,
+      88,
+      78,
+      59,
+      39,
+      22,
+      11,
+      3
+    ],
+    "highestStandardScore": 130
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2015,
+    "examYear": 2014,
+    "month": 3,
+    "typeGroup": "education",
+    "type": "mar",
+    "subject": "국어",
+    "subSubject": "나형",
+    "rawCuts": [
+      95,
+      90,
+      82,
+      73,
+      61,
+      48,
+      33,
+      23
+    ],
+    "fullScore": 100,
+    "standardCuts": [
+      129,
+      124,
+      117,
+      108,
+      97,
+      85,
+      71,
+      62
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1862,
+    "standardPercentile": [
+      96,
+      89,
+      76,
+      60,
+      40,
+      23,
+      10,
+      4
+    ],
+    "highestStandardScore": 134
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2015,
+    "examYear": 2014,
+    "month": 3,
+    "typeGroup": "education",
+    "type": "mar",
+    "subject": "사회탐구",
+    "subSubject": "경제",
+    "rawCuts": [
+      44,
+      36,
+      27,
+      19,
+      14,
+      10,
+      6,
+      5
+    ],
+    "fullScore": 50,
+    "standardCuts": [
+      72,
+      65,
+      57,
+      50,
+      46,
+      42,
+      39,
+      38
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1863,
+    "standardPercentile": [
+      95,
+      88,
+      77,
+      60,
+      43,
+      22,
+      8,
+      4
+    ],
+    "highestStandardScore": 77
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2015,
+    "examYear": 2014,
+    "month": 3,
+    "typeGroup": "education",
+    "type": "mar",
+    "subject": "사회탐구",
+    "subSubject": "동아시아사",
+    "rawCuts": [
+      44,
+      37,
+      30,
+      23,
+      18,
+      12,
+      10,
+      7
+    ],
+    "fullScore": 50,
+    "standardCuts": [
+      70,
+      64,
+      57,
+      51,
+      46,
+      41,
+      39,
+      36
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1864,
+    "standardPercentile": [
+      95,
+      88,
+      76,
+      58,
+      41,
+      20,
+      9,
+      3
+    ],
+    "highestStandardScore": 76
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2015,
+    "examYear": 2014,
+    "month": 3,
+    "typeGroup": "education",
+    "type": "mar",
+    "subject": "사회탐구",
+    "subSubject": "법과정치",
+    "rawCuts": [
+      41,
+      34,
+      28,
+      22,
+      17,
+      13,
+      10,
+      7
+    ],
+    "fullScore": 50,
+    "standardCuts": [
+      70,
+      63,
+      57,
+      51,
+      46,
+      42,
+      39,
+      36
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1865,
+    "standardPercentile": [
+      96,
+      88,
+      76,
+      58,
+      40,
+      24,
+      11,
+      4
+    ],
+    "highestStandardScore": 79
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2015,
+    "examYear": 2014,
+    "month": 3,
+    "typeGroup": "education",
+    "type": "mar",
+    "subject": "사회탐구",
+    "subSubject": "사회·문화",
+    "rawCuts": [
+      47,
+      41,
+      34,
+      27,
+      20,
+      14,
+      10,
+      7
+    ],
+    "fullScore": 50,
+    "standardCuts": [
+      69,
+      64,
+      58,
+      52,
+      46,
+      41,
+      38,
+      35
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1866,
+    "standardPercentile": [
+      96,
+      88,
+      77,
+      60,
+      40,
+      22,
+      10,
+      4
+    ],
+    "highestStandardScore": 72
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2015,
+    "examYear": 2014,
+    "month": 3,
+    "typeGroup": "education",
+    "type": "mar",
+    "subject": "사회탐구",
+    "subSubject": "생활과윤리",
+    "rawCuts": [
+      44,
+      41,
+      36,
+      32,
+      27,
+      20,
+      14,
+      9
+    ],
+    "fullScore": 50,
+    "standardCuts": [
+      65,
+      62,
+      57,
+      53,
+      48,
+      42,
+      36,
+      31
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1867,
+    "standardPercentile": [
+      95,
+      90,
+      74,
+      58,
+      39,
+      21,
+      11,
+      3
+    ],
+    "highestStandardScore": 71
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2015,
+    "examYear": 2014,
+    "month": 3,
+    "typeGroup": "education",
+    "type": "mar",
+    "subject": "사회탐구",
+    "subSubject": "세계사",
+    "rawCuts": [
+      46,
+      38,
+      29,
+      21,
+      15,
+      11,
+      9,
+      6
+    ],
+    "fullScore": 50,
+    "standardCuts": [
+      72,
+      65,
+      57,
+      50,
+      45,
+      42,
+      40,
+      37
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1868,
+    "standardPercentile": [
+      96,
+      88,
+      77,
+      61,
+      39,
+      22,
+      11,
+      3
+    ],
+    "highestStandardScore": 75
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2015,
+    "examYear": 2014,
+    "month": 3,
+    "typeGroup": "education",
+    "type": "mar",
+    "subject": "사회탐구",
+    "subSubject": "세계지리",
+    "rawCuts": [
+      46,
+      40,
+      33,
+      26,
+      19,
+      14,
+      10,
+      7
+    ],
+    "fullScore": 50,
+    "standardCuts": [
+      69,
+      64,
+      58,
+      52,
+      46,
+      42,
+      38,
+      36
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1869,
+    "standardPercentile": [
+      96,
+      88,
+      76,
+      61,
+      40,
+      24,
+      10,
+      4
+    ],
+    "highestStandardScore": 73
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2015,
+    "examYear": 2014,
+    "month": 3,
+    "typeGroup": "education",
+    "type": "mar",
+    "subject": "사회탐구",
+    "subSubject": "윤리와사상",
+    "rawCuts": [
+      47,
+      42,
+      34,
+      27,
+      19,
+      13,
+      8,
+      7
+    ],
+    "fullScore": 50,
+    "standardCuts": [
+      68,
+      64,
+      58,
+      52,
+      46,
+      41,
+      37,
+      36
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1870,
+    "standardPercentile": [
+      95,
+      88,
+      75,
+      58,
+      39,
+      22,
+      9,
+      5
+    ],
+    "highestStandardScore": 70
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2015,
+    "examYear": 2014,
+    "month": 3,
+    "typeGroup": "education",
+    "type": "mar",
+    "subject": "사회탐구",
+    "subSubject": "한국지리",
+    "rawCuts": [
+      46,
+      42,
+      37,
+      28,
+      23,
+      17,
+      11,
+      8
+    ],
+    "fullScore": 50,
+    "standardCuts": [
+      67,
+      64,
+      59,
+      52,
+      47,
+      42,
+      37,
+      34
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1871,
+    "standardPercentile": [
+      95,
+      89,
+      78,
+      57,
+      40,
+      24,
+      10,
+      4
+    ],
+    "highestStandardScore": 71
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2015,
+    "examYear": 2014,
+    "month": 3,
+    "typeGroup": "education",
+    "type": "mar",
+    "subject": "수학",
+    "subSubject": "가형",
+    "rawCuts": [
+      88,
+      74,
+      59,
+      45,
+      32,
+      24,
+      17,
+      11
+    ],
+    "fullScore": 100,
+    "standardCuts": [
+      141,
+      129,
+      115,
+      102,
+      91,
+      83,
+      77,
+      72
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1872,
+    "standardPercentile": [
+      96,
+      89,
+      77,
+      59,
+      39,
+      23,
+      11,
+      3
+    ],
+    "highestStandardScore": 152
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2015,
+    "examYear": 2014,
+    "month": 3,
+    "typeGroup": "education",
+    "type": "mar",
+    "subject": "수학",
+    "subSubject": "나형",
+    "rawCuts": [
+      72,
+      55,
+      42,
+      31,
+      22,
+      17,
+      13,
+      9
+    ],
+    "fullScore": 100,
+    "standardCuts": [
+      145,
+      126,
+      112,
+      100,
+      90,
+      85,
+      80,
+      76
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1873,
+    "standardPercentile": [
+      96,
+      88,
+      77,
+      59,
+      39,
+      23,
+      12,
+      4
+    ],
+    "highestStandardScore": 176
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2015,
+    "examYear": 2014,
+    "month": 3,
+    "typeGroup": "education",
+    "type": "mar",
+    "subject": "영어",
+    "subSubject": null,
+    "rawCuts": [
+      92,
+      83,
+      69,
+      54,
+      39,
+      28,
+      21,
+      17
+    ],
+    "fullScore": 100,
+    "standardCuts": [
+      137,
+      129,
+      117,
+      104,
+      91,
+      82,
+      76,
+      72
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1874,
+    "standardPercentile": [
+      95,
+      89,
+      76,
+      60,
+      40,
+      22,
+      11,
+      3
+    ],
+    "highestStandardScore": 143
+  },
+  {
+    "curriculum": "2009",
+    "gradeYear": 2015,
+    "examYear": 2014,
+    "month": 3,
+    "typeGroup": "education",
+    "type": "mar",
+    "subject": "한국사",
+    "subSubject": null,
+    "rawCuts": [
+      47,
+      42,
+      34,
+      24,
+      16,
+      12,
+      9,
+      6
+    ],
+    "fullScore": 50,
+    "standardCuts": [
+      69,
+      65,
+      59,
+      51,
+      45,
+      42,
+      39,
+      37
+    ],
+    "source": "ebsi-past-gradecuts",
+    "id": 1875,
+    "standardPercentile": [
+      95,
+      88,
+      77,
+      59,
+      39,
+      26,
+      12,
+      4
+    ],
+    "highestStandardScore": 71
   },
   {
     "curriculum": "2009",
@@ -83342,8 +91466,30 @@
       37,
       34
     ],
-    "id": 1700,
-    "fullScore": 50
+    "id": 1876,
+    "fullScore": 50,
+    "rawCuts": [
+      47,
+      43,
+      37,
+      30,
+      22,
+      16,
+      11,
+      8
+    ],
+    "source": "ebsi-past-gradecuts",
+    "standardPercentile": [
+      97,
+      91,
+      77,
+      59,
+      39,
+      23,
+      10,
+      4
+    ],
+    "highestStandardScore": 69
   },
   {
     "curriculum": "2009",
@@ -83364,8 +91510,30 @@
       38,
       35
     ],
-    "id": 1701,
-    "fullScore": 50
+    "id": 1877,
+    "fullScore": 50,
+    "rawCuts": [
+      45,
+      41,
+      36,
+      29,
+      21,
+      16,
+      12,
+      9
+    ],
+    "source": "ebsi-past-gradecuts",
+    "standardPercentile": [
+      96,
+      88,
+      78,
+      59,
+      40,
+      23,
+      12,
+      5
+    ],
+    "highestStandardScore": 71
   },
   {
     "curriculum": "2009",
@@ -83386,8 +91554,30 @@
       36,
       34
     ],
-    "id": 1702,
-    "fullScore": 50
+    "id": 1878,
+    "fullScore": 50,
+    "rawCuts": [
+      44,
+      39,
+      36,
+      30,
+      23,
+      17,
+      12,
+      9
+    ],
+    "source": "ebsi-past-gradecuts",
+    "standardPercentile": [
+      97,
+      87,
+      78,
+      61,
+      41,
+      23,
+      10,
+      4
+    ],
+    "highestStandardScore": 73
   },
   {
     "curriculum": "2009",
@@ -83408,8 +91598,30 @@
       36,
       33
     ],
-    "id": 1703,
-    "fullScore": 50
+    "id": 1879,
+    "fullScore": 50,
+    "rawCuts": [
+      43,
+      40,
+      37,
+      32,
+      24,
+      17,
+      12,
+      9
+    ],
+    "source": "ebsi-past-gradecuts",
+    "standardPercentile": [
+      96,
+      89,
+      78,
+      61,
+      40,
+      23,
+      10,
+      4
+    ],
+    "highestStandardScore": 71
   },
   {
     "curriculum": "2009",
@@ -83430,8 +91642,30 @@
       36,
       33
     ],
-    "id": 1704,
-    "fullScore": 50
+    "id": 1880,
+    "fullScore": 50,
+    "rawCuts": [
+      50,
+      48,
+      43,
+      38,
+      27,
+      19,
+      13,
+      9
+    ],
+    "source": "ebsi-past-gradecuts",
+    "standardPercentile": [
+      96,
+      90,
+      75,
+      61,
+      40,
+      24,
+      10,
+      4
+    ],
+    "highestStandardScore": 64
   },
   {
     "curriculum": "2009",
@@ -83452,8 +91686,30 @@
       36,
       33
     ],
-    "id": 1705,
-    "fullScore": 50
+    "id": 1881,
+    "fullScore": 50,
+    "rawCuts": [
+      48,
+      45,
+      42,
+      36,
+      26,
+      17,
+      12,
+      8
+    ],
+    "source": "ebsi-past-gradecuts",
+    "standardPercentile": [
+      95,
+      87,
+      79,
+      61,
+      41,
+      22,
+      11,
+      3
+    ],
+    "highestStandardScore": 66
   },
   {
     "curriculum": "2009",
@@ -83474,8 +91730,30 @@
       37,
       34
     ],
-    "id": 1706,
-    "fullScore": 50
+    "id": 1882,
+    "fullScore": 50,
+    "rawCuts": [
+      47,
+      45,
+      41,
+      33,
+      24,
+      17,
+      12,
+      8
+    ],
+    "source": "ebsi-past-gradecuts",
+    "standardPercentile": [
+      94,
+      89,
+      78,
+      60,
+      41,
+      24,
+      12,
+      4
+    ],
+    "highestStandardScore": 67
   },
   {
     "curriculum": "2009",
@@ -83496,8 +91774,30 @@
       36,
       33
     ],
-    "id": 1707,
-    "fullScore": 50
+    "id": 1883,
+    "fullScore": 50,
+    "rawCuts": [
+      48,
+      44,
+      40,
+      34,
+      26,
+      16,
+      11,
+      7
+    ],
+    "source": "ebsi-past-gradecuts",
+    "standardPercentile": [
+      96,
+      87,
+      77,
+      59,
+      42,
+      21,
+      11,
+      4
+    ],
+    "highestStandardScore": 66
   },
   {
     "curriculum": "2009",
@@ -83518,8 +91818,30 @@
       37,
       32
     ],
-    "id": 1708,
-    "fullScore": 50
+    "id": 1884,
+    "fullScore": 50,
+    "rawCuts": [
+      48,
+      44,
+      41,
+      35,
+      27,
+      22,
+      16,
+      11
+    ],
+    "source": "ebsi-past-gradecuts",
+    "standardPercentile": [
+      94,
+      87,
+      78,
+      61,
+      38,
+      23,
+      11,
+      4
+    ],
+    "highestStandardScore": 67
   },
   {
     "curriculum": "2009",
@@ -83540,8 +91862,30 @@
       37,
       35
     ],
-    "id": 1709,
-    "fullScore": 50
+    "id": 1885,
+    "fullScore": 50,
+    "rawCuts": [
+      50,
+      47,
+      41,
+      33,
+      20,
+      13,
+      9,
+      6
+    ],
+    "source": "ebsi-past-gradecuts",
+    "standardPercentile": [
+      97,
+      91,
+      77,
+      60,
+      39,
+      21,
+      10,
+      4
+    ],
+    "highestStandardScore": 66
   },
   {
     "curriculum": "2009",
@@ -83562,8 +91906,30 @@
       36,
       32
     ],
-    "id": 1710,
-    "fullScore": 50
+    "id": 1886,
+    "fullScore": 50,
+    "rawCuts": [
+      48,
+      45,
+      41,
+      36,
+      28,
+      20,
+      14,
+      9
+    ],
+    "source": "ebsi-past-gradecuts",
+    "standardPercentile": [
+      97,
+      90,
+      77,
+      62,
+      39,
+      23,
+      11,
+      4
+    ],
+    "highestStandardScore": 66
   },
   {
     "curriculum": "2009",
@@ -83584,8 +91950,30 @@
       37,
       34
     ],
-    "id": 1711,
-    "fullScore": 50
+    "id": 1887,
+    "fullScore": 50,
+    "rawCuts": [
+      47,
+      44,
+      38,
+      31,
+      23,
+      17,
+      12,
+      9
+    ],
+    "source": "ebsi-past-gradecuts",
+    "standardPercentile": [
+      96,
+      91,
+      76,
+      58,
+      39,
+      22,
+      10,
+      4
+    ],
+    "highestStandardScore": 69
   },
   {
     "curriculum": "2009",
@@ -83606,8 +91994,30 @@
       36,
       32
     ],
-    "id": 1712,
-    "fullScore": 50
+    "id": 1888,
+    "fullScore": 50,
+    "rawCuts": [
+      46,
+      43,
+      39,
+      33,
+      26,
+      19,
+      13,
+      9
+    ],
+    "source": "ebsi-past-gradecuts",
+    "standardPercentile": [
+      96,
+      90,
+      78,
+      60,
+      39,
+      22,
+      10,
+      4
+    ],
+    "highestStandardScore": 69
   },
   {
     "curriculum": "2009",
@@ -83628,7 +92038,7 @@
       36,
       35
     ],
-    "id": 1713,
+    "id": 1889,
     "fullScore": 50
   },
   {
@@ -83650,7 +92060,7 @@
       42,
       41
     ],
-    "id": 1714,
+    "id": 1890,
     "fullScore": 50
   },
   {
@@ -83672,7 +92082,7 @@
       37,
       35
     ],
-    "id": 1715,
+    "id": 1891,
     "fullScore": 50
   },
   {
@@ -83694,7 +92104,7 @@
       43,
       41
     ],
-    "id": 1716,
+    "id": 1892,
     "fullScore": 50
   },
   {
@@ -83716,7 +92126,7 @@
       37,
       34
     ],
-    "id": 1717,
+    "id": 1893,
     "fullScore": 50
   },
   {
@@ -83738,7 +92148,7 @@
       38,
       36
     ],
-    "id": 1718,
+    "id": 1894,
     "fullScore": 50
   },
   {
@@ -83760,7 +92170,7 @@
       37,
       35
     ],
-    "id": 1719,
+    "id": 1895,
     "fullScore": 50
   },
   {
@@ -83782,7 +92192,7 @@
       39,
       37
     ],
-    "id": 1720,
+    "id": 1896,
     "fullScore": 50
   },
   {
@@ -83804,7 +92214,7 @@
       78,
       72
     ],
-    "id": 1721,
+    "id": 1897,
     "fullScore": 50
   },
   {
@@ -83826,7 +92236,7 @@
       76,
       70
     ],
-    "id": 1722,
+    "id": 1898,
     "fullScore": 50
   },
   {
@@ -83848,7 +92258,7 @@
       75,
       66
     ],
-    "id": 1723,
+    "id": 1899,
     "fullScore": 50
   },
   {
@@ -83870,8 +92280,30 @@
       37,
       35
     ],
-    "id": 1724,
-    "fullScore": 50
+    "id": 1900,
+    "fullScore": 50,
+    "rawCuts": [
+      50,
+      46,
+      44,
+      37,
+      22,
+      15,
+      11,
+      8
+    ],
+    "source": "ebsi-past-gradecuts",
+    "standardPercentile": [
+      96,
+      85,
+      75,
+      60,
+      39,
+      22,
+      11,
+      4
+    ],
+    "highestStandardScore": 64
   },
   {
     "curriculum": "2009",
@@ -83892,7 +92324,7 @@
       38,
       37
     ],
-    "id": 1725,
+    "id": 1901,
     "fullScore": 50
   },
   {
@@ -83914,7 +92346,7 @@
       39,
       37
     ],
-    "id": 1726,
+    "id": 1902,
     "fullScore": 50
   },
   {
@@ -83936,7 +92368,7 @@
       38,
       35
     ],
-    "id": 1727,
+    "id": 1903,
     "fullScore": 50
   },
   {
@@ -83958,7 +92390,7 @@
       38,
       36
     ],
-    "id": 1728,
+    "id": 1904,
     "fullScore": 50
   },
   {
@@ -83980,7 +92412,7 @@
       37,
       34
     ],
-    "id": 1729,
+    "id": 1905,
     "fullScore": 50
   },
   {
@@ -84002,7 +92434,7 @@
       38,
       36
     ],
-    "id": 1730,
+    "id": 1906,
     "fullScore": 50
   },
   {
@@ -84024,7 +92456,7 @@
       37,
       34
     ],
-    "id": 1731,
+    "id": 1907,
     "fullScore": 50
   },
   {
@@ -84046,7 +92478,7 @@
       38,
       35
     ],
-    "id": 1732,
+    "id": 1908,
     "fullScore": 50
   },
   {
@@ -84068,7 +92500,7 @@
       72,
       57
     ],
-    "id": 1733,
+    "id": 1909,
     "fullScore": 100
   },
   {
@@ -84090,7 +92522,7 @@
       39,
       35
     ],
-    "id": 1734,
+    "id": 1910,
     "fullScore": 50
   },
   {
@@ -84112,7 +92544,7 @@
       37,
       33
     ],
-    "id": 1735,
+    "id": 1911,
     "fullScore": 50
   },
   {
@@ -84134,7 +92566,7 @@
       40,
       37
     ],
-    "id": 1736,
+    "id": 1912,
     "fullScore": 50
   },
   {
@@ -84156,7 +92588,7 @@
       39,
       36
     ],
-    "id": 1737,
+    "id": 1913,
     "fullScore": 50
   },
   {
@@ -84178,7 +92610,7 @@
       38,
       34
     ],
-    "id": 1738,
+    "id": 1914,
     "fullScore": 50
   },
   {
@@ -84200,7 +92632,7 @@
       39,
       38
     ],
-    "id": 1739,
+    "id": 1915,
     "fullScore": 50
   },
   {
@@ -84222,7 +92654,7 @@
       37,
       35
     ],
-    "id": 1740,
+    "id": 1916,
     "fullScore": 50
   },
   {
@@ -84244,7 +92676,7 @@
       40,
       37
     ],
-    "id": 1741,
+    "id": 1917,
     "fullScore": 50
   },
   {
@@ -84266,7 +92698,7 @@
       38,
       34
     ],
-    "id": 1742,
+    "id": 1918,
     "fullScore": 50
   },
   {
@@ -84288,7 +92720,7 @@
       38,
       36
     ],
-    "id": 1743,
+    "id": 1919,
     "fullScore": 50
   },
   {
@@ -84310,7 +92742,7 @@
       37,
       34
     ],
-    "id": 1744,
+    "id": 1920,
     "fullScore": 50
   },
   {
@@ -84332,7 +92764,7 @@
       71,
       63
     ],
-    "id": 1745,
+    "id": 1921,
     "fullScore": 100
   },
   {
@@ -84354,7 +92786,7 @@
       76,
       72
     ],
-    "id": 1746,
+    "id": 1922,
     "fullScore": 100
   },
   {
@@ -84376,7 +92808,7 @@
       74,
       66
     ],
-    "id": 1747,
+    "id": 1923,
     "fullScore": 100
   },
   {
@@ -84398,7 +92830,7 @@
       38,
       37
     ],
-    "id": 1748,
+    "id": 1924,
     "fullScore": 50
   },
   {
@@ -84420,7 +92852,7 @@
       42,
       40
     ],
-    "id": 1749,
+    "id": 1925,
     "fullScore": 50
   },
   {
@@ -84442,7 +92874,7 @@
       40,
       38
     ],
-    "id": 1750,
+    "id": 1926,
     "fullScore": 50
   },
   {
@@ -84464,7 +92896,7 @@
       43,
       41
     ],
-    "id": 1751,
+    "id": 1927,
     "fullScore": 50
   },
   {
@@ -84486,7 +92918,7 @@
       38,
       36
     ],
-    "id": 1752,
+    "id": 1928,
     "fullScore": 50
   },
   {
@@ -84508,7 +92940,7 @@
       37,
       36
     ],
-    "id": 1753,
+    "id": 1929,
     "fullScore": 50
   },
   {
@@ -84530,7 +92962,7 @@
       38,
       36
     ],
-    "id": 1754,
+    "id": 1930,
     "fullScore": 50
   },
   {
@@ -84552,7 +92984,7 @@
       39,
       36
     ],
-    "id": 1755,
+    "id": 1931,
     "fullScore": 50
   },
   {
@@ -84574,7 +93006,7 @@
       37,
       33
     ],
-    "id": 1756,
+    "id": 1932,
     "fullScore": 50
   },
   {
@@ -84596,7 +93028,7 @@
       37,
       33
     ],
-    "id": 1757,
+    "id": 1933,
     "fullScore": 50
   },
   {
@@ -84618,7 +93050,7 @@
       37,
       34
     ],
-    "id": 1758,
+    "id": 1934,
     "fullScore": 50
   },
   {
@@ -84640,7 +93072,7 @@
       40,
       36
     ],
-    "id": 1759,
+    "id": 1935,
     "fullScore": 50
   },
   {
@@ -84662,7 +93094,7 @@
       39,
       36
     ],
-    "id": 1760,
+    "id": 1936,
     "fullScore": 50
   },
   {
@@ -84684,7 +93116,7 @@
       38,
       35
     ],
-    "id": 1761,
+    "id": 1937,
     "fullScore": 50
   },
   {
@@ -84706,7 +93138,7 @@
       39,
       36
     ],
-    "id": 1762,
+    "id": 1938,
     "fullScore": 50
   },
   {
@@ -84728,7 +93160,7 @@
       38,
       34
     ],
-    "id": 1763,
+    "id": 1939,
     "fullScore": 50
   },
   {
@@ -84750,7 +93182,7 @@
       38,
       35
     ],
-    "id": 1764,
+    "id": 1940,
     "fullScore": 50
   },
   {
@@ -84772,7 +93204,7 @@
       37,
       33
     ],
-    "id": 1765,
+    "id": 1941,
     "fullScore": 50
   },
   {
@@ -84794,7 +93226,7 @@
       37,
       35
     ],
-    "id": 1766,
+    "id": 1942,
     "fullScore": 50
   },
   {
@@ -84816,7 +93248,7 @@
       37,
       34
     ],
-    "id": 1767,
+    "id": 1943,
     "fullScore": 50
   },
   {
@@ -84838,7 +93270,7 @@
       38,
       35
     ],
-    "id": 1768,
+    "id": 1944,
     "fullScore": 50
   },
   {
@@ -84860,7 +93292,7 @@
       74,
       62
     ],
-    "id": 1769,
+    "id": 1945,
     "fullScore": 100
   },
   {
@@ -84882,7 +93314,7 @@
       38,
       36
     ],
-    "id": 1770,
+    "id": 1946,
     "fullScore": 50
   },
   {
@@ -84904,7 +93336,7 @@
       36,
       31
     ],
-    "id": 1771,
+    "id": 1947,
     "fullScore": 50
   },
   {
@@ -84926,7 +93358,7 @@
       39,
       37
     ],
-    "id": 1772,
+    "id": 1948,
     "fullScore": 50
   },
   {
@@ -84948,7 +93380,7 @@
       38,
       35
     ],
-    "id": 1773,
+    "id": 1949,
     "fullScore": 50
   },
   {
@@ -84970,7 +93402,7 @@
       36,
       33
     ],
-    "id": 1774,
+    "id": 1950,
     "fullScore": 50
   },
   {
@@ -84992,7 +93424,7 @@
       37,
       34
     ],
-    "id": 1775,
+    "id": 1951,
     "fullScore": 50
   },
   {
@@ -85014,7 +93446,7 @@
       37,
       34
     ],
-    "id": 1776,
+    "id": 1952,
     "fullScore": 50
   },
   {
@@ -85036,7 +93468,7 @@
       38,
       35
     ],
-    "id": 1777,
+    "id": 1953,
     "fullScore": 50
   },
   {
@@ -85058,7 +93490,7 @@
       37,
       33
     ],
-    "id": 1778,
+    "id": 1954,
     "fullScore": 50
   },
   {
@@ -85080,7 +93512,7 @@
       38,
       35
     ],
-    "id": 1779,
+    "id": 1955,
     "fullScore": 50
   },
   {
@@ -85102,7 +93534,7 @@
       36,
       33
     ],
-    "id": 1780,
+    "id": 1956,
     "fullScore": 50
   },
   {
@@ -85124,7 +93556,7 @@
       70,
       63
     ],
-    "id": 1781,
+    "id": 1957,
     "fullScore": 100
   },
   {
@@ -85146,7 +93578,7 @@
       76,
       73
     ],
-    "id": 1782,
+    "id": 1958,
     "fullScore": 100
   },
   {
@@ -85168,7 +93600,7 @@
       72,
       65
     ],
-    "id": 1783,
+    "id": 1959,
     "fullScore": 100
   },
   {
@@ -85190,7 +93622,7 @@
       38,
       36
     ],
-    "id": 1784,
+    "id": 1960,
     "fullScore": 50
   },
   {
@@ -85212,7 +93644,7 @@
       42,
       41
     ],
-    "id": 1785,
+    "id": 1961,
     "fullScore": 50
   },
   {
@@ -85234,7 +93666,7 @@
       40,
       38
     ],
-    "id": 1786,
+    "id": 1962,
     "fullScore": 50
   },
   {
@@ -85256,7 +93688,7 @@
       42,
       40
     ],
-    "id": 1787,
+    "id": 1963,
     "fullScore": 50
   },
   {
@@ -85278,7 +93710,7 @@
       37,
       35
     ],
-    "id": 1788,
+    "id": 1964,
     "fullScore": 50
   },
   {
@@ -85300,7 +93732,7 @@
       38,
       36
     ],
-    "id": 1789,
+    "id": 1965,
     "fullScore": 50
   },
   {
@@ -85322,7 +93754,7 @@
       38,
       35
     ],
-    "id": 1790,
+    "id": 1966,
     "fullScore": 50
   },
   {
@@ -85344,7 +93776,7 @@
       39,
       37
     ],
-    "id": 1791,
+    "id": 1967,
     "fullScore": 50
   },
   {
@@ -85366,7 +93798,7 @@
       39,
       36
     ],
-    "id": 1792,
+    "id": 1968,
     "fullScore": 50
   },
   {
@@ -85388,7 +93820,7 @@
       37,
       33
     ],
-    "id": 1793,
+    "id": 1969,
     "fullScore": 50
   },
   {
@@ -85410,7 +93842,7 @@
       38,
       30
     ],
-    "id": 1794,
+    "id": 1970,
     "fullScore": 50
   },
   {
@@ -85432,7 +93864,7 @@
       38,
       35
     ],
-    "id": 1795,
+    "id": 1971,
     "fullScore": 50
   },
   {
@@ -85454,7 +93886,7 @@
       38,
       36
     ],
-    "id": 1796,
+    "id": 1972,
     "fullScore": 50
   },
   {
@@ -85476,7 +93908,7 @@
       38,
       36
     ],
-    "id": 1797,
+    "id": 1973,
     "fullScore": 50
   },
   {
@@ -85498,7 +93930,7 @@
       40,
       38
     ],
-    "id": 1798,
+    "id": 1974,
     "fullScore": 50
   },
   {
@@ -85520,7 +93952,7 @@
       38,
       34
     ],
-    "id": 1799,
+    "id": 1975,
     "fullScore": 50
   },
   {
@@ -85542,7 +93974,7 @@
       38,
       36
     ],
-    "id": 1800,
+    "id": 1976,
     "fullScore": 50
   },
   {
@@ -85564,7 +93996,7 @@
       37,
       34
     ],
-    "id": 1801,
+    "id": 1977,
     "fullScore": 50
   },
   {
@@ -85586,7 +94018,7 @@
       40,
       38
     ],
-    "id": 1802,
+    "id": 1978,
     "fullScore": 50
   },
   {
@@ -85608,7 +94040,7 @@
       38,
       35
     ],
-    "id": 1803,
+    "id": 1979,
     "fullScore": 50
   },
   {
@@ -85630,7 +94062,7 @@
       39,
       37
     ],
-    "id": 1804,
+    "id": 1980,
     "fullScore": 50
   },
   {
@@ -85652,7 +94084,7 @@
       72,
       60
     ],
-    "id": 1805,
+    "id": 1981,
     "fullScore": 100
   },
   {
@@ -85674,7 +94106,7 @@
       39,
       36
     ],
-    "id": 1806,
+    "id": 1982,
     "fullScore": 50
   },
   {
@@ -85696,7 +94128,7 @@
       37,
       32
     ],
-    "id": 1807,
+    "id": 1983,
     "fullScore": 50
   },
   {
@@ -85718,7 +94150,7 @@
       39,
       37
     ],
-    "id": 1808,
+    "id": 1984,
     "fullScore": 50
   },
   {
@@ -85740,7 +94172,7 @@
       38,
       34
     ],
-    "id": 1809,
+    "id": 1985,
     "fullScore": 50
   },
   {
@@ -85762,7 +94194,7 @@
       36,
       32
     ],
-    "id": 1810,
+    "id": 1986,
     "fullScore": 50
   },
   {
@@ -85784,7 +94216,7 @@
       38,
       36
     ],
-    "id": 1811,
+    "id": 1987,
     "fullScore": 50
   },
   {
@@ -85806,7 +94238,7 @@
       37,
       33
     ],
-    "id": 1812,
+    "id": 1988,
     "fullScore": 50
   },
   {
@@ -85828,7 +94260,7 @@
       39,
       37
     ],
-    "id": 1813,
+    "id": 1989,
     "fullScore": 50
   },
   {
@@ -85850,7 +94282,7 @@
       38,
       34
     ],
-    "id": 1814,
+    "id": 1990,
     "fullScore": 50
   },
   {
@@ -85872,7 +94304,7 @@
       37,
       34
     ],
-    "id": 1815,
+    "id": 1991,
     "fullScore": 50
   },
   {
@@ -85894,7 +94326,7 @@
       37,
       34
     ],
-    "id": 1816,
+    "id": 1992,
     "fullScore": 50
   },
   {
@@ -85916,7 +94348,7 @@
       72,
       65
     ],
-    "id": 1817,
+    "id": 1993,
     "fullScore": 100
   },
   {
@@ -85938,7 +94370,7 @@
       79,
       75
     ],
-    "id": 1818,
+    "id": 1994,
     "fullScore": 100
   },
   {
@@ -85960,7 +94392,7 @@
       72,
       66
     ],
-    "id": 1819,
+    "id": 1995,
     "fullScore": 100
   },
   {
@@ -85982,7 +94414,7 @@
       39,
       37
     ],
-    "id": 1820,
+    "id": 1996,
     "fullScore": 50
   },
   {
@@ -86004,7 +94436,7 @@
       43,
       41
     ],
-    "id": 1821,
+    "id": 1997,
     "fullScore": 50
   },
   {
@@ -86026,7 +94458,7 @@
       41,
       39
     ],
-    "id": 1822,
+    "id": 1998,
     "fullScore": 50
   },
   {
@@ -86048,7 +94480,7 @@
       42,
       40
     ],
-    "id": 1823,
+    "id": 1999,
     "fullScore": 50
   },
   {
@@ -86070,7 +94502,7 @@
       38,
       37
     ],
-    "id": 1824,
+    "id": 2000,
     "fullScore": 50
   },
   {
@@ -86092,7 +94524,7 @@
       39,
       38
     ],
-    "id": 1825,
+    "id": 2001,
     "fullScore": 50
   },
   {
@@ -86114,7 +94546,7 @@
       38,
       37
     ],
-    "id": 1826,
+    "id": 2002,
     "fullScore": 50
   },
   {
@@ -86136,7 +94568,7 @@
       38,
       35
     ],
-    "id": 1827,
+    "id": 2003,
     "fullScore": 50
   },
   {
@@ -86158,7 +94590,7 @@
       38,
       35
     ],
-    "id": 1828,
+    "id": 2004,
     "fullScore": 50
   },
   {
@@ -86180,7 +94612,7 @@
       38,
       36
     ],
-    "id": 1829,
+    "id": 2005,
     "fullScore": 50
   },
   {
@@ -86202,7 +94634,7 @@
       37,
       32
     ],
-    "id": 1830,
+    "id": 2006,
     "fullScore": 50
   },
   {
@@ -86224,7 +94656,7 @@
       37,
       34
     ],
-    "id": 1831,
+    "id": 2007,
     "fullScore": 50
   },
   {
@@ -86246,7 +94678,7 @@
       37,
       33
     ],
-    "id": 1832,
+    "id": 2008,
     "fullScore": 50
   },
   {
@@ -86268,7 +94700,7 @@
       39,
       36
     ],
-    "id": 1833,
+    "id": 2009,
     "fullScore": 50
   },
   {
@@ -86290,7 +94722,7 @@
       38,
       35
     ],
-    "id": 1834,
+    "id": 2010,
     "fullScore": 50
   },
   {
@@ -86312,7 +94744,7 @@
       39,
       36
     ],
-    "id": 1835,
+    "id": 2011,
     "fullScore": 50
   },
   {
@@ -86334,7 +94766,7 @@
       73,
       58
     ],
-    "id": 1836,
+    "id": 2012,
     "fullScore": 100
   },
   {
@@ -86356,7 +94788,7 @@
       38,
       36
     ],
-    "id": 1837,
+    "id": 2013,
     "fullScore": 50
   },
   {
@@ -86378,7 +94810,7 @@
       36,
       29
     ],
-    "id": 1838,
+    "id": 2014,
     "fullScore": 50
   },
   {
@@ -86400,7 +94832,7 @@
       39,
       36
     ],
-    "id": 1839,
+    "id": 2015,
     "fullScore": 50
   },
   {
@@ -86422,7 +94854,7 @@
       39,
       37
     ],
-    "id": 1840,
+    "id": 2016,
     "fullScore": 50
   },
   {
@@ -86444,7 +94876,7 @@
       37,
       33
     ],
-    "id": 1841,
+    "id": 2017,
     "fullScore": 50
   },
   {
@@ -86466,7 +94898,7 @@
       39,
       37
     ],
-    "id": 1842,
+    "id": 2018,
     "fullScore": 50
   },
   {
@@ -86488,7 +94920,7 @@
       36,
       33
     ],
-    "id": 1843,
+    "id": 2019,
     "fullScore": 50
   },
   {
@@ -86510,7 +94942,7 @@
       38,
       35
     ],
-    "id": 1844,
+    "id": 2020,
     "fullScore": 50
   },
   {
@@ -86532,7 +94964,7 @@
       37,
       33
     ],
-    "id": 1845,
+    "id": 2021,
     "fullScore": 50
   },
   {
@@ -86554,7 +94986,7 @@
       37,
       35
     ],
-    "id": 1846,
+    "id": 2022,
     "fullScore": 50
   },
   {
@@ -86576,7 +95008,7 @@
       38,
       33
     ],
-    "id": 1847,
+    "id": 2023,
     "fullScore": 50
   },
   {
@@ -86598,7 +95030,7 @@
       72,
       64
     ],
-    "id": 1848,
+    "id": 2024,
     "fullScore": 100
   },
   {
@@ -86620,7 +95052,7 @@
       77,
       74
     ],
-    "id": 1849,
+    "id": 2025,
     "fullScore": 100
   },
   {
@@ -86642,7 +95074,7 @@
       74,
       68
     ],
-    "id": 1850,
+    "id": 2026,
     "fullScore": 100
   },
   {
@@ -86664,7 +95096,7 @@
       38,
       37
     ],
-    "id": 1851,
+    "id": 2027,
     "fullScore": 50
   },
   {
@@ -86686,7 +95118,7 @@
       43,
       41
     ],
-    "id": 1852,
+    "id": 2028,
     "fullScore": 50
   },
   {
@@ -86708,7 +95140,7 @@
       40,
       39
     ],
-    "id": 1853,
+    "id": 2029,
     "fullScore": 50
   },
   {
@@ -86730,7 +95162,7 @@
       41,
       40
     ],
-    "id": 1854,
+    "id": 2030,
     "fullScore": 50
   },
   {
@@ -86752,7 +95184,7 @@
       37,
       35
     ],
-    "id": 1855,
+    "id": 2031,
     "fullScore": 50
   },
   {
@@ -86774,7 +95206,7 @@
       39,
       37
     ],
-    "id": 1856,
+    "id": 2032,
     "fullScore": 50
   },
   {
@@ -86796,7 +95228,7 @@
       39,
       37
     ],
-    "id": 1857,
+    "id": 2033,
     "fullScore": 50
   },
   {
@@ -86818,7 +95250,7 @@
       38,
       33
     ],
-    "id": 1858,
+    "id": 2034,
     "fullScore": 50
   },
   {
@@ -86840,7 +95272,7 @@
       37,
       35
     ],
-    "id": 1859,
+    "id": 2035,
     "fullScore": 50
   },
   {
@@ -86862,7 +95294,7 @@
       37,
       33
     ],
-    "id": 1860,
+    "id": 2036,
     "fullScore": 50
   },
   {
@@ -86884,7 +95316,7 @@
       37,
       33
     ],
-    "id": 1861,
+    "id": 2037,
     "fullScore": 50
   },
   {
@@ -86906,7 +95338,7 @@
       37,
       34
     ],
-    "id": 1862,
+    "id": 2038,
     "fullScore": 50
   },
   {
@@ -86928,7 +95360,7 @@
       74,
       62
     ],
-    "id": 1863,
+    "id": 2039,
     "fullScore": 100
   },
   {
@@ -86950,7 +95382,7 @@
       38,
       35
     ],
-    "id": 1864,
+    "id": 2040,
     "fullScore": 50
   },
   {
@@ -86972,7 +95404,7 @@
       38,
       32
     ],
-    "id": 1865,
+    "id": 2041,
     "fullScore": 50
   },
   {
@@ -86994,7 +95426,7 @@
       39,
       37
     ],
-    "id": 1866,
+    "id": 2042,
     "fullScore": 50
   },
   {
@@ -87016,7 +95448,7 @@
       37,
       34
     ],
-    "id": 1867,
+    "id": 2043,
     "fullScore": 50
   },
   {
@@ -87038,7 +95470,7 @@
       37,
       33
     ],
-    "id": 1868,
+    "id": 2044,
     "fullScore": 50
   },
   {
@@ -87060,7 +95492,7 @@
       39,
       36
     ],
-    "id": 1869,
+    "id": 2045,
     "fullScore": 50
   },
   {
@@ -87082,7 +95514,7 @@
       37,
       35
     ],
-    "id": 1870,
+    "id": 2046,
     "fullScore": 50
   },
   {
@@ -87104,7 +95536,7 @@
       39,
       36
     ],
-    "id": 1871,
+    "id": 2047,
     "fullScore": 50
   },
   {
@@ -87126,7 +95558,7 @@
       36,
       32
     ],
-    "id": 1872,
+    "id": 2048,
     "fullScore": 50
   },
   {
@@ -87148,7 +95580,7 @@
       38,
       36
     ],
-    "id": 1873,
+    "id": 2049,
     "fullScore": 50
   },
   {
@@ -87170,7 +95602,7 @@
       37,
       34
     ],
-    "id": 1874,
+    "id": 2050,
     "fullScore": 50
   },
   {
@@ -87192,7 +95624,7 @@
       74,
       65
     ],
-    "id": 1875,
+    "id": 2051,
     "fullScore": 100
   },
   {
@@ -87214,7 +95646,7 @@
       77,
       73
     ],
-    "id": 1876,
+    "id": 2052,
     "fullScore": 100
   },
   {
@@ -87236,7 +95668,7 @@
       72,
       65
     ],
-    "id": 1877,
+    "id": 2053,
     "fullScore": 100
   },
   {
@@ -87258,7 +95690,7 @@
       39,
       38
     ],
-    "id": 1878,
+    "id": 2054,
     "fullScore": 50
   },
   {
@@ -87280,7 +95712,7 @@
       42,
       40
     ],
-    "id": 1879,
+    "id": 2055,
     "fullScore": 50
   },
   {
@@ -87302,7 +95734,7 @@
       40,
       38
     ],
-    "id": 1880,
+    "id": 2056,
     "fullScore": 50
   },
   {
@@ -87324,7 +95756,7 @@
       39,
       36
     ],
-    "id": 1881,
+    "id": 2057,
     "fullScore": 50
   },
   {
@@ -87346,7 +95778,7 @@
       37,
       34
     ],
-    "id": 1882,
+    "id": 2058,
     "fullScore": 50
   },
   {
@@ -87368,7 +95800,7 @@
       39,
       36
     ],
-    "id": 1883,
+    "id": 2059,
     "fullScore": 50
   },
   {
@@ -87390,7 +95822,7 @@
       39,
       37
     ],
-    "id": 1884,
+    "id": 2060,
     "fullScore": 50
   },
   {
@@ -87412,7 +95844,7 @@
       37,
       32
     ],
-    "id": 1885,
+    "id": 2061,
     "fullScore": 50
   },
   {
@@ -87434,7 +95866,7 @@
       39,
       36
     ],
-    "id": 1886,
+    "id": 2062,
     "fullScore": 50
   },
   {
@@ -87456,7 +95888,7 @@
       38,
       34
     ],
-    "id": 1887,
+    "id": 2063,
     "fullScore": 50
   },
   {
@@ -87478,7 +95910,7 @@
       36,
       28
     ],
-    "id": 1888,
+    "id": 2064,
     "fullScore": 50
   },
   {
@@ -87500,7 +95932,7 @@
       39,
       35
     ],
-    "id": 1889,
+    "id": 2065,
     "fullScore": 50
   },
   {
@@ -87522,7 +95954,7 @@
       38,
       35
     ],
-    "id": 1890,
+    "id": 2066,
     "fullScore": 50
   },
   {
@@ -87544,7 +95976,7 @@
       12214,
       8230
     ],
-    "id": 1891,
+    "id": 2067,
     "fullScore": 50
   },
   {
@@ -87566,7 +95998,7 @@
       2091,
       1128
     ],
-    "id": 1892,
+    "id": 2068,
     "fullScore": 50
   },
   {
@@ -87588,7 +96020,7 @@
       1067,
       558
     ],
-    "id": 1893,
+    "id": 2069,
     "fullScore": 50
   },
   {
@@ -87610,7 +96042,7 @@
       1195,
       531
     ],
-    "id": 1894,
+    "id": 2070,
     "fullScore": 50
   },
   {
@@ -87632,7 +96064,7 @@
       64820,
       35812
     ],
-    "id": 1895,
+    "id": 2071,
     "fullScore": 100
   },
   {
@@ -87654,7 +96086,7 @@
       1205,
       516
     ],
-    "id": 1896,
+    "id": 2072,
     "fullScore": 50
   },
   {
@@ -87676,7 +96108,7 @@
       6123,
       3064
     ],
-    "id": 1897,
+    "id": 2073,
     "fullScore": 50
   },
   {
@@ -87698,7 +96130,7 @@
       1343,
       579
     ],
-    "id": 1898,
+    "id": 2074,
     "fullScore": 50
   },
   {
@@ -87720,7 +96152,7 @@
       18326,
       11498
     ],
-    "id": 1899,
+    "id": 2075,
     "fullScore": 50
   },
   {
@@ -87742,7 +96174,7 @@
       13878,
       7254
     ],
-    "id": 1900,
+    "id": 2076,
     "fullScore": 50
   },
   {
@@ -87764,7 +96196,7 @@
       1409,
       555
     ],
-    "id": 1901,
+    "id": 2077,
     "fullScore": 50
   },
   {
@@ -87786,7 +96218,7 @@
       1195,
       693
     ],
-    "id": 1902,
+    "id": 2078,
     "fullScore": 100
   },
   {
@@ -87808,7 +96240,7 @@
       537,
       251
     ],
-    "id": 1903,
+    "id": 2079,
     "fullScore": 50
   },
   {
@@ -87830,7 +96262,7 @@
       1068,
       686
     ],
-    "id": 1904,
+    "id": 2080,
     "fullScore": 50
   },
   {
@@ -87852,7 +96284,7 @@
       2985,
       2191
     ],
-    "id": 1905,
+    "id": 2081,
     "fullScore": 50
   },
   {
@@ -87874,7 +96306,7 @@
       1349,
       429
     ],
-    "id": 1906,
+    "id": 2082,
     "fullScore": 50
   },
   {
@@ -87896,7 +96328,7 @@
       1131,
       690
     ],
-    "id": 1907,
+    "id": 2083,
     "fullScore": 50
   },
   {
@@ -87918,7 +96350,7 @@
       124,
       62
     ],
-    "id": 1908,
+    "id": 2084,
     "fullScore": 50
   },
   {
@@ -87940,7 +96372,7 @@
       1889,
       1106
     ],
-    "id": 1909,
+    "id": 2085,
     "fullScore": 50
   },
   {
@@ -87962,7 +96394,7 @@
       1250,
       593
     ],
-    "id": 1910,
+    "id": 2086,
     "fullScore": 50
   },
   {
@@ -87984,7 +96416,7 @@
       114,
       58
     ],
-    "id": 1911,
+    "id": 2087,
     "fullScore": 50
   },
   {
@@ -88006,7 +96438,7 @@
       1042,
       584
     ],
-    "id": 1912,
+    "id": 2088,
     "fullScore": 50
   },
   {
@@ -88028,7 +96460,7 @@
       879,
       700
     ],
-    "id": 1913,
+    "id": 2089,
     "fullScore": 50
   },
   {
@@ -88050,7 +96482,7 @@
       38,
       35
     ],
-    "id": 1914,
+    "id": 2090,
     "fullScore": 50
   },
   {
@@ -88072,7 +96504,7 @@
       38,
       36
     ],
-    "id": 1915,
+    "id": 2091,
     "fullScore": 50
   },
   {
@@ -88094,7 +96526,7 @@
       37,
       32
     ],
-    "id": 1916,
+    "id": 2092,
     "fullScore": 50
   },
   {
@@ -88116,7 +96548,7 @@
       38,
       35
     ],
-    "id": 1917,
+    "id": 2093,
     "fullScore": 50
   },
   {
@@ -88138,7 +96570,7 @@
       36,
       31
     ],
-    "id": 1918,
+    "id": 2094,
     "fullScore": 50
   },
   {
@@ -88160,7 +96592,7 @@
       37,
       33
     ],
-    "id": 1919,
+    "id": 2095,
     "fullScore": 50
   },
   {
@@ -88182,7 +96614,7 @@
       38,
       35
     ],
-    "id": 1920,
+    "id": 2096,
     "fullScore": 50
   },
   {
@@ -88204,7 +96636,7 @@
       72,
       60
     ],
-    "id": 1921,
+    "id": 2097,
     "fullScore": 100
   },
   {
@@ -88226,7 +96658,7 @@
       38,
       33
     ],
-    "id": 1922,
+    "id": 2098,
     "fullScore": 50
   },
   {
@@ -88248,7 +96680,7 @@
       37,
       31
     ],
-    "id": 1923,
+    "id": 2099,
     "fullScore": 50
   },
   {
@@ -88270,7 +96702,7 @@
       38,
       35
     ],
-    "id": 1924,
+    "id": 2100,
     "fullScore": 50
   },
   {
@@ -88292,7 +96724,7 @@
       37,
       34
     ],
-    "id": 1925,
+    "id": 2101,
     "fullScore": 50
   },
   {
@@ -88314,7 +96746,7 @@
       37,
       31
     ],
-    "id": 1926,
+    "id": 2102,
     "fullScore": 50
   },
   {
@@ -88336,7 +96768,7 @@
       37,
       34
     ],
-    "id": 1927,
+    "id": 2103,
     "fullScore": 50
   },
   {
@@ -88358,7 +96790,7 @@
       37,
       34
     ],
-    "id": 1928,
+    "id": 2104,
     "fullScore": 50
   },
   {
@@ -88380,7 +96812,7 @@
       38,
       34
     ],
-    "id": 1929,
+    "id": 2105,
     "fullScore": 50
   },
   {
@@ -88402,7 +96834,7 @@
       36,
       30
     ],
-    "id": 1930,
+    "id": 2106,
     "fullScore": 50
   },
   {
@@ -88424,7 +96856,7 @@
       37,
       34
     ],
-    "id": 1931,
+    "id": 2107,
     "fullScore": 50
   },
   {
@@ -88446,7 +96878,7 @@
       36,
       31
     ],
-    "id": 1932,
+    "id": 2108,
     "fullScore": 50
   },
   {
@@ -88468,7 +96900,7 @@
       73,
       64
     ],
-    "id": 1933,
+    "id": 2109,
     "fullScore": 100
   },
   {
@@ -88490,7 +96922,7 @@
       76,
       72
     ],
-    "id": 1934,
+    "id": 2110,
     "fullScore": 100
   },
   {
@@ -88512,7 +96944,7 @@
       72,
       65
     ],
-    "id": 1935,
+    "id": 2111,
     "fullScore": 100
   },
   {
@@ -88534,7 +96966,7 @@
       38,
       34
     ],
-    "id": 1936,
+    "id": 2112,
     "fullScore": 50
   },
   {
@@ -88556,7 +96988,7 @@
       38,
       35
     ],
-    "id": 1937,
+    "id": 2113,
     "fullScore": 50
   },
   {
@@ -88578,7 +97010,7 @@
       36,
       32
     ],
-    "id": 1938,
+    "id": 2114,
     "fullScore": 50
   },
   {
@@ -88600,7 +97032,7 @@
       38,
       32
     ],
-    "id": 1939,
+    "id": 2115,
     "fullScore": 50
   },
   {
@@ -88622,7 +97054,7 @@
       38,
       34
     ],
-    "id": 1940,
+    "id": 2116,
     "fullScore": 50
   },
   {
@@ -88644,7 +97076,7 @@
       39,
       36
     ],
-    "id": 1941,
+    "id": 2117,
     "fullScore": 50
   },
   {
@@ -88666,7 +97098,7 @@
       39,
       34
     ],
-    "id": 1942,
+    "id": 2118,
     "fullScore": 50
   },
   {
@@ -88688,7 +97120,7 @@
       38,
       34
     ],
-    "id": 1943,
+    "id": 2119,
     "fullScore": 50
   },
   {
@@ -88710,7 +97142,7 @@
       38,
       34
     ],
-    "id": 1944,
+    "id": 2120,
     "fullScore": 50
   },
   {
@@ -88732,7 +97164,7 @@
       39,
       33
     ],
-    "id": 1945,
+    "id": 2121,
     "fullScore": 50
   },
   {
@@ -88754,7 +97186,7 @@
       38,
       33
     ],
-    "id": 1946,
+    "id": 2122,
     "fullScore": 50
   },
   {
@@ -88776,7 +97208,7 @@
       36,
       33
     ],
-    "id": 1947,
+    "id": 2123,
     "fullScore": 50
   },
   {
@@ -88798,7 +97230,7 @@
       37,
       34
     ],
-    "id": 1948,
+    "id": 2124,
     "fullScore": 50
   },
   {
@@ -88820,7 +97252,7 @@
       37,
       33
     ],
-    "id": 1949,
+    "id": 2125,
     "fullScore": 50
   },
   {
@@ -88842,7 +97274,7 @@
       38,
       34
     ],
-    "id": 1950,
+    "id": 2126,
     "fullScore": 50
   },
   {
@@ -88864,7 +97296,7 @@
       36,
       31
     ],
-    "id": 1951,
+    "id": 2127,
     "fullScore": 50
   },
   {
@@ -88886,7 +97318,7 @@
       36,
       33
     ],
-    "id": 1952,
+    "id": 2128,
     "fullScore": 50
   },
   {
@@ -88908,7 +97340,7 @@
       37,
       33
     ],
-    "id": 1953,
+    "id": 2129,
     "fullScore": 50
   },
   {
@@ -88930,7 +97362,7 @@
       37,
       34
     ],
-    "id": 1954,
+    "id": 2130,
     "fullScore": 50
   },
   {
@@ -88952,7 +97384,7 @@
       72,
       57
     ],
-    "id": 1955,
+    "id": 2131,
     "fullScore": 100
   },
   {
@@ -88974,7 +97406,7 @@
       37,
       32
     ],
-    "id": 1956,
+    "id": 2132,
     "fullScore": 50
   },
   {
@@ -88996,7 +97428,7 @@
       37,
       30
     ],
-    "id": 1957,
+    "id": 2133,
     "fullScore": 50
   },
   {
@@ -89018,7 +97450,7 @@
       36,
       31
     ],
-    "id": 1958,
+    "id": 2134,
     "fullScore": 50
   },
   {
@@ -89040,7 +97472,7 @@
       38,
       33
     ],
-    "id": 1959,
+    "id": 2135,
     "fullScore": 50
   },
   {
@@ -89062,7 +97494,7 @@
       36,
       31
     ],
-    "id": 1960,
+    "id": 2136,
     "fullScore": 50
   },
   {
@@ -89084,7 +97516,7 @@
       36,
       33
     ],
-    "id": 1961,
+    "id": 2137,
     "fullScore": 50
   },
   {
@@ -89106,7 +97538,7 @@
       36,
       32
     ],
-    "id": 1962,
+    "id": 2138,
     "fullScore": 50
   },
   {
@@ -89128,7 +97560,7 @@
       37,
       32
     ],
-    "id": 1963,
+    "id": 2139,
     "fullScore": 50
   },
   {
@@ -89150,7 +97582,7 @@
       37,
       31
     ],
-    "id": 1964,
+    "id": 2140,
     "fullScore": 50
   },
   {
@@ -89172,7 +97604,7 @@
       36,
       31
     ],
-    "id": 1965,
+    "id": 2141,
     "fullScore": 50
   },
   {
@@ -89194,7 +97626,7 @@
       38,
       32
     ],
-    "id": 1966,
+    "id": 2142,
     "fullScore": 50
   },
   {
@@ -89216,7 +97648,7 @@
       73,
       65
     ],
-    "id": 1967,
+    "id": 2143,
     "fullScore": 100
   },
   {
@@ -89238,7 +97670,7 @@
       78,
       74
     ],
-    "id": 1968,
+    "id": 2144,
     "fullScore": 100
   },
   {
@@ -89260,7 +97692,7 @@
       74,
       68
     ],
-    "id": 1969,
+    "id": 2145,
     "fullScore": 100
   },
   {
@@ -89282,7 +97714,7 @@
       38,
       35
     ],
-    "id": 1970,
+    "id": 2146,
     "fullScore": 50
   },
   {
@@ -89304,7 +97736,7 @@
       39,
       38
     ],
-    "id": 1971,
+    "id": 2147,
     "fullScore": 50
   },
   {
@@ -89326,7 +97758,7 @@
       37,
       35
     ],
-    "id": 1972,
+    "id": 2148,
     "fullScore": 50
   },
   {
@@ -89348,7 +97780,7 @@
       37,
       34
     ],
-    "id": 1973,
+    "id": 2149,
     "fullScore": 50
   },
   {
@@ -89370,7 +97802,7 @@
       36,
       34
     ],
-    "id": 1974,
+    "id": 2150,
     "fullScore": 50
   },
   {
@@ -89392,7 +97824,7 @@
       38,
       36
     ],
-    "id": 1975,
+    "id": 2151,
     "fullScore": 50
   },
   {
@@ -89414,7 +97846,7 @@
       38,
       35
     ],
-    "id": 1976,
+    "id": 2152,
     "fullScore": 50
   },
   {
@@ -89436,7 +97868,7 @@
       38,
       35
     ],
-    "id": 1977,
+    "id": 2153,
     "fullScore": 50
   },
   {
@@ -89458,7 +97890,7 @@
       38,
       34
     ],
-    "id": 1978,
+    "id": 2154,
     "fullScore": 50
   },
   {
@@ -89480,7 +97912,7 @@
       37,
       33
     ],
-    "id": 1979,
+    "id": 2155,
     "fullScore": 50
   },
   {
@@ -89502,7 +97934,7 @@
       37,
       32
     ],
-    "id": 1980,
+    "id": 2156,
     "fullScore": 50
   },
   {
@@ -89524,7 +97956,7 @@
       38,
       33
     ],
-    "id": 1981,
+    "id": 2157,
     "fullScore": 50
   },
   {
@@ -89546,7 +97978,7 @@
       39,
       36
     ],
-    "id": 1982,
+    "id": 2158,
     "fullScore": 50
   },
   {
@@ -89568,7 +98000,7 @@
       38,
       33
     ],
-    "id": 1983,
+    "id": 2159,
     "fullScore": 50
   },
   {
@@ -89590,7 +98022,7 @@
       38,
       34
     ],
-    "id": 1984,
+    "id": 2160,
     "fullScore": 50
   },
   {
@@ -89612,7 +98044,7 @@
       38,
       35
     ],
-    "id": 1985,
+    "id": 2161,
     "fullScore": 50
   },
   {
@@ -89634,7 +98066,7 @@
       36,
       32
     ],
-    "id": 1986,
+    "id": 2162,
     "fullScore": 50
   },
   {
@@ -89656,7 +98088,7 @@
       39,
       37
     ],
-    "id": 1987,
+    "id": 2163,
     "fullScore": 50
   },
   {
@@ -89678,7 +98110,7 @@
       37,
       34
     ],
-    "id": 1988,
+    "id": 2164,
     "fullScore": 50
   },
   {
@@ -89700,7 +98132,7 @@
       36,
       33
     ],
-    "id": 1989,
+    "id": 2165,
     "fullScore": 50
   },
   {
@@ -89722,7 +98154,7 @@
       36,
       30
     ],
-    "id": 1990,
+    "id": 2166,
     "fullScore": 50
   },
   {
@@ -89744,7 +98176,7 @@
       36,
       31
     ],
-    "id": 1991,
+    "id": 2167,
     "fullScore": 50
   },
   {
@@ -89766,7 +98198,7 @@
       36,
       29
     ],
-    "id": 1992,
+    "id": 2168,
     "fullScore": 50
   },
   {
@@ -89788,7 +98220,7 @@
       37,
       34
     ],
-    "id": 1993,
+    "id": 2169,
     "fullScore": 50
   },
   {
@@ -89810,7 +98242,7 @@
       35,
       30
     ],
-    "id": 1994,
+    "id": 2170,
     "fullScore": 50
   },
   {
@@ -89832,7 +98264,7 @@
       37,
       34
     ],
-    "id": 1995,
+    "id": 2171,
     "fullScore": 50
   },
   {
@@ -89854,7 +98286,7 @@
       36,
       31
     ],
-    "id": 1996,
+    "id": 2172,
     "fullScore": 50
   },
   {
@@ -89876,7 +98308,7 @@
       36,
       30
     ],
-    "id": 1997,
+    "id": 2173,
     "fullScore": 50
   },
   {
@@ -89898,7 +98330,7 @@
       36,
       31
     ],
-    "id": 1998,
+    "id": 2174,
     "fullScore": 50
   },
   {
@@ -89920,7 +98352,7 @@
       37,
       31
     ],
-    "id": 1999,
+    "id": 2175,
     "fullScore": 50
   },
   {
@@ -89942,7 +98374,7 @@
       36,
       30
     ],
-    "id": 2000,
+    "id": 2176,
     "fullScore": 50
   },
   {
@@ -89964,7 +98396,7 @@
       37,
       34
     ],
-    "id": 2001,
+    "id": 2177,
     "fullScore": 50
   },
   {
@@ -89986,7 +98418,7 @@
       35,
       29
     ],
-    "id": 2002,
+    "id": 2178,
     "fullScore": 50
   },
   {
@@ -90008,7 +98440,7 @@
       36,
       29
     ],
-    "id": 2003,
+    "id": 2179,
     "fullScore": 50
   },
   {
@@ -90030,7 +98462,7 @@
       36,
       29
     ],
-    "id": 2004,
+    "id": 2180,
     "fullScore": 50
   },
   {
@@ -90052,7 +98484,7 @@
       36,
       31
     ],
-    "id": 2005,
+    "id": 2181,
     "fullScore": 50
   },
   {
@@ -90074,7 +98506,7 @@
       37,
       27
     ],
-    "id": 2006,
+    "id": 2182,
     "fullScore": 50
   },
   {
@@ -90096,7 +98528,7 @@
       37,
       34
     ],
-    "id": 2007,
+    "id": 2183,
     "fullScore": 50
   },
   {
@@ -90118,7 +98550,7 @@
       38,
       37
     ],
-    "id": 2008,
+    "id": 2184,
     "fullScore": 50
   },
   {
@@ -90140,7 +98572,7 @@
       37,
       33
     ],
-    "id": 2009,
+    "id": 2185,
     "fullScore": 50
   },
   {
@@ -90162,7 +98594,7 @@
       39,
       37
     ],
-    "id": 2010,
+    "id": 2186,
     "fullScore": 50
   },
   {
@@ -90184,7 +98616,7 @@
       37,
       34
     ],
-    "id": 2011,
+    "id": 2187,
     "fullScore": 50
   },
   {
@@ -90206,7 +98638,7 @@
       37,
       34
     ],
-    "id": 2012,
+    "id": 2188,
     "fullScore": 50
   },
   {
@@ -90228,7 +98660,7 @@
       38,
       33
     ],
-    "id": 2013,
+    "id": 2189,
     "fullScore": 50
   },
   {
@@ -90250,7 +98682,7 @@
       38,
       35
     ],
-    "id": 2014,
+    "id": 2190,
     "fullScore": 50
   },
   {
@@ -90272,7 +98704,7 @@
       38,
       33
     ],
-    "id": 2015,
+    "id": 2191,
     "fullScore": 50
   },
   {
@@ -90294,7 +98726,7 @@
       37,
       32
     ],
-    "id": 2016,
+    "id": 2192,
     "fullScore": 50
   }
 ]

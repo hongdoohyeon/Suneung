@@ -7,10 +7,12 @@
 //   2) /tmp/csat_gc_normalized_v3.json              - 평가원 hwpx 2005~2020
 //   3) /tmp/recent_csat_gc.json                     - 평가원 매년 갱신 fan-out
 //   4) data/raw/etoos/rawcuts-normalized.json       - 이투스 wayback archive (raw)
-//   5) data/raw/crux/suneungcalc-csat-rawcuts.json  - Crux Table 계산기 기반 최근 수능 국어/수학 raw
+//   5) data/raw/manual/verified-rawcuts.json       - 공개 아카이브 대조 검증 raw 보강
+//   6) data/raw/crux/suneungcalc-csat-rawcuts.json  - Crux Table 계산기 기반 최근 수능 국어/수학 raw
+//   7) data/raw/crux/suneungcalc-mock-rawcuts.json  - Crux Table 계산기 기반 최근 모의고사 국어/수학 raw
 //
 // 적용 순서 (뒤가 우선):
-//   hwpx → 평가원 recent → 메가스터디 (raw + std + 백분위 + 누적) → 이투스 archive (raw 보강) → Crux 최근 수능 raw 보강 → 절대평가 자동
+//   hwpx → 평가원 recent → 메가스터디 (raw + std + 백분위 + 누적) → 이투스 archive (raw 보강) → 수동 검증 raw 보강 → Crux 최근 국어/수학 raw 보강 → 절대평가 자동
 // 표준점수/백분위/누적은 데이터로만 보존 (사이트 미표시).
 
 import { readFile, writeFile } from 'node:fs/promises';
@@ -34,19 +36,27 @@ function isMonotonicCuts(cuts) {
     && cuts.every((v, i) => i === 0 || v == null || cuts[i - 1] == null || cuts[i - 1] >= v);
 }
 
+function hasSourceTag(source, tag) {
+  if (!source || !tag) return false;
+  return String(source).split('+').includes(tag);
+}
+
 async function readJsonOr(p, fallback) {
   try { return JSON.parse(await readFile(p, 'utf-8')); }
   catch { return fallback; }
 }
 
-const [exams, megastudy, hwpxData, recentData, etoosArchived, cruxRawCuts] = await Promise.all([
+const [exams, megastudy, hwpxData, recentData, etoosArchived, manualVerifiedRawCuts, cruxCsatRawCuts, cruxMockRawCuts] = await Promise.all([
   readFile(EXAMS_PATH, 'utf-8').then(JSON.parse),
   readJsonOr(path.resolve(ROOT, 'data/raw/megastudy/gradecuts-normalized.json'), []),
   readJsonOr('/tmp/csat_gc_normalized_v3.json', []),
   readJsonOr('/tmp/recent_csat_gc.json', []),
   readJsonOr(path.resolve(ROOT, 'data/raw/etoos/rawcuts-normalized.json'), []),
+  readJsonOr(path.resolve(ROOT, 'data/raw/manual/verified-rawcuts.json'), []),
   readJsonOr(path.resolve(ROOT, 'data/raw/crux/suneungcalc-csat-rawcuts.json'), []),
+  readJsonOr(path.resolve(ROOT, 'data/raw/crux/suneungcalc-mock-rawcuts.json'), []),
 ]);
+const cruxRawCuts = [...cruxCsatRawCuts, ...cruxMockRawCuts];
 // 기존 출력 파일을 seed로 사용해, 현재 환경에 없는 보조 raw 소스(/tmp 평가원 추출물 등)가
 // 재빌드 과정에서 삭제되지 않게 한다. 아래 source 적용 순서가 기존 값을 덮어쓰므로
 // megastudy/etoos 최신 raw 보강은 계속 반영된다.
@@ -189,7 +199,40 @@ for (const r of etoosArchived) {
   etoosApplied++;
 }
 
-// 5b. Crux Table 계산기 기반 최근 수능 국어/수학 원점수 보강.
+// 5b. 수동 검증 rawCuts 보강.
+//     공개 아카이브 표에서 원점수/표준점수/백분위를 대조해 전사한 값만 사용한다.
+let manualApplied = 0;
+let manualSkippedByStdMismatch = 0;
+let manualSkippedByExistingRawCuts = 0;
+let manualSkippedByNonMonotonicRawCuts = 0;
+for (const r of manualVerifiedRawCuts) {
+  if (!Array.isArray(r.rawCuts) || !r.rawCuts.some(v => v != null)) continue;
+  if (!isMonotonicCuts(r.rawCuts)) {
+    manualSkippedByNonMonotonicRawCuts++;
+    continue;
+  }
+  const rec = ensureRecord(r);
+  const sameManualSource = hasSourceTag(rec.source, r.source);
+  if (Array.isArray(rec.rawCuts) && rec.rawCuts.length === 8 && !sameManualSource) {
+    manualSkippedByExistingRawCuts++;
+    continue;
+  }
+  if (!sameManualSource && !compatibleStandardCuts(rec.standardCuts, r.standardCuts)) {
+    manualSkippedByStdMismatch++;
+    continue;
+  }
+  rec.rawCuts = r.rawCuts;
+  if (r.fullScore != null) rec.fullScore = r.fullScore;
+  if ((!rec.standardCuts || sameManualSource) && r.standardCuts) rec.standardCuts = r.standardCuts;
+  if ((!rec.standardPercentile || sameManualSource) && r.standardPercentile) rec.standardPercentile = r.standardPercentile;
+  if ((rec.highestStandardScore == null || sameManualSource) && r.highestStandardScore != null) rec.highestStandardScore = r.highestStandardScore;
+  if (r.source && !hasSourceTag(rec.source, r.source)) {
+    rec.source = rec.source ? `${rec.source}+${r.source}` : r.source;
+  }
+  manualApplied++;
+}
+
+// 5c. Crux Table 계산기 기반 최근 국어/수학 원점수 보강.
 //     EBSi/메가스터디의 최근 통합형 국어·수학은 선택과목 원점수 칸이 비어 있어,
 //     Crux/suneungcalc의 표준점수 산출식으로 각 등급 표준점수 컷을 만족하는 최소 원점수를 계산해 보강한다.
 let cruxApplied = 0;
@@ -295,6 +338,7 @@ console.log(`hwpx 적재: ${hwpxApplied}건`);
 console.log(`recent 적재: ${recentApplied}건`);
 console.log(`megastudy 적재: ${megaApplied}건`);
 console.log(`etoos archived rawCuts: ${etoosApplied}건 (표준점수 불일치 skip ${etoosSkippedByStdMismatch}건, 만점 불일치 skip ${etoosSkippedByFullScoreMismatch}건, rawCuts 단조성 skip ${etoosSkippedByNonMonotonicRawCuts}건)`);
+console.log(`manual verified rawCuts: ${manualApplied}건 (기존 rawCuts 유지 skip ${manualSkippedByExistingRawCuts}건, 표준점수 불일치 skip ${manualSkippedByStdMismatch}건, rawCuts 단조성 skip ${manualSkippedByNonMonotonicRawCuts}건)`);
 console.log(`crux rawCuts: ${cruxApplied}건 (기존 rawCuts 유지 skip ${cruxSkippedByExistingRawCuts}건, 표준점수 불일치 skip ${cruxSkippedByStdMismatch}건, rawCuts 단조성 skip ${cruxSkippedByNonMonotonicRawCuts}건)`);
 console.log(`절대평가 자동 추가: ${absoluteApplied}건`);
 console.log(`최종: ${out.length}건`);
