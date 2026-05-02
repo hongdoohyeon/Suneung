@@ -257,7 +257,7 @@
     "highestStandardScore": 164,
     "source": "megastudy+etoos-raw",
     "id": 5,
-    "fullScore": 98,
+    "fullScore": 100,
     "rawCuts": [
       73,
       67,
@@ -1491,9 +1491,19 @@
       96.79
     ],
     "highestStandardScore": 147,
-    "source": "megastudy",
+    "source": "megastudy+crux-raw",
     "id": 29,
-    "fullScore": 100
+    "fullScore": 100,
+    "rawCuts": [
+      85,
+      78,
+      69,
+      59,
+      46,
+      34,
+      24,
+      17
+    ]
   },
   {
     "curriculum": "2015",
@@ -1535,9 +1545,19 @@
       96.79
     ],
     "highestStandardScore": 147,
-    "source": "megastudy",
+    "source": "megastudy+crux-raw",
     "id": 30,
-    "fullScore": 100
+    "fullScore": 100,
+    "rawCuts": [
+      89,
+      81,
+      71,
+      61,
+      48,
+      36,
+      26,
+      19
+    ]
   },
   {
     "curriculum": "2015",
@@ -2065,9 +2085,19 @@
       96.29
     ],
     "highestStandardScore": 139,
-    "source": "megastudy",
+    "source": "megastudy+crux-raw",
     "id": 40,
-    "fullScore": 100
+    "fullScore": 100,
+    "rawCuts": [
+      85,
+      79,
+      73,
+      62,
+      37,
+      21,
+      15,
+      11
+    ]
   },
   {
     "curriculum": "2015",
@@ -2109,9 +2139,19 @@
       96.29
     ],
     "highestStandardScore": 139,
-    "source": "megastudy",
+    "source": "megastudy+crux-raw",
     "id": 41,
-    "fullScore": 100
+    "fullScore": 100,
+    "rawCuts": [
+      85,
+      79,
+      73,
+      62,
+      37,
+      20,
+      14,
+      10
+    ]
   },
   {
     "curriculum": "2015",
@@ -2153,9 +2193,19 @@
       96.29
     ],
     "highestStandardScore": 139,
-    "source": "megastudy",
+    "source": "megastudy+crux-raw",
     "id": 42,
-    "fullScore": 100
+    "fullScore": 100,
+    "rawCuts": [
+      88,
+      83,
+      76,
+      65,
+      40,
+      23,
+      16,
+      12
+    ]
   },
   {
     "curriculum": "2015",
@@ -4332,7 +4382,7 @@
       16,
       11,
       6,
-      7
+      null
     ],
     "standardPercentile": [
       96,
@@ -4356,7 +4406,7 @@
     ],
     "highestStandardScore": 72,
     "fullScore": 50,
-    "source": "megastudy+etoos-raw",
+    "source": "megastudy",
     "id": 85
   },
   {
@@ -5745,7 +5795,7 @@
     "highestStandardScore": 146,
     "source": "megastudy+etoos-raw",
     "id": 112,
-    "fullScore": 96,
+    "fullScore": 100,
     "rawCuts": [
       null,
       null,
@@ -9743,9 +9793,19 @@
       96.69
     ],
     "highestStandardScore": 139,
-    "source": "megastudy",
+    "source": "megastudy+crux-raw",
     "id": 192,
-    "fullScore": 100
+    "fullScore": 100,
+    "rawCuts": [
+      90,
+      83,
+      73,
+      63,
+      52,
+      40,
+      28,
+      19
+    ]
   },
   {
     "curriculum": "2015",
@@ -9787,9 +9847,19 @@
       96.69
     ],
     "highestStandardScore": 139,
-    "source": "megastudy",
+    "source": "megastudy+crux-raw",
     "id": 193,
-    "fullScore": 100
+    "fullScore": 100,
+    "rawCuts": [
+      93,
+      86,
+      76,
+      66,
+      55,
+      43,
+      31,
+      22
+    ]
   },
   {
     "curriculum": "2015",
@@ -10317,9 +10387,19 @@
       96.6
     ],
     "highestStandardScore": 140,
-    "source": "megastudy",
+    "source": "megastudy+crux-raw",
     "id": 203,
-    "fullScore": 100
+    "fullScore": 100,
+    "rawCuts": [
+      90,
+      79,
+      71,
+      62,
+      44,
+      20,
+      13,
+      9
+    ]
   },
   {
     "curriculum": "2015",
@@ -10361,9 +10441,19 @@
       96.6
     ],
     "highestStandardScore": 140,
-    "source": "megastudy",
+    "source": "megastudy+crux-raw",
     "id": 204,
-    "fullScore": 100
+    "fullScore": 100,
+    "rawCuts": [
+      88,
+      77,
+      69,
+      60,
+      42,
+      19,
+      11,
+      8
+    ]
   },
   {
     "curriculum": "2015",
@@ -10405,9 +10495,19 @@
       96.6
     ],
     "highestStandardScore": 140,
-    "source": "megastudy",
+    "source": "megastudy+crux-raw",
     "id": 205,
-    "fullScore": 100
+    "fullScore": 100,
+    "rawCuts": [
+      94,
+      83,
+      74,
+      65,
+      46,
+      23,
+      15,
+      11
+    ]
   },
   {
     "curriculum": "2015",
@@ -13225,7 +13325,7 @@
       13,
       10,
       7,
-      8,
+      null,
       4
     ],
     "standardPercentile": [
@@ -13250,7 +13350,7 @@
     ],
     "highestStandardScore": 84,
     "fullScore": 50,
-    "source": "megastudy+etoos-raw",
+    "source": "megastudy",
     "id": 261
   },
   {
@@ -17995,9 +18095,19 @@
       96.26
     ],
     "highestStandardScore": 150,
-    "source": "megastudy",
+    "source": "megastudy+crux-raw",
     "id": 355,
-    "fullScore": 100
+    "fullScore": 100,
+    "rawCuts": [
+      83,
+      75,
+      67,
+      58,
+      48,
+      39,
+      29,
+      20
+    ]
   },
   {
     "curriculum": "2015",
@@ -18039,9 +18149,19 @@
       96.26
     ],
     "highestStandardScore": 150,
-    "source": "megastudy",
+    "source": "megastudy+crux-raw",
     "id": 356,
-    "fullScore": 100
+    "fullScore": 100,
+    "rawCuts": [
+      86,
+      77,
+      69,
+      60,
+      50,
+      40,
+      31,
+      22
+    ]
   },
   {
     "curriculum": "2015",
@@ -18569,9 +18689,19 @@
       96.81
     ],
     "highestStandardScore": 148,
-    "source": "megastudy",
+    "source": "megastudy+crux-raw",
     "id": 366,
-    "fullScore": 100
+    "fullScore": 100,
+    "rawCuts": [
+      88,
+      79,
+      69,
+      55,
+      38,
+      20,
+      13,
+      8
+    ]
   },
   {
     "curriculum": "2015",
@@ -18613,9 +18743,19 @@
       96.81
     ],
     "highestStandardScore": 148,
-    "source": "megastudy",
+    "source": "megastudy+crux-raw",
     "id": 367,
-    "fullScore": 100
+    "fullScore": 100,
+    "rawCuts": [
+      81,
+      72,
+      61,
+      47,
+      31,
+      16,
+      10,
+      6
+    ]
   },
   {
     "curriculum": "2015",
@@ -18657,9 +18797,19 @@
       96.81
     ],
     "highestStandardScore": 148,
-    "source": "megastudy",
+    "source": "megastudy+crux-raw",
     "id": 368,
-    "fullScore": 100
+    "fullScore": 100,
+    "rawCuts": [
+      93,
+      83,
+      72,
+      58,
+      41,
+      23,
+      15,
+      10
+    ]
   },
   {
     "curriculum": "2015",
@@ -18897,7 +19047,7 @@
       16,
       11,
       6,
-      8,
+      null,
       4
     ],
     "standardPercentile": [
@@ -18922,7 +19072,7 @@
     ],
     "highestStandardScore": 77,
     "fullScore": 50,
-    "source": "megastudy+etoos-raw",
+    "source": "megastudy",
     "id": 374
   },
   {
@@ -26247,9 +26397,19 @@
       96.44
     ],
     "highestStandardScore": 134,
-    "source": "megastudy",
+    "source": "megastudy+crux-raw",
     "id": 518,
-    "fullScore": 100
+    "fullScore": 100,
+    "rawCuts": [
+      91,
+      86,
+      81,
+      73,
+      62,
+      48,
+      33,
+      20
+    ]
   },
   {
     "curriculum": "2015",
@@ -26291,9 +26451,19 @@
       96.44
     ],
     "highestStandardScore": 134,
-    "source": "megastudy",
+    "source": "megastudy+crux-raw",
     "id": 519,
-    "fullScore": 100
+    "fullScore": 100,
+    "rawCuts": [
+      95,
+      90,
+      84,
+      76,
+      65,
+      51,
+      36,
+      23
+    ]
   },
   {
     "curriculum": "2015",
@@ -26821,9 +26991,19 @@
       97.03
     ],
     "highestStandardScore": 145,
-    "source": "megastudy",
+    "source": "megastudy+crux-raw",
     "id": 529,
-    "fullScore": 100
+    "fullScore": 100,
+    "rawCuts": [
+      87,
+      78,
+      69,
+      53,
+      33,
+      19,
+      14,
+      9
+    ]
   },
   {
     "curriculum": "2015",
@@ -26865,9 +27045,19 @@
       97.03
     ],
     "highestStandardScore": 145,
-    "source": "megastudy",
+    "source": "megastudy+crux-raw",
     "id": 530,
-    "fullScore": 100
+    "fullScore": 100,
+    "rawCuts": [
+      84,
+      75,
+      66,
+      51,
+      30,
+      16,
+      11,
+      6
+    ]
   },
   {
     "curriculum": "2015",
@@ -26909,9 +27099,19 @@
       97.03
     ],
     "highestStandardScore": 145,
-    "source": "megastudy",
+    "source": "megastudy+crux-raw",
     "id": 531,
-    "fullScore": 100
+    "fullScore": 100,
+    "rawCuts": [
+      88,
+      79,
+      70,
+      55,
+      35,
+      21,
+      16,
+      11
+    ]
   },
   {
     "curriculum": "2015",
@@ -34329,9 +34529,19 @@
       96.58
     ],
     "highestStandardScore": 149,
-    "source": "megastudy",
+    "source": "megastudy+crux-raw",
     "id": 681,
-    "fullScore": 100
+    "fullScore": 100,
+    "rawCuts": [
+      81,
+      74,
+      67,
+      60,
+      51,
+      40,
+      29,
+      21
+    ]
   },
   {
     "curriculum": "2015",
@@ -34373,9 +34583,19 @@
       96.58
     ],
     "highestStandardScore": 149,
-    "source": "megastudy",
+    "source": "megastudy+crux-raw",
     "id": 682,
-    "fullScore": 100
+    "fullScore": 100,
+    "rawCuts": [
+      82,
+      75,
+      68,
+      61,
+      52,
+      40,
+      30,
+      21
+    ]
   },
   {
     "curriculum": "2015",
@@ -34903,9 +35123,19 @@
       96.87
     ],
     "highestStandardScore": 147,
-    "source": "megastudy",
+    "source": "megastudy+crux-raw",
     "id": 692,
-    "fullScore": 100
+    "fullScore": 100,
+    "rawCuts": [
+      87,
+      75,
+      63,
+      49,
+      32,
+      19,
+      12,
+      8
+    ]
   },
   {
     "curriculum": "2015",
@@ -34947,9 +35177,19 @@
       96.87
     ],
     "highestStandardScore": 147,
-    "source": "megastudy",
+    "source": "megastudy+crux-raw",
     "id": 693,
-    "fullScore": 100
+    "fullScore": 100,
+    "rawCuts": [
+      87,
+      75,
+      63,
+      49,
+      32,
+      19,
+      12,
+      7
+    ]
   },
   {
     "curriculum": "2015",
@@ -34991,9 +35231,19 @@
       96.87
     ],
     "highestStandardScore": 147,
-    "source": "megastudy",
+    "source": "megastudy+crux-raw",
     "id": 694,
-    "fullScore": 100
+    "fullScore": 100,
+    "rawCuts": [
+      91,
+      78,
+      66,
+      53,
+      35,
+      22,
+      14,
+      10
+    ]
   },
   {
     "curriculum": "2015",

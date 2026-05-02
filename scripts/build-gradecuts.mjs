@@ -7,9 +7,10 @@
 //   2) /tmp/csat_gc_normalized_v3.json              - 평가원 hwpx 2005~2020
 //   3) /tmp/recent_csat_gc.json                     - 평가원 매년 갱신 fan-out
 //   4) data/raw/etoos/rawcuts-normalized.json       - 이투스 wayback archive (raw)
+//   5) data/raw/crux/suneungcalc-csat-rawcuts.json  - Crux Table 계산기 기반 최근 수능 국어/수학 raw
 //
 // 적용 순서 (뒤가 우선):
-//   hwpx → 평가원 recent → 메가스터디 (raw + std + 백분위 + 누적) → 이투스 archive (raw 보강) → 절대평가 자동
+//   hwpx → 평가원 recent → 메가스터디 (raw + std + 백분위 + 누적) → 이투스 archive (raw 보강) → Crux 최근 수능 raw 보강 → 절대평가 자동
 // 표준점수/백분위/누적은 데이터로만 보존 (사이트 미표시).
 
 import { readFile, writeFile } from 'node:fs/promises';
@@ -21,17 +22,30 @@ const ROOT = path.resolve(HERE, '..');
 const EXAMS_PATH = path.resolve(ROOT, 'data/exams.json');
 const OUT_PATH = path.resolve(ROOT, 'data/gradecuts.json');
 
+const EXPECTED_FULL_SCORE = {
+  '국어': 100,
+  '수학': 100,
+  '영어': 100,
+  '한국사': 50,
+};
+
+function isMonotonicCuts(cuts) {
+  return Array.isArray(cuts) && cuts.every(v => v == null || Number.isFinite(v))
+    && cuts.every((v, i) => i === 0 || v == null || cuts[i - 1] == null || cuts[i - 1] >= v);
+}
+
 async function readJsonOr(p, fallback) {
   try { return JSON.parse(await readFile(p, 'utf-8')); }
   catch { return fallback; }
 }
 
-const [exams, megastudy, hwpxData, recentData, etoosArchived] = await Promise.all([
+const [exams, megastudy, hwpxData, recentData, etoosArchived, cruxRawCuts] = await Promise.all([
   readFile(EXAMS_PATH, 'utf-8').then(JSON.parse),
   readJsonOr(path.resolve(ROOT, 'data/raw/megastudy/gradecuts-normalized.json'), []),
   readJsonOr('/tmp/csat_gc_normalized_v3.json', []),
   readJsonOr('/tmp/recent_csat_gc.json', []),
   readJsonOr(path.resolve(ROOT, 'data/raw/etoos/rawcuts-normalized.json'), []),
+  readJsonOr(path.resolve(ROOT, 'data/raw/crux/suneungcalc-csat-rawcuts.json'), []),
 ]);
 // 기존 출력 파일을 seed로 사용해, 현재 환경에 없는 보조 raw 소스(/tmp 평가원 추출물 등)가
 // 재빌드 과정에서 삭제되지 않게 한다. 아래 source 적용 순서가 기존 값을 덮어쓰므로
@@ -145,8 +159,14 @@ function compatibleStandardCuts(existingCuts, incomingCuts) {
 
 let etoosApplied = 0;
 let etoosSkippedByStdMismatch = 0;
+let etoosSkippedByFullScoreMismatch = 0;
+let etoosSkippedByNonMonotonicRawCuts = 0;
 for (const r of etoosArchived) {
   if (!Array.isArray(r.rawCuts) || !r.rawCuts.some(v => v != null)) continue;
+  if (!isMonotonicCuts(r.rawCuts)) {
+    etoosSkippedByNonMonotonicRawCuts++;
+    continue;
+  }
   const rec = ensureRecord(r);
   if (!compatibleStandardCuts(rec.standardCuts, r.standardCuts)) {
     etoosSkippedByStdMismatch++;
@@ -155,7 +175,12 @@ for (const r of etoosArchived) {
   // 사용자 입력 rawCuts 보존
   if (Array.isArray(rec.rawCuts) && rec.rawCuts.length === 8 && rec.source !== 'megastudy') continue;
   rec.rawCuts = r.rawCuts;
-  if (r.fullScore != null) rec.fullScore = r.fullScore;
+  const expectedFullScore = EXPECTED_FULL_SCORE[rec.subject];
+  if (r.fullScore != null && (expectedFullScore == null || r.fullScore === expectedFullScore)) {
+    rec.fullScore = r.fullScore;
+  } else if (r.fullScore != null) {
+    etoosSkippedByFullScoreMismatch++;
+  }
   // standardCuts/표점/백분위는 megastudy 가 있으면 그쪽 우선, 없으면 etoos 값 사용
   if (!rec.standardCuts && r.standardCuts) rec.standardCuts = r.standardCuts;
   if (!rec.standardPercentile && r.standardPercentile) rec.standardPercentile = r.standardPercentile;
@@ -164,7 +189,36 @@ for (const r of etoosArchived) {
   etoosApplied++;
 }
 
-// 5. 절대평가 영역 (영어/한국사) 원점수 등급컷 자동 추가.
+// 5b. Crux Table 계산기 기반 최근 수능 국어/수학 원점수 보강.
+//     EBSi/메가스터디의 최근 통합형 국어·수학은 선택과목 원점수 칸이 비어 있어,
+//     Crux/suneungcalc의 표준점수 산출식으로 각 등급 표준점수 컷을 만족하는 최소 원점수를 계산해 보강한다.
+let cruxApplied = 0;
+let cruxSkippedByStdMismatch = 0;
+let cruxSkippedByExistingRawCuts = 0;
+let cruxSkippedByNonMonotonicRawCuts = 0;
+for (const r of cruxRawCuts) {
+  if (!Array.isArray(r.rawCuts) || !r.rawCuts.some(v => v != null)) continue;
+  if (!isMonotonicCuts(r.rawCuts)) {
+    cruxSkippedByNonMonotonicRawCuts++;
+    continue;
+  }
+  const rec = ensureRecord(r);
+  if (rec.rawCuts && (!rec.source || !rec.source.startsWith('megastudy') || rec.source.includes('etoos'))) {
+    cruxSkippedByExistingRawCuts++;
+    continue;
+  }
+  if (!compatibleStandardCuts(rec.standardCuts, r.standardCuts)) {
+    cruxSkippedByStdMismatch++;
+    continue;
+  }
+  rec.rawCuts = r.rawCuts;
+  if (r.fullScore != null) rec.fullScore = r.fullScore;
+  if (!rec.standardCuts && r.standardCuts) rec.standardCuts = r.standardCuts;
+  rec.source = rec.source ? `${rec.source}+crux-raw` : 'crux-suneungcalc';
+  cruxApplied++;
+}
+
+// 6. 절대평가 영역 (영어/한국사) 원점수 등급컷 자동 추가.
 //    - 영어: 100점 만점, 1~8등급 컷 = 90/80/70/60/50/40/30/20
 //    - 한국사: 50점 만점, 1~8등급 컷 = 40/35/30/25/20/15/10/5
 //    - 영어 절대평가 시행: 2018학년도 수능 ~. 그 이전 시험은 상대평가라 제외.
@@ -229,10 +283,8 @@ const sorted = [...resultMap.values()].sort((a, b) => {
 
 const out = sorted.map((rec, i) => {
   const r = { ...rec, id: i + 1 };
-  if (r.fullScore == null) {
-    const fs = FULL_SCORE[r.subject];
-    if (fs != null) r.fullScore = fs;
-  }
+  const fs = FULL_SCORE[r.subject];
+  if (fs != null) r.fullScore = fs;
   return r;
 });
 
@@ -242,7 +294,8 @@ console.log(`기존 rawCuts: ${existing.length}건`);
 console.log(`hwpx 적재: ${hwpxApplied}건`);
 console.log(`recent 적재: ${recentApplied}건`);
 console.log(`megastudy 적재: ${megaApplied}건`);
-console.log(`etoos archived rawCuts: ${etoosApplied}건 (표준점수 불일치 skip ${etoosSkippedByStdMismatch}건)`);
+console.log(`etoos archived rawCuts: ${etoosApplied}건 (표준점수 불일치 skip ${etoosSkippedByStdMismatch}건, 만점 불일치 skip ${etoosSkippedByFullScoreMismatch}건, rawCuts 단조성 skip ${etoosSkippedByNonMonotonicRawCuts}건)`);
+console.log(`crux rawCuts: ${cruxApplied}건 (기존 rawCuts 유지 skip ${cruxSkippedByExistingRawCuts}건, 표준점수 불일치 skip ${cruxSkippedByStdMismatch}건, rawCuts 단조성 skip ${cruxSkippedByNonMonotonicRawCuts}건)`);
 console.log(`절대평가 자동 추가: ${absoluteApplied}건`);
 console.log(`최종: ${out.length}건`);
 
