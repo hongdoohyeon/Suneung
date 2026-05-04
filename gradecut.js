@@ -83,16 +83,21 @@ function availableYears() {
   return years;
 }
 
+// 모의지원 = 고3 시험만. 평가원(suneung) + 교육청 학평(education) 중 고3 시험만.
+// 고1·고2 학평은 type 코드(jun/sep/nov)로 필터하여 제외.
+const GC_HIGH3_EDU_TYPES = new Set(['mar', 'apr', 'jul', 'oct']);  // 고3 학평 시행월
+
 function availableTypes() {
   const conf = currConf();
   const types = [];
   for (const groupKey of conf.availableTypeGroups) {
-    // 모의지원은 고3 평가원 시험(수능/6평/9평) 만. 학평·예비 제외.
-    if (groupKey !== 'suneung') continue;
+    if (groupKey !== 'suneung' && groupKey !== 'education') continue;
     const g = EXAM_TYPE_CONFIG.find(x => x.groupKey === groupKey);
     if (!g) continue;
     for (const t of g.types) {
       if (t.key === 'prelim') continue;
+      // 학평: 고3 시행월(3/4/7/10)만. 6/9/11월은 고1·고2 → 제외.
+      if (groupKey === 'education' && !GC_HIGH3_EDU_TYPES.has(t.key)) continue;
       types.push({ key: t.key, label: t.label, group: g.groupLabel, month: t.month });
     }
   }
@@ -264,13 +269,16 @@ function miniBarHTML(cuts, score, grade, fullScore) {
 
 // ── 매칭 ──────────────────────────────────────────────────
 function findCut(subject, subSubject) {
-  return state.cuts.find(c =>
-    c.curriculum === state.curriculum &&
-    c.gradeYear  === state.gradeYear &&
-    c.type       === state.type &&
-    c.subject    === subject &&
-    ((c.subSubject ?? null) === (subSubject ?? null))
-  ) ?? null;
+  return state.cuts.find(c => {
+    if (c.curriculum !== state.curriculum) return false;
+    if (c.gradeYear  !== state.gradeYear)  return false;
+    if (c.type       !== state.type)       return false;
+    if (c.subject    !== subject)          return false;
+    if ((c.subSubject ?? null) !== (subSubject ?? null)) return false;
+    // 모의지원 = 고3. 학평 cut 은 studentGrade=3 만 (없으면 평가원이라 무시).
+    if (c.typeGroup === 'education' && (c.studentGrade ?? 3) !== 3) return false;
+    return true;
+  }) ?? null;
 }
 
 // ── 계산 ──────────────────────────────────────────────────
