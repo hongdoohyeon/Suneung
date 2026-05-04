@@ -2181,6 +2181,8 @@ body.is-sheet-open { overflow: hidden; touch-action: none; }
   flex-direction: column;
   gap: 12px;
   min-height: 280px;
+  /* 줌인 시 페이지가 컨테이너 폭 초과하면 가로 스크롤 허용 */
+  overflow-x: auto;
 }
 .preview__page {
   display: block;
