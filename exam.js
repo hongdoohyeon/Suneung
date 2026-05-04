@@ -147,27 +147,8 @@ function renderHead(exam) {
 }
 
 // ── PDF 렌더 ────────────────────────────────────────────────
-// 페이지별 placeholder 슬롯을 먼저 깔고, IntersectionObserver 로 viewport 진입한
-// 페이지만 실제 canvas 렌더 → 모바일 저사양 멈춤 방지 + 즉시 첫 paint.
-
-async function renderPdfPage(pdf, pageNum, dpr, containerWidth) {
-  const page = await pdf.getPage(pageNum);
-  const baseVp = page.getViewport({ scale: 1 });
-  const scale  = Math.min(2, containerWidth / baseVp.width);
-  const vp     = page.getViewport({ scale });
-
-  const canvas = document.createElement('canvas');
-  canvas.className = 'preview__page';
-  canvas.width  = Math.floor(vp.width * dpr);
-  canvas.height = Math.floor(vp.height * dpr);
-  // 표시 크기는 CSS(max-width / max-height)에 위임, 비율은 aspect-ratio로 보존
-  canvas.style.aspectRatio = `${vp.width} / ${vp.height}`;
-  const ctx = canvas.getContext('2d');
-  ctx.scale(dpr, dpr);
-
-  await page.render({ canvasContext: ctx, viewport: vp }).promise;
-  return canvas;
-}
+// 첫 페이지만 즉시 렌더, 나머지는 '나머지 N쪽 펼치기' 버튼 클릭으로 펼침.
+// 데스크톱은 상단 줌 컨트롤(− / 100% / +) + 키보드 단축키, 모바일은 핀치 줌.
 
 // 페이지 단건 렌더 (canvas 새로 생성). zoom 배수 적용.
 async function renderPdfPage(pdf, pageNum, dpr, containerWidth, zoom = 1) {
