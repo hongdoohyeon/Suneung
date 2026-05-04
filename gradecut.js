@@ -175,6 +175,22 @@ function subjectCardHTML(subj, conf) {
   `;
 }
 
+// 탐구 영역(사탐+과탐 통합)에 점수까지 입력된 슬롯 수.
+// 수능 탐구는 합쳐서 2과목 선택이라, 2개 채우면 나머지 슬롯은 비활성화.
+function inquiryFilledCount() {
+  let n = 0;
+  for (const subj of ['사회탐구', '과학탐구']) {
+    for (let i = 0; i < slotsFor(subj); i++) {
+      const s = getSlot(subj, i);
+      if (s.subSubject && s.score != null) n++;
+    }
+  }
+  return n;
+}
+function isInquirySubject(subj) {
+  return subj === '사회탐구' || subj === '과학탐구';
+}
+
 function slotHTML(subj, slotIdx, subjConf, isMulti) {
   const slot     = getSlot(subj, slotIdx);
   const hasSubs  = subjConf.subs.length > 0;
@@ -183,16 +199,21 @@ function slotHTML(subj, slotIdx, subjConf, isMulti) {
   const grade    = (slot.score != null && cut) ? computeGrade(slot.score, cut.rawCuts) : null;
   const pct      = grade != null ? computePercentile(slot.score, grade, cut.rawCuts, fullScore) : null;
 
-  // 사탐/과탐: 이미 다른 슬롯에서 선택한 sub은 비활성화
+  // 같은 영역 다른 슬롯에서 선택한 sub은 중복 방지로 비활성화
   const otherSlot = isMulti ? getSlot(subj, slotIdx === 0 ? 1 : 0) : null;
   const otherSub  = otherSlot?.subSubject ?? null;
+
+  // 탐구 그룹(사탐+과탐) 합쳐 2과목 채워졌고 이 슬롯은 아직 미입력이면 비활성.
+  const slotFilled = !!(slot.subSubject && slot.score != null);
+  const inquiryLocked = isInquirySubject(subj) && !slotFilled && inquiryFilledCount() >= 2;
 
   let pillsHTML = '';
   if (hasSubs) {
     pillsHTML = `<div class="subj-slot__subs">${
       subjConf.subs.map(s => {
         const isActive   = slot.subSubject === s;
-        const isDisabled = otherSub === s;
+        // 비활성: 다른 슬롯에 선택됨 OR 탐구 2과목 다 찬 상태에서 미입력 슬롯
+        const isDisabled = (otherSub === s) || inquiryLocked;
         return `<button class="pill${isActive ? ' is-active' : ''}${isDisabled ? ' is-disabled' : ''}"
                   data-action="set-sub" data-subject="${subj}" data-slot="${slotIdx}" data-sub="${s}"
                   ${isDisabled ? 'disabled' : ''}>${prettySub(s)}</button>`;
@@ -223,10 +244,11 @@ function slotHTML(subj, slotIdx, subjConf, isMulti) {
     }
   }
 
-  const inputDisabled = hasSubs && !slot.subSubject;
-  const placeholder = inputDisabled
-    ? '먼저 선택과목 선택'
-    : `0~${fullScore}`;
+  // 입력 비활성: 선택과목 미지정 OR 탐구 2과목 다 차서 잠긴 슬롯
+  const inputDisabled = (hasSubs && !slot.subSubject) || inquiryLocked;
+  const placeholder = inquiryLocked
+    ? '탐구 2과목까지'
+    : (inputDisabled ? '먼저 선택과목 선택' : `0~${fullScore}`);
 
   return `
     <div class="subj-slot" data-slot-key="${slotKey(subj, slotIdx)}">
@@ -404,13 +426,31 @@ function bindGlobalEvents() {
       let n = Number(v);
       if (!Number.isFinite(n)) return;
       const max = Number(inp.max) || 100;
-      n = Math.min(max, Math.max(0, n));
-      setSlot(subj, idx, { score: n });
+      const clamped = Math.min(max, Math.max(0, n));
+      // 입력값이 max 초과면 input.value 도 즉시 보정 (사용자에게 시각 피드백).
+      if (clamped !== n) {
+        inp.value = String(clamped);
+      }
+      setSlot(subj, idx, { score: clamped });
     }
     // input 요소를 교체하면 type=number에서 커서가 앞으로 가서 숫자 순서가 뒤집힘
     // → input은 건드리지 않고 결과 영역(등급/백분위/그래프)만 갱신
     refreshSlotResult(subj, idx);
     renderTotal();
+    // 탐구 입력 시: 다른 탐구 슬롯의 활성/비활성 상태가 변할 수 있으므로 전체 재렌더.
+    // 단 현재 input focus + cursor 위치는 보존.
+    if (isInquirySubject(subj)) {
+      const key = inp.dataset.subject + ':' + inp.dataset.slot;
+      const cursorPos = inp.selectionEnd;
+      renderSubjects();
+      const restored = document.querySelector(
+        `input[data-action="set-score"][data-subject="${inp.dataset.subject}"][data-slot="${inp.dataset.slot}"]`
+      );
+      if (restored && !restored.disabled) {
+        restored.focus();
+        try { restored.setSelectionRange(cursorPos, cursorPos); } catch {}
+      }
+    }
   });
 
   $('gcResetBtn').addEventListener('click', () => {
