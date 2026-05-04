@@ -7,6 +7,18 @@ const escHtml = s => String(s ?? '').replace(/[&<>"']/g, c => (
 ));
 const escAttr = escHtml;
 
+// ── SEO 메타 동적 갱신 ──
+function setMeta(name, content) {
+  let el = document.querySelector(`meta[name="${name}"]`);
+  if (!el) { el = document.createElement('meta'); el.setAttribute('name', name); document.head.appendChild(el); }
+  el.setAttribute('content', content);
+}
+function setMetaProp(prop, content) {
+  let el = document.querySelector(`meta[property="${prop}"]`);
+  if (!el) { el = document.createElement('meta'); el.setAttribute('property', prop); document.head.appendChild(el); }
+  el.setAttribute('content', content);
+}
+
 function safeUrl(url) {
   const raw = String(url ?? '').trim();
   if (!raw) return '';
@@ -126,6 +138,15 @@ function renderHead(curriculum, gradeYear, type, items) {
   $('examsetTitle').textContent = title;
   $('examsetSub').textContent   = sub;
   document.title = `${title} — 기출해체분석기`;
+  // ── SEO 동적 메타 ──
+  const desc = `${title} 모든 영역(${items.length}개) 문제지·정답 PDF를 한 페이지에서.`;
+  setMeta('description', desc);
+  setMetaProp('og:title', `${title} — 기출해체분석기`);
+  setMetaProp('og:description', desc);
+  setMetaProp('og:url', location.href);
+  // canonical link 갱신 (search engine 정규 URL)
+  let cano = document.querySelector('link[rel="canonical"]');
+  if (cano) cano.setAttribute('href', location.href);
 
   $('examsetCount').textContent = `총 ${items.length}개 영역`;
 
