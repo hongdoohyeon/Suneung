@@ -11,12 +11,17 @@
 // ╚══════════════════════════════════════════════════════════
 export const TAB_CONFIG = [
   // ── 데이터 있는 탭 ──────────────────────────────────────
-  { key: 'senior',     label: '고3',       sub: '수능·평가원·학평', curriculums: ['2015', '2009', '예비'] },
+  // senior 탭: 평가원(전 학년) + 교육청 고3 학평만 표시 (educationGrades:[3])
+  { key: 'senior',     label: '고3',       sub: '수능·평가원·학평',
+    curriculums: ['2015', '2009', '예비'], educationGrades: [3] },
   { key: 'mp',         label: '사관·경찰', sub: '1차 시험',         curriculums: ['사관', '경찰대'] },
   { key: 'gradschool', label: 'LEET·MEET', sub: '전문대학원',       curriculums: ['LEET', 'MEET'] },
+  // 고1·고2: 교육청 학평만 (typeGroup=education, studentGrade=2/1)
+  { key: 'junior',     label: '고2',       sub: '학력평가',
+    curriculums: ['2015', '2009'], educationGrades: [2], educationOnly: true },
+  { key: 'freshman',   label: '고1',       sub: '학력평가',
+    curriculums: ['2015', '2009'], educationGrades: [1], educationOnly: true },
   // ── 빈 탭 (데이터 채워지면 placeholder 해제) ───────────
-  { key: 'junior',     label: '고2',       sub: '학력평가', curriculums: [], placeholder: true },
-  { key: 'freshman',   label: '고1',       sub: '학력평가', curriculums: [], placeholder: true },
   { key: 'ged',        label: '검정고시',  sub: '준비 중',  curriculums: [], placeholder: true },
   { key: 'essay',      label: '논술',      sub: '준비 중',  curriculums: [], placeholder: true },
   { key: 'admissions', label: '입시자료',  sub: '준비 중',  curriculums: [], placeholder: true },
@@ -192,8 +197,11 @@ export const EXAM_TYPE_CONFIG = [
       // shortLabel: 좁은 사이드바 칩에서만 사용, 카드/태그 등 본문에는 label 그대로
       { key: 'mar', label: '3월 학력평가',  shortLabel: '3월',  month:  3, badgeBg: '#eef1f4', badgeColor: '#475569' },
       { key: 'apr', label: '4월 학력평가',  shortLabel: '4월',  month:  4, badgeBg: '#eef1f4', badgeColor: '#475569' },
+      { key: 'jun', label: '6월 학력평가',  shortLabel: '6월',  month:  6, badgeBg: '#eef1f4', badgeColor: '#475569' },
       { key: 'jul', label: '7월 학력평가',  shortLabel: '7월',  month:  7, badgeBg: '#eef1f4', badgeColor: '#475569' },
+      { key: 'sep', label: '9월 학력평가',  shortLabel: '9월',  month:  9, badgeBg: '#eef1f4', badgeColor: '#475569' },
       { key: 'oct', label: '10월 학력평가', shortLabel: '10월', month: 10, badgeBg: '#eef1f4', badgeColor: '#475569' },
+      { key: 'nov', label: '11월 학력평가', shortLabel: '11월', month: 11, badgeBg: '#eef1f4', badgeColor: '#475569' },
     ],
   },
   {

@@ -109,14 +109,28 @@ export function getDisplayYear(item) {
   return { label: String(item.gradeYear), suffix: '학년도' };
 }
 
+// ── 탭별 educationGrades / educationOnly 필터 헬퍼 ──
+// senior(고3)·junior(고2)·freshman(고1) 탭은 교육청 학평을 학년별로 분리.
+// educationOnly: true 인 탭(고1/고2)은 평가원 데이터 제외.
+function passesTabEduFilter(e, tabConf) {
+  if (!tabConf) return true;
+  if (tabConf.educationOnly && e.typeGroup !== 'education') return false;
+  if (e.typeGroup === 'education' && Array.isArray(tabConf.educationGrades)) {
+    if (!tabConf.educationGrades.includes(e.studentGrade)) return false;
+  }
+  return true;
+}
+
 export function availableGradeYears() {
   const allowed = tabCurriculums();
   const tg = state.typeGroup;
+  const tabConf = getTabConf(state.tab);
   return [...new Set(
     state.exams
       .filter(e => {
         if (!allowed.includes(e.curriculum)) return false;
         if (tg !== 'all' && e.typeGroup !== tg) return false;
+        if (!passesTabEduFilter(e, tabConf)) return false;
         return true;
       })
       .map(e => e.gradeYear)
@@ -125,9 +139,11 @@ export function availableGradeYears() {
 
 export function filtered() {
   const allowed = tabCurriculums();
+  const tabConf = getTabConf(state.tab);
 
   const items = state.exams.filter(e => {
     if (!allowed.includes(e.curriculum))                                       return false;
+    if (!passesTabEduFilter(e, tabConf))                                       return false;
     if (state.typeGroup  !== 'all' && e.typeGroup  !== state.typeGroup)       return false;
     if (state.type       !== 'all' && e.type       !== state.type)            return false;
     if (state.gradeYear  !== 'all' && String(e.gradeYear) !== state.gradeYear) return false;
@@ -161,8 +177,10 @@ export function filtered() {
 
 export function subjectCounts() {
   const allowed = tabCurriculums();
+  const tabConf = getTabConf(state.tab);
   const base = state.exams.filter(e => {
     if (!allowed.includes(e.curriculum)) return false;
+    if (!passesTabEduFilter(e, tabConf)) return false;
     if (state.typeGroup !== 'all' && e.typeGroup !== state.typeGroup) return false;
     if (state.type      !== 'all' && e.type      !== state.type)      return false;
     if (state.gradeYear !== 'all' && String(e.gradeYear) !== state.gradeYear) return false;
