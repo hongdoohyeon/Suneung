@@ -4,8 +4,9 @@ import { CURRICULUM_CONFIG, EXAM_TYPE_CONFIG, getTypeConf, prettySub } from './c
 const DATA_URL = 'data/gradecuts.json';
 const $ = id => document.getElementById(id);
 
-// 등급컷 계산기에서 지원하는 커리큘럼 목록 (28예비·사관·경찰대·MEET 제외)
-const GC_CURRICULA = ['2015', '2009', 'LEET'];
+// 모의지원에서 지원하는 커리큘럼 목록.
+// 제외: LEET(전문대학원·합/불), 28예비(시행 전 예시문항), MEET·사관·경찰대.
+const GC_CURRICULA = ['2015', '2009'];
 
 // ── 상수 ───────────────────────────────────────────────────
 // 9등급 누적 백분율 경계
@@ -87,7 +88,11 @@ function availableTypes() {
   for (const groupKey of conf.availableTypeGroups) {
     const g = EXAM_TYPE_CONFIG.find(x => x.groupKey === groupKey);
     if (!g) continue;
-    for (const t of g.types) types.push({ key: t.key, label: t.label, group: g.groupLabel, month: t.month });
+    for (const t of g.types) {
+      // 모의지원에서 예비시험(prelim) 제외 — 정식 시행 전 예시문항이라 등급컷 의미 약함.
+      if (t.key === 'prelim') continue;
+      types.push({ key: t.key, label: t.label, group: g.groupLabel, month: t.month });
+    }
   }
   return types.sort((a, b) => b.month - a.month);
 }
