@@ -312,17 +312,33 @@ a { color: inherit; text-decoration: none; }
   display: flex;
   flex-direction: column;
   gap: 28px;
-  /* 사이드바 자체 독립 스크롤 — viewport 높이에서 sticky top 차지분 빼기.
-     본문과 별도로 휠 스크롤 됨. */
-  max-height: calc(100vh - var(--header-h) - var(--nav-h) - 28px - 24px);
+
+  /* 사이드바 자체 독립 스크롤 ──
+     - max-height: viewport 에서 sticky top 영역(헤더+nav+여백) 뺀 높이.
+       dvh 사용으로 모바일 주소창 변동 시도 정확.
+     - overscroll-behavior: contain — 사이드바 끝에서 휠/스크롤이
+       페이지 본문으로 chain 되는 것 차단. (가장자리 이상 동작 핵심 수정)
+     - -webkit-overflow-scrolling: touch — iOS momentum.
+     - scroll-padding-top — 키보드 탐색 시 칩이 가려지지 않도록.
+   */
+  max-height: calc(100dvh - var(--header-h) - var(--nav-h) - 28px - 24px);
   overflow-y: auto;
-  padding-right: 4px;          /* 스크롤바 영역 확보 */
+  overflow-x: hidden;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  scroll-padding-top: 8px;
+
+  /* 스크롤바: gutter stable 로 폭 변동 방지, 얇은 회색 */
   scrollbar-width: thin;
+  scrollbar-color: var(--line-strong) transparent;
   scrollbar-gutter: stable;
+  padding-right: 6px;
 }
 .filter::-webkit-scrollbar { width: 6px; }
+.filter::-webkit-scrollbar-track { background: transparent; }
 .filter::-webkit-scrollbar-thumb { background: var(--line-strong); border-radius: 3px; }
 .filter::-webkit-scrollbar-thumb:hover { background: var(--ink-4); }
+/* sticky 부모(.main) 가 grid 라 sticky 정상 동작 — 별도 처리 불요 */
 
 .filter__section { display: flex; flex-direction: column; gap: 10px; }
 
