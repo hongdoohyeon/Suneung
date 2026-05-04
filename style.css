@@ -214,10 +214,9 @@ a { color: inherit; text-decoration: none; }
   height: 100%;
   display: flex;
   align-items: flex-end;
-  gap: 18px;
+  gap: 10px;            /* 그룹 사이 간격 — 18px → 10px (sep 포함 약 21px) */
   padding-bottom: 8px;
   padding-top: 8px;
-  /* 컨테이너는 더 이상 스크롤 컨테이너가 아님 — 그룹별 독립 스크롤. */
   overflow-x: hidden;
   min-width: 0;
 }
@@ -226,8 +225,9 @@ a { color: inherit; text-decoration: none; }
   display: flex;
   flex-direction: column;
   gap: 4px;
-  /* 폭이 부족하면 그룹이 줄어듦, 안에서 가로 스와이프. */
-  flex: 1 1 auto;
+  /* 그룹은 자신의 콘텐츠 폭만 차지 (자라지 않음).
+     폭이 부족하면 줄어들면서 안에서 가로 스와이프. */
+  flex: 0 1 auto;
   min-width: 0;
 }
 .nav-group__label {
