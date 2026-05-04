@@ -205,10 +205,28 @@ def from_kice(db: Path, items: list):
         (questions if r['doc_type'] == 'q' else answers)[key] = r['file_path']
     con.close()
 
+    # 사탐/과탐 통합 카드(subtype='')는 같은 그룹의 모든 영역별 a가 따로 있으면
+    # 의미가 모호한 중복 카드라 스킵 — 사용자는 영역별 카드를 통해 정답 접근.
+    # 그 외(영어 등 통합 카드가 정상)는 그대로 매칭.
+    grouped_subtypes: dict = {}
+    for k in {(k[0], k[1], k[2], k[4]): None for k in list(questions.keys()) + list(answers.keys())}:
+        # 같은 (year, et, subj, curr) 그룹의 모든 subtype 수집 (questions+answers 양쪽)
+        pass
+    # questions 기준 그룹별 subtype 셋
+    qsubs = {}
+    for k in questions:
+        gk = (k[0], k[1], k[2], k[4])
+        qsubs.setdefault(gk, set()).add(k[3])
+
     # Q 한 행 = 카드 1개. A는 같은 (year, exam_type, subject) 그룹에서 매칭.
     for key, q in questions.items():
         year, et, subj, sub, curr = key
         a = answers.get(key) or answers.get((year, et, subj, '', curr))
+        # 통합 카드 스킵 조건: 사탐/과탐 + 통합 q이지만 영역별 q가 같은 그룹에 ≥3건 존재
+        # → 통합 q는 잘못 분류된 자료일 확률 높음.
+        if (sub == '' and subj in ('social', 'science')
+                and len(qsubs.get((year, et, subj, curr), set())) >= 4):
+            continue
         if et not in EXAM_TYPE: continue
         type_key, group, month = EXAM_TYPE[et]
         site_curr = CURRICULUM[curr]
