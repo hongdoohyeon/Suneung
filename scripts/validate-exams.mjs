@@ -158,16 +158,21 @@ function validateBusinessRules(data) {
   // 4. download 필드는 있을 경우 .pdf 끝나는지 (null 허용 — 논술 등)
   for (const ex of data) {
     for (const k of ['questionDownload', 'answerDownload']) {
-      if (k in ex && ex[k] !== null && !String(ex[k]).endsWith('.pdf')) {
-        warn(`id=${ex.id} ${k}가 .pdf로 끝나지 않음: ${ex[k]}`);
+      if (k in ex && ex[k] !== null) {
+        const v = String(ex[k]);
+        // 옛 LEET/MEET (~2021학년도) 자료는 .hwp 원본만 존재 — 허용.
+        if (!v.endsWith('.pdf') && !v.endsWith('.hwp')) {
+          warn(`id=${ex.id} ${k}가 .pdf/.hwp로 끝나지 않음: ${v}`);
+        }
       }
     }
   }
 
   // 5. typeGroup ↔ type 정합성 (대표 매핑)
   // 평가원 예비(prelim) 는 평가원(suneung) 그룹에 흡수 — 'preliminary' typeGroup 폐기.
+  // 학평 type: 고3은 mar/apr/jul/oct, 고1·고2는 mar/jun/sep/nov.
   const tgTypeMap = {
-    education:   new Set(['mar', 'apr', 'jul', 'oct']),
+    education:   new Set(['mar', 'apr', 'jun', 'jul', 'sep', 'oct', 'nov']),
     suneung:     new Set(['csat', 'june', 'sept', 'prelim']),
     military:    new Set(['military_annual']),
     police:      new Set(['police_annual']),

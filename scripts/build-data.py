@@ -23,7 +23,7 @@ OUT_JSON = ROOT / 'data' / 'exams.json'
 # 한국어 파일명을 박아 보냄. ?name= 쿼리로 원하는 한국어 파일명 전달.
 WORKER_BASE = 'https://suneung-files.hdh061224.workers.dev'
 
-KICE_RELEASES = ['kice-v1', 'kice-v2', 'kice-v3', 'kice-v4']
+KICE_RELEASES = ['kice-v1', 'kice-v2', 'kice-v3', 'kice-v4', 'edu-v1']
 
 # 추후 카테고리별 release (예약)
 FUTURE_RELEASE = {
@@ -48,10 +48,12 @@ KOREAN_DOC_LABEL = {'q': '문제지', 'a': '정답', 's': '해설'}
 
 
 def build_asset_index() -> dict:
-    """gh CLI 로 모든 kice-v* release 의 자산을 받아 basename → tag 매핑 생성."""
+    """gh CLI 로 모든 release(kice-v*, leet-v1, meet-v1, military-v1, police-v1)의
+    자산을 받아 basename → tag 매핑 생성."""
     import subprocess
     idx = {}
-    for tag in KICE_RELEASES:
+    all_tags = list(KICE_RELEASES) + list(FUTURE_RELEASE.values())
+    for tag in all_tags:
         r = subprocess.run(
             ['gh', 'release', 'view', tag, '--json', 'assets', '--jq', '.assets[].name'],
             capture_output=True, text=True
@@ -97,15 +99,16 @@ def korean_filename(item: dict, doc_type: str, db_type: str | None) -> str:
 
 
 def file_url(typegroup: str, file_path: str, item: dict, doc_type: str, db_type: str | None = None) -> str:
-    """Worker 프록시 URL 반환. ?name= 에 한국어 파일명 인코딩."""
-    name = Path(file_path).name
+    """Worker 프록시 URL 반환. ?name= 에 한국어 파일명 인코딩.
 
-    if typegroup in FUTURE_RELEASE:
-        tag = FUTURE_RELEASE[typegroup]
-    else:
-        tag = ASSET_INDEX.get(name)
-        if not tag:
-            return f'data/files/{file_path}'   # 인덱스에 없으면 로컬 fallback
+    실제 release 에 자산이 존재하는지 ASSET_INDEX 로 확인.
+    누락된 경우엔 'data/files/...' 로컬 fallback (validator 가 catch).
+    """
+    name = Path(file_path).name
+    tag = ASSET_INDEX.get(name)
+    if not tag:
+        # FUTURE_RELEASE 의 typegroup 도 fallback. 자산 미업로드 상태.
+        return f'data/files/{file_path}'
 
     korean = korean_filename(item, doc_type, db_type)
     return f"{WORKER_BASE}/{tag}/{name}?name={quote(korean, safe='')}"
@@ -401,9 +404,9 @@ def from_leet(db: Path, items: list):
             'subSubject':  None,
             'solutionUrl': None,
         }
-        item['questionUrl'] = q
-        item['answerUrl']   = a if a else None
-        
+        item['questionUrl'] = file_url('leet', q, item, 'q')
+        item['answerUrl']   = file_url('leet', a, item, 'a') if a else None
+
         year_disp = f"{year}학년도" if et == 'main' else "예비시험"
         item['questionDownload'] = f"{year_disp} LEET {subject} 문제지{Path(q).suffix}"
         item['answerDownload']   = f"{year_disp} LEET {subject} 정답{Path(a).suffix}" if a else None
@@ -436,9 +439,9 @@ def from_meet(db: Path, items: list):
             'subSubject':  None,
             'solutionUrl': None,
         }
-        item['questionUrl'] = q
-        item['answerUrl']   = a if a else None
-        
+        item['questionUrl'] = file_url('meet', q, item, 'q')
+        item['answerUrl']   = file_url('meet', a, item, 'a') if a else None
+
         year_disp = f"{year}학년도" if et == 'main' else "예비시험"
         item['questionDownload'] = f"{year_disp} MEET {subject} 문제지{Path(q).suffix}"
         item['answerDownload']   = f"{year_disp} MEET {subject} 정답{Path(a).suffix}" if a else None
