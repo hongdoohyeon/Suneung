@@ -448,7 +448,12 @@ function cardHTML(exam, idx = 0) {
   const isPrelim = exam.gradeYear === 'preliminary';
 
   const title = exam.subSubject ? prettySub(exam.subSubject) : exam.subject;
-  const typeLabel = isPrelim ? '예비시험' : (tc?.label ?? '');
+  // examYear 모드(학평): dy.label에 "N월"이 들어가므로 typeLabel 에서 month prefix 제거
+  // → "2026년 3월 학력평가" (중복 X)
+  const rawTypeLabel = tc?.label ?? '';
+  const typeLabel = isPrelim
+    ? '예비시험'
+    : (tc?.displayMode === 'examYear' ? rawTypeLabel.replace(/^\d+월\s*/, '') : rawTypeLabel);
   const yearPart = isPrelim
     ? '예비시험'
     : (tc?.displayMode === 'examYear'
@@ -570,29 +575,25 @@ function showSkeleton(show) {
 }
 
 // ── 회차 단위 진입 링크 ────────────────────────────────────
-// 결과가 같은 (curriculum, gradeYear, type) 으로 좁혀졌을 때만 노출.
+// 사용자가 학년도(gradeYear) + 시험종류(type) 둘 다 명시적으로 선택했을 때만 노출.
 function updateExamSetLink(data) {
   const link = $('examSetLink');
   if (!link) return;
+  // 학년도와 시험종류가 모두 'all' 아닌 경우에만
+  if (state.gradeYear === 'all' || state.type === 'all') {
+    link.hidden = true; return;
+  }
   if (!data?.length) { link.hidden = true; return; }
   const first = data[0];
-  // 모든 항목이 같은 회차여야 함
-  const sameSet = data.every(e =>
-    e.curriculum === first.curriculum &&
-    String(e.gradeYear) === String(first.gradeYear) &&
-    e.type === first.type
-  );
-  if (!sameSet) { link.hidden = true; return; }
-  // 학평은 학년(studentGrade)도 포함
-  const sg = first.studentGrade ?? null;
-  const sameGrade = data.every(e => (e.studentGrade ?? null) === sg);
-  if (!sameGrade) { link.hidden = true; return; }
   const params = new URLSearchParams({
     curriculum: first.curriculum,
     year: String(first.gradeYear),
     type: first.type,
   });
-  if (sg != null) params.set('grade', String(sg));
+  // 학평은 학년(studentGrade)도 분리 — 결과가 단일 학년이면 grade 추가
+  const sg = first.studentGrade ?? null;
+  const sameGrade = data.every(e => (e.studentGrade ?? null) === sg);
+  if (sg != null && sameGrade) params.set('grade', String(sg));
   link.href = `exam-set.html?${params.toString()}`;
   link.hidden = false;
 }
