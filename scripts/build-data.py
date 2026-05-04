@@ -16,7 +16,7 @@ from pathlib import Path
 from urllib.parse import quote
 
 ROOT     = Path(__file__).resolve().parents[1]            # suneung-site/
-ARCHIVE  = Path('/Users/hongduhyeon/coding/kice_archive')  # KICE archive 위치
+ARCHIVE  = Path('/Users/hongduhyeon/Workspace/kice_archive')  # KICE archive 위치
 OUT_JSON = ROOT / 'data' / 'exams.json'
 
 # Cloudflare Worker 프록시 — Github Release URL 을 가져와 Content-Disposition 에
@@ -144,7 +144,13 @@ EXAM_TYPE = {
 
 CURRICULUM = {'2015': '2015', '2009': '2009', '2028': '예비'}
 
-EDU_MONTH = {3: 'mar', 4: 'apr', 7: 'jul', 10: 'oct', 5: None}  # 5월 데이터는 표준이 아니라 일단 무시
+EDU_MONTH = {
+    # 고3 학평 시행월
+    3: 'mar', 4: 'apr', 7: 'jul', 10: 'oct',
+    # 고1/고2 학평 시행월
+    6: 'jun', 9: 'sep', 11: 'nov',
+    5: None,  # 5월 데이터는 표준이 아니라 무시
+}
 
 # subtype: 한국어 변환. 정치와법/물리학은 curriculum 의존이라 함수로 분기.
 SUBTYPE_BASE = {
@@ -223,28 +229,35 @@ def from_kice(db: Path, items: list):
 def from_edu(db: Path, items: list):
     con = sqlite3.connect(db); con.row_factory = sqlite3.Row
     questions, answers = {}, {}
-    for r in con.execute('SELECT * FROM exams_edu WHERE grade=3'):
+    # 고1/고2/고3 모두 포함. 학년은 key에 추가하여 분리.
+    for r in con.execute('SELECT * FROM exams_edu'):
         m = EDU_MONTH.get(r['month'])
         if m is None: continue
-        key = (r['year'], r['month'], r['subject'],
+        key = (r['year'], r['month'], r['grade'], r['subject'],
                r['subtype'] or '', r['curriculum'])
         (questions if r['doc_type'] == 'q' else answers)[key] = r['file_path']
     con.close()
 
     for key, q in questions.items():
-        year, month, subj, sub, curr = key
-        a = answers.get(key) or answers.get((year, month, subj, '', curr))
+        year, month, sgrade, subj, sub, curr = key
+        a = (answers.get(key)
+             or answers.get((year, month, sgrade, subj, '', curr)))
         site_curr = CURRICULUM[curr]
+        # 학년에 따라 gradeYear(학년도) 의미가 달라짐:
+        #   고3: 시행연도 + 1 = 학년도 (수능 응시 학년도)
+        #   고1/고2: 시행연도 = 학년 진학 연도. gradeYear는 시행연도 그대로 사용.
+        grade_year = year + 1 if sgrade == 3 else year
         item = {
-            'curriculum':  site_curr,
-            'gradeYear':   year + 1,    # 교육청: 시행연도 + 1 = 학년도
-            'examYear':    year,
-            'month':       month,
-            'typeGroup':   'education',
-            'type':        EDU_MONTH[month],
-            'subject':     map_subject(subj, site_curr),
-            'subSubject':  map_subtype(sub, site_curr),
-            'solutionUrl': None,
+            'curriculum':   site_curr,
+            'gradeYear':    grade_year,
+            'examYear':     year,
+            'month':        month,
+            'studentGrade': sgrade,         # 1 | 2 | 3 (고1/고2/고3)
+            'typeGroup':    'education',
+            'type':         EDU_MONTH[month],
+            'subject':      map_subject(subj, site_curr),
+            'subSubject':   map_subtype(sub, site_curr),
+            'solutionUrl':  None,
         }
         item['questionUrl'] = file_url('education', q, item, 'q')
         item['answerUrl']   = file_url('education', a, item, 'a') if a else None
