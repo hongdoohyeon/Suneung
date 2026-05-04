@@ -23,7 +23,8 @@ OUT_JSON = ROOT / 'data' / 'exams.json'
 # 한국어 파일명을 박아 보냄. ?name= 쿼리로 원하는 한국어 파일명 전달.
 WORKER_BASE = 'https://suneung-files.hdh061224.workers.dev'
 
-KICE_RELEASES = ['kice-v1', 'kice-v2', 'kice-v3', 'kice-v4', 'edu-v1']
+KICE_RELEASES = ['kice-v1', 'kice-v2', 'kice-v3', 'kice-v4',
+                 'edu-v1', 'edu-v2', 'edu-v3']
 
 # 추후 카테고리별 release (예약)
 FUTURE_RELEASE = {
