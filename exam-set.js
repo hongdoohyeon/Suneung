@@ -1,42 +1,8 @@
 'use strict';
 import { CURRICULUM_CONFIG, getTypeConf, prettySub, legacyTabKey } from './config.js';
-
-const $ = id => document.getElementById(id);
-const escHtml = s => String(s ?? '').replace(/[&<>"']/g, c => (
-  { '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[c]
-));
-const escAttr = escHtml;
-
-// ── SEO 메타 동적 갱신 ──
-function setMeta(name, content) {
-  let el = document.querySelector(`meta[name="${name}"]`);
-  if (!el) { el = document.createElement('meta'); el.setAttribute('name', name); document.head.appendChild(el); }
-  el.setAttribute('content', content);
-}
-function setMetaProp(prop, content) {
-  let el = document.querySelector(`meta[property="${prop}"]`);
-  if (!el) { el = document.createElement('meta'); el.setAttribute('property', prop); document.head.appendChild(el); }
-  el.setAttribute('content', content);
-}
-function injectJsonLd(payload) {
-  let s = document.getElementById('jsonld-set');
-  if (!s) { s = document.createElement('script'); s.id = 'jsonld-set'; s.type = 'application/ld+json'; document.head.appendChild(s); }
-  s.textContent = JSON.stringify(payload);
-}
-
-function safeUrl(url) {
-  const raw = String(url ?? '').trim();
-  if (!raw) return '';
-  if (/^[a-z][a-z0-9+.-]*:/i.test(raw)) {
-    try {
-      const u = new URL(raw);
-      return (u.protocol === 'http:' || u.protocol === 'https:') ? raw : '';
-    } catch { return ''; }
-  }
-  if (raw.startsWith('//')) return '';
-  if (raw.startsWith('/') || raw.startsWith('./') || raw.startsWith('../')) return raw;
-  return /^[\w./%+\-~()[\]]+(?:\?[^\s<>"']*)?(?:#[^\s<>"']*)?$/u.test(raw) ? raw : '';
-}
+import { $, escHtml, escAttr, safeUrl } from './lib/dom.js';
+import { setMeta, setMetaProp, setCanonical, injectJsonLd as _injectJsonLd } from './lib/seo.js';
+const injectJsonLd = (p) => _injectJsonLd('jsonld-set', p);
 
 // ── 표시 라벨 ─────────────────────────────────────────────
 function displayYear(item) {

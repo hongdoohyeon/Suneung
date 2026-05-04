@@ -1,5 +1,7 @@
 'use strict';
 import { CURRICULUM_CONFIG, getTypeConf, prettySub } from './config.js';
+import { escHtml as _escHtml, escAttr, safeUrl as _safeUrl, $ as _$ } from './lib/dom.js';
+import { setMeta, setMetaProp, setCanonical, injectJsonLd as _injectJsonLd, applySeo } from './lib/seo.js';
 
 // ── PDF.js (jsdelivr CDN, ESM) ─────────────────────────────
 // 모바일에서도 안정적으로 동작하는 mozilla 공식 라이브러리.
@@ -20,45 +22,11 @@ async function loadPdfjs() {
   return pdfjsLibPromise;
 }
 
-const $ = id => document.getElementById(id);
-const escHtml = s => String(s ?? '').replace(/[&<>"']/g, c => (
-  { '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[c]
-));
-
-// ── SEO 메타 동적 갱신 ──
-function setMeta(name, content) {
-  let el = document.querySelector(`meta[name="${name}"]`);
-  if (!el) { el = document.createElement('meta'); el.setAttribute('name', name); document.head.appendChild(el); }
-  el.setAttribute('content', content);
-}
-function setMetaProp(prop, content) {
-  let el = document.querySelector(`meta[property="${prop}"]`);
-  if (!el) { el = document.createElement('meta'); el.setAttribute('property', prop); document.head.appendChild(el); }
-  el.setAttribute('content', content);
-}
-
-// JSON-LD 구조화 데이터 — Google 리치 결과 노출 향상
-function injectJsonLd(payload) {
-  let s = document.getElementById('jsonld-exam');
-  if (!s) { s = document.createElement('script'); s.id = 'jsonld-exam'; s.type = 'application/ld+json'; document.head.appendChild(s); }
-  s.textContent = JSON.stringify(payload);
-}
-
-function safeUrl(url) {
-  const raw = String(url ?? '').trim();
-  if (!raw) return '';
-  if (/^[a-z][a-z0-9+.-]*:/i.test(raw)) {
-    try {
-      const u = new URL(raw);
-      return (u.protocol === 'http:' || u.protocol === 'https:') ? raw : '';
-    } catch {
-      return '';
-    }
-  }
-  if (raw.startsWith('//')) return '';
-  if (raw.startsWith('/') || raw.startsWith('./') || raw.startsWith('../')) return raw;
-  return /^[\w./%+\-~()[\]]+(?:\?[^\s<>"']*)?(?:#[^\s<>"']*)?$/u.test(raw) ? raw : '';
-}
+// 공통 헬퍼는 lib/dom.js, lib/seo.js 에서 import. 로컬 별칭만 유지 (호환성).
+const $ = _$;
+const escHtml = _escHtml;
+const safeUrl = _safeUrl;
+const injectJsonLd = (payload) => _injectJsonLd('jsonld-exam', payload);
 
 // ── URL 확장자 추출 (?쿼리 스트립) ─────────────────────────
 function urlExtension(url) {
