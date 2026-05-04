@@ -2559,6 +2559,9 @@ body.is-sheet-open { overflow: hidden; touch-action: none; }
 }
 
 /* ═══ Archive — exam-set 회차 진입 링크 ════════════════════ */
+/* HTML hidden 속성이 display 선언을 이기도록 명시 (display:none이 hidden override 방지) */
+.examset-link[hidden],
+.exam__back[hidden] { display: none !important; }
 .examset-link {
   display: inline-flex;
   align-items: center;
