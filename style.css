@@ -183,16 +183,18 @@ a { color: inherit; text-decoration: none; }
   gap: 18px;
   padding-bottom: 8px;
   padding-top: 8px;
-  overflow-x: auto;
-  scrollbar-width: none;
+  /* 컨테이너는 더 이상 스크롤 컨테이너가 아님 — 그룹별 독립 스크롤. */
+  overflow-x: hidden;
+  min-width: 0;
 }
-.curriculum-nav__inner::-webkit-scrollbar { display: none; }
 
 .nav-group {
   display: flex;
   flex-direction: column;
   gap: 4px;
-  flex-shrink: 0;
+  /* 폭이 부족하면 그룹이 줄어듦, 안에서 가로 스와이프. */
+  flex: 1 1 auto;
+  min-width: 0;
 }
 .nav-group__label {
   font-size: 10px;
@@ -206,7 +208,15 @@ a { color: inherit; text-decoration: none; }
 .nav-group__tabs {
   display: flex;
   gap: 4px;
+  /* 그룹 단위 가로 스크롤 — 메인탭/분류탭 스와이프 분리 */
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: x proximity;
 }
+.nav-group__tabs::-webkit-scrollbar { display: none; }
+.nav-group__tabs > .nav-tab { scroll-snap-align: start; }
 
 .nav-sep {
   width: 1px;
