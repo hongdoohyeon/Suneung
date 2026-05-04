@@ -233,11 +233,21 @@ def from_kice(db: Path, items: list):
 def from_edu(db: Path, items: list):
     con = sqlite3.connect(db); con.row_factory = sqlite3.Row
     questions, answers = {}, {}
+    # EBSi PDF 카드의 "월" flag가 실제 시행월과 다른 경우(4월 말 학평이 5월로 분류 등)
+    # src_url의 wdown 경로 'YYYYMMDD' 가 ground truth — 이를 우선 적용해 month 보정.
+    import re as _re
+    URL_DATE_RE = _re.compile(r'wdown\.ebsi\.co\.kr/[^/]+/[^/]+/(\d{8})/')
     # 고1/고2/고3 모두 포함. 학년은 key에 추가하여 분리.
     for r in con.execute('SELECT * FROM exams_edu'):
-        m = EDU_MONTH.get(r['month'])
+        # src_url의 시행일 → year/month 보정
+        real_year, real_month = r['year'], r['month']
+        mu = URL_DATE_RE.search(r['src_url'] or '') if r['src_url'] else None
+        if mu:
+            ymd = mu.group(1)
+            real_year, real_month = int(ymd[:4]), int(ymd[4:6])
+        m = EDU_MONTH.get(real_month)
         if m is None: continue
-        key = (r['year'], r['month'], r['grade'], r['subject'],
+        key = (real_year, real_month, r['grade'], r['subject'],
                r['subtype'] or '', r['curriculum'])
         (questions if r['doc_type'] == 'q' else answers)[key] = r['file_path']
     con.close()
