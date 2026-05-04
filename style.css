@@ -2663,3 +2663,67 @@ body.is-sheet-open { overflow: hidden; touch-action: none; }
   .patchnotes__title { font-size: 26px; }
   .patchnotes__entry { padding: 14px; }
 }
+
+/* ═══════════════════════════════════════════════════════════
+   PDF preview — lazy slot + zoom controls
+═══════════════════════════════════════════════════════════ */
+.preview__page-slot {
+  display: block;
+  width: 100%;
+  margin: 0 auto 16px;
+  background: var(--surface-2);
+  border-radius: 6px;
+  position: relative;
+  /* placeholder 인 동안에도 페이지 높이를 잡아두어 스크롤바 점프 방지 */
+}
+.preview__page-slot[data-rendered="1"] { background: transparent; }
+
+/* floating zoom controls — preview 컨테이너의 부모(.exam__main 등)에 absolute */
+.preview { position: relative; }
+.preview__zoom {
+  position: sticky;
+  bottom: 12px;
+  margin-left: auto;
+  margin-right: 12px;
+  width: max-content;
+  display: inline-flex;
+  align-items: center;
+  gap: 1px;
+  padding: 4px;
+  background: var(--surface);
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  box-shadow: var(--sh-md);
+  z-index: 5;
+  float: right;
+}
+.preview__zoom-btn {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  width: 32px;
+  height: 32px;
+  border-radius: 999px;
+  font-size: 16px;
+  color: var(--ink-2);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 140ms var(--ease);
+}
+.preview__zoom-btn:hover { background: var(--surface-hover); color: var(--ink); }
+.preview__zoom-btn:active { transform: scale(0.96); }
+.preview__zoom-pct {
+  width: auto;
+  padding: 0 12px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--ink-3);
+  font-variant-numeric: tabular-nums;
+}
+
+@media (max-width: 600px) {
+  .preview__zoom { bottom: 8px; }
+  .preview__zoom-btn { width: 36px; height: 36px; font-size: 18px; }
+}

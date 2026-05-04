@@ -146,7 +146,10 @@ function renderHead(exam) {
   $('backLink').href = `archive.html?tab=${encodeURIComponent(exam.curriculum)}`;
 }
 
-// ── PDF 렌더 (단일 컬럼, 컨테이너 폭에 맞춰 축소) ──────────
+// ── PDF 렌더 ────────────────────────────────────────────────
+// 페이지별 placeholder 슬롯을 먼저 깔고, IntersectionObserver 로 viewport 진입한
+// 페이지만 실제 canvas 렌더 → 모바일 저사양 멈춤 방지 + 즉시 첫 paint.
+
 async function renderPdfPage(pdf, pageNum, dpr, containerWidth) {
   const page = await pdf.getPage(pageNum);
   const baseVp = page.getViewport({ scale: 1 });
@@ -166,6 +169,32 @@ async function renderPdfPage(pdf, pageNum, dpr, containerWidth) {
   return canvas;
 }
 
+// 페이지 렌더 (이미 그려진 placeholder canvas를 hydration). zoom 적용.
+async function renderPageInto(pdf, pageNum, slot, dpr, containerWidth, zoom) {
+  if (slot.dataset.rendered === '1') return;
+  const page = await pdf.getPage(pageNum);
+  const baseVp = page.getViewport({ scale: 1 });
+  const fitScale = Math.min(2, containerWidth / baseVp.width);
+  const scale = fitScale * zoom;
+  const vp = page.getViewport({ scale });
+  const canvas = slot.querySelector('canvas') || document.createElement('canvas');
+  canvas.className = 'preview__page';
+  canvas.width = Math.floor(vp.width * dpr);
+  canvas.height = Math.floor(vp.height * dpr);
+  canvas.style.aspectRatio = `${vp.width} / ${vp.height}`;
+  const ctx = canvas.getContext('2d');
+  await page.render({
+    canvasContext: ctx,
+    viewport: vp,
+    transform: dpr !== 1 ? [dpr, 0, 0, dpr, 0, 0] : null,
+  }).promise;
+  if (!slot.contains(canvas)) {
+    slot.innerHTML = '';
+    slot.appendChild(canvas);
+  }
+  slot.dataset.rendered = '1';
+}
+
 async function renderPdf(url, container, metaEl) {
   if (metaEl) metaEl.textContent = '불러오는 중…';
   try {
@@ -180,27 +209,71 @@ async function renderPdf(url, container, metaEl) {
 
     const containerWidth = container.clientWidth || 600;
     const dpr = Math.min(2, window.devicePixelRatio || 1);
+    let zoom = 1;  // fit-width 기준 배수
 
-    // 첫 페이지만 즉시 렌더 — 나머지는 사용자가 '더보기' 눌러야 펼침
-    const first = await renderPdfPage(pdf, 1, dpr, containerWidth);
-    container.appendChild(first);
-
-    if (total > 1) {
-      const more = document.createElement('button');
-      more.className = 'preview__more';
-      more.type = 'button';
-      more.textContent = `나머지 ${total - 1}쪽 펼치기`;
-      more.addEventListener('click', async () => {
-        more.disabled = true;
-        more.textContent = '불러오는 중…';
-        for (let i = 2; i <= total; i++) {
-          const c = await renderPdfPage(pdf, i, dpr, containerWidth);
-          container.insertBefore(c, more);
-        }
-        more.remove();
-      }, { once: true });
-      container.appendChild(more);
+    // 페이지별 placeholder 슬롯 생성 — aspect ratio는 첫 페이지로 가정 (pdfjs-dist 표준 비율)
+    const slots = [];
+    for (let i = 1; i <= total; i++) {
+      const slot = document.createElement('div');
+      slot.className = 'preview__page-slot';
+      slot.style.aspectRatio = '210 / 297';  // A4 가정 (실제 렌더 시 갱신)
+      slot.dataset.page = String(i);
+      container.appendChild(slot);
+      slots.push(slot);
     }
+
+    // IntersectionObserver — 보이는 페이지(앞뒤 1쪽 미리)만 렌더
+    const io = new IntersectionObserver((entries) => {
+      for (const e of entries) {
+        if (!e.isIntersecting) continue;
+        const slot = e.target;
+        const n = Number(slot.dataset.page);
+        renderPageInto(pdf, n, slot, dpr, containerWidth, zoom).catch(() => {});
+        io.unobserve(slot);
+      }
+    }, { rootMargin: '600px 0px' });
+    slots.forEach(s => io.observe(s));
+
+    // 줌 컨트롤 (floating)
+    const ctrls = document.createElement('div');
+    ctrls.className = 'preview__zoom';
+    ctrls.innerHTML = `
+      <button type="button" class="preview__zoom-btn" data-act="out" aria-label="축소">−</button>
+      <button type="button" class="preview__zoom-btn preview__zoom-pct" data-act="reset" aria-label="100% 보기">100%</button>
+      <button type="button" class="preview__zoom-btn" data-act="in" aria-label="확대">+</button>`;
+    container.parentElement?.appendChild(ctrls);
+    const pctEl = ctrls.querySelector('.preview__zoom-pct');
+
+    function applyZoom(newZ) {
+      zoom = Math.max(0.5, Math.min(2.5, newZ));
+      pctEl.textContent = `${Math.round(zoom * 100)}%`;
+      // 모든 렌더된 페이지 재렌더 (가시 영역만 즉시, 나머진 invalidate 후 IO 재트리거)
+      slots.forEach(s => {
+        if (s.dataset.rendered === '1') {
+          delete s.dataset.rendered;
+          const n = Number(s.dataset.page);
+          renderPageInto(pdf, n, s, dpr, containerWidth, zoom).catch(() => {});
+        }
+      });
+    }
+    ctrls.addEventListener('click', (ev) => {
+      const btn = ev.target.closest('button');
+      if (!btn) return;
+      const act = btn.dataset.act;
+      if (act === 'in')    applyZoom(zoom + 0.1);
+      else if (act === 'out')   applyZoom(zoom - 0.1);
+      else if (act === 'reset') applyZoom(1);
+    });
+    // 키보드 단축키: + - 0
+    function onKey(e) {
+      if (e.target.matches('input, textarea, [contenteditable="true"]')) return;
+      if (e.key === '+' || e.key === '=') { applyZoom(zoom + 0.1); e.preventDefault(); }
+      else if (e.key === '-' || e.key === '_') { applyZoom(zoom - 0.1); e.preventDefault(); }
+      else if (e.key === '0') { applyZoom(1); e.preventDefault(); }
+    }
+    document.addEventListener('keydown', onKey);
+    // 페이지 떠날 때 cleanup (단일 페이지 SPA 가정 — soft cleanup)
+    container.dataset.cleanup = '1';
   } catch (err) {
     container.innerHTML = `
       <div class="preview__error">

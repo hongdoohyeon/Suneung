@@ -1,0 +1,52 @@
+name: validate
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      # vanilla JS — node --check 로 syntax 검사 (deps 설치 불요)
+      - name: JS syntax check
+        run: |
+          set -e
+          for f in *.js lib/*.js scripts/*.mjs; do
+            [ -f "$f" ] || continue
+            echo "  check $f"
+            node --check "$f"
+          done
+
+      # JSON 파일 형식 검증
+      - name: JSON files valid
+        run: |
+          set -e
+          for f in $(find data sitemap*.xml -name '*.json' -maxdepth 3 2>/dev/null); do
+            python3 -c "import json,sys; json.load(open('$f'))" || (echo "✗ $f"; exit 1)
+          done
+          echo "  ok: $(find data -name '*.json' -maxdepth 3 | wc -l | xargs) JSON files"
+
+      # exams.json 비즈니스 규칙 (validate-exams.mjs 가 schema + dup 검사)
+      - name: exams.json business rules
+        run: node scripts/validate-exams.mjs
+
+      # HTML 기본 정합성 (간단 grep — 깨진 태그 감지)
+      - name: HTML smoke
+        run: |
+          set -e
+          for f in *.html; do
+            grep -q '</html>' "$f" || (echo "✗ $f no </html>"; exit 1)
+            grep -q '<head>'  "$f" || (echo "✗ $f no <head>"; exit 1)
+          done
+          echo "  ok: $(ls *.html | wc -l | xargs) HTML files"
