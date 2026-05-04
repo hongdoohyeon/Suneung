@@ -150,9 +150,10 @@ function renderHead(exam) {
 // 첫 페이지만 즉시 렌더, 나머지는 '나머지 N쪽 펼치기' 버튼 클릭으로 펼침.
 // 데스크톱은 상단 줌 컨트롤(− / 100% / +) + 키보드 단축키, 모바일은 핀치 줌.
 
-// 페이지 단건 렌더 (canvas 새로 생성). zoom 배수 적용.
-// 화면 표시 크기는 vp.width(px) 명시 — zoom>1 일 때 .preview__page max-width 100%
-// 제약을 풀어줘야 실제로 커짐 (CSS max-width: none).
+// 페이지 단건 렌더 — zoom 배수 적용.
+// 핵심: canvas.style.width = vp.width(px) 명시 → 화면 크기는 zoom 따라감.
+//       canvas.style.height 는 명시 안 함 → canvas 내부 비율(width:height)로 자동 계산.
+//       aspectRatio CSS 도 미설정 (style.width 와 충돌 가능).
 async function renderPdfPage(pdf, pageNum, dpr, containerWidth, zoom = 1) {
   const page = await pdf.getPage(pageNum);
   const baseVp = page.getViewport({ scale: 1 });
@@ -161,20 +162,18 @@ async function renderPdfPage(pdf, pageNum, dpr, containerWidth, zoom = 1) {
   const vp = page.getViewport({ scale });
   const canvas = document.createElement('canvas');
   canvas.className = 'preview__page';
-  // 내부 비트맵 해상도 (DPR 적용 — 선명도)
-  canvas.width = Math.floor(vp.width * dpr);
+  // 내부 비트맵 해상도 (DPR 적용 — 선명도). vp.width:vp.height 비율 보존.
+  canvas.width  = Math.floor(vp.width  * dpr);
   canvas.height = Math.floor(vp.height * dpr);
-  // 화면 표시 크기 — zoom 반영
+  // 화면 표시 — zoom 반영. aspect-ratio 명시로 비율 보장 (max-height clip 시에도 유지).
   canvas.style.width = `${Math.round(vp.width)}px`;
   canvas.style.height = 'auto';
-  canvas.style.maxWidth = zoom > 1 ? 'none' : '100%';  // 줌인 시 컨테이너 폭 초과 허용
   canvas.style.aspectRatio = `${vp.width} / ${vp.height}`;
+  canvas.style.maxWidth = zoom > 1 ? 'none' : '100%';
+  canvas.style.maxHeight = 'none';  // 명시 width 와 함께 max-height 가 잡으면 ratio 깨짐
   const ctx = canvas.getContext('2d');
-  await page.render({
-    canvasContext: ctx,
-    viewport: vp,
-    transform: dpr !== 1 ? [dpr, 0, 0, dpr, 0, 0] : null,
-  }).promise;
+  ctx.scale(dpr, dpr);
+  await page.render({ canvasContext: ctx, viewport: vp }).promise;
   return canvas;
 }
 
