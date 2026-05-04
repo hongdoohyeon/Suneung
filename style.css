@@ -2665,46 +2665,27 @@ body.is-sheet-open { overflow: hidden; touch-action: none; }
 }
 
 /* ═══════════════════════════════════════════════════════════
-   PDF preview — lazy slot + zoom controls
+   PDF preview — zoom controls (데스크톱 상단 / 모바일 핀치 줌)
 ═══════════════════════════════════════════════════════════ */
-.preview__page-slot {
-  display: block;
-  width: 100%;
-  margin: 0 auto 16px;
-  background: var(--surface-2);
-  border-radius: 6px;
-  position: relative;
-  /* placeholder 인 동안에도 페이지 높이를 잡아두어 스크롤바 점프 방지 */
-}
-.preview__page-slot[data-rendered="1"] { background: transparent; }
-
-/* floating zoom controls — preview 컨테이너의 부모(.exam__main 등)에 absolute */
-.preview { position: relative; }
+.preview__head { display: flex; align-items: center; gap: 12px; }
 .preview__zoom {
-  position: sticky;
-  bottom: 12px;
   margin-left: auto;
-  margin-right: 12px;
-  width: max-content;
   display: inline-flex;
   align-items: center;
   gap: 1px;
-  padding: 4px;
+  padding: 3px;
   background: var(--surface);
-  border: 1px solid var(--line-strong);
+  border: 1px solid var(--line);
   border-radius: 999px;
-  box-shadow: var(--sh-md);
-  z-index: 5;
-  float: right;
 }
 .preview__zoom-btn {
   appearance: none;
   border: 0;
   background: transparent;
-  width: 32px;
-  height: 32px;
+  width: 28px;
+  height: 28px;
   border-radius: 999px;
-  font-size: 16px;
+  font-size: 15px;
   color: var(--ink-2);
   cursor: pointer;
   display: inline-flex;
@@ -2716,14 +2697,14 @@ body.is-sheet-open { overflow: hidden; touch-action: none; }
 .preview__zoom-btn:active { transform: scale(0.96); }
 .preview__zoom-pct {
   width: auto;
-  padding: 0 12px;
+  padding: 0 10px;
   font-size: 12px;
   font-weight: 500;
   color: var(--ink-3);
   font-variant-numeric: tabular-nums;
 }
-
+/* 모바일: 브라우저 핀치 줌 사용 → 버튼 숨김. */
 @media (max-width: 600px) {
-  .preview__zoom { bottom: 8px; }
-  .preview__zoom-btn { width: 36px; height: 36px; font-size: 18px; }
+  .preview__zoom { display: none; }
+  .preview__page { touch-action: pinch-zoom; }
 }
