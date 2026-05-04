@@ -2557,3 +2557,38 @@ body.is-sheet-open { overflow: hidden; touch-action: none; }
   .examset { padding-top: 12px; gap: 12px; }
   .examset__title { font-size: 20px; }
 }
+
+/* ═══ Archive — exam-set 회차 진입 링크 ════════════════════ */
+.examset-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  margin: 4px 0 12px;
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  color: var(--ink-2);
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: background 140ms var(--ease), border-color 140ms var(--ease), transform 140ms var(--ease);
+  align-self: flex-start;
+}
+.examset-link:hover {
+  background: var(--surface-3, #f0f1f2);
+  border-color: var(--ink-4, #94a3b8);
+  color: var(--ink);
+}
+.examset-link:active { transform: scale(0.99); }
+.examset-link__icon {
+  display: inline-flex;
+  color: var(--ink-3);
+}
+.examset-link__label { flex: 1; }
+.examset-link__arrow {
+  font-size: 14px;
+  color: var(--ink-3);
+  transition: transform 140ms var(--ease);
+}
+.examset-link:hover .examset-link__arrow { transform: translateX(2px); color: var(--ink); }

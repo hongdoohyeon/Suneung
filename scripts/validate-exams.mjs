@@ -108,10 +108,14 @@ function validateBusinessRules(data) {
     if (c > 1) err(`id 중복: ${id} (${c}회)`);
   }
 
-  // 2. (gradeYear, type, subject, subSubject) 조합 유니크
+  // 2. (gradeYear, type, subject, subSubject, studentGrade) 조합 유니크
+  // 학평은 같은 year/type/subject라도 학년(고1/2/3) 다르면 별개 시험.
   const comboCount = new Map();
   for (const ex of data) {
-    const k = JSON.stringify([ex.gradeYear, ex.type, ex.subject, ex.subSubject]);
+    const k = JSON.stringify([
+      ex.gradeYear, ex.type, ex.subject, ex.subSubject,
+      ex.studentGrade ?? null,
+    ]);
     if (!comboCount.has(k)) comboCount.set(k, []);
     comboCount.get(k).push(ex.id);
   }

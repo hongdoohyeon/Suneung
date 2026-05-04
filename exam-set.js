@@ -137,6 +137,9 @@ async function main() {
   const curriculum = params.get('curriculum');
   const yearRaw    = params.get('year');
   const type       = params.get('type');
+  // 학평은 학년(grade)으로 추가 분리. 평가원 등 다른 시험은 무시.
+  const gradeRaw   = params.get('grade');
+  const studentGrade = gradeRaw && /^[123]$/.test(gradeRaw) ? Number(gradeRaw) : null;
 
   if (!curriculum || !yearRaw || !type) { showError(); return; }
   if (!CURRICULUM_CONFIG[curriculum] || !getTypeConf(type)) { showError(); return; }
@@ -159,7 +162,8 @@ async function main() {
   const items = exams.filter(e =>
     e.curriculum === curriculum &&
     String(e.gradeYear) === String(gradeYear) &&
-    e.type === type
+    e.type === type &&
+    (studentGrade == null || (e.studentGrade ?? null) === studentGrade)
   );
   if (items.length === 0) { showError(); return; }
 

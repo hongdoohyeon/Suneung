@@ -109,10 +109,12 @@ export const CURRICULUM_CONFIG = {
     availableTypeGroups: ['military'],
     singleType: true,
     subjects: {
-      '국어': { icon: '📖', bg: '#fff0e8', color: '#c44b00', subs: [] },
+      // 09개정 09~16학년도엔 국어 A/B형 분리, 17학년도부터 통합 (subSubject=null)
+      '국어': { icon: '📖', bg: '#fff0e8', color: '#c44b00', subs: ['A형','B형'] },
       '수학': { icon: '📐', bg: '#eef2ff', color: '#1a4fd6',
-               subs: ['가형','나형','확률과통계','미적분','기하'] },
-      '영어': { icon: '🌍', bg: '#e8f9ff', color: '#0077a8', subs: [] },
+               subs: ['A형','B형','가형','나형','확률과통계','미적분','기하'] },
+      // 영어 색상은 평가원/교육청과 통일
+      '영어': { icon: '🌍', bg: '#e6f5fb', color: '#0077a8', subs: [] },
     },
     subjectsByTypeGroup: {},
   },
@@ -128,7 +130,8 @@ export const CURRICULUM_CONFIG = {
     subjects: {
       '국어': { icon: '📖', bg: '#fff0e8', color: '#c44b00', subs: [] },
       '수학': { icon: '📐', bg: '#eef2ff', color: '#1a4fd6', subs: [] },
-      '영어': { icon: '🌍', bg: '#e8f9ff', color: '#0077a8', subs: [] },
+      // 영어 색상은 평가원/교육청과 통일
+      '영어': { icon: '🌍', bg: '#e6f5fb', color: '#0077a8', subs: [] },
     },
     subjectsByTypeGroup: {},
   },
@@ -281,7 +284,16 @@ const SEARCH_ALIASES = {
   '육모': ['6월', '6월모의평가'],
   '9모': ['9월', '9월모의평가'],
   '구모': ['9월', '9월모의평가'],
+  '6평': ['6월', '6월모의평가'],
+  '9평': ['9월', '9월모의평가'],
   '수능': ['대학수학능력시험', '수능'],
+  '학평': ['학력평가', '학평'],
+  '학력평가': ['학력평가', '학평'],
+  '3월': ['3월 학력평가'],
+  '4월': ['4월 학력평가'],
+  '7월': ['7월 학력평가'],
+  '10월': ['10월 학력평가'],
+  '11월': ['11월 학력평가'],
   '화작': ['화법과작문', '화법과 작문'],
   '언매': ['언어와매체', '언어와 매체'],
   '확통': ['확률과통계', '확률과 통계'],
@@ -300,6 +312,9 @@ const SEARCH_ALIASES = {
   '세지': ['세계지리'],
   '세사': ['세계사'],
   '한사': ['한국사'],
+  '고1': ['고1', '학력평가'],
+  '고2': ['고2', '학력평가'],
+  '고3': ['고3'],
 };
 
 export function searchAliasOf(normalizedQ) {

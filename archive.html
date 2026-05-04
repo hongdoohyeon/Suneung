@@ -184,6 +184,21 @@
       <!-- Active Tags -->
       <div id="activeTags" class="active-tags"></div>
 
+      <!-- 회차 단위 진입 (filter가 (curriculum, gradeYear, type) 까지 좁혀졌을 때 표시) -->
+      <a id="examSetLink" class="examset-link" hidden href="exam-set.html">
+        <span class="examset-link__icon" aria-hidden="true">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+               stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="7" height="7" rx="1.5"/>
+            <rect x="14" y="3" width="7" height="7" rx="1.5"/>
+            <rect x="3" y="14" width="7" height="7" rx="1.5"/>
+            <rect x="14" y="14" width="7" height="7" rx="1.5"/>
+          </svg>
+        </span>
+        <span class="examset-link__label">이 회차 모든 영역 한 페이지에서 보기</span>
+        <span class="examset-link__arrow" aria-hidden="true">→</span>
+      </a>
+
       <!-- Skeleton -->
       <div id="skeleton" class="grid">
         <div class="skel-card"></div><div class="skel-card"></div>

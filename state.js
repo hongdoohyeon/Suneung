@@ -154,24 +154,29 @@ export function filtered() {
   });
 
   // ── 정렬: 학년도(미래→과거, preliminary=2028) → month↓ → 영역(첫 curriculum 정의 순) → 소과목 ──
-  const subjectKeys = Object.keys(tabSubjects());
-  const idxOrLast = (arr, v) => {
-    const i = arr.indexOf(v);
-    return i === -1 ? 999 : i;
-  };
+  // tabSubjects()는 dict 머지가 비싸므로 sort 시작 전에 한 번 캐시.
+  const subjectsConf = tabSubjects();
+  const subjectKeys = Object.keys(subjectsConf);
+  const subjectIdx = new Map(subjectKeys.map((s, i) => [s, i]));
+  // 영역별 subs 인덱스 캐시 (per-subject)
+  const subSubsIdx = new Map();
+  for (const [subj, conf] of Object.entries(subjectsConf)) {
+    const subs = conf?.subs ?? [];
+    subSubsIdx.set(subj, new Map(subs.map((s, i) => [s, i])));
+  }
+  const lookupOr999 = (m, v) => m.get(v) ?? 999;
 
   return items.sort((a, b) => {
     if (a.gradeYear !== b.gradeYear) {
       return gradeYearSortKey(b.gradeYear) - gradeYearSortKey(a.gradeYear);
     }
     if (a.month !== b.month) return b.month - a.month;
-    const sa = idxOrLast(subjectKeys, a.subject);
-    const sb = idxOrLast(subjectKeys, b.subject);
+    const sa = lookupOr999(subjectIdx, a.subject);
+    const sb = lookupOr999(subjectIdx, b.subject);
     if (sa !== sb) return sa - sb;
-    // subs 순서: a.subject 가 정의된 첫 curriculum 의 subs 사용
-    const subjConf = tabSubjects()[a.subject];
-    const subs = subjConf?.subs ?? [];
-    return idxOrLast(subs, a.subSubject) - idxOrLast(subs, b.subSubject);
+    const subsMap = subSubsIdx.get(a.subject) ?? new Map();
+    return lookupOr999(subsMap, a.subSubject)
+         - lookupOr999(subsMap, b.subSubject);
   });
 }
 

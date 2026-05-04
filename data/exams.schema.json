@@ -71,15 +71,23 @@
             "sept",
             "mar",
             "apr",
+            "jun",
             "jul",
+            "sep",
             "oct",
+            "nov",
             "prelim",
             "leet_annual",
             "meet_annual",
             "military_annual",
             "police_annual"
           ],
-          "description": "시험 회차/시기(하위)."
+          "description": "시험 회차/시기(하위). jun/sep/nov는 고1·고2 학평."
+        },
+        "studentGrade": {
+          "type": ["integer", "null"],
+          "enum": [1, 2, 3, null],
+          "description": "교육청 학평 학년 (1=고1, 2=고2, 3=고3). 학평 외 시험은 null/미사용."
         },
         "subject": {
           "type": "string",
