@@ -18,6 +18,11 @@ function setMetaProp(prop, content) {
   if (!el) { el = document.createElement('meta'); el.setAttribute('property', prop); document.head.appendChild(el); }
   el.setAttribute('content', content);
 }
+function injectJsonLd(payload) {
+  let s = document.getElementById('jsonld-set');
+  if (!s) { s = document.createElement('script'); s.id = 'jsonld-set'; s.type = 'application/ld+json'; document.head.appendChild(s); }
+  s.textContent = JSON.stringify(payload);
+}
 
 function safeUrl(url) {
   const raw = String(url ?? '').trim();
@@ -147,6 +152,27 @@ function renderHead(curriculum, gradeYear, type, items) {
   // canonical link 갱신 (search engine 정규 URL)
   let cano = document.querySelector('link[rel="canonical"]');
   if (cano) cano.setAttribute('href', location.href);
+  // JSON-LD CollectionPage — 회차 모음 구조화
+  injectJsonLd({
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name: title,
+    description: desc,
+    url: location.href,
+    inLanguage: 'ko',
+    isPartOf: { '@type': 'WebSite', name: '기출해체분석기',
+                url: 'https://hongdoohyeon.github.io/Suneung/' },
+    mainEntity: {
+      '@type': 'ItemList',
+      numberOfItems: items.length,
+      itemListElement: items.slice(0, 30).map((it, i) => ({
+        '@type': 'ListItem',
+        position: i + 1,
+        name: (it.subSubject ? `${it.subject} · ${it.subSubject}` : it.subject),
+        url: `${location.origin}${location.pathname.replace(/exam-set\.html$/, '')}exam.html?id=${it.id}`,
+      })),
+    },
+  });
 
   $('examsetCount').textContent = `총 ${items.length}개 영역`;
 

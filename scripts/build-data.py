@@ -551,33 +551,62 @@ def main():
             json.dump(it, f, ensure_ascii=False)
     print(f'  + data/exam/{{id}}.json {len(items)}건 (exam.html lazy fetch 용)')
 
-    # ─ sitemap.xml: 회차(curriculum,gradeYear,type[,grade]) 단위 URL 추가 ─
-    SITEMAP = ROOT / 'sitemap.xml'
+    # ─ sitemap 분할: index + sets + exams ─
+    base = 'https://hongdoohyeon.github.io/Suneung'
+    from urllib.parse import quote as _q
+    from xml.sax.saxutils import escape as _xe
+
+    # (1) sitemap-sets.xml — 회차 단위 URL
     sets = set()
     for it in items:
         if not (it.get('curriculum') and it.get('gradeYear') and it.get('type')):
             continue
         sets.add((it['curriculum'], str(it['gradeYear']), it['type'],
                   it.get('studentGrade') if it.get('typeGroup') == 'education' else None))
-    base = 'https://hongdoohyeon.github.io/Suneung'
-    parts = [
+    sets_parts = ['<?xml version="1.0" encoding="UTF-8"?>',
+                  '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
+    for curr, year, t, sg in sorted(sets):
+        params = f'curriculum={_q(curr)}&amp;year={year}&amp;type={_q(t)}'
+        if sg is not None: params += f'&amp;grade={sg}'
+        sets_parts.append(
+            f'  <url><loc>{base}/exam-set.html?{params}</loc>'
+            f'<changefreq>monthly</changefreq><priority>0.6</priority></url>')
+    sets_parts.append('</urlset>')
+    (ROOT / 'sitemap-sets.xml').write_text('\n'.join(sets_parts) + '\n', encoding='utf-8')
+
+    # (2) sitemap-exams.xml — 단건 시험 URL (3,201)
+    exams_parts = ['<?xml version="1.0" encoding="UTF-8"?>',
+                   '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
+    for it in items:
+        exams_parts.append(
+            f'  <url><loc>{base}/exam.html?id={it["id"]}</loc>'
+            f'<changefreq>monthly</changefreq><priority>0.4</priority></url>')
+    exams_parts.append('</urlset>')
+    (ROOT / 'sitemap-exams.xml').write_text('\n'.join(exams_parts) + '\n', encoding='utf-8')
+
+    # (3) sitemap.xml — index (분할 sitemap 가리킴) + 정적 페이지
+    main_parts = [
+        '<?xml version="1.0" encoding="UTF-8"?>',
+        '<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
+        f'  <sitemap><loc>{base}/sitemap-static.xml</loc></sitemap>',
+        f'  <sitemap><loc>{base}/sitemap-sets.xml</loc></sitemap>',
+        f'  <sitemap><loc>{base}/sitemap-exams.xml</loc></sitemap>',
+        '</sitemapindex>',
+    ]
+    (ROOT / 'sitemap.xml').write_text('\n'.join(main_parts) + '\n', encoding='utf-8')
+
+    # (4) sitemap-static.xml — index/archive/gradecut
+    static_parts = [
         '<?xml version="1.0" encoding="UTF-8"?>',
         '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
         f'  <url><loc>{base}/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>',
         f'  <url><loc>{base}/archive.html</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>',
         f'  <url><loc>{base}/gradecut.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>',
+        '</urlset>',
     ]
-    from urllib.parse import quote as _q
-    for curr, year, t, sg in sorted(sets):
-        params = f'curriculum={_q(curr)}&year={year}&type={_q(t)}'
-        if sg is not None: params += f'&grade={sg}'
-        parts.append(
-            f'  <url><loc>{base}/exam-set.html?{params}</loc>'
-            f'<changefreq>monthly</changefreq><priority>0.6</priority></url>'
-        )
-    parts.append('</urlset>')
-    SITEMAP.write_text('\n'.join(parts) + '\n', encoding='utf-8')
-    print(f'  + sitemap.xml: {len(sets) + 3} URL')
+    (ROOT / 'sitemap-static.xml').write_text('\n'.join(static_parts) + '\n', encoding='utf-8')
+
+    print(f'  + sitemap (index + static + sets {len(sets)} + exams {len(items)})')
 
     # 요약
     print(f'\n✓ {len(items):,}건 → {OUT_JSON.relative_to(ROOT)}')

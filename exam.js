@@ -37,6 +37,13 @@ function setMetaProp(prop, content) {
   el.setAttribute('content', content);
 }
 
+// JSON-LD 구조화 데이터 — Google 리치 결과 노출 향상
+function injectJsonLd(payload) {
+  let s = document.getElementById('jsonld-exam');
+  if (!s) { s = document.createElement('script'); s.id = 'jsonld-exam'; s.type = 'application/ld+json'; document.head.appendChild(s); }
+  s.textContent = JSON.stringify(payload);
+}
+
 function safeUrl(url) {
   const raw = String(url ?? '').trim();
   if (!raw) return '';
@@ -104,6 +111,23 @@ function renderHead(exam) {
   setMetaProp('og:title', `${title} — 기출해체분석기`);
   setMetaProp('og:description', desc);
   setMetaProp('og:url', location.href);
+  // JSON-LD LearningResource — search engine 구조화 데이터
+  injectJsonLd({
+    '@context': 'https://schema.org',
+    '@type': 'LearningResource',
+    name: title,
+    description: desc,
+    url: location.href,
+    inLanguage: 'ko',
+    learningResourceType: '기출문제',
+    educationalLevel: '고등학교',
+    isPartOf: { '@type': 'WebSite', name: '기출해체분석기',
+                url: 'https://hongdoohyeon.github.io/Suneung/' },
+    ...(exam.questionUrl ? { hasPart: [
+      { '@type': 'DigitalDocument', name: '문제지', url: exam.questionUrl, encodingFormat: 'application/pdf' },
+      ...(exam.answerUrl ? [{ '@type': 'DigitalDocument', name: '정답', url: exam.answerUrl, encodingFormat: 'application/pdf' }] : []),
+    ] } : {}),
+  });
   // 회차 진입 link (사이드바)
   const setLink = document.getElementById('examSetSideLink');
   if (setLink && exam.curriculum && exam.gradeYear && exam.type) {
