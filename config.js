@@ -24,7 +24,6 @@ export const TAB_CONFIG = [
   { key: 'freshman',   label: '고1',       sub: '학력평가',
     curriculums: ['2015', '2009'], educationGrades: [1], educationOnly: true },
   // ── 빈 탭 (데이터 채워지면 placeholder 해제) ───────────
-  { key: 'ged',        label: '검정고시',  sub: '준비 중',  curriculums: [], placeholder: true },
   { key: 'essay',      label: '논술',      sub: '준비 중',  curriculums: [], placeholder: true },
 ];
 
