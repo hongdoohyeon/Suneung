@@ -14,17 +14,24 @@ import {
 const tabConf = () => getTabConf(state.tab);
 
 // 탭이 포함하는 모든 typeGroup 합집합 (UI 칩 렌더용)
+// educationOnly 탭(고1/고2)은 평가원 칩 제외 — 교육청 학평만 노출.
 const tabAvailableTypeGroups = () => {
+  const conf = tabConf();
   const set = new Set();
   for (const c of tabCurriculumConfs()) {
     for (const tg of c.availableTypeGroups) set.add(tg);
   }
+  if (conf?.educationOnly) {
+    return [...set].filter(tg => tg === 'education');
+  }
   return [...set];
 };
 // 탭이 단일 typeGroup + 모든 curriculum 이 singleType 일 때 → typeGroup 칩 숨김
+// educationOnly 탭도 단일 typeGroup이므로 칩 숨김.
 const tabIsSingleType = () => {
   const tgs = tabAvailableTypeGroups();
   if (tgs.length !== 1) return false;
+  if (tabConf()?.educationOnly) return true;
   return tabCurriculumConfs().every(c => c.singleType);
 };
 
