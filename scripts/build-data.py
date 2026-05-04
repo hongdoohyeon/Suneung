@@ -23,10 +23,11 @@ OUT_JSON = ROOT / 'data' / 'exams.json'
 # 한국어 파일명을 박아 보냄. ?name= 쿼리로 원하는 한국어 파일명 전달.
 WORKER_BASE = 'https://suneung-files.hdh061224.workers.dev'
 
-KICE_RELEASES = ['kice-v1', 'kice-v2', 'kice-v3', 'kice-v4',
-                 'edu-v1', 'edu-v2', 'edu-v3']
+# release tag 목록은 동적 발견 (build_asset_index 에서 gh release list).
+# 새 release(예: kice-v5, edu-v4)가 생기면 코드 변경 없이 자동 인덱싱.
+KICE_RELEASES: list[str] = []
 
-# 추후 카테고리별 release (예약)
+# 추후 카테고리별 release (예약 — file_url 분기에선 사용 안 하지만 내부 관리용)
 FUTURE_RELEASE = {
     'leet':     'leet-v1',
     'meet':     'meet-v1',
@@ -48,15 +49,40 @@ KOREAN_TYPE_LABEL = {
 KOREAN_DOC_LABEL = {'q': '문제지', 'a': '정답', 's': '해설'}
 
 
-def build_asset_index() -> dict:
-    """gh CLI 로 모든 release(kice-v*, leet-v1, meet-v1, military-v1, police-v1)의
-    자산을 받아 basename → tag 매핑 생성."""
+def discover_release_tags() -> list[str]:
+    """gh CLI 로 repo의 모든 release tag 동적 수집.
+    하드코드 KICE_RELEASES/FUTURE_RELEASE 의존 제거 — 새 release가 생기면 자동 반영.
+    """
     import subprocess
-    idx = {}
-    all_tags = list(KICE_RELEASES) + list(FUTURE_RELEASE.values())
-    for tag in all_tags:
+    r = subprocess.run(
+        ['gh', 'release', 'list', '--repo', 'hongdoohyeon/Suneung',
+         '--limit', '200', '--json', 'tagName', '--jq', '.[].tagName'],
+        capture_output=True, text=True
+    )
+    if r.returncode != 0:
+        # gh 미설치/네트워크 오류 시 fallback (구 하드코드)
+        print(f'[warn] gh release list failed: {r.stderr.strip()}', file=sys.stderr)
+        return ['kice-v1', 'kice-v2', 'kice-v3', 'kice-v4',
+                'edu-v1', 'edu-v2', 'edu-v3',
+                'leet-v1', 'meet-v1', 'military-v1', 'police-v1']
+    return [t for t in r.stdout.strip().split('\n') if t]
+
+
+def build_asset_index() -> dict:
+    """모든 release의 자산 → basename→tag 매핑.
+
+    자산 목록은 release당 1번 gh API 호출 (병렬 가능하나 release 수 적음).
+    인덱스가 비어있으면 file_url() 이 'data/files/...' fallback 처리.
+    """
+    import subprocess
+    idx: dict = {}
+    tags = discover_release_tags()
+    print(f'release tags: {tags}', file=sys.stderr)
+    KICE_RELEASES.clear(); KICE_RELEASES.extend(tags)
+    for tag in tags:
         r = subprocess.run(
-            ['gh', 'release', 'view', tag, '--json', 'assets', '--jq', '.assets[].name'],
+            ['gh', 'release', 'view', tag, '--repo', 'hongdoohyeon/Suneung',
+             '--json', 'assets', '--jq', '.assets[].name'],
             capture_output=True, text=True
         )
         if r.returncode != 0:
@@ -510,6 +536,20 @@ def main():
     OUT_JSON.parent.mkdir(parents=True, exist_ok=True)
     with OUT_JSON.open('w', encoding='utf-8') as f:
         json.dump(items, f, ensure_ascii=False, indent=2)
+
+    # ─ id별 단건 split (exam.html 단건 진입의 lazy fetch 용) ─
+    # archive 는 통합 파일 그대로 사용 (필터링 즉시성 유지),
+    # exam.html 은 우선 data/exam/{id}.json 시도 → 실패 시 통합 fallback.
+    EXAM_DIR = OUT_JSON.parent / 'exam'
+    # 옛 split 파일 정리 (지금 빌드에 없는 id 의 잔여 제거)
+    if EXAM_DIR.exists():
+        for f in EXAM_DIR.glob('*.json'):
+            f.unlink()
+    EXAM_DIR.mkdir(parents=True, exist_ok=True)
+    for it in items:
+        with (EXAM_DIR / f"{it['id']}.json").open('w', encoding='utf-8') as f:
+            json.dump(it, f, ensure_ascii=False)
+    print(f'  + data/exam/{{id}}.json {len(items)}건 (exam.html lazy fetch 용)')
 
     # 요약
     print(f'\n✓ {len(items):,}건 → {OUT_JSON.relative_to(ROOT)}')

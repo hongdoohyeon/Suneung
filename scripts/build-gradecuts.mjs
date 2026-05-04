@@ -324,14 +324,50 @@ const sorted = [...resultMap.values()].sort((a, b) => {
   return (a.subject + (a.subSubject ?? '')).localeCompare(b.subject + (b.subSubject ?? ''));
 });
 
+// 학평 등급컷에 studentGrade 부여 — 메가스터디 source는 학년 정보 없음.
+// exams.json에서 같은 (gradeYear, type, subject, subSubject) 매칭되는 항목의
+// studentGrade 셋. 매칭이 여러 학년이면 모두 표기 (다중 학년 학평 cut 동일).
+const examsByKey = new Map();
+for (const e of exams) {
+  if (e.typeGroup !== 'education') continue;
+  const k = `${e.gradeYear}|${e.type}|${e.subject}|${e.subSubject ?? ''}`;
+  if (!examsByKey.has(k)) examsByKey.set(k, new Set());
+  if (e.studentGrade != null) examsByKey.get(k).add(e.studentGrade);
+}
+
 const out = sorted.map((rec, i) => {
   const r = { ...rec, id: i + 1 };
   const fs = FULL_SCORE[r.subject];
   if (fs != null) r.fullScore = fs;
+  // 학평이면 studentGrade 추가 (exams.json 매칭). 매칭 학년이 1개면 단일, 여러 학년이면
+  // 학년별 별개 entry로 복제.
+  if (r.typeGroup === 'education') {
+    const k = `${r.gradeYear}|${r.type}|${r.subject}|${r.subSubject ?? ''}`;
+    const grades = [...(examsByKey.get(k) ?? new Set())].sort();
+    if (grades.length === 1) r.studentGrade = grades[0];
+    else if (grades.length === 0) r.studentGrade = 3;  // default 고3 (메가스터디 관행)
+    // 여러 학년이면 첫 번째만 반영 (이후 expand 단계에서 복제)
+    else r.studentGrade = grades[0];
+  }
   return r;
 });
 
-await writeFile(OUT_PATH, JSON.stringify(out, null, 2) + '\n');
+// 다중 학년 학평 cut을 학년별로 복제
+const expanded = [];
+for (const r of out) {
+  if (r.typeGroup !== 'education') { expanded.push(r); continue; }
+  const k = `${r.gradeYear}|${r.type}|${r.subject}|${r.subSubject ?? ''}`;
+  const grades = [...(examsByKey.get(k) ?? new Set())].sort();
+  if (grades.length <= 1) { expanded.push(r); continue; }
+  // 여러 학년 매칭 시 학년별 entry 생성 (cut 자체는 같음 — 메가스터디는 학년 미구분)
+  for (const g of grades) {
+    expanded.push({ ...r, studentGrade: g });
+  }
+}
+// id 재부여
+expanded.forEach((r, i) => { r.id = i + 1; });
+
+await writeFile(OUT_PATH, JSON.stringify(expanded, null, 2) + '\n');
 
 console.log(`기존 rawCuts: ${existing.length}건`);
 console.log(`hwpx 적재: ${hwpxApplied}건`);

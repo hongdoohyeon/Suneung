@@ -390,19 +390,33 @@ async function main() {
     return;
   }
 
-  let exams = [], gradecuts = [], answersMap = {};
+  // 단건 lazy fetch 우선: data/exam/{id}.json (~1KB) 만 받음.
+  // 미존재 시 통합 data/exams.json (~2MB) 로 폴백.
+  let exam = null, gradecuts = [], answersMap = {};
   try {
-    const [examRes, cutRes, ansRes] = await Promise.all([
-      fetch('data/exams.json',     { cache: 'no-cache' }),
-      fetch('data/gradecuts.json', { cache: 'no-cache' }),
-      fetch('data/answers.json',   { cache: 'no-cache' }),
+    const [singleRes, cutRes, ansRes] = await Promise.all([
+      fetch(`data/exam/${id}.json`, { cache: 'no-cache' }),
+      fetch('data/gradecuts.json',  { cache: 'no-cache' }),
+      fetch('data/answers.json',    { cache: 'no-cache' }),
     ]);
-    if (examRes.ok) exams      = await examRes.json();
-    if (cutRes.ok)  gradecuts  = await cutRes.json();
-    if (ansRes.ok)  answersMap = await ansRes.json();
+    if (singleRes.ok) {
+      exam = await singleRes.json();
+    }
+    if (cutRes.ok) gradecuts  = await cutRes.json();
+    if (ansRes.ok) answersMap = await ansRes.json();
   } catch { /* fall-through */ }
 
-  const exam = exams.find(e => e.id === id);
+  // 단건 split 미배포 환경 폴백: 통합 exams.json
+  if (!exam) {
+    try {
+      const res = await fetch('data/exams.json', { cache: 'no-cache' });
+      if (res.ok) {
+        const exams = await res.json();
+        exam = exams.find(e => e.id === id) ?? null;
+      }
+    } catch { /* fall-through */ }
+  }
+
   if (!exam) { showError(); return; }
 
   // 사전 추출된 정답이 있으면 합쳐 사용 (exam.answers 우선, 없으면 answersMap 폴백)
