@@ -56,6 +56,9 @@ function applyUrlTab() {
   if (tabIsSingleType()) {
     state.typeGroup = tabAvailableTypeGroups()[0];
     state.type      = 'all';
+  } else if (tabConf()?.defaultTypeGroup) {
+    // senior 등: 첫 진입 시 디폴트 typeGroup 적용 (예: 고3 → 평가원 우선)
+    state.typeGroup = tabConf().defaultTypeGroup;
   }
 }
 
@@ -109,6 +112,8 @@ $('curriculumTabs').addEventListener('click', e => {
   if (tabIsSingleType()) {
     state.typeGroup = tabAvailableTypeGroups()[0];
     state.type      = 'all';
+  } else if (tabConf()?.defaultTypeGroup) {
+    state.typeGroup = tabConf().defaultTypeGroup;
   }
 
   syncUrlTab();
