@@ -88,8 +88,12 @@ function renderHead(exam) {
   const tc = getTypeConf(exam.type);
   const dy = displayYear(exam);
   const yearChip = `<span class="chiplet chiplet--ink">${escHtml(dy.label)}${dy.suffix ? ' ' + dy.suffix : ''}</span>`;
+  // examYear 모드(학평): yearChip에 "N월"이 들어가므로 typeChip은 month prefix 제거.
+  const typeLbl = tc?.displayMode === 'examYear'
+    ? (tc?.label ?? '').replace(/^\d+월\s*/, '')
+    : (tc?.label ?? '');
   const typeChip = tc
-    ? `<span class="chiplet chiplet--type" style="--chip-bg:${tc.badgeBg};--chip-color:${tc.badgeColor};">${escHtml(tc.label)}</span>`
+    ? `<span class="chiplet chiplet--type" style="--chip-bg:${tc.badgeBg};--chip-color:${tc.badgeColor};">${escHtml(typeLbl)}</span>`
     : '';
   const subjChip = `<span class="chiplet chiplet--soft">${escHtml(exam.subject)}${exam.subSubject ? ` · ${escHtml(prettySub(exam.subSubject))}` : ''}</span>`;
   $('examChips').innerHTML = yearChip + typeChip + subjChip;
