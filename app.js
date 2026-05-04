@@ -213,6 +213,20 @@ function yearChipLabel(y, isEdu) {
   return `${disp}${isEdu ? '년' : '학년도'}`;
 }
 
+// 탭의 curriculum 들이 학년도 범위에서 겹치는지 — 겹치면 header 그룹화가 잘못됨
+// (예: 사관·경찰대는 둘 다 2007~2026 → 모두 첫 conf로 매핑되어 "사관"만 표시).
+function curriculumsOverlap() {
+  const confs = tabCurriculumConfs();
+  for (let i = 0; i < confs.length; i++) {
+    for (let j = i + 1; j < confs.length; j++) {
+      const [aMin, aMax] = confs[i].gradeYearRange;
+      const [bMin, bMax] = confs[j].gradeYearRange;
+      if (aMin <= bMax && bMin <= aMax) return true;
+    }
+  }
+  return false;
+}
+
 function renderYearChips() {
   const container = $('yearFilter');
   const label     = $('yearLabel');
@@ -224,9 +238,10 @@ function renderYearChips() {
 
   const years = availableGradeYears();
 
-  // 탭이 여러 curriculum 합치는 경우 학년도 영역에 "── 2015 개정 ──" 식 헤더 삽입 (B안).
-  // 단일 curriculum 탭은 헤더 없이 평탄.
-  const showHeaders = tabCurriculums().length > 1;
+  // 탭이 여러 curriculum 합치는 경우 학년도 영역에 "── 2015 개정 ──" 식 헤더 삽입.
+  // 단, curriculum 들이 학년도 범위에서 겹치면 헤더가 잘못 그룹화하므로 숨김
+  // (사관·경찰대 mp 탭, LEET·MEET gradschool 탭).
+  const showHeaders = tabCurriculums().length > 1 && !curriculumsOverlap();
 
   const out = [pill('all', '전체', state.gradeYear === 'all', '', 'data-year="all"')];
   let lastCurrId = null;

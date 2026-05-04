@@ -312,7 +312,17 @@ a { color: inherit; text-decoration: none; }
   display: flex;
   flex-direction: column;
   gap: 28px;
+  /* 사이드바 자체 독립 스크롤 — viewport 높이에서 sticky top 차지분 빼기.
+     본문과 별도로 휠 스크롤 됨. */
+  max-height: calc(100vh - var(--header-h) - var(--nav-h) - 28px - 24px);
+  overflow-y: auto;
+  padding-right: 4px;          /* 스크롤바 영역 확보 */
+  scrollbar-width: thin;
+  scrollbar-gutter: stable;
 }
+.filter::-webkit-scrollbar { width: 6px; }
+.filter::-webkit-scrollbar-thumb { background: var(--line-strong); border-radius: 3px; }
+.filter::-webkit-scrollbar-thumb:hover { background: var(--ink-4); }
 
 .filter__section { display: flex; flex-direction: column; gap: 10px; }
 
