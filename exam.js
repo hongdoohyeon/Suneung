@@ -63,11 +63,15 @@ function buildTitle(exam) {
   const tc = getTypeConf(exam.type);
   const dy = displayYear(exam);
   const subj = exam.subSubject ? `${exam.subject}(${prettySub(exam.subSubject)})` : exam.subject;
+  // examYear 모드(학평): dy.label에 "N월" 포함 → tc.label에서 month prefix 제거.
+  const typeLbl = tc?.displayMode === 'examYear'
+    ? (tc?.label ?? '').replace(/^\d+월\s*/, '')
+    : (tc?.label ?? '');
   const head = exam.gradeYear === 'preliminary'
     ? `예비시험`
     : (tc?.displayMode === 'examYear'
-        ? `${dy.label} ${tc?.label ?? ''}`
-        : `${dy.label}${dy.suffix} ${tc?.label ?? ''}`);
+        ? `${dy.label} ${typeLbl}`
+        : `${dy.label}${dy.suffix} ${typeLbl}`);
   return `${head} · ${subj}`;
 }
 

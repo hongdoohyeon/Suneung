@@ -31,13 +31,21 @@ function displayYear(item) {
   return { label: String(item.gradeYear), suffix: '학년도' };
 }
 
+// tc.label이 "3월 학력평가"처럼 month를 포함하면 examYear 표시와 중복됨.
+// examYear 모드에서는 "N월 " prefix 제거.
+function typeLabelNoMonth(tc) {
+  if (!tc) return '';
+  return tc.label.replace(/^\d+월\s*/, '');
+}
+
 function buildTitle(curriculum, gradeYear, sample) {
   const tc = getTypeConf(sample.type);
   if (gradeYear === 'preliminary') {
     return `예비시험 ${tc?.label ?? ''}`.trim();
   }
   if (tc?.displayMode === 'examYear') {
-    return `${sample.examYear}년 ${sample.month}월 ${tc?.label ?? ''}`.trim();
+    // 학평 등 examYear 모드: "2026년 3월 학력평가" (월은 한 번만)
+    return `${sample.examYear}년 ${sample.month}월 ${typeLabelNoMonth(tc)}`.trim();
   }
   // 28학년도 예비 (curriculum='예비') 등은 conf.label 자체가 "28학년도 예비"
   if (curriculum === '예비') {
@@ -103,8 +111,10 @@ function renderHead(curriculum, gradeYear, type, items) {
   const dy = displayYear(sample);
 
   const yearChip = `<span class="chiplet chiplet--ink">${escHtml(dy.label)}${dy.suffix ? ' ' + dy.suffix : ''}</span>`;
+  // examYear 모드(학평): yearChip에 월이 들어가므로 typeChip은 월 prefix 제거.
+  const typeLabel = tc?.displayMode === 'examYear' ? typeLabelNoMonth(tc) : (tc?.label ?? '');
   const typeChip = tc
-    ? `<span class="chiplet chiplet--type" style="--chip-bg:${tc.badgeBg};--chip-color:${tc.badgeColor};">${escHtml(tc.label)}</span>`
+    ? `<span class="chiplet chiplet--type" style="--chip-bg:${tc.badgeBg};--chip-color:${tc.badgeColor};">${escHtml(typeLabel)}</span>`
     : '';
   const currChip = conf
     ? `<span class="chiplet chiplet--soft">${escHtml(conf.label)}</span>`
