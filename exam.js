@@ -25,6 +25,18 @@ const escHtml = s => String(s ?? '').replace(/[&<>"']/g, c => (
   { '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[c]
 ));
 
+// ── SEO 메타 동적 갱신 ──
+function setMeta(name, content) {
+  let el = document.querySelector(`meta[name="${name}"]`);
+  if (!el) { el = document.createElement('meta'); el.setAttribute('name', name); document.head.appendChild(el); }
+  el.setAttribute('content', content);
+}
+function setMetaProp(prop, content) {
+  let el = document.querySelector(`meta[property="${prop}"]`);
+  if (!el) { el = document.createElement('meta'); el.setAttribute('property', prop); document.head.appendChild(el); }
+  el.setAttribute('content', content);
+}
+
 function safeUrl(url) {
   const raw = String(url ?? '').trim();
   if (!raw) return '';
@@ -83,7 +95,27 @@ function buildSubtitle(exam) {
 
 // ── 헤드 렌더 ──────────────────────────────────────────────
 function renderHead(exam) {
-  document.title = `${buildTitle(exam)} — 기출해체분석기`;
+  const title = buildTitle(exam);
+  document.title = `${title} — 기출해체분석기`;
+  // ── SEO: 동적 meta description / OG title / canonical ──
+  const sub = buildSubtitle(exam);
+  const desc = `${title} 문제지·정답·해설 PDF. ${sub}.`;
+  setMeta('description', desc);
+  setMetaProp('og:title', `${title} — 기출해체분석기`);
+  setMetaProp('og:description', desc);
+  setMetaProp('og:url', location.href);
+  // 회차 진입 link (사이드바)
+  const setLink = document.getElementById('examSetSideLink');
+  if (setLink && exam.curriculum && exam.gradeYear && exam.type) {
+    const params = new URLSearchParams({
+      curriculum: exam.curriculum,
+      year: String(exam.gradeYear),
+      type: exam.type,
+    });
+    if (exam.studentGrade != null) params.set('grade', String(exam.studentGrade));
+    setLink.href = `exam-set.html?${params.toString()}`;
+    setLink.hidden = false;
+  }
 
   const tc = getTypeConf(exam.type);
   const dy = displayYear(exam);
