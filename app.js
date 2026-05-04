@@ -394,11 +394,14 @@ function renderCards() {
   const isPlaceholder = Boolean(tabConf()?.placeholder);
 
   countEl.textContent = isPlaceholder ? '' : `${data.length.toLocaleString()}건`;
+  updateExamSetLink(data);
 
   if (isPlaceholder || data.length === 0) {
     grid.style.display     = 'none';
     moreWrap.style.display = 'none';
     empty.style.display    = 'flex';
+    const setLink = $('examSetLink');
+    if (setLink) setLink.hidden = true;
     updateEmptyState(isPlaceholder);
     return;
   }
@@ -566,8 +569,36 @@ function showSkeleton(show) {
   $('paginationWrap').style.display  = 'none';
 }
 
-// ── 빈 상태 라벨 — placeholder 탭 (고2/고1/검정고시/논술/입시자료) 와
-//                  실제 "결과 없음" 을 분리 ────────────────────────
+// ── 회차 단위 진입 링크 ────────────────────────────────────
+// 결과가 같은 (curriculum, gradeYear, type) 으로 좁혀졌을 때만 노출.
+function updateExamSetLink(data) {
+  const link = $('examSetLink');
+  if (!link) return;
+  if (!data?.length) { link.hidden = true; return; }
+  const first = data[0];
+  // 모든 항목이 같은 회차여야 함
+  const sameSet = data.every(e =>
+    e.curriculum === first.curriculum &&
+    String(e.gradeYear) === String(first.gradeYear) &&
+    e.type === first.type
+  );
+  if (!sameSet) { link.hidden = true; return; }
+  // 학평은 학년(studentGrade)도 포함
+  const sg = first.studentGrade ?? null;
+  const sameGrade = data.every(e => (e.studentGrade ?? null) === sg);
+  if (!sameGrade) { link.hidden = true; return; }
+  const params = new URLSearchParams({
+    curriculum: first.curriculum,
+    year: String(first.gradeYear),
+    type: first.type,
+  });
+  if (sg != null) params.set('grade', String(sg));
+  link.href = `exam-set.html?${params.toString()}`;
+  link.hidden = false;
+}
+
+// ── 빈 상태 라벨 — placeholder 탭 (검정고시/논술/입시자료) 와
+//                  실제 "결과 없음" 을 분리. 고1/고2는 이제 활성화됨 ──
 function updateEmptyState(isPlaceholder) {
   const empty = $('emptyState');
   const title = empty.querySelector('.empty__title');
@@ -577,12 +608,12 @@ function updateEmptyState(isPlaceholder) {
     const t = tabConf();
     if (title) title.textContent = `${t?.label ?? ''} 자료는 준비 중이에요`;
     if (sub)   sub.textContent   = '데이터가 채워지는 대로 이 페이지에서 바로 보실 수 있어요.';
-    if (btn)   btn.style.display = 'none';
+    if (btn)   { btn.style.display = 'none'; btn.setAttribute('aria-hidden', 'true'); }
     empty.classList.add('is-placeholder');
   } else {
     if (title) title.textContent = '검색 결과가 없습니다';
     if (sub)   sub.textContent   = '필터 조건을 줄이거나 검색어를 변경해 보세요.';
-    if (btn)   btn.style.display = '';
+    if (btn)   { btn.style.display = ''; btn.removeAttribute('aria-hidden'); }
     empty.classList.remove('is-placeholder');
   }
 }
