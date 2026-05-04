@@ -26,7 +26,6 @@ export const TAB_CONFIG = [
   // ── 빈 탭 (데이터 채워지면 placeholder 해제) ───────────
   { key: 'ged',        label: '검정고시',  sub: '준비 중',  curriculums: [], placeholder: true },
   { key: 'essay',      label: '논술',      sub: '준비 중',  curriculums: [], placeholder: true },
-  { key: 'admissions', label: '입시자료',  sub: '준비 중',  curriculums: [], placeholder: true },
 ];
 
 export function getTabConf(tabKey) {

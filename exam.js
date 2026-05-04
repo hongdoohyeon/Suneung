@@ -257,9 +257,26 @@ function setupTabs(onActivate) {
     if (typeof onActivate === 'function') onActivate(key);
   }
 
-  tabs.forEach(t => t.addEventListener('click', () => activate(t.dataset.tab)));
+  // 정답 탭(info)은 스포일러. 첫 클릭 시 confirm dialog로 한 번 차단.
+  // sessionStorage 에 'spoilerOK' 저장 — 새 세션에서 다시 묻기.
+  const SPOILER_KEY = 'suneung:spoilerOK:v1';
+  function confirmSpoiler() {
+    if (sessionStorage.getItem(SPOILER_KEY) === '1') return true;
+    const ok = window.confirm(
+      '정답·통계 탭에는 정답이 포함됩니다.\n그래도 보시겠어요?\n\n' +
+      '(이번 세션 동안 다시 묻지 않습니다)'
+    );
+    if (ok) {
+      try { sessionStorage.setItem(SPOILER_KEY, '1'); } catch {}
+    }
+    return ok;
+  }
+  tabs.forEach(t => t.addEventListener('click', () => {
+    if (t.dataset.tab === 'info' && !confirmSpoiler()) return;
+    activate(t.dataset.tab);
+  }));
 
-  // 초기 탭: URL ?tab=info 면 정보, 아니면 문제(스포 방지)
+  // 초기 탭: URL ?tab=info 면 정보(이미 의도적 진입 — confirm 생략), 아니면 문제(스포 방지)
   const params = new URLSearchParams(location.search);
   activate(params.get('tab') === 'info' ? 'info' : 'paper');
 }
@@ -380,9 +397,58 @@ function gradeDistSVG(rawCuts, fullScore) {
   `;
 }
 
-function renderGradeDist(exam, allCuts) {
+// 실제 KICE 도수분포 → SVG. 표준점수 키 dict { score: { male, female } }.
+// 표시는 표준점수 x축, 인원수 y축 (남녀 합산).
+function realDistSVG(distribution, cut) {
+  const entries = Object.entries(distribution)
+    .map(([k, v]) => ({ std: Number(k), n: (v.male ?? 0) + (v.female ?? 0) }))
+    .filter(d => Number.isFinite(d.std) && d.n >= 0)
+    .sort((a, b) => a.std - b.std);
+  if (entries.length === 0) return '';
+  const W = 640, H = 220, PAD_X = 28, PAD_TOP = 22, PAD_BOTTOM = 60;
+  const innerW = W - 2 * PAD_X;
+  const innerH = H - PAD_TOP - PAD_BOTTOM;
+  const baseY = PAD_TOP + innerH;
+  const minS = entries[0].std, maxS = entries[entries.length - 1].std;
+  const xOf = s => PAD_X + ((s - minS) / Math.max(1, maxS - minS)) * innerW;
+  const maxN = Math.max(...entries.map(d => d.n));
+  const hOf = n => (n / maxN) * innerH * 0.96;
+  const slot = innerW / entries.length;
+  const barW = Math.max(1, slot - 1.4);
+  const bars = entries.map(d => {
+    const h = hOf(d.n);
+    const x = xOf(d.std) - barW / 2;
+    return `<rect x="${x.toFixed(2)}" y="${(baseY - h).toFixed(2)}" width="${barW.toFixed(2)}" height="${h.toFixed(2)}" rx="1" fill="var(--pop)" opacity="0.78"/>`;
+  }).join('');
+  const baseLine = `<line x1="${PAD_X}" y1="${baseY}" x2="${W - PAD_X}" y2="${baseY}" stroke="var(--line-strong)" stroke-width="1"/>`;
+  const ticks = [minS, Math.round((minS + maxS) / 2), maxS].map(s =>
+    `<text x="${xOf(s)}" y="${baseY + 16}" text-anchor="middle" fill="var(--ink-3)" font-size="11">${s}</text>`).join('');
+  return `<svg class="grade-dist" viewBox="0 0 ${W} ${H}" role="img" aria-label="실제 표준점수 도수분포">
+    ${bars}${baseLine}${ticks}
+  </svg>
+  <p class="grade-dist__legend">실제 표준점수 도수분포 · 출처 KICE</p>`;
+}
+
+function renderGradeDist(exam, allCuts, distData) {
   const body = $('gradeDistBody');
   const hint = $('gradeDistHint');
+
+  // (1) 실제 도수분포 데이터 매칭 (KICE 공식)
+  if (Array.isArray(distData)) {
+    const real = distData.find(d =>
+      Number(d.year) === Number(exam.gradeYear) &&
+      d.type === exam.type &&
+      d.subject === exam.subject &&
+      (d.subSubject ?? null) === (exam.subSubject ?? null)
+    );
+    if (real?.distribution) {
+      if (hint) hint.textContent = '실제 도수분포 (KICE)';
+      body.innerHTML = realDistSVG(real.distribution);
+      return true;
+    }
+  }
+
+  // (2) 등급컷 기반 정규분포 추정 (envelope)
   const cut = allCuts.find(c =>
     c.curriculum === exam.curriculum &&
     String(c.gradeYear) === String(exam.gradeYear) &&
@@ -390,7 +456,6 @@ function renderGradeDist(exam, allCuts) {
     c.subject === exam.subject &&
     (c.subSubject ?? null) === (exam.subSubject ?? null)
   );
-  // 무조건 원점수(rawCuts) 만 표시. 데이터 없으면 안내.
   const hasRaw = cut && Array.isArray(cut.rawCuts) && cut.rawCuts.some(v => v != null);
   if (!hasRaw) {
     if (hint) hint.textContent = '준비 중';
@@ -398,8 +463,10 @@ function renderGradeDist(exam, allCuts) {
     return false;
   }
 
-  if (hint) hint.textContent = `1등급 컷 ${cut.rawCuts[0]}점${cut.absolute ? ' · 절대평가' : ''}`;
-  body.innerHTML = gradeDistSVG(cut.rawCuts, cut.fullScore ?? 100);
+  // 실제 분포가 아닌 등급컷 경계만 알 때의 추정 envelope임을 명시
+  if (hint) hint.textContent = `1등급 컷 ${cut.rawCuts[0]}점${cut.absolute ? ' · 절대평가' : ''} · 추정`;
+  body.innerHTML = gradeDistSVG(cut.rawCuts, cut.fullScore ?? 100)
+    + '<p class="grade-dist__legend">참고용 정규분포 모델 (실제 시험 분포 아님)</p>';
   return true;
 }
 
@@ -416,18 +483,18 @@ async function main() {
 
   // 단건 lazy fetch 우선: data/exam/{id}.json (~1KB) 만 받음.
   // 미존재 시 통합 data/exams.json (~2MB) 로 폴백.
-  let exam = null, gradecuts = [], answersMap = {};
+  let exam = null, gradecuts = [], answersMap = {}, scoreDist = [];
   try {
-    const [singleRes, cutRes, ansRes] = await Promise.all([
+    const [singleRes, cutRes, ansRes, distRes] = await Promise.all([
       fetch(`data/exam/${id}.json`, { cache: 'no-cache' }),
       fetch('data/gradecuts.json',  { cache: 'no-cache' }),
       fetch('data/answers.json',    { cache: 'no-cache' }),
+      fetch('data/score-distribution.json', { cache: 'no-cache' }),
     ]);
-    if (singleRes.ok) {
-      exam = await singleRes.json();
-    }
-    if (cutRes.ok) gradecuts  = await cutRes.json();
-    if (ansRes.ok) answersMap = await ansRes.json();
+    if (singleRes.ok) exam = await singleRes.json();
+    if (cutRes.ok)    gradecuts  = await cutRes.json();
+    if (ansRes.ok)    answersMap = await ansRes.json();
+    if (distRes.ok)   scoreDist  = await distRes.json();
   } catch { /* fall-through */ }
 
   // 단건 split 미배포 환경 폴백: 통합 exams.json
@@ -450,7 +517,7 @@ async function main() {
 
   renderHead(exam);
   renderQuickAnswers(exam);
-  renderGradeDist(exam, gradecuts);
+  renderGradeDist(exam, gradecuts, scoreDist);
   setupTabs();
 
   // 미리보기 렌더 (문제지만)
