@@ -2521,6 +2521,11 @@ body.is-sheet-open { overflow: hidden; touch-action: none; }
   letter-spacing: 0.4px;
   pointer-events: none;
 }
+/* PC(≥768px)에서는 SVG 스케일 비율 커서 viewBox 폰트는 작게 */
+@media (min-width: 768px) {
+  .grade-dist__cut { font-size: 14px; font-weight: 600; }
+  .grade-dist__num { font-size: 16px; font-weight: 700; }
+}
 /* 1등급 라벨도 액센트 블루로 — 막대와 시각 연결 */
 .grade-dist__num--g1 { fill: var(--pop-darker); font-weight: 700; }
 .grade-dist__legend {

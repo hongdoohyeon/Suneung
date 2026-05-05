@@ -674,7 +674,7 @@ def build_exam_meta(it: dict) -> dict:
 
     # description: 정식 명칭(약칭) 기반 + 답지·등급컷 키워드 + 약식 학년도
     desc = (
-        f'{full_phrase} 기출 문제지·정답·답지 PDF와 등급컷·표준점수 통계. '
+        f'{full_phrase} 기출 문제지·정답·답지 PDF와 등급컷 통계. '
         f'{seo_kw} 한 페이지에서 해체. 다운로드 무료.'
     )
 
