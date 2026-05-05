@@ -177,10 +177,10 @@ FETCHERS = {
         'https://iphak.khu.ac.kr/',
     ]),
     'hufs': fetch_generic('hufs', [
-        'https://admission.hufs.ac.kr/',
+        'https://adms.hufs.ac.kr/',
     ]),
     'uos': fetch_generic('uos', [
-        'https://enter.uos.ac.kr/',
+        'https://www.uos.ac.kr/',
     ]),
     'konkuk': fetch_generic('konkuk', [
         'https://admission.konkuk.ac.kr/',
@@ -189,7 +189,7 @@ FETCHERS = {
         'https://ipsi.dongguk.edu/',
     ]),
     'hongik': fetch_generic('hongik', [
-        'https://ibsi.hongik.ac.kr/',
+        'https://www.hongik.ac.kr/',
     ]),
     'kookmin': fetch_generic('kookmin', [
         'https://ipsi.kookmin.ac.kr/',
@@ -231,16 +231,16 @@ FETCHERS = {
         'https://www.seoultech.ac.kr/admission/',
     ]),
     'hansung': fetch_generic('hansung', [
-        'https://hsipsi.hansung.ac.kr/',
+        'https://hansung.ac.kr/',
     ]),
     'skuniv': fetch_generic('skuniv', [
-        'https://ipsi.skuniv.ac.kr/',
+        'https://www.skuniv.ac.kr/',
     ]),
     'inha': fetch_generic('inha', [
         'https://admission.inha.ac.kr/',
     ]),
     'ajou': fetch_generic('ajou', [
-        'https://iphak.ajou.ac.kr/',
+        'https://www.ajou.ac.kr/',
     ]),
     'gachon': fetch_generic('gachon', [
         'https://www.gachon.ac.kr/admission/',
@@ -249,10 +249,10 @@ FETCHERS = {
         'https://erica.hanyang.ac.kr/admission/',
     ]),
     'inu': fetch_generic('inu', [
-        'https://enter.inu.ac.kr/',
+        'https://www.inu.ac.kr/',
     ]),
     'kau': fetch_generic('kau', [
-        'https://iphak.kau.ac.kr/',
+        'https://www.kau.ac.kr/',
     ]),
     'pusan': fetch_generic('pusan', [
         'https://go.pusan.ac.kr/',
@@ -264,7 +264,7 @@ FETCHERS = {
         'https://admission.jnu.ac.kr/',
     ]),
     'cnu': fetch_generic('cnu', [
-        'https://admission.cnu.ac.kr/',
+        'https://www.cnu.ac.kr/',
     ]),
     'chungbuk': fetch_generic('chungbuk', [
         'https://ipsi.chungbuk.ac.kr/',
@@ -282,7 +282,7 @@ FETCHERS = {
         'https://ibsi.jejunu.ac.kr/',
     ]),
     'unist': fetch_generic('unist', [
-        'https://admission.unist.ac.kr/',
+        'https://www.unist.ac.kr/',
     ]),
     'gist': fetch_generic('gist', [
         'https://www.gist.ac.kr/admission/',
@@ -291,7 +291,7 @@ FETCHERS = {
         'https://www.dgist.ac.kr/admission/',
     ]),
     'ulsan': fetch_generic('ulsan', [
-        'https://admission.ulsan.ac.kr/',
+        'https://www.ulsan.ac.kr/',
     ]),
     'wku': fetch_generic('wku', [
         'https://ipsi.wku.ac.kr/',
@@ -315,10 +315,10 @@ FETCHERS = {
         'https://www.kmu.ac.kr/admission/',
     ]),
     'kyonggi': fetch_generic('kyonggi', [
-        'https://ipsi.kyonggi.ac.kr/',
+        'https://www.kyonggi.ac.kr/',
     ]),
     'sch': fetch_generic('sch', [
-        'https://entry.sch.ac.kr/',
+        'https://www.sch.ac.kr/',
     ]),
     'kosin': fetch_generic('kosin', [
         'https://www.kosin.ac.kr/ad/',
