@@ -306,11 +306,23 @@ function renderQuickAnswers(exam) {
       : `총 ${exam.answers.length}문항`;
   }
   const cells = exam.answers.map((a, i) => {
-    const isMissing = a === '?';
-    const display = isMissing ? '—' : escHtml(a);
-    const title = isMissing ? ' title="정답 미제공 (PDF 추출 한계)"' : '';
+    const isMissing = a === '?' || a == null;
+    // 복수정답: "2,5" 같은 형태 → "②⑤" 같이 동그라미 숫자로 표시
+    const isMulti = !isMissing && typeof a === 'string' && a.includes(',');
+    const CIRCLE = ['', '①', '②', '③', '④', '⑤'];
+    let display;
+    if (isMissing) {
+      display = '—';
+    } else if (isMulti) {
+      display = a.split(',').map(d => CIRCLE[Number(d)] || d).join('');
+    } else {
+      display = escHtml(a);
+    }
+    const title = isMissing
+      ? ' title="정답 미제공 (PDF 추출 한계)"'
+      : (isMulti ? ' title="복수정답"' : '');
     return `
-    <div class="qa-cell${isMissing ? ' qa-cell--missing' : ''}"${title}>
+    <div class="qa-cell${isMissing ? ' qa-cell--missing' : ''}${isMulti ? ' qa-cell--multi' : ''}"${title}>
       <span class="qa-cell__num">${i + 1}</span>
       <span class="qa-cell__ans">${display}</span>
     </div>`;
