@@ -682,6 +682,249 @@ def build_exam_meta(it: dict) -> dict:
     return {'title': title, 'description': desc, 'canonical': canonical, 'head': head}
 
 
+def build_cuts_hub(items: list[dict], out_path: Path):
+    """등급컷 모음 hub page — 시험 종류별 섹션, 연도×영역 매트릭스.
+    SEO: '수능 등급컷', '9모 등급컷', '학평 등급컷' 등 고볼륨 키워드 점유.
+    내부링크: 각 셀 → 시험 단건 페이지 (PageRank 분산)."""
+    # 시험 종류 그룹 → 정렬된 영역 set + 연도별 시험들
+    SUBJECT_ORDER_DISPLAY = ['국어', '수학', '영어', '한국사', '사회탐구', '과학탐구']
+    GROUP_LABELS = [
+        ('suneung_csat',   '수능',
+         lambda it: it['typeGroup'] == 'suneung' and it['type'] == 'csat',
+         '대학수학능력시험 원점수 등급컷 — 학년도별 영역 매트릭스'),
+        ('suneung_mock09', '9월 모의평가 (9모)',
+         lambda it: it['typeGroup'] == 'suneung' and it['type'] == 'sept',
+         '평가원 9월 모의평가 원점수 등급컷'),
+        ('suneung_mock06', '6월 모의평가 (6모)',
+         lambda it: it['typeGroup'] == 'suneung' and it['type'] == 'june',
+         '평가원 6월 모의평가 원점수 등급컷'),
+        ('edu_g3', '고3 학평',
+         lambda it: it['typeGroup'] == 'education' and it.get('studentGrade') == 3,
+         '고3 전국연합학력평가 원점수 등급컷'),
+        ('edu_g2', '고2 학평',
+         lambda it: it['typeGroup'] == 'education' and it.get('studentGrade') == 2,
+         '고2 전국연합학력평가 원점수 등급컷'),
+        ('edu_g1', '고1 학평',
+         lambda it: it['typeGroup'] == 'education' and it.get('studentGrade') == 1,
+         '고1 전국연합학력평가 원점수 등급컷'),
+        ('military', '사관학교 1차',
+         lambda it: it['typeGroup'] == 'military', '사관학교 1차 시험 원점수 등급컷'),
+        ('police', '경찰대 1차',
+         lambda it: it['typeGroup'] == 'police', '경찰대학 1차 시험 원점수 등급컷'),
+        ('leet', 'LEET',
+         lambda it: it['typeGroup'] == 'leet', 'LEET (법학적성시험) 원점수 등급컷'),
+        ('meet', 'MEET',
+         lambda it: it['typeGroup'] == 'meet', 'MEET (의·치학교육입문검사) 원점수 등급컷'),
+    ]
+
+    # 시험 단건과 등급컷을 키로 매칭
+    items_by_key = {}
+    for it in items:
+        key = (it.get('curriculum'), it.get('gradeYear'), it.get('type'),
+               it.get('subject'), it.get('subSubject') or '',
+               it.get('studentGrade'))
+        items_by_key[key] = it
+
+    # 각 그룹별 섹션 빌드
+    sections = []
+    section_links = []
+    for slug, label, predicate, desc in GROUP_LABELS:
+        group_items = [it for it in items if predicate(it)]
+        if not group_items:
+            continue
+        # 학평은 examYear 정렬, 그 외는 gradeYear
+        is_edu = slug.startswith('edu_')
+        year_key = 'examYear' if is_edu else 'gradeYear'
+
+        # 연도 set + 영역 set
+        years = sorted({it[year_key] for it in group_items}, reverse=True)
+        # 학평은 (월, 영역) 컬럼, 평가원은 (영역) 컬럼
+        # 단순화: 영역만 컬럼, 학평은 row에 (year, month) 키
+        subjects_seen = []
+        for s in SUBJECT_ORDER_DISPLAY:
+            subj_items = [it for it in group_items if it.get('subject') == s]
+            if subj_items:
+                # subSubject 변종 수집
+                subs = sorted({(it.get('subject'), it.get('subSubject') or '') for it in subj_items},
+                              key=lambda x: (x[0], x[1]))
+                for subj_sub in subs:
+                    if subj_sub not in subjects_seen:
+                        subjects_seen.append(subj_sub)
+
+        # 표 row: year (학평이면 year+month로), col: subject
+        if is_edu:
+            row_keys = sorted({(it[year_key], it.get('month'))
+                               for it in group_items}, reverse=True)
+        else:
+            row_keys = [(y,) for y in years]
+
+        # HTML 표
+        thead = '<tr><th class="cuts-hub__th-year">시험</th>' + ''.join(
+            f'<th>{html_escape(s + ((" " + ss) if ss else ""))}</th>'
+            for s, ss in subjects_seen
+        ) + '</tr>'
+
+        rows = []
+        for rk in row_keys[:30]:  # 최근 30개만 (데이터 크기 관리)
+            if is_edu:
+                year, month = rk
+                row_label = f'{year}년 {month}월'
+            else:
+                (year,) = rk
+                row_label = f'{year}학년도'
+
+            cells = []
+            for s, ss in subjects_seen:
+                # 매칭되는 시험 찾기 — group_items 안에서 year, subject, subSub 매치
+                match = None
+                for it in group_items:
+                    if it[year_key] != (rk[0]):
+                        continue
+                    if is_edu and it.get('month') != rk[1]:
+                        continue
+                    if it.get('subject') != s:
+                        continue
+                    if (it.get('subSubject') or '') != ss:
+                        continue
+                    match = it
+                    break
+
+                if not match:
+                    cells.append('<td class="cuts-hub__cell cuts-hub__cell--empty">·</td>')
+                    continue
+
+                cut_first = None
+                if match.get('rawCuts'):
+                    cut_first = match['rawCuts'][0]
+                if cut_first is None:
+                    href = f'/exam-{match["id"]}.html'
+                    cells.append(f'<td class="cuts-hub__cell"><a href="{href}">—</a></td>')
+                    continue
+                href = f'/exam-{match["id"]}.html'
+                cells.append(
+                    f'<td class="cuts-hub__cell">'
+                    f'<a href="{href}" class="cuts-hub__cell-link">'
+                    f'<span class="cuts-hub__cut">{cut_first}</span>'
+                    f'</a></td>'
+                )
+            rows.append(f'<tr><th scope="row" class="cuts-hub__th-row">{html_escape(row_label)}</th>{"".join(cells)}</tr>')
+
+        section_html = (
+            f'<section id="cuts-{slug}" class="cuts-hub__section">'
+            f'<h2 class="cuts-hub__h2">{html_escape(label)} 등급컷</h2>'
+            f'<p class="cuts-hub__desc">{html_escape(desc)}</p>'
+            f'<div class="cuts-hub__table-wrap">'
+            f'<table class="cuts-hub__table"><thead>{thead}</thead><tbody>{"".join(rows)}</tbody></table>'
+            f'</div></section>'
+        )
+        sections.append(section_html)
+        section_links.append(f'<a href="#cuts-{slug}" class="cuts-hub__nav-link">{html_escape(label)}</a>')
+
+    # 페이지 본문
+    body = (
+        '<header class="cuts-hub__head">'
+        '<h1 class="cuts-hub__title">등급컷 모음</h1>'
+        '<p class="cuts-hub__sub">평가원·교육청·사관·경찰·LEET·MEET 전 시험 원점수 등급컷. '
+        '셀을 클릭하면 해당 시험의 빠답·문제지·등급분포로 이동합니다.</p>'
+        '<nav class="cuts-hub__nav">' + ''.join(section_links) + '</nav>'
+        '</header>' + ''.join(sections)
+    )
+
+    # HTML 템플릿 (단순 — head는 inline)
+    html = f'''<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0a0a0a" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net; style-src 'self' https://cdn.jsdelivr.net 'unsafe-inline'; font-src https://cdn.jsdelivr.net data:; img-src 'self' data: https:; connect-src 'self' https://suneung-files.hdh061224.workers.dev https://cdn.jsdelivr.net; media-src 'self' https://suneung-files.hdh061224.workers.dev; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'self'" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <meta name="naver-site-verification" content="b3138c38039611bed2ce955aa7102ab33011cf14" />
+  <meta name="description" content="평가원·교육청·사관·경찰·LEET·MEET 전 시험 원점수 등급컷 모음. 수능·9모·6모·학평 1등급 컷을 학년도×영역 매트릭스로 한눈에 비교." />
+
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="apple-touch-icon" href="favicon.svg" />
+  <link rel="canonical" href="https://kicegg.com/cuts.html" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="기출해체분석기" />
+  <meta property="og:title" content="등급컷 모음 — 수능·9모·6모·학평 원점수 1등급 컷 한눈에" />
+  <meta property="og:description" content="평가원·교육청·사관·경찰·LEET·MEET 전 시험 원점수 등급컷을 학년도×영역 매트릭스로 비교." />
+  <meta property="og:url" content="https://kicegg.com/cuts.html" />
+  <meta property="og:image" content="https://kicegg.com/og-image.svg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:locale" content="ko_KR" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="등급컷 모음 — 기출해체분석기" />
+  <meta name="twitter:description" content="평가원·학평·사관·경찰·LEET·MEET 원점수 등급컷 매트릭스." />
+  <meta name="twitter:image" content="https://kicegg.com/og-image.svg" />
+  <meta name="twitter:image:alt" content="등급컷 모음 — 학년도별 1등급 컷 매트릭스" />
+
+  <script type="application/ld+json">
+  {{
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "@id": "https://kicegg.com/cuts.html",
+    "url": "https://kicegg.com/cuts.html",
+    "name": "등급컷 모음",
+    "description": "평가원·교육청·사관·경찰·LEET·MEET 전 시험 원점수 등급컷 매트릭스.",
+    "inLanguage": "ko-KR",
+    "isPartOf": {{ "@id": "https://kicegg.com/#website" }}
+  }}
+  </script>
+
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+  <link rel="stylesheet" crossorigin integrity="sha384-uGEvnSEpW2nM9xJFsrxrwakwrk9QdDTQIBJh0hVMu90OaVyMAMpAK1rIn0/Kh1/k"
+        href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+
+  <title>등급컷 모음 — 기출해체분석기</title>
+  <link rel="stylesheet" href="style.css?v=20260505c" />
+</head>
+<body class="page-cuts">
+
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a href="index.html" class="brand">
+        <span class="brand__mark" aria-hidden="true">
+          <svg viewBox="0 0 32 32" width="22" height="22" fill="none">
+            <rect width="32" height="32" rx="7" fill="currentColor"/>
+            <rect x="8"  y="14" width="3" height="11" rx="1" fill="#fff" opacity=".45"/>
+            <rect x="14" y="9"  width="3" height="16" rx="1" fill="#fff" opacity=".7"/>
+            <rect x="20" y="6"  width="3" height="19" rx="1" fill="#fff"/>
+          </svg>
+        </span>
+        <span class="brand__name">기출해체분석기</span>
+      </a>
+      <nav class="header-nav">
+        <a href="archive.html">기출 검색</a>
+        <a href="gradecut.html">모의지원</a>
+        <a href="cuts.html" class="is-active">등급컷</a>
+        <a href="patchnotes.html">입시패치노트</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container cuts-hub">
+    {body}
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>출처 · 한국교육과정평가원 · 법학전문대학원협의회 · 의·치학교육입문검사 관리위원회</p>
+      <p class="site-footer__sub">저작권은 각 발행기관에 있으며 교육 목적으로만 이용할 수 있습니다.</p>
+      <p class="site-footer__legal">
+        <a href="privacy.html">개인정보처리방침</a> · <a href="terms.html">이용약관</a>
+      </p>
+    </div>
+  </footer>
+
+</body>
+</html>
+'''
+    out_path.write_text(html, encoding='utf-8')
+
+
 def build_static_exam_pages(items: list[dict], template_path: Path, out_root: Path):
     """exam.html 템플릿을 시험별로 사전 렌더링해 검색엔진이 JS 없이도 인덱싱하게 한다.
     동시에 시험별 OG JPG (1200×630)도 생성 — 카톡·트위터·네이버 미리보기 카드."""
@@ -852,6 +1095,10 @@ def main():
     # ─ exam-{id}.html SSG 사전렌더링 (Naver/Bing 인덱싱) ─
     build_static_exam_pages(items, ROOT / 'exam.html', ROOT)
 
+    # ─ cuts.html — 등급컷 모음 hub (SEO 고볼륨 키워드 + 내부링크) ─
+    build_cuts_hub(items, ROOT / 'cuts.html')
+    print(f'  + cuts.html (등급컷 모음 hub)')
+
     # ─ sitemap 분할: index + sets + exams ─
     base = 'https://kicegg.com'
     from urllib.parse import quote as _q
@@ -896,13 +1143,14 @@ def main():
     ]
     (ROOT / 'sitemap.xml').write_text('\n'.join(main_parts) + '\n', encoding='utf-8')
 
-    # (4) sitemap-static.xml — index/archive/gradecut/patchnotes
+    # (4) sitemap-static.xml — index/archive/gradecut/cuts/patchnotes
     # privacy/terms는 noindex 정책이라 sitemap에서 제외
     static_parts = [
         '<?xml version="1.0" encoding="UTF-8"?>',
         '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
         f'  <url><loc>{base}/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>',
         f'  <url><loc>{base}/archive.html</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>',
+        f'  <url><loc>{base}/cuts.html</loc><changefreq>weekly</changefreq><priority>0.85</priority></url>',
         f'  <url><loc>{base}/gradecut.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>',
         f'  <url><loc>{base}/patchnotes.html</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>',
         '</urlset>',
