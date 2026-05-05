@@ -2097,6 +2097,13 @@ body.is-sheet-open { overflow: hidden; touch-action: none; }
   border-bottom: 1px dotted var(--ink-5);
 }
 .exam__listen-dl:hover { color: var(--ink-1); border-color: var(--ink-3); }
+.exam__listen--empty .exam__listen-head { color: var(--ink-4); }
+.exam__listen-empty {
+  margin: 6px 0 0;
+  font-size: 12.5px;
+  color: var(--ink-5);
+  line-height: 1.5;
+}
 
 /* chiplet — exam 페이지 전용 작은 chip */
 .chiplet {

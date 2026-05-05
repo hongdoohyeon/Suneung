@@ -153,26 +153,42 @@ function renderHead(exam) {
   );
   $('examActions').innerHTML = buttons.join('');
 
-  // 영어 듣기 mp3: 사이드바 actions 아래에 inline audio player 삽입
+  // 영어 듣기 mp3: 사이드바 actions 아래에 inline audio player 삽입.
+  // 영어 시험인데 듣기가 없는 평가원/학평 회차는 "자료 없음" 표시.
+  // 사관·경찰은 원본 시험에 듣기 자체가 없으므로 안내 생략.
   const actionsEl = $('examActions');
-  if (listenUrl && actionsEl) {
+  const hasListening = exam.subject === '영어' &&
+                       exam.typeGroup !== 'military' && exam.typeGroup !== 'police';
+  if (actionsEl && hasListening) {
     const audioBlock = document.createElement('div');
     audioBlock.className = 'exam__listen';
-    audioBlock.innerHTML = `
-      <div class="exam__listen-head">
-        <span class="exam__listen-icon" aria-hidden="true">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-               stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M3 18v-6a9 9 0 0 1 18 0v6"/>
-            <path d="M21 19a2 2 0 0 1-2 2h-1v-7h3z"/>
-            <path d="M3 19a2 2 0 0 0 2 2h1v-7H3z"/>
-          </svg>
-        </span>
-        <span>영어 듣기 음원</span>
-      </div>
-      <audio controls preload="metadata" src="${escHtml(listenUrl)}" class="exam__listen-audio"></audio>
-      <a class="exam__listen-dl" href="${escHtml(listenUrl)}" target="_blank" rel="noopener" ${dl(exam.listenDownload)}>mp3 다운로드</a>
-    `;
+    if (listenUrl) {
+      audioBlock.innerHTML = `
+        <div class="exam__listen-head">
+          <span class="exam__listen-icon" aria-hidden="true">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                 stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 18v-6a9 9 0 0 1 18 0v6"/>
+              <path d="M21 19a2 2 0 0 1-2 2h-1v-7h3z"/>
+              <path d="M3 19a2 2 0 0 0 2 2h1v-7H3z"/>
+            </svg>
+          </span>
+          <span>영어 듣기 음원</span>
+        </div>
+        <audio controls preload="metadata" src="${escHtml(listenUrl)}" class="exam__listen-audio"></audio>
+        <a class="exam__listen-dl" href="${escHtml(listenUrl)}" target="_blank" rel="noopener" ${dl(exam.listenDownload)}>mp3 다운로드</a>
+      `;
+    } else {
+      audioBlock.classList.add('exam__listen--empty');
+      audioBlock.innerHTML = `
+        <div class="exam__listen-head">
+          <span>영어 듣기 음원</span>
+        </div>
+        <p class="exam__listen-empty">
+          이 회차는 듣기 음원 자료가 공개되지 않았어요.
+        </p>
+      `;
+    }
     actionsEl.appendChild(audioBlock);
   }
 
