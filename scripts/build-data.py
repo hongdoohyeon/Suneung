@@ -39,11 +39,33 @@ FUTURE_RELEASE = {
 # 시험 유형(DB exam_type) → 한국어 라벨
 KOREAN_TYPE_LABEL = {
     'csat':   '수능',
-    'mock06': '6월 모의평가',
-    'mock09': '9월 모의평가',
+    'june':   '6모',          # 평가원 6월 모의평가 (학생 약칭)
+    'sept':   '9모',          # 평가원 9월 모의평가
+    'mock06': '6모',          # legacy 키 fallback
+    'mock09': '9모',
     'prelim': '예비시험',
     'military_annual': '사관학교 1차',
     'police_annual':   '경찰대학 1차',
+}
+
+# 정식 명칭 (SEO description 풍부화 용도)
+FULL_TYPE_LABEL = {
+    'csat':   '대학수학능력시험',
+    'june':   '6월 모의평가',
+    'sept':   '9월 모의평가',
+    'mock06': '6월 모의평가',
+    'mock09': '9월 모의평가',
+    'prelim': '예비시험',
+}
+
+# 학생 검색 약칭 (title·description SEO 키워드)
+SHORT_TYPE_LABEL = {
+    'csat':   '수능',
+    'june':   '6모',
+    'sept':   '9모',
+    'mock06': '6모',
+    'mock09': '9모',
+    'prelim': '예비',
 }
 
 # 문서 타입 라벨
@@ -506,33 +528,58 @@ def from_meet(db: Path, items: list):
 
 # ── 메인 ───────────────────────────────────────────────────
 def build_exam_meta(it: dict) -> dict:
-    """SSG 페이지·sitemap에 쓰일 시험 단건 메타 빌드."""
-    gy  = it['gradeYear']
-    sub = it['subject']
+    """SSG 페이지·sitemap에 쓰일 시험 단건 메타 빌드.
+    학생 검색 키워드(9모/6모/학평/기출/답지/등급컷)를 자연스럽게 포함한다."""
+    gy   = it['gradeYear']
+    gy2  = str(gy)[-2:]                # '26'   ← 학생 약식 표기 ("26수능", "26 9모")
+    sub  = it['subject']
     sub_part = f' {it["subSubject"]}' if it.get('subSubject') else ''
-    typ = it.get('type')
-    tg  = it.get('typeGroup')
+    typ  = it.get('type')
+    tg   = it.get('typeGroup')
 
     if tg == 'suneung':
-        type_label = KOREAN_TYPE_LABEL.get(typ, typ or '')
-        head = f'{gy}학년도 {type_label} {sub}{sub_part}'
+        ui_label   = KOREAN_TYPE_LABEL.get(typ, typ or '')   # '9모'
+        full_label = FULL_TYPE_LABEL.get(typ, ui_label)      # '9월 모의평가'
+        short_lbl  = SHORT_TYPE_LABEL.get(typ, ui_label)     # '9모'
+        head  = f'{gy}학년도 {ui_label} {sub}{sub_part}'
+        seo_kw = f'{gy2}학년도 {short_lbl} {sub}{sub_part} 기출답'
+        full_phrase = f'{gy}학년도 {full_label}({short_lbl}) {sub}{sub_part}'
     elif tg == 'education':
-        sg = it.get('studentGrade') or 3
+        sg    = it.get('studentGrade') or 3
         month = it.get('month') or 0
-        head = f'{gy}년 {month}월 학력평가 (고{sg}) {sub}{sub_part}'
+        head  = f'{gy}년 {month}월 학평 (고{sg}) {sub}{sub_part}'
+        seo_kw = f'{gy2}년 {month}월 고{sg} 학평 {sub}{sub_part} 기출답'
+        full_phrase = f'{gy}년 {month}월 고{sg} 학력평가(학평) {sub}{sub_part}'
     elif tg == 'military':
-        head = f'{gy}학년도 사관학교 1차 {sub}{sub_part}'
+        head  = f'{gy}학년도 사관학교 1차 {sub}{sub_part}'
+        seo_kw = f'{gy2}학년도 사관학교 {sub}{sub_part} 기출'
+        full_phrase = f'{gy}학년도 육·해·공군 사관학교 1차 시험 {sub}{sub_part}'
     elif tg == 'police':
-        head = f'{gy}학년도 경찰대학 1차 {sub}{sub_part}'
+        head  = f'{gy}학년도 경찰대학 1차 {sub}{sub_part}'
+        seo_kw = f'{gy2}학년도 경찰대 {sub}{sub_part} 기출'
+        full_phrase = f'{gy}학년도 경찰대학 1차 시험 {sub}{sub_part}'
     elif tg == 'leet':
-        head = f'{gy}학년도 LEET {sub}'
+        head  = f'{gy}학년도 LEET {sub}'
+        seo_kw = f'{gy2}학년도 리트 {sub} 기출'
+        full_phrase = f'{gy}학년도 LEET(법학적성시험) {sub}'
     elif tg == 'meet':
-        head = f'{gy}학년도 MEET {sub}'
+        head  = f'{gy}학년도 MEET {sub}'
+        seo_kw = f'{gy2}학년도 미트 {sub} 기출'
+        full_phrase = f'{gy}학년도 MEET(의·치학교육입문검사) {sub}'
     else:
         head = f'{gy} {sub}{sub_part}'
+        seo_kw = f'{gy2} {sub}'
+        full_phrase = head
 
-    title = f'{head} — 기출해체분석기'
-    desc  = f'{head} 문제지·정답 PDF와 빠른정답·통계를 한 페이지에서 해체. 다운로드 무료.'
+    # title: 본문 + 기출 키워드 (검색에 가장 강한 자리)
+    title = f'{head} 기출 — 기출해체분석기'
+
+    # description: 정식 명칭(약칭) 기반 + 답지·등급컷 키워드 + 약식 학년도
+    desc = (
+        f'{full_phrase} 기출 문제지·정답·답지 PDF와 등급컷·표준점수 통계. '
+        f'{seo_kw} 한 페이지에서 해체. 다운로드 무료.'
+    )
+
     canonical = f'https://kicegg.com/exam-{it["id"]}.html'
     return {'title': title, 'description': desc, 'canonical': canonical, 'head': head}
 
