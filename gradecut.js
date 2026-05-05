@@ -416,6 +416,16 @@ function bindGlobalEvents() {
     renderTotal();
   });
 
+  // 모바일: 점수 입력 focus 시 키보드가 입력칸을 가리지 않게 가운데로 스크롤
+  $('gcSubjGrid').addEventListener('focusin', e => {
+    const inp = e.target.closest('input[data-action="set-score"]');
+    if (!inp) return;
+    if (window.innerWidth > 600) return;
+    setTimeout(() => {
+      try { inp.scrollIntoView({ behavior: 'smooth', block: 'center' }); } catch {}
+    }, 200);  // 모바일 키보드 애니메이션 후
+  });
+
   $('gcSubjGrid').addEventListener('input', e => {
     const inp = e.target.closest('input[data-action="set-score"]');
     if (!inp) return;

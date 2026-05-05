@@ -919,7 +919,7 @@ a { color: inherit; text-decoration: none; }
 /* ═══ Footer ══════════════════════════════════════════════ */
 .site-footer {
   border-top: 1px solid var(--line);
-  padding: 28px 0;
+  padding: 28px 0 calc(28px + env(safe-area-inset-bottom));
   text-align: center;
   font-size: 11.5px;
   color: var(--ink-4);
@@ -1698,7 +1698,7 @@ a { color: inherit; text-decoration: none; }
   .filter__sheet-actions {
     display: flex;
     gap: 8px;
-    padding: 12px 0 4px;
+    padding: 12px 0 calc(4px + env(safe-area-inset-bottom));
     margin-top: auto;
     border-top: 1px solid var(--line-soft);
     position: sticky;
@@ -1835,7 +1835,7 @@ body.is-sheet-open { overflow: hidden; touch-action: none; }
   .nav-group         { flex-direction: row; align-items: center; gap: 2px; }
   .nav-group__label  { display: none; }
   .nav-group__tabs   { gap: 2px; }
-  .nav-tab           { flex-direction: row; padding: 7px 9px; gap: 0; border-radius: 8px; min-width: 0; }
+  .nav-tab           { flex-direction: row; padding: 8px 12px; gap: 0; border-radius: 8px; min-width: 0; min-height: var(--tap); }
   .nav-tab__sub      { display: none; }
   .nav-tab__title    { font-size: 12px; line-height: 1.2; letter-spacing: -0.2px; }
   .nav-sep           { margin: 0; height: 14px; align-self: center; }
@@ -1850,6 +1850,20 @@ body.is-sheet-open { overflow: hidden; touch-action: none; }
   .btn-text           { min-height: var(--tap); padding: 0 14px; }
   #emptyResetBtn      { min-height: var(--tap); padding: 0 22px; }
   .icon-btn           { width: var(--tap); height: var(--tap); }
+  .pill               { min-height: var(--tap); padding: 10px 14px; }
+  .year-row .pill     { min-height: var(--tap); }
+}
+
+/* 터치 디바이스에서 :hover 효과 stuck 방지 */
+@media (hover: none) and (pointer: coarse) {
+  .pill:hover, .nav-tab:hover, .btn:hover,
+  .card:hover, .examset-link:hover, .cta-card:hover {
+    background: inherit;
+    border-color: inherit;
+    transform: none;
+    box-shadow: none;
+  }
+  .pill:active, .nav-tab:active, .btn:active { opacity: 0.7; }
 }
 
 /* 카드 모바일 — 600px 이하 항상 2열 유지(다운로드 버튼이 가까이 보이도록).
@@ -1868,7 +1882,7 @@ body.is-sheet-open { overflow: hidden; touch-action: none; }
   .card__sub         { font-size: 11.5px; margin-top: 3px; }
   .card__divider     { margin: 10px 0 8px; }
   .card__actions     { gap: 4px; }
-  .card__actions .btn { font-size: 11.5px; padding: 0 8px; min-height: 38px; height: 38px; }
+  .card__actions .btn { font-size: 11.5px; padding: 0 8px; min-height: var(--tap); height: var(--tap); }
 }
 
 /* 극소 화면 — 카드 1열로 가서 화면이 휑해지는 것 방지: 2열 유지 */
@@ -2086,8 +2100,11 @@ body.is-sheet-open { overflow: hidden; touch-action: none; }
 .exam__listen-icon { display: inline-flex; color: var(--accent, #2563eb); }
 .exam__listen-audio {
   width: 100%;
-  height: 36px;
+  height: 40px;
   margin-bottom: 8px;
+}
+@media (max-width: 600px) {
+  .exam__listen-audio { height: 44px; }
 }
 .exam__listen-dl {
   display: inline-block;
