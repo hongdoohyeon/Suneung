@@ -153,21 +153,14 @@ def korean_filename(item: dict, doc_type: str, db_type: str | None) -> str:
 def file_url(typegroup: str, file_path: str, item: dict, doc_type: str, db_type: str | None = None) -> str:
     """Worker 프록시 URL 반환. ?name= 에 한국어 파일명 인코딩.
 
+    PDF + MP3 둘 다 Worker가 처리 (한국어 파일명 + Cloudflare 캐시).
     실제 release 에 자산이 존재하는지 ASSET_INDEX 로 확인.
     누락된 경우엔 'data/files/...' 로컬 fallback (validator 가 catch).
-
-    예외: mp3는 Worker가 거부 ("Only PDF files are allowed")하므로
-    GitHub Releases direct URL 사용. 한국어 파일명은 client측 download 속성으로 처리.
     """
     name = Path(file_path).name
     tag = ASSET_INDEX.get(name)
     if not tag:
-        # FUTURE_RELEASE 의 typegroup 도 fallback. 자산 미업로드 상태.
         return f'data/files/{file_path}'
-
-    # mp3 (영어 듣기) — Worker 우회
-    if name.endswith('.mp3'):
-        return f'https://github.com/hongdoohyeon/Suneung/releases/download/{tag}/{name}'
 
     korean = korean_filename(item, doc_type, db_type)
     return f"{WORKER_BASE}/{tag}/{name}?name={quote(korean, safe='')}"
