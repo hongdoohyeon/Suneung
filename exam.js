@@ -76,17 +76,20 @@ function renderHead(exam) {
   // ── SEO: 동적 meta description / OG title / canonical ──
   const sub = buildSubtitle(exam);
   const desc = `${title} 문제지·정답·해설 PDF. ${sub}.`;
+  // canonical: 동적 ?id 페이지든 SSG /exam-N.html이든 항상 SSG URL을 표준으로 지정
+  const canonicalUrl = `https://kicegg.com/exam-${exam.id}.html`;
   setMeta('description', desc);
+  setCanonical(canonicalUrl);
   setMetaProp('og:title', `${title} — 기출해체분석기`);
   setMetaProp('og:description', desc);
-  setMetaProp('og:url', location.href);
+  setMetaProp('og:url', canonicalUrl);
   // JSON-LD LearningResource — search engine 구조화 데이터
   injectJsonLd({
     '@context': 'https://schema.org',
     '@type': 'LearningResource',
     name: title,
     description: desc,
-    url: location.href,
+    url: canonicalUrl,
     inLanguage: 'ko',
     learningResourceType: '기출문제',
     educationalLevel: '고등학교',
@@ -508,11 +511,17 @@ function renderGradeDist(exam, allCuts, distData) {
   return true;
 }
 
+// URL → 시험 ID 추출.
+// 정적 SSG 페이지(/exam-123.html)는 pathname에서, 레거시 동적(?id=N)은 query에서.
+function readExamId() {
+  const m = location.pathname.match(/exam-(\d+)\.html$/);
+  if (m) return Number(m[1]);
+  return Number(new URLSearchParams(location.search).get('id'));
+}
+
 // ── 본 진입점 ──────────────────────────────────────────────
 async function main() {
-  const params = new URLSearchParams(location.search);
-  const idRaw  = params.get('id');
-  const id     = Number(idRaw);
+  const id = readExamId();
 
   if (!Number.isFinite(id) || id <= 0) {
     showError();
@@ -524,10 +533,10 @@ async function main() {
   let exam = null, gradecuts = [], answersMap = {}, scoreDist = [];
   try {
     const [singleRes, cutRes, ansRes, distRes] = await Promise.all([
-      fetch(`data/exam/${id}.json`, { cache: 'no-cache' }),
-      fetch('data/gradecuts.json',  { cache: 'no-cache' }),
-      fetch('data/answers.json',    { cache: 'no-cache' }),
-      fetch('data/score-distribution.json', { cache: 'no-cache' }),
+      fetch(`data/exam/${id}.json`),
+      fetch('data/gradecuts.json'),
+      fetch('data/answers.json'),
+      fetch('data/score-distribution.json'),
     ]);
     if (singleRes.ok) exam = await singleRes.json();
     if (cutRes.ok)    gradecuts  = await cutRes.json();
@@ -538,7 +547,7 @@ async function main() {
   // 단건 split 미배포 환경 폴백: 통합 exams.json
   if (!exam) {
     try {
-      const res = await fetch('data/exams.json', { cache: 'no-cache' });
+      const res = await fetch('data/exams.json');
       if (res.ok) {
         const exams = await res.json();
         exam = exams.find(e => e.id === id) ?? null;
