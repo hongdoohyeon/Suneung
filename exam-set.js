@@ -2,6 +2,7 @@
 import { CURRICULUM_CONFIG, getTypeConf, prettySub, legacyTabKey } from './config.js';
 import { $, escHtml, escAttr, safeUrl } from './lib/dom.js';
 import { setMeta, setMetaProp, setCanonical, injectJsonLd as _injectJsonLd } from './lib/seo.js';
+import { renderAllAdSlots } from './lib/ads.js';
 const injectJsonLd = (p) => _injectJsonLd('jsonld-set', p);
 
 // ── 표시 라벨 ─────────────────────────────────────────────
@@ -210,3 +211,7 @@ async function main() {
 }
 
 main();
+
+// 광고 슬롯 자동 렌더 (lib/ads.js — Publisher ID 미설정 시 no-op)
+if (document.readyState !== 'loading') renderAllAdSlots();
+else document.addEventListener('DOMContentLoaded', renderAllAdSlots);

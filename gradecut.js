@@ -1,5 +1,6 @@
 'use strict';
 import { CURRICULUM_CONFIG, EXAM_TYPE_CONFIG, getTypeConf, prettySub } from './config.js';
+import { renderAllAdSlots } from './lib/ads.js';
 
 const DATA_URL = 'data/gradecuts.json';
 const $ = id => document.getElementById(id);
@@ -538,3 +539,7 @@ function syncUrl() {
 }
 
 init();
+
+// 광고 슬롯 자동 렌더 (lib/ads.js — Publisher ID 미설정 시 no-op)
+if (document.readyState !== 'loading') renderAllAdSlots();
+else document.addEventListener('DOMContentLoaded', renderAllAdSlots);

@@ -2,6 +2,7 @@
 import { CURRICULUM_CONFIG, getTypeConf, prettySub } from './config.js';
 import { escHtml as _escHtml, escAttr, safeUrl as _safeUrl, $ as _$ } from './lib/dom.js';
 import { setMeta, setMetaProp, setCanonical, injectJsonLd as _injectJsonLd, applySeo } from './lib/seo.js';
+import { renderAllAdSlots } from './lib/ads.js';
 
 // ── PDF.js (jsdelivr CDN, ESM) ─────────────────────────────
 // 모바일에서도 안정적으로 동작하는 mozilla 공식 라이브러리.
@@ -576,3 +577,7 @@ function showError() {
 }
 
 main();
+
+// 광고 슬롯 자동 렌더 (lib/ads.js — Publisher ID 미설정 시 no-op)
+if (document.readyState !== 'loading') renderAllAdSlots();
+else document.addEventListener('DOMContentLoaded', renderAllAdSlots);

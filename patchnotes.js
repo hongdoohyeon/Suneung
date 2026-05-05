@@ -1,6 +1,7 @@
 'use strict';
 import { $, escHtml } from './lib/dom.js';
 import { applySeo } from './lib/seo.js';
+import { renderAllAdSlots } from './lib/ads.js';
 
 const TAG_BG = {
   '사이트':   '#e6f0fa',
@@ -70,3 +71,7 @@ async function main() {
 }
 
 main();
+
+// 광고 슬롯 자동 렌더 (lib/ads.js — Publisher ID 미설정 시 no-op)
+if (document.readyState !== 'loading') renderAllAdSlots();
+else document.addEventListener('DOMContentLoaded', renderAllAdSlots);
