@@ -5,6 +5,8 @@ import { setMeta, setMetaProp, setCanonical, injectJsonLd as _injectJsonLd, appl
 import { renderAllAdSlots } from './lib/ads.js';
 import { renderPdf, renderUnsupported, renderEmpty, urlExtension } from './lib/exam-pdf.js';
 import { renderGradeDist } from './lib/exam-gradedist.js';
+import { pushRecent } from './lib/recent.js';
+import { shareLink } from './lib/share.js';
 
 // 공통 헬퍼는 lib/dom.js, lib/seo.js 에서 import. 로컬 별칭만 유지 (호환성).
 const $ = _$;
@@ -126,7 +128,30 @@ function renderHead(exam) {
   if (scriptUrl) buttons.push(
     `<a class="btn" href="${escHtml(scriptUrl)}" target="_blank" rel="noopener" ${dl(exam.scriptDownload)}>듣기 스크립트</a>`
   );
+  // 공유 버튼 — 모바일 카톡·문자, 데스크톱 클립보드
+  buttons.push(
+    `<button type="button" class="btn btn--ghost" id="examShareBtn" aria-label="공유하기">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+           stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"
+           style="margin-right:5px;vertical-align:-2px">
+        <circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/>
+        <line x1="8.6" y1="13.5" x2="15.4" y2="17.5"/><line x1="15.4" y1="6.5" x2="8.6" y2="10.5"/>
+      </svg>공유
+    </button>`
+  );
   $('examActions').innerHTML = buttons.join('');
+
+  // 공유 버튼 동작
+  const shareBtn = document.getElementById('examShareBtn');
+  if (shareBtn) {
+    shareBtn.addEventListener('click', () => {
+      shareLink({
+        title: buildTitle(exam) + ' — 기출해체분석기',
+        text: buildSubtitle(exam),
+        url: location.href,
+      });
+    });
+  }
 
   // 영어 듣기 mp3: 사이드바 actions 아래에 inline audio player 삽입.
   // 영어 시험인데 듣기가 없는 평가원/학평 회차는 "자료 없음" 표시.
@@ -213,6 +238,57 @@ function setupTabs(onActivate) {
   activate(initial);
 }
 
+// ── 빠답 채점기 — 자기 점수 입력 → 등급/백분위 즉시 산출 ──
+// renderGradeDist 가 반환한 cut (rawCuts/fullScore) 을 받아 등급 계산.
+function renderQuickScorer(exam, cut) {
+  const head = $('quickAnswersHead') || document.querySelector('#quickAnswers .exam-card__head');
+  if (!head) return;
+  if (!cut || !Array.isArray(cut.rawCuts) || cut.rawCuts.every(v => v == null)) return;
+
+  const fullScore = cut.fullScore ?? 100;
+  const wrap = document.createElement('div');
+  wrap.className = 'quick-scorer';
+  wrap.innerHTML = `
+    <label class="quick-scorer__label" for="quickScorerIn">내 원점수 입력</label>
+    <div class="quick-scorer__row">
+      <input id="quickScorerIn" type="number" inputmode="numeric"
+             class="quick-scorer__input" min="0" max="${fullScore}"
+             placeholder="0~${fullScore}" autocomplete="off" />
+      <span class="quick-scorer__unit">/ ${fullScore}</span>
+    </div>
+    <output id="quickScorerOut" class="quick-scorer__out" aria-live="polite"></output>
+  `;
+  // exam-card__head 다음에 삽입 (body 위)
+  const card = head.closest('.exam-card');
+  const body = card?.querySelector('.exam-card__body');
+  if (body) card.insertBefore(wrap, body);
+  else head.parentElement?.insertBefore(wrap, head.nextSibling);
+
+  const inp = wrap.querySelector('#quickScorerIn');
+  const out = wrap.querySelector('#quickScorerOut');
+
+  function update() {
+    const raw = Number(inp.value);
+    if (!Number.isFinite(raw) || raw < 0) { out.innerHTML = ''; return; }
+    const score = Math.min(raw, fullScore);
+    if (raw > fullScore) inp.value = String(fullScore);
+    // 등급 산출: rawCuts 는 [1컷, 2컷, ..., 8컷] 의 원점수.
+    // score >= 1컷 → 1등급, score >= 2컷 → 2등급, ...
+    let grade = 9;
+    for (let g = 1; g <= 8; g++) {
+      const c = cut.rawCuts[g - 1];
+      if (c == null) continue;
+      if (score >= c) { grade = g; break; }
+    }
+    const pct = Math.round((score / fullScore) * 1000) / 10;  // 점수 기준 비율
+    out.innerHTML = `
+      <span class="quick-scorer__grade quick-scorer__grade--g${grade}">${grade}등급</span>
+      <span class="quick-scorer__hint">${score}점 · ${pct}%</span>
+    `;
+  }
+  inp.addEventListener('input', update);
+}
+
 // ── 빠른정답 (옵셔널 데이터: exam.answers 배열) ────────────
 function renderQuickAnswers(exam) {
   const body  = $('quickAnswersBody');
@@ -297,7 +373,9 @@ async function main() {
 
   renderHead(exam);
   renderQuickAnswers(exam);
-  renderGradeDist(exam, gradecuts, scoreDist);
+  const cut = renderGradeDist(exam, gradecuts, scoreDist);
+  renderQuickScorer(exam, cut);  // 빠답 카드 위 자기 점수 → 등급 즉시 산출
+  pushRecent(exam);  // localStorage 최근 본 시험 기록 (메인 페이지 chip 용)
 
   // PDF 미리보기는 'paper' 탭이 처음 활성화될 때만 렌더 (lazy).
   // 모바일 기본 탭이 'info'라 안 누르면 600KB pdfjs 로드 안 됨.
