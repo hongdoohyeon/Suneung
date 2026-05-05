@@ -1,0 +1,8 @@
+# ads.txt — IAB Authorized Digital Sellers
+# AdSense 승인 후 google.com 행 한 줄 추가:
+# google.com, pub-XXXXXXXXXXXXXXXX, DIRECT, f08c47fec0942fa0
+#
+# Kakao AdFit:
+# kakao.com, DAN-XXXXXXXX, DIRECT
+#
+# 비어 있으면 아직 광고 미운영. 승인 후 위 형식으로 채울 것.

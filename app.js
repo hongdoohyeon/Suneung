@@ -10,6 +10,7 @@ import {
   filtered, subjectCounts, buildMockData,
   tabCurriculums, tabCurriculumConfs, tabSubjects, curriculumOfGradeYear,
 } from './state.js';
+import { renderAllAdSlots } from './lib/ads.js';
 
 const tabConf = () => getTabConf(state.tab);
 
@@ -653,3 +654,7 @@ function escAttr(str) { return escHtml(str); }
 
 // ── 시작 ──────────────────────────────────────────────────
 loadExams();
+
+// 광고 슬롯 자동 렌더 (lib/ads.js — Publisher ID 미설정 시 no-op)
+if (document.readyState !== 'loading') renderAllAdSlots();
+else document.addEventListener('DOMContentLoaded', renderAllAdSlots);

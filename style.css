@@ -2698,3 +2698,37 @@ body.is-sheet-open { overflow: hidden; touch-action: none; }
   .preview__zoom { display: none; }
   .preview__page { touch-action: pinch-zoom; }
 }
+
+/* ═══════════════════════════════════════════════════════════
+   Ad Slots — AdSense / AdFit 공용
+   - data-ad-position 속성으로 자동 렌더 (lib/ads.js).
+   - ID 미설정 시 슬롯 자체가 hide → 빈 영역 안 차지.
+═══════════════════════════════════════════════════════════ */
+.ad-slot {
+  display: block;
+  width: 100%;
+  min-height: 0;
+  margin: 24px 0;
+  background: var(--surface-2);
+  border: 1px solid var(--line-soft);
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+}
+.ad-slot::before {
+  content: '광고';
+  position: absolute;
+  top: 6px;
+  left: 10px;
+  font-size: 10px;
+  color: var(--ink-5);
+  font-weight: 500;
+  letter-spacing: 0.4px;
+  z-index: 1;
+}
+.ad-slot--inline { min-height: 100px; }
+.ad-slot--banner { min-height: 90px; }
+.ad-slot--sidebar { margin: 16px 0 0; min-height: 250px; }
+
+/* 슬롯이 채워지면 placeholder 'AD' 라벨은 유지하되 background 투명 */
+.ad-slot--filled { background: transparent; border-color: var(--line); }
