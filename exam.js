@@ -363,9 +363,19 @@ function setupTabs(onActivate) {
 
   tabs.forEach(t => t.addEventListener('click', () => activate(t.dataset.tab)));
 
-  // 초기 탭: URL ?tab=info 면 정보, 아니면 문제(default).
+  // 초기 탭:
+  //   - URL ?tab=info → 정보
+  //   - URL ?tab=paper → 문제
+  //   - 명시 없으면 데스크톱은 'paper' (PDF 우선), 모바일은 'info' (빠답·등급 우선)
   const params = new URLSearchParams(location.search);
-  activate(params.get('tab') === 'info' ? 'info' : 'paper');
+  const explicit = params.get('tab');
+  let initial;
+  if (explicit === 'info' || explicit === 'paper') {
+    initial = explicit;
+  } else {
+    initial = window.innerWidth <= 600 ? 'info' : 'paper';
+  }
+  activate(initial);
 }
 
 // ── 빠른정답 (옵셔널 데이터: exam.answers 배열) ────────────
@@ -611,17 +621,25 @@ async function main() {
   renderHead(exam);
   renderQuickAnswers(exam);
   renderGradeDist(exam, gradecuts, scoreDist);
-  setupTabs();
 
-  // 미리보기 렌더 (문제지만)
+  // PDF 미리보기는 'paper' 탭이 처음 활성화될 때만 렌더 (lazy).
+  // 모바일 기본 탭이 'info'라 안 누르면 600KB pdfjs 로드 안 됨.
   const qViewer = $('previewQViewer'), qMeta = $('previewQMeta');
-  if (!exam.questionUrl) {
-    renderEmpty(qViewer); qMeta.textContent = '없음';
-  } else {
+  let pdfStarted = false;
+  function ensurePdfStarted() {
+    if (pdfStarted) return;
+    pdfStarted = true;
+    if (!exam.questionUrl) {
+      renderEmpty(qViewer); qMeta.textContent = '없음';
+      return;
+    }
     const ext = urlExtension(exam.questionUrl);
     if (ext === 'pdf') renderPdf(exam.questionUrl, qViewer, qMeta);
     else renderUnsupported(qViewer, ext ?? '파일', exam.questionUrl, exam.questionDownload);
   }
+  setupTabs(key => {
+    if (key === 'paper') ensurePdfStarted();
+  });
 }
 
 function showError() {

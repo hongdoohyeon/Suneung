@@ -552,6 +552,79 @@ def from_meet(db: Path, items: list):
 
 
 # ── 메인 ───────────────────────────────────────────────────
+## ── OG 이미지 (시험별 1200×630 JPG) ────────────────────────
+# 카톡·트위터·네이버 공유 시 미리보기 카드. macOS 빌드 환경 가정.
+_OG_FONT_PATH = '/System/Library/Fonts/AppleSDGothicNeo.ttc'
+_OG_DIR = ROOT / 'og'
+
+def generate_og_image(it: dict, head: str, out_path: Path):
+    """1200×630 JPG. 흰 배경 + 색띠 + 시험명 + 부가정보."""
+    from PIL import Image, ImageDraw, ImageFont
+    W, H = 1200, 630
+    img = Image.new('RGB', (W, H), '#ffffff')
+    d = ImageDraw.Draw(img)
+
+    # typeGroup별 색띠
+    color = {
+        'suneung':   '#1f6feb',
+        'education': '#475569',
+        'military':  '#6b4220',
+        'police':    '#2e3a5f',
+        'leet':      '#7c2d12',
+        'meet':      '#581c87',
+    }.get(it.get('typeGroup'), '#1f6feb')
+    d.rectangle([0, 0, W, 12], fill=color)
+
+    brand_font  = ImageFont.truetype(_OG_FONT_PATH, 30)
+    title_font  = ImageFont.truetype(_OG_FONT_PATH, 64)
+    sub_font    = ImageFont.truetype(_OG_FONT_PATH, 32)
+    bottom_font = ImageFont.truetype(_OG_FONT_PATH, 26)
+    domain_font = ImageFont.truetype(_OG_FONT_PATH, 22)
+
+    # 좌상단 브랜드
+    d.text((60, 56), '기출해체분석기', fill='#64748b', font=brand_font)
+
+    # 중앙 시험명 — 너무 길면 자동 줄바꿈
+    title = head
+    if len(title) > 22:
+        # 중간 공백에서 분할
+        words = title.split(' ')
+        mid = len(words) // 2
+        title_lines = [' '.join(words[:mid]), ' '.join(words[mid:])]
+    else:
+        title_lines = [title]
+
+    # 줄별 측정 + 중앙 배치
+    y_cur = H / 2 - (len(title_lines) * 80) / 2 + 10
+    for line in title_lines:
+        bbox = d.textbbox((0, 0), line, font=title_font)
+        tw = bbox[2] - bbox[0]
+        d.text(((W - tw) / 2, y_cur), line, fill='#0f172a', font=title_font)
+        y_cur += 80
+
+    # 부제 — "기출"
+    sub = '기출'
+    bbox = d.textbbox((0, 0), sub, font=sub_font)
+    sw = bbox[2] - bbox[0]
+    d.text(((W - sw) / 2, y_cur + 14), sub, fill='#64748b', font=sub_font)
+
+    # 하단 — 자료 종류
+    bottom = '문제지 · 정답 · 등급컷'
+    if it.get('listenUrl'):
+        bottom += ' · 영어 듣기 mp3'
+    bbox = d.textbbox((0, 0), bottom, font=bottom_font)
+    bw = bbox[2] - bbox[0]
+    d.text(((W - bw) / 2, H - 100), bottom, fill='#94a3b8', font=bottom_font)
+
+    # 도메인
+    dom = 'kicegg.com'
+    bbox = d.textbbox((0, 0), dom, font=domain_font)
+    dw_ = bbox[2] - bbox[0]
+    d.text(((W - dw_) / 2, H - 50), dom, fill='#cbd5e1', font=domain_font)
+
+    img.save(out_path, 'JPEG', quality=82, optimize=True)
+
+
 def build_exam_meta(it: dict) -> dict:
     """SSG 페이지·sitemap에 쓰일 시험 단건 메타 빌드.
     학생 검색 키워드(9모/6모/학평/기출/답지/등급컷)를 자연스럽게 포함한다."""
@@ -610,7 +683,8 @@ def build_exam_meta(it: dict) -> dict:
 
 
 def build_static_exam_pages(items: list[dict], template_path: Path, out_root: Path):
-    """exam.html 템플릿을 시험별로 사전 렌더링해 검색엔진이 JS 없이도 인덱싱하게 한다."""
+    """exam.html 템플릿을 시험별로 사전 렌더링해 검색엔진이 JS 없이도 인덱싱하게 한다.
+    동시에 시험별 OG JPG (1200×630)도 생성 — 카톡·트위터·네이버 미리보기 카드."""
     template = template_path.read_text(encoding='utf-8')
 
     # 옛 SSG 파일 정리 — exam-{숫자}.html 만 (exam-set.html 등은 보호)
@@ -618,6 +692,11 @@ def build_static_exam_pages(items: list[dict], template_path: Path, out_root: Pa
     for old in out_root.iterdir():
         if old.is_file() and _ssg_re.match(old.name):
             old.unlink()
+
+    # OG 디렉토리 준비 (옛 og/exam-*.jpg 정리)
+    _OG_DIR.mkdir(parents=True, exist_ok=True)
+    for old in _OG_DIR.glob('exam-*.jpg'):
+        old.unlink()
 
     def _set_attr(html: str, pattern: str, value: str) -> str:
         # ("...attr=\")…(\")" 형태 정규식 → 값만 갱신, 백슬래시 escape 안전
@@ -632,8 +711,10 @@ def build_static_exam_pages(items: list[dict], template_path: Path, out_root: Pa
       'ogt':    r'(<meta property="og:title" content=")[^"]*(")',
       'ogd':    r'(<meta property="og:description" content=")[^"]*(")',
       'ogu':    r'(<meta property="og:url" content=")[^"]*(")',
+      'ogi':    r'(<meta property="og:image" content=")[^"]*(")',
       'twt':    r'(<meta name="twitter:title" content=")[^"]*(")',
       'twd':    r'(<meta name="twitter:description" content=")[^"]*(")',
+      'twi':    r'(<meta name="twitter:image" content=")[^"]*(")',
       'twa':    r'(<meta name="twitter:image:alt" content=")[^"]*(")',
     }
 
@@ -668,11 +749,38 @@ def build_static_exam_pages(items: list[dict], template_path: Path, out_root: Pa
                 parts.append({'@type': 'DigitalDocument', 'name': '듣기 스크립트',
                               'url': it['scriptUrl'], 'encodingFormat': 'application/pdf'})
             jsonld['hasPart'] = parts
+
+        # BreadcrumbList — SERP rich snippet (홈 › 기출 검색 › 시험명)
+        breadcrumb = {
+          '@context': 'https://schema.org',
+          '@type': 'BreadcrumbList',
+          'itemListElement': [
+            {'@type': 'ListItem', 'position': 1, 'name': '홈',
+             'item': 'https://kicegg.com/'},
+            {'@type': 'ListItem', 'position': 2, 'name': '기출 검색',
+             'item': 'https://kicegg.com/archive.html'},
+            {'@type': 'ListItem', 'position': 3, 'name': head,
+             'item': canonical},
+          ],
+        }
         ld_block = (
           '<script type="application/ld+json">'
           + json.dumps(jsonld, ensure_ascii=False, separators=(',', ':'))
+          + '</script>\n  '
+          '<script type="application/ld+json">'
+          + json.dumps(breadcrumb, ensure_ascii=False, separators=(',', ':'))
           + '</script>\n'
         )
+
+        # 시험별 OG 이미지 생성 — 1200×630 JPG
+        og_path = _OG_DIR / f'exam-{it["id"]}.jpg'
+        try:
+            generate_og_image(it, head, og_path)
+            og_url = f'https://kicegg.com/og/exam-{it["id"]}.jpg'
+        except Exception as e:
+            # 폰트 또는 PIL 없으면 default OG로 fallback
+            print(f'[warn] og fail id={it["id"]}: {e}', file=sys.stderr)
+            og_url = 'https://kicegg.com/og-image.svg'
 
         html = template
         html = _set_attr(html, pat['title'], meta['title'])
@@ -681,8 +789,10 @@ def build_static_exam_pages(items: list[dict], template_path: Path, out_root: Pa
         html = _set_attr(html, pat['ogt'],   meta['title'])
         html = _set_attr(html, pat['ogd'],   meta['description'])
         html = _set_attr(html, pat['ogu'],   canonical)
+        html = _set_attr(html, pat['ogi'],   og_url)
         html = _set_attr(html, pat['twt'],   meta['title'])
         html = _set_attr(html, pat['twd'],   meta['description'])
+        html = _set_attr(html, pat['twi'],   og_url)
         html = _set_attr(html, pat['twa'],   head + ' — 기출해체분석기')
         # JSON-LD: </head> 직전 한 번만 삽입
         html = html.replace('</head>', '  ' + ld_block + '</head>', 1)
