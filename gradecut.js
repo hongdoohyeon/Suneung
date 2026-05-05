@@ -1,7 +1,6 @@
 'use strict';
 import { CURRICULUM_CONFIG, EXAM_TYPE_CONFIG, getTypeConf, prettySub } from './config.js';
 import { renderAllAdSlots } from './lib/ads.js';
-import { matchLines, renderLineupHTML } from './lib/admission.js';
 
 const DATA_URL = 'data/gradecuts.json';
 const $ = id => document.getElementById(id);
@@ -358,14 +357,6 @@ function renderTotal() {
   const avgPct   = entries.reduce((s, e) => s + e.pct,   0) / entries.length;
   $('gcAvgGrade').textContent = avgGrade.toFixed(2);
   $('gcAvgPct').textContent   = `${avgPct.toFixed(1)}%`;
-
-  // 정시 라인업 (참고용) — 평균 상위 백분율 기반 추정
-  const lineupMount = $('gcLineup');
-  if (lineupMount) {
-    matchLines(avgPct).then(matched => {
-      lineupMount.innerHTML = renderLineupHTML(matched);
-    });
-  }
 
   // 영역별 막대 (등급 시각화)
   $('gcTotalBars').innerHTML = entries.map(e => {
