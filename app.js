@@ -5,7 +5,7 @@ import {
 } from './config.js';
 import {
   state, PAGE_SIZE,
-  resetFilters,
+  resetFilters, toggleMulti,
   getDisplayYear, availableGradeYears,
   filtered, subjectCounts, buildMockData,
   tabCurriculums, tabCurriculumConfs, tabSubjects, curriculumOfGradeYear,
@@ -184,10 +184,17 @@ function renderSubtypeChips() {
     container.innerHTML = '';
     return;
   }
+  const isTypeActive = (val) => {
+    if (val === 'all') {
+      return state.type === 'all' || (Array.isArray(state.type) && state.type.length === 0);
+    }
+    if (state.type === 'all') return false;
+    if (Array.isArray(state.type)) return state.type.includes(val);
+    return state.type === val;
+  };
   container.innerHTML = [
-    pill('all', '전체', state.type === 'all'),
-    // 칩에서는 shortLabel 우선 — 사이드바 폭에서 긴 라벨이 칸을 넘쳐 정렬을 깨뜨리기 때문
-    ...g.types.map(t => pill(t.key, t.shortLabel ?? t.label, state.type === t.key)),
+    pill('all', '전체', isTypeActive('all')),
+    ...g.types.map(t => pill(t.key, t.shortLabel ?? t.label, isTypeActive(t.key))),
   ].join('');
   row.classList.add('is-open');
 }
@@ -195,7 +202,12 @@ function renderSubtypeChips() {
 $('typeFilter').addEventListener('click', e => {
   const btn = e.target.closest('.pill');
   if (!btn) return;
-  state.type = btn.dataset.value;
+  const val = btn.dataset.value;
+  if (val === 'all') {
+    state.type = 'all';
+  } else {
+    toggleMulti('type', val);
+  }
   state.page = 1;
   renderSubtypeChips();
   render();
@@ -244,7 +256,16 @@ function renderYearChips() {
   // (사관·경찰대 mp 탭, LEET·MEET gradschool 탭).
   const showHeaders = tabCurriculums().length > 1 && !curriculumsOverlap();
 
-  const out = [pill('all', '전체', state.gradeYear === 'all', '', 'data-year="all"')];
+  const isYearActive = (val) => {
+    if (val === 'all') {
+      return state.gradeYear === 'all' || (Array.isArray(state.gradeYear) && state.gradeYear.length === 0);
+    }
+    if (state.gradeYear === 'all') return false;
+    if (Array.isArray(state.gradeYear)) return state.gradeYear.includes(val);
+    return state.gradeYear === val;
+  };
+
+  const out = [pill('all', '전체', isYearActive('all'), '', 'data-year="all"')];
   let lastCurrId = null;
   for (const y of years) {
     if (showHeaders) {
@@ -256,7 +277,7 @@ function renderYearChips() {
       }
     }
     const value = y === 'preliminary' ? 'preliminary' : String(y);
-    out.push(pill(value, yearChipLabel(y, isEdu), state.gradeYear === value, '', `data-year="${value}"`));
+    out.push(pill(value, yearChipLabel(y, isEdu), isYearActive(value), '', `data-year="${value}"`));
   }
   container.innerHTML = out.join('');
 }
@@ -264,8 +285,13 @@ function renderYearChips() {
 $('yearFilter').addEventListener('click', e => {
   const btn = e.target.closest('.pill');
   if (!btn) return;
-  state.gradeYear = btn.dataset.year;
-  state.page      = 1;
+  const val = btn.dataset.year;
+  if (val === 'all') {
+    state.gradeYear = 'all';
+  } else {
+    toggleMulti('gradeYear', val);
+  }
+  state.page = 1;
   renderYearChips();
   render();
 });
@@ -525,12 +551,17 @@ function renderActiveTags() {
     tags.push({ label: g?.groupLabel ?? state.typeGroup, key: 'typeGroup' });
   }
   if (state.type !== 'all' && !isSingle) {
-    const tc = getTypeConf(state.type);
-    tags.push({ label: tc?.label ?? state.type, key: 'type' });
+    const types = Array.isArray(state.type) ? state.type : [state.type];
+    const labels = types.map(t => getTypeConf(t)?.label ?? t);
+    tags.push({ label: labels.join('·'), key: 'type' });
   }
   if (state.gradeYear !== 'all') {
-    const yVal = state.gradeYear === 'preliminary' ? 'preliminary' : Number(state.gradeYear);
-    tags.push({ label: yearChipLabel(yVal, isEdu), key: 'gradeYear' });
+    const years = Array.isArray(state.gradeYear) ? state.gradeYear : [state.gradeYear];
+    const labels = years.map(y => {
+      const v = y === 'preliminary' ? 'preliminary' : Number(y);
+      return yearChipLabel(v, isEdu);
+    });
+    tags.push({ label: labels.join('·'), key: 'gradeYear' });
   }
   if (state.subject    !== 'all') tags.push({ label: state.subject,    key: 'subject' });
   if (state.subSubject !== 'all') tags.push({ label: prettySub(state.subSubject), key: 'subSubject' });
@@ -600,10 +631,10 @@ function showSkeleton(show) {
 function updateExamSetLink(data) {
   const link = $('examSetLink');
   if (!link) return;
-  // 학년도와 시험종류가 모두 'all' 아닌 경우에만
-  if (state.gradeYear === 'all' || state.type === 'all') {
-    link.hidden = true; return;
-  }
+  // 학년도와 시험종류가 모두 단일 값으로 선택된 경우에만 (다중 선택 시 회차 모호)
+  const ySingle = state.gradeYear !== 'all' && (!Array.isArray(state.gradeYear) || state.gradeYear.length === 1);
+  const tSingle = state.type !== 'all' && (!Array.isArray(state.type) || state.type.length === 1);
+  if (!ySingle || !tSingle) { link.hidden = true; return; }
   if (!data?.length) { link.hidden = true; return; }
   const first = data[0];
   const params = new URLSearchParams({
