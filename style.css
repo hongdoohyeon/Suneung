@@ -2499,13 +2499,12 @@ body.is-sheet-open { overflow: hidden; touch-action: none; }
   stroke: var(--ink-4);
   stroke-width: 1;
 }
-/* SVG viewBox = 640×220, 폭 100%로 스케일.
-   모바일 360px 화면에선 비율 0.56이라 viewBox 좌표의 11.5px는 ~6px로 보임.
-   → viewBox 좌표에서 큰 폰트로 잡아야 화면에 적정 크기로 노출됨. */
+/* SVG viewBox = 640×300, 폭 100%로 스케일.
+   모바일 360px 화면에선 비율 ~0.56 → viewBox 26px가 ~14.5px로 노출. */
 .grade-dist__cut {
   text-anchor: middle;
-  font-size: 16px;
-  font-weight: 600;
+  font-size: 24px;
+  font-weight: 700;
   fill: var(--ink);
   font-family: inherit;
   font-feature-settings: 'tnum' 1;
@@ -2514,8 +2513,8 @@ body.is-sheet-open { overflow: hidden; touch-action: none; }
 }
 .grade-dist__num {
   text-anchor: middle;
-  font-size: 17px;
-  font-weight: 700;
+  font-size: 28px;
+  font-weight: 800;
   fill: var(--ink-4);
   font-family: inherit;
   font-feature-settings: 'tnum' 1;
@@ -2601,25 +2600,36 @@ body.is-sheet-open { overflow: hidden; touch-action: none; }
   .exam__title { font-size: 18px; }
   .exam__actions .btn { min-height: var(--tap); }
 
-  /* PDF — 가능한 폭 다 쓰도록 viewer padding 최소화, 좌우 0
-     (밑은 잘려도 OK — 가독성이 우선) */
+  /* PDF — 가능한 폭 다 쓰도록. viewer padding 0, page도 좌우 borderless */
+  .preview { border-radius: 8px; }
   .preview__head    { padding: 10px 12px; }
-  .preview__viewer  { padding: 4px 0; min-height: 200px; gap: 8px; overflow-x: hidden; }
+  .preview__viewer  { padding: 0; min-height: 200px; gap: 8px; overflow-x: hidden; }
   .preview__title   { font-size: 13.5px; }
-  .preview__page    { border-radius: 4px; max-width: 100%; width: 100%; height: auto; }
+  .preview__page    {
+    border-radius: 0;
+    max-width: 100% !important;
+    width: 100% !important;
+    height: auto !important;
+    border-left: 0;
+    border-right: 0;
+  }
 
-  .qa-grid { gap: 4px; }
-  .qa-cell { padding: 6px 2px; }
-  .qa-cell__ans { font-size: 13px; }
+  .qa-grid { gap: 3px; }
+  .qa-cell { padding: 7px 2px; }
+  .qa-cell__ans { font-size: 14px; font-weight: 700; }
+  .qa-cell__num { font-size: 10.5px; }
 
-  /* 빠답·통계 카드 — 데스크톱은 max-width 720px로 가운데 정렬했으나,
-     모바일은 가용 폭 다 쓰도록 stretch */
+  /* 빠답·통계 카드 — 가용 폭 다 쓰도록 stretch + 좌우 padding 줄임 */
   .exam-pane[data-pane="info"] > .exam-card,
   .exam-pane[data-pane="info"] > .kpi-row {
     max-width: 100%;
     align-self: stretch;
   }
-  .exam-card { padding: 14px 14px 16px; }
+  .exam-card { padding: 14px 12px 16px; }
+
+  .grade-dist__legend { font-size: 14px; }
+  .exam-card__title   { font-size: 16px; }
+  .exam-card__hint    { font-size: 12px; }
 }
 
 /* ═══════════════════════════════════════════════════════════
