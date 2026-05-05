@@ -170,7 +170,7 @@ function renderHead(exam) {
         </span>
         <span>영어 듣기 음원</span>
       </div>
-      <audio controls preload="none" src="${escHtml(listenUrl)}" class="exam__listen-audio"></audio>
+      <audio controls preload="metadata" src="${escHtml(listenUrl)}" class="exam__listen-audio"></audio>
       <a class="exam__listen-dl" href="${escHtml(listenUrl)}" target="_blank" rel="noopener" ${dl(exam.listenDownload)}>mp3 다운로드</a>
     `;
     actionsEl.appendChild(audioBlock);
