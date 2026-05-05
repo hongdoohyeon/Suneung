@@ -127,7 +127,7 @@ function renderHead(curriculum, gradeYear, type, items) {
     url: location.href,
     inLanguage: 'ko',
     isPartOf: { '@type': 'WebSite', name: '기출해체분석기',
-                url: 'https://hongdoohyeon.github.io/Suneung/' },
+                url: 'https://kicegg.com/' },
     mainEntity: {
       '@type': 'ItemList',
       numberOfItems: items.length,
