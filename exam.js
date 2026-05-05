@@ -239,7 +239,13 @@ async function renderPdf(url, container, metaEl) {
     const total = pdf.numPages;
     if (metaEl) metaEl.textContent = `${total}쪽`;
 
-    const containerWidth = container.clientWidth || 600;
+    // PDF가 viewport 폭 가득 차도록 강제 (모바일에서 container.clientWidth가
+    // layout 미정착 등의 이유로 작게 잡혀 PDF 작아 보이는 문제 회피)
+    const isMobile = window.innerWidth <= 600;
+    const measured = container.clientWidth || 0;
+    const containerWidth = isMobile
+      ? Math.max(measured, window.innerWidth - 28)  // viewport 폭 - 좌우 container padding
+      : (measured || 600);
     const dpr = Math.min(2, window.devicePixelRatio || 1);
     let zoom = 1;
     const renderedPages = []; // {n, canvas} 렌더된 페이지 목록 (zoom 변경 시 재렌더)
@@ -414,8 +420,10 @@ function renderQuickAnswers(exam) {
 const GRADE_Z = [1.751, 1.227, 0.739, 0.253, -0.253, -0.739, -1.227, -1.751];
 
 function gradeDistSVG(rawCuts, fullScore) {
-  const W = 640, H = 220;
-  const PAD_X = 28, PAD_TOP = 22, PAD_BOTTOM = 60;
+  // viewBox H 늘려 cut 점수·등급번호 라벨 공간 확보 (폰트 키워도 잘리지 않게).
+  // 모바일 viewport 360px에서 SVG 스케일 ~0.56 → viewBox 26px가 ~14.6px로 노출.
+  const W = 640, H = 300;
+  const PAD_X = 28, PAD_TOP = 22, PAD_BOTTOM = 130;
   const innerW = W - 2 * PAD_X;
   const innerH = H - PAD_TOP - PAD_BOTTOM;
   const baseY  = PAD_TOP + innerH;
@@ -466,11 +474,11 @@ function gradeDistSVG(rawCuts, fullScore) {
     return `<line x1="${x}" y1="${baseY.toFixed(1)}" x2="${x}" y2="${(baseY + 4).toFixed(1)}" class="grade-dist__tick"/>`;
   }).join('');
 
-  // 컷 점수 라벨
+  // 컷 점수 라벨 — 폰트가 커진 만큼 baseY와 충분히 떨어뜨림
   const cutLabels = rawCuts.map((c, i) => {
     const x = xOf(GRADE_Z[i]).toFixed(1);
     const label = (c == null) ? '·' : c;
-    return `<text x="${x}" y="${(baseY + 16).toFixed(1)}" class="grade-dist__cut">${label}</text>`;
+    return `<text x="${x}" y="${(baseY + 28).toFixed(1)}" class="grade-dist__cut">${label}</text>`;
   }).join('');
 
   // 등급 번호 (각 영역 가운데, 컷 점수 아래 row)
@@ -478,7 +486,7 @@ function gradeDistSVG(rawCuts, fullScore) {
   for (let g = 1; g <= 9; g++) {
     const zMid = (zBounds[g - 1] + zBounds[g]) / 2;
     const x = xOf(zMid).toFixed(1);
-    const y = (baseY + 36).toFixed(1);
+    const y = (baseY + 70).toFixed(1);
     gradeNums.push(`<text x="${x}" y="${y}" class="grade-dist__num grade-dist__num--g${g}">${g}</text>`);
   }
 
