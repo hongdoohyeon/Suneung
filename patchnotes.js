@@ -49,7 +49,7 @@ async function main() {
       url: location.href,
       inLanguage: 'ko',
       isPartOf: { '@type': 'WebSite', name: '기출해체분석기',
-                  url: 'https://hongdoohyeon.github.io/Suneung/' },
+                  url: 'https://kicegg.com/' },
     },
   });
 

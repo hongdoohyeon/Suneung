@@ -552,7 +552,7 @@ def main():
     print(f'  + data/exam/{{id}}.json {len(items)}건 (exam.html lazy fetch 용)')
 
     # ─ sitemap 분할: index + sets + exams ─
-    base = 'https://hongdoohyeon.github.io/Suneung'
+    base = 'https://kicegg.com'
     from urllib.parse import quote as _q
     from xml.sax.saxutils import escape as _xe
 

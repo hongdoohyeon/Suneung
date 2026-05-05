@@ -90,7 +90,7 @@ function renderHead(exam) {
     learningResourceType: '기출문제',
     educationalLevel: '고등학교',
     isPartOf: { '@type': 'WebSite', name: '기출해체분석기',
-                url: 'https://hongdoohyeon.github.io/Suneung/' },
+                url: 'https://kicegg.com/' },
     ...(exam.questionUrl ? { hasPart: [
       { '@type': 'DigitalDocument', name: '문제지', url: exam.questionUrl, encodingFormat: 'application/pdf' },
       ...(exam.answerUrl ? [{ '@type': 'DigitalDocument', name: '정답', url: exam.answerUrl, encodingFormat: 'application/pdf' }] : []),
