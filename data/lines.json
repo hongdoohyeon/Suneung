@@ -1,0 +1,192 @@
+{
+  "_meta": {
+    "version": "2026.05",
+    "source": "입시 학원 라인표 일반 추정 (참고용). 학과별 차이 큼.",
+    "disclaimer": "표시된 백분위 컷은 일반 학과 평균 추정치. 의·치·한·약·수의 등 메디컬 + 컴퓨터·전자공·항공 등 인기 학과는 같은 대학에서도 라인이 더 높음. 정확한 합격선은 대학어디가(adiga.kr)에서 확인하세요.",
+    "scoreType": "수능 4과목(국·수·영·탐) 백분위 단순 평균 기준 추정"
+  },
+  "lines": [
+    {
+      "key": "medical_top",
+      "label": "메디컬 최상위",
+      "sub": "의예 (서울대·연세대·고려대·성균관대·울산대 등)",
+      "percentileCut": 99.5,
+      "tier": "S+"
+    },
+    {
+      "key": "medical_general",
+      "label": "메디컬 일반 + 치예·한의예",
+      "sub": "의예·치예·한의예 (전국 38개 의대·11개 치대·12개 한의대)",
+      "percentileCut": 98.5,
+      "tier": "S"
+    },
+    {
+      "key": "sky_top",
+      "label": "SKY 상위",
+      "sub": "서울대 자연·인문 인기 학과, 연·고대 경영·인문 인기",
+      "percentileCut": 98.0,
+      "tier": "S"
+    },
+    {
+      "key": "sky_general",
+      "label": "SKY 일반",
+      "sub": "서울대·연세대·고려대 일반 학과",
+      "percentileCut": 96.5,
+      "tier": "A+"
+    },
+    {
+      "key": "ssh_top",
+      "label": "서성한 상위",
+      "sub": "서강대·성균관대·한양대 인기 학과",
+      "percentileCut": 95.5,
+      "tier": "A+"
+    },
+    {
+      "key": "ssh_general",
+      "label": "서성한 일반",
+      "sub": "서강대·성균관대·한양대 일반 학과",
+      "percentileCut": 94.0,
+      "tier": "A"
+    },
+    {
+      "key": "csis_top",
+      "label": "중경외시 상위",
+      "sub": "중앙대·경희대·한국외대·서울시립대 인기 학과",
+      "percentileCut": 92.5,
+      "tier": "A"
+    },
+    {
+      "key": "csis_general",
+      "label": "중경외시 일반",
+      "sub": "중앙대·경희대·한국외대·서울시립대 일반",
+      "percentileCut": 90.5,
+      "tier": "B+"
+    },
+    {
+      "key": "kdh",
+      "label": "건동홍",
+      "sub": "건국대·동국대·홍익대",
+      "percentileCut": 88.0,
+      "tier": "B+"
+    },
+    {
+      "key": "ksu_sd",
+      "label": "국숭세단",
+      "sub": "국민대·숭실대·세종대·단국대(죽전)",
+      "percentileCut": 85.0,
+      "tier": "B"
+    },
+    {
+      "key": "kmsg",
+      "label": "광명상가",
+      "sub": "광운대·명지대·상명대·가톨릭대",
+      "percentileCut": 82.0,
+      "tier": "B"
+    },
+    {
+      "key": "in_seoul_etc",
+      "label": "기타 인서울",
+      "sub": "서울과기대·한성대·서경대·이화여대·숙명여대·서울여대 등",
+      "percentileCut": 80.0,
+      "tier": "B-"
+    },
+    {
+      "key": "metro_strong",
+      "label": "수도권 강세",
+      "sub": "인하대·아주대·가천대·한양대(ERICA)·인천대·고려대(세종)·연세대(미래)·한국항공대",
+      "percentileCut": 81.0,
+      "tier": "B"
+    },
+    {
+      "key": "national_top",
+      "label": "지방거점국립대 상위",
+      "sub": "부산대·경북대·전남대·충남대 인기 학과",
+      "percentileCut": 80.0,
+      "tier": "B"
+    },
+    {
+      "key": "national_general",
+      "label": "지방거점국립대 일반",
+      "sub": "부산대·경북대·전남대·충남대·충북대·전북대·경상국립대·강원대·제주대 일반",
+      "percentileCut": 75.0,
+      "tier": "C+"
+    },
+    {
+      "key": "ist_top",
+      "label": "이공계 특수목적",
+      "sub": "UNIST·GIST·DGIST (정시 일부)",
+      "percentileCut": 96.0,
+      "tier": "A+"
+    },
+    {
+      "key": "regional_private_med",
+      "label": "지방 사립 (의대 보유)",
+      "sub": "영남대·조선대·계명대·순천향대·고신대·동아대",
+      "percentileCut": 76.0,
+      "tier": "C+"
+    }
+  ],
+  "universities": [
+    {"name": "서울대학교", "lines": ["medical_top", "sky_top", "sky_general"]},
+    {"name": "연세대학교 (서울)", "lines": ["medical_top", "sky_top", "sky_general"]},
+    {"name": "고려대학교 (서울)", "lines": ["medical_top", "sky_top", "sky_general"]},
+    {"name": "서강대학교", "lines": ["ssh_top", "ssh_general"]},
+    {"name": "성균관대학교", "lines": ["medical_top", "ssh_top", "ssh_general"]},
+    {"name": "한양대학교 (서울)", "lines": ["medical_general", "ssh_top", "ssh_general"]},
+    {"name": "중앙대학교", "lines": ["medical_general", "csis_top", "csis_general"]},
+    {"name": "경희대학교", "lines": ["medical_general", "csis_top", "csis_general"]},
+    {"name": "한국외국어대학교", "lines": ["csis_top", "csis_general"]},
+    {"name": "서울시립대학교", "lines": ["csis_top", "csis_general"]},
+    {"name": "건국대학교", "lines": ["kdh"]},
+    {"name": "동국대학교", "lines": ["medical_general", "kdh"]},
+    {"name": "홍익대학교", "lines": ["kdh"]},
+    {"name": "국민대학교", "lines": ["ksu_sd"]},
+    {"name": "숭실대학교", "lines": ["ksu_sd"]},
+    {"name": "세종대학교", "lines": ["ksu_sd"]},
+    {"name": "단국대학교 (죽전)", "lines": ["ksu_sd"]},
+    {"name": "광운대학교", "lines": ["kmsg"]},
+    {"name": "명지대학교", "lines": ["kmsg"]},
+    {"name": "상명대학교 (서울)", "lines": ["kmsg"]},
+    {"name": "가톨릭대학교", "lines": ["medical_general", "kmsg"]},
+    {"name": "이화여자대학교", "lines": ["medical_general", "in_seoul_etc"]},
+    {"name": "숙명여자대학교", "lines": ["in_seoul_etc"]},
+    {"name": "동덕여자대학교", "lines": ["in_seoul_etc"]},
+    {"name": "서울여자대학교", "lines": ["in_seoul_etc"]},
+    {"name": "서울과학기술대학교", "lines": ["in_seoul_etc"]},
+    {"name": "한성대학교", "lines": ["in_seoul_etc"]},
+    {"name": "서경대학교", "lines": ["in_seoul_etc"]},
+    {"name": "인하대학교", "lines": ["medical_general", "metro_strong"]},
+    {"name": "아주대학교", "lines": ["medical_general", "metro_strong"]},
+    {"name": "가천대학교", "lines": ["medical_general", "metro_strong"]},
+    {"name": "한양대학교 (ERICA)", "lines": ["metro_strong"]},
+    {"name": "단국대학교 (천안)", "lines": ["medical_general", "metro_strong"]},
+    {"name": "인천대학교", "lines": ["metro_strong"]},
+    {"name": "고려대학교 (세종)", "lines": ["metro_strong"]},
+    {"name": "연세대학교 (미래)", "lines": ["medical_general", "metro_strong"]},
+    {"name": "한국항공대학교", "lines": ["metro_strong"]},
+    {"name": "부산대학교", "lines": ["medical_general", "national_top", "national_general"]},
+    {"name": "경북대학교", "lines": ["medical_general", "national_top", "national_general"]},
+    {"name": "전남대학교", "lines": ["medical_general", "national_top", "national_general"]},
+    {"name": "충남대학교", "lines": ["medical_general", "national_top", "national_general"]},
+    {"name": "충북대학교", "lines": ["medical_general", "national_general"]},
+    {"name": "전북대학교", "lines": ["medical_general", "national_general"]},
+    {"name": "경상국립대학교", "lines": ["medical_general", "national_general"]},
+    {"name": "강원대학교", "lines": ["medical_general", "national_general"]},
+    {"name": "제주대학교", "lines": ["medical_general", "national_general"]},
+    {"name": "UNIST", "lines": ["ist_top"]},
+    {"name": "GIST", "lines": ["ist_top"]},
+    {"name": "DGIST", "lines": ["ist_top"]},
+    {"name": "울산대학교 (의대)", "lines": ["medical_top"]},
+    {"name": "원광대학교", "lines": ["medical_general", "regional_private_med"]},
+    {"name": "강릉원주대학교", "lines": ["medical_general", "regional_private_med"]},
+    {"name": "차의과학대학교", "lines": ["medical_general"]},
+    {"name": "을지대학교", "lines": ["medical_general", "regional_private_med"]},
+    {"name": "영남대학교", "lines": ["medical_general", "regional_private_med"]},
+    {"name": "조선대학교", "lines": ["medical_general", "regional_private_med"]},
+    {"name": "계명대학교", "lines": ["medical_general", "regional_private_med"]},
+    {"name": "경기대학교", "lines": ["regional_private_med"]},
+    {"name": "순천향대학교", "lines": ["medical_general", "regional_private_med"]},
+    {"name": "고신대학교", "lines": ["medical_general", "regional_private_med"]},
+    {"name": "동아대학교", "lines": ["medical_general", "regional_private_med"]}
+  ]
+}
