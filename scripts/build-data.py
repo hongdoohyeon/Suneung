@@ -69,7 +69,8 @@ SHORT_TYPE_LABEL = {
 }
 
 # 문서 타입 라벨
-KOREAN_DOC_LABEL = {'q': '문제지', 'a': '정답', 's': '해설'}
+KOREAN_DOC_LABEL = {'q': '문제지', 'a': '정답', 's': '해설',
+                    'l': '듣기', 't': '듣기 스크립트'}
 
 
 def discover_release_tags() -> list[str]:
@@ -145,7 +146,8 @@ def korean_filename(item: dict, doc_type: str, db_type: str | None) -> str:
     doc_label = KOREAN_DOC_LABEL.get(doc_type, '')
 
     parts = [year_part, type_label, subject_part, doc_label]
-    return ' '.join(p for p in parts if p) + '.pdf'
+    ext = '.mp3' if doc_type == 'l' else '.pdf'
+    return ' '.join(p for p in parts if p) + ext
 
 
 def file_url(typegroup: str, file_path: str, item: dict, doc_type: str, db_type: str | None = None) -> str:
@@ -153,12 +155,19 @@ def file_url(typegroup: str, file_path: str, item: dict, doc_type: str, db_type:
 
     실제 release 에 자산이 존재하는지 ASSET_INDEX 로 확인.
     누락된 경우엔 'data/files/...' 로컬 fallback (validator 가 catch).
+
+    예외: mp3는 Worker가 거부 ("Only PDF files are allowed")하므로
+    GitHub Releases direct URL 사용. 한국어 파일명은 client측 download 속성으로 처리.
     """
     name = Path(file_path).name
     tag = ASSET_INDEX.get(name)
     if not tag:
         # FUTURE_RELEASE 의 typegroup 도 fallback. 자산 미업로드 상태.
         return f'data/files/{file_path}'
+
+    # mp3 (영어 듣기) — Worker 우회
+    if name.endswith('.mp3'):
+        return f'https://github.com/hongdoohyeon/Suneung/releases/download/{tag}/{name}'
 
     korean = korean_filename(item, doc_type, db_type)
     return f"{WORKER_BASE}/{tag}/{name}?name={quote(korean, safe='')}"
@@ -247,11 +256,14 @@ def map_saw_subtype(sub: str | None, subject: str) -> str | None:
 # ── KICE DB 처리 ───────────────────────────────────────────
 def from_kice(db: Path, items: list):
     con = sqlite3.connect(db); con.row_factory = sqlite3.Row
-    questions, answers = {}, {}
+    questions, answers, listens, scripts = {}, {}, {}, {}
     for r in con.execute('SELECT * FROM exams'):
         key = (r['year'], r['exam_type'], r['subject'],
                r['subtype'] or '', r['curriculum'])
-        (questions if r['doc_type'] == 'q' else answers)[key] = r['file_path']
+        if   r['doc_type'] == 'q': questions[key] = r['file_path']
+        elif r['doc_type'] == 'a': answers[key]   = r['file_path']
+        elif r['doc_type'] == 'l': listens[key]   = r['file_path']  # 영어 듣기 mp3
+        elif r['doc_type'] == 't': scripts[key]   = r['file_path']  # 듣기 스크립트
     con.close()
 
     # 사탐/과탐 통합 카드(subtype='')는 같은 그룹의 모든 영역별 a가 따로 있으면
@@ -293,13 +305,22 @@ def from_kice(db: Path, items: list):
         }
         item['questionUrl'] = file_url(group, q, item, 'q', et)
         item['answerUrl']   = file_url(group, a, item, 'a', et) if a else None
+        # 영어 듣기 mp3 + 스크립트 (다른 과목엔 listens/scripts에 entry 없음)
+        l = listens.get(key)
+        t = scripts.get(key)
+        if l:
+            item['listenUrl']      = file_url(group, l, item, 'l', et)
+            item['listenDownload'] = korean_filename(item, 'l', et)
+        if t:
+            item['scriptUrl']      = file_url(group, t, item, 't', et)
+            item['scriptDownload'] = korean_filename(item, 't', et)
         items.append(item)
 
 
 # ── 교육청 DB 처리 ─────────────────────────────────────────
 def from_edu(db: Path, items: list):
     con = sqlite3.connect(db); con.row_factory = sqlite3.Row
-    questions, answers = {}, {}
+    questions, answers, listens, scripts = {}, {}, {}, {}
     # EBSi PDF 카드의 "월" flag가 실제 시행월과 다른 경우(4월 말 학평이 5월로 분류 등)
     # src_url의 wdown 경로 'YYYYMMDD' 가 ground truth — 이를 우선 적용해 month 보정.
     import re as _re
@@ -316,7 +337,10 @@ def from_edu(db: Path, items: list):
         if m is None: continue
         key = (real_year, real_month, r['grade'], r['subject'],
                r['subtype'] or '', r['curriculum'])
-        (questions if r['doc_type'] == 'q' else answers)[key] = r['file_path']
+        if   r['doc_type'] == 'q': questions[key] = r['file_path']
+        elif r['doc_type'] == 'a': answers[key]   = r['file_path']
+        elif r['doc_type'] == 'l': listens[key]   = r['file_path']  # 영어 듣기 mp3
+        elif r['doc_type'] == 't': scripts[key]   = r['file_path']
     con.close()
 
     for key, q in questions.items():
@@ -342,6 +366,14 @@ def from_edu(db: Path, items: list):
         }
         item['questionUrl'] = file_url('education', q, item, 'q')
         item['answerUrl']   = file_url('education', a, item, 'a') if a else None
+        l = listens.get(key)
+        t = scripts.get(key)
+        if l:
+            item['listenUrl']      = file_url('education', l, item, 'l')
+            item['listenDownload'] = korean_filename(item, 'l', None)
+        if t:
+            item['scriptUrl']      = file_url('education', t, item, 't')
+            item['scriptDownload'] = korean_filename(item, 't', None)
         items.append(item)
 
 
@@ -636,6 +668,12 @@ def build_static_exam_pages(items: list[dict], template_path: Path, out_root: Pa
             if it.get('answerUrl'):
                 parts.append({'@type': 'DigitalDocument', 'name': '정답',
                               'url': it['answerUrl'], 'encodingFormat': 'application/pdf'})
+            if it.get('listenUrl'):
+                parts.append({'@type': 'AudioObject', 'name': '영어 듣기 mp3',
+                              'contentUrl': it['listenUrl'], 'encodingFormat': 'audio/mpeg'})
+            if it.get('scriptUrl'):
+                parts.append({'@type': 'DigitalDocument', 'name': '듣기 스크립트',
+                              'url': it['scriptUrl'], 'encodingFormat': 'application/pdf'})
             jsonld['hasPart'] = parts
         ld_block = (
           '<script type="application/ld+json">'

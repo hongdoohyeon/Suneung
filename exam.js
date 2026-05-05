@@ -98,6 +98,8 @@ function renderHead(exam) {
     ...(exam.questionUrl ? { hasPart: [
       { '@type': 'DigitalDocument', name: '문제지', url: exam.questionUrl, encodingFormat: 'application/pdf' },
       ...(exam.answerUrl ? [{ '@type': 'DigitalDocument', name: '정답', url: exam.answerUrl, encodingFormat: 'application/pdf' }] : []),
+      ...(exam.listenUrl ? [{ '@type': 'AudioObject', name: '영어 듣기 mp3', contentUrl: exam.listenUrl, encodingFormat: 'audio/mpeg' }] : []),
+      ...(exam.scriptUrl ? [{ '@type': 'DigitalDocument', name: '듣기 스크립트', url: exam.scriptUrl, encodingFormat: 'application/pdf' }] : []),
     ] } : {}),
   });
   // 회차 진입 link (사이드바)
@@ -135,6 +137,8 @@ function renderHead(exam) {
   const questionUrl = safeUrl(exam.questionUrl);
   const answerUrl = safeUrl(exam.answerUrl);
   const solutionUrl = safeUrl(exam.solutionUrl);
+  const listenUrl = safeUrl(exam.listenUrl);
+  const scriptUrl = safeUrl(exam.scriptUrl);
   if (questionUrl) buttons.push(
     `<a class="btn btn--primary" href="${escHtml(questionUrl)}" target="_blank" rel="noopener" ${dl(exam.questionDownload)}>문제지 다운로드</a>`
   );
@@ -144,7 +148,33 @@ function renderHead(exam) {
   if (solutionUrl) buttons.push(
     `<a class="btn" href="${escHtml(solutionUrl)}" target="_blank" rel="noopener" ${dl(exam.solutionDownload)}>해설 다운로드</a>`
   );
+  if (scriptUrl) buttons.push(
+    `<a class="btn" href="${escHtml(scriptUrl)}" target="_blank" rel="noopener" ${dl(exam.scriptDownload)}>듣기 스크립트</a>`
+  );
   $('examActions').innerHTML = buttons.join('');
+
+  // 영어 듣기 mp3: 사이드바 actions 아래에 inline audio player 삽입
+  const actionsEl = $('examActions');
+  if (listenUrl && actionsEl) {
+    const audioBlock = document.createElement('div');
+    audioBlock.className = 'exam__listen';
+    audioBlock.innerHTML = `
+      <div class="exam__listen-head">
+        <span class="exam__listen-icon" aria-hidden="true">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+               stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 18v-6a9 9 0 0 1 18 0v6"/>
+            <path d="M21 19a2 2 0 0 1-2 2h-1v-7h3z"/>
+            <path d="M3 19a2 2 0 0 0 2 2h1v-7H3z"/>
+          </svg>
+        </span>
+        <span>영어 듣기 음원</span>
+      </div>
+      <audio controls preload="none" src="${escHtml(listenUrl)}" class="exam__listen-audio"></audio>
+      <a class="exam__listen-dl" href="${escHtml(listenUrl)}" target="_blank" rel="noopener" ${dl(exam.listenDownload)}>mp3 다운로드</a>
+    `;
+    actionsEl.appendChild(audioBlock);
+  }
 
   // archive 탭 복귀 링크에 curriculum 유지
   $('backLink').href = `archive.html?tab=${encodeURIComponent(exam.curriculum)}`;
