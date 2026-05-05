@@ -2499,9 +2499,12 @@ body.is-sheet-open { overflow: hidden; touch-action: none; }
   stroke: var(--ink-4);
   stroke-width: 1;
 }
+/* SVG viewBox = 640×220, 폭 100%로 스케일.
+   모바일 360px 화면에선 비율 0.56이라 viewBox 좌표의 11.5px는 ~6px로 보임.
+   → viewBox 좌표에서 큰 폰트로 잡아야 화면에 적정 크기로 노출됨. */
 .grade-dist__cut {
   text-anchor: middle;
-  font-size: 11.5px;
+  font-size: 16px;
   font-weight: 600;
   fill: var(--ink);
   font-family: inherit;
@@ -2511,8 +2514,8 @@ body.is-sheet-open { overflow: hidden; touch-action: none; }
 }
 .grade-dist__num {
   text-anchor: middle;
-  font-size: 10.5px;
-  font-weight: 600;
+  font-size: 17px;
+  font-weight: 700;
   fill: var(--ink-4);
   font-family: inherit;
   font-feature-settings: 'tnum' 1;
@@ -2524,9 +2527,13 @@ body.is-sheet-open { overflow: hidden; touch-action: none; }
 .grade-dist__legend {
   margin: 12px 0 0;
   text-align: center;
-  font-size: 11.5px;
+  font-size: 13px;
   color: var(--ink-5);
   letter-spacing: 0.1px;
+}
+@media (max-width: 600px) {
+  .grade-dist__legend { font-size: 13.5px; }
+  .grade-dist__svg { max-height: none; }  /* 모바일에선 충분한 높이 보장 */
 }
 
 /* 에러 박스 */
@@ -2594,15 +2601,24 @@ body.is-sheet-open { overflow: hidden; touch-action: none; }
   .exam__title { font-size: 18px; }
   .exam__actions .btn { min-height: var(--tap); }
 
-  .preview__head    { padding: 11px 14px; }
-  .preview__viewer  { padding: 10px; min-height: 200px; gap: 10px; }
+  /* PDF — 가능한 폭 다 쓰도록 viewer padding 최소화, 좌우 0
+     (밑은 잘려도 OK — 가독성이 우선) */
+  .preview__head    { padding: 10px 12px; }
+  .preview__viewer  { padding: 4px 0; min-height: 200px; gap: 8px; overflow-x: hidden; }
   .preview__title   { font-size: 13.5px; }
-  .preview__page    { border-radius: 4px; }
+  .preview__page    { border-radius: 4px; max-width: 100%; width: 100%; height: auto; }
 
   .qa-grid { gap: 4px; }
   .qa-cell { padding: 6px 2px; }
   .qa-cell__ans { font-size: 13px; }
 
+  /* 빠답·통계 카드 — 데스크톱은 max-width 720px로 가운데 정렬했으나,
+     모바일은 가용 폭 다 쓰도록 stretch */
+  .exam-pane[data-pane="info"] > .exam-card,
+  .exam-pane[data-pane="info"] > .kpi-row {
+    max-width: 100%;
+    align-self: stretch;
+  }
   .exam-card { padding: 14px 14px 16px; }
 }
 
