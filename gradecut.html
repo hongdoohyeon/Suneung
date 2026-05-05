@@ -4,6 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#0a0a0a" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net; style-src 'self' https://cdn.jsdelivr.net 'unsafe-inline'; font-src https://cdn.jsdelivr.net data:; img-src 'self' data: https:; connect-src 'self' https://suneung-files.hdh061224.workers.dev https://cdn.jsdelivr.net; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'self'" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <meta name="naver-site-verification" content="b3138c38039611bed2ce955aa7102ab33011cf14" />
   <meta name="description" content="등급컷 계산기 — 한 시험 전체 점수를 입력하면 영역별 등급과 종합 백분위를 해체해 보여드립니다. 수능·평가원·교육청·LEET·MEET 지원." />
 
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
@@ -23,13 +26,32 @@
   <meta name="twitter:title" content="등급컷 계산기 — 기출해체분석기" />
   <meta name="twitter:description" content="점수 입력 → 영역별 등급 + 종합 백분위." />
   <meta name="twitter:image" content="https://kicegg.com/og-image.svg" />
+  <meta name="twitter:image:alt" content="등급컷 계산기 — 점수 입력으로 영역별 등급과 종합 백분위 산출" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "@id": "https://kicegg.com/gradecut.html",
+    "url": "https://kicegg.com/gradecut.html",
+    "name": "등급컷 계산기 (모의지원)",
+    "description": "원점수 입력으로 영역별 등급·표준점수·백분위를 즉시 산출. 수능·평가원·교육청·LEET·MEET 지원.",
+    "inLanguage": "ko-KR",
+    "applicationCategory": "EducationApplication",
+    "operatingSystem": "All",
+    "isPartOf": { "@id": "https://kicegg.com/#website" },
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "KRW" }
+  }
+  </script>
 
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
-  <link rel="stylesheet" as="style" crossorigin
+  <link rel="stylesheet" crossorigin integrity="sha384-uGEvnSEpW2nM9xJFsrxrwakwrk9QdDTQIBJh0hVMu90OaVyMAMpAK1rIn0/Kh1/k"
         href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
 
   <title>등급컷 계산기 — 기출해체분석기</title>
   <link rel="stylesheet" href="style.css?v=20260430h" />
+  <link rel="modulepreload" href="gradecut.js" />
+  <link rel="modulepreload" href="config.js" />
 </head>
 <body class="page-gradecut">
 
@@ -144,6 +166,16 @@
 
     </section>
   </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>출처 · 한국교육과정평가원 · 법학전문대학원협의회 · 의·치학교육입문검사 관리위원회</p>
+      <p class="site-footer__sub">저작권은 각 발행기관에 있으며 교육 목적으로만 이용할 수 있습니다.</p>
+      <p class="site-footer__legal">
+        <a href="privacy.html">개인정보처리방침</a> · <a href="terms.html">이용약관</a>
+      </p>
+    </div>
+  </footer>
 
   <script type="module" src="gradecut.js"></script>
 </body>

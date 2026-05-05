@@ -56,7 +56,7 @@ async function init() {
   if (urlTab && GC_CURRICULA.includes(urlTab)) state.curriculum = urlTab;
 
   try {
-    const res = await fetch(DATA_URL, { cache: 'no-cache' });
+    const res = await fetch(DATA_URL);
     state.cuts = res.ok ? await res.json() : [];
   } catch { state.cuts = []; }
 

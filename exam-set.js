@@ -77,7 +77,7 @@ function cardHTML(exam) {
   const ariaLabel = `${exam.subject}${exam.subSubject ? ' ' + prettySub(exam.subSubject) : ''} 상세 보기`;
   return `
     <article class="card${hasFile ? ' has-files' : ''}" style="--subject-color:${subjConf.color};">
-      <a class="card__link" href="exam.html?id=${exam.id}" aria-label="${escAttr(ariaLabel)}"></a>
+      <a class="card__link" href="exam-${exam.id}.html" aria-label="${escAttr(ariaLabel)}"></a>
       <div class="card__meta">${subjChip}</div>
       <h4 class="card__title" title="${escAttr(title)}">${escHtml(title)}</h4>
       <p class="card__sub">${escHtml(subtitle)}</p>
@@ -136,7 +136,7 @@ function renderHead(curriculum, gradeYear, type, items) {
         '@type': 'ListItem',
         position: i + 1,
         name: (it.subSubject ? `${it.subject} · ${it.subSubject}` : it.subject),
-        url: `${location.origin}${location.pathname.replace(/exam-set\.html$/, '')}exam.html?id=${it.id}`,
+        url: `${location.origin}${location.pathname.replace(/exam-set\.html$/, '')}exam-${it.id}.html`,
       })),
     },
   });
@@ -179,7 +179,7 @@ async function main() {
 
   let exams = [];
   try {
-    const res = await fetch('data/exams.json', { cache: 'no-cache' });
+    const res = await fetch('data/exams.json');
     if (res.ok) exams = await res.json();
   } catch { /* fall-through */ }
 
