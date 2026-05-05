@@ -121,6 +121,37 @@ function passesTabEduFilter(e, tabConf) {
   return true;
 }
 
+// 다중 선택 매칭 헬퍼.
+// stateVal: 'all' | string | array (다중 선택 시 [a,b,c])
+// itemVal: 검사할 string
+export function matchMulti(stateVal, itemVal) {
+  if (stateVal === 'all' || stateVal == null) return true;
+  if (Array.isArray(stateVal)) {
+    return stateVal.length === 0 || stateVal.includes(String(itemVal));
+  }
+  return String(stateVal) === String(itemVal);
+}
+
+// 토글 helper — array에 추가/제거. 'all' 상태에서 새 값을 클릭하면 array 시작.
+export function toggleMulti(stateKey, value) {
+  const cur = state[stateKey];
+  let arr;
+  if (cur === 'all' || cur == null) arr = [String(value)];
+  else if (Array.isArray(cur)) {
+    if (cur.includes(String(value))) {
+      arr = cur.filter(v => v !== String(value));
+      if (arr.length === 0) { state[stateKey] = 'all'; return; }
+    } else {
+      arr = [...cur, String(value)];
+    }
+  } else {
+    // 옛 single string 상태였을 때
+    if (cur === String(value)) { state[stateKey] = 'all'; return; }
+    arr = [cur, String(value)];
+  }
+  state[stateKey] = arr;
+}
+
 export function availableGradeYears() {
   const allowed = tabCurriculums();
   const tg = state.typeGroup;
@@ -145,8 +176,8 @@ export function filtered() {
     if (!allowed.includes(e.curriculum))                                       return false;
     if (!passesTabEduFilter(e, tabConf))                                       return false;
     if (state.typeGroup  !== 'all' && e.typeGroup  !== state.typeGroup)       return false;
-    if (state.type       !== 'all' && e.type       !== state.type)            return false;
-    if (state.gradeYear  !== 'all' && String(e.gradeYear) !== state.gradeYear) return false;
+    if (!matchMulti(state.type, e.type)) return false;
+    if (!matchMulti(state.gradeYear, String(e.gradeYear))) return false;
     if (state.subject    !== 'all' && e.subject    !== state.subject)          return false;
     if (state.subSubject !== 'all' && e.subSubject !== state.subSubject)       return false;
     if (state.query && !matchesQuery(e, state.query)) return false;
@@ -187,8 +218,8 @@ export function subjectCounts() {
     if (!allowed.includes(e.curriculum)) return false;
     if (!passesTabEduFilter(e, tabConf)) return false;
     if (state.typeGroup !== 'all' && e.typeGroup !== state.typeGroup) return false;
-    if (state.type      !== 'all' && e.type      !== state.type)      return false;
-    if (state.gradeYear !== 'all' && String(e.gradeYear) !== state.gradeYear) return false;
+    if (!matchMulti(state.type, e.type)) return false;
+    if (!matchMulti(state.gradeYear, String(e.gradeYear))) return false;
     if (state.query && !matchesQuery(e, state.query)) return false;
     return true;
   });
