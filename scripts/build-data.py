@@ -10,8 +10,9 @@ KICE archive (SQLite) → 정적 JSON 변환기.
 """
 
 from __future__ import annotations
-import json, sqlite3, sys
+import json, re, sqlite3, sys
 from collections import Counter
+from html import escape as html_escape
 from pathlib import Path
 from urllib.parse import quote
 
@@ -504,6 +505,115 @@ def from_meet(db: Path, items: list):
 
 
 # ── 메인 ───────────────────────────────────────────────────
+def build_exam_meta(it: dict) -> dict:
+    """SSG 페이지·sitemap에 쓰일 시험 단건 메타 빌드."""
+    gy  = it['gradeYear']
+    sub = it['subject']
+    sub_part = f' {it["subSubject"]}' if it.get('subSubject') else ''
+    typ = it.get('type')
+    tg  = it.get('typeGroup')
+
+    if tg == 'suneung':
+        type_label = KOREAN_TYPE_LABEL.get(typ, typ or '')
+        head = f'{gy}학년도 {type_label} {sub}{sub_part}'
+    elif tg == 'education':
+        sg = it.get('studentGrade') or 3
+        month = it.get('month') or 0
+        head = f'{gy}년 {month}월 학력평가 (고{sg}) {sub}{sub_part}'
+    elif tg == 'military':
+        head = f'{gy}학년도 사관학교 1차 {sub}{sub_part}'
+    elif tg == 'police':
+        head = f'{gy}학년도 경찰대학 1차 {sub}{sub_part}'
+    elif tg == 'leet':
+        head = f'{gy}학년도 LEET {sub}'
+    elif tg == 'meet':
+        head = f'{gy}학년도 MEET {sub}'
+    else:
+        head = f'{gy} {sub}{sub_part}'
+
+    title = f'{head} — 기출해체분석기'
+    desc  = f'{head} 문제지·정답 PDF와 빠른정답·통계를 한 페이지에서 해체. 다운로드 무료.'
+    canonical = f'https://kicegg.com/exam-{it["id"]}.html'
+    return {'title': title, 'description': desc, 'canonical': canonical, 'head': head}
+
+
+def build_static_exam_pages(items: list[dict], template_path: Path, out_root: Path):
+    """exam.html 템플릿을 시험별로 사전 렌더링해 검색엔진이 JS 없이도 인덱싱하게 한다."""
+    template = template_path.read_text(encoding='utf-8')
+
+    # 옛 SSG 파일 정리 — exam-{숫자}.html 만 (exam-set.html 등은 보호)
+    _ssg_re = re.compile(r'^exam-\d+\.html$')
+    for old in out_root.iterdir():
+        if old.is_file() and _ssg_re.match(old.name):
+            old.unlink()
+
+    def _set_attr(html: str, pattern: str, value: str) -> str:
+        # ("...attr=\")…(\")" 형태 정규식 → 값만 갱신, 백슬래시 escape 안전
+        return re.sub(pattern,
+                      lambda m: m.group(1) + html_escape(value, quote=True) + m.group(2),
+                      html, count=1)
+
+    pat = {
+      'title':  r'(<title>)[^<]*(</title>)',
+      'desc':   r'(<meta name="description" content=")[^"]*(")',
+      'canon':  r'(<link rel="canonical" href=")[^"]*(")',
+      'ogt':    r'(<meta property="og:title" content=")[^"]*(")',
+      'ogd':    r'(<meta property="og:description" content=")[^"]*(")',
+      'ogu':    r'(<meta property="og:url" content=")[^"]*(")',
+      'twt':    r'(<meta name="twitter:title" content=")[^"]*(")',
+      'twd':    r'(<meta name="twitter:description" content=")[^"]*(")',
+      'twa':    r'(<meta name="twitter:image:alt" content=")[^"]*(")',
+    }
+
+    written = 0
+    for it in items:
+        meta = build_exam_meta(it)
+        canonical = meta['canonical']
+        head      = meta['head']
+
+        jsonld = {
+          '@context': 'https://schema.org',
+          '@type': 'LearningResource',
+          '@id':  canonical,
+          'url':  canonical,
+          'name': head,
+          'description': meta['description'],
+          'inLanguage': 'ko-KR',
+          'learningResourceType': '기출문제',
+          'educationalLevel': '고등학교' if it.get('typeGroup') in ('suneung', 'education') else '대학원',
+          'isPartOf': {'@id': 'https://kicegg.com/#website'},
+        }
+        if it.get('questionUrl'):
+            parts = [{'@type': 'DigitalDocument', 'name': '문제지',
+                      'url': it['questionUrl'], 'encodingFormat': 'application/pdf'}]
+            if it.get('answerUrl'):
+                parts.append({'@type': 'DigitalDocument', 'name': '정답',
+                              'url': it['answerUrl'], 'encodingFormat': 'application/pdf'})
+            jsonld['hasPart'] = parts
+        ld_block = (
+          '<script type="application/ld+json">'
+          + json.dumps(jsonld, ensure_ascii=False, separators=(',', ':'))
+          + '</script>\n'
+        )
+
+        html = template
+        html = _set_attr(html, pat['title'], meta['title'])
+        html = _set_attr(html, pat['desc'],  meta['description'])
+        html = _set_attr(html, pat['canon'], canonical)
+        html = _set_attr(html, pat['ogt'],   meta['title'])
+        html = _set_attr(html, pat['ogd'],   meta['description'])
+        html = _set_attr(html, pat['ogu'],   canonical)
+        html = _set_attr(html, pat['twt'],   meta['title'])
+        html = _set_attr(html, pat['twd'],   meta['description'])
+        html = _set_attr(html, pat['twa'],   head + ' — 기출해체분석기')
+        # JSON-LD: </head> 직전 한 번만 삽입
+        html = html.replace('</head>', '  ' + ld_block + '</head>', 1)
+
+        (out_root / f'exam-{it["id"]}.html').write_text(html, encoding='utf-8')
+        written += 1
+    print(f'  + exam-{{id}}.html SSG {written:,}건 (Naver/Bing 인덱싱)')
+
+
 def main():
     # GitHub release 자산 인덱스 빌드 (한 번)
     global ASSET_INDEX
@@ -551,6 +661,9 @@ def main():
             json.dump(it, f, ensure_ascii=False)
     print(f'  + data/exam/{{id}}.json {len(items)}건 (exam.html lazy fetch 용)')
 
+    # ─ exam-{id}.html SSG 사전렌더링 (Naver/Bing 인덱싱) ─
+    build_static_exam_pages(items, ROOT / 'exam.html', ROOT)
+
     # ─ sitemap 분할: index + sets + exams ─
     base = 'https://kicegg.com'
     from urllib.parse import quote as _q
@@ -574,12 +687,12 @@ def main():
     sets_parts.append('</urlset>')
     (ROOT / 'sitemap-sets.xml').write_text('\n'.join(sets_parts) + '\n', encoding='utf-8')
 
-    # (2) sitemap-exams.xml — 단건 시험 URL (3,201)
+    # (2) sitemap-exams.xml — SSG 단건 URL (3,201)
     exams_parts = ['<?xml version="1.0" encoding="UTF-8"?>',
                    '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
     for it in items:
         exams_parts.append(
-            f'  <url><loc>{base}/exam.html?id={it["id"]}</loc>'
+            f'  <url><loc>{base}/exam-{it["id"]}.html</loc>'
             f'<changefreq>monthly</changefreq><priority>0.4</priority></url>')
     exams_parts.append('</urlset>')
     (ROOT / 'sitemap-exams.xml').write_text('\n'.join(exams_parts) + '\n', encoding='utf-8')
@@ -595,13 +708,15 @@ def main():
     ]
     (ROOT / 'sitemap.xml').write_text('\n'.join(main_parts) + '\n', encoding='utf-8')
 
-    # (4) sitemap-static.xml — index/archive/gradecut
+    # (4) sitemap-static.xml — index/archive/gradecut/patchnotes
+    # privacy/terms는 noindex 정책이라 sitemap에서 제외
     static_parts = [
         '<?xml version="1.0" encoding="UTF-8"?>',
         '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
         f'  <url><loc>{base}/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>',
         f'  <url><loc>{base}/archive.html</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>',
         f'  <url><loc>{base}/gradecut.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>',
+        f'  <url><loc>{base}/patchnotes.html</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>',
         '</urlset>',
     ]
     (ROOT / 'sitemap-static.xml').write_text('\n'.join(static_parts) + '\n', encoding='utf-8')
