@@ -57,7 +57,7 @@ async function main() {
   const list = $('patchnotesList');
   let entries = [];
   try {
-    const res = await fetch('data/patchnotes.json', { cache: 'no-cache' });
+    const res = await fetch('data/patchnotes.json');
     if (res.ok) entries = await res.json();
   } catch { /* fall-through */ }
 

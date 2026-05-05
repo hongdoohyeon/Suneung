@@ -74,7 +74,7 @@ async function loadExams() {
   showSkeleton(true);
   let real = [];
   try {
-    const res = await fetch(DATA_URL, { cache: 'no-cache' });
+    const res = await fetch(DATA_URL);
     if (res.ok) real = await res.json();
   } catch { /* 파일 없음 → 목업 사용 */ }
 
@@ -502,7 +502,7 @@ function cardHTML(exam, idx = 0) {
   const ariaLabel = `${yearPart} ${title} 상세 보기`;
   return `
     <article class="card${hasFile ? ' has-files' : ''}" style="--subject-color:${conf.color};animation-delay:${delay};">
-      <a class="card__link" href="exam.html?id=${exam.id}" aria-label="${escAttr(ariaLabel)}"></a>
+      <a class="card__link" href="exam-${exam.id}.html" aria-label="${escAttr(ariaLabel)}"></a>
       <div class="card__meta">${yearChip}${typeChip}</div>
       <h4 class="card__title" title="${escAttr(title)}">${escHtml(title)}</h4>
       <p class="card__sub">${escHtml(subtitle)}</p>
