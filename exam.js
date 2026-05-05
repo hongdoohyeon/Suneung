@@ -238,56 +238,6 @@ function setupTabs(onActivate) {
   activate(initial);
 }
 
-// ── 빠답 채점기 — 자기 점수 입력 → 등급/백분위 즉시 산출 ──
-// renderGradeDist 가 반환한 cut (rawCuts/fullScore) 을 받아 등급 계산.
-function renderQuickScorer(exam, cut) {
-  const head = $('quickAnswersHead') || document.querySelector('#quickAnswers .exam-card__head');
-  if (!head) return;
-  if (!cut || !Array.isArray(cut.rawCuts) || cut.rawCuts.every(v => v == null)) return;
-
-  const fullScore = cut.fullScore ?? 100;
-  const wrap = document.createElement('div');
-  wrap.className = 'quick-scorer';
-  wrap.innerHTML = `
-    <label class="quick-scorer__label" for="quickScorerIn">내 원점수 입력</label>
-    <div class="quick-scorer__row">
-      <input id="quickScorerIn" type="number" inputmode="numeric"
-             class="quick-scorer__input" min="0" max="${fullScore}"
-             placeholder="0~${fullScore}" autocomplete="off" />
-      <span class="quick-scorer__unit">/ ${fullScore}</span>
-    </div>
-    <output id="quickScorerOut" class="quick-scorer__out" aria-live="polite"></output>
-  `;
-  // exam-card__head 다음에 삽입 (body 위)
-  const card = head.closest('.exam-card');
-  const body = card?.querySelector('.exam-card__body');
-  if (body) card.insertBefore(wrap, body);
-  else head.parentElement?.insertBefore(wrap, head.nextSibling);
-
-  const inp = wrap.querySelector('#quickScorerIn');
-  const out = wrap.querySelector('#quickScorerOut');
-
-  function update() {
-    const raw = Number(inp.value);
-    if (!Number.isFinite(raw) || raw < 0) { out.innerHTML = ''; return; }
-    const score = Math.min(raw, fullScore);
-    if (raw > fullScore) inp.value = String(fullScore);
-    // 등급 산출: rawCuts 는 [1컷, 2컷, ..., 8컷] 의 원점수.
-    // score >= 1컷 → 1등급, score >= 2컷 → 2등급, ...
-    let grade = 9;
-    for (let g = 1; g <= 8; g++) {
-      const c = cut.rawCuts[g - 1];
-      if (c == null) continue;
-      if (score >= c) { grade = g; break; }
-    }
-    const pct = Math.round((score / fullScore) * 1000) / 10;  // 점수 기준 비율
-    out.innerHTML = `
-      <span class="quick-scorer__grade quick-scorer__grade--g${grade}">${grade}등급</span>
-      <span class="quick-scorer__hint">${score}점 · ${pct}%</span>
-    `;
-  }
-  inp.addEventListener('input', update);
-}
 
 // ── 빠른정답 (옵셔널 데이터: exam.answers 배열) ────────────
 function renderQuickAnswers(exam) {
@@ -385,8 +335,7 @@ async function main() {
 
   renderHead(exam);
   renderQuickAnswers(exam);
-  const cut = renderGradeDist(exam, gradecuts, scoreDist);
-  renderQuickScorer(exam, cut);  // 빠답 카드 위 자기 점수 → 등급 즉시 산출
+  renderGradeDist(exam, gradecuts, scoreDist);
   pushRecent(exam);  // localStorage 최근 본 시험 기록 (메인 페이지 chip 용)
 
   // PDF 미리보기는 'paper' 탭이 처음 활성화될 때만 렌더 (lazy).

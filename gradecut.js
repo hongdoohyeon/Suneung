@@ -256,10 +256,12 @@ function slotHTML(subj, slotIdx, subjConf, isMulti) {
       ${numLabel}
       ${pillsHTML}
       <div class="subj-slot__input-row">
-        <input type="number" class="subj-input" min="0" max="${fullScore}"
+        <input type="text" inputmode="numeric" pattern="[0-9]*"
+          class="subj-input" maxlength="3"
           placeholder="${placeholder}"
           value="${scoreVal}"
           data-action="set-score" data-subject="${subj}" data-slot="${slotIdx}"
+          data-max="${fullScore}"
           ${inputDisabled ? 'disabled' : ''} />
         <span class="subj-input__unit">/ ${fullScore}</span>
       </div>
@@ -431,28 +433,39 @@ function bindGlobalEvents() {
     if (!inp) return;
     const subj = inp.dataset.subject;
     const idx  = Number(inp.dataset.slot);
-    const v    = inp.value.trim();
-    if (v === '') { setSlot(subj, idx, { score: null }); }
-    else {
-      let n = Number(v);
+
+    // 숫자만 허용 (text input이라 클라이언트에서 sanitize)
+    const cleaned = inp.value.replace(/[^0-9]/g, '');
+    if (cleaned !== inp.value) {
+      const pos = (inp.selectionEnd ?? cleaned.length) - (inp.value.length - cleaned.length);
+      inp.value = cleaned;
+      try { inp.setSelectionRange(pos, pos); } catch {}
+    }
+
+    const v = cleaned.trim();
+    if (v === '') {
+      setSlot(subj, idx, { score: null });
+    } else {
+      const n = Number(v);
       if (!Number.isFinite(n)) return;
-      const max = Number(inp.max) || 100;
+      const max = Number(inp.dataset.max) || 100;
       const clamped = Math.min(max, Math.max(0, n));
-      // 입력값이 max 초과면 input.value 도 즉시 보정 (사용자에게 시각 피드백).
       if (clamped !== n) {
+        // value 보정 + cursor 끝으로
         inp.value = String(clamped);
+        try { inp.setSelectionRange(inp.value.length, inp.value.length); } catch {}
       }
       setSlot(subj, idx, { score: clamped });
     }
-    // input 요소를 교체하면 type=number에서 커서가 앞으로 가서 숫자 순서가 뒤집힘
-    // → input은 건드리지 않고 결과 영역(등급/백분위/그래프)만 갱신
+
+    // 결과 영역만 갱신 (input은 건드리지 않아 cursor 위치 자연 유지)
     refreshSlotResult(subj, idx);
     renderTotal();
+
     // 탐구 입력 시: 다른 탐구 슬롯의 활성/비활성 상태가 변할 수 있으므로 전체 재렌더.
-    // 단 현재 input focus + cursor 위치는 보존.
+    // text input은 selectionStart/End 가 정확히 작동 → cursor 위치 정확히 복원.
     if (isInquirySubject(subj)) {
-      const key = inp.dataset.subject + ':' + inp.dataset.slot;
-      const cursorPos = inp.selectionEnd;
+      const cursorPos = inp.selectionEnd ?? inp.value.length;
       renderSubjects();
       const restored = document.querySelector(
         `input[data-action="set-score"][data-subject="${inp.dataset.subject}"][data-slot="${inp.dataset.slot}"]`
