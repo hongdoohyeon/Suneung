@@ -1,0 +1,28 @@
+.adm-page { max-width: 920px; margin: 0 auto; padding: 24px 16px 80px; }
+    .adm-page h1 { font-size: 22px; margin: 8px 0 16px; }
+    .adm-page p.lead { color: #555; margin: 0 0 20px; line-height: 1.6; font-size: 14px; }
+    .adm-controls { display: flex; gap: 8px; margin-bottom: 20px; flex-wrap: wrap; align-items: center; }
+    .adm-controls select, .adm-controls input { font: inherit; padding: 8px 10px; border: 1px solid #ccc; border-radius: 6px; background: #fff; min-width: 200px; }
+    .adm-meta { font-size: 13px; color: #666; margin-bottom: 12px; }
+    .adm-tier { display: inline-block; padding: 2px 8px; border-radius: 4px; background: #e8edf3; color: #2a5; font-size: 11px; margin-left: 6px; }
+    .adm-track { background: #fafbfc; border: 1px solid #e3e6ec; border-radius: 8px; padding: 14px 16px; margin-bottom: 12px; }
+    .adm-track__label { font-weight: 600; font-size: 14px; margin-bottom: 8px; line-height: 1.4; }
+    .adm-ratio { display: flex; flex-wrap: wrap; gap: 12px; margin: 8px 0; }
+    .adm-ratio span { background: #fff; border: 1px solid #d8dde5; padding: 4px 10px; border-radius: 4px; font-size: 13px; font-variant-numeric: tabular-nums; }
+    .adm-eng-table { width: 100%; border-collapse: collapse; margin-top: 8px; font-size: 12px; }
+    .adm-eng-table th, .adm-eng-table td { border: 1px solid #d8dde5; padding: 4px 6px; text-align: center; font-variant-numeric: tabular-nums; }
+    .adm-eng-table th { background: #f3f5f9; font-weight: 500; }
+    .adm-confidence { font-size: 11px; padding: 2px 6px; border-radius: 3px; margin-left: 6px; }
+    .adm-confidence--high { background: #d8f0d8; color: #1a5d1a; }
+    .adm-confidence--medium { background: #fff7d6; color: #886300; }
+    .adm-confidence--low { background: #f4e8ff; color: #6020a0; }
+    .adm-confidence--no_data { background: #f0f0f0; color: #888; }
+    @media (max-width: 600px) {
+      .adm-controls select, .adm-controls input { min-width: 0; flex: 1; width: 100%; }
+      .adm-eng-table { display: block; overflow-x: auto; }
+      .adm-page { padding: 16px 12px 60px; }
+      .adm-track { padding: 10px 12px; }
+    }
+    .adm-disclaimer { background: #fff8e6; border: 1px solid #f0d878; border-radius: 6px; padding: 12px 14px; font-size: 12px; line-height: 1.6; color: #5a4a10; margin-bottom: 20px; }
+    .adm-source { font-size: 11px; color: #888; margin-top: 6px; }
+    .adm-empty { color: #999; padding: 40px 0; text-align: center; }
