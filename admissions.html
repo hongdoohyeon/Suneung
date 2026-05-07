@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0a0a0a" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net; style-src 'self' https://cdn.jsdelivr.net 'unsafe-inline'; font-src https://cdn.jsdelivr.net data:; img-src 'self' data: https:; connect-src 'self'; object-src 'none'; base-uri 'self'" />
+  <meta name="description" content="2026학년도 정시 모집요강 자동 추출 — 학교별 학과 반영비율 + 영어/한국사 감점 + 탐구 가산점." />
+  <meta name="description" content="2026학년도 정시 모집요강 자동 추출 — 학교별 학과 반영비율 + 영어 등급 환산표." />
+
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="canonical" href="https://kicegg.com/admissions.html" />
+
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+  <link rel="stylesheet" crossorigin integrity="sha384-uGEvnSEpW2nM9xJFsrxrwakwrk9QdDTQIBJh0hVMu90OaVyMAMpAK1rIn0/Kh1/k"
+        href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+
+  <title>정시 반영비율 — 기출해체분석기</title>
+  <link rel="stylesheet" href="style.css?v=20260508a" />
+  <style>
+    .adm-page { max-width: 920px; margin: 0 auto; padding: 24px 16px 80px; }
+    .adm-page h1 { font-size: 22px; margin: 8px 0 16px; }
+    .adm-page p.lead { color: #555; margin: 0 0 20px; line-height: 1.6; font-size: 14px; }
+    .adm-controls { display: flex; gap: 8px; margin-bottom: 20px; flex-wrap: wrap; align-items: center; }
+    .adm-controls select, .adm-controls input { font: inherit; padding: 8px 10px; border: 1px solid #ccc; border-radius: 6px; background: #fff; min-width: 200px; }
+    .adm-meta { font-size: 13px; color: #666; margin-bottom: 12px; }
+    .adm-tier { display: inline-block; padding: 2px 8px; border-radius: 4px; background: #e8edf3; color: #2a5; font-size: 11px; margin-left: 6px; }
+    .adm-track { background: #fafbfc; border: 1px solid #e3e6ec; border-radius: 8px; padding: 14px 16px; margin-bottom: 12px; }
+    .adm-track__label { font-weight: 600; font-size: 14px; margin-bottom: 8px; line-height: 1.4; }
+    .adm-ratio { display: flex; flex-wrap: wrap; gap: 12px; margin: 8px 0; }
+    .adm-ratio span { background: #fff; border: 1px solid #d8dde5; padding: 4px 10px; border-radius: 4px; font-size: 13px; font-variant-numeric: tabular-nums; }
+    .adm-eng-table { width: 100%; border-collapse: collapse; margin-top: 8px; font-size: 12px; }
+    .adm-eng-table th, .adm-eng-table td { border: 1px solid #d8dde5; padding: 4px 6px; text-align: center; font-variant-numeric: tabular-nums; }
+    .adm-eng-table th { background: #f3f5f9; font-weight: 500; }
+    .adm-confidence { font-size: 11px; padding: 2px 6px; border-radius: 3px; margin-left: 6px; }
+    .adm-confidence--high { background: #d8f0d8; color: #1a5d1a; }
+    .adm-confidence--medium { background: #fff7d6; color: #886300; }
+    .adm-confidence--low { background: #f4e8ff; color: #6020a0; }
+    .adm-confidence--no_data { background: #f0f0f0; color: #888; }
+    @media (max-width: 600px) {
+      .adm-controls select, .adm-controls input { min-width: 0; flex: 1; width: 100%; }
+      .adm-eng-table { display: block; overflow-x: auto; }
+      .adm-page { padding: 16px 12px 60px; }
+      .adm-track { padding: 10px 12px; }
+    }
+    .adm-disclaimer { background: #fff8e6; border: 1px solid #f0d878; border-radius: 6px; padding: 12px 14px; font-size: 12px; line-height: 1.6; color: #5a4a10; margin-bottom: 20px; }
+    .adm-source { font-size: 11px; color: #888; margin-top: 6px; }
+    .adm-empty { color: #999; padding: 40px 0; text-align: center; }
+  </style>
+</head>
+<body class="page-default">
+
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a href="index.html" class="brand">
+        <span class="brand__name">기출해체분석기</span>
+      </a>
+    </div>
+  </header>
+
+  <main class="adm-page">
+    <h1>정시 반영비율 (자동 추출)</h1>
+    <p class="lead">2026학년도 정시 모집요강 PDF에서 pdfplumber로 자동 추출한 학교별 학과 반영비율과 영어 등급 환산표.</p>
+
+    <div class="adm-disclaimer">
+      <strong>⚠️ 이 데이터는 PDF 표 자동 추출 결과로 정확성이 보장되지 않습니다.</strong>
+      모집단위 라벨이 부정확하거나 일부 칸이 누락될 수 있으니 실제 지원 시 학교 입학처 공식 모집요강을 반드시 확인하세요.
+    </div>
+
+    <div class="adm-controls">
+      <select id="schoolSelect">
+        <option value="">학교 선택...</option>
+      </select>
+      <input id="schoolFilter" placeholder="학교 검색 (한글/영문)..." />
+      <button id="compareBtn" type="button" style="padding:8px 14px;border:1px solid #2a5;background:#2a5;color:#fff;border-radius:6px;cursor:pointer">비교 모드</button>
+    </div>
+    <div id="compareList" style="display:none; margin-bottom:16px; padding:8px; background:#f0f7f0; border-radius:6px; font-size:12px;"></div>
+    <div style="font-size:11px; color:#888; margin-bottom:14px">
+      ★ 학과별 비율 추출 / ○ 영어 등급만 / <span style="background:#3a6bbf;color:#fff;padding:1px 6px;border-radius:3px">검증됨</span> = 수동 검증된 manual 데이터
+    </div>
+
+    <div id="info" class="adm-empty">학교를 선택하세요.</div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p class="site-footer__sub">출처 · 각 대학 입학처 + megastudy CDN. 자동 추출 데이터 — 정확성 검증 필요.</p>
+    </div>
+  </footer>
+
+  <script type="module" src="lib/admissions-info.js?v=20260508a"></script>
+</body>
+</html>

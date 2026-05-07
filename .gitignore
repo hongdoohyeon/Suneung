@@ -23,4 +23,11 @@ package-lock.json
 data/answers-fails.json
 data/audit-report.json
 data/admissions/pdfs/
+data/admissions/pdfs-extra/
+data/admissions/results-pdfs/
+data/admissions/parsed/
+data/admissions/parsed-extra/
+data/admissions/tables/
+data/admissions/tables-extra/
+data/admissions/ratios/
 data/admissions/extracted/

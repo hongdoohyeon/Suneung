@@ -37,7 +37,7 @@ const tabIsSingleType = () => {
 };
 
 // 정적 JSON 데이터 파일 — 백엔드 없이 data/exams.json 만 갱신하면 사이트가 갱신됨
-const DATA_URL = 'data/exams.json';
+const DATA_URL = 'data/exams.json?v=20260508a';
 
 const $ = id => document.getElementById(id);
 
@@ -192,9 +192,18 @@ function renderSubtypeChips() {
     if (Array.isArray(state.type)) return state.type.includes(val);
     return state.type === val;
   };
+  // 학년 탭별 학평 시행월 필터 — education 그룹은 type.studentGrades 와 탭의 educationGrades 교집합만 표시
+  const tabConf = getTabConf(state.tab);
+  let visibleTypes = g.types;
+  if (state.typeGroup === 'education' && tabConf?.educationGrades) {
+    const tabGrades = new Set(tabConf.educationGrades);
+    visibleTypes = g.types.filter(t =>
+      !t.studentGrades || t.studentGrades.some(sg => tabGrades.has(sg))
+    );
+  }
   container.innerHTML = [
     pill('all', '전체', isTypeActive('all')),
-    ...g.types.map(t => pill(t.key, t.shortLabel ?? t.label, isTypeActive(t.key))),
+    ...visibleTypes.map(t => pill(t.key, t.shortLabel ?? t.label, isTypeActive(t.key))),
   ].join('');
   row.classList.add('is-open');
 }

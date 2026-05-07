@@ -198,13 +198,18 @@ export const EXAM_TYPE_CONFIG = [
     displayMode: 'examYear',
     types: [
       // shortLabel: 좁은 사이드바 칩에서만 사용, 카드/태그 등 본문에는 label 그대로
-      { key: 'mar', label: '3월 학평',  shortLabel: '3월',  month:  3, badgeBg: '#eef1f4', badgeColor: '#475569' },
-      { key: 'apr', label: '4월 학평',  shortLabel: '4월',  month:  4, badgeBg: '#eef1f4', badgeColor: '#475569' },
-      { key: 'jun', label: '6월 학평',  shortLabel: '6월',  month:  6, badgeBg: '#eef1f4', badgeColor: '#475569' },
-      { key: 'jul', label: '7월 학평',  shortLabel: '7월',  month:  7, badgeBg: '#eef1f4', badgeColor: '#475569' },
-      { key: 'sep', label: '9월 학평',  shortLabel: '9월',  month:  9, badgeBg: '#eef1f4', badgeColor: '#475569' },
-      { key: 'oct', label: '10월 학평', shortLabel: '10월', month: 10, badgeBg: '#eef1f4', badgeColor: '#475569' },
-      { key: 'nov', label: '11월 학평', shortLabel: '11월', month: 11, badgeBg: '#eef1f4', badgeColor: '#475569' },
+      // studentGrades: 해당 학평이 실제 시행되는 학년 (탭별 칩 필터링용)
+      // — 3월/10월: 전국연합학력평가 (전 학년 동시)
+      // — 6월/9월/11월: 고1·고2 (고3 6모/9모/수능은 평가원 별도)
+      // — 4월·7월: 고3 only / 5월: 고3 only (서울교육청)
+      { key: 'mar', label: '3월 학평',  shortLabel: '3월',  month:  3, studentGrades: [1,2,3], badgeBg: '#eef1f4', badgeColor: '#475569' },
+      { key: 'apr', label: '4월 학평',  shortLabel: '4월',  month:  4, studentGrades: [3],     badgeBg: '#eef1f4', badgeColor: '#475569' },
+      { key: 'may', label: '5월 학평',  shortLabel: '5월',  month:  5, studentGrades: [3],     badgeBg: '#eef1f4', badgeColor: '#475569' },
+      { key: 'jun', label: '6월 학평',  shortLabel: '6월',  month:  6, studentGrades: [1,2],   badgeBg: '#eef1f4', badgeColor: '#475569' },
+      { key: 'jul', label: '7월 학평',  shortLabel: '7월',  month:  7, studentGrades: [3],     badgeBg: '#eef1f4', badgeColor: '#475569' },
+      { key: 'sep', label: '9월 학평',  shortLabel: '9월',  month:  9, studentGrades: [1,2],   badgeBg: '#eef1f4', badgeColor: '#475569' },
+      { key: 'oct', label: '10월 학평', shortLabel: '10월', month: 10, studentGrades: [1,2,3], badgeBg: '#eef1f4', badgeColor: '#475569' },
+      { key: 'nov', label: '11월 학평', shortLabel: '11월', month: 11, studentGrades: [1,2],   badgeBg: '#eef1f4', badgeColor: '#475569' },
     ],
   },
   {
