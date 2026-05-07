@@ -1,0 +1,1278 @@
+{
+  "generated": "2026-05-06",
+  "stats": {
+    "pdf_yes": 58,
+    "pdf_no": 3,
+    "eng_extracted": 24,
+    "ratio_extracted": 1
+  },
+  "total_universities": 61,
+  "universities": [
+    {
+      "name": "서울대학교",
+      "shortName": "서울대",
+      "tier": "sky",
+      "slug": "snu",
+      "admissionUrl": "https://admission.snu.ac.kr/",
+      "pdf_status": "ok",
+      "pdf_years": [
+        {
+          "year": 2022,
+          "kind": "guide",
+          "size": 1727462
+        },
+        {
+          "year": 2023,
+          "kind": "guide",
+          "size": 2671503
+        },
+        {
+          "year": 2024,
+          "kind": "guide",
+          "size": 2226664
+        },
+        {
+          "year": 2025,
+          "kind": "guide",
+          "size": 2172943
+        },
+        {
+          "year": 2026,
+          "kind": "guide",
+          "size": 2420722
+        },
+        {
+          "year": 2027,
+          "kind": "plan",
+          "size": 880818
+        }
+      ],
+      "eng_grades_extracted": true,
+      "eng_grades_years": [
+        "2023",
+        "2024",
+        "2025",
+        "2026"
+      ],
+      "ratio_extracted": true,
+      "ratio_data": [
+        {
+          "year": 2023,
+          "count": 4
+        },
+        {
+          "year": 2024,
+          "count": 4
+        },
+        {
+          "year": 2025,
+          "count": 4
+        },
+        {
+          "year": 2026,
+          "count": 5
+        }
+      ]
+    },
+    {
+      "name": "연세대학교",
+      "shortName": "연세대",
+      "tier": "sky",
+      "slug": "yonsei",
+      "admissionUrl": "https://admission.yonsei.ac.kr/",
+      "pdf_status": "ok",
+      "pdf_years": [
+        {
+          "year": 2022,
+          "kind": "plan",
+          "size": 338525
+        },
+        {
+          "year": 2023,
+          "kind": "plan",
+          "size": 423050
+        },
+        {
+          "year": 2024,
+          "kind": "plan",
+          "size": 29429808
+        },
+        {
+          "year": 2025,
+          "kind": "plan",
+          "size": 355535
+        },
+        {
+          "year": 2026,
+          "kind": "plan",
+          "size": 315661
+        },
+        {
+          "year": 2027,
+          "kind": "plan",
+          "size": 318938
+        }
+      ],
+      "eng_grades_extracted": true,
+      "eng_grades_years": [
+        "2022",
+        "2026",
+        "2027"
+      ],
+      "ratio_extracted": false,
+      "ratio_data": []
+    },
+    {
+      "name": "고려대학교",
+      "shortName": "고려대",
+      "tier": "sky",
+      "slug": "korea",
+      "admissionUrl": "https://oku.korea.ac.kr/",
+      "pdf_status": "ok",
+      "pdf_years": [
+        {
+          "year": 2025,
+          "kind": "plan",
+          "size": 270420
+        },
+        {
+          "year": 2026,
+          "kind": "guide",
+          "size": 716054
+        }
+      ],
+      "eng_grades_extracted": true,
+      "eng_grades_years": [
+        "2026"
+      ],
+      "ratio_extracted": false,
+      "ratio_data": []
+    },
+    {
+      "name": "서강대학교",
+      "shortName": "서강대",
+      "tier": "ssh",
+      "slug": "sogang",
+      "admissionUrl": "https://admission.sogang.ac.kr/",
+      "pdf_status": "ok",
+      "pdf_years": [
+        {
+          "year": 2026,
+          "kind": "guide",
+          "size": 9554852
+        }
+      ],
+      "eng_grades_extracted": true,
+      "eng_grades_years": [
+        "2026"
+      ],
+      "ratio_extracted": false,
+      "ratio_data": []
+    },
+    {
+      "name": "성균관대학교",
+      "shortName": "성균관대",
+      "tier": "ssh",
+      "slug": "skku",
+      "admissionUrl": "https://admission.skku.edu/",
+      "pdf_status": "ok",
+      "pdf_years": [
+        {
+          "year": 2026,
+          "kind": "guide",
+          "size": 3481398
+        }
+      ],
+      "eng_grades_extracted": true,
+      "eng_grades_years": [
+        "2026"
+      ],
+      "ratio_extracted": false,
+      "ratio_data": []
+    },
+    {
+      "name": "한양대학교",
+      "shortName": "한양대",
+      "tier": "ssh",
+      "slug": "hanyang",
+      "admissionUrl": "https://go.hanyang.ac.kr/",
+      "pdf_status": "ok",
+      "pdf_years": [
+        {
+          "year": 2026,
+          "kind": "guide",
+          "size": 1653572
+        }
+      ],
+      "eng_grades_extracted": false,
+      "eng_grades_years": [],
+      "ratio_extracted": false,
+      "ratio_data": []
+    },
+    {
+      "name": "중앙대학교",
+      "shortName": "중앙대",
+      "tier": "csis",
+      "slug": "cau",
+      "admissionUrl": "https://admission.cau.ac.kr/",
+      "pdf_status": "ok",
+      "pdf_years": [
+        {
+          "year": 2026,
+          "kind": "guide",
+          "size": 15317658
+        }
+      ],
+      "eng_grades_extracted": true,
+      "eng_grades_years": [
+        "2026"
+      ],
+      "ratio_extracted": false,
+      "ratio_data": []
+    },
+    {
+      "name": "경희대학교",
+      "shortName": "경희대",
+      "tier": "csis",
+      "slug": "khu",
+      "admissionUrl": "https://iphak.khu.ac.kr/",
+      "pdf_status": "ok",
+      "pdf_years": [
+        {
+          "year": 2026,
+          "kind": "guide",
+          "size": 6129165
+        }
+      ],
+      "eng_grades_extracted": false,
+      "eng_grades_years": [],
+      "ratio_extracted": false,
+      "ratio_data": []
+    },
+    {
+      "name": "한국외국어대학교",
+      "shortName": "한국외대",
+      "tier": "csis",
+      "slug": "hufs",
+      "admissionUrl": "https://admission.hufs.ac.kr/",
+      "pdf_status": "ok",
+      "pdf_years": [
+        {
+          "year": 2026,
+          "kind": "guide",
+          "size": 7690677
+        }
+      ],
+      "eng_grades_extracted": false,
+      "eng_grades_years": [],
+      "ratio_extracted": false,
+      "ratio_data": []
+    },
+    {
+      "name": "서울시립대학교",
+      "shortName": "서울시립대",
+      "tier": "csis",
+      "slug": "uos",
+      "admissionUrl": "https://enter.uos.ac.kr/",
+      "pdf_status": "ok",
+      "pdf_years": [
+        {
+          "year": 2026,
+          "kind": "guide",
+          "size": 469801
+        }
+      ],
+      "eng_grades_extracted": false,
+      "eng_grades_years": [],
+      "ratio_extracted": false,
+      "ratio_data": []
+    },
+    {
+      "name": "건국대학교",
+      "shortName": "건국대",
+      "tier": "kdh",
+      "slug": "konkuk",
+      "admissionUrl": "https://admission.konkuk.ac.kr/",
+      "pdf_status": "ok",
+      "pdf_years": [
+        {
+          "year": 2026,
+          "kind": "guide",
+          "size": 1131596
+        }
+      ],
+      "eng_grades_extracted": true,
+      "eng_grades_years": [
+        "2026"
+      ],
+      "ratio_extracted": false,
+      "ratio_data": []
+    },
+    {
+      "name": "동국대학교",
+      "shortName": "동국대",
+      "tier": "kdh",
+      "slug": "dongguk",
+      "admissionUrl": "https://ipsi.dongguk.edu/",
+      "pdf_status": "ok",
+      "pdf_years": [
+        {
+          "year": 2026,
+          "kind": "guide",
+          "size": 1169399
+        }
+      ],
+      "eng_grades_extracted": false,
+      "eng_grades_years": [],
+      "ratio_extracted": false,
+      "ratio_data": []
+    },
+    {
+      "name": "홍익대학교",
+      "shortName": "홍익대",
+      "tier": "kdh",
+      "slug": "hongik",
+      "admissionUrl": "https://ibsi.hongik.ac.kr/",
+      "pdf_status": "ok",
+      "pdf_years": [
+        {
+          "year": 2026,
+          "kind": "guide",
+          "size": 6606901
+        }
+      ],
+      "eng_grades_extracted": false,
+      "eng_grades_years": [],
+      "ratio_extracted": false,
+      "ratio_data": []
+    },
+    {
+      "name": "국민대학교",
+      "shortName": "국민대",
+      "tier": "ksu",
+      "slug": "kookmin",
+      "admissionUrl": "https://ipsi.kookmin.ac.kr/",
+      "pdf_status": "ok",
+      "pdf_years": [
+        {
+          "year": 2026,
+          "kind": "guide",
+          "size": 1125283
+        }
+      ],
+      "eng_grades_extracted": true,
+      "eng_grades_years": [
+        "2026"
+      ],
+      "ratio_extracted": false,
+      "ratio_data": []
+    },
+    {
+      "name": "숭실대학교",
+      "shortName": "숭실대",
+      "tier": "ksu",
+      "slug": "ssu",
+      "admissionUrl": "https://admission.ssu.ac.kr/",
+      "pdf_status": "ok",
+      "pdf_years": [
+        {
+          "year": 2026,
+          "kind": "guide",
+          "size": 1242851
+        }
+      ],
+      "eng_grades_extracted": true,
+      "eng_grades_years": [
+        "2026"
+      ],
+      "ratio_extracted": false,
+      "ratio_data": []
+    },
+    {
+      "name": "세종대학교",
+      "shortName": "세종대",
+      "tier": "ksu",
+      "slug": "sejong",
+      "admissionUrl": "https://ipsi.sejong.ac.kr/",
+      "pdf_status": "ok",
+      "pdf_years": [
+        {
+          "year": 2026,
+          "kind": "guide",
+          "size": 790983
+        }
+      ],
+      "eng_grades_extracted": false,
+      "eng_grades_years": [],
+      "ratio_extracted": false,
+      "ratio_data": []
+    },
+    {
+      "name": "단국대학교(죽전)",
+      "shortName": "단국대(죽전)",
+      "tier": "ksu",
+      "slug": "dankook",
+      "admissionUrl": "https://ipsi.dankook.ac.kr/",
+      "pdf_status": "ok",
+      "pdf_years": [
+        {
+          "year": 2026,
+          "kind": "guide",
+          "size": 1618467
+        }
+      ],
+      "eng_grades_extracted": true,
+      "eng_grades_years": [
+        "2026"
+      ],
+      "ratio_extracted": false,
+      "ratio_data": []
+    },
+    {
+      "name": "광운대학교",
+      "shortName": "광운대",
+      "tier": "kmsg",
+      "slug": "kw",
+      "admissionUrl": "https://iphak.kw.ac.kr/",
+      "pdf_status": "ok",
+      "pdf_years": [
+        {
+          "year": 2026,
+          "kind": "guide",
+          "size": 748399
+        }
+      ],
+      "eng_grades_extracted": false,
+      "eng_grades_years": [],
+      "ratio_extracted": false,
+      "ratio_data": []
+    },
+    {
+      "name": "명지대학교",
+      "shortName": "명지대",
+      "tier": "kmsg",
+      "slug": "mju",
+      "admissionUrl": "https://ipsi.mju.ac.kr/",
+      "pdf_status": "ok",
+      "pdf_years": [
+        {
+          "year": 2026,
+          "kind": "guide",
+          "size": 656494
+        }
+      ],
+      "eng_grades_extracted": false,
+      "eng_grades_years": [],
+      "ratio_extracted": false,
+      "ratio_data": []
+    },
+    {
+      "name": "상명대학교",
+      "shortName": "상명대",
+      "tier": "kmsg",
+      "slug": "smu",
+      "admissionUrl": "https://admission.smu.ac.kr/",
+      "pdf_status": "ok",
+      "pdf_years": [
+        {
+          "year": 2026,
+          "kind": "guide",
+          "size": 934308
+        }
+      ],
+      "eng_grades_extracted": true,
+      "eng_grades_years": [
+        "2026"
+      ],
+      "ratio_extracted": false,
+      "ratio_data": []
+    },
+    {
+      "name": "가톨릭대학교",
+      "shortName": "가톨릭대",
+      "tier": "kmsg",
+      "slug": "catholic",
+      "admissionUrl": "https://ipsi.catholic.ac.kr/",
+      "pdf_status": "ok",
+      "pdf_years": [
+        {
+          "year": 2026,
+          "kind": "guide",
+          "size": 1097217
+        }
+      ],
+      "eng_grades_extracted": false,
+      "eng_grades_years": [],
+      "ratio_extracted": false,
+      "ratio_data": []
+    },
+    {
+      "name": "이화여자대학교",
+      "shortName": "이화여대",
+      "tier": "in_seoul_etc",
+      "slug": "ewha",
+      "admissionUrl": "https://admission.ewha.ac.kr/",
+      "pdf_status": "ok",
+      "pdf_years": [
+        {
+          "year": 2026,
+          "kind": "guide",
+          "size": 13150136
+        }
+      ],
+      "eng_grades_extracted": false,
+      "eng_grades_years": [],
+      "ratio_extracted": false,
+      "ratio_data": []
+    },
+    {
+      "name": "숙명여자대학교",
+      "shortName": "숙명여대",
+      "tier": "in_seoul_etc",
+      "slug": "sookmyung",
+      "admissionUrl": "https://www.sookmyung.ac.kr/sookmyungkr/2056/subview.do",
+      "pdf_status": "ok",
+      "pdf_years": [
+        {
+          "year": 2026,
+          "kind": "guide",
+          "size": 705941
+        }
+      ],
+      "eng_grades_extracted": true,
+      "eng_grades_years": [
+        "2026"
+      ],
+      "ratio_extracted": false,
+      "ratio_data": []
+    },
+    {
+      "name": "동덕여자대학교",
+      "shortName": "동덕여대",
+      "tier": "in_seoul_etc",
+      "slug": "dongduk",
+      "admissionUrl": "https://admission.dongduk.ac.kr/",
+      "pdf_status": "ok",
+      "pdf_years": [
+        {
+          "year": 2026,
+          "kind": "guide",
+          "size": 527613
+        }
+      ],
+      "eng_grades_extracted": false,
+      "eng_grades_years": [],
+      "ratio_extracted": false,
+      "ratio_data": []
+    },
+    {
+      "name": "서울여자대학교",
+      "shortName": "서울여대",
+      "tier": "in_seoul_etc",
+      "slug": "swu",
+      "admissionUrl": "https://admission.swu.ac.kr/",
+      "pdf_status": "ok",
+      "pdf_years": [
+        {
+          "year": 2026,
+          "kind": "guide",
+          "size": 2390800
+        }
+      ],
+      "eng_grades_extracted": false,
+      "eng_grades_years": [],
+      "ratio_extracted": false,
+      "ratio_data": []
+    },
+    {
+      "name": "서울과학기술대학교",
+      "shortName": "서울과기대",
+      "tier": "in_seoul_etc",
+      "slug": "seoultech",
+      "admissionUrl": "https://www.seoultech.ac.kr/admission/",
+      "pdf_status": "ok",
+      "pdf_years": [
+        {
+          "year": 2026,
+          "kind": "guide",
+          "size": 1737483
+        }
+      ],
+      "eng_grades_extracted": true,
+      "eng_grades_years": [
+        "2026"
+      ],
+      "ratio_extracted": false,
+      "ratio_data": []
+    },
+    {
+      "name": "한성대학교",
+      "shortName": "한성대",
+      "tier": "in_seoul_etc",
+      "slug": "hansung",
+      "admissionUrl": "https://hsipsi.hansung.ac.kr/",
+      "pdf_status": "ok",
+      "pdf_years": [
+        {
+          "year": 2026,
+          "kind": "guide",
+          "size": 948393
+        }
+      ],
+      "eng_grades_extracted": false,
+      "eng_grades_years": [],
+      "ratio_extracted": false,
+      "ratio_data": []
+    },
+    {
+      "name": "서경대학교",
+      "shortName": "서경대",
+      "tier": "in_seoul_etc",
+      "slug": "skuniv",
+      "admissionUrl": "https://ipsi.skuniv.ac.kr/",
+      "pdf_status": "ok",
+      "pdf_years": [
+        {
+          "year": 2026,
+          "kind": "guide",
+          "size": 3215496
+        }
+      ],
+      "eng_grades_extracted": true,
+      "eng_grades_years": [
+        "2026"
+      ],
+      "ratio_extracted": false,
+      "ratio_data": []
+    },
+    {
+      "name": "인하대학교",
+      "shortName": "인하대",
+      "tier": "metro_strong",
+      "slug": "inha",
+      "admissionUrl": "https://admission.inha.ac.kr/",
+      "pdf_status": "ok",
+      "pdf_years": [
+        {
+          "year": 2026,
+          "kind": "guide",
+          "size": 912635
+        }
+      ],
+      "eng_grades_extracted": true,
+      "eng_grades_years": [
+        "2026"
+      ],
+      "ratio_extracted": false,
+      "ratio_data": []
+    },
+    {
+      "name": "아주대학교",
+      "shortName": "아주대",
+      "tier": "metro_strong",
+      "slug": "ajou",
+      "admissionUrl": "https://iphak.ajou.ac.kr/",
+      "pdf_status": "ok",
+      "pdf_years": [
+        {
+          "year": 2026,
+          "kind": "guide",
+          "size": 1462927
+        }
+      ],
+      "eng_grades_extracted": false,
+      "eng_grades_years": [],
+      "ratio_extracted": false,
+      "ratio_data": []
+    },
+    {
+      "name": "가천대학교",
+      "shortName": "가천대",
+      "tier": "metro_strong",
+      "slug": "gachon",
+      "admissionUrl": "https://www.gachon.ac.kr/admission/",
+      "pdf_status": "ok",
+      "pdf_years": [
+        {
+          "year": 2026,
+          "kind": "guide",
+          "size": 2404042
+        }
+      ],
+      "eng_grades_extracted": true,
+      "eng_grades_years": [
+        "2026"
+      ],
+      "ratio_extracted": false,
+      "ratio_data": []
+    },
+    {
+      "name": "한양대학교(ERICA)",
+      "shortName": "한양대(ERICA)",
+      "tier": "metro_strong",
+      "slug": "hanyang_erica",
+      "admissionUrl": "https://erica.hanyang.ac.kr/admission/",
+      "pdf_status": "ok",
+      "pdf_years": [
+        {
+          "year": 2026,
+          "kind": "guide",
+          "size": 1202604
+        }
+      ],
+      "eng_grades_extracted": false,
+      "eng_grades_years": [],
+      "ratio_extracted": false,
+      "ratio_data": []
+    },
+    {
+      "name": "단국대학교(천안)",
+      "shortName": "단국대(천안)",
+      "tier": "metro_strong",
+      "slug": "dankook_cheonan",
+      "admissionUrl": "https://ipsi.dankook.ac.kr/",
+      "pdf_status": "ok",
+      "pdf_years": [
+        {
+          "year": 2026,
+          "kind": "guide",
+          "size": 1618467
+        }
+      ],
+      "eng_grades_extracted": true,
+      "eng_grades_years": [
+        "2026"
+      ],
+      "ratio_extracted": false,
+      "ratio_data": []
+    },
+    {
+      "name": "인천대학교",
+      "shortName": "인천대",
+      "tier": "metro_strong",
+      "slug": "inu",
+      "admissionUrl": "https://enter.inu.ac.kr/",
+      "pdf_status": "ok",
+      "pdf_years": [
+        {
+          "year": 2026,
+          "kind": "guide",
+          "size": 1786747
+        }
+      ],
+      "eng_grades_extracted": true,
+      "eng_grades_years": [
+        "2026"
+      ],
+      "ratio_extracted": false,
+      "ratio_data": []
+    },
+    {
+      "name": "고려대학교(세종)",
+      "shortName": "고려대(세종)",
+      "tier": "metro_strong",
+      "slug": "korea_sejong",
+      "admissionUrl": "https://ipsi.korea.ac.kr/",
+      "pdf_status": "ok",
+      "pdf_years": [
+        {
+          "year": 2026,
+          "kind": "guide",
+          "size": 735829
+        }
+      ],
+      "eng_grades_extracted": true,
+      "eng_grades_years": [
+        "2026"
+      ],
+      "ratio_extracted": false,
+      "ratio_data": []
+    },
+    {
+      "name": "연세대학교(미래)",
+      "shortName": "연세대(미래)",
+      "tier": "metro_strong",
+      "slug": "yonsei_mirae",
+      "admissionUrl": "https://admission.yonsei.ac.kr/wonju/main.asp",
+      "pdf_status": "ok",
+      "pdf_years": [
+        {
+          "year": 2026,
+          "kind": "guide",
+          "size": 1041369
+        }
+      ],
+      "eng_grades_extracted": false,
+      "eng_grades_years": [],
+      "ratio_extracted": false,
+      "ratio_data": []
+    },
+    {
+      "name": "한국항공대학교",
+      "shortName": "한국항공대",
+      "tier": "metro_strong",
+      "slug": "kau",
+      "admissionUrl": "https://iphak.kau.ac.kr/",
+      "pdf_status": "ok",
+      "pdf_years": [
+        {
+          "year": 2026,
+          "kind": "guide",
+          "size": 2596968
+        }
+      ],
+      "eng_grades_extracted": true,
+      "eng_grades_years": [
+        "2026"
+      ],
+      "ratio_extracted": false,
+      "ratio_data": []
+    },
+    {
+      "name": "부산대학교",
+      "shortName": "부산대",
+      "tier": "national",
+      "slug": "pusan",
+      "admissionUrl": "https://go.pusan.ac.kr/",
+      "pdf_status": "ok",
+      "pdf_years": [
+        {
+          "year": 2026,
+          "kind": "guide",
+          "size": 2290166
+        }
+      ],
+      "eng_grades_extracted": false,
+      "eng_grades_years": [],
+      "ratio_extracted": false,
+      "ratio_data": []
+    },
+    {
+      "name": "경북대학교",
+      "shortName": "경북대",
+      "tier": "national",
+      "slug": "knu",
+      "admissionUrl": "https://ipsi.knu.ac.kr/",
+      "pdf_status": "ok",
+      "pdf_years": [
+        {
+          "year": 2026,
+          "kind": "guide",
+          "size": 1477577
+        }
+      ],
+      "eng_grades_extracted": false,
+      "eng_grades_years": [],
+      "ratio_extracted": false,
+      "ratio_data": []
+    },
+    {
+      "name": "전남대학교",
+      "shortName": "전남대",
+      "tier": "national",
+      "slug": "jnu",
+      "admissionUrl": "https://admission.jnu.ac.kr/",
+      "pdf_status": "ok",
+      "pdf_years": [
+        {
+          "year": 2026,
+          "kind": "guide",
+          "size": 956679
+        }
+      ],
+      "eng_grades_extracted": false,
+      "eng_grades_years": [],
+      "ratio_extracted": false,
+      "ratio_data": []
+    },
+    {
+      "name": "충남대학교",
+      "shortName": "충남대",
+      "tier": "national",
+      "slug": "cnu",
+      "admissionUrl": "https://admission.cnu.ac.kr/",
+      "pdf_status": "ok",
+      "pdf_years": [
+        {
+          "year": 2026,
+          "kind": "guide",
+          "size": 1004133
+        }
+      ],
+      "eng_grades_extracted": false,
+      "eng_grades_years": [],
+      "ratio_extracted": false,
+      "ratio_data": []
+    },
+    {
+      "name": "충북대학교",
+      "shortName": "충북대",
+      "tier": "national",
+      "slug": "chungbuk",
+      "admissionUrl": "https://ipsi.chungbuk.ac.kr/",
+      "pdf_status": "ok",
+      "pdf_years": [
+        {
+          "year": 2026,
+          "kind": "guide",
+          "size": 1035818
+        }
+      ],
+      "eng_grades_extracted": false,
+      "eng_grades_years": [],
+      "ratio_extracted": false,
+      "ratio_data": []
+    },
+    {
+      "name": "전북대학교",
+      "shortName": "전북대",
+      "tier": "national",
+      "slug": "jbnu",
+      "admissionUrl": "https://enter.jbnu.ac.kr/",
+      "pdf_status": "ok",
+      "pdf_years": [
+        {
+          "year": 2026,
+          "kind": "guide",
+          "size": 1733932
+        }
+      ],
+      "eng_grades_extracted": true,
+      "eng_grades_years": [
+        "2026"
+      ],
+      "ratio_extracted": false,
+      "ratio_data": []
+    },
+    {
+      "name": "경상국립대학교",
+      "shortName": "경상국립대",
+      "tier": "national",
+      "slug": "gnu",
+      "admissionUrl": "https://ipsi.gnu.ac.kr/",
+      "pdf_status": "ok",
+      "pdf_years": [
+        {
+          "year": 2026,
+          "kind": "guide",
+          "size": 1051701
+        }
+      ],
+      "eng_grades_extracted": false,
+      "eng_grades_years": [],
+      "ratio_extracted": false,
+      "ratio_data": []
+    },
+    {
+      "name": "강원대학교",
+      "shortName": "강원대",
+      "tier": "national",
+      "slug": "kangwon",
+      "admissionUrl": "https://admission.kangwon.ac.kr/",
+      "pdf_status": "ok",
+      "pdf_years": [
+        {
+          "year": 2026,
+          "kind": "guide",
+          "size": 2100685
+        }
+      ],
+      "eng_grades_extracted": false,
+      "eng_grades_years": [],
+      "ratio_extracted": false,
+      "ratio_data": []
+    },
+    {
+      "name": "제주대학교",
+      "shortName": "제주대",
+      "tier": "national",
+      "slug": "jejunu",
+      "admissionUrl": "https://ibsi.jejunu.ac.kr/",
+      "pdf_status": "ok",
+      "pdf_years": [
+        {
+          "year": 2026,
+          "kind": "guide",
+          "size": 1582695
+        }
+      ],
+      "eng_grades_extracted": false,
+      "eng_grades_years": [],
+      "ratio_extracted": false,
+      "ratio_data": []
+    },
+    {
+      "name": "UNIST",
+      "shortName": "UNIST",
+      "tier": "ist",
+      "slug": "unist",
+      "admissionUrl": "https://admission.unist.ac.kr/",
+      "pdf_status": "missing",
+      "pdf_years": [],
+      "eng_grades_extracted": false,
+      "eng_grades_years": [],
+      "ratio_extracted": false,
+      "ratio_data": []
+    },
+    {
+      "name": "GIST",
+      "shortName": "GIST",
+      "tier": "ist",
+      "slug": "gist",
+      "admissionUrl": "https://www.gist.ac.kr/admission/",
+      "pdf_status": "ok",
+      "pdf_years": [
+        {
+          "year": 2026,
+          "kind": "guide",
+          "size": 218733
+        }
+      ],
+      "eng_grades_extracted": false,
+      "eng_grades_years": [],
+      "ratio_extracted": false,
+      "ratio_data": []
+    },
+    {
+      "name": "DGIST",
+      "shortName": "DGIST",
+      "tier": "ist",
+      "slug": "dgist",
+      "admissionUrl": "https://www.dgist.ac.kr/admission/",
+      "pdf_status": "ok",
+      "pdf_years": [
+        {
+          "year": 2026,
+          "kind": "guide",
+          "size": 200388
+        }
+      ],
+      "eng_grades_extracted": false,
+      "eng_grades_years": [],
+      "ratio_extracted": false,
+      "ratio_data": []
+    },
+    {
+      "name": "울산대학교",
+      "shortName": "울산대",
+      "tier": "medical",
+      "slug": "ulsan",
+      "admissionUrl": "https://admission.ulsan.ac.kr/",
+      "pdf_status": "missing",
+      "pdf_years": [],
+      "eng_grades_extracted": false,
+      "eng_grades_years": [],
+      "ratio_extracted": false,
+      "ratio_data": []
+    },
+    {
+      "name": "원광대학교",
+      "shortName": "원광대",
+      "tier": "regional_med",
+      "slug": "wku",
+      "admissionUrl": "https://ipsi.wku.ac.kr/",
+      "pdf_status": "ok",
+      "pdf_years": [
+        {
+          "year": 2026,
+          "kind": "guide",
+          "size": 491943
+        }
+      ],
+      "eng_grades_extracted": false,
+      "eng_grades_years": [],
+      "ratio_extracted": false,
+      "ratio_data": []
+    },
+    {
+      "name": "강릉원주대학교",
+      "shortName": "강릉원주대",
+      "tier": "regional_med",
+      "slug": "gwnu",
+      "admissionUrl": "https://admission.gwnu.ac.kr/",
+      "pdf_status": "ok",
+      "pdf_years": [
+        {
+          "year": 2026,
+          "kind": "guide",
+          "size": 1240163
+        }
+      ],
+      "eng_grades_extracted": false,
+      "eng_grades_years": [],
+      "ratio_extracted": false,
+      "ratio_data": []
+    },
+    {
+      "name": "차의과학대학교",
+      "shortName": "차의과대",
+      "tier": "medical",
+      "slug": "cha",
+      "admissionUrl": "https://www.cha.ac.kr/admission/",
+      "pdf_status": "ok",
+      "pdf_years": [
+        {
+          "year": 2026,
+          "kind": "guide",
+          "size": 311071
+        }
+      ],
+      "eng_grades_extracted": false,
+      "eng_grades_years": [],
+      "ratio_extracted": false,
+      "ratio_data": []
+    },
+    {
+      "name": "을지대학교",
+      "shortName": "을지대",
+      "tier": "regional_med",
+      "slug": "eulji",
+      "admissionUrl": "https://www.eulji.ac.kr/admission/",
+      "pdf_status": "ok",
+      "pdf_years": [
+        {
+          "year": 2026,
+          "kind": "guide",
+          "size": 3868227
+        }
+      ],
+      "eng_grades_extracted": true,
+      "eng_grades_years": [
+        "2026"
+      ],
+      "ratio_extracted": false,
+      "ratio_data": []
+    },
+    {
+      "name": "영남대학교",
+      "shortName": "영남대",
+      "tier": "regional_med",
+      "slug": "yu",
+      "admissionUrl": "https://admission.yu.ac.kr/",
+      "pdf_status": "ok",
+      "pdf_years": [
+        {
+          "year": 2026,
+          "kind": "guide",
+          "size": 40050947
+        }
+      ],
+      "eng_grades_extracted": false,
+      "eng_grades_years": [],
+      "ratio_extracted": false,
+      "ratio_data": []
+    },
+    {
+      "name": "조선대학교",
+      "shortName": "조선대",
+      "tier": "regional_med",
+      "slug": "chosun",
+      "admissionUrl": "https://ipsi.chosun.ac.kr/",
+      "pdf_status": "ok",
+      "pdf_years": [
+        {
+          "year": 2026,
+          "kind": "guide",
+          "size": 5919509
+        }
+      ],
+      "eng_grades_extracted": true,
+      "eng_grades_years": [
+        "2026"
+      ],
+      "ratio_extracted": false,
+      "ratio_data": []
+    },
+    {
+      "name": "계명대학교",
+      "shortName": "계명대",
+      "tier": "regional_med",
+      "slug": "kmu",
+      "admissionUrl": "https://www.kmu.ac.kr/admission/",
+      "pdf_status": "ok",
+      "pdf_years": [
+        {
+          "year": 2026,
+          "kind": "guide",
+          "size": 11102888
+        }
+      ],
+      "eng_grades_extracted": false,
+      "eng_grades_years": [],
+      "ratio_extracted": false,
+      "ratio_data": []
+    },
+    {
+      "name": "경기대학교",
+      "shortName": "경기대",
+      "tier": "regional_med",
+      "slug": "kyonggi",
+      "admissionUrl": "https://ipsi.kyonggi.ac.kr/",
+      "pdf_status": "ok",
+      "pdf_years": [
+        {
+          "year": 2026,
+          "kind": "guide",
+          "size": 1616453
+        }
+      ],
+      "eng_grades_extracted": true,
+      "eng_grades_years": [
+        "2026"
+      ],
+      "ratio_extracted": false,
+      "ratio_data": []
+    },
+    {
+      "name": "순천향대학교",
+      "shortName": "순천향대",
+      "tier": "regional_med",
+      "slug": "sch",
+      "admissionUrl": "https://entry.sch.ac.kr/",
+      "pdf_status": "ok",
+      "pdf_years": [
+        {
+          "year": 2026,
+          "kind": "guide",
+          "size": 630420
+        }
+      ],
+      "eng_grades_extracted": false,
+      "eng_grades_years": [],
+      "ratio_extracted": false,
+      "ratio_data": []
+    },
+    {
+      "name": "고신대학교",
+      "shortName": "고신대",
+      "tier": "regional_med",
+      "slug": "kosin",
+      "admissionUrl": "https://www.kosin.ac.kr/ad/",
+      "pdf_status": "missing",
+      "pdf_years": [],
+      "eng_grades_extracted": false,
+      "eng_grades_years": [],
+      "ratio_extracted": false,
+      "ratio_data": []
+    },
+    {
+      "name": "동아대학교",
+      "shortName": "동아대",
+      "tier": "regional_med",
+      "slug": "donga",
+      "admissionUrl": "https://ipsi.donga.ac.kr/",
+      "pdf_status": "ok",
+      "pdf_years": [
+        {
+          "year": 2026,
+          "kind": "guide",
+          "size": 22851567
+        }
+      ],
+      "eng_grades_extracted": false,
+      "eng_grades_years": [],
+      "ratio_extracted": false,
+      "ratio_data": []
+    }
+  ]
+}

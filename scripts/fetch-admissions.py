@@ -106,6 +106,111 @@ def fetch_korea(ctx: BrowserContext, year: int) -> bool:
     return False
 
 
+def fetch_multi_step(slug: str, main_url: str):
+    """메인 → '정시·모집요강·자료' 메뉴 follow → 게시판 → 게시글 → 첨부파일 다운.
+
+    v2 변경:
+    - 첨부파일은 .pdf 확장자 외에도 download/FileDown/cmm/fms 등 다운로드 링크 모두 시도
+    - 응답 PDF magic byte로 검증 (확장자 무관)
+    - 게시판 row 매칭에서 year 표기 변형 허용 ('2026', '26학년도')
+    """
+    YEAR_FORMS = lambda y: [str(y), f"{y-2000}학년도", f"{y}학년도"]
+
+    def try_download(ctx, url, referer, slug, year, label_hint=''):
+        try:
+            resp = ctx.request.get(url, headers={"Referer": referer}, timeout=60_000)
+            if resp.status == 200 and is_real_pdf(resp.body()):
+                save_pdf(slug, year, resp.body())
+                print(f'  {slug} {year}: {len(resp.body()):,} bytes ✓ ({label_hint})')
+                return True
+        except Exception:
+            pass
+        return False
+
+    def collect_download_links(page):
+        """현재 페이지에서 다운로드 후보 링크 추출 (확장자 + URL 패턴 둘 다)."""
+        return page.eval_on_selector_all("a", """
+            els => els.map(a => ({
+                text:(a.textContent||'').trim(),
+                href:a.href,
+                ctx:((a.closest('tr,li,div,article,section')||a).textContent||'').trim().slice(0,300)
+            }))
+            .filter(x => x.href && (
+                /\\.(pdf|hwp|hwpx|zip)(\\?|$)/i.test(x.href) ||
+                /(download|filedown|fileDownload|cmm\\/fms|attachfile|attach_file|atchfile|fileview|board.*file)/i.test(x.href)
+            ))
+        """)
+
+    def _fetcher(ctx: BrowserContext, year: int) -> bool:
+        page = ctx.new_page()
+        year_forms = YEAR_FORMS(year)
+        try:
+            try:
+                page.goto(main_url, wait_until="domcontentloaded", timeout=15_000)
+                page.wait_for_timeout(2500)
+            except Exception as e:
+                print(f'  {slug} {year}: main goto fail — {str(e)[:60]}', file=sys.stderr)
+                return False
+
+            menu = page.eval_on_selector_all("a", """
+                els => els.map(a => ({text:(a.textContent||'').trim(), href:a.href}))
+                    .filter(x => x.text && x.href.includes('http')
+                        && x.text.length < 30
+                        && (x.text.includes('정시') || x.text.includes('모집요강')
+                            || x.text.includes('자료실') || x.text.includes('전형')
+                            || x.text.includes('공지') || x.text.includes('입시자료')))
+                    .slice(0, 10)
+            """)
+            seen_urls = {page.url}
+
+            for m in menu[:8]:
+                if m['href'] in seen_urls: continue
+                seen_urls.add(m['href'])
+                try:
+                    page.goto(m['href'], wait_until="domcontentloaded", timeout=15_000)
+                    page.wait_for_timeout(1800)
+                except Exception:
+                    continue
+
+                # 현재 페이지에서 다운로드 후보 직접 시도
+                links = collect_download_links(page)
+                for p_ in links:
+                    label = (p_['text'] + ' ' + p_['ctx']).replace('\n', ' ')
+                    if any(yf in label for yf in year_forms) and ('정시' in label or '모집요강' in label):
+                        if any(k in label for k in ['편입', '재외국민', '재외', '수시', '수능최저', '학생부종합', '논술']):
+                            continue
+                        if try_download(ctx, p_['href'], page.url, slug, year, 'menu'):
+                            return True
+
+                # 게시판 row → 게시글 navigate
+                rows = page.eval_on_selector_all("a", """
+                    els => els.map(a => ({text:(a.textContent||'').trim(), href:a.href}))
+                        .filter(x => x.href && x.text && x.text.length < 80
+                            && (x.text.includes('정시') || x.text.includes('모집요강'))
+                            && (year_match))
+                        .slice(0, 6)
+                """.replace('year_match', ' || '.join(f"x.text.includes('{yf}')" for yf in year_forms)))
+                for r in rows[:4]:
+                    if r['href'] in seen_urls: continue
+                    seen_urls.add(r['href'])
+                    if any(k in r['text'] for k in ['편입', '재외국민', '수시', '수능최저', '논술']):
+                        continue
+                    try:
+                        page.goto(r['href'], wait_until="domcontentloaded", timeout=15_000)
+                        page.wait_for_timeout(1500)
+                    except Exception:
+                        continue
+                    # 게시글 안 모든 다운로드 후보 시도
+                    post_links = collect_download_links(page)
+                    for pp in post_links[:8]:
+                        if try_download(ctx, pp['href'], page.url, slug, year, 'post'):
+                            return True
+        finally:
+            page.close()
+        return False
+    return _fetcher
+
+
 def fetch_generic(slug: str, urls: list[str]):
     """일반 fetcher — 메인 + 정시 페이지에서 '{year} 정시 모집요강' 키워드 매칭 PDF 다운.
     학교 입학처 사이트 구조가 정형이면 작동, 동적 SPA면 별도 fetcher 필요."""
@@ -162,170 +267,60 @@ FETCHERS = {
         'https://admission.sogang.ac.kr/',
         'https://admission.sogang.ac.kr/enter/html/regular/guide.asp',
     ]),
-    'skku': fetch_generic('skku', [
-        'https://admission.skku.edu/',
-        'https://admission.skku.edu/admission/html/regular/guide.html',
-    ]),
-    'hanyang': fetch_generic('hanyang', [
-        'https://go.hanyang.ac.kr/',
-        'https://go.hanyang.ac.kr/seoul/admissions/regular/regular_intro.do',
-    ]),
-    'cau': fetch_generic('cau', [
-        'https://admission.cau.ac.kr/',
-    ]),
-    'khu': fetch_generic('khu', [
-        'https://iphak.khu.ac.kr/',
-    ]),
-    'hufs': fetch_generic('hufs', [
-        'https://adms.hufs.ac.kr/',
-    ]),
-    'uos': fetch_generic('uos', [
-        'https://www.uos.ac.kr/',
-    ]),
-    'konkuk': fetch_generic('konkuk', [
-        'https://admission.konkuk.ac.kr/',
-    ]),
-    'dongguk': fetch_generic('dongguk', [
-        'https://ipsi.dongguk.edu/',
-    ]),
-    'hongik': fetch_generic('hongik', [
-        'https://www.hongik.ac.kr/',
-    ]),
-    'kookmin': fetch_generic('kookmin', [
-        'https://ipsi.kookmin.ac.kr/',
-    ]),
-    'ssu': fetch_generic('ssu', [
-        'https://admission.ssu.ac.kr/',
-    ]),
-    'sejong': fetch_generic('sejong', [
-        'https://ipsi.sejong.ac.kr/',
-    ]),
-    'dankook': fetch_generic('dankook', [
-        'https://ipsi.dankook.ac.kr/',
-    ]),
-    'kw': fetch_generic('kw', [
-        'https://iphak.kw.ac.kr/',
-    ]),
-    'mju': fetch_generic('mju', [
-        'https://ipsi.mju.ac.kr/',
-    ]),
-    'smu': fetch_generic('smu', [
-        'https://admission.smu.ac.kr/',
-    ]),
-    'catholic': fetch_generic('catholic', [
-        'https://ipsi.catholic.ac.kr/',
-    ]),
-    'ewha': fetch_generic('ewha', [
-        'https://admission.ewha.ac.kr/',
-    ]),
-    'sookmyung': fetch_generic('sookmyung', [
-        'https://www.sookmyung.ac.kr/sookmyungkr/2056/subview.do',
-    ]),
-    'dongduk': fetch_generic('dongduk', [
-        'https://admission.dongduk.ac.kr/',
-    ]),
-    'swu': fetch_generic('swu', [
-        'https://admission.swu.ac.kr/',
-    ]),
-    'seoultech': fetch_generic('seoultech', [
-        'https://www.seoultech.ac.kr/admission/',
-    ]),
-    'hansung': fetch_generic('hansung', [
-        'https://hansung.ac.kr/',
-    ]),
-    'skuniv': fetch_generic('skuniv', [
-        'https://www.skuniv.ac.kr/',
-    ]),
-    'inha': fetch_generic('inha', [
-        'https://admission.inha.ac.kr/',
-    ]),
-    'ajou': fetch_generic('ajou', [
-        'https://www.ajou.ac.kr/',
-    ]),
-    'gachon': fetch_generic('gachon', [
-        'https://www.gachon.ac.kr/admission/',
-    ]),
-    'hanyang_erica': fetch_generic('hanyang_erica', [
-        'https://erica.hanyang.ac.kr/admission/',
-    ]),
-    'inu': fetch_generic('inu', [
-        'https://www.inu.ac.kr/',
-    ]),
-    'kau': fetch_generic('kau', [
-        'https://www.kau.ac.kr/',
-    ]),
-    'pusan': fetch_generic('pusan', [
-        'https://go.pusan.ac.kr/',
-    ]),
-    'knu': fetch_generic('knu', [
-        'https://ipsi.knu.ac.kr/',
-    ]),
-    'jnu': fetch_generic('jnu', [
-        'https://admission.jnu.ac.kr/',
-    ]),
-    'cnu': fetch_generic('cnu', [
-        'https://www.cnu.ac.kr/',
-    ]),
-    'chungbuk': fetch_generic('chungbuk', [
-        'https://ipsi.chungbuk.ac.kr/',
-    ]),
-    'jbnu': fetch_generic('jbnu', [
-        'https://enter.jbnu.ac.kr/',
-    ]),
-    'gnu': fetch_generic('gnu', [
-        'https://ipsi.gnu.ac.kr/',
-    ]),
-    'kangwon': fetch_generic('kangwon', [
-        'https://admission.kangwon.ac.kr/',
-    ]),
-    'jejunu': fetch_generic('jejunu', [
-        'https://ibsi.jejunu.ac.kr/',
-    ]),
-    'unist': fetch_generic('unist', [
-        'https://www.unist.ac.kr/',
-    ]),
-    'gist': fetch_generic('gist', [
-        'https://www.gist.ac.kr/admission/',
-    ]),
-    'dgist': fetch_generic('dgist', [
-        'https://www.dgist.ac.kr/admission/',
-    ]),
-    'ulsan': fetch_generic('ulsan', [
-        'https://www.ulsan.ac.kr/',
-    ]),
-    'wku': fetch_generic('wku', [
-        'https://ipsi.wku.ac.kr/',
-    ]),
-    'gwnu': fetch_generic('gwnu', [
-        'https://admission.gwnu.ac.kr/',
-    ]),
-    'cha': fetch_generic('cha', [
-        'https://www.cha.ac.kr/admission/',
-    ]),
-    'eulji': fetch_generic('eulji', [
-        'https://www.eulji.ac.kr/admission/',
-    ]),
-    'yu': fetch_generic('yu', [
-        'https://admission.yu.ac.kr/',
-    ]),
-    'chosun': fetch_generic('chosun', [
-        'https://ipsi.chosun.ac.kr/',
-    ]),
-    'kmu': fetch_generic('kmu', [
-        'https://www.kmu.ac.kr/admission/',
-    ]),
-    'kyonggi': fetch_generic('kyonggi', [
-        'https://www.kyonggi.ac.kr/',
-    ]),
-    'sch': fetch_generic('sch', [
-        'https://www.sch.ac.kr/',
-    ]),
-    'kosin': fetch_generic('kosin', [
-        'https://www.kosin.ac.kr/ad/',
-    ]),
-    'donga': fetch_generic('donga', [
-        'https://ipsi.donga.ac.kr/',
-    ]),
+    'skku': fetch_multi_step('skku', 'https://admission.skku.edu/'),
+    'hanyang': fetch_multi_step('hanyang', 'https://go.hanyang.ac.kr/'),
+    'cau': fetch_multi_step('cau', 'https://admission.cau.ac.kr/'),
+    'khu': fetch_multi_step('khu', 'https://iphak.khu.ac.kr/'),
+    'hufs': fetch_multi_step('hufs', 'https://adms.hufs.ac.kr/'),
+    'uos': fetch_multi_step('uos', 'https://www.uos.ac.kr/'),
+    'konkuk': fetch_multi_step('konkuk', 'https://admission.konkuk.ac.kr/'),
+    'dongguk': fetch_multi_step('dongguk', 'https://ipsi.dongguk.edu/'),
+    'hongik': fetch_multi_step('hongik', 'https://www.hongik.ac.kr/'),
+    'kookmin': fetch_multi_step('kookmin', 'https://ipsi.kookmin.ac.kr/'),
+    'ssu': fetch_multi_step('ssu', 'https://admission.ssu.ac.kr/'),
+    'sejong': fetch_multi_step('sejong', 'https://ipsi.sejong.ac.kr/'),
+    'dankook': fetch_multi_step('dankook', 'https://ipsi.dankook.ac.kr/'),
+    'kw': fetch_multi_step('kw', 'https://iphak.kw.ac.kr/'),
+    'mju': fetch_multi_step('mju', 'https://ipsi.mju.ac.kr/'),
+    'smu': fetch_multi_step('smu', 'https://admission.smu.ac.kr/'),
+    'catholic': fetch_multi_step('catholic', 'https://ipsi.catholic.ac.kr/'),
+    'ewha': fetch_multi_step('ewha', 'https://admission.ewha.ac.kr/'),
+    'sookmyung': fetch_multi_step('sookmyung', 'https://www.sookmyung.ac.kr/sookmyungkr/2056/subview.do'),
+    'dongduk': fetch_multi_step('dongduk', 'https://admission.dongduk.ac.kr/'),
+    'swu': fetch_multi_step('swu', 'https://admission.swu.ac.kr/'),
+    'seoultech': fetch_multi_step('seoultech', 'https://www.seoultech.ac.kr/admission/'),
+    'hansung': fetch_multi_step('hansung', 'https://hansung.ac.kr/'),
+    'skuniv': fetch_multi_step('skuniv', 'https://www.skuniv.ac.kr/'),
+    'inha': fetch_multi_step('inha', 'https://admission.inha.ac.kr/'),
+    'ajou': fetch_multi_step('ajou', 'https://www.ajou.ac.kr/'),
+    'gachon': fetch_multi_step('gachon', 'https://www.gachon.ac.kr/admission/'),
+    'hanyang_erica': fetch_multi_step('hanyang_erica', 'https://erica.hanyang.ac.kr/admission/'),
+    'inu': fetch_multi_step('inu', 'https://www.inu.ac.kr/'),
+    'kau': fetch_multi_step('kau', 'https://www.kau.ac.kr/'),
+    'pusan': fetch_multi_step('pusan', 'https://go.pusan.ac.kr/'),
+    'knu': fetch_multi_step('knu', 'https://ipsi.knu.ac.kr/'),
+    'jnu': fetch_multi_step('jnu', 'https://admission.jnu.ac.kr/'),
+    'cnu': fetch_multi_step('cnu', 'https://www.cnu.ac.kr/'),
+    'chungbuk': fetch_multi_step('chungbuk', 'https://ipsi.chungbuk.ac.kr/'),
+    'jbnu': fetch_multi_step('jbnu', 'https://enter.jbnu.ac.kr/'),
+    'gnu': fetch_multi_step('gnu', 'https://ipsi.gnu.ac.kr/'),
+    'kangwon': fetch_multi_step('kangwon', 'https://admission.kangwon.ac.kr/'),
+    'jejunu': fetch_multi_step('jejunu', 'https://ibsi.jejunu.ac.kr/'),
+    'unist': fetch_multi_step('unist', 'https://www.unist.ac.kr/'),
+    'gist': fetch_multi_step('gist', 'https://www.gist.ac.kr/admission/'),
+    'dgist': fetch_multi_step('dgist', 'https://www.dgist.ac.kr/admission/'),
+    'ulsan': fetch_multi_step('ulsan', 'https://www.ulsan.ac.kr/'),
+    'wku': fetch_multi_step('wku', 'https://ipsi.wku.ac.kr/'),
+    'gwnu': fetch_multi_step('gwnu', 'https://admission.gwnu.ac.kr/'),
+    'cha': fetch_multi_step('cha', 'https://www.cha.ac.kr/admission/'),
+    'eulji': fetch_multi_step('eulji', 'https://www.eulji.ac.kr/admission/'),
+    'yu': fetch_multi_step('yu', 'https://admission.yu.ac.kr/'),
+    'chosun': fetch_multi_step('chosun', 'https://ipsi.chosun.ac.kr/'),
+    'kmu': fetch_multi_step('kmu', 'https://www.kmu.ac.kr/admission/'),
+    'kyonggi': fetch_multi_step('kyonggi', 'https://www.kyonggi.ac.kr/'),
+    'sch': fetch_multi_step('sch', 'https://www.sch.ac.kr/'),
+    'kosin': fetch_multi_step('kosin', 'https://www.kosin.ac.kr/ad/'),
+    'donga': fetch_multi_step('donga', 'https://ipsi.donga.ac.kr/'),
 }
 
 
@@ -360,8 +355,11 @@ def main():
                     print(f'  {slug} {year}: skip (이미 받음)')
                     ok.append(year)
                     continue
-                if FETCHERS[slug](ctx, year):
-                    ok.append(year)
+                try:
+                    if FETCHERS[slug](ctx, year):
+                        ok.append(year)
+                except Exception as e:
+                    print(f'  {slug} {year}: fetcher crash — {str(e)[:80]}', file=sys.stderr)
             summary[slug] = ok
         browser.close()
 
