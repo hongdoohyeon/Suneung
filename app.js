@@ -37,7 +37,7 @@ const tabIsSingleType = () => {
 };
 
 // 정적 JSON 데이터 파일 — 백엔드 없이 data/exams.json 만 갱신하면 사이트가 갱신됨
-const DATA_URL = 'data/exams.json?v=20260508a';
+const DATA_URL = 'data/exams-v2.json';
 
 const $ = id => document.getElementById(id);
 
@@ -529,6 +529,7 @@ function cardHTML(exam, idx = 0) {
   const aBtn = exam.answerUrl
     ? `<a class="btn" href="${exam.answerUrl}" target="_blank" rel="noopener" ${dl(exam.answerDownload)}>정답</a>`
     : `<button class="btn" disabled>정답</button>`;
+  // 해설 PDF가 없으면 해설 button 자체 숨김 (disabled 회색 button 미표시)
   const sBtn = exam.solutionUrl
     ? `<a class="btn" href="${exam.solutionUrl}" target="_blank" rel="noopener" ${dl(exam.solutionDownload)}>해설</a>`
     : '';
