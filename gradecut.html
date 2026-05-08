@@ -15,18 +15,18 @@
   <link rel="canonical" href="https://kicegg.com/gradecut.html" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="기출해체분석기" />
-  <meta property="og:title" content="등급컷 계산기 — 기출해체분석기" />
-  <meta property="og:description" content="정시 모의지원 — 점수 입력 → 영역별 등급·백분위 → 86개교 학과별 라인 분석." />
+  <meta property="og:title" content="정시 모의지원 — 기출해체분석기" />
+  <meta property="og:description" content="점수 입력 → 등급·백분위 산출 → 학과별 안정·적정·소신 라인 비교." />
   <meta property="og:url" content="https://kicegg.com/gradecut.html" />
   <meta property="og:image" content="https://kicegg.com/og-image.svg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:locale" content="ko_KR" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="등급컷 계산기 — 기출해체분석기" />
-  <meta name="twitter:description" content="점수 입력 → 등급·백분위 + 학과별 라인 분석." />
+  <meta name="twitter:title" content="정시 모의지원 — 기출해체분석기" />
+  <meta name="twitter:description" content="점수 입력 → 등급·백분위 + 학과별 안정·적정·소신 라인." />
   <meta name="twitter:image" content="https://kicegg.com/og-image.svg" />
-  <meta name="twitter:image:alt" content="등급컷 계산기 — 점수 입력으로 영역별 등급과 종합 백분위 산출" />
+  <meta name="twitter:image:alt" content="정시 모의지원 — 점수 입력으로 등급·백분위와 학과별 라인 산출" />
 
   <script type="application/ld+json">
   {
@@ -34,8 +34,8 @@
     "@type": "WebApplication",
     "@id": "https://kicegg.com/gradecut.html",
     "url": "https://kicegg.com/gradecut.html",
-    "name": "등급컷 계산기 (모의지원)",
-    "description": "원점수 입력으로 영역별 등급·백분위를 즉시 산출. 수능·평가원·교육청·LEET·MEET 지원.",
+    "name": "정시 모의지원",
+    "description": "원점수 입력 → 등급·백분위 산출 → 학과별 라인(안정·적정·소신) 비교. 수능·평가원·학평 지원.",
     "inLanguage": "ko-KR",
     "applicationCategory": "EducationApplication",
     "operatingSystem": "All",
@@ -49,8 +49,8 @@
         href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
 
   <title>정시 모의지원 — 기출해체분석기</title>
-  <link rel="stylesheet" href="style.css?v=20260508l" />
-  <link rel="modulepreload" href="gradecut.js?v=20260508a" />
+  <link rel="stylesheet" href="style.css?v=20260508m" />
+  <link rel="modulepreload" href="gradecut.js?v=20260508m" />
   <link rel="modulepreload" href="config.js?v=20260508i" />
 </head>
 <body class="page-gradecut">
@@ -86,10 +86,10 @@
   <section class="page-header" aria-labelledby="gradecut-title">
     <div class="page-header__inner">
       <h1 class="page-header__title" id="gradecut-title">정시 모의지원</h1>
-      <p class="page-header__sub">시험과 점수를 입력하면 등급·백분위 산출 후 86개교 학과별 라인(안정·적정·소신)을 분석합니다.</p>
+      <p class="page-header__sub">등급·백분위를 계산하고, 대학별 반영비율 기준으로 지원 가능성을 참고용으로 비교합니다.</p>
       <div class="page-header__meta">
-        <span>등급컷 · 2008~2026학년도 수능·평가원·학평</span>
-        <span>라인 산정 · 86개교 반영비율 + 60개교 70%컷</span>
+        <span>2008~2026학년도 수능·평가원·학평</span>
+        <span>86개교 반영비율 · 1,000+ 학과 70%컷</span>
       </div>
     </div>
   </section>
@@ -100,17 +100,17 @@
     <aside class="filter" id="filterPanel">
 
       <div class="filter__section">
-        <h3 class="filter__title">교육과정</h3>
+        <h3 class="filter__title">시험 범위</h3>
         <div class="pill-row" id="gcCurrPills"></div>
       </div>
 
       <div class="filter__section">
-        <h3 class="filter__title">학년도</h3>
+        <h3 class="filter__title">응시 학년도</h3>
         <div class="year-row" id="gcYearPills"></div>
       </div>
 
       <div class="filter__section">
-        <h3 class="filter__title">시험</h3>
+        <h3 class="filter__title">기준 시험</h3>
         <div class="pill-row" id="gcTypePills"></div>
       </div>
 
@@ -119,16 +119,31 @@
     <!-- 메인 — 영역별 점수 입력 + 종합 -->
     <section class="content">
 
-      <!-- 시험 미선택 안내 -->
+      <!-- 시험 미선택 안내 — 3단계 흐름 -->
       <div class="gc-empty" id="gcEmpty">
-        <div class="gc-empty__icon">
-          <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="3" y="3" width="18" height="18" rx="2"/>
-            <path d="M9 11l3 3L22 4"/>
-          </svg>
-        </div>
-        <p class="gc-empty__title">시험을 선택해 주세요</p>
-        <p class="gc-empty__sub">학년도와 시험을 고르면 영역별 점수 입력란과 학과별 라인 분석이 나타납니다.</p>
+        <ol class="gc-steps" aria-label="모의지원 흐름">
+          <li class="gc-step">
+            <span class="gc-step__num">1</span>
+            <span class="gc-step__body">
+              <strong>시험 선택</strong>
+              <em>학년도와 시험 종류를 고릅니다.</em>
+            </span>
+          </li>
+          <li class="gc-step">
+            <span class="gc-step__num">2</span>
+            <span class="gc-step__body">
+              <strong>영역별 원점수 입력</strong>
+              <em>국어·수학·영어·탐구·한국사. 입력하는 만큼 즉시 계산됩니다.</em>
+            </span>
+          </li>
+          <li class="gc-step">
+            <span class="gc-step__num">3</span>
+            <span class="gc-step__body">
+              <strong>등급·백분위 + 학과별 라인 확인</strong>
+              <em>안정 · 적정 · 소신 카드로 정렬되어 표시됩니다.</em>
+            </span>
+          </li>
+        </ol>
         <button class="btn gc-empty__cta" id="gcEmptyCta" type="button">시험 선택하기</button>
       </div>
 
@@ -136,7 +151,10 @@
       <div class="gc-exam-wrap" id="gcExamWrap" style="display:none;">
 
         <header class="gc-exam-head">
-          <h2 class="gc-exam-title" id="gcExamTitle">— 시험 —</h2>
+          <div>
+            <h2 class="gc-exam-title" id="gcExamTitle">— 시험 —</h2>
+            <p class="gc-exam-progress" id="gcProgress">입력 0/0개 영역 · 탐구 최대 2과목 · 입력 즉시 계산</p>
+          </div>
           <div class="gc-exam-head__actions">
             <button class="btn btn--ghost gc-change-btn" id="gcChangeBtn" type="button">시험 변경</button>
             <button class="gc-reset-btn" id="gcResetBtn" type="button">
@@ -151,10 +169,10 @@
 
         <div class="subj-grid" id="gcSubjGrid"></div>
 
-        <!-- 종합 분석 -->
+        <!-- 1층: 내 점수 요약 -->
         <div class="total-card" id="gcTotalCard" style="display:none;">
           <header class="total-card__head">
-            <h3 class="total-card__title">종합 분석</h3>
+            <h3 class="total-card__title">내 점수 요약</h3>
             <span class="total-card__hint" id="gcTotalHint">— 영역 입력 —</span>
           </header>
 
@@ -166,12 +184,13 @@
             <div class="total-stat__divider"></div>
             <div class="total-stat">
               <span class="total-stat__num" id="gcAvgPct">—</span>
-              <span class="total-stat__label">평균 상위 백분율</span>
+              <span class="total-stat__label">상위 백분율 평균</span>
             </div>
           </div>
 
           <div class="total-bars" id="gcTotalBars"></div>
         </div>
+        <!-- 2층: 지원 라인 — lineup-mount.js 가 동적 삽입 -->
 
       </div>
 
