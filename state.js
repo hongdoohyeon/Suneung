@@ -2,23 +2,139 @@
 import {
   CURRICULUM_CONFIG, EXAM_TYPE_CONFIG, TAB_CONFIG,
   getTypeConf, getTabConf, prettySub, searchAliasOf,
-} from './config.js';
+} from './config.js?v=20260508i';
 
-// 공백 무시 + 소문자
-const normQ = s => String(s ?? '').toLowerCase().replace(/\s+/g, '');
+// ── 검색 정규화 ─────────────────────────────────────────────
+// 로마자 숫자(Ⅰ/Ⅱ/Ⅲ) → 아라비아, 한자(一/二/三) → 아라비아, 소문자, 공백 제거.
+// 학생 입력에 흔한 표기(화학Ⅰ / 화학I / 화학1 / 화학i)를 한 형태로 통일.
+function fold(s) {
+  return String(s ?? '')
+    .toLowerCase()
+    .replace(/[Ⅰⅰ]/g, '1')
+    .replace(/[Ⅱⅱ]/g, '2')
+    .replace(/[Ⅲⅲ]/g, '3')
+    .replace(/[Ⅳⅳ]/g, '4')
+    .replace(/일\s*학년/g, '고1')
+    .replace(/이\s*학년/g, '고2')
+    .replace(/삼\s*학년/g, '고3');
+}
+const normQ = s => fold(s).replace(/\s+/g, '');
 
-function matchesQuery(e, query) {
-  const q = normQ(query);
-  if (!q) return true;
+// 사용자 query 를 토큰(공백/쉼표/슬래시 단위)으로 분해.
+// 각 토큰은 매칭 단계에서 다시 (숫자)↔(한글/영문) 경계로 분해될 수 있음 (matchToken 참고).
+function tokenize(query) {
+  return fold(query)
+    .replace(/[,\/]+/g, ' ')
+    .split(/\s+/)
+    .filter(Boolean)
+    .map(c => c.replace(/\s+/g, ''));
+}
+
+// hay 캐시 — exam 객체별로 한 번만 빌드.
+const _hayCache = new WeakMap();
+
+function buildHay(e) {
   const tc = getTypeConf(e.type);
-  const hay = normQ([
-    e.subject, e.subSubject, prettySub(e.subSubject),
-    String(e.gradeYear), String(e.examYear),
-    tc?.label, tc?.groupLabel,
-  ].filter(Boolean).join(' '));
-  const aliases = searchAliasOf(q);
-  const needles = aliases ? aliases.map(normQ) : [q];
-  return needles.some(n => hay.includes(n));
+  const items = [];
+
+  // 과목·소과목 (raw + pretty + 로마자 변환)
+  if (e.subject)    items.push(e.subject);
+  if (e.subSubject) {
+    items.push(e.subSubject, prettySub(e.subSubject));
+    // 화학Ⅰ → 화학1 / 화학i — 두 형태 모두 hay 에
+    items.push(
+      e.subSubject.replace(/Ⅰ/g, '1').replace(/Ⅱ/g, '2').replace(/Ⅲ/g, '3'),
+      e.subSubject.replace(/Ⅰ/g, 'i').replace(/Ⅱ/g, 'ii').replace(/Ⅲ/g, 'iii'),
+    );
+  }
+
+  // 학년도·시행연도 (4자리 + 2자리 축약)
+  if (e.gradeYear) {
+    const gy = String(e.gradeYear);
+    items.push(gy, `${gy}학년도`, gy.slice(-2));
+  }
+  if (e.examYear) {
+    const ey = String(e.examYear);
+    items.push(ey, `${ey}년`, ey.slice(-2));
+  }
+
+  // 시행 월
+  if (e.month) items.push(`${e.month}월`);
+
+  // 학년 (고1/고2/고3 + 풀어쓴 형태)
+  if (e.studentGrade) {
+    const sg = e.studentGrade;
+    items.push(`고${sg}`, ['', '고일', '고이', '고삼'][sg], `${sg}학년`);
+  }
+
+  // type / typeGroup label
+  if (tc?.label)      items.push(tc.label);
+  if (tc?.groupLabel) items.push(tc.groupLabel);
+
+  // typeGroup·type 별 검색 키워드 보강
+  switch (e.typeGroup) {
+    case 'education':
+      items.push('학평', '학력평가', '교육청', '모의고사');
+      if (e.month) items.push(`${e.month}모`, `${e.month}평`);
+      break;
+    case 'suneung':
+      items.push('평가원', '고3', '고삼');
+      if (e.type === 'csat')   items.push('수능', '대학수학능력시험');
+      if (e.type === 'june')   items.push('6월', '6모', '6평', '모의평가');
+      if (e.type === 'sept')   items.push('9월', '9모', '9평', '모의평가');
+      if (e.type === 'prelim') items.push('예비', '예비시행', '예시');
+      break;
+    case 'military':
+      items.push('사관', '사관학교', '1차');
+      break;
+    case 'police':
+      items.push('경찰', '경찰대', '1차');
+      break;
+    case 'leet':
+      items.push('leet', '리트', '법학적성시험');
+      break;
+    case 'meet':
+      items.push('meet', '의치학', '의예', '의대', '치대');
+      break;
+  }
+
+  return normQ(items.filter(Boolean).join(' '));
+}
+
+function getHay(e) {
+  let h = _hayCache.get(e);
+  if (h === undefined) { h = buildHay(e); _hayCache.set(e, h); }
+  return h;
+}
+
+// 단일 토큰이 hay 와 매칭되는지.
+// 시도 순서: 1) 직접 substring  2) alias 결과 중 하나가 substring
+//             3) 토큰을 (숫자)/(한글·영문) 단위로 분해 → 분해된 sub-part 가 모두 (1)/(2) 만족
+//   "25수능" → 분해 ["25","수능"] → 둘 다 hay 안에 있어야 통과.
+function matchToken(hay, tok) {
+  const t = normQ(tok);
+  if (!t) return true;
+  if (hay.includes(t)) return true;
+  const aliases = searchAliasOf(t);
+  if (aliases && aliases.some(a => hay.includes(normQ(a)))) return true;
+
+  const parts = t.match(/[\d]+|[가-힣a-z]+/g);
+  if (parts && parts.length > 1) {
+    return parts.every(p => {
+      if (hay.includes(p)) return true;
+      const al = searchAliasOf(p);
+      return al ? al.some(a => hay.includes(normQ(a))) : false;
+    });
+  }
+  return false;
+}
+
+// AND 매칭 — 모든 토큰이 통과해야 함.
+function matchesQuery(e, query) {
+  const tokens = tokenize(query);
+  if (tokens.length === 0) return true;
+  const hay = getHay(e);
+  return tokens.every(tok => matchToken(hay, tok));
 }
 
 export const state = {
