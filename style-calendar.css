@@ -1,0 +1,38 @@
+.cal-page { max-width: 920px; margin: 0 auto; padding: 24px 16px 80px; }
+.cal-page h1 { font-size: 22px; margin: 8px 0 8px; }
+.cal-page p.lead { color: #555; margin: 0 0 20px; line-height: 1.6; font-size: 14px; }
+
+.cal-controls { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+.cal-month-label { font-size: 18px; font-weight: 600; margin: 0; min-width: 140px; text-align: center; }
+.cal-nav, .cal-today { padding: 6px 14px; border: 1px solid #d8dde5; background: #fff; border-radius: 6px; cursor: pointer; font: inherit; }
+.cal-nav { font-size: 18px; line-height: 1; }
+.cal-today { margin-left: auto; }
+
+.cal-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 2px; background: #e3e6ec; padding: 2px; border-radius: 8px; }
+.cal-h { background: #f3f5f9; text-align: center; padding: 6px 0; font-size: 12px; font-weight: 500; color: #475569; }
+.cal-h:first-child { color: #dc2626; }
+.cal-h:last-child { color: #2563eb; }
+.cal-cell { background: #fff; min-height: 70px; padding: 4px 6px; position: relative; }
+.cal-cell--empty { background: #fafbfc; }
+.cal-cell--today { background: #e6f0fa; box-shadow: inset 0 0 0 2px #0066cc; }
+.cal-day { font-size: 12px; font-weight: 500; color: #475569; }
+.cal-cell--today .cal-day { color: #0066cc; font-weight: 700; }
+.cal-dots { display: flex; flex-wrap: wrap; gap: 3px; margin-top: 4px; }
+.cal-dot { width: 7px; height: 7px; border-radius: 50%; display: inline-block; }
+.cal-more { font-size: 10px; color: #999; }
+
+.cal-list { list-style: none; padding: 0; margin: 12px 0 0; display: grid; gap: 8px; }
+.cal-item { display: flex; gap: 12px; padding: 10px 14px; background: #fafbfc; border-left: 4px solid #888; border-radius: 6px; }
+.cal-item__date { font-size: 13px; font-weight: 600; min-width: 90px; color: #1e293b; font-variant-numeric: tabular-nums; }
+.cal-item__body { flex: 1; }
+.cal-item__title { font-size: 14px; font-weight: 500; }
+.cal-item__sub { font-size: 12px; color: #64748b; margin-top: 2px; }
+.cal-dday { font-size: 11px; padding: 1px 6px; background: #fff; border: 1px solid #d8dde5; border-radius: 3px; color: #475569; margin-left: 4px; }
+.cal-empty { color: #9ca3af; padding: 16px; text-align: center; list-style: none; }
+
+@media (max-width: 600px) {
+  .cal-cell { min-height: 56px; }
+  .cal-day { font-size: 11px; }
+  .cal-item__date { min-width: 76px; font-size: 12px; }
+  .cal-item__title { font-size: 13px; }
+}
