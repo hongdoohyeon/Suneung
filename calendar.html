@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0a0a0a" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net; style-src 'self' https://cdn.jsdelivr.net 'unsafe-inline'; font-src https://cdn.jsdelivr.net data:; img-src 'self' data: https:; connect-src 'self'; object-src 'none'; base-uri 'self'" />
+  <meta name="description" content="2026 학평·평가원·수능 시행일 + 수시·정시 원서접수·합격자 발표 일정 한눈에." />
+
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="canonical" href="https://kicegg.com/calendar.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="입시 캘린더 — 기출해체분석기" />
+  <meta property="og:description" content="2026 학평·평가원·수능 시행일 + 수시·정시 일정." />
+  <meta property="og:url" content="https://kicegg.com/calendar.html" />
+
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+  <link rel="stylesheet" crossorigin integrity="sha384-uGEvnSEpW2nM9xJFsrxrwakwrk9QdDTQIBJh0hVMu90OaVyMAMpAK1rIn0/Kh1/k"
+        href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+
+  <title>입시 캘린더 — 기출해체분석기</title>
+  <link rel="stylesheet" href="style.css?v=20260508a" />
+  <link rel="stylesheet" href="style-calendar.css?v=20260508a" />
+</head>
+<body class="page-default">
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a href="index.html" class="brand"><span class="brand__name">기출해체분석기</span></a>
+    </div>
+  </header>
+
+  <main class="cal-page">
+    <h1>입시 캘린더</h1>
+    <p class="lead">2026 학평·평가원·수능 시행일 + 수시·정시 주요 일정.</p>
+
+    <div class="cal-controls">
+      <button id="prevMonth" class="cal-nav" aria-label="이전 달">‹</button>
+      <h2 id="monthLabel" class="cal-month-label" aria-live="polite"></h2>
+      <button id="nextMonth" class="cal-nav" aria-label="다음 달">›</button>
+      <button id="todayBtn" class="cal-today" aria-label="오늘로 이동">오늘</button>
+    </div>
+
+    <div id="calendar" class="cal-grid" role="grid" aria-label="월간 캘린더"></div>
+
+    <h2 style="margin-top:32px; font-size:16px">이번 달 일정</h2>
+    <ul id="monthList" class="cal-list"></ul>
+
+    <h2 style="margin-top:32px; font-size:16px">다가오는 시험·일정</h2>
+    <ul id="upcomingList" class="cal-list"></ul>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p class="site-footer__sub">출처: 한국교육과정평가원 / 17개 시도교육청 / 한국대학교육협의회. 일정은 변동 가능.</p>
+    </div>
+  </footer>
+
+  <script type="module" src="lib/calendar-page.js?v=20260508a"></script>
+</body>
+</html>
