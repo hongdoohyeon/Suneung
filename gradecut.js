@@ -1,7 +1,7 @@
 'use strict';
 import { CURRICULUM_CONFIG, EXAM_TYPE_CONFIG, getTypeConf, prettySub } from './config.js';
 import { renderAllAdSlots } from './lib/ads.js';
-import { mountLineup } from './lib/lineup-mount.js?v=20260508m';
+import { mountLineup } from './lib/lineup-mount.js?v=20260508m2';
 
 const DATA_URL = 'data/gradecuts.json';
 const $ = id => document.getElementById(id);
@@ -153,6 +153,25 @@ function renderContent() {
 
   renderSubjects();
   renderTotal();
+  renderProgress();
+}
+
+function renderProgress() {
+  const conf = currConf();
+  if (!conf) return;
+  const subjects = Object.keys(conf.subjects);
+  const totalSlots = subjects.reduce((acc, s) => acc + slotsFor(s), 0);
+  let filled = 0;
+  for (const subj of subjects) {
+    const slots = slotsFor(subj);
+    for (let i = 0; i < slots; i++) {
+      const slot = getSlot(subj, i);
+      if (slot.score != null) filled++;
+    }
+  }
+  const el = $('gcProgress');
+  if (!el) return;
+  el.textContent = `입력 ${filled}/${totalSlots}개 영역 · 탐구 최대 2과목 · 입력 즉시 계산`;
 }
 
 function renderSubjects() {
@@ -325,7 +344,9 @@ function computePercentile(score, grade, cuts, fullScore) {
 }
 
 // ── 종합 분석 ─────────────────────────────────────────────
-function renderTotal() {
+function renderTotal() { renderProgressMaybe(); _renderTotal(); }
+function renderProgressMaybe() { try { renderProgress(); } catch {} }
+function _renderTotal() {
   const conf = currConf();
   const entries = [];   // { subject, slotIdx, subSubject, score, grade, pct, fullScore, color, cut }
   for (const subj of Object.keys(conf.subjects)) {
