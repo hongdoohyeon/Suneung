@@ -3653,10 +3653,27 @@ body.is-sheet-open { overflow: hidden; touch-action: none; }
 }
 .lineup-note {
   margin: 12px 0 0;
-  font-size: 11px;
+  font-size: 11.5px;
   color: var(--ink-5);
-  line-height: 1.5;
+  line-height: 1.55;
+  border-top: 1px solid var(--line);
+  padding-top: 10px;
 }
+.lineup-note summary {
+  font-weight: 600;
+  color: var(--ink-3);
+  cursor: pointer;
+  user-select: none;
+  padding: 2px 0;
+}
+.lineup-note summary:hover { color: var(--ink-1); }
+.lineup-note ul {
+  margin: 8px 0 0;
+  padding-left: 18px;
+  list-style: disc;
+}
+.lineup-note li { margin-bottom: 4px; }
+.lineup-note strong { color: var(--ink-2); font-weight: 600; }
 
 @media (max-width: 600px) {
   .lineup-section { padding: 14px; }
