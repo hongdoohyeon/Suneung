@@ -2,14 +2,14 @@
 import {
   CURRICULUM_CONFIG, EXAM_TYPE_CONFIG, TAB_CONFIG,
   getTypeConf, getGroupConf, getTabConf, legacyTabKey, prettySub,
-} from './config.js';
+} from './config.js?v=20260508i';
 import {
   state, PAGE_SIZE,
   resetFilters, toggleMulti,
   getDisplayYear, availableGradeYears,
   filtered, subjectCounts, buildMockData,
   tabCurriculums, tabCurriculumConfs, tabSubjects, curriculumOfGradeYear,
-} from './state.js';
+} from './state.js?v=20260508i';
 import { renderAllAdSlots } from './lib/ads.js';
 
 const tabConf = () => getTabConf(state.tab);
@@ -196,7 +196,8 @@ function renderSubtypeChips() {
   const container = $('typeFilter');
   const g         = getGroupConf(state.typeGroup);
   // type 이 1개뿐인 그룹 (사관/경찰 1차시험, LEET/MEET 본시험) 은 칩 자체를 숨김 — 의미 없는 '전체/본시험' 두 칸 회피
-  const skip = state.typeGroup === 'all' || tabIsSingleType() || (g?.types?.length ?? 0) <= 1;
+  // educationOnly 탭(고1/고2)은 typeGroup 칩만 숨기고 월 chip 은 그대로 보여야 함 → tabIsSingleType() 조건 제외
+  const skip = state.typeGroup === 'all' || (g?.types?.length ?? 0) <= 1;
   if (skip) {
     row.classList.remove('is-open');
     container.innerHTML = '';
