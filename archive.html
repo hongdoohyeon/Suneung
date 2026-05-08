@@ -76,13 +76,26 @@
         <span class="brand__name">기출해체분석기</span>
       </a>
 
-      <nav class="header-nav">
-        <a href="archive.html" class="is-active">기출 검색</a>
-        <a href="gradecut.html">모의지원</a>
-        <a href="patchnotes.html">입시패치노트</a>
+      <nav class="header-nav" aria-label="주요 메뉴">
+        <a href="archive.html" class="is-active">기출검색</a>
+        <a href="gradecut.html">등급컷</a>
+        <a href="admissions.html">정시반영</a>
+        <a href="patchnotes.html">패치노트</a>
       </nav>
     </div>
   </header>
+
+  <section class="page-header" aria-labelledby="archive-title">
+    <div class="page-header__inner">
+      <h1 class="page-header__title" id="archive-title">기출검색</h1>
+      <p class="page-header__sub">수능·평가원·교육청·사관·경찰대·LEET·MEET 기출 PDF 아카이브 — 학년도, 월, 과목으로 필터.</p>
+      <div class="page-header__meta">
+        <span><strong>3,222</strong>건 수록</span>
+        <span>최근 업데이트 · <strong>2026-05-08</strong></span>
+        <span>5월 학평 추가</span>
+      </div>
+    </div>
+  </section>
 
   <!-- ── Curriculum Nav ─────────────────────────────────── -->
   <nav class="curriculum-nav" id="curriculumTabs" aria-label="시험 선택">
@@ -191,7 +204,7 @@
             <circle cx="9" cy="9" r="6" stroke="currentColor" stroke-width="1.6"/>
             <path d="M13.5 13.5L17 17" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
           </svg>
-          <input id="searchInput" type="text" placeholder="과목·연도로 검색" autocomplete="off" />
+          <input id="searchInput" type="text" placeholder="2025 9월 국어, LEET 언어이해" autocomplete="off" />
           <button id="clearSearch" class="search__clear" style="display:none" aria-label="검색 지우기">×</button>
         </div>
         <button class="btn btn--ghost filter-toggle-inline" id="filterToggleInline"
@@ -276,6 +289,6 @@
   </footer>
 
   <script type="module" src="app.js?v=20260508h"></script>
-  <script type="module" src="lib/dday-mount.js?v=20260508e"></script>
+  <script type="module" src="lib/dday-mount.js?v=20260508h"></script>
 </body>
 </html>

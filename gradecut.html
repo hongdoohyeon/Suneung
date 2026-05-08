@@ -49,7 +49,7 @@
         href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
 
   <title>등급컷 계산기 — 기출해체분석기</title>
-  <link rel="stylesheet" href="style.css?v=20260508f" />
+  <link rel="stylesheet" href="style.css?v=20260508h" />
   <link rel="modulepreload" href="gradecut.js?v=20260508a" />
   <link rel="modulepreload" href="config.js?v=20260508a" />
 </head>
@@ -68,10 +68,11 @@
         </span>
         <span class="brand__name">기출해체분석기</span>
       </a>
-      <nav class="header-nav">
-        <a href="archive.html">기출 검색</a>
-        <a href="gradecut.html" class="is-active">모의지원</a>
-        <a href="patchnotes.html">입시패치노트</a>
+      <nav class="header-nav" aria-label="주요 메뉴">
+        <a href="archive.html">기출검색</a>
+        <a href="gradecut.html" class="is-active">등급컷</a>
+        <a href="admissions.html">정시반영</a>
+        <a href="patchnotes.html">패치노트</a>
       </nav>
       <button class="icon-btn" id="filterToggle" aria-label="시험 선택 열기" type="button">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
@@ -82,6 +83,17 @@
       </button>
     </div>
   </header>
+
+  <section class="page-header" aria-labelledby="gradecut-title">
+    <div class="page-header__inner">
+      <h1 class="page-header__title" id="gradecut-title">등급컷·백분위 계산</h1>
+      <p class="page-header__sub">시험을 선택하고 영역별 원점수를 입력하면 표준점수·백분위·등급을 계산합니다.</p>
+      <div class="page-header__meta">
+        <span>2008학년도 ~ 2026학년도 수능·평가원·학평</span>
+        <span>사관·경찰대·LEET·MEET 일부 포함</span>
+      </div>
+    </div>
+  </section>
 
   <main class="container main">
 
@@ -178,6 +190,6 @@
   </footer>
 
   <script type="module" src="gradecut.js?v=20260508a"></script>
-  <script type="module" src="lib/dday-mount.js?v=20260508e"></script>
+  <script type="module" src="lib/dday-mount.js?v=20260508h"></script>
 </body>
 </html>

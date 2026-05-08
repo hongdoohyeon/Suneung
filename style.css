@@ -1979,12 +1979,13 @@ body.is-sheet-open { overflow: hidden; touch-action: none; }
   .subj-input  { font-size: 16px; }
 }
 
-/* 헤더 — 좁은 화면에서 nav 라벨이 폭을 잠식하는 문제 해결: nav 자체 숨김
-   (등급컷은 index 카드/footer에서 진입) */
+/* 헤더 — 좁은 화면에서 nav 유지 (라벨/패딩 축소 + brand-name 숨김) */
 @media (max-width: 600px) {
   .site-header__inner { gap: 8px; }
-  .header-nav         { display: none; }
   .icon-btn           { width: 36px; height: 36px; }
+  .brand__name        { display: none; }
+  .header-nav         { gap: 0; }
+  .header-nav a       { padding: 6px 8px; font-size: 12px; }
 }
 
 /* 활성 태그 줄바꿈 — 좁은 화면에서 readable */
@@ -3389,4 +3390,103 @@ body.is-sheet-open { overflow: hidden; touch-action: none; }
 @media (max-width: 600px) {
   .page-landing .header-nav { gap: 0; }
   .page-landing .header-nav a { padding: 6px 8px; font-size: 12.5px; }
+}
+
+/* ╔══════════════════════════════════════════════════════════
+   ║  Page Header (내부 페이지 공통 — h1 + sub + meta)
+   ╚══════════════════════════════════════════════════════════ */
+.page-header {
+  border-bottom: 1px solid var(--line);
+  background: var(--bg);
+}
+.page-header__inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 28px 24px 22px;
+}
+.page-header__title {
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  color: var(--ink);
+  margin: 0 0 4px;
+  line-height: 1.25;
+}
+.page-header__sub {
+  font-size: 13.5px;
+  color: var(--ink-4);
+  font-weight: 500;
+  margin: 0;
+  line-height: 1.5;
+}
+.page-header__meta {
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 14px;
+  font-size: 12px;
+  color: var(--ink-5);
+  font-weight: 500;
+}
+.page-header__meta strong {
+  color: var(--ink-2);
+  font-weight: 700;
+}
+@media (max-width: 600px) {
+  .page-header__inner { padding: 20px 16px 16px; }
+  .page-header__title { font-size: 19px; }
+  .page-header__sub   { font-size: 12.5px; }
+  .page-header__meta  { font-size: 11.5px; gap: 4px 12px; }
+}
+
+/* ╔══════════════════════════════════════════════════════════
+   ║  Trust Signals (메인 페이지 — footer 위 신뢰 정보)
+   ╚══════════════════════════════════════════════════════════ */
+.trust-signals {
+  margin-top: 56px;
+  padding-top: 28px;
+  border-top: 1px solid var(--line);
+}
+.trust-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  margin-bottom: 18px;
+}
+.trust-stat {
+  text-align: center;
+  padding: 0 8px;
+}
+.trust-stat + .trust-stat { border-left: 1px solid var(--line); }
+.trust-stat__value {
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--ink);
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  font-feature-settings: 'tnum' 1;
+}
+.trust-stat__label {
+  font-size: 11px;
+  color: var(--ink-5);
+  font-weight: 500;
+  margin-top: 4px;
+  letter-spacing: 0.02em;
+}
+.trust-sources {
+  font-size: 12px;
+  color: var(--ink-5);
+  text-align: center;
+  line-height: 1.6;
+  font-weight: 500;
+}
+.trust-sources strong {
+  color: var(--ink-3);
+  font-weight: 600;
+}
+@media (max-width: 600px) {
+  .trust-signals { margin-top: 36px; padding-top: 20px; }
+  .trust-stat__value { font-size: 17px; }
+  .trust-stat__label { font-size: 10.5px; }
+  .trust-sources { font-size: 11px; }
 }

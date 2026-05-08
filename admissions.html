@@ -16,7 +16,7 @@
         href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
 
   <title>정시 반영비율 — 기출해체분석기</title>
-  <link rel="stylesheet" href="style.css?v=20260508a" />
+  <link rel="stylesheet" href="style.css?v=20260508h" />
   <link rel="stylesheet" href="style-admissions.css?v=20260508a" />
 </head>
 <body class="page-default">
@@ -24,15 +24,38 @@
   <header class="site-header">
     <div class="container site-header__inner">
       <a href="index.html" class="brand">
+        <span class="brand__mark" aria-hidden="true">
+          <svg viewBox="0 0 32 32" width="22" height="22" fill="none">
+            <rect width="32" height="32" rx="7" fill="currentColor"/>
+            <rect x="8"  y="14" width="3" height="11" rx="1" fill="#fff" opacity=".45"/>
+            <rect x="14" y="9"  width="3" height="16" rx="1" fill="#fff" opacity=".7"/>
+            <rect x="20" y="6"  width="3" height="19" rx="1" fill="#fff"/>
+          </svg>
+        </span>
         <span class="brand__name">기출해체분석기</span>
       </a>
+      <nav class="header-nav" aria-label="주요 메뉴">
+        <a href="archive.html">기출검색</a>
+        <a href="gradecut.html">등급컷</a>
+        <a href="admissions.html" class="is-active">정시반영</a>
+        <a href="patchnotes.html">패치노트</a>
+      </nav>
     </div>
   </header>
 
-  <main class="adm-page">
-    <h1>정시 반영비율 (자동 추출)</h1>
-    <p class="lead">2026학년도 정시 모집요강 PDF에서 pdfplumber로 자동 추출한 학교별 학과 반영비율과 영어 등급 환산표.</p>
+  <section class="page-header" aria-labelledby="adm-title">
+    <div class="page-header__inner">
+      <h1 class="page-header__title" id="adm-title">정시 반영비율</h1>
+      <p class="page-header__sub">2026학년도 정시 모집요강 기준 — 학교별 학과 영역 반영비율과 영어 등급 환산표.</p>
+      <div class="page-header__meta">
+        <span><strong>86</strong>개교 수록</span>
+        <span>PDF 자동 추출 + 수동 검증</span>
+        <span>출처 · 각 대학 입학처</span>
+      </div>
+    </div>
+  </section>
 
+  <main class="adm-page">
     <div class="adm-disclaimer">
       <strong>⚠️ 이 데이터는 PDF 표 자동 추출 결과로 정확성이 보장되지 않습니다.</strong>
       모집단위 라벨이 부정확하거나 일부 칸이 누락될 수 있으니 실제 지원 시 학교 입학처 공식 모집요강을 반드시 확인하세요.
@@ -60,5 +83,6 @@
   </footer>
 
   <script type="module" src="lib/admissions-info.js?v=20260508a"></script>
+  <script type="module" src="lib/dday-mount.js?v=20260508h"></script>
 </body>
 </html>

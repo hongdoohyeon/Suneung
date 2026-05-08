@@ -33,7 +33,7 @@
         href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
 
   <title>입시패치노트 — 기출해체분석기</title>
-  <link rel="stylesheet" href="style.css?v=20260505a" />
+  <link rel="stylesheet" href="style.css?v=20260508h" />
   <link rel="modulepreload" href="patchnotes.js?v=20260508a" />
 </head>
 <body class="page-patchnotes">
@@ -51,19 +51,23 @@
         </span>
         <span class="brand__name">기출해체분석기</span>
       </a>
-      <nav class="header-nav">
-        <a href="archive.html">기출 검색</a>
-        <a href="gradecut.html">모의지원</a>
-        <a href="patchnotes.html" class="is-active">입시패치노트</a>
+      <nav class="header-nav" aria-label="주요 메뉴">
+        <a href="archive.html">기출검색</a>
+        <a href="gradecut.html">등급컷</a>
+        <a href="admissions.html">정시반영</a>
+        <a href="patchnotes.html" class="is-active">패치노트</a>
       </nav>
     </div>
   </header>
 
+  <section class="page-header" aria-labelledby="pn-title">
+    <div class="page-header__inner">
+      <h1 class="page-header__title" id="pn-title">입시패치노트</h1>
+      <p class="page-header__sub">사이트 업데이트·입시 변경사항·자료 갱신 기록을 시간 역순으로 정리합니다.</p>
+    </div>
+  </section>
+
   <main class="container patchnotes">
-    <header class="patchnotes__head">
-      <h1 class="patchnotes__title">입시패치노트</h1>
-      <p class="patchnotes__sub">사이트 업데이트 · 입시 변경사항 · 자료 갱신 기록.</p>
-    </header>
     <ol class="patchnotes__list" id="patchnotesList">
       <li class="patchnotes__skeleton"></li>
       <li class="patchnotes__skeleton"></li>
@@ -84,6 +88,6 @@
   </footer>
 
   <script type="module" src="patchnotes.js?v=20260508a"></script>
-  <script type="module" src="lib/dday-mount.js?v=20260508e"></script>
+  <script type="module" src="lib/dday-mount.js?v=20260508h"></script>
 </body>
 </html>
