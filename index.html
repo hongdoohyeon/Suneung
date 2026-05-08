@@ -64,7 +64,7 @@
         href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
 
   <title>기출해체분석기</title>
-  <link rel="stylesheet" href="style.css?v=20260508g" />
+  <link rel="stylesheet" href="style.css?v=20260508h" />
 </head>
 <body class="page-landing">
 
@@ -81,73 +81,124 @@
         </span>
         <span class="brand__name">기출해체분석기</span>
       </a>
+      <nav class="header-nav" aria-label="주요 메뉴">
+        <a href="archive.html">기출검색</a>
+        <a href="gradecut.html">등급컷</a>
+        <a href="admissions.html">정시반영</a>
+        <a href="patchnotes.html">패치노트</a>
+      </nav>
     </div>
   </header>
 
-  <main class="landing-min">
-    <section class="hero-min" aria-labelledby="hero-heading">
-      <h1 class="hero-min__title" id="hero-heading">
-        <span class="hero-min__line">기출</span>
-        <span class="hero-min__line hero-min__line--accent">해체분석기</span>
-      </h1>
-      <p class="hero-min__tagline">수능 · LEET · MEET · 사관 · 경찰대 기출 아카이브</p>
+  <main class="dash">
+    <section class="dash-search" aria-labelledby="dash-heading">
+      <p class="dash-eyebrow">수능 · 평가원 · 교육청 · 사관 · 경찰대 · LEET · MEET</p>
+      <h1 class="dash-title" id="dash-heading">기출 PDF와 등급컷을 바로 찾기</h1>
+      <p class="dash-sub">학년도, 월, 과목, 시험명으로 검색하세요.</p>
+
+      <form class="dash-searchbar" action="archive.html" method="get" role="search">
+        <span class="dash-searchbar__icon" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+               stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="7"/>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+          </svg>
+        </span>
+        <input type="search" name="search" class="dash-searchbar__input"
+               placeholder="2025 9월 국어, LEET 언어이해" autocomplete="off"
+               aria-label="기출 검색" />
+        <button type="submit" class="dash-searchbar__btn">검색</button>
+      </form>
+
+      <nav class="dash-quickfilters" aria-label="빠른 필터">
+        <a href="archive.html?tab=senior&amp;typeGroup=suneung&amp;type=csat" class="dash-chip">수능</a>
+        <a href="archive.html?tab=senior&amp;typeGroup=suneung&amp;type=june" class="dash-chip">6모</a>
+        <a href="archive.html?tab=senior&amp;typeGroup=suneung&amp;type=sept" class="dash-chip">9모</a>
+        <a href="archive.html?tab=senior&amp;typeGroup=education" class="dash-chip">교육청</a>
+        <a href="archive.html?tab=mp&amp;typeGroup=military" class="dash-chip">사관학교</a>
+        <a href="archive.html?tab=mp&amp;typeGroup=police" class="dash-chip">경찰대</a>
+        <a href="archive.html?tab=gradschool&amp;typeGroup=leet" class="dash-chip">LEET</a>
+        <a href="archive.html?tab=gradschool&amp;typeGroup=meet" class="dash-chip">MEET</a>
+      </nav>
 
       <div id="ddayBanner" class="dday-banner" aria-live="polite"></div>
+    </section>
 
-      <nav class="cta-cards" aria-label="기출해체분석기 메뉴">
-        <a href="archive.html" class="cta-card cta-card--dark" aria-label="기출 검색 페이지로 이동">
-          <span class="cta-card__eyebrow">아카이브</span>
-          <span class="cta-card__head">
-            <span class="cta-card__icon-wrap" aria-hidden="true">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-                <polyline points="14 2 14 8 20 8"/>
-                <line x1="9" y1="13" x2="15" y2="13"/>
-                <line x1="9" y1="17" x2="15" y2="17"/>
-              </svg>
-            </span>
-            <svg class="cta-card__arrow" aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <line x1="5" y1="12" x2="19" y2="12"/>
-              <polyline points="12 5 19 12 12 19"/>
-            </svg>
-          </span>
-          <h2 class="cta-card__title">기출 검색</h2>
-          <p class="cta-card__sub">평가원 · 교육청 · 사관·경찰 · LEET · MEET<br/>학년도와 영역으로 빠르게 필터링.</p>
-        </a>
+    <section class="dash-cards" aria-label="주요 기능">
+      <a href="archive.html" class="dash-card">
+        <span class="dash-card__icon" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+               stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+            <polyline points="14 2 14 8 20 8"/>
+            <line x1="9" y1="13" x2="15" y2="13"/>
+            <line x1="9" y1="17" x2="15" y2="17"/>
+          </svg>
+        </span>
+        <div class="dash-card__body">
+          <h2 class="dash-card__title">기출 아카이브</h2>
+          <p class="dash-card__sub">3,200+ PDF · 평가원·교육청·사관·경찰·LEET·MEET</p>
+        </div>
+        <svg class="dash-card__arrow" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
 
-        <a href="gradecut.html" class="cta-card cta-card--light" aria-label="모의지원 페이지로 이동">
-          <span class="cta-card__eyebrow">계산기</span>
-          <span class="cta-card__head">
-            <span class="cta-card__icon-wrap" aria-hidden="true">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="12" y1="20" x2="12" y2="10"/>
-                <line x1="18" y1="20" x2="18" y2="4"/>
-                <line x1="6"  y1="20" x2="6"  y2="16"/>
-                <line x1="3"  y1="20" x2="21" y2="20"/>
-              </svg>
-            </span>
-            <svg class="cta-card__arrow" aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <line x1="5" y1="12" x2="19" y2="12"/>
-              <polyline points="12 5 19 12 12 19"/>
-            </svg>
-          </span>
-          <h2 class="cta-card__title">모의지원</h2>
-          <p class="cta-card__sub">원점수 입력 → 등급·백분위 산출<br/>상위 백분율과 위치를 시각화.</p>
-        </a>
-      </nav>
+      <a href="gradecut.html" class="dash-card">
+        <span class="dash-card__icon" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+               stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="12" y1="20" x2="12" y2="10"/>
+            <line x1="18" y1="20" x2="18" y2="4"/>
+            <line x1="6"  y1="20" x2="6"  y2="16"/>
+            <line x1="3"  y1="20" x2="21" y2="20"/>
+          </svg>
+        </span>
+        <div class="dash-card__body">
+          <h2 class="dash-card__title">등급컷·백분위</h2>
+          <p class="dash-card__sub">원점수 입력 → 표준점수·백분위·등급 산출</p>
+        </div>
+        <svg class="dash-card__arrow" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
 
-      <nav class="hero-min__sublinks" aria-label="추가 메뉴">
-        <a href="patchnotes.html" class="hero-min__sublink">입시패치노트</a>
-        <a href="admissions.html" class="hero-min__sublink">정시반영비율</a>
-        <a href="calendar.html" class="hero-min__sublink">입시캘린더</a>
-      </nav>
+      <a href="admissions.html" class="dash-card">
+        <span class="dash-card__icon" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+               stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+            <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+          </svg>
+        </span>
+        <div class="dash-card__body">
+          <h2 class="dash-card__title">정시 반영비율</h2>
+          <p class="dash-card__sub">86개교 학과별 영역 반영비율 · 영어 환산표</p>
+        </div>
+        <svg class="dash-card__arrow" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
 
-      <div id="recentMount" class="hero-min__recent"></div>
+      <a href="patchnotes.html" class="dash-card">
+        <span class="dash-card__icon" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+               stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+            <polyline points="14 2 14 8 20 8"/>
+            <line x1="16" y1="13" x2="8" y2="13"/>
+            <line x1="16" y1="17" x2="8" y2="17"/>
+          </svg>
+        </span>
+        <div class="dash-card__body">
+          <h2 class="dash-card__title">입시패치노트</h2>
+          <p class="dash-card__sub">교육과정·시험 변경점 · 자료 추가 이력</p>
+        </div>
+        <svg class="dash-card__arrow" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </section>
+
+    <section class="dash-recent" aria-label="최근 자료">
+      <div id="recentMount"></div>
     </section>
   </main>
 
-  <script type="module" src="lib/recent-mount.js?v=20260508g"></script>
-  <script type="module" src="lib/calendar-mount.js?v=20260508g"></script>
+  <script type="module" src="lib/recent-mount.js?v=20260508h"></script>
+  <script type="module" src="lib/calendar-mount.js?v=20260508h"></script>
 
   <footer class="site-footer site-footer--landing">
     <div class="container">
@@ -158,6 +209,6 @@
     </div>
   </footer>
 
-  <script type="module" src="lib/dday-mount.js?v=20260508g"></script>
+  <script type="module" src="lib/dday-mount.js?v=20260508h"></script>
 </body>
 </html>
