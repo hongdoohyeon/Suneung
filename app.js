@@ -45,21 +45,39 @@ const $ = id => document.getElementById(id);
 function applyUrlTab() {
   const params = new URLSearchParams(location.search);
   const raw = params.get('tab');
-  if (!raw) return;
-  // 옛 URL (?tab=2015 / ?tab=사관 등) 들어오면 새 탭 키로 매핑
-  const tab = legacyTabKey(raw);
-  if (!getTabConf(tab)) return;
+  if (raw) {
+    // 옛 URL (?tab=2015 / ?tab=사관 등) 들어오면 새 탭 키로 매핑
+    const tab = legacyTabKey(raw);
+    if (getTabConf(tab)) {
+      state.tab = tab;
+      document.querySelectorAll('.nav-tab').forEach(b => {
+        b.classList.toggle('is-active', b.dataset.tab === tab);
+      });
+      if (tabIsSingleType()) {
+        state.typeGroup = tabAvailableTypeGroups()[0];
+        state.type      = 'all';
+      } else if (tabConf()?.defaultTypeGroup) {
+        state.typeGroup = tabConf().defaultTypeGroup;
+      }
+    }
+  }
 
-  state.tab = tab;
-  document.querySelectorAll('.nav-tab').forEach(b => {
-    b.classList.toggle('is-active', b.dataset.tab === tab);
-  });
-  if (tabIsSingleType()) {
-    state.typeGroup = tabAvailableTypeGroups()[0];
-    state.type      = 'all';
-  } else if (tabConf()?.defaultTypeGroup) {
-    // senior 등: 첫 진입 시 디폴트 typeGroup 적용 (예: 고3 → 평가원 우선)
-    state.typeGroup = tabConf().defaultTypeGroup;
+  // index.html 빠른 필터 → typeGroup·type 직접 지정 가능
+  const typeGroup = params.get('typeGroup');
+  if (typeGroup) state.typeGroup = typeGroup;
+  const type = params.get('type');
+  if (type) state.type = type;
+
+  // 검색 — ?search= 또는 ?q=
+  const search = params.get('search') || params.get('q');
+  if (search) {
+    state.query = search.trim();
+    const input = document.getElementById('searchInput');
+    if (input) {
+      input.value = search;
+      const clear = document.getElementById('clearSearch');
+      if (clear) clear.style.display = 'flex';
+    }
   }
 }
 
