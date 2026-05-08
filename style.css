@@ -1979,13 +1979,19 @@ body.is-sheet-open { overflow: hidden; touch-action: none; }
   .subj-input  { font-size: 16px; }
 }
 
-/* 헤더 — 좁은 화면에서 nav 유지 (라벨/패딩 축소 + brand-name 숨김) */
-@media (max-width: 600px) {
-  .site-header__inner { gap: 8px; }
-  .icon-btn           { width: 36px; height: 36px; }
-  .brand__name        { display: none; }
-  .header-nav         { gap: 0; }
-  .header-nav a       { padding: 6px 8px; font-size: 12px; }
+/* 헤더 — 좁은 화면에서 nav 라벨 압축 + 보조 메뉴(정시반영·패치노트) 숨김 */
+@media (max-width: 700px) {
+  .site-header__inner       { gap: 8px; flex-wrap: nowrap; }
+  .icon-btn                 { width: 36px; height: 36px; }
+  .brand__name              { display: none; }
+  .header-nav               { gap: 0; flex-wrap: nowrap; }
+  .header-nav a             { padding: 6px 10px; font-size: 12.5px; white-space: nowrap; }
+  .header-nav__hide-sm      { display: none; }
+}
+
+/* D-day 헤더 칩 — 좁은 화면에선 숨김 (메인 hero 의 본문 D-day 라인은 유지) */
+@media (max-width: 900px) {
+  .dday-chip { display: none; }
 }
 
 /* 활성 태그 줄바꿈 — 좁은 화면에서 readable */
@@ -3385,11 +3391,7 @@ body.is-sheet-open { overflow: hidden; touch-action: none; }
   display: flex;
   gap: 2px;
   align-items: center;
-  flex-wrap: wrap;
-}
-@media (max-width: 600px) {
-  .page-landing .header-nav { gap: 0; }
-  .page-landing .header-nav a { padding: 6px 8px; font-size: 12.5px; }
+  flex-wrap: nowrap;
 }
 
 /* ╔══════════════════════════════════════════════════════════

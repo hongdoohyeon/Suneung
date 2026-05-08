@@ -5,8 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#0a0a0a" />
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net; style-src 'self' https://cdn.jsdelivr.net 'unsafe-inline'; font-src https://cdn.jsdelivr.net data:; img-src 'self' data: https:; connect-src 'self'; object-src 'none'; base-uri 'self'" />
-  <meta name="description" content="2026학년도 정시 모집요강 자동 추출 — 학교별 학과 반영비율 + 영어/한국사 감점 + 탐구 가산점." />
-  <meta name="description" content="2026학년도 정시 모집요강 자동 추출 — 학교별 학과 반영비율 + 영어 등급 환산표." />
+  <meta name="description" content="2026학년도 정시 모집요강 기준 — 학교별 학과 반영비율, 영어 등급 환산, 한국사 감점, 탐구 가산점." />
 
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <link rel="canonical" href="https://kicegg.com/admissions.html" />
@@ -16,8 +15,8 @@
         href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
 
   <title>정시 반영비율 — 기출해체분석기</title>
-  <link rel="stylesheet" href="style.css?v=20260508h" />
-  <link rel="stylesheet" href="style-admissions.css?v=20260508a" />
+  <link rel="stylesheet" href="style.css?v=20260508i" />
+  <link rel="stylesheet" href="style-admissions.css?v=20260508i" />
 </head>
 <body class="page-default">
 
@@ -38,7 +37,7 @@
         <a href="archive.html">기출검색</a>
         <a href="gradecut.html">등급컷</a>
         <a href="admissions.html" class="is-active">정시반영</a>
-        <a href="patchnotes.html">패치노트</a>
+        <a href="patchnotes.html" class="header-nav__hide-sm">패치노트</a>
       </nav>
     </div>
   </header>
@@ -56,9 +55,9 @@
   </section>
 
   <main class="adm-page">
-    <div class="adm-disclaimer">
-      <strong>⚠️ 이 데이터는 PDF 표 자동 추출 결과로 정확성이 보장되지 않습니다.</strong>
-      모집단위 라벨이 부정확하거나 일부 칸이 누락될 수 있으니 실제 지원 시 학교 입학처 공식 모집요강을 반드시 확인하세요.
+    <div class="adm-notice">
+      <strong>자료 이용 안내</strong>
+      <span>모집요강 PDF에서 추출한 참고용 데이터입니다. 실제 지원 전에는 각 대학 입학처의 공식 모집요강을 반드시 확인하세요.</span>
     </div>
 
     <div class="adm-controls">
@@ -66,23 +65,23 @@
         <option value="">학교 선택...</option>
       </select>
       <input id="schoolFilter" aria-label="학교 검색" placeholder="학교 검색 (한글/영문)..." />
-      <button id="compareBtn" type="button" aria-label="비교 모드 토글" style="padding:8px 14px;border:1px solid #2a5;background:#2a5;color:#fff;border-radius:6px;cursor:pointer">비교 모드</button>
+      <button id="compareBtn" type="button" class="adm-compare-btn" aria-label="비교 모드 토글">비교 모드</button>
     </div>
-    <div id="compareList" style="display:none; margin-bottom:16px; padding:8px; background:#f0f7f0; border-radius:6px; font-size:12px;"></div>
-    <div style="font-size:11px; color:#888; margin-bottom:14px">
-      ★ 학과별 비율 추출 / ○ 영어 등급만 / <span style="background:#3a6bbf;color:#fff;padding:1px 6px;border-radius:3px">검증됨</span> = 수동 검증된 manual 데이터
-    </div>
+    <div id="compareList" class="adm-compare-list"></div>
+    <p class="adm-legend">
+      ★ 학과별 비율 추출 · ○ 영어 등급만 · <span class="adm-legend__verified">검증됨</span> = 수동 검증된 데이터
+    </p>
 
     <div id="info" class="adm-empty">학교를 선택하세요.</div>
   </main>
 
   <footer class="site-footer">
     <div class="container">
-      <p class="site-footer__sub">출처 · 각 대학 입학처 + megastudy CDN. 자동 추출 데이터 — 정확성 검증 필요.</p>
+      <p class="site-footer__sub">출처 · 각 대학 입학처 자료 기반. 일부 보조 데이터 사용.</p>
     </div>
   </footer>
 
-  <script type="module" src="lib/admissions-info.js?v=20260508a"></script>
+  <script type="module" src="lib/admissions-info.js?v=20260508i"></script>
   <script type="module" src="lib/dday-mount.js?v=20260508h"></script>
 </body>
 </html>
