@@ -7,7 +7,7 @@
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net; style-src 'self' https://cdn.jsdelivr.net 'unsafe-inline'; font-src https://cdn.jsdelivr.net data:; img-src 'self' data: https:; connect-src 'self' https://suneung-files.hdh061224.workers.dev https://cdn.jsdelivr.net; media-src 'self' https://suneung-files.hdh061224.workers.dev; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'self'" />
   <meta name="referrer" content="strict-origin-when-cross-origin" />
   <meta name="naver-site-verification" content="b3138c38039611bed2ce955aa7102ab33011cf14" />
-  <meta name="description" content="등급컷 계산기 — 한 시험 전체 점수를 입력하면 영역별 등급과 종합 백분위를 해체해 보여드립니다. 수능·평가원·교육청·LEET·MEET 지원." />
+  <meta name="description" content="정시 모의지원 — 점수 입력 → 영역별 등급·백분위 → 86개교 학과별 라인 분석(안정·적정·소신). 수능·평가원·학평 지원." />
 
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <link rel="apple-touch-icon" href="favicon.svg" />
@@ -16,7 +16,7 @@
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="기출해체분석기" />
   <meta property="og:title" content="등급컷 계산기 — 기출해체분석기" />
-  <meta property="og:description" content="한 시험 전체 점수를 입력하면 영역별 등급과 종합 백분위를 해체해 보여드립니다. 수능·평가원·교육청·LEET·MEET 지원." />
+  <meta property="og:description" content="정시 모의지원 — 점수 입력 → 영역별 등급·백분위 → 86개교 학과별 라인 분석." />
   <meta property="og:url" content="https://kicegg.com/gradecut.html" />
   <meta property="og:image" content="https://kicegg.com/og-image.svg" />
   <meta property="og:image:width" content="1200" />
@@ -24,7 +24,7 @@
   <meta property="og:locale" content="ko_KR" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="등급컷 계산기 — 기출해체분석기" />
-  <meta name="twitter:description" content="점수 입력 → 영역별 등급 + 종합 백분위." />
+  <meta name="twitter:description" content="점수 입력 → 등급·백분위 + 학과별 라인 분석." />
   <meta name="twitter:image" content="https://kicegg.com/og-image.svg" />
   <meta name="twitter:image:alt" content="등급컷 계산기 — 점수 입력으로 영역별 등급과 종합 백분위 산출" />
 
@@ -48,8 +48,8 @@
   <link rel="stylesheet" crossorigin integrity="sha384-uGEvnSEpW2nM9xJFsrxrwakwrk9QdDTQIBJh0hVMu90OaVyMAMpAK1rIn0/Kh1/k"
         href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
 
-  <title>등급컷 계산기 — 기출해체분석기</title>
-  <link rel="stylesheet" href="style.css?v=20260508i" />
+  <title>정시 모의지원 — 기출해체분석기</title>
+  <link rel="stylesheet" href="style.css?v=20260508j" />
   <link rel="modulepreload" href="gradecut.js?v=20260508a" />
   <link rel="modulepreload" href="config.js?v=20260508i" />
 </head>
@@ -70,7 +70,7 @@
       </a>
       <nav class="header-nav" aria-label="주요 메뉴">
         <a href="archive.html">기출검색</a>
-        <a href="gradecut.html" class="is-active">등급컷</a>
+        <a href="gradecut.html" class="is-active">모의지원</a>
         <a href="admissions.html" class="header-nav__hide-sm">정시반영</a>
         <a href="patchnotes.html" class="header-nav__hide-sm">패치노트</a>
       </nav>
@@ -86,11 +86,11 @@
 
   <section class="page-header" aria-labelledby="gradecut-title">
     <div class="page-header__inner">
-      <h1 class="page-header__title" id="gradecut-title">등급컷·백분위 계산</h1>
-      <p class="page-header__sub">시험을 선택하고 영역별 원점수를 입력하면 표준점수·백분위·등급을 계산합니다.</p>
+      <h1 class="page-header__title" id="gradecut-title">정시 모의지원</h1>
+      <p class="page-header__sub">시험과 점수를 입력하면 등급·백분위 산출 후 86개교 학과별 라인(안정·적정·소신)을 분석합니다.</p>
       <div class="page-header__meta">
-        <span>2008학년도 ~ 2026학년도 수능·평가원·학평</span>
-        <span>사관·경찰대·LEET·MEET 일부 포함</span>
+        <span>등급컷 · 2008~2026학년도 수능·평가원·학평</span>
+        <span>라인 산정 · 86개교 반영비율 + 60개교 70%컷</span>
       </div>
     </div>
   </section>
@@ -129,7 +129,7 @@
           </svg>
         </div>
         <p class="gc-empty__title">시험을 선택해 주세요</p>
-        <p class="gc-empty__sub">교육과정 → 학년도 → 시험을 고르면 영역별 점수 입력란이 나타납니다.</p>
+        <p class="gc-empty__sub">학년도와 시험을 고르면 영역별 점수 입력란과 학과별 라인 분석이 나타납니다.</p>
         <button class="btn gc-empty__cta" id="gcEmptyCta" type="button">시험 선택하기</button>
       </div>
 
@@ -189,7 +189,7 @@
     </div>
   </footer>
 
-  <script type="module" src="gradecut.js?v=20260508a"></script>
+  <script type="module" src="gradecut.js?v=20260508j"></script>
   <script type="module" src="lib/dday-mount.js?v=20260508h"></script>
 </body>
 </html>

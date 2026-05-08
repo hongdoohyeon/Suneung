@@ -1,6 +1,7 @@
 'use strict';
 import { CURRICULUM_CONFIG, EXAM_TYPE_CONFIG, getTypeConf, prettySub } from './config.js';
 import { renderAllAdSlots } from './lib/ads.js';
+import { mountLineup } from './lib/lineup-mount.js?v=20260508i';
 
 const DATA_URL = 'data/gradecuts.json';
 const $ = id => document.getElementById(id);
@@ -347,9 +348,11 @@ function renderTotal() {
   const card = $('gcTotalCard');
   if (entries.length === 0) {
     card.style.display = 'none';
+    mountLineup([]);
     return;
   }
   card.style.display = 'block';
+  mountLineup(entries);
 
   $('gcTotalHint').textContent = `${entries.length}개 영역 입력`;
 
