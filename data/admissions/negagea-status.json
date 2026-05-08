@@ -1,0 +1,432 @@
+{
+  "yonsei": {
+    "status": "miss",
+    "url": null,
+    "name": "연세대학교 (서울)"
+  },
+  "korea": {
+    "status": "miss",
+    "url": null,
+    "name": "고려대학교 (서울)"
+  },
+  "snu": {
+    "status": "miss",
+    "url": null,
+    "name": "서울대학교"
+  },
+  "khu": {
+    "status": "ok",
+    "url": "https://cdn013.negagea.net/dgsmidc/omr/seoul/web/univ_info2025/%EA%B2%BD%ED%9D%AC%EB%8C%80%ED%95%99%EA%B5%90/%EA%B2%BD%ED%9D%AC%EB%8C%80%ED%95%99%EA%B5%90_2025%ED%95%99%EB%85%84%EB%8F%84_%EC%A0%95%EC%8B%9C%EC%9E%85%EC%8B%9C%EA%B2%B0%EA%B3%BC.pdf",
+    "name": "경희대학교"
+  },
+  "sogang": {
+    "status": "ok",
+    "url": "https://cdn013.negagea.net/dgsmidc/omr/seoul/web/univ_info2025/%EC%84%9C%EA%B0%95%EB%8C%80%ED%95%99%EA%B5%90/%EC%84%9C%EA%B0%95%EB%8C%80%ED%95%99%EA%B5%90_2025%ED%95%99%EB%85%84%EB%8F%84_%EC%A0%95%EC%8B%9C%EC%9E%85%EC%8B%9C%EA%B2%B0%EA%B3%BC.pdf",
+    "name": "서강대학교"
+  },
+  "cau": {
+    "status": "miss",
+    "url": null,
+    "name": "중앙대학교"
+  },
+  "hanyang": {
+    "status": "ok",
+    "url": "https://cdn013.negagea.net/dgsmidc/omr/seoul/web/univ_info2025/%ED%95%9C%EC%96%91%EB%8C%80%ED%95%99%EA%B5%90/%ED%95%9C%EC%96%91%EB%8C%80%ED%95%99%EA%B5%90_2025%ED%95%99%EB%85%84%EB%8F%84_%EC%A0%95%EC%8B%9C%EC%9E%85%EC%8B%9C%EA%B2%B0%EA%B3%BC.pdf",
+    "name": "한양대학교"
+  },
+  "skku": {
+    "status": "ok",
+    "url": "https://cdn013.negagea.net/dgsmidc/omr/seoul/web/univ_info2025/%EC%84%B1%EA%B7%A0%EA%B4%80%EB%8C%80%ED%95%99%EA%B5%90/%EC%84%B1%EA%B7%A0%EA%B4%80%EB%8C%80%ED%95%99%EA%B5%90_2025%ED%95%99%EB%85%84%EB%8F%84_%EC%A0%95%EC%8B%9C%EC%9E%85%EC%8B%9C%EA%B2%B0%EA%B3%BC.pdf",
+    "name": "성균관대학교"
+  },
+  "unist": {
+    "status": "miss",
+    "url": null,
+    "name": "UNIST"
+  },
+  "kosin": {
+    "status": "miss",
+    "url": null,
+    "name": "고신대학교"
+  },
+  "ulsan": {
+    "status": "miss",
+    "url": null,
+    "name": "울산대학교"
+  },
+  "uos": {
+    "status": "miss",
+    "url": null,
+    "name": "서울시립대학교"
+  },
+  "dongguk": {
+    "status": "ok",
+    "url": "https://cdn013.negagea.net/dgsmidc/omr/seoul/web/univ_info2025/%EB%8F%99%EA%B5%AD%EB%8C%80%ED%95%99%EA%B5%90/%EB%8F%99%EA%B5%AD%EB%8C%80%ED%95%99%EA%B5%90_2025%ED%95%99%EB%85%84%EB%8F%84_%EC%A0%95%EC%8B%9C%EC%9E%85%EC%8B%9C%EA%B2%B0%EA%B3%BC.pdf",
+    "name": "동국대학교"
+  },
+  "sejong": {
+    "status": "miss",
+    "url": null,
+    "name": "세종대학교"
+  },
+  "kw": {
+    "status": "ok",
+    "url": "https://cdn013.negagea.net/dgsmidc/omr/seoul/web/univ_info2025/%EA%B4%91%EC%9A%B4%EB%8C%80%ED%95%99%EA%B5%90/%EA%B4%91%EC%9A%B4%EB%8C%80%ED%95%99%EA%B5%90_2025%ED%95%99%EB%85%84%EB%8F%84_%EC%A0%95%EC%8B%9C%EC%9E%85%EC%8B%9C%EA%B2%B0%EA%B3%BC.pdf",
+    "name": "광운대학교"
+  },
+  "dongduk": {
+    "status": "ok",
+    "url": "https://cdn013.negagea.net/dgsmidc/omr/seoul/web/univ_info2025/%EB%8F%99%EB%8D%95%EC%97%AC%EC%9E%90%EB%8C%80%ED%95%99%EA%B5%90/%EB%8F%99%EB%8D%95%EC%97%AC%EC%9E%90%EB%8C%80%ED%95%99%EA%B5%90_2025%ED%95%99%EB%85%84%EB%8F%84_%EC%A0%95%EC%8B%9C%EC%9E%85%EC%8B%9C%EA%B2%B0%EA%B3%BC.pdf",
+    "name": "동덕여자대학교"
+  },
+  "swu": {
+    "status": "ok",
+    "url": "https://cdn013.negagea.net/dgsmidc/omr/seoul/web/univ_info2025/%EC%84%9C%EC%9A%B8%EC%97%AC%EC%9E%90%EB%8C%80%ED%95%99%EA%B5%90/%EC%84%9C%EC%9A%B8%EC%97%AC%EC%9E%90%EB%8C%80%ED%95%99%EA%B5%90_2025%ED%95%99%EB%85%84%EB%8F%84_%EC%A0%95%EC%8B%9C%EC%9E%85%EC%8B%9C%EA%B2%B0%EA%B3%BC.pdf",
+    "name": "서울여자대학교"
+  },
+  "hansung": {
+    "status": "ok",
+    "url": "https://cdn013.negagea.net/dgsmidc/omr/seoul/web/univ_info2025/%ED%95%9C%EC%84%B1%EB%8C%80%ED%95%99%EA%B5%90/%ED%95%9C%EC%84%B1%EB%8C%80%ED%95%99%EA%B5%90_2025%ED%95%99%EB%85%84%EB%8F%84_%EC%A0%95%EC%8B%9C%EC%9E%85%EC%8B%9C%EA%B2%B0%EA%B3%BC.pdf",
+    "name": "한성대학교"
+  },
+  "skuniv": {
+    "status": "ok",
+    "url": "https://cdn013.negagea.net/dgsmidc/omr/seoul/web/univ_info2025/%EC%84%9C%EA%B2%BD%EB%8C%80%ED%95%99%EA%B5%90/%EC%84%9C%EA%B2%BD%EB%8C%80%ED%95%99%EA%B5%90_2025%ED%95%99%EB%85%84%EB%8F%84_%EC%A0%95%EC%8B%9C%EC%9E%85%EC%8B%9C%EA%B2%B0%EA%B3%BC.pdf",
+    "name": "서경대학교"
+  },
+  "yonsei_mirae": {
+    "status": "miss",
+    "url": null,
+    "name": "연세대학교(미래·원주)"
+  },
+  "pusan": {
+    "status": "miss",
+    "url": null,
+    "name": "부산대학교"
+  },
+  "knu": {
+    "status": "ok",
+    "url": "https://cdn013.negagea.net/dgsmidc/omr/seoul/web/univ_info2025/%EA%B2%BD%EB%B6%81%EB%8C%80%ED%95%99%EA%B5%90/%EA%B2%BD%EB%B6%81%EB%8C%80%ED%95%99%EA%B5%90_2025%ED%95%99%EB%85%84%EB%8F%84_%EC%A0%95%EC%8B%9C%EC%9E%85%EC%8B%9C%EA%B2%B0%EA%B3%BC.pdf",
+    "name": "경북대학교"
+  },
+  "jnu": {
+    "status": "ok",
+    "url": "https://cdn013.negagea.net/dgsmidc/omr/seoul/web/univ_info2025/%EC%A0%84%EB%82%A8%EB%8C%80%ED%95%99%EA%B5%90/%EC%A0%84%EB%82%A8%EB%8C%80%ED%95%99%EA%B5%90_2025%ED%95%99%EB%85%84%EB%8F%84_%EC%A0%95%EC%8B%9C%EC%9E%85%EC%8B%9C%EA%B2%B0%EA%B3%BC.pdf",
+    "name": "전남대학교"
+  },
+  "cnu": {
+    "status": "ok",
+    "url": "https://cdn013.negagea.net/dgsmidc/omr/seoul/web/univ_info2025/%EC%B6%A9%EB%82%A8%EB%8C%80%ED%95%99%EA%B5%90/%EC%B6%A9%EB%82%A8%EB%8C%80%ED%95%99%EA%B5%90_2025%ED%95%99%EB%85%84%EB%8F%84_%EC%A0%95%EC%8B%9C%EC%9E%85%EC%8B%9C%EA%B2%B0%EA%B3%BC.pdf",
+    "name": "충남대학교"
+  },
+  "chungbuk": {
+    "status": "ok",
+    "url": "https://cdn013.negagea.net/dgsmidc/omr/seoul/web/univ_info2025/%EC%B6%A9%EB%B6%81%EB%8C%80%ED%95%99%EA%B5%90/%EC%B6%A9%EB%B6%81%EB%8C%80%ED%95%99%EA%B5%90_2025%ED%95%99%EB%85%84%EB%8F%84_%EC%A0%95%EC%8B%9C%EC%9E%85%EC%8B%9C%EA%B2%B0%EA%B3%BC.pdf",
+    "name": "충북대학교"
+  },
+  "gnu": {
+    "status": "ok",
+    "url": "https://cdn013.negagea.net/dgsmidc/omr/seoul/web/univ_info2025/%EA%B2%BD%EC%83%81%EA%B5%AD%EB%A6%BD%EB%8C%80%ED%95%99%EA%B5%90/%EA%B2%BD%EC%83%81%EA%B5%AD%EB%A6%BD%EB%8C%80%ED%95%99%EA%B5%90_2025%ED%95%99%EB%85%84%EB%8F%84_%EC%A0%95%EC%8B%9C%EC%9E%85%EC%8B%9C%EA%B2%B0%EA%B3%BC.pdf",
+    "name": "경상국립대학교"
+  },
+  "kangwon": {
+    "status": "ok",
+    "url": "https://cdn013.negagea.net/dgsmidc/omr/seoul/web/univ_info2025/%EA%B0%95%EC%9B%90%EB%8C%80%ED%95%99%EA%B5%90/%EA%B0%95%EC%9B%90%EB%8C%80%ED%95%99%EA%B5%90_2025%ED%95%99%EB%85%84%EB%8F%84_%EC%A0%95%EC%8B%9C%EC%9E%85%EC%8B%9C%EA%B2%B0%EA%B3%BC.pdf",
+    "name": "강원대학교"
+  },
+  "jejunu": {
+    "status": "miss",
+    "url": null,
+    "name": "제주대학교"
+  },
+  "gist": {
+    "status": "miss",
+    "url": null,
+    "name": "GIST"
+  },
+  "dgist": {
+    "status": "miss",
+    "url": null,
+    "name": "DGIST"
+  },
+  "cha": {
+    "status": "ok",
+    "url": "https://cdn013.negagea.net/dgsmidc/omr/seoul/web/univ_info2025/%EC%B0%A8%EC%9D%98%EA%B3%BC%ED%95%99%EB%8C%80%ED%95%99%EA%B5%90/%EC%B0%A8%EC%9D%98%EA%B3%BC%ED%95%99%EB%8C%80%ED%95%99%EA%B5%90_2025%ED%95%99%EB%85%84%EB%8F%84_%EC%A0%95%EC%8B%9C%EC%9E%85%EC%8B%9C%EA%B2%B0%EA%B3%BC.pdf",
+    "name": "차의과학대학교"
+  },
+  "yu": {
+    "status": "miss",
+    "url": null,
+    "name": "영남대학교"
+  },
+  "kmu": {
+    "status": "miss",
+    "url": null,
+    "name": "계명대학교"
+  },
+  "sch": {
+    "status": "ok",
+    "url": "https://cdn013.negagea.net/dgsmidc/omr/seoul/web/univ_info2025/%EC%88%9C%EC%B2%9C%ED%96%A5%EB%8C%80%ED%95%99%EA%B5%90/%EC%88%9C%EC%B2%9C%ED%96%A5%EB%8C%80%ED%95%99%EA%B5%90_2025%ED%95%99%EB%85%84%EB%8F%84_%EC%A0%95%EC%8B%9C%EC%9E%85%EC%8B%9C%EA%B2%B0%EA%B3%BC.pdf",
+    "name": "순천향대학교"
+  },
+  "donga": {
+    "status": "miss",
+    "url": null,
+    "name": "동아대학교"
+  },
+  "jbnu": {
+    "status": "miss",
+    "url": null,
+    "name": "전북대학교"
+  },
+  "wku": {
+    "status": "miss",
+    "url": null,
+    "name": "원광대학교"
+  },
+  "gwnu": {
+    "status": "miss",
+    "url": null,
+    "name": "강릉원주대학교"
+  },
+  "eulji": {
+    "status": "ok",
+    "url": "https://cdn013.negagea.net/dgsmidc/omr/seoul/web/univ_info2025/%EC%9D%84%EC%A7%80%EB%8C%80%ED%95%99%EA%B5%90/%EC%9D%84%EC%A7%80%EB%8C%80%ED%95%99%EA%B5%90_2025%ED%95%99%EB%85%84%EB%8F%84_%EC%A0%95%EC%8B%9C%EC%9E%85%EC%8B%9C%EA%B2%B0%EA%B3%BC.pdf",
+    "name": "을지대학교"
+  },
+  "chosun": {
+    "status": "miss",
+    "url": null,
+    "name": "조선대학교"
+  },
+  "inha": {
+    "status": "miss",
+    "url": null,
+    "name": "인하대학교"
+  },
+  "ajou": {
+    "status": "miss",
+    "url": null,
+    "name": "아주대학교"
+  },
+  "ewha": {
+    "status": "miss",
+    "url": null,
+    "name": "이화여자대학교"
+  },
+  "sookmyung": {
+    "status": "miss",
+    "url": null,
+    "name": "숙명여자대학교"
+  },
+  "konkuk": {
+    "status": "ok",
+    "url": "https://cdn013.negagea.net/dgsmidc/omr/seoul/web/univ_info2025/%EA%B1%B4%EA%B5%AD%EB%8C%80%ED%95%99%EA%B5%90/%EA%B1%B4%EA%B5%AD%EB%8C%80%ED%95%99%EA%B5%90_2025%ED%95%99%EB%85%84%EB%8F%84_%EC%A0%95%EC%8B%9C%EC%9E%85%EC%8B%9C%EA%B2%B0%EA%B3%BC.pdf",
+    "name": "건국대학교"
+  },
+  "hongik": {
+    "status": "miss",
+    "url": null,
+    "name": "홍익대학교"
+  },
+  "kookmin": {
+    "status": "miss",
+    "url": null,
+    "name": "국민대학교"
+  },
+  "ssu": {
+    "status": "miss",
+    "url": null,
+    "name": "숭실대학교"
+  },
+  "dankook": {
+    "status": "miss",
+    "url": null,
+    "name": "단국대학교(죽전)"
+  },
+  "mju": {
+    "status": "ok",
+    "url": "https://cdn013.negagea.net/dgsmidc/omr/seoul/web/univ_info2025/%EB%AA%85%EC%A7%80%EB%8C%80%ED%95%99%EA%B5%90/%EB%AA%85%EC%A7%80%EB%8C%80%ED%95%99%EA%B5%90_2025%ED%95%99%EB%85%84%EB%8F%84_%EC%A0%95%EC%8B%9C%EC%9E%85%EC%8B%9C%EA%B2%B0%EA%B3%BC.pdf",
+    "name": "명지대학교"
+  },
+  "smu": {
+    "status": "ok",
+    "url": "https://cdn013.negagea.net/dgsmidc/omr/seoul/web/univ_info2025/%EC%83%81%EB%AA%85%EB%8C%80%ED%95%99%EA%B5%90/%EC%83%81%EB%AA%85%EB%8C%80%ED%95%99%EA%B5%90_2025%ED%95%99%EB%85%84%EB%8F%84_%EC%A0%95%EC%8B%9C%EC%9E%85%EC%8B%9C%EA%B2%B0%EA%B3%BC.pdf",
+    "name": "상명대학교"
+  },
+  "catholic": {
+    "status": "ok",
+    "url": "https://cdn013.negagea.net/dgsmidc/omr/seoul/web/univ_info2025/%EA%B0%80%ED%86%A8%EB%A6%AD%EB%8C%80%ED%95%99%EA%B5%90/%EA%B0%80%ED%86%A8%EB%A6%AD%EB%8C%80%ED%95%99%EA%B5%90_2025%ED%95%99%EB%85%84%EB%8F%84_%EC%A0%95%EC%8B%9C%EC%9E%85%EC%8B%9C%EA%B2%B0%EA%B3%BC.pdf",
+    "name": "가톨릭대학교"
+  },
+  "gachon": {
+    "status": "miss",
+    "url": null,
+    "name": "가천대학교"
+  },
+  "seoultech": {
+    "status": "ok",
+    "url": "https://cdn013.negagea.net/dgsmidc/omr/seoul/web/univ_info2025/%EC%84%9C%EC%9A%B8%EA%B3%BC%ED%95%99%EA%B8%B0%EC%88%A0%EB%8C%80%ED%95%99%EA%B5%90/%EC%84%9C%EC%9A%B8%EA%B3%BC%ED%95%99%EA%B8%B0%EC%88%A0%EB%8C%80%ED%95%99%EA%B5%90_2025%ED%95%99%EB%85%84%EB%8F%84_%EC%A0%95%EC%8B%9C%EC%9E%85%EC%8B%9C%EA%B2%B0%EA%B3%BC.pdf",
+    "name": "서울과학기술대학교"
+  },
+  "hufs": {
+    "status": "miss",
+    "url": null,
+    "name": "한국외국어대학교"
+  },
+  "kau": {
+    "status": "miss",
+    "url": null,
+    "name": "한국항공대학교"
+  },
+  "inu": {
+    "status": "ok",
+    "url": "https://cdn013.negagea.net/dgsmidc/omr/seoul/web/univ_info2025/%EC%9D%B8%EC%B2%9C%EB%8C%80%ED%95%99%EA%B5%90/%EC%9D%B8%EC%B2%9C%EB%8C%80%ED%95%99%EA%B5%90_2025%ED%95%99%EB%85%84%EB%8F%84_%EC%A0%95%EC%8B%9C%EC%9E%85%EC%8B%9C%EA%B2%B0%EA%B3%BC.pdf",
+    "name": "인천대학교"
+  },
+  "hanyang_erica": {
+    "status": "ok",
+    "url": "https://cdn013.negagea.net/dgsmidc/omr/seoul/web/univ_info2025/%ED%95%9C%EC%96%91%EB%8C%80%ED%95%99%EA%B5%90/%ED%95%9C%EC%96%91%EB%8C%80%ED%95%99%EA%B5%90_2025%ED%95%99%EB%85%84%EB%8F%84_%EC%A0%95%EC%8B%9C%EC%9E%85%EC%8B%9C%EA%B2%B0%EA%B3%BC.pdf",
+    "name": "한양대학교(ERICA)"
+  },
+  "dankook_cheonan": {
+    "status": "miss",
+    "url": null,
+    "name": "단국대학교(천안)"
+  },
+  "korea_sejong": {
+    "status": "miss",
+    "url": null,
+    "name": "고려대학교(세종)"
+  },
+  "snue": {
+    "status": "miss",
+    "url": null,
+    "name": "서울교육대학교"
+  },
+  "bnue": {
+    "status": "miss",
+    "url": null,
+    "name": "부산교육대학교"
+  },
+  "gnue": {
+    "status": "miss",
+    "url": null,
+    "name": "광주교육대학교"
+  },
+  "gnue_jinju": {
+    "status": "miss",
+    "url": null,
+    "name": "진주교육대학교"
+  },
+  "jnue": {
+    "status": "miss",
+    "url": null,
+    "name": "전주교육대학교"
+  },
+  "duksung": {
+    "status": "miss",
+    "url": null,
+    "name": "덕성여자대학교"
+  },
+  "sungshin": {
+    "status": "ok",
+    "url": "https://cdn013.negagea.net/dgsmidc/omr/seoul/web/univ_info2025/%EC%84%B1%EC%8B%A0%EC%97%AC%EC%9E%90%EB%8C%80%ED%95%99%EA%B5%90/%EC%84%B1%EC%8B%A0%EC%97%AC%EC%9E%90%EB%8C%80%ED%95%99%EA%B5%90_2025%ED%95%99%EB%85%84%EB%8F%84_%EC%A0%95%EC%8B%9C%EC%9E%85%EC%8B%9C%EA%B2%B0%EA%B3%BC.pdf",
+    "name": "성신여자대학교"
+  },
+  "ktech": {
+    "status": "miss",
+    "url": null,
+    "name": "한국공학대학교"
+  },
+  "kentech": {
+    "status": "miss",
+    "url": null,
+    "name": "한국에너지공과대학교 (KENTECH)"
+  },
+  "kumoh": {
+    "status": "miss",
+    "url": null,
+    "name": "국립금오공과대학교"
+  },
+  "kongju": {
+    "status": "ok",
+    "url": "https://cdn013.negagea.net/dgsmidc/omr/seoul/web/univ_info2025/%EA%B5%AD%EB%A6%BD%EA%B3%B5%EC%A3%BC%EB%8C%80%ED%95%99%EA%B5%90/%EA%B5%AD%EB%A6%BD%EA%B3%B5%EC%A3%BC%EB%8C%80%ED%95%99%EA%B5%90_2025%ED%95%99%EB%85%84%EB%8F%84_%EC%A0%95%EC%8B%9C%EC%9E%85%EC%8B%9C%EA%B2%B0%EA%B3%BC.pdf",
+    "name": "국립공주대학교"
+  },
+  "hanbat": {
+    "status": "miss",
+    "url": null,
+    "name": "국립한밭대학교"
+  },
+  "hansei": {
+    "status": "miss",
+    "url": null,
+    "name": "한세대학교"
+  },
+  "anyang": {
+    "status": "ok",
+    "url": "https://cdn013.negagea.net/dgsmidc/omr/seoul/web/univ_info2025/%EC%95%88%EC%96%91%EB%8C%80%ED%95%99%EA%B5%90/%EC%95%88%EC%96%91%EB%8C%80%ED%95%99%EA%B5%90_2025%ED%95%99%EB%85%84%EB%8F%84_%EC%A0%95%EC%8B%9C%EC%9E%85%EC%8B%9C%EA%B2%B0%EA%B3%BC.pdf",
+    "name": "안양대학교"
+  },
+  "handong": {
+    "status": "miss",
+    "url": null,
+    "name": "한동대학교"
+  },
+  "extra_02021_인천가톨릭": {
+    "status": "miss",
+    "url": null,
+    "name": "인천가톨릭대학교"
+  },
+  "extra_08009_대구가톨릭": {
+    "status": "miss",
+    "url": null,
+    "name": "대구가톨릭대학교"
+  },
+  "extra_08014_대구한의": {
+    "status": "miss",
+    "url": null,
+    "name": "대구한의대학교"
+  },
+  "extra_04005_세명": {
+    "status": "miss",
+    "url": null,
+    "name": "세명대학교"
+  },
+  "extra_05011_목원": {
+    "status": "miss",
+    "url": null,
+    "name": "목원대학교"
+  },
+  "extra_05015_선문": {
+    "status": "miss",
+    "url": null,
+    "name": "선문대학교"
+  },
+  "extra_05021_백석": {
+    "status": "miss",
+    "url": null,
+    "name": "백석대학교"
+  },
+  "extra_06009_전주": {
+    "status": "miss",
+    "url": null,
+    "name": "전주대학교"
+  },
+  "extra_07020_호남": {
+    "status": "miss",
+    "url": null,
+    "name": "호남대학교"
+  },
+  "extra_09007_동서": {
+    "status": "miss",
+    "url": null,
+    "name": "동서대학교"
+  },
+  "extra_09009_동의": {
+    "status": "miss",
+    "url": null,
+    "name": "동의대학교"
+  }
+}
