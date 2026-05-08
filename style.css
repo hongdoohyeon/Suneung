@@ -3000,6 +3000,23 @@ body.is-sheet-open { overflow: hidden; touch-action: none; }
   gap: 8px;
   margin-top: 12px;
 }
+
+/* hero 위젯 그리드 (이번 달 일정 + 최근 본 시험) */
+.hero-min__widgets {
+  margin-top: 24px;
+  display: grid;
+  gap: 12px;
+  grid-template-columns: 1fr;
+  max-width: 760px;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media (min-width: 700px) {
+  .hero-min__widgets { grid-template-columns: 1fr 1fr; align-items: start; }
+}
+.hero-min__widgets > div { min-width: 0; }
+.hero-min__widgets > div:empty { display: none; }
+.hero-min__widgets section { max-width: 100% !important; margin: 0 !important; }
 .hero-min__sublink {
   display: inline-flex;
   align-items: center;
