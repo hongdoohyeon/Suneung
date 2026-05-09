@@ -1,0 +1,1015 @@
+{
+  "_generated": "2026-05-09",
+  "_total_schools": 104,
+  "_total_units": 3273,
+  "schools": [
+    {
+      "slug": "ajou",
+      "name": "아주대학교",
+      "has_ratios": true,
+      "years": {
+        "2025": 33,
+        "2026": 21,
+        "2024": 4
+      },
+      "total_units": 58
+    },
+    {
+      "slug": "anyang",
+      "name": "안양대학교",
+      "has_ratios": true,
+      "years": {
+        "2025": 35,
+        "2024": 4
+      },
+      "total_units": 39
+    },
+    {
+      "slug": "bnue",
+      "name": "부산교육대학교",
+      "has_ratios": true,
+      "years": {},
+      "total_units": 0
+    },
+    {
+      "slug": "catholic",
+      "name": "가톨릭대학교",
+      "has_ratios": true,
+      "years": {
+        "2025": 14,
+        "2024": 6,
+        "2026": 5,
+        "2023": 4
+      },
+      "total_units": 29
+    },
+    {
+      "slug": "cau",
+      "name": "중앙대학교",
+      "has_ratios": true,
+      "years": {
+        "2025": 17,
+        "2024": 30,
+        "2023": 20,
+        "2022": 18,
+        "2021": 7
+      },
+      "total_units": 92
+    },
+    {
+      "slug": "cha",
+      "name": "차의과학대학교",
+      "has_ratios": true,
+      "years": {
+        "2025": 2
+      },
+      "total_units": 2
+    },
+    {
+      "slug": "chosun",
+      "name": "조선대학교",
+      "has_ratios": true,
+      "years": {
+        "2025": 3
+      },
+      "total_units": 3
+    },
+    {
+      "slug": "chungbuk",
+      "name": "충북대학교",
+      "has_ratios": true,
+      "years": {
+        "2025": 61
+      },
+      "total_units": 61
+    },
+    {
+      "slug": "cnu",
+      "name": "충남대학교",
+      "has_ratios": true,
+      "years": {
+        "2025": 3
+      },
+      "total_units": 3
+    },
+    {
+      "slug": "cu_daegu",
+      "name": "대구가톨릭대학교",
+      "has_ratios": true,
+      "years": {
+        "2024": 1
+      },
+      "total_units": 1
+    },
+    {
+      "slug": "cu_kd",
+      "name": "가톨릭관동대학교",
+      "has_ratios": true,
+      "years": {
+        "2025": 16
+      },
+      "total_units": 16
+    },
+    {
+      "slug": "daejeon",
+      "name": "대전대학교",
+      "has_ratios": true,
+      "years": {
+        "2024": 2
+      },
+      "total_units": 2
+    },
+    {
+      "slug": "dankook",
+      "name": "단국대학교(죽전)",
+      "has_ratios": true,
+      "years": {
+        "2025": 11,
+        "2026": 13,
+        "2024": 5,
+        "2022": 9,
+        "2023": 13
+      },
+      "total_units": 51
+    },
+    {
+      "slug": "dankook_cheonan",
+      "name": "단국대학교(천안)",
+      "has_ratios": true,
+      "years": {
+        "2025": 7,
+        "2024": 5
+      },
+      "total_units": 12
+    },
+    {
+      "slug": "dgist",
+      "name": "DGIST",
+      "has_ratios": true,
+      "years": {
+        "2025": 1
+      },
+      "total_units": 1
+    },
+    {
+      "slug": "donga",
+      "name": "동아대학교",
+      "has_ratios": true,
+      "years": {
+        "2025": 2
+      },
+      "total_units": 2
+    },
+    {
+      "slug": "dongduk",
+      "name": "동덕여자대학교",
+      "has_ratios": true,
+      "years": {
+        "2025": 46,
+        "2024": 5,
+        "2023": 5
+      },
+      "total_units": 56
+    },
+    {
+      "slug": "dongguk",
+      "name": "동국대학교",
+      "has_ratios": true,
+      "years": {
+        "2025": 137,
+        "2024": 50,
+        "2023": 5,
+        "2022": 16
+      },
+      "total_units": 208
+    },
+    {
+      "slug": "dongguk_wise",
+      "name": "동국대학교(WISE)",
+      "has_ratios": true,
+      "years": {
+        "2024": 2
+      },
+      "total_units": 2
+    },
+    {
+      "slug": "dongshin",
+      "name": "동신대학교",
+      "has_ratios": true,
+      "years": {
+        "2024": 1
+      },
+      "total_units": 1
+    },
+    {
+      "slug": "duksung",
+      "name": "덕성여자대학교",
+      "has_ratios": true,
+      "years": {
+        "2025": 9,
+        "2024": 1
+      },
+      "total_units": 10
+    },
+    {
+      "slug": "eulji",
+      "name": "을지대학교",
+      "has_ratios": true,
+      "years": {
+        "2025": 1
+      },
+      "total_units": 1
+    },
+    {
+      "slug": "ewha",
+      "name": "이화여자대학교",
+      "has_ratios": true,
+      "years": {
+        "2025": 25,
+        "2024": 13,
+        "2022": 9,
+        "2023": 10
+      },
+      "total_units": 57
+    },
+    {
+      "slug": "extra_02021_인천가톨릭",
+      "name": "인천가톨릭대학교",
+      "has_ratios": true,
+      "years": {},
+      "total_units": 0
+    },
+    {
+      "slug": "extra_04005_세명",
+      "name": "세명대학교",
+      "has_ratios": true,
+      "years": {},
+      "total_units": 0
+    },
+    {
+      "slug": "extra_05011_목원",
+      "name": "목원대학교",
+      "has_ratios": true,
+      "years": {},
+      "total_units": 0
+    },
+    {
+      "slug": "extra_05015_선문",
+      "name": "선문대학교",
+      "has_ratios": true,
+      "years": {},
+      "total_units": 0
+    },
+    {
+      "slug": "extra_05021_백석",
+      "name": "백석대학교",
+      "has_ratios": true,
+      "years": {},
+      "total_units": 0
+    },
+    {
+      "slug": "extra_06009_전주",
+      "name": "전주대학교",
+      "has_ratios": true,
+      "years": {},
+      "total_units": 0
+    },
+    {
+      "slug": "extra_07020_호남",
+      "name": "호남대학교",
+      "has_ratios": true,
+      "years": {},
+      "total_units": 0
+    },
+    {
+      "slug": "extra_08009_대구가톨릭",
+      "name": "대구가톨릭대학교",
+      "has_ratios": true,
+      "years": {},
+      "total_units": 0
+    },
+    {
+      "slug": "extra_08014_대구한의",
+      "name": "대구한의대학교",
+      "has_ratios": true,
+      "years": {},
+      "total_units": 0
+    },
+    {
+      "slug": "extra_09007_동서",
+      "name": "동서대학교",
+      "has_ratios": true,
+      "years": {},
+      "total_units": 0
+    },
+    {
+      "slug": "extra_09009_동의",
+      "name": "동의대학교",
+      "has_ratios": true,
+      "years": {},
+      "total_units": 0
+    },
+    {
+      "slug": "gachon",
+      "name": "가천대학교",
+      "has_ratios": true,
+      "years": {
+        "2025": 29,
+        "2023": 27,
+        "2024": 8,
+        "2022": 15
+      },
+      "total_units": 79
+    },
+    {
+      "slug": "gist",
+      "name": "GIST",
+      "has_ratios": true,
+      "years": {
+        "2025": 1
+      },
+      "total_units": 1
+    },
+    {
+      "slug": "gnu",
+      "name": "경상국립대학교",
+      "has_ratios": true,
+      "years": {
+        "2025": 100
+      },
+      "total_units": 100
+    },
+    {
+      "slug": "gnue",
+      "name": "광주교육대학교",
+      "has_ratios": true,
+      "years": {},
+      "total_units": 0
+    },
+    {
+      "slug": "gnue_in",
+      "name": "경인교육대학교",
+      "has_ratios": true,
+      "years": {},
+      "total_units": 0
+    },
+    {
+      "slug": "gnue_jinju",
+      "name": "진주교육대학교",
+      "has_ratios": true,
+      "years": {},
+      "total_units": 0
+    },
+    {
+      "slug": "gwnu",
+      "name": "강릉원주대학교",
+      "has_ratios": true,
+      "years": {},
+      "total_units": 0
+    },
+    {
+      "slug": "hallym",
+      "name": "한림대학교",
+      "has_ratios": true,
+      "years": {
+        "2025": 28
+      },
+      "total_units": 28
+    },
+    {
+      "slug": "hanbat",
+      "name": "국립한밭대학교",
+      "has_ratios": true,
+      "years": {
+        "2024": 7
+      },
+      "total_units": 7
+    },
+    {
+      "slug": "handong",
+      "name": "한동대학교",
+      "has_ratios": true,
+      "years": {
+        "2025": 1
+      },
+      "total_units": 1
+    },
+    {
+      "slug": "hansei",
+      "name": "한세대학교",
+      "has_ratios": true,
+      "years": {},
+      "total_units": 0
+    },
+    {
+      "slug": "hansung",
+      "name": "한성대학교",
+      "has_ratios": true,
+      "years": {},
+      "total_units": 0
+    },
+    {
+      "slug": "hanyang",
+      "name": "한양대학교",
+      "has_ratios": true,
+      "years": {
+        "2025": 28,
+        "2024": 17,
+        "2026": 15,
+        "2023": 20,
+        "2022": 17
+      },
+      "total_units": 97
+    },
+    {
+      "slug": "hanyang_erica",
+      "name": "한양대학교(ERICA)",
+      "has_ratios": true,
+      "years": {
+        "2025": 26,
+        "2022": 27,
+        "2023": 28,
+        "2024": 28,
+        "2026": 8
+      },
+      "total_units": 117
+    },
+    {
+      "slug": "hongik",
+      "name": "홍익대학교",
+      "has_ratios": true,
+      "years": {
+        "2025": 23,
+        "2024": 28,
+        "2023": 7,
+        "2022": 15
+      },
+      "total_units": 73
+    },
+    {
+      "slug": "hoseo",
+      "name": "호서대학교",
+      "has_ratios": true,
+      "years": {
+        "2025": 21,
+        "2024": 21,
+        "2023": 21,
+        "2022": 21,
+        "2021": 21
+      },
+      "total_units": 105
+    },
+    {
+      "slug": "hufs",
+      "name": "한국외국어대학교",
+      "has_ratios": true,
+      "years": {
+        "2025": 17,
+        "2024": 14,
+        "2023": 29,
+        "2022": 15
+      },
+      "total_units": 75
+    },
+    {
+      "slug": "inha",
+      "name": "인하대학교",
+      "has_ratios": true,
+      "years": {
+        "2025": 21,
+        "2024": 11,
+        "2026": 1,
+        "2022": 58,
+        "2023": 10
+      },
+      "total_units": 101
+    },
+    {
+      "slug": "inje",
+      "name": "인제대학교",
+      "has_ratios": true,
+      "years": {
+        "2025": 1
+      },
+      "total_units": 1
+    },
+    {
+      "slug": "inu",
+      "name": "인천대학교",
+      "has_ratios": true,
+      "years": {
+        "2025": 59,
+        "2026": 11,
+        "2023": 19
+      },
+      "total_units": 89
+    },
+    {
+      "slug": "jbnu",
+      "name": "전북대학교",
+      "has_ratios": true,
+      "years": {
+        "2025": 8,
+        "2023": 3,
+        "2024": 10
+      },
+      "total_units": 21
+    },
+    {
+      "slug": "jejunu",
+      "name": "제주대학교",
+      "has_ratios": true,
+      "years": {
+        "2025": 2
+      },
+      "total_units": 2
+    },
+    {
+      "slug": "jnu",
+      "name": "전남대학교",
+      "has_ratios": true,
+      "years": {
+        "2025": 89,
+        "2024": 23
+      },
+      "total_units": 112
+    },
+    {
+      "slug": "jnue",
+      "name": "전주교육대학교",
+      "has_ratios": true,
+      "years": {},
+      "total_units": 0
+    },
+    {
+      "slug": "kangwon",
+      "name": "강원대학교",
+      "has_ratios": true,
+      "years": {
+        "2025": 80,
+        "2024": 5
+      },
+      "total_units": 85
+    },
+    {
+      "slug": "kau",
+      "name": "한국항공대학교",
+      "has_ratios": true,
+      "years": {
+        "2025": 4,
+        "2023": 6
+      },
+      "total_units": 10
+    },
+    {
+      "slug": "kentech",
+      "name": "한국에너지공과대학교 (KENTECH)",
+      "has_ratios": true,
+      "years": {
+        "2025": 1
+      },
+      "total_units": 1
+    },
+    {
+      "slug": "khu",
+      "name": "경희대학교",
+      "has_ratios": true,
+      "years": {
+        "2024": 21,
+        "2026": 2,
+        "2025": 26,
+        "2023": 18,
+        "2022": 31
+      },
+      "total_units": 98
+    },
+    {
+      "slug": "kmu",
+      "name": "계명대학교",
+      "has_ratios": true,
+      "years": {
+        "2025": 2
+      },
+      "total_units": 2
+    },
+    {
+      "slug": "knu",
+      "name": "경북대학교",
+      "has_ratios": true,
+      "years": {
+        "2025": 102,
+        "2024": 18
+      },
+      "total_units": 120
+    },
+    {
+      "slug": "knue",
+      "name": "한국교원대학교",
+      "has_ratios": true,
+      "years": {},
+      "total_units": 0
+    },
+    {
+      "slug": "kongju",
+      "name": "국립공주대학교",
+      "has_ratios": true,
+      "years": {},
+      "total_units": 0
+    },
+    {
+      "slug": "konkuk",
+      "name": "건국대학교",
+      "has_ratios": true,
+      "years": {
+        "2025": 14,
+        "2024": 25,
+        "2023": 7,
+        "2022": 21
+      },
+      "total_units": 67
+    },
+    {
+      "slug": "konyang",
+      "name": "건양대학교",
+      "has_ratios": true,
+      "years": {
+        "2024": 35
+      },
+      "total_units": 35
+    },
+    {
+      "slug": "kookmin",
+      "name": "국민대학교",
+      "has_ratios": true,
+      "years": {
+        "2025": 19,
+        "2022": 11,
+        "2024": 18,
+        "2023": 24
+      },
+      "total_units": 72
+    },
+    {
+      "slug": "korea",
+      "name": "고려대학교 (서울)",
+      "has_ratios": true,
+      "years": {
+        "2025": 20,
+        "2024": 28,
+        "2026": 5,
+        "2023": 6,
+        "2022": 19,
+        "2021": 17
+      },
+      "total_units": 95
+    },
+    {
+      "slug": "korea_sejong",
+      "name": "고려대학교(세종)",
+      "has_ratios": true,
+      "years": {
+        "2025": 3,
+        "2024": 24
+      },
+      "total_units": 27
+    },
+    {
+      "slug": "kosin",
+      "name": "고신대학교",
+      "has_ratios": true,
+      "years": {
+        "2025": 1
+      },
+      "total_units": 1
+    },
+    {
+      "slug": "ktech",
+      "name": "한국공학대학교",
+      "has_ratios": true,
+      "years": {
+        "2025": 2
+      },
+      "total_units": 2
+    },
+    {
+      "slug": "kumoh",
+      "name": "국립금오공과대학교",
+      "has_ratios": true,
+      "years": {},
+      "total_units": 0
+    },
+    {
+      "slug": "kw",
+      "name": "광운대학교",
+      "has_ratios": true,
+      "years": {
+        "2025": 31,
+        "2024": 17,
+        "2022": 16,
+        "2023": 12
+      },
+      "total_units": 76
+    },
+    {
+      "slug": "kyonggi",
+      "name": "경기대학교",
+      "has_ratios": true,
+      "years": {
+        "2025": 19
+      },
+      "total_units": 19
+    },
+    {
+      "slug": "kyungsung",
+      "name": "경성대학교",
+      "has_ratios": true,
+      "years": {
+        "2024": 1
+      },
+      "total_units": 1
+    },
+    {
+      "slug": "mju",
+      "name": "명지대학교",
+      "has_ratios": true,
+      "years": {
+        "2025": 17,
+        "2024": 14,
+        "2023": 13,
+        "2026": 3,
+        "2022": 10
+      },
+      "total_units": 57
+    },
+    {
+      "slug": "mokpo",
+      "name": "목포대학교",
+      "has_ratios": true,
+      "years": {
+        "2024": 1
+      },
+      "total_units": 1
+    },
+    {
+      "slug": "pusan",
+      "name": "부산대학교",
+      "has_ratios": true,
+      "years": {
+        "2025": 9,
+        "2024": 37,
+        "2023": 5
+      },
+      "total_units": 51
+    },
+    {
+      "slug": "sahmyook",
+      "name": "삼육대학교",
+      "has_ratios": true,
+      "years": {
+        "2024": 1
+      },
+      "total_units": 1
+    },
+    {
+      "slug": "sangji",
+      "name": "상지대학교",
+      "has_ratios": true,
+      "years": {
+        "2024": 2
+      },
+      "total_units": 2
+    },
+    {
+      "slug": "sch",
+      "name": "순천향대학교",
+      "has_ratios": true,
+      "years": {
+        "2025": 48
+      },
+      "total_units": 48
+    },
+    {
+      "slug": "sejong",
+      "name": "세종대학교",
+      "has_ratios": true,
+      "years": {
+        "2025": 4,
+        "2022": 7,
+        "2024": 7,
+        "2023": 15
+      },
+      "total_units": 33
+    },
+    {
+      "slug": "seoultech",
+      "name": "서울과학기술대학교",
+      "has_ratios": true,
+      "years": {
+        "2025": 5,
+        "2022": 4
+      },
+      "total_units": 9
+    },
+    {
+      "slug": "skku",
+      "name": "성균관대학교",
+      "has_ratios": true,
+      "years": {
+        "2025": 37,
+        "2024": 11,
+        "2022": 11,
+        "2023": 8
+      },
+      "total_units": 67
+    },
+    {
+      "slug": "skuniv",
+      "name": "서경대학교",
+      "has_ratios": true,
+      "years": {
+        "2025": 14
+      },
+      "total_units": 14
+    },
+    {
+      "slug": "smu",
+      "name": "상명대학교",
+      "has_ratios": true,
+      "years": {
+        "2025": 33,
+        "2024": 17,
+        "2023": 12,
+        "2022": 13
+      },
+      "total_units": 75
+    },
+    {
+      "slug": "snu",
+      "name": "서울대학교",
+      "has_ratios": true,
+      "years": {
+        "2025": 15,
+        "2024": 42,
+        "2023": 27,
+        "2022": 17,
+        "2021": 14
+      },
+      "total_units": 115
+    },
+    {
+      "slug": "snue",
+      "name": "서울교육대학교",
+      "has_ratios": true,
+      "years": {},
+      "total_units": 0
+    },
+    {
+      "slug": "sogang",
+      "name": "서강대학교",
+      "has_ratios": true,
+      "years": {
+        "2025": 22,
+        "2024": 19,
+        "2023": 10,
+        "2022": 10
+      },
+      "total_units": 61
+    },
+    {
+      "slug": "sookmyung",
+      "name": "숙명여자대학교",
+      "has_ratios": true,
+      "years": {
+        "2025": 12,
+        "2024": 8,
+        "2023": 2,
+        "2022": 14
+      },
+      "total_units": 36
+    },
+    {
+      "slug": "ssu",
+      "name": "숭실대학교",
+      "has_ratios": true,
+      "years": {
+        "2025": 4,
+        "2023": 16,
+        "2022": 11,
+        "2024": 15
+      },
+      "total_units": 46
+    },
+    {
+      "slug": "sunchon",
+      "name": "순천대학교",
+      "has_ratios": true,
+      "years": {
+        "2024": 1
+      },
+      "total_units": 1
+    },
+    {
+      "slug": "sungshin",
+      "name": "성신여자대학교",
+      "has_ratios": true,
+      "years": {
+        "2025": 4,
+        "2023": 2,
+        "2022": 11
+      },
+      "total_units": 17
+    },
+    {
+      "slug": "swu",
+      "name": "서울여자대학교",
+      "has_ratios": true,
+      "years": {
+        "2025": 4,
+        "2024": 5,
+        "2023": 6
+      },
+      "total_units": 15
+    },
+    {
+      "slug": "ulsan",
+      "name": "울산대학교",
+      "has_ratios": true,
+      "years": {
+        "2025": 1
+      },
+      "total_units": 1
+    },
+    {
+      "slug": "unist",
+      "name": "UNIST",
+      "has_ratios": true,
+      "years": {
+        "2025": 1
+      },
+      "total_units": 1
+    },
+    {
+      "slug": "uos",
+      "name": "서울시립대학교",
+      "has_ratios": true,
+      "years": {
+        "2025": 15,
+        "2024": 15,
+        "2023": 6,
+        "2022": 17
+      },
+      "total_units": 53
+    },
+    {
+      "slug": "wku",
+      "name": "원광대학교",
+      "has_ratios": true,
+      "years": {
+        "2025": 4,
+        "2024": 2
+      },
+      "total_units": 6
+    },
+    {
+      "slug": "woosuk",
+      "name": "우석대학교",
+      "has_ratios": true,
+      "years": {
+        "2024": 1
+      },
+      "total_units": 1
+    },
+    {
+      "slug": "yonsei",
+      "name": "연세대학교 (서울)",
+      "has_ratios": true,
+      "years": {
+        "2025": 57,
+        "2024": 32,
+        "2026": 5,
+        "2023": 2,
+        "2022": 19,
+        "2021": 15
+      },
+      "total_units": 130
+    },
+    {
+      "slug": "yonsei_mirae",
+      "name": "연세대학교(미래·원주)",
+      "has_ratios": true,
+      "years": {
+        "2025": 3
+      },
+      "total_units": 3
+    },
+    {
+      "slug": "yu",
+      "name": "영남대학교",
+      "has_ratios": true,
+      "years": {
+        "2025": 2
+      },
+      "total_units": 2
+    }
+  ]
+}
