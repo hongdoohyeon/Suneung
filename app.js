@@ -657,6 +657,16 @@ function showSkeleton(show) {
 
 // ── 회차 단위 진입 링크 ────────────────────────────────────
 // 사용자가 학년도(gradeYear) + 시험종류(type) 둘 다 명시적으로 선택했을 때만 노출.
+// 회차 친화 URL 매핑 (build-data.py 의 set_friendly_filename 와 동일 규약)
+const SET_CURR_SLUG = {
+  '2015': 'kice', '2009': 'kice', '예비': 'kice',
+  '사관': 'mil', '경찰대': 'police', 'LEET': 'leet', 'MEET': 'meet',
+};
+function setFriendlyURL(curr, year, type, grade) {
+  const slug = SET_CURR_SLUG[curr] || String(curr).toLowerCase();
+  return `exam-set-${slug}-${year}-${type}${grade ? `-g${grade}` : ''}.html`;
+}
+
 function updateExamSetLink(data) {
   const link = $('examSetLink');
   if (!link) return;
@@ -666,16 +676,11 @@ function updateExamSetLink(data) {
   if (!ySingle || !tSingle) { link.hidden = true; return; }
   if (!data?.length) { link.hidden = true; return; }
   const first = data[0];
-  const params = new URLSearchParams({
-    curriculum: first.curriculum,
-    year: String(first.gradeYear),
-    type: first.type,
-  });
   // 학평은 학년(studentGrade)도 분리 — 결과가 단일 학년이면 grade 추가
   const sg = first.studentGrade ?? null;
   const sameGrade = data.every(e => (e.studentGrade ?? null) === sg);
-  if (sg != null && sameGrade) params.set('grade', String(sg));
-  link.href = `exam-set.html?${params.toString()}`;
+  link.href = setFriendlyURL(first.curriculum, String(first.gradeYear), first.type,
+                              (sg != null && sameGrade) ? sg : null);
   link.hidden = false;
 }
 

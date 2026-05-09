@@ -79,16 +79,16 @@ function renderHead(exam) {
       ...(exam.scriptUrl ? [{ '@type': 'DigitalDocument', name: '듣기 스크립트', url: exam.scriptUrl, encodingFormat: 'application/pdf' }] : []),
     ] } : {}),
   });
-  // 회차 진입 link (사이드바)
+  // 회차 진입 link (사이드바) — 친화 URL 사용 (build-data.py set_friendly_filename 와 동일 규약)
   const setLink = document.getElementById('examSetSideLink');
   if (setLink && exam.curriculum && exam.gradeYear && exam.type) {
-    const params = new URLSearchParams({
-      curriculum: exam.curriculum,
-      year: String(exam.gradeYear),
-      type: exam.type,
-    });
-    if (exam.studentGrade != null) params.set('grade', String(exam.studentGrade));
-    setLink.href = `exam-set.html?${params.toString()}`;
+    const SET_CURR_SLUG = {
+      '2015': 'kice', '2009': 'kice', '예비': 'kice',
+      '사관': 'mil', '경찰대': 'police', 'LEET': 'leet', 'MEET': 'meet',
+    };
+    const slug = SET_CURR_SLUG[exam.curriculum] || String(exam.curriculum).toLowerCase();
+    const grade = exam.studentGrade != null ? `-g${exam.studentGrade}` : '';
+    setLink.href = `exam-set-${slug}-${exam.gradeYear}-${exam.type}${grade}.html`;
     setLink.hidden = false;
   }
 

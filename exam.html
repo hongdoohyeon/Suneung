@@ -7,6 +7,8 @@
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net; style-src 'self' https://cdn.jsdelivr.net 'unsafe-inline'; font-src https://cdn.jsdelivr.net data:; img-src 'self' data: https:; connect-src 'self' https://suneung-files.hdh061224.workers.dev https://cdn.jsdelivr.net; media-src 'self' https://suneung-files.hdh061224.workers.dev; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'self'" />
   <meta name="referrer" content="strict-origin-when-cross-origin" />
   <meta name="naver-site-verification" content="b3138c38039611bed2ce955aa7102ab33011cf14" />
+  <!-- 동적 fallback (?id=N). SSG exam-{id}.html 가 검색 노출 대상 — 이 페이지는 인덱싱 제외. -->
+  <meta name="robots" content="noindex,follow" />
   <meta name="description" content="기출 자료 상세 — 문제지 미리보기와 빠른정답·통계를 한 페이지에서 해체해 봅니다." />
 
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
@@ -34,7 +36,7 @@
 
   <title>자료 상세 — 기출해체분석기</title>
   <link rel="stylesheet" href="style.css?v=20260508m" />
-  <link rel="modulepreload" href="exam.js?v=20260508a" />
+  <link rel="modulepreload" href="exam.js?v=20260509d" />
 </head>
 <body class="page-exam">
 
@@ -162,7 +164,7 @@
     </div>
   </footer>
 
-  <script type="module" src="exam.js?v=20260508a"></script>
+  <script type="module" src="exam.js?v=20260509d"></script>
   <script type="module" src="lib/dday-mount.js?v=20260508e"></script>
 </body>
 </html>
