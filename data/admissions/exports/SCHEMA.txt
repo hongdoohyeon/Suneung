@@ -1,0 +1,47 @@
+data/admissions/exports/ — 정시 입결 데이터 스냅샷
+
+생성 시점: 2026-05-09
+
+파일 구성
+─────────────────────────────────────────────────────────
+  cuts.csv                — 평탄화된 컷 데이터 (학교·연도·학과·70%컷)
+  catalog.json            — 학교 인덱스 (메타·연도별 학과수)
+  coverage-matrix.txt     — ASCII 매트릭스 (사람이 읽기용)
+  coverage-matrix.json    — 머신용 매트릭스
+  SCHEMA.txt              — 본 파일
+
+cuts.csv 컬럼
+─────────────────────────────────────────────────────────
+  slug         — 학교 슬러그 (예: snu, korea)
+  school_name  — 한글 학교명
+  year         — 학년도 (예: 2025)
+  unit         — 모집단위 학과명
+  pct70        — 국·수·탐 백분위 평균 70%컷
+
+catalog.json 구조
+─────────────────────────────────────────────────────────
+  {
+    "_generated": "2026-05-09",
+    "_total_schools": 88,
+    "_total_units": 3131,
+    "schools": [
+      {
+        "slug": "snu",
+        "name": "서울대학교",
+        "has_ratios": true,
+        "years": {"2025": 15, "2024": 42, ...},
+        "total_units": 130
+      },
+      ...
+    ]
+  }
+
+원천 파일 (편집용)
+─────────────────────────────────────────────────────────
+  ../manual-results.json   — 학과별 70%컷 (스냅샷의 source-of-truth)
+  ../manual-ratios.json    — 학교별 영역 가중치
+
+백업
+─────────────────────────────────────────────────────────
+  ../_archive/manual-results-2026-05-09.json
+  ../_archive/manual-ratios-2026-05-09.json

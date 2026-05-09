@@ -1,0 +1,25 @@
+{
+  "_meta": {
+    "source": "telegnosis.co/supportuniv",
+    "extractedAt": "2026-05-09",
+    "policy": "general 42교는 메인 그리드(가/나/다군). 의·치·한·약·수의예는 학과 카테고리로 모든 학교에서 노출"
+  },
+  "general": [
+    "snu", "yonsei",
+    "korea", "sogang", "hanyang", "skku", "cau", "ewha", "uos",
+    "khu", "konkuk", "snue", "hufs", "knue", "dongguk", "hongik",
+    "sookmyung", "seoultech", "ajou", "ssu", "gnue_in", "kookmin", "inha",
+    "sejong", "pusan", "sungshin", "dankook", "knu", "hanyang_erica", "kau",
+    "inu", "kw", "jnu", "cnu", "smu", "gachon", "duksung",
+    "mju", "catholic", "dongduk", "kyonggi", "swu"
+  ],
+  "missingFromOurData": [],
+  "medicalCategories": {
+    "의과대학": ["의예", "의학과", "의학부", "의예과"],
+    "치과대학": ["치의예", "치의학", "치과의예"],
+    "한의과대학": ["한의예", "한의학"],
+    "약학대학": ["약학", "약학부", "약학과", "약학계열", "미래산업약학"],
+    "수의과대학": ["수의예", "수의학"]
+  },
+  "_note": "의약학 5개 카테고리에 해당하는 학과는 화이트리스트와 무관하게 전국 학교에서 노출됨"
+}
