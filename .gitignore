@@ -1,33 +1,4 @@
-# macOS / OS
+tmp/
+*.pyc
+__pycache__/
 .DS_Store
-Thumbs.db
-
-# Editor
-.vscode/
-.idea/
-*.swp
-
-# Logs
-*.log
-
-# Local env (혹시 추가될 경우)
-.env
-.env.local
-data/files/
-
-# Node deps (사전 추출 스크립트용)
-node_modules/
-package-lock.json
-
-# 사전 추출 실패 디버그 보고서 (재실행마다 갱신)
-data/answers-fails.json
-data/audit-report.json
-data/admissions/pdfs/
-data/admissions/pdfs-extra/
-data/admissions/results-pdfs/
-data/admissions/parsed/
-data/admissions/parsed-extra/
-data/admissions/tables/
-data/admissions/tables-extra/
-data/admissions/ratios/
-data/admissions/extracted/

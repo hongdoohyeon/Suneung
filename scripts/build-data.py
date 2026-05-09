@@ -1177,6 +1177,23 @@ def main():
     # ID 부여 (id가 첫 키가 되도록 dict 재구성)
     items = [{'id': idx, **it} for idx, it in enumerate(items, 1)]
 
+    # ─ KICE 아카이브 (1999~2013 + 2022/2028 예시) merge — sqlite 외 보강 자료 ─
+    kice_archive_path = ROOT / 'data' / 'kice-archive-new-items.json'
+    if kice_archive_path.exists():
+        kice_items = json.loads(kice_archive_path.read_text(encoding='utf-8'))
+        # ID 충돌 회피: 임시 -1 후 재할당
+        for ki in kice_items: ki['id'] = -1
+        items.extend(kice_items)
+        items.sort(key=lambda i: (
+            -i['gradeYear'] if isinstance(i.get('gradeYear'), int) else -2099,
+            -(i.get('month') or 0),
+            SUBJECT_ORDER.get(i['subject'], 99),
+            i.get('subject',''),
+            i.get('subSubject') or '',
+        ))
+        items = [{**it, 'id': idx} for idx, it in enumerate(items, 1)]
+        print(f'  + KICE 아카이브 merge: +{len(kice_items)} → 총 {len(items)}')
+
     OUT_JSON.parent.mkdir(parents=True, exist_ok=True)
     with OUT_JSON.open('w', encoding='utf-8') as f:
         json.dump(items, f, ensure_ascii=False, indent=2)
