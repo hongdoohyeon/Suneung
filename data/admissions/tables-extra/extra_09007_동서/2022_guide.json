@@ -1,0 +1,24 @@
+{
+  "eng_tables": [
+    {
+      "label": "점수 28점",
+      "grades": {
+        "1": 200.0,
+        "2": 198.0,
+        "3": 196.0,
+        "4": 194.0,
+        "5": 191.0,
+        "6": 187.0,
+        "7": 182.0,
+        "8": 177.0,
+        "9": 172.0
+      },
+      "page": 23
+    }
+  ],
+  "ratio_tables": [],
+  "errors": [],
+  "slug": "extra_09007_동서",
+  "source": "data/admissions/pdfs-extra/extra_09007_동서/2022_guide.pdf",
+  "stem": "2022_guide"
+}

@@ -1,0 +1,24 @@
+{
+  "eng_tables": [
+    {
+      "label": "점수",
+      "grades": {
+        "1": 200.0,
+        "2": 198.0,
+        "3": 196.0,
+        "4": 190.0,
+        "5": 180.0,
+        "6": 160.0,
+        "7": 140.0,
+        "8": 20.0,
+        "9": 0.0
+      },
+      "page": 41
+    }
+  ],
+  "ratio_tables": [],
+  "errors": [],
+  "slug": "inha",
+  "source": "data/admissions/pdfs/inha/2024_guide.pdf",
+  "stem": "2024_guide"
+}

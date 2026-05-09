@@ -1,0 +1,23 @@
+{
+  "eng_tables": [
+    {
+      "label": "",
+      "grades": {
+        "1": 0.0,
+        "2": 0.0,
+        "3": 0.0,
+        "4": -1.0,
+        "5": -2.0,
+        "6": -3.0,
+        "7": -4.0,
+        "8": -5.0
+      },
+      "page": 39
+    }
+  ],
+  "ratio_tables": [],
+  "errors": [],
+  "slug": "kentech",
+  "source": "data/admissions/pdfs-extra/kentech/2023_guide.pdf",
+  "stem": "2023_guide"
+}

@@ -1,0 +1,23 @@
+{
+  "eng_tables": [
+    {
+      "label": "",
+      "grades": {
+        "1": 100.0,
+        "2": 97.0,
+        "3": 94.0,
+        "4": 91.0,
+        "5": 88.0,
+        "6": 85.0,
+        "7": 82.0,
+        "8": 79.0
+      },
+      "page": 49
+    }
+  ],
+  "ratio_tables": [],
+  "errors": [],
+  "slug": "extra_06009_전주",
+  "source": "data/admissions/pdfs-extra/extra_06009_전주/2025_guide.pdf",
+  "stem": "2025_guide"
+}

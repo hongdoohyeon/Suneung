@@ -1,0 +1,24 @@
+{
+  "eng_tables": [
+    {
+      "label": "점수",
+      "grades": {
+        "1": 225.0,
+        "2": 202.5,
+        "3": 180.0,
+        "4": 157.5,
+        "5": 112.5,
+        "6": 90.0,
+        "7": 67.5,
+        "8": 45.0,
+        "9": 0.0
+      },
+      "page": 10
+    }
+  ],
+  "ratio_tables": [],
+  "errors": [],
+  "slug": "jnue",
+  "source": "data/admissions/pdfs-extra/jnue/2024_guide.pdf",
+  "stem": "2024_guide"
+}

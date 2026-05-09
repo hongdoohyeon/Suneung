@@ -1,0 +1,23 @@
+{
+  "eng_tables": [
+    {
+      "label": "환산점수",
+      "grades": {
+        "1": 95.0,
+        "2": 90.0,
+        "3": 85.0,
+        "4": 80.0,
+        "5": 75.0,
+        "6": 40.0,
+        "7": 30.0,
+        "8": 20.0
+      },
+      "page": 29
+    }
+  ],
+  "ratio_tables": [],
+  "errors": [],
+  "slug": "konkuk",
+  "source": "data/admissions/pdfs/konkuk/2024_guide.pdf",
+  "stem": "2024_guide"
+}

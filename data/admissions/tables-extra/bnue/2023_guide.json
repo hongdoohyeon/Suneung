@@ -1,0 +1,23 @@
+{
+  "eng_tables": [
+    {
+      "label": "",
+      "grades": {
+        "1": 200.0,
+        "2": 190.0,
+        "3": 176.0,
+        "4": 152.0,
+        "5": 118.0,
+        "6": 78.0,
+        "7": 44.0,
+        "8": 20.0
+      },
+      "page": 14
+    }
+  ],
+  "ratio_tables": [],
+  "errors": [],
+  "slug": "bnue",
+  "source": "data/admissions/pdfs-extra/bnue/2023_guide.pdf",
+  "stem": "2023_guide"
+}

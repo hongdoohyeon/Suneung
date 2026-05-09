@@ -1,0 +1,36 @@
+{
+  "eng_tables": [],
+  "ratio_tables": [
+    {
+      "label": "성적산출 합산",
+      "ratios": {
+        "국어": 2.5,
+        "수학": 2.5,
+        "영어": 2.0
+      },
+      "page": 32
+    },
+    {
+      "label": "반영점수",
+      "ratios": {
+        "국어": 250.0,
+        "수학": 250.0,
+        "영어": 200.0
+      },
+      "page": 32
+    },
+    {
+      "label": "비율",
+      "ratios": {
+        "국어": 35.7,
+        "수학": 35.7,
+        "영어": 28.6
+      },
+      "page": 32
+    }
+  ],
+  "errors": [],
+  "slug": "wku",
+  "source": "data/admissions/pdfs/wku/2022_guide.pdf",
+  "stem": "2022_guide"
+}

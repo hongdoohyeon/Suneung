@@ -1,0 +1,23 @@
+{
+  "eng_tables": [
+    {
+      "label": "",
+      "grades": {
+        "1": 139.0,
+        "2": 131.0,
+        "3": 123.0,
+        "4": 115.0,
+        "5": 107.0,
+        "6": 99.0,
+        "7": 91.0,
+        "8": 83.0
+      },
+      "page": 42
+    }
+  ],
+  "ratio_tables": [],
+  "errors": [],
+  "slug": "extra_09009_동의",
+  "source": "data/admissions/pdfs-extra/extra_09009_동의/2025_guide.pdf",
+  "stem": "2025_guide"
+}

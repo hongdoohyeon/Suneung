@@ -1,0 +1,38 @@
+{
+  "eng_tables": [],
+  "ratio_tables": [
+    {
+      "label": "",
+      "ratios": {
+        "국어": 131.0,
+        "수학": 137.0,
+        "탐구": 58.0
+      },
+      "page": 55
+    },
+    {
+      "label": "",
+      "ratios": {
+        "국어": 93.0,
+        "수학": 95.0,
+        "탐구": 77.0
+      },
+      "page": 55
+    },
+    {
+      "label": "",
+      "ratios": {
+        "국어": 2.0,
+        "수학": 2.0,
+        "영어": 1.0,
+        "한국사": 2.0,
+        "탐구": 3.0
+      },
+      "page": 55
+    }
+  ],
+  "errors": [],
+  "slug": "kmu",
+  "source": "data/admissions/pdfs/kmu/2026_guide.pdf",
+  "stem": "2026_guide"
+}

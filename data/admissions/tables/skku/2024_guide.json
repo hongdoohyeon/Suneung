@@ -1,0 +1,37 @@
+{
+  "eng_tables": [],
+  "ratio_tables": [
+    {
+      "label": "인문계\n(글로벌융합학부 포함)",
+      "ratios": {
+        "국어": 35.0,
+        "수학": 30.0,
+        "탐구": 25.0,
+        "영어": 10.0
+      },
+      "page": 11
+    },
+    {
+      "label": "자연계",
+      "ratios": {
+        "국어": 30.0,
+        "수학": 35.0,
+        "탐구": 25.0
+      },
+      "page": 11
+    },
+    {
+      "label": "스포츠과학",
+      "ratios": {
+        "국어": 36.0,
+        "수학": 36.0,
+        "탐구": 18.0
+      },
+      "page": 11
+    }
+  ],
+  "errors": [],
+  "slug": "skku",
+  "source": "data/admissions/pdfs/skku/2024_guide.pdf",
+  "stem": "2024_guide"
+}

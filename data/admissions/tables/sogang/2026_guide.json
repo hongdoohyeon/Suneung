@@ -1,0 +1,37 @@
+{
+  "eng_tables": [],
+  "ratio_tables": [
+    {
+      "label": "수능\n성적표 표준점수 62",
+      "ratios": {
+        "탐구": 68.0,
+        "국어": 128.0,
+        "수학": 135.0
+      },
+      "page": 37
+    },
+    {
+      "label": "등급 2",
+      "ratios": {
+        "탐구": 1.0,
+        "국어": 2.0,
+        "수학": 35.0,
+        "영어": 2.0
+      },
+      "page": 37
+    },
+    {
+      "label": "백분위 93",
+      "ratios": {
+        "탐구": 98.0,
+        "국어": 94.0,
+        "수학": 35.0
+      },
+      "page": 37
+    }
+  ],
+  "errors": [],
+  "slug": "sogang",
+  "source": "data/admissions/pdfs/sogang/2026_guide.pdf",
+  "stem": "2026_guide"
+}
