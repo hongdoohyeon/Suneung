@@ -1,0 +1,27 @@
+{
+  "eng_tables": [],
+  "ratio_tables": [
+    {
+      "label": "35% -",
+      "ratios": {
+        "수학": 25.0,
+        "영어": 15.0,
+        "탐구": 25.0
+      },
+      "page": 4
+    },
+    {
+      "label": "25% -",
+      "ratios": {
+        "수학": 35.0,
+        "영어": 15.0,
+        "탐구": 25.0
+      },
+      "page": 4
+    }
+  ],
+  "errors": [],
+  "slug": "dongguk",
+  "source": "data/admissions/pdfs/dongguk/2024_guide.pdf",
+  "stem": "2024_guide"
+}

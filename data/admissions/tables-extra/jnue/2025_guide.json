@@ -1,0 +1,34 @@
+{
+  "eng_tables": [
+    {
+      "label": "",
+      "grades": {
+        "1": 225.0,
+        "2": 202.5,
+        "3": 180.0,
+        "4": 157.5,
+        "5": 112.5,
+        "6": 90.0,
+        "7": 67.5,
+        "8": 45.0
+      },
+      "page": 10
+    }
+  ],
+  "ratio_tables": [
+    {
+      "label": "",
+      "ratios": {
+        "국어": 25.0,
+        "수학": 25.0,
+        "영어": 25.0,
+        "탐구": 25.0
+      },
+      "page": 10
+    }
+  ],
+  "errors": [],
+  "slug": "jnue",
+  "source": "data/admissions/pdfs-extra/jnue/2025_guide.pdf",
+  "stem": "2025_guide"
+}

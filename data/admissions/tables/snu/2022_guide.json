@@ -1,0 +1,19 @@
+{
+  "eng_tables": [],
+  "ratio_tables": [
+    {
+      "label": "1 1 1 1 1 1 1 2 2 2",
+      "ratios": {
+        "국어": 2.0,
+        "영어": 2.0,
+        "탐구": 2.0,
+        "수학": 2.0
+      },
+      "page": 11
+    }
+  ],
+  "errors": [],
+  "slug": "snu",
+  "source": "data/admissions/pdfs/snu/2022_guide.pdf",
+  "stem": "2022_guide"
+}

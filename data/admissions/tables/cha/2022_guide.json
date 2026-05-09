@@ -1,0 +1,24 @@
+{
+  "eng_tables": [
+    {
+      "label": "환산점수",
+      "grades": {
+        "1": 100.0,
+        "2": 96.0,
+        "3": 89.0,
+        "4": 77.0,
+        "5": 60.0,
+        "6": 40.0,
+        "7": 23.0,
+        "8": 11.0,
+        "9": 0.0
+      },
+      "page": 34
+    }
+  ],
+  "ratio_tables": [],
+  "errors": [],
+  "slug": "cha",
+  "source": "data/admissions/pdfs/cha/2022_guide.pdf",
+  "stem": "2022_guide"
+}

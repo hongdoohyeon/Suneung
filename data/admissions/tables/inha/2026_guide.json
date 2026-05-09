@@ -1,0 +1,24 @@
+{
+  "eng_tables": [
+    {
+      "label": "감점",
+      "grades": {
+        "1": 0.0,
+        "2": 0.0,
+        "3": 0.0,
+        "4": 0.0,
+        "5": -1.0,
+        "6": -2.0,
+        "7": -3.0,
+        "8": -4.0,
+        "9": -5.0
+      },
+      "page": 40
+    }
+  ],
+  "ratio_tables": [],
+  "errors": [],
+  "slug": "inha",
+  "source": "data/admissions/pdfs/inha/2026_guide.pdf",
+  "stem": "2026_guide"
+}

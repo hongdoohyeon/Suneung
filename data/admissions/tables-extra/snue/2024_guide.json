@@ -1,0 +1,27 @@
+{
+  "eng_tables": [],
+  "ratio_tables": [
+    {
+      "label": "",
+      "ratios": {
+        "국어": 266.7,
+        "수학": 266.7,
+        "탐구": 266.7
+      },
+      "page": 15
+    },
+    {
+      "label": "",
+      "ratios": {
+        "국어": 33.3,
+        "수학": 33.3,
+        "탐구": 33.3
+      },
+      "page": 15
+    }
+  ],
+  "errors": [],
+  "slug": "snue",
+  "source": "data/admissions/pdfs-extra/snue/2024_guide.pdf",
+  "stem": "2024_guide"
+}

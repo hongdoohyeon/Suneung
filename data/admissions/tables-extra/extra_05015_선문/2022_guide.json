@@ -1,0 +1,20 @@
+{
+  "eng_tables": [
+    {
+      "label": "점수",
+      "grades": {
+        "1": 98.0,
+        "3": 93.0,
+        "5": 88.0,
+        "7": 83.0,
+        "9": 78.0
+      },
+      "page": 29
+    }
+  ],
+  "ratio_tables": [],
+  "errors": [],
+  "slug": "extra_05015_선문",
+  "source": "data/admissions/pdfs-extra/extra_05015_선문/2022_guide.pdf",
+  "stem": "2022_guide"
+}

@@ -1,0 +1,23 @@
+{
+  "eng_tables": [
+    {
+      "label": "",
+      "grades": {
+        "1": 100.0,
+        "2": 98.0,
+        "3": 96.0,
+        "4": 94.0,
+        "5": 92.0,
+        "6": 90.0,
+        "7": 80.0,
+        "8": 60.0
+      },
+      "page": 30
+    }
+  ],
+  "ratio_tables": [],
+  "errors": [],
+  "slug": "skuniv",
+  "source": "data/admissions/pdfs/skuniv/2023_guide.pdf",
+  "stem": "2023_guide"
+}

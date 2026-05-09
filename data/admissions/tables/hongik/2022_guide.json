@@ -1,0 +1,19 @@
+{
+  "eng_tables": [],
+  "ratio_tables": [
+    {
+      "label": "표준점수/등급 62",
+      "ratios": {
+        "국어": 130.0,
+        "수학": 92.0,
+        "탐구": 61.0,
+        "영어": 2.0
+      },
+      "page": 53
+    }
+  ],
+  "errors": [],
+  "slug": "hongik",
+  "source": "data/admissions/pdfs/hongik/2022_guide.pdf",
+  "stem": "2022_guide"
+}

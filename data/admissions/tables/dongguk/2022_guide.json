@@ -1,0 +1,23 @@
+{
+  "eng_tables": [
+    {
+      "label": "환산표준점수",
+      "grades": {
+        "1": 200.0,
+        "2": 199.0,
+        "3": 197.0,
+        "4": 190.0,
+        "5": 180.0,
+        "6": 140.0,
+        "7": 90.0,
+        "8": 20.0
+      },
+      "page": 36
+    }
+  ],
+  "ratio_tables": [],
+  "errors": [],
+  "slug": "dongguk",
+  "source": "data/admissions/pdfs/dongguk/2022_guide.pdf",
+  "stem": "2022_guide"
+}

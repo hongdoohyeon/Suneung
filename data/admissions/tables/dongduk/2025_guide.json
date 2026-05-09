@@ -1,0 +1,27 @@
+{
+  "eng_tables": [],
+  "ratio_tables": [
+    {
+      "label": "경영융합학부\n글로벌MICE융합전공",
+      "ratios": {
+        "국어": 30.0,
+        "수학": 20.0,
+        "영어": 30.0
+      },
+      "page": 5
+    },
+    {
+      "label": "앙트러프러너십전공",
+      "ratios": {
+        "국어": 20.0,
+        "수학": 20.0,
+        "영어": 50.0
+      },
+      "page": 5
+    }
+  ],
+  "errors": [],
+  "slug": "dongduk",
+  "source": "data/admissions/pdfs/dongduk/2025_guide.pdf",
+  "stem": "2025_guide"
+}

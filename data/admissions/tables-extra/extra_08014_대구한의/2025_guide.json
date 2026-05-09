@@ -1,0 +1,24 @@
+{
+  "eng_tables": [
+    {
+      "label": "",
+      "grades": {
+        "1": 100.0,
+        "2": 98.0,
+        "3": 96.0,
+        "4": 94.0,
+        "5": 92.0,
+        "6": 90.0,
+        "7": 88.0,
+        "8": 86.0,
+        "9": 84.0
+      },
+      "page": 20
+    }
+  ],
+  "ratio_tables": [],
+  "errors": [],
+  "slug": "extra_08014_대구한의",
+  "source": "data/admissions/pdfs-extra/extra_08014_대구한의/2025_guide.pdf",
+  "stem": "2025_guide"
+}
