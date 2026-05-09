@@ -158,11 +158,13 @@ function showError() {
 // ── 본 진입점 ─────────────────────────────────────────────
 async function main() {
   const params = new URLSearchParams(location.search);
-  const curriculum = params.get('curriculum');
-  const yearRaw    = params.get('year');
-  const type       = params.get('type');
+  // 친화 URL (exam-set-{curr}-{year}-{type}-g{grade}.html) 의 경우 body data-attribute fallback
+  const ds = document.body.dataset;
+  const curriculum = params.get('curriculum') || ds.curriculum || null;
+  const yearRaw    = params.get('year')       || ds.year       || null;
+  const type       = params.get('type')       || ds.type       || null;
   // 학평은 학년(grade)으로 추가 분리. 평가원 등 다른 시험은 무시.
-  const gradeRaw   = params.get('grade');
+  const gradeRaw   = params.get('grade')      || ds.grade      || null;
   const studentGrade = gradeRaw && /^[123]$/.test(gradeRaw) ? Number(gradeRaw) : null;
 
   if (!curriculum || !yearRaw || !type) { showError(); return; }

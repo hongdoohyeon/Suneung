@@ -2031,7 +2031,7 @@ body.is-sheet-open { overflow: hidden; touch-action: none; }
   .subj-input  { font-size: 16px; }
 }
 
-/* 헤더 — 좁은 화면에서 nav 라벨 압축 + 보조 메뉴(정시반영·패치노트) 숨김 */
+/* 헤더 — 좁은 화면에서 nav 라벨 압축 + 보조 메뉴 숨김 */
 @media (max-width: 700px) {
   .site-header__inner       { gap: 8px; flex-wrap: nowrap; }
   .icon-btn                 { width: 36px; height: 36px; }
@@ -2153,6 +2153,17 @@ body.is-sheet-open { overflow: hidden; touch-action: none; }
   margin: 0;
 }
 .exam__sub      { font-size: 12.5px; color: var(--ink-4); margin: 0; }
+/* SSG 단계에서 박아두는 SEO 인트로 — 검색엔진 + 사용자 양쪽에 자연어로 노출 */
+.exam__seo-intro {
+  font-size: 12px;
+  line-height: 1.55;
+  color: var(--ink-4);
+  margin: 8px 0 0;
+  padding: 8px 10px;
+  background: var(--bg-2, #f8fafc);
+  border-radius: 8px;
+  border-left: 3px solid var(--line);
+}
 /* 다운로드 버튼들 — 사이드바 폭에 맞춰 가로로 균등 분배 */
 .exam__actions  { display: flex; flex-wrap: wrap; gap: 8px; }
 .exam__actions .btn { flex: 1 1 0; min-height: 38px; }
@@ -2818,39 +2829,6 @@ body.is-sheet-open { overflow: hidden; touch-action: none; }
 }
 .examset-link:hover .examset-link__arrow { transform: translateX(2px); color: var(--ink); }
 
-/* ═══════════════════════════════════════════════════════════
-   Patchnotes — 사이트·입시 변경 기록
-═══════════════════════════════════════════════════════════ */
-.patchnotes { padding-top: 24px; padding-bottom: 56px; max-width: 760px; margin: 0 auto; }
-.patchnotes__head { padding-bottom: 20px; border-bottom: 1px solid var(--line); margin-bottom: 28px; }
-.patchnotes__title { font-size: 32px; font-weight: 700; letter-spacing: -0.6px; line-height: 1.2; color: var(--ink); margin: 0; }
-.patchnotes__sub { margin-top: 8px; color: var(--ink-3); font-size: 14px; line-height: 1.6; }
-.patchnotes__list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 24px; }
-
-.patchnotes__entry {
-  position: relative;
-  padding: 18px 18px 20px 18px;
-  background: var(--surface);
-  border: 1px solid var(--line);
-  border-radius: 12px;
-  transition: border-color 140ms var(--ease), background 140ms var(--ease);
-}
-.patchnotes__entry:hover { border-color: var(--line-strong); }
-
-.patchnotes__entry-head { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
-.patchnotes__date { font-size: 12px; font-weight: 500; color: var(--ink-4); letter-spacing: 0.2px; font-variant-numeric: tabular-nums; }
-.patchnotes__entry-title { font-size: 18px; font-weight: 600; line-height: 1.4; color: var(--ink); margin: 0 0 6px; letter-spacing: -0.2px; }
-.patchnotes__entry-summary { font-size: 14px; line-height: 1.6; color: var(--ink-2); margin: 0 0 8px; }
-.patchnotes__entry-body { font-size: 13px; line-height: 1.65; color: var(--ink-3); margin: 0; }
-
-.patchnotes__skeleton { height: 88px; background: var(--surface-2); border: 1px solid var(--line); border-radius: 12px; }
-.patchnotes__empty { padding: 28px; text-align: center; color: var(--ink-3); border: 1px dashed var(--line-strong); border-radius: 12px; }
-
-@media (max-width: 600px) {
-  .patchnotes { padding-top: 16px; }
-  .patchnotes__title { font-size: 26px; }
-  .patchnotes__entry { padding: 14px; }
-}
 
 /* ═══════════════════════════════════════════════════════════
    PDF preview — zoom controls (데스크톱 상단 / 모바일 핀치 줌)
@@ -3071,7 +3049,7 @@ body.is-sheet-open { overflow: hidden; touch-action: none; }
   .dday-chip__label { display: none; }   /* 모바일은 'D-N' 만 */
 }
 
-/* hero 추가 메뉴 (입시패치노트·정시반영비율·캘린더) */
+/* hero 추가 메뉴 */
 .hero-min__sublinks {
   display: flex;
   justify-content: center;
