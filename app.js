@@ -2,14 +2,14 @@
 import {
   CURRICULUM_CONFIG, EXAM_TYPE_CONFIG, TAB_CONFIG,
   getTypeConf, getGroupConf, getTabConf, legacyTabKey, prettySub,
-} from './config.js?v=20260508i';
+} from './config.js?v=20260509b';
 import {
   state, PAGE_SIZE,
   resetFilters, toggleMulti,
   getDisplayYear, availableGradeYears,
   filtered, subjectCounts, buildMockData,
   tabCurriculums, tabCurriculumConfs, tabSubjects, curriculumOfGradeYear,
-} from './state.js?v=20260508i';
+} from './state.js?v=20260509b';
 import { renderAllAdSlots } from './lib/ads.js';
 
 const tabConf = () => getTabConf(state.tab);

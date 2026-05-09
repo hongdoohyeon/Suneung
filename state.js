@@ -1,8 +1,8 @@
 'use strict';
 import {
   CURRICULUM_CONFIG, EXAM_TYPE_CONFIG, TAB_CONFIG,
-  getTypeConf, getTabConf, prettySub, searchAliasOf,
-} from './config.js?v=20260508i';
+  getTypeConf, getTabConf, prettySub, searchAliasOf, ALIAS_KEYS_DESC,
+} from './config.js?v=20260509b';
 
 // ── 검색 정규화 ─────────────────────────────────────────────
 // 로마자 숫자(Ⅰ/Ⅱ/Ⅲ) → 아라비아, 한자(一/二/三) → 아라비아, 소문자, 공백 제거.
@@ -14,20 +14,109 @@ function fold(s) {
     .replace(/[Ⅱⅱ]/g, '2')
     .replace(/[Ⅲⅲ]/g, '3')
     .replace(/[Ⅳⅳ]/g, '4')
+    .replace(/[‧·∙ㆍ・]/g, '')           // 가운뎃점 류 제거
+    .replace(/[()[\]{}<>「」『』]/g, '') // 괄호 제거
     .replace(/일\s*학년/g, '고1')
     .replace(/이\s*학년/g, '고2')
     .replace(/삼\s*학년/g, '고3');
 }
 const normQ = s => fold(s).replace(/\s+/g, '');
 
-// 사용자 query 를 토큰(공백/쉼표/슬래시 단위)으로 분해.
+// 한글 자모 (NFD-style 분해 + 초성 추출 양쪽에 사용)
+const CHO  = ['ㄱ','ㄲ','ㄴ','ㄷ','ㄸ','ㄹ','ㅁ','ㅂ','ㅃ','ㅅ','ㅆ','ㅇ','ㅈ','ㅉ','ㅊ','ㅋ','ㅌ','ㅍ','ㅎ'];
+const JUNG = ['ㅏ','ㅐ','ㅑ','ㅒ','ㅓ','ㅔ','ㅕ','ㅖ','ㅗ','ㅘ','ㅙ','ㅚ','ㅛ','ㅜ','ㅝ','ㅞ','ㅟ','ㅠ','ㅡ','ㅢ','ㅣ'];
+const JONG = ['','ㄱ','ㄲ','ㄳ','ㄴ','ㄵ','ㄶ','ㄷ','ㄹ','ㄺ','ㄻ','ㄼ','ㄽ','ㄾ','ㄿ','ㅀ','ㅁ','ㅂ','ㅄ','ㅅ','ㅆ','ㅇ','ㅈ','ㅊ','ㅋ','ㅌ','ㅍ','ㅎ'];
+
+// "수능기출" → "ㅅㄴㄱㅊ" (초성만)
+function toChosung(s) {
+  let out = '';
+  for (const ch of String(s ?? '')) {
+    const c = ch.charCodeAt(0);
+    if (c >= 0xAC00 && c <= 0xD7A3) {
+      out += CHO[Math.floor((c - 0xAC00) / 588)];
+    } else if (/[ㄱ-ㅎ]/.test(ch)) {
+      out += ch;
+    } else if (/[a-z0-9]/i.test(ch)) {
+      out += ch.toLowerCase();
+    }
+  }
+  return out;
+}
+// "수능" → "ㅅㅜㄴㅡㅇ" (자모 풀분해, 자모 단위 편집거리용)
+function toJamo(s) {
+  let out = '';
+  for (const ch of String(s ?? '')) {
+    const c = ch.charCodeAt(0);
+    if (c >= 0xAC00 && c <= 0xD7A3) {
+      const idx = c - 0xAC00;
+      out += CHO[Math.floor(idx / 588)];
+      out += JUNG[Math.floor((idx % 588) / 28)];
+      const j = idx % 28;
+      if (j) out += JONG[j];
+    } else if (/[ㄱ-ㅎㅏ-ㅣ]/.test(ch)) {
+      out += ch;
+    } else if (/[a-z0-9]/i.test(ch)) {
+      out += ch.toLowerCase();
+    }
+  }
+  return out;
+}
+// 토큰이 한글 초성만으로 구성됐는지 — "ㅎㄱ" 같은 입력 검출
+const isChosungOnly = s => /^[ㄱ-ㅎ]+$/.test(String(s ?? ''));
+
+// 정규식 메타문자 이스케이프
+function escapeRe(s) { return String(s).replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }
+
+// 윈도우 + 자모 단위 편집거리 (≤ maxDiff 매칭 위치 발견하면 즉시 true)
+function fuzzyContains(hay, needle, maxDiff) {
+  const nLen = needle.length;
+  if (nLen === 0) return true;
+  if (nLen > hay.length + maxDiff) return false;
+  // O(N×nLen) Levenshtein, needle 짧을 때만 호출되므로 충분.
+  for (let i = 0; i + nLen - maxDiff <= hay.length; i++) {
+    let diff = 0;
+    let j = 0;
+    while (j < nLen && diff <= maxDiff) {
+      if (hay[i + j] === needle[j]) j++;
+      else { diff++; j++; }
+    }
+    if (diff <= maxDiff) return true;
+  }
+  return false;
+}
+
+// "YYMM" 4자리 숫자 → [학년도2자리, 회차] 자동 분해
+//  2506 → ['25','6모'] / 2511 → ['25','수능'] / 2509 → ['25','9모']
+const YYMM_TO_TYPE = {
+  '11': '수능', '09': '9모', '06': '6모',
+  '03': '3모', '04': '4모', '05': '5모',
+  '07': '7모', '08': '8모', '10': '10모',
+};
+function expandYYMM(t) {
+  const m = t.match(/^(\d{2})(0[1-9]|1[0-2])$/);
+  if (!m) return null;
+  const yy = +m[1];
+  if (yy < 18 || yy > 30) return null;       // 합리적 학년도 범위
+  const round = YYMM_TO_TYPE[m[2]];
+  if (!round) return null;
+  return [m[1], round];
+}
+
+// 사용자 query 를 토큰(공백/쉼표/슬래시/하이픈 단위)으로 분해.
 // 각 토큰은 매칭 단계에서 다시 (숫자)↔(한글/영문) 경계로 분해될 수 있음 (matchToken 참고).
 function tokenize(query) {
-  return fold(query)
-    .replace(/[,\/]+/g, ' ')
+  const raw = fold(query)
+    .replace(/[,\/\-_]+/g, ' ')   // 하이픈·언더스코어도 분리 ("25-9모" → ["25","9모"])
     .split(/\s+/)
     .filter(Boolean)
     .map(c => c.replace(/\s+/g, ''));
+  // 4자리 YYMM 토큰 자동 분해
+  const out = [];
+  for (const t of raw) {
+    const exp = expandYYMM(t);
+    if (exp) out.push(...exp); else out.push(t);
+  }
+  return out;
 }
 
 // hay 캐시 — exam 객체별로 한 번만 빌드.
@@ -49,13 +138,14 @@ function buildHay(e) {
   }
 
   // 학년도·시행연도 (4자리 + 2자리 축약)
+  // 학년도는 "2025"·"25"·"2025학년도" 모두 hay 단어로 등록 → 사용자 입력 "25"가 학년도 우선 매칭.
+  // 시행연도는 "2025년" 표기만 등록 ("2025"·"25" 단독 매칭 시 학년도와 충돌 방지).
   if (e.gradeYear) {
     const gy = String(e.gradeYear);
     items.push(gy, `${gy}학년도`, gy.slice(-2));
   }
   if (e.examYear) {
-    const ey = String(e.examYear);
-    items.push(ey, `${ey}년`, ey.slice(-2));
+    items.push(`${e.examYear}년`);
   }
 
   // 시행 월
@@ -98,7 +188,30 @@ function buildHay(e) {
       break;
   }
 
-  return normQ(items.filter(Boolean).join(' '));
+  // 자료 타입 키워드 — 검색에 "듣기", "대본", "mp3", "스크립트" 직접 입력해도 잡히게
+  items.push('문제지', '문제', '기출', '기출문제', '정답', '답지', '해설', '해설지', '풀이', '등급컷', '빠른정답');
+  if (e.subject === '영어' && (e.listenUrl || e.scriptUrl)) {
+    items.push('듣기', '듣기파일', '듣기mp3', 'mp3', '음원',
+               '대본', '듣기대본', '스크립트', '영어스크립트', 'listening', 'script',
+               '듣기평가', '딕테이션', 'dictation');
+  }
+
+  const joined = items.filter(Boolean).join(' ');
+  const norm = normQ(joined);
+  // 초성 hay (예: "한국사" → "ㅎㄱㅅ") — 초성만 입력시 매칭
+  const chos = toChosung(joined);
+  // 자모 풀분해 hay — 자모 단위 편집거리 매칭
+  const jamo = toJamo(norm);
+  // 단어 시작 위치 인덱스 — prefix 가산점용
+  const wordStarts = new Set([0]);
+  for (let i = 1; i < norm.length; i++) {
+    // 단어 경계: 한글↔영숫자 / 공백 등 — normQ 후엔 이미 공백 제거됨, 하나의 큰 hay이지만
+    // 원본 joined에서 공백 위치를 보존해야 prefix 정의 가능 — 별도 wordsArr로 처리.
+  }
+  // joined를 공백/구두점 단위로 잘라 단어 배열을 만들면 prefix·정확단어 일치 판정 가능
+  const words = fold(joined).split(/[\s,/.()[\]{}<>]+/).filter(Boolean).map(w => w.replace(/\s+/g,''));
+  const wordsSet = new Set(words);
+  return { norm, chos, jamo, words, wordsSet };
 }
 
 function getHay(e) {
@@ -107,34 +220,181 @@ function getHay(e) {
   return h;
 }
 
-// 단일 토큰이 hay 와 매칭되는지.
-// 시도 순서: 1) 직접 substring  2) alias 결과 중 하나가 substring
-//             3) 토큰을 (숫자)/(한글·영문) 단위로 분해 → 분해된 sub-part 가 모두 (1)/(2) 만족
-//   "25수능" → 분해 ["25","수능"] → 둘 다 hay 안에 있어야 통과.
-function matchToken(hay, tok) {
+// 토큰 단일 매칭 — 0(없음) ~ 1.0(정확) 점수 반환.
+// 시도 순서:
+//   정확 단어 1.0 / 정확 substring 0.95 / prefix 0.85 / alias 0.85 /
+//   초성 0.8 / 토큰 분해 (숫자+한글) 0.75 / 자모 단위 거리 ≤1: 0.6 /
+//   음절 단위 거리 ≤1: 0.5 / 그 외 0.
+function scoreToken(hayObj, tok) {
   const t = normQ(tok);
-  if (!t) return true;
-  if (hay.includes(t)) return true;
-  const aliases = searchAliasOf(t);
-  if (aliases && aliases.some(a => hay.includes(normQ(a)))) return true;
+  if (!t) return 1;
+  const { norm: hay, chos, jamo, wordsSet } = hayObj;
 
-  const parts = t.match(/[\d]+|[가-힣a-z]+/g);
-  if (parts && parts.length > 1) {
-    return parts.every(p => {
-      if (hay.includes(p)) return true;
-      const al = searchAliasOf(p);
-      return al ? al.some(a => hay.includes(normQ(a))) : false;
-    });
+  // 1) 초성만 입력
+  if (isChosungOnly(tok)) {
+    if (chos.includes(tok)) return 0.8;
+    return 0;
   }
-  return false;
+
+  // 2) 정확 단어 일치 (단어 토큰)
+  if (wordsSet.has(t)) return 1.0;
+
+  // 1글자 토큰은 정확 단어 일치만 통과 (substring 매칭은 너무 광범위)
+  if (t.length === 1) return 0;
+
+  // 짧은 숫자 토큰(2~3자리)은 정확 단어 매칭만 — "25"가 "2025년" substring 매칭되는 것 방지
+  if (/^\d+$/.test(t) && t.length <= 3) return 0;
+
+  // 3) 정확 substring
+  if (hay.includes(t)) return 0.95;
+
+  // 4) alias (수능, 5모, 듣기 등 매핑) — alias 배열 모두가 hay 에 있어야 정확 매칭
+  const aliases = searchAliasOf(t);
+  if (aliases) {
+    const allIn = aliases.every(a => hay.includes(normQ(a)));
+    if (allIn) {
+      // 정확 단어 매칭이 하나라도 있으면 0.9, 부분 substring 만 있으면 0.85
+      return aliases.some(a => wordsSet.has(normQ(a))) ? 0.9 : 0.85;
+    }
+  }
+
+  // 5) prefix — 어떤 단어의 시작이 토큰
+  if (t.length >= 2) {
+    for (const w of wordsSet) {
+      if (w.length > t.length && w.startsWith(t)) return 0.8;
+    }
+  }
+
+  // 6) 토큰을 숫자/한글/영문 경계로 분해해 모든 sub-part 가 hay 또는 alias 매칭
+  //    1글자 sub-part는 너무 헐거우므로 거부 (예: "5월" → ["5","월"] → 모든 시험 매칭 방지)
+  const parts = t.match(/[\d]+|[가-힣a-z]+/g);
+  if (parts && parts.length > 1 && parts.every(p => p.length >= 2)) {
+    let total = 0; let ok = true;
+    for (const p of parts) {
+      if (hay.includes(p)) { total += 1; continue; }
+      const al = searchAliasOf(p);
+      if (al && al.every(a => hay.includes(normQ(a)))) { total += 0.85; continue; }
+      ok = false; break;
+    }
+    if (ok) return 0.7 * (total / parts.length);
+  }
+
+  // 6-b) alias-greedy split — "9모영어" → ["9모","영어"], "5모영어듣기" → ["5모","영어","듣기"]
+  // 긴 alias key 먼저 매치하면서 토큰을 자르고, 각 조각이 hay (또는 alias) 매칭되면 통과.
+  if (t.length >= 3) {
+    const segs = [];
+    let i = 0;
+    while (i < t.length) {
+      let matched = null;
+      for (const k of ALIAS_KEYS_DESC) {
+        if (k.length > t.length - i) continue;
+        if (k.length < 2) continue; // 한 글자 alias는 skip (false positive)
+        if (t.startsWith(k, i)) { matched = k; break; }
+      }
+      if (matched) { segs.push(matched); i += matched.length; }
+      else {
+        // 한 글자 단위 누적 — 다음 alias 만날 때까지 한글/영문/숫자 묶음
+        let j = i + 1;
+        while (j < t.length) {
+          let hit = false;
+          for (const k of ALIAS_KEYS_DESC) {
+            if (k.length >= 2 && t.startsWith(k, j)) { hit = true; break; }
+          }
+          if (hit) break;
+          j++;
+        }
+        segs.push(t.slice(i, j));
+        i = j;
+      }
+    }
+    if (segs.length >= 2) {
+      let total = 0; let ok = true;
+      for (const s of segs) {
+        if (hay.includes(s)) { total += 0.9; continue; }
+        const al = searchAliasOf(s);
+        if (al && al.every(a => hay.includes(normQ(a)))) { total += 0.85; continue; }
+        ok = false; break;
+      }
+      if (ok) return 0.7 * (total / segs.length);
+    }
+  }
+
+  // 7) 자모 단위 편집거리 ≤ 1 (한글 오타: "수능" → "스능", "기출" → "기풀")
+  //    숫자 포함 토큰("5월" 등)은 거부 — "11월"같은 다른 월에 1자모 거리로 매칭되는 것 방지
+  if (/^[가-힣]+$/.test(t) && t.length >= 2) {
+    const tj = toJamo(t);
+    if (tj.length >= 4 && fuzzyContains(jamo, tj, 1)) return 0.6;
+  }
+
+  // 8) 음절 단위 편집거리 ≤ 1 — 영숫자 오타 또는 한글 1음절 변경 (숫자 포함시 거부)
+  if (t.length >= 3 && /^[가-힣a-z]+$/.test(t) && fuzzyContains(hay, t, 1)) return 0.5;
+
+  return 0;
 }
 
-// AND 매칭 — 모든 토큰이 통과해야 함.
+// 쿼리 파싱 — 구문(`"..."`) 정확 일치, `-token` 제외, 그 외 일반 토큰.
+function parseQuery(query) {
+  const include = []; const exclude = []; const phrases = [];
+  const folded = fold(query);
+  // 구문 추출
+  const phRe = /"([^"]+)"/g;
+  let m;
+  let rest = folded;
+  while ((m = phRe.exec(folded))) phrases.push(m[1].trim());
+  rest = rest.replace(phRe, ' ');
+  // 토큰 분해 (제외 토큰 `-foo` 먼저 처리, 그 후 하이픈은 단어 분리자로 사용)
+  // 1) 단어 시작의 `-` 만 제외 토큰으로 인정 → "-듣기" / 그 외 단어 내 하이픈은 분리자
+  const cleaned = rest.split(/\s+/).map(seg => {
+    if (seg.startsWith('-') && seg.length > 1) {
+      exclude.push(seg.slice(1).replace(/[-_]+/g,'').replace(/\s+/g,''));
+      return '';
+    }
+    // 단어 내부 하이픈/언더스코어/슬래시는 단어 분리
+    return seg.replace(/[-_/]+/g, ' ');
+  }).filter(Boolean).join(' ');
+  for (const raw of cleaned.split(/[\s,]+/).filter(Boolean)) {
+    const t = raw.replace(/\s+/g,'');
+    const exp = expandYYMM(t);
+    if (exp) include.push(...exp); else include.push(t);
+  }
+  return { include, exclude, phrases };
+}
+
+// 쿼리 매칭 점수 — 0(제외) 또는 양수(랭킹 정렬용).
+//   AND 모드: include 토큰 모두 score>0 / 구문 모두 정확 매칭 / exclude 모두 매칭 안됨.
+//   같은 점수 안에서 정확 단어/단어시작 매칭이 더 높은 점수.
+function scoreQuery(e, query) {
+  const parsed = parseQuery(query);
+  if (parsed.include.length === 0 && parsed.phrases.length === 0) return 1;
+  const hayObj = getHay(e);
+
+  // 구문은 정확 substring 필수 — normQ는 공백 제거하므로 "수능 국어" → "수능국어"
+  for (const ph of parsed.phrases) {
+    const pn = normQ(ph);
+    if (pn && !hayObj.norm.includes(pn)) {
+      // 공백 보존 매칭 fallback (joined hay가 공백 포함)
+      const phLower = fold(ph).replace(/\s+/g, '');
+      if (!hayObj.norm.includes(phLower)) return 0;
+    }
+  }
+  // 제외 토큰은 score >= 0.6 이면 컷
+  for (const ex of parsed.exclude) {
+    if (scoreToken(hayObj, ex) >= 0.6) return 0;
+  }
+  // 포함 토큰 모두 매칭
+  let total = 0;
+  for (const tok of parsed.include) {
+    const s = scoreToken(hayObj, tok);
+    if (s === 0) return 0;  // AND
+    total += s;
+  }
+  // 정확 매칭이 다수면 랭킹 보너스
+  return parsed.include.length === 0 ? 1 : (total / parsed.include.length);
+}
+
+// 기존 호환성 유지 (boolean 인터페이스)
 function matchesQuery(e, query) {
-  const tokens = tokenize(query);
-  if (tokens.length === 0) return true;
-  const hay = getHay(e);
-  return tokens.every(tok => matchToken(hay, tok));
+  return scoreQuery(e, query) > 0;
 }
 
 export const state = {
@@ -287,7 +547,10 @@ export function availableGradeYears() {
 export function filtered() {
   const allowed = tabCurriculums();
   const tabConf = getTabConf(state.tab);
+  const hasQuery = !!state.query;
 
+  // query 있을 때는 score 계산 + score>0 필터, 없으면 score 생략(빠름)
+  const scoreCache = hasQuery ? new WeakMap() : null;
   const items = state.exams.filter(e => {
     if (!allowed.includes(e.curriculum))                                       return false;
     if (!passesTabEduFilter(e, tabConf))                                       return false;
@@ -296,7 +559,11 @@ export function filtered() {
     if (!matchMulti(state.gradeYear, String(e.gradeYear))) return false;
     if (state.subject    !== 'all' && e.subject    !== state.subject)          return false;
     if (state.subSubject !== 'all' && e.subSubject !== state.subSubject)       return false;
-    if (state.query && !matchesQuery(e, state.query)) return false;
+    if (hasQuery) {
+      const s = scoreQuery(e, state.query);
+      if (s === 0) return false;
+      scoreCache.set(e, s);
+    }
     return true;
   });
 
@@ -314,13 +581,21 @@ export function filtered() {
   const lookupOr999 = (m, v) => m.get(v) ?? 999;
 
   return items.sort((a, b) => {
+    // 1) 검색 점수 우선 (쿼리 있을 때)
+    if (hasQuery) {
+      const sa = scoreCache.get(a) ?? 0;
+      const sb = scoreCache.get(b) ?? 0;
+      // 0.05 이상 차이 시 점수 우선, 그 안쪽은 학년도/월 보조정렬
+      if (Math.abs(sa - sb) > 0.05) return sb - sa;
+    }
+    // 2) 학년도(미래→과거)
     if (a.gradeYear !== b.gradeYear) {
       return gradeYearSortKey(b.gradeYear) - gradeYearSortKey(a.gradeYear);
     }
     if (a.month !== b.month) return b.month - a.month;
-    const sa = lookupOr999(subjectIdx, a.subject);
-    const sb = lookupOr999(subjectIdx, b.subject);
-    if (sa !== sb) return sa - sb;
+    const sa2 = lookupOr999(subjectIdx, a.subject);
+    const sb2 = lookupOr999(subjectIdx, b.subject);
+    if (sa2 !== sb2) return sa2 - sb2;
     const subsMap = subSubsIdx.get(a.subject) ?? new Map();
     return lookupOr999(subsMap, a.subSubject)
          - lookupOr999(subsMap, b.subSubject);

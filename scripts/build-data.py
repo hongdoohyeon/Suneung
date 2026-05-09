@@ -10,7 +10,7 @@ KICE archive (SQLite) → 정적 JSON 변환기.
 """
 
 from __future__ import annotations
-import json, re, sqlite3, sys
+import datetime, json, re, sqlite3, sys
 from collections import Counter
 from html import escape as html_escape
 from pathlib import Path
@@ -625,9 +625,68 @@ def generate_og_image(it: dict, head: str, out_path: Path):
     img.save(out_path, 'JPEG', quality=82, optimize=True)
 
 
+# ─ 학생 검색어 별칭 ──────────────────────────────────────────────
+# "27학년도 5모" / "2026년 5월 고3 학평" 같은 약식·정식 검색어를 본문·키워드 배열에 깔아둠.
+SUNEUNG_TYPE_ALIAS = {
+    'jun':    ['6모', '6월 모의평가', '6월모의평가', '6월모평'],
+    'sep':    ['9모', '9월 모의평가', '9월모의평가', '9월모평'],
+    'csat':   ['수능', '대학수학능력시험'],
+    'prelim': ['예비시험', '예비'],
+}
+EDU_MONTH_ALIAS = {
+    3:  ['3모', '3월 학평', '3월 모의고사', '3월 학력평가'],
+    4:  ['4모', '4월 학평', '4월 모의고사', '4월 학력평가'],
+    5:  ['5모', '5월 학평', '5월 모의고사', '5월 학력평가'],
+    7:  ['7모', '7월 학평', '7월 모의고사', '7월 학력평가'],
+    10: ['10모', '10월 학평', '10월 모의고사', '10월 학력평가'],
+    11: ['11모', '11월 학평', '11월 모의고사', '11월 학력평가'],
+}
+# 영어 시험에 강하게 잡혀야 하는 자료 키워드 (학생들이 직접 치는 검색어)
+ENGLISH_ASSET_KEYWORDS = [
+    '영어 듣기', '영어 듣기 파일', '영어 듣기 mp3', '영어 듣기 음원',
+    '영어 듣기 대본', '영어 스크립트', '듣기 대본', '듣기평가',
+    '듣기평가 음원', 'listening script',
+    '영어 답지', '영어 해설지', '영어 정답', '영어 문제지',
+]
+COMMON_ASSET_KEYWORDS = ['문제지', '기출문제', '정답', '답지', '해설지', '풀이', '등급컷', '빠른정답']
+
+def _exam_aliases(it: dict) -> list[str]:
+    """시험 별 학생 검색어 별칭 (본문·keywords 양쪽에 깔리는 키워드)."""
+    gy = it['gradeYear']; gy2 = str(gy)[-2:]
+    sub = it['subject']
+    tg  = it.get('typeGroup'); typ = it.get('type')
+    aliases: list[str] = []
+    if tg == 'suneung':
+        for a in SUNEUNG_TYPE_ALIAS.get(typ, []):
+            aliases.append(f'{gy2}학년도 {a}')
+            aliases.append(f'{gy}학년도 {a}')
+            aliases.append(f'{gy2} {a}')
+        # 종합형
+        if typ in ('jun','sep'):
+            month = 6 if typ == 'jun' else 9
+            aliases += [f'{gy}학년도 {month}월 모의평가', f'{gy2}학년도 {month}모']
+    elif tg == 'education':
+        sg = it.get('studentGrade') or 3
+        month = it.get('month') or 0
+        cy = it.get('examYear') or (gy - 1)  # 시험 시행 연도(달력 기준)
+        for a in EDU_MONTH_ALIAS.get(month, []):
+            aliases += [
+                f'{gy2}학년도 {a}', f'{gy}학년도 {a}',
+                f'{cy}년 {a}',
+                f'고{sg} {a}',
+                f'{cy}년 고{sg} {month}월 학평',
+                f'{cy}년 {month}월 고{sg} 모의고사',
+            ]
+        if month and 0 < month < 13:
+            aliases.append(f'{gy2}학년도 {month}모')
+            aliases.append(f'{gy} {month}모')
+    return list(dict.fromkeys(aliases))  # 순서 보존 dedup
+
+
 def build_exam_meta(it: dict) -> dict:
     """SSG 페이지·sitemap에 쓰일 시험 단건 메타 빌드.
-    학생 검색 키워드(9모/6모/학평/기출/답지/등급컷)를 자연스럽게 포함한다."""
+    학생 검색 키워드(9모/6모/학평/기출/답지/등급컷)를 자연스럽게 포함한다.
+    영어 시험은 듣기·대본·스크립트·MP3 키워드를 추가로 노출한다."""
     gy   = it['gradeYear']
     gy2  = str(gy)[-2:]                # '26'   ← 학생 약식 표기 ("26수능", "26 9모")
     sub  = it['subject']
@@ -669,17 +728,58 @@ def build_exam_meta(it: dict) -> dict:
         seo_kw = f'{gy2} {sub}'
         full_phrase = head
 
-    # title: 본문 + 기출 키워드 (검색에 가장 강한 자리)
-    title = f'{head} 기출 — 기출해체분석기'
+    is_english = (sub == '영어')
+    has_listen = bool(it.get('listenUrl') or it.get('scriptUrl'))
 
-    # description: 정식 명칭(약칭) 기반 + 답지·등급컷 키워드 + 약식 학년도
-    desc = (
-        f'{full_phrase} 기출 문제지·정답·답지 PDF와 등급컷 통계. '
-        f'{seo_kw} 한 페이지에서 해체. 다운로드 무료.'
-    )
+    # title — 영어는 자료 타입(듣기·대본·정답·해설지)을 직접 노출
+    if is_english and has_listen:
+        title = f'{head} 듣기·대본·정답·해설지 — 기출해체분석기'
+    else:
+        title = f'{head} 기출 — 기출해체분석기'
+
+    # description — 영어는 듣기 mp3·대본 PDF 키워드를 명시
+    if is_english and has_listen:
+        desc = (
+            f'{full_phrase} 문제지, 정답, 해설지, 영어 듣기 MP3, 듣기 대본 PDF를 '
+            f'한 페이지에서 확인하세요. {seo_kw}, 영어 듣기파일·스크립트도 함께 제공.'
+        )
+    else:
+        desc = (
+            f'{full_phrase} 기출 문제지·정답·답지 PDF와 등급컷 통계. '
+            f'{seo_kw} 한 페이지에서 해체. 다운로드 무료.'
+        )
 
     canonical = f'https://kicegg.com/exam-{it["id"]}.html'
-    return {'title': title, 'description': desc, 'canonical': canonical, 'head': head}
+
+    # SEO 본문 — H1 아래 첫 문단으로 들어갈 자연어 텍스트 (검색엔진이 본문에서 키워드 잡음)
+    aliases = _exam_aliases(it)
+    alias_phrase = ', '.join(aliases[:6]) if aliases else ''
+    if is_english and has_listen:
+        intro = (
+            f'{full_phrase} 기출 자료입니다. '
+            f'문제지, 정답, 해설지뿐 아니라 영어 듣기 MP3와 듣기 대본 PDF, 스크립트 자료를 함께 제공합니다. '
+            + (f'{alias_phrase}로도 검색되는 시험입니다. ' if alias_phrase else '')
+            + '듣기평가 음원과 영어 영역 기출답을 한 페이지에서 확인하세요.'
+        )
+    else:
+        intro = (
+            f'{full_phrase} 기출 자료입니다. '
+            f'문제지, 정답, 해설지, 등급컷·빠른정답까지 한 페이지에서 확인하세요. '
+            + (f'{alias_phrase}로도 검색되는 시험입니다.' if alias_phrase else '')
+        )
+
+    # JSON-LD keywords 배열
+    kw = list(dict.fromkeys(
+        aliases
+        + [head, full_phrase, sub]
+        + (ENGLISH_ASSET_KEYWORDS if is_english else COMMON_ASSET_KEYWORDS)
+    ))
+
+    return {
+        'title': title, 'description': desc, 'canonical': canonical,
+        'head': head, 'intro': intro, 'keywords': kw,
+        'is_english': is_english, 'has_listen': has_listen,
+    }
 
 
 def build_static_exam_pages(items: list[dict], template_path: Path, out_root: Path):
@@ -735,6 +835,7 @@ def build_static_exam_pages(items: list[dict], template_path: Path, out_root: Pa
           'learningResourceType': '기출문제',
           'educationalLevel': '고등학교' if it.get('typeGroup') in ('suneung', 'education') else '대학원',
           'isPartOf': {'@id': 'https://kicegg.com/#website'},
+          'keywords': meta['keywords'],
         }
         if it.get('questionUrl'):
             parts = [{'@type': 'DigitalDocument', 'name': '문제지',
@@ -794,12 +895,253 @@ def build_static_exam_pages(items: list[dict], template_path: Path, out_root: Pa
         html = _set_attr(html, pat['twd'],   meta['description'])
         html = _set_attr(html, pat['twi'],   og_url)
         html = _set_attr(html, pat['twa'],   head + ' — 기출해체분석기')
+
+        # H1을 SSG 단계에서 미리 채워둠 — JS 로딩 전에도 검색엔진이 본문 키워드를 잡게.
+        html = re.sub(
+            r'(<h1 class="exam__title" id="examTitle">)[^<]*(</h1>)',
+            lambda m: m.group(1) + html_escape(head, quote=True) + m.group(2),
+            html, count=1)
+
+        # SEO 인트로 본문 — H1 아래에 자연어 한 문단을 박아둠 (영어는 듣기·대본·MP3 키워드 포함)
+        intro_html = (
+            '<p class="exam__seo-intro" id="examSeoIntro">'
+            + html_escape(meta['intro'], quote=False)
+            + '</p>'
+        )
+        html = html.replace(
+            '<p  class="exam__sub"   id="examSub"></p>',
+            '<p  class="exam__sub"   id="examSub"></p>\n        ' + intro_html,
+            1)
+
         # JSON-LD: </head> 직전 한 번만 삽입
         html = html.replace('</head>', '  ' + ld_block + '</head>', 1)
 
         (out_root / f'exam-{it["id"]}.html').write_text(html, encoding='utf-8')
         written += 1
     print(f'  + exam-{{id}}.html SSG {written:,}건 (Naver/Bing 인덱싱)')
+
+
+def build_set_meta(curr: str, year: str, t: str, sg: int | None, exams_in_set: list[dict]) -> dict:
+    """회차 페이지 메타. 학생 검색 키워드("5모", "27수능", "고3 5월 학평") 강화."""
+    gy   = int(year) if year != 'preliminary' else 0
+    gy2  = str(gy)[-2:] if gy else ''
+
+    if curr in ('2015', '2009', '예비'):
+        if t == 'csat':
+            head = f'{gy}학년도 대학수학능력시험'
+            short = '수능'
+            full = f'{gy}학년도 수능(대학수학능력시험)'
+            aliases = [f'{gy2}수능', f'{gy} 수능', f'{gy}학년도 수능', f'{gy2}학년도 수능']
+        elif t == 'jun':
+            head = f'{gy}학년도 6월 모의평가'
+            short = '6모'
+            full = f'{gy}학년도 6월 모의평가(6모)'
+            aliases = [f'{gy2}학년도 6모', f'{gy}학년도 6모', f'{gy2} 6모', f'{gy}학년도 6월 모평']
+        elif t == 'sep':
+            head = f'{gy}학년도 9월 모의평가'
+            short = '9모'
+            full = f'{gy}학년도 9월 모의평가(9모)'
+            aliases = [f'{gy2}학년도 9모', f'{gy}학년도 9모', f'{gy2} 9모', f'{gy}학년도 9월 모평']
+        elif t == 'prelim':
+            head = f'{gy}학년도 예비시험'
+            short = '예비'
+            full = f'{gy}학년도 예비시험(예비)'
+            aliases = [f'{gy2}학년도 예비', f'{gy} 예비시험', f'{gy2} 예비']
+        elif t in ('mar','apr','may','jun_edu','jul','aug','sep_edu','oct','nov_edu'):
+            month_map = {'mar':3,'apr':4,'may':5,'jun_edu':6,'jul':7,'aug':8,'sep_edu':9,'oct':10,'nov_edu':11}
+            month = month_map.get(t, 0)
+            sg_v = sg or 3
+            cy = gy - 1
+            head = f'{cy}년 {month}월 학력평가 (고{sg_v})'
+            short = f'{month}모'
+            full = f'{cy}년 {month}월 고{sg_v} 학력평가(학평)'
+            aliases = [
+                f'{gy2}학년도 {month}모', f'{gy}학년도 {month}모', f'{cy}년 {month}모',
+                f'고{sg_v} {month}모', f'{cy}년 고{sg_v} {month}월 학평',
+                f'{cy}년 {month}월 고{sg_v} 모의고사', f'{gy2}학년도 {month}월 학평',
+            ]
+        else:
+            head = f'{gy}학년도'
+            short = ''
+            full = head
+            aliases = []
+    elif curr == '사관':
+        head = f'{gy}학년도 사관학교 1차 시험'
+        short = '사관'
+        full = f'{gy}학년도 육·해·공군 사관학교 1차'
+        aliases = [f'{gy2}학년도 사관', f'{gy} 사관학교']
+    elif curr == '경찰대':
+        head = f'{gy}학년도 경찰대학 1차 시험'
+        short = '경찰대'
+        full = f'{gy}학년도 경찰대학 1차 시험'
+        aliases = [f'{gy2}학년도 경찰대', f'{gy} 경찰대 1차']
+    elif curr == 'LEET':
+        head = f'{gy}학년도 LEET'
+        short = 'LEET'
+        full = f'{gy}학년도 법학적성시험(LEET)'
+        aliases = [f'{gy2}학년도 리트', f'{gy} LEET', f'{gy} 리트']
+    elif curr == 'MEET':
+        head = f'{gy}학년도 MEET'
+        short = 'MEET'
+        full = f'{gy}학년도 MEET(의·치학교육입문검사)'
+        aliases = [f'{gy2}학년도 미트', f'{gy} MEET', f'{gy} 미트']
+    else:
+        head = f'{gy}학년도'
+        short = ''
+        full = head
+        aliases = []
+
+    # 영어+듣기 보유 여부 — 회차 안에서 한 과목이라도 영어 듣기 자료 있으면 듣기 키워드 노출
+    has_english_listen = any(
+        e.get('subject') == '영어' and e.get('listenUrl') for e in exams_in_set)
+    subjects = sorted({e['subject'] for e in exams_in_set if e.get('subject')})
+    subj_phrase = '·'.join(subjects[:6])
+
+    if has_english_listen:
+        title = f'{head} {short} 영역별 문제·정답·영어 듣기·해설지 — 기출해체분석기'
+        desc = (f'{full} {subj_phrase} 기출 문제지·정답·해설지·등급컷. '
+                f'영어 듣기 MP3와 듣기 대본 PDF도 함께. {short} 기출답 한 페이지.')
+    else:
+        title = f'{head} 영역별 문제·정답·해설지 — 기출해체분석기'
+        desc = (f'{full} {subj_phrase} 기출 문제지·정답·해설지·등급컷 통계. '
+                f'{short} 기출답 한 페이지에서 해체. 다운로드 무료.')
+
+    intro_parts = [f'{full} 기출 자료입니다.',
+                   f'국어·수학·영어·한국사·탐구 문제지와 정답, 해설지를 확인할 수 있습니다.']
+    if has_english_listen:
+        intro_parts.append('영어 영역은 듣기 MP3와 듣기 대본 PDF도 함께 제공합니다.')
+    if aliases:
+        intro_parts.append(', '.join(aliases[:5]) + '로도 검색되는 시험입니다.')
+    intro = ' '.join(intro_parts)
+
+    keywords = list(dict.fromkeys(aliases + [head, full, short] + subjects + COMMON_ASSET_KEYWORDS
+                                  + (ENGLISH_ASSET_KEYWORDS if has_english_listen else [])))
+    return {
+        'title': title, 'description': desc, 'head': head, 'intro': intro,
+        'keywords': keywords, 'has_english_listen': has_english_listen,
+        'short': short,
+    }
+
+
+def set_friendly_filename(curr: str, year: str, t: str, sg: int | None) -> str:
+    """회차 친화 URL 파일명. 예: exam-set-edu-2027-mar-g3.html / exam-set-kice-2027-csat.html"""
+    curr_slug = {'2015':'kice','2009':'kice','예비':'kice','사관':'mil','경찰대':'police','LEET':'leet','MEET':'meet'}.get(curr, curr.lower())
+    grade_part = f'-g{sg}' if sg else ''
+    return f'exam-set-{curr_slug}-{year}-{t}{grade_part}.html'
+
+
+def build_static_set_pages(items: list[dict], template_path: Path, out_root: Path):
+    """회차별 정적 SSG. 친화 URL(exam-set-{curr}-{year}-{type}-g{grade}.html) 로 검색 노출 강화."""
+    template = template_path.read_text(encoding='utf-8')
+
+    # 옛 친화 회차 SSG 정리
+    _set_re = re.compile(r'^exam-set-[a-z0-9_\-]+-(g[123])?\.html$|^exam-set-[a-z0-9_]+-\d+-[a-z_]+(-g[123])?\.html$')
+    for old in out_root.iterdir():
+        if old.is_file() and old.name.startswith('exam-set-') and old.name != 'exam-set.html':
+            old.unlink()
+
+    # 회차별 시험 그룹화
+    groups: dict[tuple, list[dict]] = {}
+    for it in items:
+        if not (it.get('curriculum') and it.get('gradeYear') and it.get('type')):
+            continue
+        sg = it.get('studentGrade') if it.get('typeGroup') == 'education' else None
+        key = (it['curriculum'], str(it['gradeYear']), it['type'], sg)
+        groups.setdefault(key, []).append(it)
+
+    pat = {
+      'title':  r'(<title>)[^<]*(</title>)',
+      'desc':   r'(<meta name="description" content=")[^"]*(")',
+      'canon':  r'(<link rel="canonical" href=")[^"]*(")',
+      'ogt':    r'(<meta property="og:title" content=")[^"]*(")',
+      'ogd':    r'(<meta property="og:description" content=")[^"]*(")',
+      'ogu':    r'(<meta property="og:url" content=")[^"]*(")',
+      'twt':    r'(<meta name="twitter:title" content=")[^"]*(")',
+      'twd':    r'(<meta name="twitter:description" content=")[^"]*(")',
+    }
+    def _set_attr(html, p, v):
+        return re.sub(p, lambda m: m.group(1) + html_escape(v, quote=True) + m.group(2), html, count=1)
+
+    written = 0
+    for (curr, year, t, sg), exams_in_set in groups.items():
+        meta = build_set_meta(curr, year, t, sg, exams_in_set)
+        fname = set_friendly_filename(curr, year, t, sg)
+        canonical = f'https://kicegg.com/{fname}'
+
+        jsonld = {
+            '@context': 'https://schema.org',
+            '@type': 'CollectionPage',
+            '@id': canonical,
+            'url': canonical,
+            'name': meta['head'],
+            'description': meta['description'],
+            'inLanguage': 'ko-KR',
+            'keywords': meta['keywords'],
+            'isPartOf': {'@id': 'https://kicegg.com/#website'},
+        }
+        breadcrumb = {
+            '@context': 'https://schema.org',
+            '@type': 'BreadcrumbList',
+            'itemListElement': [
+                {'@type':'ListItem','position':1,'name':'홈','item':'https://kicegg.com/'},
+                {'@type':'ListItem','position':2,'name':'기출 검색','item':'https://kicegg.com/archive.html'},
+                {'@type':'ListItem','position':3,'name':meta['head'],'item':canonical},
+            ],
+        }
+        ld_block = (
+            '<script type="application/ld+json">'
+            + json.dumps(jsonld, ensure_ascii=False, separators=(',', ':'))
+            + '</script>\n  '
+            '<script type="application/ld+json">'
+            + json.dumps(breadcrumb, ensure_ascii=False, separators=(',', ':'))
+            + '</script>\n'
+        )
+
+        html = template
+        html = _set_attr(html, pat['title'], meta['title'])
+        html = _set_attr(html, pat['desc'],  meta['description'])
+        html = _set_attr(html, pat['canon'], canonical)
+        html = _set_attr(html, pat['ogt'],   meta['title'])
+        html = _set_attr(html, pat['ogd'],   meta['description'])
+        html = _set_attr(html, pat['ogu'],   canonical)
+        html = _set_attr(html, pat['twt'],   meta['title'])
+        html = _set_attr(html, pat['twd'],   meta['description'])
+
+        # body data-* — exam-set.js 가 친화 URL에서도 동작하게
+        body_data = (
+            f' data-curriculum="{html_escape(curr, quote=True)}"'
+            f' data-year="{html_escape(year, quote=True)}"'
+            f' data-type="{html_escape(t, quote=True)}"'
+        )
+        if sg:
+            body_data += f' data-grade="{sg}"'
+        html = re.sub(r'(<body class="page-examset")', r'\1' + body_data, html, count=1)
+        # body 클래스 다른 경우(템플릿 변경 가능성) fallback — body 첫 태그
+        if 'data-curriculum' not in html:
+            html = re.sub(r'(<body[^>]*?)(>)', r'\1' + body_data + r'\2', html, count=1)
+
+        # H1 미리 채움
+        html = re.sub(
+            r'(<h1 class="examset__title" id="examsetTitle">)[^<]*(</h1>)',
+            lambda m: m.group(1) + html_escape(meta['head'], quote=True) + m.group(2),
+            html, count=1)
+
+        # SEO 인트로 본문 — H1 아래
+        intro_html = (
+            '<p class="exam__seo-intro" id="examsetSeoIntro">'
+            + html_escape(meta['intro'], quote=False)
+            + '</p>'
+        )
+        html = re.sub(
+            r'(<p class="examset__count" id="examsetCount"></p>)',
+            r'\1\n      ' + intro_html, html, count=1)
+
+        # JSON-LD 삽입
+        html = html.replace('</head>', '  ' + ld_block + '</head>', 1)
+
+        (out_root / fname).write_text(html, encoding='utf-8')
+        written += 1
+    print(f'  + {fname.split("-")[0]}-* 회차 SSG {written:,}건 (친화 URL)')
 
 
 def main():
@@ -852,12 +1194,16 @@ def main():
     # ─ exam-{id}.html SSG 사전렌더링 (Naver/Bing 인덱싱) ─
     build_static_exam_pages(items, ROOT / 'exam.html', ROOT)
 
+    # ─ exam-set-*.html 회차 SSG (친화 URL) ─
+    build_static_set_pages(items, ROOT / 'exam-set.html', ROOT)
+
     # ─ sitemap 분할: index + sets + exams ─
     base = 'https://kicegg.com'
+    today = datetime.date.today().isoformat()
     from urllib.parse import quote as _q
     from xml.sax.saxutils import escape as _xe
 
-    # (1) sitemap-sets.xml — 회차 단위 URL
+    # (1) sitemap-sets.xml — 회차 단위 친화 URL (검색 노출 우선)
     sets = set()
     for it in items:
         if not (it.get('curriculum') and it.get('gradeYear') and it.get('type')):
@@ -867,21 +1213,27 @@ def main():
     sets_parts = ['<?xml version="1.0" encoding="UTF-8"?>',
                   '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
     for curr, year, t, sg in sorted(sets):
-        params = f'curriculum={_q(curr)}&amp;year={year}&amp;type={_q(t)}'
-        if sg is not None: params += f'&amp;grade={sg}'
+        fname = set_friendly_filename(curr, year, t, sg)
         sets_parts.append(
-            f'  <url><loc>{base}/exam-set.html?{params}</loc>'
-            f'<changefreq>monthly</changefreq><priority>0.6</priority></url>')
+            f'  <url><loc>{base}/{fname}</loc>'
+            f'<lastmod>{today}</lastmod>'
+            f'<changefreq>monthly</changefreq><priority>0.8</priority></url>')
     sets_parts.append('</urlset>')
     (ROOT / 'sitemap-sets.xml').write_text('\n'.join(sets_parts) + '\n', encoding='utf-8')
 
     # (2) sitemap-exams.xml — SSG 단건 URL (3,201)
+    # 영어 + 듣기 자료 보유 시 priority 상향 (영어 듣기/대본 검색량 우선 인덱싱)
+    today = datetime.date.today().isoformat()
     exams_parts = ['<?xml version="1.0" encoding="UTF-8"?>',
                    '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
     for it in items:
+        is_english = (it.get('subject') == '영어')
+        has_listen = bool(it.get('listenUrl') or it.get('scriptUrl'))
+        priority = '0.6' if (is_english and has_listen) else '0.4'
         exams_parts.append(
             f'  <url><loc>{base}/exam-{it["id"]}.html</loc>'
-            f'<changefreq>monthly</changefreq><priority>0.4</priority></url>')
+            f'<lastmod>{today}</lastmod>'
+            f'<changefreq>monthly</changefreq><priority>{priority}</priority></url>')
     exams_parts.append('</urlset>')
     (ROOT / 'sitemap-exams.xml').write_text('\n'.join(exams_parts) + '\n', encoding='utf-8')
 
@@ -896,7 +1248,7 @@ def main():
     ]
     (ROOT / 'sitemap.xml').write_text('\n'.join(main_parts) + '\n', encoding='utf-8')
 
-    # (4) sitemap-static.xml — index/archive/gradecut/cuts/patchnotes
+    # (4) sitemap-static.xml — index/archive/gradecut
     # privacy/terms는 noindex 정책이라 sitemap에서 제외
     static_parts = [
         '<?xml version="1.0" encoding="UTF-8"?>',
@@ -904,7 +1256,6 @@ def main():
         f'  <url><loc>{base}/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>',
         f'  <url><loc>{base}/archive.html</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>',
         f'  <url><loc>{base}/gradecut.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>',
-        f'  <url><loc>{base}/patchnotes.html</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>',
         '</urlset>',
     ]
     (ROOT / 'sitemap-static.xml').write_text('\n'.join(static_parts) + '\n', encoding='utf-8')
