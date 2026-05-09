@@ -816,6 +816,7 @@ def build_static_exam_pages(items: list[dict], template_path: Path, out_root: Pa
       'twd':    r'(<meta name="twitter:description" content=")[^"]*(")',
       'twi':    r'(<meta name="twitter:image" content=")[^"]*(")',
       'twa':    r'(<meta name="twitter:image:alt" content=")[^"]*(")',
+      'robots': r'(<meta name="robots" content=")[^"]*(")',
     }
 
     written = 0
@@ -895,6 +896,7 @@ def build_static_exam_pages(items: list[dict], template_path: Path, out_root: Pa
         html = _set_attr(html, pat['twd'],   meta['description'])
         html = _set_attr(html, pat['twi'],   og_url)
         html = _set_attr(html, pat['twa'],   head + ' — 기출해체분석기')
+        html = _set_attr(html, pat['robots'], 'index,follow')   # 템플릿의 noindex 덮어씀
 
         # H1을 SSG 단계에서 미리 채워둠 — JS 로딩 전에도 검색엔진이 본문 키워드를 잡게.
         html = re.sub(
@@ -1058,6 +1060,7 @@ def build_static_set_pages(items: list[dict], template_path: Path, out_root: Pat
       'ogu':    r'(<meta property="og:url" content=")[^"]*(")',
       'twt':    r'(<meta name="twitter:title" content=")[^"]*(")',
       'twd':    r'(<meta name="twitter:description" content=")[^"]*(")',
+      'robots': r'(<meta name="robots" content=")[^"]*(")',  # 템플릿의 noindex 를 index 로 덮어씀
     }
     def _set_attr(html, p, v):
         return re.sub(p, lambda m: m.group(1) + html_escape(v, quote=True) + m.group(2), html, count=1)
@@ -1106,6 +1109,7 @@ def build_static_set_pages(items: list[dict], template_path: Path, out_root: Pat
         html = _set_attr(html, pat['ogu'],   canonical)
         html = _set_attr(html, pat['twt'],   meta['title'])
         html = _set_attr(html, pat['twd'],   meta['description'])
+        html = _set_attr(html, pat['robots'], 'index,follow')   # 친화 URL은 인덱싱 대상
 
         # body data-* — exam-set.js 가 친화 URL에서도 동작하게
         body_data = (
