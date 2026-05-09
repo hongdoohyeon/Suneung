@@ -952,6 +952,15 @@ a { color: inherit; text-decoration: none; }
 .site-footer__legal a:hover { color: var(--ink-1); text-decoration: underline; }
 .site-footer--landing { padding: 18px 0; border-top: none; }
 
+/* 모바일 — footer 1줄 압축 (출처 메인만, 부가 라인 숨김) */
+@media (max-width: 600px) {
+  .site-footer { padding: 18px 12px calc(18px + env(safe-area-inset-bottom)); font-size: 11px; line-height: 1.6; }
+  .site-footer__sub { display: none; }
+  .site-footer p:first-child { font-size: 11px; color: var(--ink-5); }
+  .site-footer__legal { margin-top: 6px; }
+  .site-footer__legal a { margin: 0 6px; }
+}
+
 /* ═══ Legal pages (privacy / terms) ═══════════════════════ */
 .legal {
   max-width: 760px;
@@ -1938,26 +1947,18 @@ body.is-sheet-open { overflow: hidden; touch-action: none; }
    자식의 min-content가 부모 폭을 키우면 viewport를 넘침. cascade를 강제 차단 */
 @media (max-width: 600px) {
   .main, .main > *, .content, .content > * { min-width: 0; max-width: 100%; }
-  /* flex 1열 fix — 명시적 50% 폭으로 viewport 봉쇄 (minmax보다 강함) */
-  .grid              { display: flex; flex-wrap: wrap; gap: 8px; }
+  /* 모바일 1열 — 카드가 제목·과목·자료·버튼 다 보여야 하므로 1열 안정 */
+  .grid              { display: flex; flex-direction: column; gap: 8px; }
   .grid > .card,
-  .grid > .skel-card { flex: 0 0 calc(50% - 4px); width: calc(50% - 4px); min-width: 0; }
-  .card              { padding: 12px 12px 10px; border-radius: 10px; }
+  .grid > .skel-card { width: 100%; min-width: 0; }
+  .card              { padding: 14px 14px 12px; border-radius: 10px; }
   .card__title, .card__sub, .card__meta { min-width: 0; max-width: 100%; }
   .card__meta        { margin-bottom: 8px; }
-  .card__title       { font-size: 14.5px; }
-  .card__sub         { font-size: 11.5px; margin-top: 3px; }
+  .card__title       { font-size: 15px; line-height: 1.35; }
+  .card__sub         { font-size: 12px; margin-top: 3px; line-height: 1.45; }
   .card__divider     { margin: 10px 0 8px; }
-  .card__actions     { gap: 4px; }
-  .card__actions .btn { font-size: 11.5px; padding: 0 8px; min-height: var(--tap); height: var(--tap); }
-}
-
-/* 극소 화면 — 카드 1열로 가서 화면이 휑해지는 것 방지: 2열 유지 */
-@media (max-width: 360px) {
-  .grid          { gap: 6px; }
-  .card          { padding: 10px 10px 9px; }
-  .card__title   { font-size: 13.5px; }
-  .card__actions .btn { padding: 0 6px; }
+  .card__actions     { gap: 6px; }
+  .card__actions .btn { font-size: 12px; padding: 0 10px; min-height: var(--tap); height: var(--tap); flex: 1 1 auto; }
 }
 
 /* ╔══════════════════════════════════════════════════════════
@@ -2637,7 +2638,7 @@ body.is-sheet-open { overflow: hidden; touch-action: none; }
 .exam__error-title { font-size: 18px; font-weight: 700; color: var(--ink); margin: 0; }
 .exam__error-sub   { font-size: 13px; color: var(--ink-4); margin: 6px 0 0; }
 
-/* ── exam 모바일 — 사이드바 해제, 세로 스택 ──────────────── */
+/* ── exam 모바일 — 사이드바 해제, PDF 우선 ──────────────── */
 @media (max-width: 960px) {
   .exam {
     padding-top: 12px;
@@ -2649,6 +2650,25 @@ body.is-sheet-open { overflow: hidden; touch-action: none; }
   .exam__side {
     position: static;
     gap: 10px;
+    order: 1;        /* 메타·다운로드 버튼 먼저 */
+  }
+  .exam__main { order: 2; }   /* PDF 미리보기 그 아래 */
+  /* 다운로드 버튼 모바일 2열 그리드 — 영어 듣기 5종 동시 보기 좋음 */
+  .exam__actions {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 6px;
+  }
+  .exam__actions .btn { min-height: 40px; font-size: 12.5px; padding: 0 10px; }
+  /* PDF preview 좌우 여백 제거 */
+  .preview__viewer { padding-left: 0; padding-right: 0; }
+  .preview__page   { width: 100%; max-width: 100%; }
+  /* SEO 인트로 모바일에서 너무 길면 2줄 클램프 */
+  .exam__seo-intro {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
   }
   /* 모바일에선 PDF가 viewport 세로 거의 다 차지하면 답답하니 cap 완화 */
   .preview__page { max-height: none; }
@@ -3401,10 +3421,40 @@ body.is-sheet-open { overflow: hidden; touch-action: none; }
   .dash-eyebrow { font-size: 10.5px; margin-bottom: 10px; }
   .dash-title { font-size: 22px; line-height: 1.25; margin-bottom: 6px; }
   .dash-sub { font-size: 13px; margin-bottom: 18px; }
-  .dash-searchbar__input { height: 48px; font-size: 14.5px; }
-  .dash-searchbar__btn { height: 38px; padding: 0 14px; font-size: 13px; }
-  .dash-quickfilters { gap: 5px; margin-top: 12px; }
-  .dash-chip { padding: 5px 10px; font-size: 11.5px; }
+  .dash-searchbar__input {
+    height: 48px;
+    font-size: 16px;             /* iOS 확대 방지 (≥16px) */
+    min-width: 0;                /* flex 자식 폭 축소 허용 */
+  }
+  .dash-searchbar__btn {
+    height: 38px;
+    padding: 0;                  /* 아이콘 버튼 — 폭 압축 */
+    font-size: 0;                /* 텍스트 숨김 */
+    width: 38px;
+    flex: 0 0 38px;
+    background: transparent;
+    color: var(--ink);
+    position: relative;
+  }
+  .dash-searchbar__btn::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230a0a0a' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'><circle cx='11' cy='11' r='7'/><line x1='21' y1='21' x2='16.65' y2='16.65'/></svg>") center/18px no-repeat;
+  }
+  /* 빠른 필터 가로 스크롤 (한 줄 고정 X) */
+  .dash-quickfilters {
+    gap: 6px;
+    margin-top: 12px;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    justify-content: flex-start;
+    padding-bottom: 4px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .dash-quickfilters::-webkit-scrollbar { display: none; }
+  .dash-chip { padding: 5px 10px; font-size: 11.5px; flex: 0 0 auto; }
   .dash-cards { margin-top: 28px; gap: 8px; }
   .dash-card { padding: 13px 12px; min-height: 64px; gap: 10px; }
   .dash-card__icon { width: 32px; height: 32px; }
@@ -3468,10 +3518,23 @@ body.is-sheet-open { overflow: hidden; touch-action: none; }
   font-weight: 700;
 }
 @media (max-width: 600px) {
-  .page-header__inner { padding: 20px 16px 16px; }
-  .page-header__title { font-size: 19px; }
-  .page-header__sub   { font-size: 12.5px; }
-  .page-header__meta  { font-size: 11.5px; gap: 4px 12px; }
+  .page-header__inner { padding: 16px 16px 12px; }
+  .page-header__title { font-size: 19px; margin-bottom: 2px; }
+  .page-header__sub   {
+    font-size: 12.5px;
+    line-height: 1.45;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .page-header__meta  {
+    font-size: 11px;
+    gap: 4px 10px;
+    margin-top: 6px;
+    overflow: hidden;
+    max-height: 16px;          /* 한 줄만 노출 */
+  }
 }
 
 /* ╔══════════════════════════════════════════════════════════
