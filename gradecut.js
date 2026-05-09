@@ -276,7 +276,7 @@ function slotHTML(subj, slotIdx, subjConf, isMulti) {
       ${numLabel}
       ${pillsHTML}
       <div class="subj-slot__input-row">
-        <input type="text" inputmode="numeric" pattern="[0-9]*"
+        <input type="text" inputmode="numeric" pattern="[0-9]*" enterkeyhint="next"
           class="subj-input" maxlength="3"
           placeholder="${placeholder}"
           value="${scoreVal}"

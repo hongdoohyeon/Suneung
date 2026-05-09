@@ -396,6 +396,16 @@ a { color: inherit; text-decoration: none; }
   border-color: var(--pill-color, var(--ink));
 }
 
+/* 학년도 더보기 버튼 + 숨김 처리 (모바일 7+ 학년도 시) */
+.pill--more {
+  background: transparent;
+  color: var(--ink-3);
+  border-style: dashed;
+  font-weight: 500;
+}
+.pill--more:hover { color: var(--ink-1); border-color: var(--ink-3); }
+.year-pill--collapsed { display: none; }
+
 /* ── Subtype expand ───────────────────────────────── */
 .subtype-row {
   display: grid;
