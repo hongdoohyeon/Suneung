@@ -55,7 +55,7 @@
 
   <title>기출 검색 — 기출해체분석기</title>
   <link rel="stylesheet" href="style.css?v=20260510a" />
-  <link rel="modulepreload" href="app.js?v=20260509d" />
+  <link rel="modulepreload" href="app.js?v=20260510b" />
   <link rel="modulepreload" href="config.js?v=20260509b" />
   <link rel="modulepreload" href="state.js?v=20260509b" />
 </head>
@@ -181,10 +181,12 @@
         <div id="subjectFilter"></div>
       </div>
 
-      <!-- 모바일 시트 하단 적용 버튼 -->
+      <!-- 모바일 시트 하단 적용 버튼 — 결과 수 동적 표시 -->
       <div class="filter__sheet-actions">
         <button class="btn btn--ghost" id="filterSheetReset" type="button">초기화</button>
-        <button class="btn btn--primary" id="filterSheetApply" type="button">결과 보기</button>
+        <button class="btn btn--primary" id="filterSheetApply" type="button">
+          결과 <span id="filterSheetCount">—</span>건 보기
+        </button>
       </div>
 
     </aside>
@@ -286,7 +288,7 @@
     </div>
   </footer>
 
-  <script type="module" src="app.js?v=20260509d"></script>
+  <script type="module" src="app.js?v=20260510b"></script>
   <script type="module" src="lib/dday-mount.js?v=20260508h"></script>
 </body>
 </html>

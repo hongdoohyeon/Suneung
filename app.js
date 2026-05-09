@@ -295,6 +295,12 @@ function renderYearChips() {
 
   const out = [pill('all', '전체', isYearActive('all'), '', 'data-year="all"')];
   let lastCurrId = null;
+  // 학년도 6개 초과 + 모바일 폭 → 처음 5개만 보이고 나머진 더보기로
+  const isMobile = typeof window !== 'undefined' && window.matchMedia('(max-width: 600px)').matches;
+  const COLLAPSE_THRESHOLD = 6;
+  const SHOW_INITIAL = 5;
+  const collapseEnabled = isMobile && years.length > COLLAPSE_THRESHOLD;
+  let visibleCount = 0;
   for (const y of years) {
     if (showHeaders) {
       const conf = curriculumOfGradeYear(y);
@@ -305,13 +311,29 @@ function renderYearChips() {
       }
     }
     const value = y === 'preliminary' ? 'preliminary' : String(y);
-    out.push(pill(value, yearChipLabel(y, isEdu), isYearActive(value), '', `data-year="${value}"`));
+    const hidden = collapseEnabled && visibleCount >= SHOW_INITIAL ? ' year-pill--collapsed' : '';
+    out.push(pill(value, yearChipLabel(y, isEdu), isYearActive(value),
+                  hidden, `data-year="${value}"`));
+    visibleCount++;
+  }
+  if (collapseEnabled) {
+    out.push(`<button type="button" class="pill pill--more" id="yearMoreBtn" data-expanded="false">더보기</button>`);
   }
   container.innerHTML = out.join('');
 }
 
 $('yearFilter').addEventListener('click', e => {
-  const btn = e.target.closest('.pill');
+  // 더보기 버튼 토글 — 숨겨진 학년도 칩 모두 보이게
+  if (e.target.id === 'yearMoreBtn') {
+    const expanded = e.target.dataset.expanded === 'true';
+    document.querySelectorAll('#yearFilter .year-pill--collapsed').forEach(el => {
+      el.classList.toggle('year-pill--collapsed', expanded);
+    });
+    e.target.dataset.expanded = expanded ? 'false' : 'true';
+    e.target.textContent = expanded ? '더보기' : '접기';
+    return;
+  }
+  const btn = e.target.closest('.pill:not(.pill--more)');
   if (!btn) return;
   const val = btn.dataset.year;
   if (val === 'all') {
@@ -469,6 +491,9 @@ function renderCards() {
   const isPlaceholder = Boolean(tabConf()?.placeholder);
 
   countEl.textContent = isPlaceholder ? '' : `${data.length.toLocaleString()}건`;
+  // 모바일 필터 시트 "결과 N건 보기" 버튼 카운트 동기화
+  const sheetCountEl = $('filterSheetCount');
+  if (sheetCountEl) sheetCountEl.textContent = isPlaceholder ? '0' : data.length.toLocaleString();
   updateExamSetLink(data);
 
   if (isPlaceholder || data.length === 0) {
