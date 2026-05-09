@@ -3315,18 +3315,18 @@ body.is-sheet-open { overflow: hidden; touch-action: none; }
   margin: 22px 0 0;
 }
 
-/* 카드 그리드 (3개 동등) */
+/* 카드 그리드 (기출검색·모의지원 2개 — 중앙 정렬) */
 .dash-cards {
   margin-top: 40px;
   display: grid;
   grid-template-columns: 1fr;
   gap: 10px;
-  max-width: 720px;
+  max-width: 520px;
   margin-left: auto;
   margin-right: auto;
 }
 @media (min-width: 700px) {
-  .dash-cards { grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .dash-cards { grid-template-columns: repeat(2, 1fr); gap: 12px; }
 }
 
 .dash-card {
