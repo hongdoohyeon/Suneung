@@ -2,7 +2,7 @@
 import {
   CURRICULUM_CONFIG, EXAM_TYPE_CONFIG, TAB_CONFIG,
   getTypeConf, getTabConf, prettySub, searchAliasOf, ALIAS_KEYS_DESC,
-} from './config.js?v=20260509b';
+} from './config.js?v=20260510c';
 
 // ── 검색 정규화 ─────────────────────────────────────────────
 // 로마자 숫자(Ⅰ/Ⅱ/Ⅲ) → 아라비아, 한자(一/二/三) → 아라비아, 소문자, 공백 제거.
@@ -551,10 +551,13 @@ export function filtered() {
 
   // query 있을 때는 score 계산 + score>0 필터, 없으면 score 생략(빠름)
   const scoreCache = hasQuery ? new WeakMap() : null;
+  // 예비/예시 시험(prelim) — type=prelim 명시 선택 시에만 노출. type='all' 이면 숨김.
+  const typeIsAll = state.type === 'all' || (Array.isArray(state.type) && state.type.length === 0);
   const items = state.exams.filter(e => {
     if (!allowed.includes(e.curriculum))                                       return false;
     if (!passesTabEduFilter(e, tabConf))                                       return false;
     if (state.typeGroup  !== 'all' && e.typeGroup  !== state.typeGroup)       return false;
+    if (e.type === 'prelim' && typeIsAll) return false;   // 예비 분리 정책
     if (!matchMulti(state.type, e.type)) return false;
     if (!matchMulti(state.gradeYear, String(e.gradeYear))) return false;
     if (state.subject    !== 'all' && e.subject    !== state.subject)          return false;
@@ -605,10 +608,12 @@ export function filtered() {
 export function subjectCounts() {
   const allowed = tabCurriculums();
   const tabConf = getTabConf(state.tab);
+  const typeIsAll = state.type === 'all' || (Array.isArray(state.type) && state.type.length === 0);
   const base = state.exams.filter(e => {
     if (!allowed.includes(e.curriculum)) return false;
     if (!passesTabEduFilter(e, tabConf)) return false;
     if (state.typeGroup !== 'all' && e.typeGroup !== state.typeGroup) return false;
+    if (e.type === 'prelim' && typeIsAll) return false;   // 예비 분리 정책 일관성
     if (!matchMulti(state.type, e.type)) return false;
     if (!matchMulti(state.gradeYear, String(e.gradeYear))) return false;
     if (state.query && !matchesQuery(e, state.query)) return false;

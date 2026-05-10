@@ -2,14 +2,14 @@
 import {
   CURRICULUM_CONFIG, EXAM_TYPE_CONFIG, TAB_CONFIG,
   getTypeConf, getGroupConf, getTabConf, legacyTabKey, prettySub,
-} from './config.js?v=20260509b';
+} from './config.js?v=20260510c';
 import {
   state, PAGE_SIZE,
   resetFilters, toggleMulti,
   getDisplayYear, availableGradeYears,
   filtered, subjectCounts, buildMockData,
   tabCurriculums, tabCurriculumConfs, tabSubjects, curriculumOfGradeYear,
-} from './state.js?v=20260509b';
+} from './state.js?v=20260510c';
 import { renderAllAdSlots } from './lib/ads.js';
 
 const tabConf = () => getTabConf(state.tab);
@@ -295,11 +295,12 @@ function renderYearChips() {
 
   const out = [pill('all', '전체', isYearActive('all'), '', 'data-year="all"')];
   let lastCurrId = null;
-  // 학년도 6개 초과 + 모바일 폭 → 처음 5개만 보이고 나머진 더보기로
+  // 학년도 너무 많을 때 (현재 1994~2026 = 33년) — 데스크톱·모바일 모두 "최근 N + 더보기"
+  // 데스크톱 8개 / 모바일 5개
   const isMobile = typeof window !== 'undefined' && window.matchMedia('(max-width: 600px)').matches;
-  const COLLAPSE_THRESHOLD = 6;
-  const SHOW_INITIAL = 5;
-  const collapseEnabled = isMobile && years.length > COLLAPSE_THRESHOLD;
+  const SHOW_INITIAL = isMobile ? 5 : 8;
+  const COLLAPSE_THRESHOLD = SHOW_INITIAL + 2;
+  const collapseEnabled = years.length > COLLAPSE_THRESHOLD;
   let visibleCount = 0;
   for (const y of years) {
     if (showHeaders) {
