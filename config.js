@@ -14,7 +14,7 @@ export const TAB_CONFIG = [
   // senior 탭: 평가원(전 학년) + 교육청 고3 학평만 표시 (educationGrades:[3]).
   // 첫 진입 시 평가원이 default — 학평을 보려면 사용자가 명시 클릭.
   { key: 'senior',     label: '고3',       sub: '수능·평가원·학평',
-    curriculums: ['2015', '2009', '예비'], educationGrades: [3],
+    curriculums: ['2015', '2009', 'pre2009', '예비'], educationGrades: [3],
     defaultTypeGroup: 'suneung' },
   { key: 'mp',         label: '사관·경찰', sub: '1차 시험',         curriculums: ['사관', '경찰대'] },
   { key: 'gradschool', label: 'LEET·MEET', sub: '전문대학원',       curriculums: ['LEET', 'MEET'] },
@@ -33,7 +33,7 @@ export function getTabConf(tabKey) {
 
 // 옛 URL 파라미터 (?tab=2015 등) 호환 — curriculum 키가 들어오면 새 탭으로 매핑
 const LEGACY_CURRICULUM_TO_TAB = {
-  '2015': 'senior', '2009': 'senior', '예비': 'senior',
+  '2015': 'senior', '2009': 'senior', 'pre2009': 'senior', '예비': 'senior',
   '사관': 'mp', '경찰대': 'mp',
   'LEET': 'gradschool', 'MEET': 'gradschool',
 };
@@ -76,6 +76,30 @@ export const CURRICULUM_CONFIG = {
                     subs: ['물리Ⅰ','화학Ⅰ','생명과학Ⅰ','지구과학Ⅰ','물리Ⅱ','화학Ⅱ','생명과학Ⅱ','지구과학Ⅱ'] },
       '사회탐구':  { icon: '🌏', bg: '#ecf5e8', color: '#2a7a2a',
                     subs: ['생활과윤리','윤리와사상','한국지리','세계지리','동아시아사','세계사','법과정치','경제','사회·문화'] },
+    },
+    subjectsByTypeGroup: {},
+  },
+
+  // ── 7차 이전 (1994~2013학년도) — KICE 아카이브 ──────────────
+  // 1994~1998 일괄형(인문계/자연계/예체능계), 1999~2013 영역별 분리.
+  // 전부 평가원 출제 — typeGroup=suneung. 옛 영역명까지 union으로 노출.
+  'pre2009': {
+    id: 'pre2009',
+    label: '7차 이전',
+    rangeLabel: '1994~2013학년도',
+    gradeYearRange: [1994, 2013],
+    availableTypeGroups: ['suneung'],
+    subjects: {
+      '국어':       { icon: '📖', bg: '#fff0e8', color: '#c44b00', subs: ['언어','화법','작문','문법','문학','독서','A형','B형'] },
+      '수학':       { icon: '📐', bg: '#eef2ff', color: '#1a4fd6', subs: ['가형','나형','A형','B형','수리탐구I','수리탐구II'] },
+      '영어':       { icon: '🌍', bg: '#e6f5fb', color: '#0077a8', subs: [] },
+      '사회탐구':   { icon: '🌏', bg: '#ecf5e8', color: '#2a7a2a', subs: [] },
+      '과학탐구':   { icon: '🔬', bg: '#f0e8ff', color: '#6b2fbe', subs: [] },
+      '직업탐구':   { icon: '🛠️', bg: '#fff7e0', color: '#a06b00', subs: [] },
+      '제2외국어':  { icon: '🗣️', bg: '#f3e8ff', color: '#5a2ea8', subs: [] },
+      '인문계':     { icon: '📚', bg: '#fdf3e7', color: '#8f5610', subs: [] },
+      '자연계':     { icon: '🧪', bg: '#e6f5fb', color: '#0077a8', subs: [] },
+      '예체능계':   { icon: '🎨', bg: '#fde7f0', color: '#a8005a', subs: [] },
     },
     subjectsByTypeGroup: {},
   },
