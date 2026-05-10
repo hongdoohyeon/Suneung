@@ -1,4 +1,7 @@
-tmp/
-*.pyc
 __pycache__/
 .DS_Store
+*.pyc
+data/files/pdfs
+data/files/pdfs_edu
+node_modules/
+tmp/
