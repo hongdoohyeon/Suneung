@@ -77,7 +77,24 @@ def clean(sub: str | None, subject: str) -> str | None:
         # '독일어1' → '독일어'
         s = re.sub(r'^(.+?)[1IⅠ]$', r'\1', s)
 
-    # 5) subject 와 같거나 빈 문자열이면 null
+    # 5) 표기차 통일 (같은 학년도에 공존하는 케이스로 검증된 것만)
+    ALIAS = {
+        # 같은 과목, 표기차 (year overlap 으로 확인)
+        '식품영양':   '식품과영양',
+        '법사':       '법과사회',
+        '사회문화':   '사회·문화',
+        # 단발 이상 표기
+        '가':         '가형',
+    }
+    if s in ALIAS:
+        s = ALIAS[s]
+
+    # 6) 어색한 단발 표기는 null 처리
+    # '언어모의고사' (2004 국어 1건) — subject 가 이미 '국어' 이고 모의여부는 type 으로 분리됨
+    if s in ('언어모의고사',):
+        return None
+
+    # 7) subject 와 같거나 빈 문자열이면 null
     if not s or s == subject:
         return None
 
