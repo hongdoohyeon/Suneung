@@ -50491,424 +50491,6 @@
     "studentGrade": 3,
     "typeGroup": "suneung",
     "type": "csat",
-    "subject": "과학탐구",
-    "subSubject": "01.정답표",
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v1/2012_csat_science_k536543_q.pdf",
-    "questionDownload": "2012학년도_csat_과학탐구_01.정답표_문제지.pdf",
-    "answerUrl": null,
-    "answerDownload": null,
-    "solutionUrl": null,
-    "listenUrl": null,
-    "listenDownload": null,
-    "scriptUrl": null,
-    "scriptDownload": null,
-    "source": "kice-archive"
-  },
-  {
-    "id": 3307,
-    "curriculum": "pre2009",
-    "gradeYear": 2012,
-    "examYear": 2011,
-    "month": 11,
-    "studentGrade": 3,
-    "typeGroup": "suneung",
-    "type": "csat",
-    "subject": "과학탐구",
-    "subSubject": "02.정답표",
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v1/2012_csat_science_kb79ea8_q.pdf",
-    "questionDownload": "2012학년도_csat_과학탐구_02.정답표_문제지.pdf",
-    "answerUrl": null,
-    "answerDownload": null,
-    "solutionUrl": null,
-    "listenUrl": null,
-    "listenDownload": null,
-    "scriptUrl": null,
-    "scriptDownload": null,
-    "source": "kice-archive"
-  },
-  {
-    "id": 3308,
-    "curriculum": "pre2009",
-    "gradeYear": 2012,
-    "examYear": 2011,
-    "month": 11,
-    "studentGrade": 3,
-    "typeGroup": "suneung",
-    "type": "csat",
-    "subject": "과학탐구",
-    "subSubject": "03.정답표",
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v1/2012_csat_science_kcb9c1e_q.pdf",
-    "questionDownload": "2012학년도_csat_과학탐구_03.정답표_문제지.pdf",
-    "answerUrl": null,
-    "answerDownload": null,
-    "solutionUrl": null,
-    "listenUrl": null,
-    "listenDownload": null,
-    "scriptUrl": null,
-    "scriptDownload": null,
-    "source": "kice-archive"
-  },
-  {
-    "id": 3309,
-    "curriculum": "pre2009",
-    "gradeYear": 2012,
-    "examYear": 2011,
-    "month": 11,
-    "studentGrade": 3,
-    "typeGroup": "suneung",
-    "type": "csat",
-    "subject": "과학탐구",
-    "subSubject": "04.정답표",
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v1/2012_csat_science_k21ad10_q.pdf",
-    "questionDownload": "2012학년도_csat_과학탐구_04.정답표_문제지.pdf",
-    "answerUrl": null,
-    "answerDownload": null,
-    "solutionUrl": null,
-    "listenUrl": null,
-    "listenDownload": null,
-    "scriptUrl": null,
-    "scriptDownload": null,
-    "source": "kice-archive"
-  },
-  {
-    "id": 3310,
-    "curriculum": "pre2009",
-    "gradeYear": 2012,
-    "examYear": 2011,
-    "month": 11,
-    "studentGrade": 3,
-    "typeGroup": "suneung",
-    "type": "csat",
-    "subject": "과학탐구",
-    "subSubject": "05.정답표",
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v1/2012_csat_science_k4d8aa6_q.pdf",
-    "questionDownload": "2012학년도_csat_과학탐구_05.정답표_문제지.pdf",
-    "answerUrl": null,
-    "answerDownload": null,
-    "solutionUrl": null,
-    "listenUrl": null,
-    "listenDownload": null,
-    "scriptUrl": null,
-    "scriptDownload": null,
-    "source": "kice-archive"
-  },
-  {
-    "id": 3311,
-    "curriculum": "pre2009",
-    "gradeYear": 2012,
-    "examYear": 2011,
-    "month": 11,
-    "studentGrade": 3,
-    "typeGroup": "suneung",
-    "type": "csat",
-    "subject": "과학탐구",
-    "subSubject": "06.정답표",
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v1/2012_csat_science_k4a6c62_q.pdf",
-    "questionDownload": "2012학년도_csat_과학탐구_06.정답표_문제지.pdf",
-    "answerUrl": null,
-    "answerDownload": null,
-    "solutionUrl": null,
-    "listenUrl": null,
-    "listenDownload": null,
-    "scriptUrl": null,
-    "scriptDownload": null,
-    "source": "kice-archive"
-  },
-  {
-    "id": 3312,
-    "curriculum": "pre2009",
-    "gradeYear": 2012,
-    "examYear": 2011,
-    "month": 11,
-    "studentGrade": 3,
-    "typeGroup": "suneung",
-    "type": "csat",
-    "subject": "과학탐구",
-    "subSubject": "07.정답표",
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v1/2012_csat_science_k26530c_q.pdf",
-    "questionDownload": "2012학년도_csat_과학탐구_07.정답표_문제지.pdf",
-    "answerUrl": null,
-    "answerDownload": null,
-    "solutionUrl": null,
-    "listenUrl": null,
-    "listenDownload": null,
-    "scriptUrl": null,
-    "scriptDownload": null,
-    "source": "kice-archive"
-  },
-  {
-    "id": 3313,
-    "curriculum": "pre2009",
-    "gradeYear": 2012,
-    "examYear": 2011,
-    "month": 11,
-    "studentGrade": 3,
-    "typeGroup": "suneung",
-    "type": "csat",
-    "subject": "과학탐구",
-    "subSubject": "08.정답표",
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v1/2012_csat_science_k765bef_q.pdf",
-    "questionDownload": "2012학년도_csat_과학탐구_08.정답표_문제지.pdf",
-    "answerUrl": null,
-    "answerDownload": null,
-    "solutionUrl": null,
-    "listenUrl": null,
-    "listenDownload": null,
-    "scriptUrl": null,
-    "scriptDownload": null,
-    "source": "kice-archive"
-  },
-  {
-    "id": 3314,
-    "curriculum": "pre2009",
-    "gradeYear": 2012,
-    "examYear": 2011,
-    "month": 11,
-    "studentGrade": 3,
-    "typeGroup": "suneung",
-    "type": "csat",
-    "subject": "사회탐구",
-    "subSubject": "01.정답표",
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v1/2012_csat_social_k536543_q.pdf",
-    "questionDownload": "2012학년도_csat_사회탐구_01.정답표_문제지.pdf",
-    "answerUrl": null,
-    "answerDownload": null,
-    "solutionUrl": null,
-    "listenUrl": null,
-    "listenDownload": null,
-    "scriptUrl": null,
-    "scriptDownload": null,
-    "source": "kice-archive"
-  },
-  {
-    "id": 3315,
-    "curriculum": "pre2009",
-    "gradeYear": 2012,
-    "examYear": 2011,
-    "month": 11,
-    "studentGrade": 3,
-    "typeGroup": "suneung",
-    "type": "csat",
-    "subject": "사회탐구",
-    "subSubject": "02.정답표",
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v1/2012_csat_social_kb79ea8_q.pdf",
-    "questionDownload": "2012학년도_csat_사회탐구_02.정답표_문제지.pdf",
-    "answerUrl": null,
-    "answerDownload": null,
-    "solutionUrl": null,
-    "listenUrl": null,
-    "listenDownload": null,
-    "scriptUrl": null,
-    "scriptDownload": null,
-    "source": "kice-archive"
-  },
-  {
-    "id": 3316,
-    "curriculum": "pre2009",
-    "gradeYear": 2012,
-    "examYear": 2011,
-    "month": 11,
-    "studentGrade": 3,
-    "typeGroup": "suneung",
-    "type": "csat",
-    "subject": "사회탐구",
-    "subSubject": "03.정답표",
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v1/2012_csat_social_kcb9c1e_q.pdf",
-    "questionDownload": "2012학년도_csat_사회탐구_03.정답표_문제지.pdf",
-    "answerUrl": null,
-    "answerDownload": null,
-    "solutionUrl": null,
-    "listenUrl": null,
-    "listenDownload": null,
-    "scriptUrl": null,
-    "scriptDownload": null,
-    "source": "kice-archive"
-  },
-  {
-    "id": 3317,
-    "curriculum": "pre2009",
-    "gradeYear": 2012,
-    "examYear": 2011,
-    "month": 11,
-    "studentGrade": 3,
-    "typeGroup": "suneung",
-    "type": "csat",
-    "subject": "사회탐구",
-    "subSubject": "04.정답표",
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v1/2012_csat_social_k21ad10_q.pdf",
-    "questionDownload": "2012학년도_csat_사회탐구_04.정답표_문제지.pdf",
-    "answerUrl": null,
-    "answerDownload": null,
-    "solutionUrl": null,
-    "listenUrl": null,
-    "listenDownload": null,
-    "scriptUrl": null,
-    "scriptDownload": null,
-    "source": "kice-archive"
-  },
-  {
-    "id": 3318,
-    "curriculum": "pre2009",
-    "gradeYear": 2012,
-    "examYear": 2011,
-    "month": 11,
-    "studentGrade": 3,
-    "typeGroup": "suneung",
-    "type": "csat",
-    "subject": "사회탐구",
-    "subSubject": "05.정답표",
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v1/2012_csat_social_k4d8aa6_q.pdf",
-    "questionDownload": "2012학년도_csat_사회탐구_05.정답표_문제지.pdf",
-    "answerUrl": null,
-    "answerDownload": null,
-    "solutionUrl": null,
-    "listenUrl": null,
-    "listenDownload": null,
-    "scriptUrl": null,
-    "scriptDownload": null,
-    "source": "kice-archive"
-  },
-  {
-    "id": 3319,
-    "curriculum": "pre2009",
-    "gradeYear": 2012,
-    "examYear": 2011,
-    "month": 11,
-    "studentGrade": 3,
-    "typeGroup": "suneung",
-    "type": "csat",
-    "subject": "사회탐구",
-    "subSubject": "06.정답표",
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v1/2012_csat_social_k4a6c62_q.pdf",
-    "questionDownload": "2012학년도_csat_사회탐구_06.정답표_문제지.pdf",
-    "answerUrl": null,
-    "answerDownload": null,
-    "solutionUrl": null,
-    "listenUrl": null,
-    "listenDownload": null,
-    "scriptUrl": null,
-    "scriptDownload": null,
-    "source": "kice-archive"
-  },
-  {
-    "id": 3320,
-    "curriculum": "pre2009",
-    "gradeYear": 2012,
-    "examYear": 2011,
-    "month": 11,
-    "studentGrade": 3,
-    "typeGroup": "suneung",
-    "type": "csat",
-    "subject": "사회탐구",
-    "subSubject": "07.정답표",
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v1/2012_csat_social_k26530c_q.pdf",
-    "questionDownload": "2012학년도_csat_사회탐구_07.정답표_문제지.pdf",
-    "answerUrl": null,
-    "answerDownload": null,
-    "solutionUrl": null,
-    "listenUrl": null,
-    "listenDownload": null,
-    "scriptUrl": null,
-    "scriptDownload": null,
-    "source": "kice-archive"
-  },
-  {
-    "id": 3321,
-    "curriculum": "pre2009",
-    "gradeYear": 2012,
-    "examYear": 2011,
-    "month": 11,
-    "studentGrade": 3,
-    "typeGroup": "suneung",
-    "type": "csat",
-    "subject": "사회탐구",
-    "subSubject": "08.정답표",
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v1/2012_csat_social_k765bef_q.pdf",
-    "questionDownload": "2012학년도_csat_사회탐구_08.정답표_문제지.pdf",
-    "answerUrl": null,
-    "answerDownload": null,
-    "solutionUrl": null,
-    "listenUrl": null,
-    "listenDownload": null,
-    "scriptUrl": null,
-    "scriptDownload": null,
-    "source": "kice-archive"
-  },
-  {
-    "id": 3322,
-    "curriculum": "pre2009",
-    "gradeYear": 2012,
-    "examYear": 2011,
-    "month": 11,
-    "studentGrade": 3,
-    "typeGroup": "suneung",
-    "type": "csat",
-    "subject": "사회탐구",
-    "subSubject": "09.정답표",
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v1/2012_csat_social_kfb6108_q.pdf",
-    "questionDownload": "2012학년도_csat_사회탐구_09.정답표_문제지.pdf",
-    "answerUrl": null,
-    "answerDownload": null,
-    "solutionUrl": null,
-    "listenUrl": null,
-    "listenDownload": null,
-    "scriptUrl": null,
-    "scriptDownload": null,
-    "source": "kice-archive"
-  },
-  {
-    "id": 3323,
-    "curriculum": "pre2009",
-    "gradeYear": 2012,
-    "examYear": 2011,
-    "month": 11,
-    "studentGrade": 3,
-    "typeGroup": "suneung",
-    "type": "csat",
-    "subject": "사회탐구",
-    "subSubject": "10.정답표",
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v1/2012_csat_social_k42194b_q.pdf",
-    "questionDownload": "2012학년도_csat_사회탐구_10.정답표_문제지.pdf",
-    "answerUrl": null,
-    "answerDownload": null,
-    "solutionUrl": null,
-    "listenUrl": null,
-    "listenDownload": null,
-    "scriptUrl": null,
-    "scriptDownload": null,
-    "source": "kice-archive"
-  },
-  {
-    "id": 3324,
-    "curriculum": "pre2009",
-    "gradeYear": 2012,
-    "examYear": 2011,
-    "month": 11,
-    "studentGrade": 3,
-    "typeGroup": "suneung",
-    "type": "csat",
-    "subject": "사회탐구",
-    "subSubject": "11.정답표",
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v1/2012_csat_social_k8ce3dd_q.pdf",
-    "questionDownload": "2012학년도_csat_사회탐구_11.정답표_문제지.pdf",
-    "answerUrl": null,
-    "answerDownload": null,
-    "solutionUrl": null,
-    "listenUrl": null,
-    "listenDownload": null,
-    "scriptUrl": null,
-    "scriptDownload": null,
-    "source": "kice-archive"
-  },
-  {
-    "id": 3325,
-    "curriculum": "pre2009",
-    "gradeYear": 2012,
-    "examYear": 2011,
-    "month": 11,
-    "studentGrade": 3,
-    "typeGroup": "suneung",
-    "type": "csat",
     "subject": "제2외국어",
     "subSubject": null,
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v1/2012_csat_second_q.pdf",
@@ -50923,557 +50505,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3326,
-    "curriculum": "pre2009",
-    "gradeYear": 2012,
-    "examYear": 2011,
-    "month": 11,
-    "studentGrade": 3,
-    "typeGroup": "suneung",
-    "type": "csat",
-    "subject": "제2외국어",
-    "subSubject": "01.정답표",
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v1/2012_csat_second_k536543_q.pdf",
-    "questionDownload": "2012학년도_csat_제2외국어_01.정답표_문제지.pdf",
-    "answerUrl": null,
-    "answerDownload": null,
-    "solutionUrl": null,
-    "listenUrl": null,
-    "listenDownload": null,
-    "scriptUrl": null,
-    "scriptDownload": null,
-    "source": "kice-archive"
-  },
-  {
-    "id": 3327,
-    "curriculum": "pre2009",
-    "gradeYear": 2012,
-    "examYear": 2011,
-    "month": 11,
-    "studentGrade": 3,
-    "typeGroup": "suneung",
-    "type": "csat",
-    "subject": "제2외국어",
-    "subSubject": "02.정답표",
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v1/2012_csat_second_kb79ea8_q.pdf",
-    "questionDownload": "2012학년도_csat_제2외국어_02.정답표_문제지.pdf",
-    "answerUrl": null,
-    "answerDownload": null,
-    "solutionUrl": null,
-    "listenUrl": null,
-    "listenDownload": null,
-    "scriptUrl": null,
-    "scriptDownload": null,
-    "source": "kice-archive"
-  },
-  {
-    "id": 3328,
-    "curriculum": "pre2009",
-    "gradeYear": 2012,
-    "examYear": 2011,
-    "month": 11,
-    "studentGrade": 3,
-    "typeGroup": "suneung",
-    "type": "csat",
-    "subject": "제2외국어",
-    "subSubject": "03.정답표",
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v1/2012_csat_second_kcb9c1e_q.pdf",
-    "questionDownload": "2012학년도_csat_제2외국어_03.정답표_문제지.pdf",
-    "answerUrl": null,
-    "answerDownload": null,
-    "solutionUrl": null,
-    "listenUrl": null,
-    "listenDownload": null,
-    "scriptUrl": null,
-    "scriptDownload": null,
-    "source": "kice-archive"
-  },
-  {
-    "id": 3329,
-    "curriculum": "pre2009",
-    "gradeYear": 2012,
-    "examYear": 2011,
-    "month": 11,
-    "studentGrade": 3,
-    "typeGroup": "suneung",
-    "type": "csat",
-    "subject": "제2외국어",
-    "subSubject": "04.정답표",
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v1/2012_csat_second_k21ad10_q.pdf",
-    "questionDownload": "2012학년도_csat_제2외국어_04.정답표_문제지.pdf",
-    "answerUrl": null,
-    "answerDownload": null,
-    "solutionUrl": null,
-    "listenUrl": null,
-    "listenDownload": null,
-    "scriptUrl": null,
-    "scriptDownload": null,
-    "source": "kice-archive"
-  },
-  {
-    "id": 3330,
-    "curriculum": "pre2009",
-    "gradeYear": 2012,
-    "examYear": 2011,
-    "month": 11,
-    "studentGrade": 3,
-    "typeGroup": "suneung",
-    "type": "csat",
-    "subject": "제2외국어",
-    "subSubject": "05.정답표",
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v1/2012_csat_second_k4d8aa6_q.pdf",
-    "questionDownload": "2012학년도_csat_제2외국어_05.정답표_문제지.pdf",
-    "answerUrl": null,
-    "answerDownload": null,
-    "solutionUrl": null,
-    "listenUrl": null,
-    "listenDownload": null,
-    "scriptUrl": null,
-    "scriptDownload": null,
-    "source": "kice-archive"
-  },
-  {
-    "id": 3331,
-    "curriculum": "pre2009",
-    "gradeYear": 2012,
-    "examYear": 2011,
-    "month": 11,
-    "studentGrade": 3,
-    "typeGroup": "suneung",
-    "type": "csat",
-    "subject": "제2외국어",
-    "subSubject": "06.정답표",
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v1/2012_csat_second_k4a6c62_q.pdf",
-    "questionDownload": "2012학년도_csat_제2외국어_06.정답표_문제지.pdf",
-    "answerUrl": null,
-    "answerDownload": null,
-    "solutionUrl": null,
-    "listenUrl": null,
-    "listenDownload": null,
-    "scriptUrl": null,
-    "scriptDownload": null,
-    "source": "kice-archive"
-  },
-  {
-    "id": 3332,
-    "curriculum": "pre2009",
-    "gradeYear": 2012,
-    "examYear": 2011,
-    "month": 11,
-    "studentGrade": 3,
-    "typeGroup": "suneung",
-    "type": "csat",
-    "subject": "제2외국어",
-    "subSubject": "07.정답표",
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v1/2012_csat_second_k26530c_q.pdf",
-    "questionDownload": "2012학년도_csat_제2외국어_07.정답표_문제지.pdf",
-    "answerUrl": null,
-    "answerDownload": null,
-    "solutionUrl": null,
-    "listenUrl": null,
-    "listenDownload": null,
-    "scriptUrl": null,
-    "scriptDownload": null,
-    "source": "kice-archive"
-  },
-  {
-    "id": 3333,
-    "curriculum": "pre2009",
-    "gradeYear": 2012,
-    "examYear": 2011,
-    "month": 11,
-    "studentGrade": 3,
-    "typeGroup": "suneung",
-    "type": "csat",
-    "subject": "제2외국어",
-    "subSubject": "08.정답표",
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v1/2012_csat_second_k765bef_q.pdf",
-    "questionDownload": "2012학년도_csat_제2외국어_08.정답표_문제지.pdf",
-    "answerUrl": null,
-    "answerDownload": null,
-    "solutionUrl": null,
-    "listenUrl": null,
-    "listenDownload": null,
-    "scriptUrl": null,
-    "scriptDownload": null,
-    "source": "kice-archive"
-  },
-  {
-    "id": 3334,
-    "curriculum": "pre2009",
-    "gradeYear": 2012,
-    "examYear": 2011,
-    "month": 11,
-    "studentGrade": 3,
-    "typeGroup": "suneung",
-    "type": "csat",
-    "subject": "직업탐구",
-    "subSubject": "01.정답표",
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v1/2012_csat_voc_k536543_q.pdf",
-    "questionDownload": "2012학년도_csat_직업탐구_01.정답표_문제지.pdf",
-    "answerUrl": null,
-    "answerDownload": null,
-    "solutionUrl": null,
-    "listenUrl": null,
-    "listenDownload": null,
-    "scriptUrl": null,
-    "scriptDownload": null,
-    "source": "kice-archive"
-  },
-  {
-    "id": 3335,
-    "curriculum": "pre2009",
-    "gradeYear": 2012,
-    "examYear": 2011,
-    "month": 11,
-    "studentGrade": 3,
-    "typeGroup": "suneung",
-    "type": "csat",
-    "subject": "직업탐구",
-    "subSubject": "02.정답표",
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v1/2012_csat_voc_kb79ea8_q.pdf",
-    "questionDownload": "2012학년도_csat_직업탐구_02.정답표_문제지.pdf",
-    "answerUrl": null,
-    "answerDownload": null,
-    "solutionUrl": null,
-    "listenUrl": null,
-    "listenDownload": null,
-    "scriptUrl": null,
-    "scriptDownload": null,
-    "source": "kice-archive"
-  },
-  {
-    "id": 3336,
-    "curriculum": "pre2009",
-    "gradeYear": 2012,
-    "examYear": 2011,
-    "month": 11,
-    "studentGrade": 3,
-    "typeGroup": "suneung",
-    "type": "csat",
-    "subject": "직업탐구",
-    "subSubject": "03.정답표",
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v1/2012_csat_voc_kcb9c1e_q.pdf",
-    "questionDownload": "2012학년도_csat_직업탐구_03.정답표_문제지.pdf",
-    "answerUrl": null,
-    "answerDownload": null,
-    "solutionUrl": null,
-    "listenUrl": null,
-    "listenDownload": null,
-    "scriptUrl": null,
-    "scriptDownload": null,
-    "source": "kice-archive"
-  },
-  {
-    "id": 3337,
-    "curriculum": "pre2009",
-    "gradeYear": 2012,
-    "examYear": 2011,
-    "month": 11,
-    "studentGrade": 3,
-    "typeGroup": "suneung",
-    "type": "csat",
-    "subject": "직업탐구",
-    "subSubject": "04.정답표",
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v1/2012_csat_voc_k21ad10_q.pdf",
-    "questionDownload": "2012학년도_csat_직업탐구_04.정답표_문제지.pdf",
-    "answerUrl": null,
-    "answerDownload": null,
-    "solutionUrl": null,
-    "listenUrl": null,
-    "listenDownload": null,
-    "scriptUrl": null,
-    "scriptDownload": null,
-    "source": "kice-archive"
-  },
-  {
-    "id": 3338,
-    "curriculum": "pre2009",
-    "gradeYear": 2012,
-    "examYear": 2011,
-    "month": 11,
-    "studentGrade": 3,
-    "typeGroup": "suneung",
-    "type": "csat",
-    "subject": "직업탐구",
-    "subSubject": "05.정답표",
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v1/2012_csat_voc_k4d8aa6_q.pdf",
-    "questionDownload": "2012학년도_csat_직업탐구_05.정답표_문제지.pdf",
-    "answerUrl": null,
-    "answerDownload": null,
-    "solutionUrl": null,
-    "listenUrl": null,
-    "listenDownload": null,
-    "scriptUrl": null,
-    "scriptDownload": null,
-    "source": "kice-archive"
-  },
-  {
-    "id": 3339,
-    "curriculum": "pre2009",
-    "gradeYear": 2012,
-    "examYear": 2011,
-    "month": 11,
-    "studentGrade": 3,
-    "typeGroup": "suneung",
-    "type": "csat",
-    "subject": "직업탐구",
-    "subSubject": "06.정답표",
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v1/2012_csat_voc_k4a6c62_q.pdf",
-    "questionDownload": "2012학년도_csat_직업탐구_06.정답표_문제지.pdf",
-    "answerUrl": null,
-    "answerDownload": null,
-    "solutionUrl": null,
-    "listenUrl": null,
-    "listenDownload": null,
-    "scriptUrl": null,
-    "scriptDownload": null,
-    "source": "kice-archive"
-  },
-  {
-    "id": 3340,
-    "curriculum": "pre2009",
-    "gradeYear": 2012,
-    "examYear": 2011,
-    "month": 11,
-    "studentGrade": 3,
-    "typeGroup": "suneung",
-    "type": "csat",
-    "subject": "직업탐구",
-    "subSubject": "07.정답표",
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v1/2012_csat_voc_k26530c_q.pdf",
-    "questionDownload": "2012학년도_csat_직업탐구_07.정답표_문제지.pdf",
-    "answerUrl": null,
-    "answerDownload": null,
-    "solutionUrl": null,
-    "listenUrl": null,
-    "listenDownload": null,
-    "scriptUrl": null,
-    "scriptDownload": null,
-    "source": "kice-archive"
-  },
-  {
-    "id": 3341,
-    "curriculum": "pre2009",
-    "gradeYear": 2012,
-    "examYear": 2011,
-    "month": 11,
-    "studentGrade": 3,
-    "typeGroup": "suneung",
-    "type": "csat",
-    "subject": "직업탐구",
-    "subSubject": "08.정답표",
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v1/2012_csat_voc_k765bef_q.pdf",
-    "questionDownload": "2012학년도_csat_직업탐구_08.정답표_문제지.pdf",
-    "answerUrl": null,
-    "answerDownload": null,
-    "solutionUrl": null,
-    "listenUrl": null,
-    "listenDownload": null,
-    "scriptUrl": null,
-    "scriptDownload": null,
-    "source": "kice-archive"
-  },
-  {
-    "id": 3342,
-    "curriculum": "pre2009",
-    "gradeYear": 2012,
-    "examYear": 2011,
-    "month": 11,
-    "studentGrade": 3,
-    "typeGroup": "suneung",
-    "type": "csat",
-    "subject": "직업탐구",
-    "subSubject": "09.정답표",
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v1/2012_csat_voc_kfb6108_q.pdf",
-    "questionDownload": "2012학년도_csat_직업탐구_09.정답표_문제지.pdf",
-    "answerUrl": null,
-    "answerDownload": null,
-    "solutionUrl": null,
-    "listenUrl": null,
-    "listenDownload": null,
-    "scriptUrl": null,
-    "scriptDownload": null,
-    "source": "kice-archive"
-  },
-  {
-    "id": 3343,
-    "curriculum": "pre2009",
-    "gradeYear": 2012,
-    "examYear": 2011,
-    "month": 11,
-    "studentGrade": 3,
-    "typeGroup": "suneung",
-    "type": "csat",
-    "subject": "직업탐구",
-    "subSubject": "10.정답표",
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v1/2012_csat_voc_k42194b_q.pdf",
-    "questionDownload": "2012학년도_csat_직업탐구_10.정답표_문제지.pdf",
-    "answerUrl": null,
-    "answerDownload": null,
-    "solutionUrl": null,
-    "listenUrl": null,
-    "listenDownload": null,
-    "scriptUrl": null,
-    "scriptDownload": null,
-    "source": "kice-archive"
-  },
-  {
-    "id": 3344,
-    "curriculum": "pre2009",
-    "gradeYear": 2012,
-    "examYear": 2011,
-    "month": 11,
-    "studentGrade": 3,
-    "typeGroup": "suneung",
-    "type": "csat",
-    "subject": "직업탐구",
-    "subSubject": "11.정답표",
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v1/2012_csat_voc_k8ce3dd_q.pdf",
-    "questionDownload": "2012학년도_csat_직업탐구_11.정답표_문제지.pdf",
-    "answerUrl": null,
-    "answerDownload": null,
-    "solutionUrl": null,
-    "listenUrl": null,
-    "listenDownload": null,
-    "scriptUrl": null,
-    "scriptDownload": null,
-    "source": "kice-archive"
-  },
-  {
-    "id": 3345,
-    "curriculum": "pre2009",
-    "gradeYear": 2012,
-    "examYear": 2011,
-    "month": 11,
-    "studentGrade": 3,
-    "typeGroup": "suneung",
-    "type": "csat",
-    "subject": "직업탐구",
-    "subSubject": "12.정답표",
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v1/2012_csat_voc_k3d3bee_q.pdf",
-    "questionDownload": "2012학년도_csat_직업탐구_12.정답표_문제지.pdf",
-    "answerUrl": null,
-    "answerDownload": null,
-    "solutionUrl": null,
-    "listenUrl": null,
-    "listenDownload": null,
-    "scriptUrl": null,
-    "scriptDownload": null,
-    "source": "kice-archive"
-  },
-  {
-    "id": 3346,
-    "curriculum": "pre2009",
-    "gradeYear": 2012,
-    "examYear": 2011,
-    "month": 11,
-    "studentGrade": 3,
-    "typeGroup": "suneung",
-    "type": "csat",
-    "subject": "직업탐구",
-    "subSubject": "13.정답표",
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v1/2012_csat_voc_k9b1267_q.pdf",
-    "questionDownload": "2012학년도_csat_직업탐구_13.정답표_문제지.pdf",
-    "answerUrl": null,
-    "answerDownload": null,
-    "solutionUrl": null,
-    "listenUrl": null,
-    "listenDownload": null,
-    "scriptUrl": null,
-    "scriptDownload": null,
-    "source": "kice-archive"
-  },
-  {
-    "id": 3347,
-    "curriculum": "pre2009",
-    "gradeYear": 2012,
-    "examYear": 2011,
-    "month": 11,
-    "studentGrade": 3,
-    "typeGroup": "suneung",
-    "type": "csat",
-    "subject": "직업탐구",
-    "subSubject": "14.정답표",
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v1/2012_csat_voc_k307cce_q.pdf",
-    "questionDownload": "2012학년도_csat_직업탐구_14.정답표_문제지.pdf",
-    "answerUrl": null,
-    "answerDownload": null,
-    "solutionUrl": null,
-    "listenUrl": null,
-    "listenDownload": null,
-    "scriptUrl": null,
-    "scriptDownload": null,
-    "source": "kice-archive"
-  },
-  {
-    "id": 3348,
-    "curriculum": "pre2009",
-    "gradeYear": 2012,
-    "examYear": 2011,
-    "month": 11,
-    "studentGrade": 3,
-    "typeGroup": "suneung",
-    "type": "csat",
-    "subject": "직업탐구",
-    "subSubject": "15.정답표",
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v1/2012_csat_voc_k97cfd4_q.pdf",
-    "questionDownload": "2012학년도_csat_직업탐구_15.정답표_문제지.pdf",
-    "answerUrl": null,
-    "answerDownload": null,
-    "solutionUrl": null,
-    "listenUrl": null,
-    "listenDownload": null,
-    "scriptUrl": null,
-    "scriptDownload": null,
-    "source": "kice-archive"
-  },
-  {
-    "id": 3349,
-    "curriculum": "pre2009",
-    "gradeYear": 2012,
-    "examYear": 2011,
-    "month": 11,
-    "studentGrade": 3,
-    "typeGroup": "suneung",
-    "type": "csat",
-    "subject": "직업탐구",
-    "subSubject": "16.정답표",
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v1/2012_csat_voc_k64cb92_q.pdf",
-    "questionDownload": "2012학년도_csat_직업탐구_16.정답표_문제지.pdf",
-    "answerUrl": null,
-    "answerDownload": null,
-    "solutionUrl": null,
-    "listenUrl": null,
-    "listenDownload": null,
-    "scriptUrl": null,
-    "scriptDownload": null,
-    "source": "kice-archive"
-  },
-  {
-    "id": 3350,
-    "curriculum": "pre2009",
-    "gradeYear": 2012,
-    "examYear": 2011,
-    "month": 11,
-    "studentGrade": 3,
-    "typeGroup": "suneung",
-    "type": "csat",
-    "subject": "직업탐구",
-    "subSubject": "17.정답표",
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v1/2012_csat_voc_kb218da_q.pdf",
-    "questionDownload": "2012학년도_csat_직업탐구_17.정답표_문제지.pdf",
-    "answerUrl": null,
-    "answerDownload": null,
-    "solutionUrl": null,
-    "listenUrl": null,
-    "listenDownload": null,
-    "scriptUrl": null,
-    "scriptDownload": null,
-    "source": "kice-archive"
-  },
-  {
-    "id": 3351,
+    "id": 3307,
     "curriculum": "pre2009",
     "gradeYear": 2012,
     "examYear": 2011,
@@ -51495,7 +50527,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3352,
+    "id": 3308,
     "curriculum": "pre2009",
     "gradeYear": 2012,
     "examYear": 2011,
@@ -51517,7 +50549,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3353,
+    "id": 3309,
     "curriculum": "pre2009",
     "gradeYear": 2012,
     "examYear": 2011,
@@ -51539,7 +50571,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3354,
+    "id": 3310,
     "curriculum": "pre2009",
     "gradeYear": 2012,
     "examYear": 2011,
@@ -51561,7 +50593,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3355,
+    "id": 3311,
     "curriculum": "pre2009",
     "gradeYear": 2012,
     "examYear": 2011,
@@ -51583,7 +50615,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3356,
+    "id": 3312,
     "curriculum": "pre2009",
     "gradeYear": 2012,
     "examYear": 2011,
@@ -51605,7 +50637,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3357,
+    "id": 3313,
     "curriculum": "pre2009",
     "gradeYear": 2012,
     "examYear": 2011,
@@ -51627,7 +50659,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3358,
+    "id": 3314,
     "curriculum": "pre2009",
     "gradeYear": 2012,
     "examYear": 2011,
@@ -51649,7 +50681,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3359,
+    "id": 3315,
     "curriculum": "pre2009",
     "gradeYear": 2012,
     "examYear": 2011,
@@ -51671,7 +50703,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3360,
+    "id": 3316,
     "curriculum": "pre2009",
     "gradeYear": 2012,
     "examYear": 2011,
@@ -51693,7 +50725,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3361,
+    "id": 3317,
     "curriculum": "pre2009",
     "gradeYear": 2012,
     "examYear": 2011,
@@ -51715,7 +50747,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3362,
+    "id": 3318,
     "curriculum": "pre2009",
     "gradeYear": 2012,
     "examYear": 2011,
@@ -51737,7 +50769,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3363,
+    "id": 3319,
     "curriculum": "pre2009",
     "gradeYear": 2012,
     "examYear": 2011,
@@ -51759,7 +50791,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3364,
+    "id": 3320,
     "curriculum": "pre2009",
     "gradeYear": 2012,
     "examYear": 2011,
@@ -51781,7 +50813,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3365,
+    "id": 3321,
     "curriculum": "pre2009",
     "gradeYear": 2012,
     "examYear": 2011,
@@ -51803,7 +50835,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3366,
+    "id": 3322,
     "curriculum": "pre2009",
     "gradeYear": 2012,
     "examYear": 2011,
@@ -51825,7 +50857,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3367,
+    "id": 3323,
     "curriculum": "pre2009",
     "gradeYear": 2012,
     "examYear": 2011,
@@ -51847,7 +50879,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3368,
+    "id": 3324,
     "curriculum": "pre2009",
     "gradeYear": 2012,
     "examYear": 2011,
@@ -51869,7 +50901,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3369,
+    "id": 3325,
     "curriculum": "pre2009",
     "gradeYear": 2012,
     "examYear": 2011,
@@ -51891,7 +50923,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3370,
+    "id": 3326,
     "curriculum": "pre2009",
     "gradeYear": 2012,
     "examYear": 2011,
@@ -51913,7 +50945,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3371,
+    "id": 3327,
     "curriculum": "pre2009",
     "gradeYear": 2012,
     "examYear": 2011,
@@ -51935,7 +50967,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3372,
+    "id": 3328,
     "curriculum": "pre2009",
     "gradeYear": 2012,
     "examYear": 2011,
@@ -51957,7 +50989,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3373,
+    "id": 3329,
     "curriculum": "pre2009",
     "gradeYear": 2012,
     "examYear": 2011,
@@ -51979,7 +51011,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3374,
+    "id": 3330,
     "curriculum": "pre2009",
     "gradeYear": 2012,
     "examYear": 2011,
@@ -52001,7 +51033,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3375,
+    "id": 3331,
     "curriculum": "pre2009",
     "gradeYear": 2012,
     "examYear": 2011,
@@ -52023,7 +51055,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3376,
+    "id": 3332,
     "curriculum": "pre2009",
     "gradeYear": 2012,
     "examYear": 2011,
@@ -52045,7 +51077,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3377,
+    "id": 3333,
     "curriculum": "pre2009",
     "gradeYear": 2012,
     "examYear": 2011,
@@ -52067,7 +51099,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3378,
+    "id": 3334,
     "curriculum": "pre2009",
     "gradeYear": 2012,
     "examYear": 2011,
@@ -52089,7 +51121,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3379,
+    "id": 3335,
     "curriculum": "pre2009",
     "gradeYear": 2012,
     "examYear": 2011,
@@ -52111,7 +51143,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3380,
+    "id": 3336,
     "curriculum": "pre2009",
     "gradeYear": 2012,
     "examYear": 2011,
@@ -52133,7 +51165,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3381,
+    "id": 3337,
     "curriculum": "pre2009",
     "gradeYear": 2012,
     "examYear": 2011,
@@ -52155,7 +51187,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3382,
+    "id": 3338,
     "curriculum": "pre2009",
     "gradeYear": 2012,
     "examYear": 2011,
@@ -52177,7 +51209,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3383,
+    "id": 3339,
     "curriculum": "pre2009",
     "gradeYear": 2012,
     "examYear": 2011,
@@ -52199,7 +51231,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3384,
+    "id": 3340,
     "curriculum": "pre2009",
     "gradeYear": 2012,
     "examYear": 2011,
@@ -52221,7 +51253,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3385,
+    "id": 3341,
     "curriculum": "pre2009",
     "gradeYear": 2012,
     "examYear": 2011,
@@ -52243,7 +51275,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3386,
+    "id": 3342,
     "curriculum": "pre2009",
     "gradeYear": 2012,
     "examYear": 2011,
@@ -52265,7 +51297,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3387,
+    "id": 3343,
     "curriculum": "pre2009",
     "gradeYear": 2012,
     "examYear": 2011,
@@ -52287,7 +51319,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3388,
+    "id": 3344,
     "curriculum": "pre2009",
     "gradeYear": 2012,
     "examYear": 2011,
@@ -52309,7 +51341,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3389,
+    "id": 3345,
     "curriculum": "pre2009",
     "gradeYear": 2012,
     "examYear": 2011,
@@ -52331,7 +51363,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3390,
+    "id": 3346,
     "curriculum": "pre2009",
     "gradeYear": 2012,
     "examYear": 2011,
@@ -52353,7 +51385,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3391,
+    "id": 3347,
     "curriculum": "pre2009",
     "gradeYear": 2012,
     "examYear": 2011,
@@ -52375,7 +51407,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3392,
+    "id": 3348,
     "curriculum": "pre2009",
     "gradeYear": 2012,
     "examYear": 2011,
@@ -52397,7 +51429,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3393,
+    "id": 3349,
     "curriculum": "pre2009",
     "gradeYear": 2012,
     "examYear": 2011,
@@ -52419,7 +51451,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3394,
+    "id": 3350,
     "curriculum": "pre2009",
     "gradeYear": 2012,
     "examYear": 2011,
@@ -52441,7 +51473,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3395,
+    "id": 3351,
     "curriculum": "pre2009",
     "gradeYear": 2012,
     "examYear": 2011,
@@ -52463,7 +51495,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3396,
+    "id": 3352,
     "curriculum": "pre2009",
     "gradeYear": 2012,
     "examYear": 2011,
@@ -52485,7 +51517,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3397,
+    "id": 3353,
     "curriculum": "pre2009",
     "gradeYear": 2012,
     "examYear": 2011,
@@ -52507,7 +51539,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3398,
+    "id": 3354,
     "curriculum": "pre2009",
     "gradeYear": 2012,
     "examYear": 2011,
@@ -52529,7 +51561,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3399,
+    "id": 3355,
     "curriculum": "MEET",
     "gradeYear": 2012,
     "examYear": 2011,
@@ -52545,7 +51577,7 @@
     "answerDownload": "2012학년도 MEET 언어추론 정답.pdf"
   },
   {
-    "id": 3400,
+    "id": 3356,
     "curriculum": "사관",
     "gradeYear": 2012,
     "examYear": 2011,
@@ -52559,7 +51591,7 @@
     "answerUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2012_main_korean_a.pdf?name=2012%ED%95%99%EB%85%84%EB%8F%84%20%EC%82%AC%EA%B4%80%ED%95%99%EA%B5%90%201%EC%B0%A8%20%EA%B5%AD%EC%96%B4%20%EC%A0%95%EB%8B%B5.pdf"
   },
   {
-    "id": 3401,
+    "id": 3357,
     "curriculum": "경찰대",
     "gradeYear": 2012,
     "examYear": 2011,
@@ -52573,7 +51605,7 @@
     "answerUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2012_main_korean_a.pdf?name=2012%ED%95%99%EB%85%84%EB%8F%84%20%EA%B2%BD%EC%B0%B0%EB%8C%80%ED%95%99%201%EC%B0%A8%20%EA%B5%AD%EC%96%B4%20%EC%A0%95%EB%8B%B5.pdf"
   },
   {
-    "id": 3402,
+    "id": 3358,
     "curriculum": "LEET",
     "gradeYear": 2012,
     "examYear": 2011,
@@ -52589,7 +51621,7 @@
     "answerDownload": "2012학년도 LEET 언어이해 정답.hwp"
   },
   {
-    "id": 3403,
+    "id": 3359,
     "curriculum": "경찰대",
     "gradeYear": 2012,
     "examYear": 2011,
@@ -52603,7 +51635,7 @@
     "answerUrl": "https://suneung-files.hdh061224.workers.dev/police-v1/2012_main_math_a.pdf?name=2012%ED%95%99%EB%85%84%EB%8F%84%20%EA%B2%BD%EC%B0%B0%EB%8C%80%ED%95%99%201%EC%B0%A8%20%EC%88%98%ED%95%99%20%EC%A0%95%EB%8B%B5.pdf"
   },
   {
-    "id": 3404,
+    "id": 3360,
     "curriculum": "사관",
     "gradeYear": 2012,
     "examYear": 2011,
@@ -52617,7 +51649,7 @@
     "answerUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2012_main_math_ga_a.pdf?name=2012%ED%95%99%EB%85%84%EB%8F%84%20%EC%82%AC%EA%B4%80%ED%95%99%EA%B5%90%201%EC%B0%A8%20%EC%88%98%ED%95%99%28%EA%B0%80%ED%98%95%29%20%EC%A0%95%EB%8B%B5.pdf"
   },
   {
-    "id": 3405,
+    "id": 3361,
     "curriculum": "사관",
     "gradeYear": 2012,
     "examYear": 2011,
@@ -52631,7 +51663,7 @@
     "answerUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2012_main_math_na_a.pdf?name=2012%ED%95%99%EB%85%84%EB%8F%84%20%EC%82%AC%EA%B4%80%ED%95%99%EA%B5%90%201%EC%B0%A8%20%EC%88%98%ED%95%99%28%EB%82%98%ED%98%95%29%20%EC%A0%95%EB%8B%B5.pdf"
   },
   {
-    "id": 3406,
+    "id": 3362,
     "curriculum": "LEET",
     "gradeYear": 2012,
     "examYear": 2011,
@@ -52647,7 +51679,7 @@
     "answerDownload": "2012학년도 LEET 추리논증 정답.hwp"
   },
   {
-    "id": 3407,
+    "id": 3363,
     "curriculum": "LEET",
     "gradeYear": 2012,
     "examYear": 2011,
@@ -52663,7 +51695,7 @@
     "answerDownload": null
   },
   {
-    "id": 3408,
+    "id": 3364,
     "curriculum": "사관",
     "gradeYear": 2012,
     "examYear": 2011,
@@ -52677,7 +51709,7 @@
     "answerUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2012_main_english_a.pdf?name=2012%ED%95%99%EB%85%84%EB%8F%84%20%EC%82%AC%EA%B4%80%ED%95%99%EA%B5%90%201%EC%B0%A8%20%EC%98%81%EC%96%B4%20%EC%A0%95%EB%8B%B5.pdf"
   },
   {
-    "id": 3409,
+    "id": 3365,
     "curriculum": "경찰대",
     "gradeYear": 2012,
     "examYear": 2011,
@@ -52691,7 +51723,7 @@
     "answerUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2012_main_english_a.pdf?name=2012%ED%95%99%EB%85%84%EB%8F%84%20%EA%B2%BD%EC%B0%B0%EB%8C%80%ED%95%99%201%EC%B0%A8%20%EC%98%81%EC%96%B4%20%EC%A0%95%EB%8B%B5.pdf"
   },
   {
-    "id": 3410,
+    "id": 3366,
     "curriculum": "pre2009",
     "gradeYear": 2012,
     "examYear": 2011,
@@ -52713,7 +51745,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3411,
+    "id": 3367,
     "curriculum": "pre2009",
     "gradeYear": 2012,
     "examYear": 2011,
@@ -52735,7 +51767,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3412,
+    "id": 3368,
     "curriculum": "pre2009",
     "gradeYear": 2012,
     "examYear": 2011,
@@ -52757,7 +51789,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3413,
+    "id": 3369,
     "curriculum": "pre2009",
     "gradeYear": 2012,
     "examYear": 2011,
@@ -52779,7 +51811,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3414,
+    "id": 3370,
     "curriculum": "pre2009",
     "gradeYear": 2012,
     "examYear": 2011,
@@ -52801,7 +51833,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3415,
+    "id": 3371,
     "curriculum": "pre2009",
     "gradeYear": 2012,
     "examYear": 2011,
@@ -52823,7 +51855,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3416,
+    "id": 3372,
     "curriculum": "pre2009",
     "gradeYear": 2012,
     "examYear": 2011,
@@ -52845,7 +51877,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3417,
+    "id": 3373,
     "curriculum": "pre2009",
     "gradeYear": 2011,
     "examYear": 2010,
@@ -52867,7 +51899,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3418,
+    "id": 3374,
     "curriculum": "pre2009",
     "gradeYear": 2011,
     "examYear": 2010,
@@ -52889,7 +51921,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3419,
+    "id": 3375,
     "curriculum": "pre2009",
     "gradeYear": 2011,
     "examYear": 2010,
@@ -52911,7 +51943,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3420,
+    "id": 3376,
     "curriculum": "pre2009",
     "gradeYear": 2011,
     "examYear": 2010,
@@ -52933,7 +51965,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3421,
+    "id": 3377,
     "curriculum": "pre2009",
     "gradeYear": 2011,
     "examYear": 2010,
@@ -52955,7 +51987,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3422,
+    "id": 3378,
     "curriculum": "pre2009",
     "gradeYear": 2011,
     "examYear": 2010,
@@ -52977,7 +52009,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3423,
+    "id": 3379,
     "curriculum": "pre2009",
     "gradeYear": 2011,
     "examYear": 2010,
@@ -52999,7 +52031,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3424,
+    "id": 3380,
     "curriculum": "pre2009",
     "gradeYear": 2011,
     "examYear": 2010,
@@ -53021,7 +52053,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3425,
+    "id": 3381,
     "curriculum": "pre2009",
     "gradeYear": 2011,
     "examYear": 2010,
@@ -53043,7 +52075,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3426,
+    "id": 3382,
     "curriculum": "pre2009",
     "gradeYear": 2011,
     "examYear": 2010,
@@ -53065,7 +52097,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3427,
+    "id": 3383,
     "curriculum": "pre2009",
     "gradeYear": 2011,
     "examYear": 2010,
@@ -53087,7 +52119,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3428,
+    "id": 3384,
     "curriculum": "pre2009",
     "gradeYear": 2011,
     "examYear": 2010,
@@ -53109,7 +52141,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3429,
+    "id": 3385,
     "curriculum": "pre2009",
     "gradeYear": 2011,
     "examYear": 2010,
@@ -53131,7 +52163,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3430,
+    "id": 3386,
     "curriculum": "MEET",
     "gradeYear": 2011,
     "examYear": 2010,
@@ -53147,7 +52179,7 @@
     "answerDownload": "2011학년도 MEET 언어추론 정답.pdf"
   },
   {
-    "id": 3431,
+    "id": 3387,
     "curriculum": "사관",
     "gradeYear": 2011,
     "examYear": 2010,
@@ -53161,7 +52193,7 @@
     "answerUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2011_main_korean_a.pdf?name=2011%ED%95%99%EB%85%84%EB%8F%84%20%EC%82%AC%EA%B4%80%ED%95%99%EA%B5%90%201%EC%B0%A8%20%EA%B5%AD%EC%96%B4%20%EC%A0%95%EB%8B%B5.pdf"
   },
   {
-    "id": 3432,
+    "id": 3388,
     "curriculum": "경찰대",
     "gradeYear": 2011,
     "examYear": 2010,
@@ -53175,7 +52207,7 @@
     "answerUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2011_main_korean_a.pdf?name=2011%ED%95%99%EB%85%84%EB%8F%84%20%EA%B2%BD%EC%B0%B0%EB%8C%80%ED%95%99%201%EC%B0%A8%20%EA%B5%AD%EC%96%B4%20%EC%A0%95%EB%8B%B5.pdf"
   },
   {
-    "id": 3433,
+    "id": 3389,
     "curriculum": "LEET",
     "gradeYear": 2011,
     "examYear": 2010,
@@ -53191,7 +52223,7 @@
     "answerDownload": "2011학년도 LEET 언어이해 정답.hwp"
   },
   {
-    "id": 3434,
+    "id": 3390,
     "curriculum": "경찰대",
     "gradeYear": 2011,
     "examYear": 2010,
@@ -53205,7 +52237,7 @@
     "answerUrl": "https://suneung-files.hdh061224.workers.dev/police-v1/2011_main_math_a.pdf?name=2011%ED%95%99%EB%85%84%EB%8F%84%20%EA%B2%BD%EC%B0%B0%EB%8C%80%ED%95%99%201%EC%B0%A8%20%EC%88%98%ED%95%99%20%EC%A0%95%EB%8B%B5.pdf"
   },
   {
-    "id": 3435,
+    "id": 3391,
     "curriculum": "사관",
     "gradeYear": 2011,
     "examYear": 2010,
@@ -53219,7 +52251,7 @@
     "answerUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2011_main_math_ga_a.pdf?name=2011%ED%95%99%EB%85%84%EB%8F%84%20%EC%82%AC%EA%B4%80%ED%95%99%EA%B5%90%201%EC%B0%A8%20%EC%88%98%ED%95%99%28%EA%B0%80%ED%98%95%29%20%EC%A0%95%EB%8B%B5.pdf"
   },
   {
-    "id": 3436,
+    "id": 3392,
     "curriculum": "사관",
     "gradeYear": 2011,
     "examYear": 2010,
@@ -53233,7 +52265,7 @@
     "answerUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2011_main_math_na_a.pdf?name=2011%ED%95%99%EB%85%84%EB%8F%84%20%EC%82%AC%EA%B4%80%ED%95%99%EA%B5%90%201%EC%B0%A8%20%EC%88%98%ED%95%99%28%EB%82%98%ED%98%95%29%20%EC%A0%95%EB%8B%B5.pdf"
   },
   {
-    "id": 3437,
+    "id": 3393,
     "curriculum": "LEET",
     "gradeYear": 2011,
     "examYear": 2010,
@@ -53249,7 +52281,7 @@
     "answerDownload": "2011학년도 LEET 추리논증 정답.hwp"
   },
   {
-    "id": 3438,
+    "id": 3394,
     "curriculum": "LEET",
     "gradeYear": 2011,
     "examYear": 2010,
@@ -53265,7 +52297,7 @@
     "answerDownload": null
   },
   {
-    "id": 3439,
+    "id": 3395,
     "curriculum": "사관",
     "gradeYear": 2011,
     "examYear": 2010,
@@ -53279,7 +52311,7 @@
     "answerUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2011_main_english_a.pdf?name=2011%ED%95%99%EB%85%84%EB%8F%84%20%EC%82%AC%EA%B4%80%ED%95%99%EA%B5%90%201%EC%B0%A8%20%EC%98%81%EC%96%B4%20%EC%A0%95%EB%8B%B5.pdf"
   },
   {
-    "id": 3440,
+    "id": 3396,
     "curriculum": "경찰대",
     "gradeYear": 2011,
     "examYear": 2010,
@@ -53293,7 +52325,7 @@
     "answerUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2011_main_english_a.pdf?name=2011%ED%95%99%EB%85%84%EB%8F%84%20%EA%B2%BD%EC%B0%B0%EB%8C%80%ED%95%99%201%EC%B0%A8%20%EC%98%81%EC%96%B4%20%EC%A0%95%EB%8B%B5.pdf"
   },
   {
-    "id": 3441,
+    "id": 3397,
     "curriculum": "pre2009",
     "gradeYear": 2011,
     "examYear": 2010,
@@ -53315,7 +52347,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3442,
+    "id": 3398,
     "curriculum": "pre2009",
     "gradeYear": 2011,
     "examYear": 2010,
@@ -53337,7 +52369,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3443,
+    "id": 3399,
     "curriculum": "pre2009",
     "gradeYear": 2011,
     "examYear": 2010,
@@ -53359,7 +52391,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3444,
+    "id": 3400,
     "curriculum": "pre2009",
     "gradeYear": 2011,
     "examYear": 2010,
@@ -53381,7 +52413,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3445,
+    "id": 3401,
     "curriculum": "pre2009",
     "gradeYear": 2011,
     "examYear": 2010,
@@ -53403,7 +52435,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3446,
+    "id": 3402,
     "curriculum": "pre2009",
     "gradeYear": 2011,
     "examYear": 2010,
@@ -53425,7 +52457,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3447,
+    "id": 3403,
     "curriculum": "pre2009",
     "gradeYear": 2010,
     "examYear": 2009,
@@ -53447,7 +52479,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3448,
+    "id": 3404,
     "curriculum": "pre2009",
     "gradeYear": 2010,
     "examYear": 2009,
@@ -53469,7 +52501,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3449,
+    "id": 3405,
     "curriculum": "pre2009",
     "gradeYear": 2010,
     "examYear": 2009,
@@ -53491,7 +52523,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3450,
+    "id": 3406,
     "curriculum": "pre2009",
     "gradeYear": 2010,
     "examYear": 2009,
@@ -53513,7 +52545,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3451,
+    "id": 3407,
     "curriculum": "pre2009",
     "gradeYear": 2010,
     "examYear": 2009,
@@ -53535,7 +52567,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3452,
+    "id": 3408,
     "curriculum": "pre2009",
     "gradeYear": 2010,
     "examYear": 2009,
@@ -53557,7 +52589,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3453,
+    "id": 3409,
     "curriculum": "pre2009",
     "gradeYear": 2010,
     "examYear": 2009,
@@ -53579,7 +52611,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3454,
+    "id": 3410,
     "curriculum": "pre2009",
     "gradeYear": 2010,
     "examYear": 2009,
@@ -53601,7 +52633,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3455,
+    "id": 3411,
     "curriculum": "pre2009",
     "gradeYear": 2010,
     "examYear": 2009,
@@ -53623,7 +52655,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3456,
+    "id": 3412,
     "curriculum": "pre2009",
     "gradeYear": 2010,
     "examYear": 2009,
@@ -53645,7 +52677,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3457,
+    "id": 3413,
     "curriculum": "pre2009",
     "gradeYear": 2010,
     "examYear": 2009,
@@ -53667,7 +52699,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3458,
+    "id": 3414,
     "curriculum": "MEET",
     "gradeYear": 2010,
     "examYear": 2009,
@@ -53683,7 +52715,7 @@
     "answerDownload": "2010학년도 MEET 언어추론 정답.pdf"
   },
   {
-    "id": 3459,
+    "id": 3415,
     "curriculum": "사관",
     "gradeYear": 2010,
     "examYear": 2009,
@@ -53697,7 +52729,7 @@
     "answerUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2010_main_korean_a.pdf?name=2010%ED%95%99%EB%85%84%EB%8F%84%20%EC%82%AC%EA%B4%80%ED%95%99%EA%B5%90%201%EC%B0%A8%20%EA%B5%AD%EC%96%B4%20%EC%A0%95%EB%8B%B5.pdf"
   },
   {
-    "id": 3460,
+    "id": 3416,
     "curriculum": "경찰대",
     "gradeYear": 2010,
     "examYear": 2009,
@@ -53711,7 +52743,7 @@
     "answerUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2010_main_korean_a.pdf?name=2010%ED%95%99%EB%85%84%EB%8F%84%20%EA%B2%BD%EC%B0%B0%EB%8C%80%ED%95%99%201%EC%B0%A8%20%EA%B5%AD%EC%96%B4%20%EC%A0%95%EB%8B%B5.pdf"
   },
   {
-    "id": 3461,
+    "id": 3417,
     "curriculum": "LEET",
     "gradeYear": 2010,
     "examYear": 2009,
@@ -53727,7 +52759,7 @@
     "answerDownload": "2010학년도 LEET 언어이해 정답.hwp"
   },
   {
-    "id": 3462,
+    "id": 3418,
     "curriculum": "경찰대",
     "gradeYear": 2010,
     "examYear": 2009,
@@ -53741,7 +52773,7 @@
     "answerUrl": "https://suneung-files.hdh061224.workers.dev/police-v1/2010_main_math_a.pdf?name=2010%ED%95%99%EB%85%84%EB%8F%84%20%EA%B2%BD%EC%B0%B0%EB%8C%80%ED%95%99%201%EC%B0%A8%20%EC%88%98%ED%95%99%20%EC%A0%95%EB%8B%B5.pdf"
   },
   {
-    "id": 3463,
+    "id": 3419,
     "curriculum": "사관",
     "gradeYear": 2010,
     "examYear": 2009,
@@ -53755,7 +52787,7 @@
     "answerUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2010_main_math_ga_a.pdf?name=2010%ED%95%99%EB%85%84%EB%8F%84%20%EC%82%AC%EA%B4%80%ED%95%99%EA%B5%90%201%EC%B0%A8%20%EC%88%98%ED%95%99%28%EA%B0%80%ED%98%95%29%20%EC%A0%95%EB%8B%B5.pdf"
   },
   {
-    "id": 3464,
+    "id": 3420,
     "curriculum": "사관",
     "gradeYear": 2010,
     "examYear": 2009,
@@ -53769,7 +52801,7 @@
     "answerUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2010_main_math_na_a.pdf?name=2010%ED%95%99%EB%85%84%EB%8F%84%20%EC%82%AC%EA%B4%80%ED%95%99%EA%B5%90%201%EC%B0%A8%20%EC%88%98%ED%95%99%28%EB%82%98%ED%98%95%29%20%EC%A0%95%EB%8B%B5.pdf"
   },
   {
-    "id": 3465,
+    "id": 3421,
     "curriculum": "LEET",
     "gradeYear": 2010,
     "examYear": 2009,
@@ -53785,7 +52817,7 @@
     "answerDownload": "2010학년도 LEET 추리논증 정답.hwp"
   },
   {
-    "id": 3466,
+    "id": 3422,
     "curriculum": "LEET",
     "gradeYear": 2010,
     "examYear": 2009,
@@ -53801,7 +52833,7 @@
     "answerDownload": null
   },
   {
-    "id": 3467,
+    "id": 3423,
     "curriculum": "사관",
     "gradeYear": 2010,
     "examYear": 2009,
@@ -53815,7 +52847,7 @@
     "answerUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2010_main_english_a.pdf?name=2010%ED%95%99%EB%85%84%EB%8F%84%20%EC%82%AC%EA%B4%80%ED%95%99%EA%B5%90%201%EC%B0%A8%20%EC%98%81%EC%96%B4%20%EC%A0%95%EB%8B%B5.pdf"
   },
   {
-    "id": 3468,
+    "id": 3424,
     "curriculum": "경찰대",
     "gradeYear": 2010,
     "examYear": 2009,
@@ -53829,7 +52861,7 @@
     "answerUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2010_main_english_a.pdf?name=2010%ED%95%99%EB%85%84%EB%8F%84%20%EA%B2%BD%EC%B0%B0%EB%8C%80%ED%95%99%201%EC%B0%A8%20%EC%98%81%EC%96%B4%20%EC%A0%95%EB%8B%B5.pdf"
   },
   {
-    "id": 3469,
+    "id": 3425,
     "curriculum": "pre2009",
     "gradeYear": 2010,
     "examYear": 2009,
@@ -53851,7 +52883,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3470,
+    "id": 3426,
     "curriculum": "pre2009",
     "gradeYear": 2010,
     "examYear": 2009,
@@ -53873,7 +52905,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3471,
+    "id": 3427,
     "curriculum": "pre2009",
     "gradeYear": 2010,
     "examYear": 2009,
@@ -53895,7 +52927,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3472,
+    "id": 3428,
     "curriculum": "pre2009",
     "gradeYear": 2010,
     "examYear": 2009,
@@ -53917,7 +52949,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3473,
+    "id": 3429,
     "curriculum": "pre2009",
     "gradeYear": 2010,
     "examYear": 2009,
@@ -53939,7 +52971,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3474,
+    "id": 3430,
     "curriculum": "pre2009",
     "gradeYear": 2010,
     "examYear": 2009,
@@ -53961,7 +52993,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3475,
+    "id": 3431,
     "curriculum": "pre2009",
     "gradeYear": 2010,
     "examYear": 2009,
@@ -53983,7 +53015,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3476,
+    "id": 3432,
     "curriculum": "pre2009",
     "gradeYear": 2009,
     "examYear": 2008,
@@ -54005,7 +53037,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3477,
+    "id": 3433,
     "curriculum": "pre2009",
     "gradeYear": 2009,
     "examYear": 2008,
@@ -54027,7 +53059,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3478,
+    "id": 3434,
     "curriculum": "pre2009",
     "gradeYear": 2009,
     "examYear": 2008,
@@ -54049,7 +53081,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3479,
+    "id": 3435,
     "curriculum": "pre2009",
     "gradeYear": 2009,
     "examYear": 2008,
@@ -54071,7 +53103,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3480,
+    "id": 3436,
     "curriculum": "pre2009",
     "gradeYear": 2009,
     "examYear": 2008,
@@ -54093,7 +53125,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3481,
+    "id": 3437,
     "curriculum": "pre2009",
     "gradeYear": 2009,
     "examYear": 2008,
@@ -54115,7 +53147,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3482,
+    "id": 3438,
     "curriculum": "pre2009",
     "gradeYear": 2009,
     "examYear": 2008,
@@ -54137,7 +53169,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3483,
+    "id": 3439,
     "curriculum": "pre2009",
     "gradeYear": 2009,
     "examYear": 2008,
@@ -54159,7 +53191,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3484,
+    "id": 3440,
     "curriculum": "pre2009",
     "gradeYear": 2009,
     "examYear": 2008,
@@ -54181,7 +53213,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3485,
+    "id": 3441,
     "curriculum": "pre2009",
     "gradeYear": 2009,
     "examYear": 2008,
@@ -54203,7 +53235,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3486,
+    "id": 3442,
     "curriculum": "pre2009",
     "gradeYear": 2009,
     "examYear": 2008,
@@ -54225,7 +53257,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3487,
+    "id": 3443,
     "curriculum": "pre2009",
     "gradeYear": 2009,
     "examYear": 2008,
@@ -54247,7 +53279,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3488,
+    "id": 3444,
     "curriculum": "pre2009",
     "gradeYear": 2009,
     "examYear": 2008,
@@ -54269,7 +53301,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3489,
+    "id": 3445,
     "curriculum": "MEET",
     "gradeYear": 2009,
     "examYear": 2008,
@@ -54285,7 +53317,7 @@
     "answerDownload": "2009학년도 MEET 언어추론 정답.pdf"
   },
   {
-    "id": 3490,
+    "id": 3446,
     "curriculum": "사관",
     "gradeYear": 2009,
     "examYear": 2008,
@@ -54299,7 +53331,7 @@
     "answerUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2009_main_korean_a.pdf?name=2009%ED%95%99%EB%85%84%EB%8F%84%20%EC%82%AC%EA%B4%80%ED%95%99%EA%B5%90%201%EC%B0%A8%20%EA%B5%AD%EC%96%B4%20%EC%A0%95%EB%8B%B5.pdf"
   },
   {
-    "id": 3491,
+    "id": 3447,
     "curriculum": "경찰대",
     "gradeYear": 2009,
     "examYear": 2008,
@@ -54313,7 +53345,7 @@
     "answerUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2009_main_korean_a.pdf?name=2009%ED%95%99%EB%85%84%EB%8F%84%20%EA%B2%BD%EC%B0%B0%EB%8C%80%ED%95%99%201%EC%B0%A8%20%EA%B5%AD%EC%96%B4%20%EC%A0%95%EB%8B%B5.pdf"
   },
   {
-    "id": 3492,
+    "id": 3448,
     "curriculum": "LEET",
     "gradeYear": 2009,
     "examYear": 2008,
@@ -54329,7 +53361,7 @@
     "answerDownload": "2009학년도 LEET 언어이해 정답.hwp"
   },
   {
-    "id": 3493,
+    "id": 3449,
     "curriculum": "경찰대",
     "gradeYear": 2009,
     "examYear": 2008,
@@ -54343,7 +53375,7 @@
     "answerUrl": "https://suneung-files.hdh061224.workers.dev/police-v1/2009_main_math_a.pdf?name=2009%ED%95%99%EB%85%84%EB%8F%84%20%EA%B2%BD%EC%B0%B0%EB%8C%80%ED%95%99%201%EC%B0%A8%20%EC%88%98%ED%95%99%20%EC%A0%95%EB%8B%B5.pdf"
   },
   {
-    "id": 3494,
+    "id": 3450,
     "curriculum": "사관",
     "gradeYear": 2009,
     "examYear": 2008,
@@ -54357,7 +53389,7 @@
     "answerUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2009_main_math_ga_a.pdf?name=2009%ED%95%99%EB%85%84%EB%8F%84%20%EC%82%AC%EA%B4%80%ED%95%99%EA%B5%90%201%EC%B0%A8%20%EC%88%98%ED%95%99%28%EA%B0%80%ED%98%95%29%20%EC%A0%95%EB%8B%B5.pdf"
   },
   {
-    "id": 3495,
+    "id": 3451,
     "curriculum": "사관",
     "gradeYear": 2009,
     "examYear": 2008,
@@ -54371,7 +53403,7 @@
     "answerUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2009_main_math_na_a.pdf?name=2009%ED%95%99%EB%85%84%EB%8F%84%20%EC%82%AC%EA%B4%80%ED%95%99%EA%B5%90%201%EC%B0%A8%20%EC%88%98%ED%95%99%28%EB%82%98%ED%98%95%29%20%EC%A0%95%EB%8B%B5.pdf"
   },
   {
-    "id": 3496,
+    "id": 3452,
     "curriculum": "LEET",
     "gradeYear": 2009,
     "examYear": 2008,
@@ -54387,7 +53419,7 @@
     "answerDownload": "2009학년도 LEET 추리논증 정답.hwp"
   },
   {
-    "id": 3497,
+    "id": 3453,
     "curriculum": "LEET",
     "gradeYear": 2009,
     "examYear": 2008,
@@ -54403,7 +53435,7 @@
     "answerDownload": null
   },
   {
-    "id": 3498,
+    "id": 3454,
     "curriculum": "사관",
     "gradeYear": 2009,
     "examYear": 2008,
@@ -54417,7 +53449,7 @@
     "answerUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2009_main_english_a.pdf?name=2009%ED%95%99%EB%85%84%EB%8F%84%20%EC%82%AC%EA%B4%80%ED%95%99%EA%B5%90%201%EC%B0%A8%20%EC%98%81%EC%96%B4%20%EC%A0%95%EB%8B%B5.pdf"
   },
   {
-    "id": 3499,
+    "id": 3455,
     "curriculum": "경찰대",
     "gradeYear": 2009,
     "examYear": 2008,
@@ -54431,7 +53463,7 @@
     "answerUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2009_main_english_a.pdf?name=2009%ED%95%99%EB%85%84%EB%8F%84%20%EA%B2%BD%EC%B0%B0%EB%8C%80%ED%95%99%201%EC%B0%A8%20%EC%98%81%EC%96%B4%20%EC%A0%95%EB%8B%B5.pdf"
   },
   {
-    "id": 3500,
+    "id": 3456,
     "curriculum": "pre2009",
     "gradeYear": 2009,
     "examYear": 2008,
@@ -54453,7 +53485,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3501,
+    "id": 3457,
     "curriculum": "LEET",
     "gradeYear": 2009,
     "examYear": 2008,
@@ -54469,7 +53501,7 @@
     "answerDownload": "예비시험 LEET 언어이해 정답.hwp"
   },
   {
-    "id": 3502,
+    "id": 3458,
     "curriculum": "LEET",
     "gradeYear": 2009,
     "examYear": 2008,
@@ -54485,7 +53517,7 @@
     "answerDownload": "예비시험 LEET 추리논증 정답.hwp"
   },
   {
-    "id": 3503,
+    "id": 3459,
     "curriculum": "LEET",
     "gradeYear": 2009,
     "examYear": 2008,
@@ -54501,7 +53533,7 @@
     "answerDownload": null
   },
   {
-    "id": 3504,
+    "id": 3460,
     "curriculum": "LEET",
     "gradeYear": 2009,
     "examYear": 2008,
@@ -54517,7 +53549,7 @@
     "answerDownload": null
   },
   {
-    "id": 3505,
+    "id": 3461,
     "curriculum": "pre2009",
     "gradeYear": 2008,
     "examYear": 2007,
@@ -54539,7 +53571,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3506,
+    "id": 3462,
     "curriculum": "pre2009",
     "gradeYear": 2008,
     "examYear": 2007,
@@ -54561,7 +53593,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3507,
+    "id": 3463,
     "curriculum": "pre2009",
     "gradeYear": 2008,
     "examYear": 2007,
@@ -54583,7 +53615,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3508,
+    "id": 3464,
     "curriculum": "pre2009",
     "gradeYear": 2008,
     "examYear": 2007,
@@ -54605,7 +53637,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3509,
+    "id": 3465,
     "curriculum": "pre2009",
     "gradeYear": 2008,
     "examYear": 2007,
@@ -54627,7 +53659,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3510,
+    "id": 3466,
     "curriculum": "pre2009",
     "gradeYear": 2008,
     "examYear": 2007,
@@ -54649,7 +53681,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3511,
+    "id": 3467,
     "curriculum": "pre2009",
     "gradeYear": 2008,
     "examYear": 2007,
@@ -54671,7 +53703,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3512,
+    "id": 3468,
     "curriculum": "pre2009",
     "gradeYear": 2008,
     "examYear": 2007,
@@ -54693,7 +53725,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3513,
+    "id": 3469,
     "curriculum": "pre2009",
     "gradeYear": 2008,
     "examYear": 2007,
@@ -54715,7 +53747,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3514,
+    "id": 3470,
     "curriculum": "pre2009",
     "gradeYear": 2008,
     "examYear": 2007,
@@ -54737,7 +53769,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3515,
+    "id": 3471,
     "curriculum": "pre2009",
     "gradeYear": 2008,
     "examYear": 2007,
@@ -54759,7 +53791,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3516,
+    "id": 3472,
     "curriculum": "pre2009",
     "gradeYear": 2008,
     "examYear": 2007,
@@ -54781,7 +53813,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3517,
+    "id": 3473,
     "curriculum": "pre2009",
     "gradeYear": 2008,
     "examYear": 2007,
@@ -54803,7 +53835,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3518,
+    "id": 3474,
     "curriculum": "pre2009",
     "gradeYear": 2008,
     "examYear": 2007,
@@ -54825,7 +53857,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3519,
+    "id": 3475,
     "curriculum": "pre2009",
     "gradeYear": 2008,
     "examYear": 2007,
@@ -54847,7 +53879,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3520,
+    "id": 3476,
     "curriculum": "pre2009",
     "gradeYear": 2008,
     "examYear": 2007,
@@ -54869,7 +53901,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3521,
+    "id": 3477,
     "curriculum": "pre2009",
     "gradeYear": 2008,
     "examYear": 2007,
@@ -54891,7 +53923,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3522,
+    "id": 3478,
     "curriculum": "MEET",
     "gradeYear": 2008,
     "examYear": 2007,
@@ -54907,7 +53939,7 @@
     "answerDownload": "2008학년도 MEET 언어추론 정답.hwp"
   },
   {
-    "id": 3523,
+    "id": 3479,
     "curriculum": "사관",
     "gradeYear": 2008,
     "examYear": 2007,
@@ -54921,7 +53953,7 @@
     "answerUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2008_main_korean_a.pdf?name=2008%ED%95%99%EB%85%84%EB%8F%84%20%EC%82%AC%EA%B4%80%ED%95%99%EA%B5%90%201%EC%B0%A8%20%EA%B5%AD%EC%96%B4%20%EC%A0%95%EB%8B%B5.pdf"
   },
   {
-    "id": 3524,
+    "id": 3480,
     "curriculum": "경찰대",
     "gradeYear": 2008,
     "examYear": 2007,
@@ -54935,7 +53967,7 @@
     "answerUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2008_main_korean_a.pdf?name=2008%ED%95%99%EB%85%84%EB%8F%84%20%EA%B2%BD%EC%B0%B0%EB%8C%80%ED%95%99%201%EC%B0%A8%20%EA%B5%AD%EC%96%B4%20%EC%A0%95%EB%8B%B5.pdf"
   },
   {
-    "id": 3525,
+    "id": 3481,
     "curriculum": "경찰대",
     "gradeYear": 2008,
     "examYear": 2007,
@@ -54949,7 +53981,7 @@
     "answerUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2008_main_math_a.pdf?name=2008%ED%95%99%EB%85%84%EB%8F%84%20%EA%B2%BD%EC%B0%B0%EB%8C%80%ED%95%99%201%EC%B0%A8%20%EC%88%98%ED%95%99%20%EC%A0%95%EB%8B%B5.pdf"
   },
   {
-    "id": 3526,
+    "id": 3482,
     "curriculum": "사관",
     "gradeYear": 2008,
     "examYear": 2007,
@@ -54963,7 +53995,7 @@
     "answerUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2008_main_math_a.pdf?name=2008%ED%95%99%EB%85%84%EB%8F%84%20%EC%82%AC%EA%B4%80%ED%95%99%EA%B5%90%201%EC%B0%A8%20%EC%88%98%ED%95%99%28%EA%B0%80%ED%98%95%29%20%EC%A0%95%EB%8B%B5.pdf"
   },
   {
-    "id": 3527,
+    "id": 3483,
     "curriculum": "사관",
     "gradeYear": 2008,
     "examYear": 2007,
@@ -54977,7 +54009,7 @@
     "answerUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2008_main_math_a.pdf?name=2008%ED%95%99%EB%85%84%EB%8F%84%20%EC%82%AC%EA%B4%80%ED%95%99%EA%B5%90%201%EC%B0%A8%20%EC%88%98%ED%95%99%28%EB%82%98%ED%98%95%29%20%EC%A0%95%EB%8B%B5.pdf"
   },
   {
-    "id": 3528,
+    "id": 3484,
     "curriculum": "사관",
     "gradeYear": 2008,
     "examYear": 2007,
@@ -54991,7 +54023,7 @@
     "answerUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2008_main_english_a.pdf?name=2008%ED%95%99%EB%85%84%EB%8F%84%20%EC%82%AC%EA%B4%80%ED%95%99%EA%B5%90%201%EC%B0%A8%20%EC%98%81%EC%96%B4%20%EC%A0%95%EB%8B%B5.pdf"
   },
   {
-    "id": 3529,
+    "id": 3485,
     "curriculum": "경찰대",
     "gradeYear": 2008,
     "examYear": 2007,
@@ -55005,7 +54037,7 @@
     "answerUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2008_main_english_a.pdf?name=2008%ED%95%99%EB%85%84%EB%8F%84%20%EA%B2%BD%EC%B0%B0%EB%8C%80%ED%95%99%201%EC%B0%A8%20%EC%98%81%EC%96%B4%20%EC%A0%95%EB%8B%B5.pdf"
   },
   {
-    "id": 3530,
+    "id": 3486,
     "curriculum": "pre2009",
     "gradeYear": 2007,
     "examYear": 2006,
@@ -55027,7 +54059,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3531,
+    "id": 3487,
     "curriculum": "pre2009",
     "gradeYear": 2007,
     "examYear": 2006,
@@ -55049,7 +54081,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3532,
+    "id": 3488,
     "curriculum": "pre2009",
     "gradeYear": 2007,
     "examYear": 2006,
@@ -55071,7 +54103,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3533,
+    "id": 3489,
     "curriculum": "pre2009",
     "gradeYear": 2007,
     "examYear": 2006,
@@ -55093,7 +54125,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3534,
+    "id": 3490,
     "curriculum": "pre2009",
     "gradeYear": 2007,
     "examYear": 2006,
@@ -55115,7 +54147,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3535,
+    "id": 3491,
     "curriculum": "pre2009",
     "gradeYear": 2007,
     "examYear": 2006,
@@ -55137,7 +54169,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3536,
+    "id": 3492,
     "curriculum": "pre2009",
     "gradeYear": 2007,
     "examYear": 2006,
@@ -55159,7 +54191,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3537,
+    "id": 3493,
     "curriculum": "pre2009",
     "gradeYear": 2007,
     "examYear": 2006,
@@ -55181,7 +54213,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3538,
+    "id": 3494,
     "curriculum": "pre2009",
     "gradeYear": 2007,
     "examYear": 2006,
@@ -55203,7 +54235,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3539,
+    "id": 3495,
     "curriculum": "pre2009",
     "gradeYear": 2007,
     "examYear": 2006,
@@ -55225,7 +54257,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3540,
+    "id": 3496,
     "curriculum": "pre2009",
     "gradeYear": 2007,
     "examYear": 2006,
@@ -55247,7 +54279,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3541,
+    "id": 3497,
     "curriculum": "pre2009",
     "gradeYear": 2007,
     "examYear": 2006,
@@ -55269,7 +54301,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3542,
+    "id": 3498,
     "curriculum": "pre2009",
     "gradeYear": 2007,
     "examYear": 2006,
@@ -55291,7 +54323,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3543,
+    "id": 3499,
     "curriculum": "pre2009",
     "gradeYear": 2007,
     "examYear": 2006,
@@ -55313,7 +54345,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3544,
+    "id": 3500,
     "curriculum": "pre2009",
     "gradeYear": 2007,
     "examYear": 2006,
@@ -55335,7 +54367,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3545,
+    "id": 3501,
     "curriculum": "pre2009",
     "gradeYear": 2007,
     "examYear": 2006,
@@ -55357,7 +54389,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3546,
+    "id": 3502,
     "curriculum": "pre2009",
     "gradeYear": 2007,
     "examYear": 2006,
@@ -55379,7 +54411,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3547,
+    "id": 3503,
     "curriculum": "pre2009",
     "gradeYear": 2007,
     "examYear": 2006,
@@ -55401,7 +54433,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3548,
+    "id": 3504,
     "curriculum": "pre2009",
     "gradeYear": 2007,
     "examYear": 2006,
@@ -55423,7 +54455,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3549,
+    "id": 3505,
     "curriculum": "pre2009",
     "gradeYear": 2007,
     "examYear": 2006,
@@ -55445,7 +54477,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3550,
+    "id": 3506,
     "curriculum": "pre2009",
     "gradeYear": 2007,
     "examYear": 2006,
@@ -55467,7 +54499,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3551,
+    "id": 3507,
     "curriculum": "pre2009",
     "gradeYear": 2007,
     "examYear": 2006,
@@ -55489,7 +54521,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3552,
+    "id": 3508,
     "curriculum": "pre2009",
     "gradeYear": 2007,
     "examYear": 2006,
@@ -55511,7 +54543,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3553,
+    "id": 3509,
     "curriculum": "pre2009",
     "gradeYear": 2007,
     "examYear": 2006,
@@ -55533,7 +54565,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3554,
+    "id": 3510,
     "curriculum": "pre2009",
     "gradeYear": 2007,
     "examYear": 2006,
@@ -55555,7 +54587,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3555,
+    "id": 3511,
     "curriculum": "pre2009",
     "gradeYear": 2007,
     "examYear": 2006,
@@ -55577,7 +54609,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3556,
+    "id": 3512,
     "curriculum": "pre2009",
     "gradeYear": 2007,
     "examYear": 2006,
@@ -55599,7 +54631,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3557,
+    "id": 3513,
     "curriculum": "pre2009",
     "gradeYear": 2007,
     "examYear": 2006,
@@ -55621,7 +54653,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3558,
+    "id": 3514,
     "curriculum": "pre2009",
     "gradeYear": 2007,
     "examYear": 2006,
@@ -55643,7 +54675,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3559,
+    "id": 3515,
     "curriculum": "pre2009",
     "gradeYear": 2007,
     "examYear": 2006,
@@ -55665,7 +54697,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3560,
+    "id": 3516,
     "curriculum": "pre2009",
     "gradeYear": 2007,
     "examYear": 2006,
@@ -55687,7 +54719,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3561,
+    "id": 3517,
     "curriculum": "pre2009",
     "gradeYear": 2007,
     "examYear": 2006,
@@ -55709,7 +54741,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3562,
+    "id": 3518,
     "curriculum": "pre2009",
     "gradeYear": 2007,
     "examYear": 2006,
@@ -55731,7 +54763,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3563,
+    "id": 3519,
     "curriculum": "pre2009",
     "gradeYear": 2007,
     "examYear": 2006,
@@ -55753,7 +54785,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3564,
+    "id": 3520,
     "curriculum": "pre2009",
     "gradeYear": 2007,
     "examYear": 2006,
@@ -55775,7 +54807,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3565,
+    "id": 3521,
     "curriculum": "pre2009",
     "gradeYear": 2007,
     "examYear": 2006,
@@ -55797,7 +54829,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3566,
+    "id": 3522,
     "curriculum": "pre2009",
     "gradeYear": 2007,
     "examYear": 2006,
@@ -55819,7 +54851,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3567,
+    "id": 3523,
     "curriculum": "pre2009",
     "gradeYear": 2007,
     "examYear": 2006,
@@ -55841,7 +54873,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3568,
+    "id": 3524,
     "curriculum": "pre2009",
     "gradeYear": 2007,
     "examYear": 2006,
@@ -55863,7 +54895,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3569,
+    "id": 3525,
     "curriculum": "pre2009",
     "gradeYear": 2007,
     "examYear": 2006,
@@ -55885,7 +54917,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3570,
+    "id": 3526,
     "curriculum": "pre2009",
     "gradeYear": 2007,
     "examYear": 2006,
@@ -55907,7 +54939,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3571,
+    "id": 3527,
     "curriculum": "pre2009",
     "gradeYear": 2007,
     "examYear": 2006,
@@ -55929,7 +54961,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3572,
+    "id": 3528,
     "curriculum": "pre2009",
     "gradeYear": 2007,
     "examYear": 2006,
@@ -55951,7 +54983,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3573,
+    "id": 3529,
     "curriculum": "pre2009",
     "gradeYear": 2007,
     "examYear": 2006,
@@ -55973,7 +55005,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3574,
+    "id": 3530,
     "curriculum": "pre2009",
     "gradeYear": 2007,
     "examYear": 2006,
@@ -55995,7 +55027,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3575,
+    "id": 3531,
     "curriculum": "pre2009",
     "gradeYear": 2007,
     "examYear": 2006,
@@ -56017,7 +55049,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3576,
+    "id": 3532,
     "curriculum": "pre2009",
     "gradeYear": 2007,
     "examYear": 2006,
@@ -56039,7 +55071,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3577,
+    "id": 3533,
     "curriculum": "pre2009",
     "gradeYear": 2007,
     "examYear": 2006,
@@ -56061,7 +55093,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3578,
+    "id": 3534,
     "curriculum": "pre2009",
     "gradeYear": 2007,
     "examYear": 2006,
@@ -56083,7 +55115,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3579,
+    "id": 3535,
     "curriculum": "pre2009",
     "gradeYear": 2007,
     "examYear": 2006,
@@ -56105,7 +55137,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3580,
+    "id": 3536,
     "curriculum": "pre2009",
     "gradeYear": 2007,
     "examYear": 2006,
@@ -56127,7 +55159,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3581,
+    "id": 3537,
     "curriculum": "pre2009",
     "gradeYear": 2007,
     "examYear": 2006,
@@ -56149,7 +55181,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3582,
+    "id": 3538,
     "curriculum": "pre2009",
     "gradeYear": 2007,
     "examYear": 2006,
@@ -56171,7 +55203,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3583,
+    "id": 3539,
     "curriculum": "pre2009",
     "gradeYear": 2007,
     "examYear": 2006,
@@ -56193,7 +55225,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3584,
+    "id": 3540,
     "curriculum": "MEET",
     "gradeYear": 2007,
     "examYear": 2006,
@@ -56209,7 +55241,7 @@
     "answerDownload": "2007학년도 MEET 언어추론 정답.hwp"
   },
   {
-    "id": 3585,
+    "id": 3541,
     "curriculum": "사관",
     "gradeYear": 2007,
     "examYear": 2006,
@@ -56223,7 +55255,7 @@
     "answerUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2007_main_korean_a.pdf?name=2007%ED%95%99%EB%85%84%EB%8F%84%20%EC%82%AC%EA%B4%80%ED%95%99%EA%B5%90%201%EC%B0%A8%20%EA%B5%AD%EC%96%B4%20%EC%A0%95%EB%8B%B5.pdf"
   },
   {
-    "id": 3586,
+    "id": 3542,
     "curriculum": "경찰대",
     "gradeYear": 2007,
     "examYear": 2006,
@@ -56237,7 +55269,7 @@
     "answerUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2007_main_korean_a.pdf?name=2007%ED%95%99%EB%85%84%EB%8F%84%20%EA%B2%BD%EC%B0%B0%EB%8C%80%ED%95%99%201%EC%B0%A8%20%EA%B5%AD%EC%96%B4%20%EC%A0%95%EB%8B%B5.pdf"
   },
   {
-    "id": 3587,
+    "id": 3543,
     "curriculum": "경찰대",
     "gradeYear": 2007,
     "examYear": 2006,
@@ -56251,7 +55283,7 @@
     "answerUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2007_main_math_a.pdf?name=2007%ED%95%99%EB%85%84%EB%8F%84%20%EA%B2%BD%EC%B0%B0%EB%8C%80%ED%95%99%201%EC%B0%A8%20%EC%88%98%ED%95%99%20%EC%A0%95%EB%8B%B5.pdf"
   },
   {
-    "id": 3588,
+    "id": 3544,
     "curriculum": "사관",
     "gradeYear": 2007,
     "examYear": 2006,
@@ -56265,7 +55297,7 @@
     "answerUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2007_main_math_a.pdf?name=2007%ED%95%99%EB%85%84%EB%8F%84%20%EC%82%AC%EA%B4%80%ED%95%99%EA%B5%90%201%EC%B0%A8%20%EC%88%98%ED%95%99%28%EA%B0%80%ED%98%95%29%20%EC%A0%95%EB%8B%B5.pdf"
   },
   {
-    "id": 3589,
+    "id": 3545,
     "curriculum": "사관",
     "gradeYear": 2007,
     "examYear": 2006,
@@ -56279,7 +55311,7 @@
     "answerUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2007_main_math_a.pdf?name=2007%ED%95%99%EB%85%84%EB%8F%84%20%EC%82%AC%EA%B4%80%ED%95%99%EA%B5%90%201%EC%B0%A8%20%EC%88%98%ED%95%99%28%EB%82%98%ED%98%95%29%20%EC%A0%95%EB%8B%B5.pdf"
   },
   {
-    "id": 3590,
+    "id": 3546,
     "curriculum": "사관",
     "gradeYear": 2007,
     "examYear": 2006,
@@ -56293,7 +55325,7 @@
     "answerUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2007_main_english_a.pdf?name=2007%ED%95%99%EB%85%84%EB%8F%84%20%EC%82%AC%EA%B4%80%ED%95%99%EA%B5%90%201%EC%B0%A8%20%EC%98%81%EC%96%B4%20%EC%A0%95%EB%8B%B5.pdf"
   },
   {
-    "id": 3591,
+    "id": 3547,
     "curriculum": "경찰대",
     "gradeYear": 2007,
     "examYear": 2006,
@@ -56307,7 +55339,7 @@
     "answerUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2007_main_english_a.pdf?name=2007%ED%95%99%EB%85%84%EB%8F%84%20%EA%B2%BD%EC%B0%B0%EB%8C%80%ED%95%99%201%EC%B0%A8%20%EC%98%81%EC%96%B4%20%EC%A0%95%EB%8B%B5.pdf"
   },
   {
-    "id": 3592,
+    "id": 3548,
     "curriculum": "pre2009",
     "gradeYear": 2007,
     "examYear": 2006,
@@ -56329,7 +55361,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3593,
+    "id": 3549,
     "curriculum": "pre2009",
     "gradeYear": 2007,
     "examYear": 2006,
@@ -56351,7 +55383,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3594,
+    "id": 3550,
     "curriculum": "pre2009",
     "gradeYear": 2007,
     "examYear": 2006,
@@ -56373,7 +55405,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3595,
+    "id": 3551,
     "curriculum": "pre2009",
     "gradeYear": 2007,
     "examYear": 2006,
@@ -56395,7 +55427,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3596,
+    "id": 3552,
     "curriculum": "pre2009",
     "gradeYear": 2007,
     "examYear": 2006,
@@ -56417,7 +55449,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3597,
+    "id": 3553,
     "curriculum": "pre2009",
     "gradeYear": 2007,
     "examYear": 2006,
@@ -56439,7 +55471,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3598,
+    "id": 3554,
     "curriculum": "pre2009",
     "gradeYear": 2007,
     "examYear": 2006,
@@ -56461,7 +55493,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3599,
+    "id": 3555,
     "curriculum": "pre2009",
     "gradeYear": 2007,
     "examYear": 2006,
@@ -56483,7 +55515,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3600,
+    "id": 3556,
     "curriculum": "pre2009",
     "gradeYear": 2007,
     "examYear": 2006,
@@ -56505,7 +55537,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3601,
+    "id": 3557,
     "curriculum": "pre2009",
     "gradeYear": 2007,
     "examYear": 2006,
@@ -56527,7 +55559,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3602,
+    "id": 3558,
     "curriculum": "pre2009",
     "gradeYear": 2007,
     "examYear": 2006,
@@ -56549,7 +55581,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3603,
+    "id": 3559,
     "curriculum": "pre2009",
     "gradeYear": 2007,
     "examYear": 2006,
@@ -56571,7 +55603,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3604,
+    "id": 3560,
     "curriculum": "pre2009",
     "gradeYear": 2007,
     "examYear": 2006,
@@ -56593,7 +55625,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3605,
+    "id": 3561,
     "curriculum": "pre2009",
     "gradeYear": 2007,
     "examYear": 2006,
@@ -56615,7 +55647,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3606,
+    "id": 3562,
     "curriculum": "pre2009",
     "gradeYear": 2007,
     "examYear": 2006,
@@ -56637,7 +55669,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3607,
+    "id": 3563,
     "curriculum": "pre2009",
     "gradeYear": 2007,
     "examYear": 2006,
@@ -56659,7 +55691,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3608,
+    "id": 3564,
     "curriculum": "pre2009",
     "gradeYear": 2007,
     "examYear": 2006,
@@ -56681,7 +55713,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3609,
+    "id": 3565,
     "curriculum": "pre2009",
     "gradeYear": 2007,
     "examYear": 2006,
@@ -56703,7 +55735,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3610,
+    "id": 3566,
     "curriculum": "pre2009",
     "gradeYear": 2007,
     "examYear": 2006,
@@ -56725,7 +55757,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3611,
+    "id": 3567,
     "curriculum": "pre2009",
     "gradeYear": 2007,
     "examYear": 2006,
@@ -56747,7 +55779,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3612,
+    "id": 3568,
     "curriculum": "pre2009",
     "gradeYear": 2007,
     "examYear": 2006,
@@ -56769,7 +55801,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3613,
+    "id": 3569,
     "curriculum": "pre2009",
     "gradeYear": 2007,
     "examYear": 2006,
@@ -56791,7 +55823,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3614,
+    "id": 3570,
     "curriculum": "pre2009",
     "gradeYear": 2007,
     "examYear": 2006,
@@ -56813,7 +55845,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3615,
+    "id": 3571,
     "curriculum": "pre2009",
     "gradeYear": 2007,
     "examYear": 2006,
@@ -56835,7 +55867,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3616,
+    "id": 3572,
     "curriculum": "pre2009",
     "gradeYear": 2007,
     "examYear": 2006,
@@ -56857,7 +55889,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3617,
+    "id": 3573,
     "curriculum": "pre2009",
     "gradeYear": 2007,
     "examYear": 2006,
@@ -56879,7 +55911,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3618,
+    "id": 3574,
     "curriculum": "pre2009",
     "gradeYear": 2007,
     "examYear": 2006,
@@ -56901,7 +55933,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3619,
+    "id": 3575,
     "curriculum": "pre2009",
     "gradeYear": 2007,
     "examYear": 2006,
@@ -56923,7 +55955,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3620,
+    "id": 3576,
     "curriculum": "pre2009",
     "gradeYear": 2007,
     "examYear": 2006,
@@ -56945,7 +55977,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3621,
+    "id": 3577,
     "curriculum": "pre2009",
     "gradeYear": 2007,
     "examYear": 2006,
@@ -56967,7 +55999,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3622,
+    "id": 3578,
     "curriculum": "pre2009",
     "gradeYear": 2007,
     "examYear": 2006,
@@ -56989,7 +56021,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3623,
+    "id": 3579,
     "curriculum": "pre2009",
     "gradeYear": 2007,
     "examYear": 2006,
@@ -57011,7 +56043,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3624,
+    "id": 3580,
     "curriculum": "pre2009",
     "gradeYear": 2007,
     "examYear": 2006,
@@ -57033,7 +56065,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3625,
+    "id": 3581,
     "curriculum": "pre2009",
     "gradeYear": 2007,
     "examYear": 2006,
@@ -57055,7 +56087,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3626,
+    "id": 3582,
     "curriculum": "pre2009",
     "gradeYear": 2007,
     "examYear": 2006,
@@ -57077,7 +56109,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3627,
+    "id": 3583,
     "curriculum": "pre2009",
     "gradeYear": 2007,
     "examYear": 2006,
@@ -57099,7 +56131,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3628,
+    "id": 3584,
     "curriculum": "pre2009",
     "gradeYear": 2007,
     "examYear": 2006,
@@ -57121,7 +56153,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3629,
+    "id": 3585,
     "curriculum": "pre2009",
     "gradeYear": 2007,
     "examYear": 2006,
@@ -57143,7 +56175,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3630,
+    "id": 3586,
     "curriculum": "pre2009",
     "gradeYear": 2006,
     "examYear": 2005,
@@ -57165,7 +56197,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3631,
+    "id": 3587,
     "curriculum": "pre2009",
     "gradeYear": 2006,
     "examYear": 2005,
@@ -57187,7 +56219,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3632,
+    "id": 3588,
     "curriculum": "pre2009",
     "gradeYear": 2006,
     "examYear": 2005,
@@ -57209,7 +56241,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3633,
+    "id": 3589,
     "curriculum": "pre2009",
     "gradeYear": 2006,
     "examYear": 2005,
@@ -57231,7 +56263,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3634,
+    "id": 3590,
     "curriculum": "pre2009",
     "gradeYear": 2006,
     "examYear": 2005,
@@ -57253,7 +56285,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3635,
+    "id": 3591,
     "curriculum": "pre2009",
     "gradeYear": 2006,
     "examYear": 2005,
@@ -57275,7 +56307,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3636,
+    "id": 3592,
     "curriculum": "pre2009",
     "gradeYear": 2006,
     "examYear": 2005,
@@ -57297,7 +56329,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3637,
+    "id": 3593,
     "curriculum": "pre2009",
     "gradeYear": 2006,
     "examYear": 2005,
@@ -57319,7 +56351,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3638,
+    "id": 3594,
     "curriculum": "pre2009",
     "gradeYear": 2006,
     "examYear": 2005,
@@ -57341,7 +56373,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3639,
+    "id": 3595,
     "curriculum": "pre2009",
     "gradeYear": 2006,
     "examYear": 2005,
@@ -57363,7 +56395,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3640,
+    "id": 3596,
     "curriculum": "pre2009",
     "gradeYear": 2006,
     "examYear": 2005,
@@ -57385,7 +56417,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3641,
+    "id": 3597,
     "curriculum": "pre2009",
     "gradeYear": 2006,
     "examYear": 2005,
@@ -57407,7 +56439,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3642,
+    "id": 3598,
     "curriculum": "pre2009",
     "gradeYear": 2006,
     "examYear": 2005,
@@ -57429,7 +56461,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3643,
+    "id": 3599,
     "curriculum": "pre2009",
     "gradeYear": 2006,
     "examYear": 2005,
@@ -57451,7 +56483,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3644,
+    "id": 3600,
     "curriculum": "pre2009",
     "gradeYear": 2006,
     "examYear": 2005,
@@ -57473,7 +56505,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3645,
+    "id": 3601,
     "curriculum": "pre2009",
     "gradeYear": 2006,
     "examYear": 2005,
@@ -57495,7 +56527,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3646,
+    "id": 3602,
     "curriculum": "pre2009",
     "gradeYear": 2006,
     "examYear": 2005,
@@ -57517,7 +56549,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3647,
+    "id": 3603,
     "curriculum": "pre2009",
     "gradeYear": 2006,
     "examYear": 2005,
@@ -57539,7 +56571,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3648,
+    "id": 3604,
     "curriculum": "pre2009",
     "gradeYear": 2006,
     "examYear": 2005,
@@ -57561,7 +56593,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3649,
+    "id": 3605,
     "curriculum": "pre2009",
     "gradeYear": 2006,
     "examYear": 2005,
@@ -57583,7 +56615,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3650,
+    "id": 3606,
     "curriculum": "pre2009",
     "gradeYear": 2006,
     "examYear": 2005,
@@ -57605,7 +56637,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3651,
+    "id": 3607,
     "curriculum": "pre2009",
     "gradeYear": 2006,
     "examYear": 2005,
@@ -57627,7 +56659,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3652,
+    "id": 3608,
     "curriculum": "pre2009",
     "gradeYear": 2006,
     "examYear": 2005,
@@ -57649,7 +56681,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3653,
+    "id": 3609,
     "curriculum": "pre2009",
     "gradeYear": 2006,
     "examYear": 2005,
@@ -57671,7 +56703,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3654,
+    "id": 3610,
     "curriculum": "pre2009",
     "gradeYear": 2006,
     "examYear": 2005,
@@ -57693,7 +56725,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3655,
+    "id": 3611,
     "curriculum": "pre2009",
     "gradeYear": 2006,
     "examYear": 2005,
@@ -57715,7 +56747,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3656,
+    "id": 3612,
     "curriculum": "pre2009",
     "gradeYear": 2006,
     "examYear": 2005,
@@ -57737,7 +56769,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3657,
+    "id": 3613,
     "curriculum": "pre2009",
     "gradeYear": 2006,
     "examYear": 2005,
@@ -57759,7 +56791,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3658,
+    "id": 3614,
     "curriculum": "pre2009",
     "gradeYear": 2006,
     "examYear": 2005,
@@ -57781,7 +56813,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3659,
+    "id": 3615,
     "curriculum": "pre2009",
     "gradeYear": 2006,
     "examYear": 2005,
@@ -57803,7 +56835,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3660,
+    "id": 3616,
     "curriculum": "pre2009",
     "gradeYear": 2006,
     "examYear": 2005,
@@ -57825,7 +56857,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3661,
+    "id": 3617,
     "curriculum": "pre2009",
     "gradeYear": 2006,
     "examYear": 2005,
@@ -57847,7 +56879,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3662,
+    "id": 3618,
     "curriculum": "pre2009",
     "gradeYear": 2006,
     "examYear": 2005,
@@ -57869,7 +56901,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3663,
+    "id": 3619,
     "curriculum": "pre2009",
     "gradeYear": 2006,
     "examYear": 2005,
@@ -57891,7 +56923,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3664,
+    "id": 3620,
     "curriculum": "pre2009",
     "gradeYear": 2006,
     "examYear": 2005,
@@ -57913,7 +56945,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3665,
+    "id": 3621,
     "curriculum": "MEET",
     "gradeYear": 2006,
     "examYear": 2005,
@@ -57929,7 +56961,7 @@
     "answerDownload": "2006학년도 MEET 언어추론 정답.hwp"
   },
   {
-    "id": 3666,
+    "id": 3622,
     "curriculum": "사관",
     "gradeYear": 2006,
     "examYear": 2005,
@@ -57943,7 +56975,7 @@
     "answerUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2006_main_korean_a.pdf?name=2006%ED%95%99%EB%85%84%EB%8F%84%20%EC%82%AC%EA%B4%80%ED%95%99%EA%B5%90%201%EC%B0%A8%20%EA%B5%AD%EC%96%B4%20%EC%A0%95%EB%8B%B5.pdf"
   },
   {
-    "id": 3667,
+    "id": 3623,
     "curriculum": "경찰대",
     "gradeYear": 2006,
     "examYear": 2005,
@@ -57957,7 +56989,7 @@
     "answerUrl": "https://suneung-files.hdh061224.workers.dev/police-v1/2006_main_korean_a.hwp?name=2006%ED%95%99%EB%85%84%EB%8F%84%20%EA%B2%BD%EC%B0%B0%EB%8C%80%ED%95%99%201%EC%B0%A8%20%EA%B5%AD%EC%96%B4%20%EC%A0%95%EB%8B%B5.pdf"
   },
   {
-    "id": 3668,
+    "id": 3624,
     "curriculum": "경찰대",
     "gradeYear": 2006,
     "examYear": 2005,
@@ -57971,7 +57003,7 @@
     "answerUrl": "https://suneung-files.hdh061224.workers.dev/police-v1/2006_main_math_a.hwp?name=2006%ED%95%99%EB%85%84%EB%8F%84%20%EA%B2%BD%EC%B0%B0%EB%8C%80%ED%95%99%201%EC%B0%A8%20%EC%88%98%ED%95%99%20%EC%A0%95%EB%8B%B5.pdf"
   },
   {
-    "id": 3669,
+    "id": 3625,
     "curriculum": "사관",
     "gradeYear": 2006,
     "examYear": 2005,
@@ -57985,7 +57017,7 @@
     "answerUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2006_main_math_a.pdf?name=2006%ED%95%99%EB%85%84%EB%8F%84%20%EC%82%AC%EA%B4%80%ED%95%99%EA%B5%90%201%EC%B0%A8%20%EC%88%98%ED%95%99%28%EA%B0%80%ED%98%95%29%20%EC%A0%95%EB%8B%B5.pdf"
   },
   {
-    "id": 3670,
+    "id": 3626,
     "curriculum": "사관",
     "gradeYear": 2006,
     "examYear": 2005,
@@ -57999,7 +57031,7 @@
     "answerUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2006_main_math_a.pdf?name=2006%ED%95%99%EB%85%84%EB%8F%84%20%EC%82%AC%EA%B4%80%ED%95%99%EA%B5%90%201%EC%B0%A8%20%EC%88%98%ED%95%99%28%EB%82%98%ED%98%95%29%20%EC%A0%95%EB%8B%B5.pdf"
   },
   {
-    "id": 3671,
+    "id": 3627,
     "curriculum": "사관",
     "gradeYear": 2006,
     "examYear": 2005,
@@ -58013,7 +57045,7 @@
     "answerUrl": "https://suneung-files.hdh061224.workers.dev/military-v1/2006_main_english_a.pdf?name=2006%ED%95%99%EB%85%84%EB%8F%84%20%EC%82%AC%EA%B4%80%ED%95%99%EA%B5%90%201%EC%B0%A8%20%EC%98%81%EC%96%B4%20%EC%A0%95%EB%8B%B5.pdf"
   },
   {
-    "id": 3672,
+    "id": 3628,
     "curriculum": "경찰대",
     "gradeYear": 2006,
     "examYear": 2005,
@@ -58027,7 +57059,7 @@
     "answerUrl": "https://suneung-files.hdh061224.workers.dev/police-v1/2006_main_english_a.hwp?name=2006%ED%95%99%EB%85%84%EB%8F%84%20%EA%B2%BD%EC%B0%B0%EB%8C%80%ED%95%99%201%EC%B0%A8%20%EC%98%81%EC%96%B4%20%EC%A0%95%EB%8B%B5.pdf"
   },
   {
-    "id": 3673,
+    "id": 3629,
     "curriculum": "pre2009",
     "gradeYear": 2006,
     "examYear": 2005,
@@ -58049,7 +57081,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3674,
+    "id": 3630,
     "curriculum": "pre2009",
     "gradeYear": 2006,
     "examYear": 2005,
@@ -58071,7 +57103,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3675,
+    "id": 3631,
     "curriculum": "pre2009",
     "gradeYear": 2006,
     "examYear": 2005,
@@ -58093,7 +57125,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3676,
+    "id": 3632,
     "curriculum": "pre2009",
     "gradeYear": 2006,
     "examYear": 2005,
@@ -58115,7 +57147,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3677,
+    "id": 3633,
     "curriculum": "pre2009",
     "gradeYear": 2006,
     "examYear": 2005,
@@ -58137,7 +57169,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3678,
+    "id": 3634,
     "curriculum": "pre2009",
     "gradeYear": 2006,
     "examYear": 2005,
@@ -58159,7 +57191,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3679,
+    "id": 3635,
     "curriculum": "pre2009",
     "gradeYear": 2006,
     "examYear": 2005,
@@ -58181,7 +57213,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3680,
+    "id": 3636,
     "curriculum": "pre2009",
     "gradeYear": 2006,
     "examYear": 2005,
@@ -58203,7 +57235,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3681,
+    "id": 3637,
     "curriculum": "pre2009",
     "gradeYear": 2006,
     "examYear": 2005,
@@ -58225,7 +57257,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3682,
+    "id": 3638,
     "curriculum": "pre2009",
     "gradeYear": 2006,
     "examYear": 2005,
@@ -58247,7 +57279,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3683,
+    "id": 3639,
     "curriculum": "pre2009",
     "gradeYear": 2006,
     "examYear": 2005,
@@ -58269,7 +57301,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3684,
+    "id": 3640,
     "curriculum": "pre2009",
     "gradeYear": 2005,
     "examYear": 2004,
@@ -58291,7 +57323,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3685,
+    "id": 3641,
     "curriculum": "pre2009",
     "gradeYear": 2005,
     "examYear": 2004,
@@ -58313,7 +57345,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3686,
+    "id": 3642,
     "curriculum": "pre2009",
     "gradeYear": 2005,
     "examYear": 2004,
@@ -58335,7 +57367,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3687,
+    "id": 3643,
     "curriculum": "pre2009",
     "gradeYear": 2005,
     "examYear": 2004,
@@ -58357,7 +57389,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3688,
+    "id": 3644,
     "curriculum": "pre2009",
     "gradeYear": 2005,
     "examYear": 2004,
@@ -58379,7 +57411,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3689,
+    "id": 3645,
     "curriculum": "pre2009",
     "gradeYear": 2005,
     "examYear": 2004,
@@ -58401,7 +57433,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3690,
+    "id": 3646,
     "curriculum": "pre2009",
     "gradeYear": 2005,
     "examYear": 2004,
@@ -58423,7 +57455,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3691,
+    "id": 3647,
     "curriculum": "pre2009",
     "gradeYear": 2005,
     "examYear": 2004,
@@ -58445,7 +57477,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3692,
+    "id": 3648,
     "curriculum": "pre2009",
     "gradeYear": 2005,
     "examYear": 2004,
@@ -58467,7 +57499,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3693,
+    "id": 3649,
     "curriculum": "pre2009",
     "gradeYear": 2005,
     "examYear": 2004,
@@ -58489,7 +57521,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3694,
+    "id": 3650,
     "curriculum": "MEET",
     "gradeYear": 2005,
     "examYear": 2004,
@@ -58505,7 +57537,7 @@
     "answerDownload": "2005학년도 MEET 언어추론 정답.hwp"
   },
   {
-    "id": 3695,
+    "id": 3651,
     "curriculum": "pre2009",
     "gradeYear": 2005,
     "examYear": 2004,
@@ -58527,7 +57559,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3696,
+    "id": 3652,
     "curriculum": "pre2009",
     "gradeYear": 2005,
     "examYear": 2004,
@@ -58549,7 +57581,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3697,
+    "id": 3653,
     "curriculum": "MEET",
     "gradeYear": 2005,
     "examYear": 2004,
@@ -58565,7 +57597,7 @@
     "answerDownload": "예비시험 MEET 언어추론 정답.hwp"
   },
   {
-    "id": 3698,
+    "id": 3654,
     "curriculum": "pre2009",
     "gradeYear": 2005,
     "examYear": 2004,
@@ -58587,7 +57619,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3699,
+    "id": 3655,
     "curriculum": "pre2009",
     "gradeYear": 2005,
     "examYear": 2004,
@@ -58609,7 +57641,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3700,
+    "id": 3656,
     "curriculum": "pre2009",
     "gradeYear": 2005,
     "examYear": 2004,
@@ -58631,7 +57663,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3701,
+    "id": 3657,
     "curriculum": "pre2009",
     "gradeYear": 2005,
     "examYear": 2004,
@@ -58653,7 +57685,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3702,
+    "id": 3658,
     "curriculum": "pre2009",
     "gradeYear": 2005,
     "examYear": 2004,
@@ -58675,7 +57707,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3703,
+    "id": 3659,
     "curriculum": "pre2009",
     "gradeYear": 2005,
     "examYear": 2004,
@@ -58697,7 +57729,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3704,
+    "id": 3660,
     "curriculum": "pre2009",
     "gradeYear": 2005,
     "examYear": 2004,
@@ -58719,7 +57751,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3705,
+    "id": 3661,
     "curriculum": "pre2009",
     "gradeYear": 2005,
     "examYear": 2004,
@@ -58741,7 +57773,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3706,
+    "id": 3662,
     "curriculum": "pre2009",
     "gradeYear": 2005,
     "examYear": 2004,
@@ -58763,7 +57795,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3707,
+    "id": 3663,
     "curriculum": "pre2009",
     "gradeYear": 2005,
     "examYear": 2004,
@@ -58785,7 +57817,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3708,
+    "id": 3664,
     "curriculum": "pre2009",
     "gradeYear": 2005,
     "examYear": 2004,
@@ -58807,7 +57839,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3709,
+    "id": 3665,
     "curriculum": "pre2009",
     "gradeYear": 2005,
     "examYear": 2004,
@@ -58829,7 +57861,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3710,
+    "id": 3666,
     "curriculum": "pre2009",
     "gradeYear": 2005,
     "examYear": 2004,
@@ -58851,7 +57883,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3711,
+    "id": 3667,
     "curriculum": "pre2009",
     "gradeYear": 2005,
     "examYear": 2004,
@@ -58873,7 +57905,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3712,
+    "id": 3668,
     "curriculum": "pre2009",
     "gradeYear": 2005,
     "examYear": 2004,
@@ -58895,7 +57927,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3713,
+    "id": 3669,
     "curriculum": "pre2009",
     "gradeYear": 2004,
     "examYear": 2003,
@@ -58917,7 +57949,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3714,
+    "id": 3670,
     "curriculum": "pre2009",
     "gradeYear": 2004,
     "examYear": 2003,
@@ -58939,7 +57971,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3715,
+    "id": 3671,
     "curriculum": "pre2009",
     "gradeYear": 2004,
     "examYear": 2003,
@@ -58961,7 +57993,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3716,
+    "id": 3672,
     "curriculum": "pre2009",
     "gradeYear": 2004,
     "examYear": 2003,
@@ -58983,7 +58015,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3717,
+    "id": 3673,
     "curriculum": "pre2009",
     "gradeYear": 2004,
     "examYear": 2003,
@@ -59005,7 +58037,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3718,
+    "id": 3674,
     "curriculum": "pre2009",
     "gradeYear": 2004,
     "examYear": 2003,
@@ -59027,7 +58059,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3719,
+    "id": 3675,
     "curriculum": "pre2009",
     "gradeYear": 2004,
     "examYear": 2003,
@@ -59049,7 +58081,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3720,
+    "id": 3676,
     "curriculum": "pre2009",
     "gradeYear": 2004,
     "examYear": 2003,
@@ -59071,7 +58103,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3721,
+    "id": 3677,
     "curriculum": "pre2009",
     "gradeYear": 2004,
     "examYear": 2003,
@@ -59093,7 +58125,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3722,
+    "id": 3678,
     "curriculum": "pre2009",
     "gradeYear": 2004,
     "examYear": 2003,
@@ -59115,7 +58147,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3723,
+    "id": 3679,
     "curriculum": "pre2009",
     "gradeYear": 2004,
     "examYear": 2003,
@@ -59137,7 +58169,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3724,
+    "id": 3680,
     "curriculum": "pre2009",
     "gradeYear": 2004,
     "examYear": 2003,
@@ -59159,7 +58191,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3725,
+    "id": 3681,
     "curriculum": "pre2009",
     "gradeYear": 2003,
     "examYear": 2002,
@@ -59181,7 +58213,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3726,
+    "id": 3682,
     "curriculum": "pre2009",
     "gradeYear": 2003,
     "examYear": 2002,
@@ -59203,7 +58235,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3727,
+    "id": 3683,
     "curriculum": "pre2009",
     "gradeYear": 2003,
     "examYear": 2002,
@@ -59225,7 +58257,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3728,
+    "id": 3684,
     "curriculum": "pre2009",
     "gradeYear": 2003,
     "examYear": 2002,
@@ -59247,7 +58279,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3729,
+    "id": 3685,
     "curriculum": "pre2009",
     "gradeYear": 2002,
     "examYear": 2001,
@@ -59269,7 +58301,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3730,
+    "id": 3686,
     "curriculum": "pre2009",
     "gradeYear": 2002,
     "examYear": 2001,
@@ -59291,7 +58323,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3731,
+    "id": 3687,
     "curriculum": "pre2009",
     "gradeYear": 2002,
     "examYear": 2001,
@@ -59313,7 +58345,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3732,
+    "id": 3688,
     "curriculum": "pre2009",
     "gradeYear": 2001,
     "examYear": 2000,
@@ -59335,7 +58367,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3733,
+    "id": 3689,
     "curriculum": "pre2009",
     "gradeYear": 2001,
     "examYear": 2000,
@@ -59357,7 +58389,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3734,
+    "id": 3690,
     "curriculum": "pre2009",
     "gradeYear": 2001,
     "examYear": 2000,
@@ -59379,7 +58411,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3735,
+    "id": 3691,
     "curriculum": "pre2009",
     "gradeYear": 2000,
     "examYear": 1999,
@@ -59401,7 +58433,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3736,
+    "id": 3692,
     "curriculum": "pre2009",
     "gradeYear": 2000,
     "examYear": 1999,
@@ -59423,7 +58455,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3737,
+    "id": 3693,
     "curriculum": "pre2009",
     "gradeYear": 2000,
     "examYear": 1999,
@@ -59445,7 +58477,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3738,
+    "id": 3694,
     "curriculum": "pre2009",
     "gradeYear": 2000,
     "examYear": 1999,
@@ -59467,7 +58499,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3739,
+    "id": 3695,
     "curriculum": "pre2009",
     "gradeYear": 2000,
     "examYear": 1999,
@@ -59489,7 +58521,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3740,
+    "id": 3696,
     "curriculum": "pre2009",
     "gradeYear": 1999,
     "examYear": 1998,
@@ -59511,7 +58543,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3741,
+    "id": 3697,
     "curriculum": "pre2009",
     "gradeYear": 1999,
     "examYear": 1998,
@@ -59533,7 +58565,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3742,
+    "id": 3698,
     "curriculum": "pre2009",
     "gradeYear": 1999,
     "examYear": 1998,
@@ -59555,7 +58587,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3743,
+    "id": 3699,
     "curriculum": "pre2009",
     "gradeYear": 1999,
     "examYear": 1998,
@@ -59577,7 +58609,7 @@
     "source": "kice-archive"
   },
   {
-    "id": 3744,
+    "id": 3700,
     "curriculum": "pre2009",
     "gradeYear": 1998,
     "examYear": 1997,
@@ -59597,7 +58629,7 @@
     "source": "kice-archive-1994-1998"
   },
   {
-    "id": 3745,
+    "id": 3701,
     "curriculum": "pre2009",
     "gradeYear": 1998,
     "examYear": 1997,
@@ -59617,7 +58649,7 @@
     "source": "kice-archive-1994-1998"
   },
   {
-    "id": 3746,
+    "id": 3702,
     "curriculum": "pre2009",
     "gradeYear": 1998,
     "examYear": 1997,
@@ -59637,7 +58669,7 @@
     "source": "kice-archive-1994-1998"
   },
   {
-    "id": 3747,
+    "id": 3703,
     "curriculum": "pre2009",
     "gradeYear": 1998,
     "examYear": 1997,
@@ -59657,7 +58689,7 @@
     "source": "kice-archive-1994-1998"
   },
   {
-    "id": 3748,
+    "id": 3704,
     "curriculum": "pre2009",
     "gradeYear": 1998,
     "examYear": 1997,
@@ -59677,7 +58709,7 @@
     "source": "kice-archive-1994-1998"
   },
   {
-    "id": 3749,
+    "id": 3705,
     "curriculum": "pre2009",
     "gradeYear": 1998,
     "examYear": 1997,
@@ -59697,7 +58729,7 @@
     "source": "kice-archive-1994-1998"
   },
   {
-    "id": 3750,
+    "id": 3706,
     "curriculum": "pre2009",
     "gradeYear": 1998,
     "examYear": 1997,
@@ -59717,7 +58749,7 @@
     "source": "kice-archive-1994-1998"
   },
   {
-    "id": 3751,
+    "id": 3707,
     "curriculum": "pre2009",
     "gradeYear": 1997,
     "examYear": 1996,
@@ -59737,7 +58769,7 @@
     "source": "kice-archive-1994-1998"
   },
   {
-    "id": 3752,
+    "id": 3708,
     "curriculum": "pre2009",
     "gradeYear": 1997,
     "examYear": 1996,
@@ -59757,7 +58789,7 @@
     "source": "kice-archive-1994-1998"
   },
   {
-    "id": 3753,
+    "id": 3709,
     "curriculum": "pre2009",
     "gradeYear": 1997,
     "examYear": 1996,
@@ -59777,7 +58809,7 @@
     "source": "kice-archive-1994-1998"
   },
   {
-    "id": 3754,
+    "id": 3710,
     "curriculum": "pre2009",
     "gradeYear": 1997,
     "examYear": 1996,
@@ -59797,7 +58829,7 @@
     "source": "kice-archive-1994-1998"
   },
   {
-    "id": 3755,
+    "id": 3711,
     "curriculum": "pre2009",
     "gradeYear": 1997,
     "examYear": 1996,
@@ -59817,7 +58849,7 @@
     "source": "kice-archive-1994-1998"
   },
   {
-    "id": 3756,
+    "id": 3712,
     "curriculum": "pre2009",
     "gradeYear": 1997,
     "examYear": 1996,
@@ -59837,7 +58869,7 @@
     "source": "kice-archive-1994-1998"
   },
   {
-    "id": 3757,
+    "id": 3713,
     "curriculum": "pre2009",
     "gradeYear": 1997,
     "examYear": 1996,
@@ -59857,7 +58889,7 @@
     "source": "kice-archive-1994-1998"
   },
   {
-    "id": 3758,
+    "id": 3714,
     "curriculum": "pre2009",
     "gradeYear": 1996,
     "examYear": 1995,
@@ -59877,7 +58909,7 @@
     "source": "kice-archive-1994-1998"
   },
   {
-    "id": 3759,
+    "id": 3715,
     "curriculum": "pre2009",
     "gradeYear": 1996,
     "examYear": 1995,
@@ -59897,7 +58929,7 @@
     "source": "kice-archive-1994-1998"
   },
   {
-    "id": 3760,
+    "id": 3716,
     "curriculum": "pre2009",
     "gradeYear": 1996,
     "examYear": 1995,
@@ -59917,7 +58949,7 @@
     "source": "kice-archive-1994-1998"
   },
   {
-    "id": 3761,
+    "id": 3717,
     "curriculum": "pre2009",
     "gradeYear": 1996,
     "examYear": 1995,
@@ -59937,7 +58969,7 @@
     "source": "kice-archive-1994-1998"
   },
   {
-    "id": 3762,
+    "id": 3718,
     "curriculum": "pre2009",
     "gradeYear": 1996,
     "examYear": 1995,
@@ -59957,7 +58989,7 @@
     "source": "kice-archive-1994-1998"
   },
   {
-    "id": 3763,
+    "id": 3719,
     "curriculum": "pre2009",
     "gradeYear": 1996,
     "examYear": 1995,
@@ -59977,7 +59009,7 @@
     "source": "kice-archive-1994-1998"
   },
   {
-    "id": 3764,
+    "id": 3720,
     "curriculum": "pre2009",
     "gradeYear": 1996,
     "examYear": 1995,
@@ -59997,7 +59029,7 @@
     "source": "kice-archive-1994-1998"
   },
   {
-    "id": 3765,
+    "id": 3721,
     "curriculum": "pre2009",
     "gradeYear": 1995,
     "examYear": 1994,
@@ -60017,7 +59049,7 @@
     "source": "kice-archive-1994-1998"
   },
   {
-    "id": 3766,
+    "id": 3722,
     "curriculum": "pre2009",
     "gradeYear": 1995,
     "examYear": 1994,
@@ -60037,7 +59069,7 @@
     "source": "kice-archive-1994-1998"
   },
   {
-    "id": 3767,
+    "id": 3723,
     "curriculum": "pre2009",
     "gradeYear": 1995,
     "examYear": 1994,
@@ -60057,7 +59089,7 @@
     "source": "kice-archive-1994-1998"
   },
   {
-    "id": 3768,
+    "id": 3724,
     "curriculum": "pre2009",
     "gradeYear": 1995,
     "examYear": 1994,
@@ -60077,7 +59109,7 @@
     "source": "kice-archive-1994-1998"
   },
   {
-    "id": 3769,
+    "id": 3725,
     "curriculum": "pre2009",
     "gradeYear": 1995,
     "examYear": 1994,
@@ -60097,7 +59129,7 @@
     "source": "kice-archive-1994-1998"
   },
   {
-    "id": 3770,
+    "id": 3726,
     "curriculum": "pre2009",
     "gradeYear": 1995,
     "examYear": 1994,
@@ -60117,7 +59149,7 @@
     "source": "kice-archive-1994-1998"
   },
   {
-    "id": 3771,
+    "id": 3727,
     "curriculum": "pre2009",
     "gradeYear": 1995,
     "examYear": 1994,
@@ -60137,7 +59169,7 @@
     "source": "kice-archive-1994-1998"
   },
   {
-    "id": 3772,
+    "id": 3728,
     "curriculum": "pre2009",
     "gradeYear": 1994,
     "examYear": 1993,
@@ -60157,7 +59189,7 @@
     "source": "kice-archive-1994-1998"
   },
   {
-    "id": 3773,
+    "id": 3729,
     "curriculum": "pre2009",
     "gradeYear": 1994,
     "examYear": 1993,
@@ -60177,7 +59209,7 @@
     "source": "kice-archive-1994-1998"
   },
   {
-    "id": 3774,
+    "id": 3730,
     "curriculum": "pre2009",
     "gradeYear": 1994,
     "examYear": 1993,
@@ -60197,7 +59229,7 @@
     "source": "kice-archive-1994-1998"
   },
   {
-    "id": 3775,
+    "id": 3731,
     "curriculum": "pre2009",
     "gradeYear": 1994,
     "examYear": 1993,
@@ -60217,7 +59249,7 @@
     "source": "kice-archive-1994-1998"
   },
   {
-    "id": 3776,
+    "id": 3732,
     "curriculum": "pre2009",
     "gradeYear": 1994,
     "examYear": 1993,
@@ -60237,7 +59269,7 @@
     "source": "kice-archive-1994-1998"
   },
   {
-    "id": 3777,
+    "id": 3733,
     "curriculum": "pre2009",
     "gradeYear": 1994,
     "examYear": 1993,
@@ -60257,7 +59289,7 @@
     "source": "kice-archive-1994-1998"
   },
   {
-    "id": 3778,
+    "id": 3734,
     "curriculum": "pre2009",
     "gradeYear": 1994,
     "examYear": 1993,
@@ -60277,7 +59309,7 @@
     "source": "kice-archive-1994-1998"
   },
   {
-    "id": 3779,
+    "id": 3735,
     "curriculum": "pre2009",
     "gradeYear": 1994,
     "examYear": 1993,
