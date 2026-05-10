@@ -1198,6 +1198,12 @@ def main():
     with OUT_JSON.open('w', encoding='utf-8') as f:
         json.dump(items, f, ensure_ascii=False, indent=2)
 
+    # exams-v2.json — app.js 가 fetch 하는 파일, exams.json 과 동일하게 유지
+    v2_path = OUT_JSON.parent / 'exams-v2.json'
+    with v2_path.open('w', encoding='utf-8') as f:
+        json.dump(items, f, ensure_ascii=False, indent=2)
+    print(f'  + data/exams-v2.json (=exams.json) {len(items)}건')
+
     # ─ id별 단건 split (exam.html 단건 진입의 lazy fetch 용) ─
     # archive 는 통합 파일 그대로 사용 (필터링 즉시성 유지),
     # exam.html 은 우선 data/exam/{id}.json 시도 → 실패 시 통합 fallback.
