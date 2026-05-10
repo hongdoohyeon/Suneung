@@ -37,7 +37,8 @@ const tabIsSingleType = () => {
 };
 
 // 정적 JSON 데이터 파일 — 백엔드 없이 data/exams.json 만 갱신하면 사이트가 갱신됨
-const DATA_URL = 'data/exams-v2.json';
+// 빌드 시 ID 재할당되므로 캐시 버스터 강제 (옛 v2 캐시 ↔ 새 SSG 불일치 방지)
+const DATA_URL = 'data/exams-v2.json?v=20260511a';
 
 const $ = id => document.getElementById(id);
 
@@ -92,7 +93,7 @@ async function loadExams() {
   showSkeleton(true);
   let real = [];
   try {
-    const res = await fetch(DATA_URL);
+    const res = await fetch(DATA_URL, { cache: 'no-store' });   // 브라우저 캐시 무시
     if (res.ok) real = await res.json();
   } catch { /* 파일 없음 → 목업 사용 */ }
 
