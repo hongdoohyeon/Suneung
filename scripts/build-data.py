@@ -723,6 +723,12 @@ def build_exam_meta(it: dict) -> dict:
         head  = f'{gy}학년도 MEET {sub}'
         seo_kw = f'{gy2}학년도 미트 {sub} 기출'
         full_phrase = f'{gy}학년도 MEET(의·치학교육입문검사) {sub}'
+    elif tg == 'reference':
+        # 통계 PDF — 학년도 의미 없음, 자료명 중심
+        ey   = it.get('examYear') or ''
+        head = f'KICE 공식 — {sub}{sub_part}'
+        seo_kw = f'수능 통계 {sub} 평가원 공식 자료'
+        full_phrase = f'한국교육과정평가원(KICE) 공식 수능 통계 — {sub}{sub_part} ({ey}년 공개)' if ey else f'KICE 공식 수능 통계 — {sub}{sub_part}'
     else:
         head = f'{gy} {sub}{sub_part}'
         seo_kw = f'{gy2} {sub}'
@@ -731,14 +737,23 @@ def build_exam_meta(it: dict) -> dict:
     is_english = (sub == '영어')
     has_listen = bool(it.get('listenUrl') or it.get('scriptUrl'))
 
-    # title — 영어는 자료 타입(듣기·대본·정답·해설지)을 직접 노출
-    if is_english and has_listen:
+    is_reference = (tg == 'reference')
+
+    # title — 영어는 자료 타입(듣기·대본·정답·해설지)을 직접 노출, reference는 통계 안내
+    if is_reference:
+        title = f'{head} 통계 PDF — 기출해체분석기'
+    elif is_english and has_listen:
         title = f'{head} 듣기·대본·정답·해설지 — 기출해체분석기'
     else:
         title = f'{head} 기출 — 기출해체분석기'
 
     # description — 영어는 듣기 mp3·대본 PDF 키워드를 명시
-    if is_english and has_listen:
+    if is_reference:
+        desc = (
+            f'{full_phrase}. 평가원이 공개한 수능 통계 PDF를 다운로드하세요. '
+            f'{seo_kw}, 응시·접수·채점 현황 데이터.'
+        )
+    elif is_english and has_listen:
         desc = (
             f'{full_phrase} 문제지, 정답, 해설지, 영어 듣기 MP3, 듣기 대본 PDF를 '
             f'한 페이지에서 확인하세요. {seo_kw}, 영어 듣기파일·스크립트도 함께 제공.'
@@ -754,7 +769,13 @@ def build_exam_meta(it: dict) -> dict:
     # SEO 본문 — H1 아래 첫 문단으로 들어갈 자연어 텍스트 (검색엔진이 본문에서 키워드 잡음)
     aliases = _exam_aliases(it)
     alias_phrase = ', '.join(aliases[:6]) if aliases else ''
-    if is_english and has_listen:
+    if is_reference:
+        intro = (
+            f'{full_phrase}. 한국교육과정평가원이 공개한 공식 통계 자료로, '
+            f'역대 수능의 응시 인원·접수 현황·과목별 채점 결과(평균·등급·계열별 분포)를 담고 있습니다. '
+            f'PDF 파일을 무료로 다운로드해 확인하세요.'
+        )
+    elif is_english and has_listen:
         intro = (
             f'{full_phrase} 기출 자료입니다. '
             f'문제지, 정답, 해설지뿐 아니라 영어 듣기 MP3와 듣기 대본 PDF, 스크립트 자료를 함께 제공합니다. '
