@@ -1229,8 +1229,12 @@ def main():
                 # match.subSubject 가 명시되면 정확 일치, None 이면 모든 sub 변형에 attach (합본 PDF)
                 if m.get('subSubject') is not None and it.get('subSubject') != m['subSubject']:
                     continue
-                it['questionUrlEven']      = ov['questionUrlEven']
-                it['questionDownloadEven'] = ov['questionDownloadEven']
+                if 'questionUrlEven' in ov:
+                    it['questionUrlEven']      = ov['questionUrlEven']
+                    it['questionDownloadEven'] = ov['questionDownloadEven']
+                if 'answerUrlEven' in ov:
+                    it['answerUrlEven']      = ov['answerUrlEven']
+                    it['answerDownloadEven'] = ov['answerDownloadEven']
                 attached += 1
         print(f'  + 짝수형 overrides {len(even_overrides)} → {attached}건 attach')
 

@@ -118,7 +118,7 @@ function renderHead(exam) {
   const solutionUrl     = safeUrl(exam.solutionUrl);
   const listenUrl       = safeUrl(exam.listenUrl);
   const scriptUrl       = safeUrl(exam.scriptUrl);
-  // 짝수형이 있으면 기본은 '홀수형 문제지' 라벨로 명확화
+  // 짝수형 분리 자료가 있으면 기본 라벨에 '홀수형' 명시 (구분 명확화)
   const qLabel = questionUrlEven ? '문제지(홀수형)' : '문제지';
   const aLabel = answerUrlEven   ? '정답(홀수형)'   : '정답';
   if (questionUrl) buttons.push(
