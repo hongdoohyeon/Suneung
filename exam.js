@@ -111,16 +111,27 @@ function renderHead(exam) {
   // 다운로드 액션
   const dl = name => name ? `download="${escHtml(name)}"` : 'download';
   const buttons = [];
-  const questionUrl = safeUrl(exam.questionUrl);
-  const answerUrl = safeUrl(exam.answerUrl);
-  const solutionUrl = safeUrl(exam.solutionUrl);
-  const listenUrl = safeUrl(exam.listenUrl);
-  const scriptUrl = safeUrl(exam.scriptUrl);
+  const questionUrl     = safeUrl(exam.questionUrl);
+  const questionUrlEven = safeUrl(exam.questionUrlEven);
+  const answerUrl       = safeUrl(exam.answerUrl);
+  const answerUrlEven   = safeUrl(exam.answerUrlEven);
+  const solutionUrl     = safeUrl(exam.solutionUrl);
+  const listenUrl       = safeUrl(exam.listenUrl);
+  const scriptUrl       = safeUrl(exam.scriptUrl);
+  // 짝수형이 있으면 기본은 '홀수형 문제지' 라벨로 명확화
+  const qLabel = questionUrlEven ? '문제지(홀수형)' : '문제지';
+  const aLabel = answerUrlEven   ? '정답(홀수형)'   : '정답';
   if (questionUrl) buttons.push(
-    `<a class="btn btn--primary" href="${escHtml(questionUrl)}" target="_blank" rel="noopener" ${dl(exam.questionDownload)}>문제지 다운로드</a>`
+    `<a class="btn btn--primary" href="${escHtml(questionUrl)}" target="_blank" rel="noopener" ${dl(exam.questionDownload)}>${qLabel} 다운로드</a>`
+  );
+  if (questionUrlEven) buttons.push(
+    `<a class="btn" href="${escHtml(questionUrlEven)}" target="_blank" rel="noopener" ${dl(exam.questionDownloadEven)}>문제지(짝수형) 다운로드</a>`
   );
   if (answerUrl) buttons.push(
-    `<a class="btn" href="${escHtml(answerUrl)}" target="_blank" rel="noopener" ${dl(exam.answerDownload)}>정답 다운로드</a>`
+    `<a class="btn" href="${escHtml(answerUrl)}" target="_blank" rel="noopener" ${dl(exam.answerDownload)}>${aLabel} 다운로드</a>`
+  );
+  if (answerUrlEven) buttons.push(
+    `<a class="btn" href="${escHtml(answerUrlEven)}" target="_blank" rel="noopener" ${dl(exam.answerDownloadEven)}>정답(짝수형) 다운로드</a>`
   );
   if (solutionUrl) buttons.push(
     `<a class="btn" href="${escHtml(solutionUrl)}" target="_blank" rel="noopener" ${dl(exam.solutionDownload)}>해설 다운로드</a>`

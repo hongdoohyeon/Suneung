@@ -1,0 +1,92 @@
+[
+  {
+    "match": {
+      "gradeYear": 2016,
+      "type": "csat",
+      "subject": "국어",
+      "subSubject": "A형"
+    },
+    "questionUrlEven": "https://suneung-files.hdh061224.workers.dev/kice-archive-v3/2016_csat_k22656608_ke697f2c4_q_even.pdf",
+    "questionDownloadEven": "2016학년도_csat_국어_A형_문제지(짝수형).pdf"
+  },
+  {
+    "match": {
+      "gradeYear": 2016,
+      "type": "csat",
+      "subject": "국어",
+      "subSubject": "B형"
+    },
+    "questionUrlEven": "https://suneung-files.hdh061224.workers.dev/kice-archive-v3/2016_csat_k22656608_k5da9a5b6_q_even.pdf",
+    "questionDownloadEven": "2016학년도_csat_국어_B형_문제지(짝수형).pdf"
+  },
+  {
+    "match": {
+      "gradeYear": 2016,
+      "type": "csat",
+      "subject": "수학",
+      "subSubject": "B형"
+    },
+    "questionUrlEven": "https://suneung-files.hdh061224.workers.dev/kice-archive-v3/2016_csat_kfa5ebfcf_k5da9a5b6_q_even.pdf",
+    "questionDownloadEven": "2016학년도_csat_수학_B형_문제지(짝수형).pdf"
+  },
+  {
+    "match": {
+      "gradeYear": 2016,
+      "type": "csat",
+      "subject": "수학",
+      "subSubject": "A형"
+    },
+    "questionUrlEven": "https://suneung-files.hdh061224.workers.dev/kice-archive-v3/2016_csat_kfa5ebfcf_ke697f2c4_q_even.pdf",
+    "questionDownloadEven": "2016학년도_csat_수학_A형_문제지(짝수형).pdf"
+  },
+  {
+    "match": {
+      "gradeYear": 2016,
+      "type": "csat",
+      "subject": "영어",
+      "subSubject": null
+    },
+    "questionUrlEven": "https://suneung-files.hdh061224.workers.dev/kice-archive-v3/2016_csat_kbf6e5992_q_even.pdf",
+    "questionDownloadEven": "2016학년도_csat_영어_문제지(짝수형).pdf"
+  },
+  {
+    "match": {
+      "gradeYear": 2025,
+      "type": "csat",
+      "subject": "국어",
+      "subSubject": null
+    },
+    "questionUrlEven": "https://suneung-files.hdh061224.workers.dev/kice-archive-v3/2025_csat_k22656608_q_even.pdf",
+    "questionDownloadEven": "2025학년도_csat_국어_문제지(짝수형).pdf"
+  },
+  {
+    "match": {
+      "gradeYear": 2025,
+      "type": "csat",
+      "subject": "수학",
+      "subSubject": null
+    },
+    "questionUrlEven": "https://suneung-files.hdh061224.workers.dev/kice-archive-v3/2025_csat_kfa5ebfcf_q_even.pdf",
+    "questionDownloadEven": "2025학년도_csat_수학_문제지(짝수형).pdf"
+  },
+  {
+    "match": {
+      "gradeYear": 2025,
+      "type": "csat",
+      "subject": "영어",
+      "subSubject": null
+    },
+    "questionUrlEven": "https://suneung-files.hdh061224.workers.dev/kice-archive-v3/2025_csat_kbf6e5992_q_even.pdf",
+    "questionDownloadEven": "2025학년도_csat_영어_문제지(짝수형).pdf"
+  },
+  {
+    "match": {
+      "gradeYear": 2025,
+      "type": "csat",
+      "subject": "한국사",
+      "subSubject": null
+    },
+    "questionUrlEven": "https://suneung-files.hdh061224.workers.dev/kice-archive-v3/2025_csat_k3294535b_q_even.pdf",
+    "questionDownloadEven": "2025학년도_csat_한국사_문제지(짝수형).pdf"
+  }
+]
