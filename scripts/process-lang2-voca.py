@@ -137,12 +137,12 @@ for gy_dir in sorted(SRC.iterdir()):
             for subj_dir in board_dir.iterdir():
                 subj_name = subj_dir.name
                 subject = '제2외국어' if subj_name.startswith('제2외국어') else '직업탐구'
-                # 디렉토리 구조: subj_dir / {q,a,sol,listen,misc} / *.pdf
+                # 디렉토리 구조: subj_dir / {q,a,sol,listen,misc} / [nested_dir/]*.pdf
                 bucket = {}
                 for kind_dir in subj_dir.iterdir():
                     if not kind_dir.is_dir(): continue
                     dir_kind = kind_dir.name   # 'q', 'a', 'sol', etc.
-                    for f in sorted(kind_dir.iterdir()):
+                    for f in sorted(kind_dir.rglob('*.pdf')):
                         if f.suffix.lower() != '.pdf': continue
                         parsed = parse_pdf_name(f.name)
                         # parse_pdf_name 도 kind 추출하지만 파일명에 키워드 없으면 None — 그땐 dir_kind 사용
