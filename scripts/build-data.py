@@ -1226,9 +1226,8 @@ def main():
                 if it.get('gradeYear') != m['gradeYear']: continue
                 if it.get('type')      != m['type']:      continue
                 if it.get('subject')   != m['subject']:   continue
+                # match.subSubject 가 명시되면 정확 일치, None 이면 모든 sub 변형에 attach (합본 PDF)
                 if m.get('subSubject') is not None and it.get('subSubject') != m['subSubject']:
-                    continue
-                if m.get('subSubject') is None and it.get('subSubject'):
                     continue
                 it['questionUrlEven']      = ov['questionUrlEven']
                 it['questionDownloadEven'] = ov['questionDownloadEven']
