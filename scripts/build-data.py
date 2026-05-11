@@ -1215,6 +1215,26 @@ def main():
         items = [{**it, 'id': idx} for idx, it in enumerate(items, 1)]
         print(f'  + KICE 아카이브 merge: +{len(kice_items)} → 총 {len(items)}')
 
+    # ─ 짝수형 PDF overrides 적용 — 매칭되는 item 에 questionUrlEven 부착 ─
+    even_path = ROOT / 'data' / 'even-form-overrides.json'
+    if even_path.exists():
+        even_overrides = json.loads(even_path.read_text(encoding='utf-8'))
+        attached = 0
+        for ov in even_overrides:
+            m = ov['match']
+            for it in items:
+                if it.get('gradeYear') != m['gradeYear']: continue
+                if it.get('type')      != m['type']:      continue
+                if it.get('subject')   != m['subject']:   continue
+                if m.get('subSubject') is not None and it.get('subSubject') != m['subSubject']:
+                    continue
+                if m.get('subSubject') is None and it.get('subSubject'):
+                    continue
+                it['questionUrlEven']      = ov['questionUrlEven']
+                it['questionDownloadEven'] = ov['questionDownloadEven']
+                attached += 1
+        print(f'  + 짝수형 overrides {len(even_overrides)} → {attached}건 attach')
+
     OUT_JSON.parent.mkdir(parents=True, exist_ok=True)
     with OUT_JSON.open('w', encoding='utf-8') as f:
         json.dump(items, f, ensure_ascii=False, indent=2)
