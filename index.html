@@ -7,7 +7,7 @@
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net; style-src 'self' https://cdn.jsdelivr.net 'unsafe-inline'; font-src https://cdn.jsdelivr.net data:; img-src 'self' data: https:; connect-src 'self' https://suneung-files.hdh061224.workers.dev https://cdn.jsdelivr.net; media-src 'self' https://suneung-files.hdh061224.workers.dev; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'self'" />
   <meta name="referrer" content="strict-origin-when-cross-origin" />
   <meta name="naver-site-verification" content="b3138c38039611bed2ce955aa7102ab33011cf14" />
-  <meta name="description" content="수능·평가원·교육청·사관·경찰대·LEET·MEET 기출 PDF와 등급컷을 한 곳에서." />
+  <meta name="description" content="문제지·정답·해설지·등급컷·영어 듣기 MP3·듣기 대본까지 수능·평가원·교육청·사관·경찰대·LEET·MEET 기출을 한 곳에서." />
 
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <link rel="apple-touch-icon" href="favicon.svg" />
@@ -16,7 +16,7 @@
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="기출해체분석기" />
   <meta property="og:title" content="기출해체분석기" />
-  <meta property="og:description" content="수능·평가원·교육청·사관·경찰대·LEET·MEET 기출 PDF와 등급컷을 한 곳에서." />
+  <meta property="og:description" content="문제지·정답·해설지·등급컷·영어 듣기 MP3·듣기 대본까지 수능·평가원·교육청·사관·경찰대·LEET·MEET 기출을 한 곳에서." />
   <meta property="og:url" content="https://kicegg.com/" />
   <meta property="og:image" content="https://kicegg.com/og-image.svg" />
   <meta property="og:image:width" content="1200" />
@@ -24,7 +24,7 @@
   <meta property="og:locale" content="ko_KR" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="기출해체분석기" />
-  <meta name="twitter:description" content="수능·평가원·교육청·사관·경찰대·LEET·MEET 기출 해체 분석." />
+  <meta name="twitter:description" content="문제지·정답·해설지·등급컷·영어 듣기 MP3·듣기 대본 — 기출 해체 분석." />
   <meta name="twitter:image" content="https://kicegg.com/og-image.svg" />
   <meta name="twitter:image:alt" content="기출해체분석기 로고 — 수능·LEET·MEET·사관·경찰 기출 아카이브" />
 
@@ -64,7 +64,7 @@
         href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
 
   <title>기출해체분석기</title>
-  <link rel="stylesheet" href="style.css?v=20260513a" />
+  <link rel="stylesheet" href="style.css?v=20260513b" />
 </head>
 <body class="page-landing">
 
@@ -109,20 +109,7 @@
                aria-label="기출 검색" />
         <button type="submit" class="dash-searchbar__btn" aria-label="검색">검색</button>
       </form>
-      <script>
-        // 모바일에선 더 짧은 placeholder
-        (function(){
-          var inp = document.querySelector('.dash-searchbar__input');
-          if (!inp) return;
-          var apply = function(){
-            var w = window.matchMedia('(max-width: 600px)').matches;
-            inp.placeholder = w ? inp.dataset.placeholderMobile : inp.getAttribute('data-placeholder-desktop') || '27학년도 5모 영어 듣기, 2025 9월 국어';
-          };
-          inp.setAttribute('data-placeholder-desktop', inp.placeholder);
-          apply();
-          window.addEventListener('resize', apply);
-        })();
-      </script>
+      <script type="module" src="lib/placeholder-switch.js?v=20260513a"></script>
 
       <nav class="dash-quickfilters" aria-label="빠른 필터">
         <a href="archive.html?tab=senior&amp;typeGroup=suneung&amp;type=csat" class="dash-chip">수능</a>
@@ -151,7 +138,7 @@
         </span>
         <div class="dash-card__body">
           <h2 class="dash-card__title">기출검색</h2>
-          <p class="dash-card__sub">평가원·교육청·사관·경찰·LEET·MEET 기출 아카이브</p>
+          <p class="dash-card__sub">문제지·정답·등급컷·영어 듣기·대본까지 한 번에</p>
         </div>
         <svg class="dash-card__arrow" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
       </a>
