@@ -2690,7 +2690,10 @@ body.is-sheet-open { overflow: hidden; touch-action: none; }
     grid-template-columns: repeat(2, 1fr);
     gap: 6px;
   }
-  .exam__actions .btn { min-height: 40px; font-size: 12.5px; padding: 0 10px; }
+  /* [#8] 엄지 터치 타깃 — 영어 듣기·대본 최상단 정책과 함께 큰 버튼 */
+  .exam__actions .btn { min-height: 48px; font-size: 13px; padding: 0 12px; font-weight: 600; }
+  /* primary(영어는 듣기 MP3)는 더 강조 */
+  .exam__actions .btn--primary { min-height: 52px; font-size: 14px; grid-column: 1 / -1; }
   /* PDF preview 좌우 여백 제거 */
   .preview__viewer { padding-left: 0; padding-right: 0; }
   .preview__page   { width: 100%; max-width: 100%; }
