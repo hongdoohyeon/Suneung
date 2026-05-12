@@ -107,7 +107,7 @@ print(f'  분리 완료: {len(splits)}건 → {OUT}')
 # overrides 추가
 OV_PATH = Path('data/even-form-overrides.json')
 existing = json.loads(OV_PATH.read_text(encoding='utf-8')) if OV_PATH.exists() else []
-REL_BASE = 'https://suneung-files.hdh061224.workers.dev/kice-archive-v6/'
+REL_BASE = 'https://suneung-files.hdh061224.workers.dev/kice-archive-v3/'
 id_to_item = {i['id']: i for i in ITEMS}
 
 # 동일 id 의 questionUrlEven 가 이미 있는지 — 분리 결과로 갱신
