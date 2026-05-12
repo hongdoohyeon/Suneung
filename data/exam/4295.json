@@ -1,1 +1,20 @@
-{"curriculum": "pre2009", "gradeYear": 2006, "examYear": 2005, "month": 11, "studentGrade": 3, "typeGroup": "suneung", "type": "csat", "subject": "과학탐구", "subSubject": "물리Ⅱ", "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v5/2006_csat_k4b9914d6_kaa4c5feb_q.pdf", "answerUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v5/2006_csat_k4b9914d6_kaa4c5feb_a.pdf", "solutionUrl": null, "questionDownload": "2006학년도_csat_과학탐구_물리Ⅱ_문제지.pdf", "answerDownload": "2006학년도_csat_과학탐구_물리Ⅱ_정답표.pdf", "listenUrl": null, "scriptUrl": null, "source": "kice-archive", "id": 4295}
+{
+  "curriculum": "7차",
+  "gradeYear": 2006,
+  "examYear": 2005,
+  "month": 11,
+  "studentGrade": 3,
+  "typeGroup": "suneung",
+  "type": "csat",
+  "subject": "과학탐구",
+  "subSubject": "물리Ⅱ",
+  "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v5/2006_csat_k4b9914d6_kaa4c5feb_q.pdf",
+  "answerUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v5/2006_csat_k4b9914d6_kaa4c5feb_a.pdf",
+  "solutionUrl": null,
+  "questionDownload": "2006학년도_csat_과학탐구_물리Ⅱ_문제지.pdf",
+  "answerDownload": "2006학년도_csat_과학탐구_물리Ⅱ_정답표.pdf",
+  "listenUrl": null,
+  "scriptUrl": null,
+  "source": "kice-archive",
+  "id": 4295
+}

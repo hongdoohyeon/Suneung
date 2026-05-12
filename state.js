@@ -2,7 +2,7 @@
 import {
   CURRICULUM_CONFIG, EXAM_TYPE_CONFIG, TAB_CONFIG,
   getTypeConf, getTabConf, prettySub, searchAliasOf, ALIAS_KEYS_DESC,
-} from './config.js?v=20260510c';
+} from './config.js?v=20260513a';
 
 // ── 검색 정규화 ─────────────────────────────────────────────
 // 로마자 숫자(Ⅰ/Ⅱ/Ⅲ) → 아라비아, 한자(一/二/三) → 아라비아, 소문자, 공백 제거.
@@ -413,6 +413,9 @@ export const state = {
 
   query: '',
   page:  1,
+
+  // UI 토글 상태 — 학년도 칩 "더보기" 펼침 여부. 다른 필터 재렌더 시 유지
+  yearExpanded: false,
 };
 
 export const PAGE_SIZE = 24;

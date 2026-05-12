@@ -1,1 +1,22 @@
-{"id": 3712, "curriculum": "pre2009", "gradeYear": 2013, "examYear": 2012, "month": 6, "studentGrade": 3, "typeGroup": "suneung", "type": "june", "subject": "수학", "subSubject": "가형", "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v1/2013_06_math_kde210f_q.pdf", "questionDownload": "2013학년도_june_수학_수리가_문제지.pdf", "answerUrl": null, "answerDownload": null, "solutionUrl": null, "listenUrl": null, "listenDownload": null, "scriptUrl": null, "scriptDownload": null, "source": "kice-archive"}
+{
+  "id": 3712,
+  "curriculum": "2007개정",
+  "gradeYear": 2013,
+  "examYear": 2012,
+  "month": 6,
+  "studentGrade": 3,
+  "typeGroup": "suneung",
+  "type": "june",
+  "subject": "수학",
+  "subSubject": "가형",
+  "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v1/2013_06_math_kde210f_q.pdf",
+  "questionDownload": "2013학년도_june_수학_수리가_문제지.pdf",
+  "answerUrl": null,
+  "answerDownload": null,
+  "solutionUrl": null,
+  "listenUrl": null,
+  "listenDownload": null,
+  "scriptUrl": null,
+  "scriptDownload": null,
+  "source": "kice-archive"
+}

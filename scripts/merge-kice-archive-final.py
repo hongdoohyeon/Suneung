@@ -78,7 +78,7 @@ def main():
 
         item = {
             'id':         next_id,
-            'curriculum': '2009' if r['year'] >= 2014 else 'pre2009',
+            'curriculum': ('2009' if r['year'] >= 2014 else ('2007개정' if r['year'] >= 2012 else ('7차' if r['year'] >= 2005 else '6차'))),
             'gradeYear':  r['year'],
             'examYear':   r['year'] - 1,
             'month':      ROUND_MONTH.get(r['round'], 0),

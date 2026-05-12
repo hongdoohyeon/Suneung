@@ -1,1 +1,22 @@
-{"id": 3694, "curriculum": "pre2009", "gradeYear": 2013, "examYear": 2012, "month": 9, "studentGrade": 3, "typeGroup": "suneung", "type": "sept", "subject": "사회탐구", "subSubject": "법과사회", "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v1/2013_09_social_k4b863c_q.pdf", "questionDownload": "2013학년도_sept_사회탐구_사탐법과사회_문제지.pdf", "answerUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v1/2013_09_social_k4b863c_a.pdf", "answerDownload": "2013학년도_sept_사회탐구_사탐법과사회_정답.pdf", "solutionUrl": null, "listenUrl": null, "listenDownload": null, "scriptUrl": null, "scriptDownload": null, "source": "kice-archive"}
+{
+  "id": 3694,
+  "curriculum": "2007개정",
+  "gradeYear": 2013,
+  "examYear": 2012,
+  "month": 9,
+  "studentGrade": 3,
+  "typeGroup": "suneung",
+  "type": "sept",
+  "subject": "사회탐구",
+  "subSubject": "법과사회",
+  "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v1/2013_09_social_k4b863c_q.pdf",
+  "questionDownload": "2013학년도_sept_사회탐구_사탐법과사회_문제지.pdf",
+  "answerUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v1/2013_09_social_k4b863c_a.pdf",
+  "answerDownload": "2013학년도_sept_사회탐구_사탐법과사회_정답.pdf",
+  "solutionUrl": null,
+  "listenUrl": null,
+  "listenDownload": null,
+  "scriptUrl": null,
+  "scriptDownload": null,
+  "source": "kice-archive"
+}

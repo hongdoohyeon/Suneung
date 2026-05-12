@@ -1,1 +1,22 @@
-{"id": 3869, "curriculum": "pre2009", "gradeYear": 2010, "examYear": 2009, "month": 9, "studentGrade": 3, "typeGroup": "suneung", "type": "sept", "subject": "수학", "subSubject": null, "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v1/2010_09_math_q.pdf", "questionDownload": "2010학년도_sept_수학_문제지.pdf", "answerUrl": null, "answerDownload": null, "solutionUrl": null, "listenUrl": null, "listenDownload": null, "scriptUrl": null, "scriptDownload": null, "source": "kice-archive"}
+{
+  "id": 3869,
+  "curriculum": "7차",
+  "gradeYear": 2010,
+  "examYear": 2009,
+  "month": 9,
+  "studentGrade": 3,
+  "typeGroup": "suneung",
+  "type": "sept",
+  "subject": "수학",
+  "subSubject": null,
+  "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v1/2010_09_math_q.pdf",
+  "questionDownload": "2010학년도_sept_수학_문제지.pdf",
+  "answerUrl": null,
+  "answerDownload": null,
+  "solutionUrl": null,
+  "listenUrl": null,
+  "listenDownload": null,
+  "scriptUrl": null,
+  "scriptDownload": null,
+  "source": "kice-archive"
+}

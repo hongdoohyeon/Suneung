@@ -47,7 +47,7 @@ for (year, post_id, subj, rd), files in groups.items():
 
     item = {
         'id': -1,
-        'curriculum': 'pre2009',
+        'curriculum': '6차',  # 1994~1998 학년도 → 6차 교육과정
         'gradeYear': year,
         'examYear':  year - 1,
         'month':     11,

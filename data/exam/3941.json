@@ -1,1 +1,20 @@
-{"curriculum": "pre2009", "gradeYear": 2008, "examYear": 2007, "month": 11, "studentGrade": 3, "typeGroup": "suneung", "type": "csat", "subject": "제2외국어", "subSubject": "일본어", "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v4/2008_csat_k8f779c37_ka5a16fac_q.pdf", "answerUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v4/2008_csat_k8f779c37_ka5a16fac_a.pdf", "solutionUrl": null, "questionDownload": "2008학년도_csat_제2외국어_일본어_문제지.pdf", "answerDownload": "2008학년도_csat_제2외국어_일본어_정답표.pdf", "listenUrl": null, "scriptUrl": null, "source": "kice-archive", "id": 3941}
+{
+  "curriculum": "7차",
+  "gradeYear": 2008,
+  "examYear": 2007,
+  "month": 11,
+  "studentGrade": 3,
+  "typeGroup": "suneung",
+  "type": "csat",
+  "subject": "제2외국어",
+  "subSubject": "일본어",
+  "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v4/2008_csat_k8f779c37_ka5a16fac_q.pdf",
+  "answerUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v4/2008_csat_k8f779c37_ka5a16fac_a.pdf",
+  "solutionUrl": null,
+  "questionDownload": "2008학년도_csat_제2외국어_일본어_문제지.pdf",
+  "answerDownload": "2008학년도_csat_제2외국어_일본어_정답표.pdf",
+  "listenUrl": null,
+  "scriptUrl": null,
+  "source": "kice-archive",
+  "id": 3941
+}

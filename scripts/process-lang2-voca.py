@@ -217,7 +217,9 @@ for r in out_records:
     # curriculum: 2014~2021 = 2009, 2022~ = 2015
     if 2014 <= gy <= 2021: curr = '2009'
     elif gy >= 2022: curr = '2015'
-    else: curr = 'pre2009'
+    elif gy >= 2012: curr = '2007개정'
+    elif gy >= 2005: curr = '7차'
+    else: curr = '6차'
     month = TYPE_MONTH.get(t, 0)
     examYear = gy - 1 if t == 'csat' else gy - 1   # 시행연도 = 학년도 - 1
     item = {

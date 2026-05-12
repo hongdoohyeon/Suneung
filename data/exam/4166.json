@@ -1,1 +1,22 @@
-{"id": 4166, "curriculum": "pre2009", "gradeYear": 2001, "examYear": 2000, "month": 11, "studentGrade": 3, "typeGroup": "suneung", "type": "csat", "subject": "국어", "subSubject": "예체능계", "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v1/2001_csat_k270460_k270460_q.pdf", "questionDownload": "2001학년도_csat_국어_예체능계_문제지(통합본).pdf", "answerUrl": null, "answerDownload": null, "solutionUrl": null, "listenUrl": null, "listenDownload": null, "scriptUrl": null, "scriptDownload": null, "source": "kice-archive"}
+{
+  "id": 4166,
+  "curriculum": "6차",
+  "gradeYear": 2001,
+  "examYear": 2000,
+  "month": 11,
+  "studentGrade": 3,
+  "typeGroup": "suneung",
+  "type": "csat",
+  "subject": "국어",
+  "subSubject": "예체능계",
+  "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v1/2001_csat_k270460_k270460_q.pdf",
+  "questionDownload": "2001학년도_csat_국어_예체능계_문제지(통합본).pdf",
+  "answerUrl": null,
+  "answerDownload": null,
+  "solutionUrl": null,
+  "listenUrl": null,
+  "listenDownload": null,
+  "scriptUrl": null,
+  "scriptDownload": null,
+  "source": "kice-archive"
+}

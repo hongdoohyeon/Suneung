@@ -30,8 +30,8 @@
         },
         "curriculum": {
           "type": "string",
-          "enum": ["2009", "2015", "사관", "경찰대", "LEET", "MEET", "예비", "pre2009", "reference"],
-          "description": "교육과정 또는 시험군. 수능은 2009/2015, 그 외는 시험명."
+          "enum": ["2015", "2009", "2007개정", "7차", "6차", "사관", "경찰대", "LEET", "MEET", "예비", "pre2009", "reference"],
+          "description": "교육과정 또는 시험군. 수능은 2015/2009/2007개정/7차/6차, 그 외는 시험명. 'pre2009'는 옛 통합 키로 호환용."
         },
         "gradeYear": {
           "type": "integer",

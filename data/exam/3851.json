@@ -1,1 +1,20 @@
-{"curriculum": "pre2009", "gradeYear": 2011, "examYear": 2010, "month": 6, "studentGrade": 3, "typeGroup": "suneung", "type": "june", "subject": "제2외국어", "subSubject": "한문", "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v4/2011_06_k8f779c37_k72eea69f_q.pdf", "answerUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v4/2011_06_k8f779c37_k72eea69f_a.pdf", "solutionUrl": null, "questionDownload": "2011학년도_june_제2외국어_한문_문제지.pdf", "answerDownload": "2011학년도_june_제2외국어_한문_정답표.pdf", "listenUrl": null, "scriptUrl": null, "source": "kice-archive", "id": 3851}
+{
+  "curriculum": "7차",
+  "gradeYear": 2011,
+  "examYear": 2010,
+  "month": 6,
+  "studentGrade": 3,
+  "typeGroup": "suneung",
+  "type": "june",
+  "subject": "제2외국어",
+  "subSubject": "한문",
+  "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v4/2011_06_k8f779c37_k72eea69f_q.pdf",
+  "answerUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v4/2011_06_k8f779c37_k72eea69f_a.pdf",
+  "solutionUrl": null,
+  "questionDownload": "2011학년도_june_제2외국어_한문_문제지.pdf",
+  "answerDownload": "2011학년도_june_제2외국어_한문_정답표.pdf",
+  "listenUrl": null,
+  "scriptUrl": null,
+  "source": "kice-archive",
+  "id": 3851
+}

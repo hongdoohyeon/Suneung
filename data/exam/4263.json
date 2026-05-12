@@ -1,1 +1,20 @@
-{"curriculum": "pre2009", "gradeYear": 2005, "examYear": 2004, "month": 0, "studentGrade": 3, "typeGroup": "suneung", "type": "prelim", "subject": "과학탐구", "subSubject": "화학Ⅰ", "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v5/2005_prelim_k4b9914d6_kb23378e6_q.pdf", "answerUrl": null, "solutionUrl": null, "questionDownload": "2005학년도_prelim_과학탐구_화학Ⅰ_문제지.pdf", "answerDownload": null, "listenUrl": null, "scriptUrl": null, "source": "kice-archive", "id": 4263}
+{
+  "curriculum": "7차",
+  "gradeYear": 2005,
+  "examYear": 2004,
+  "month": 0,
+  "studentGrade": 3,
+  "typeGroup": "suneung",
+  "type": "prelim",
+  "subject": "과학탐구",
+  "subSubject": "화학Ⅰ",
+  "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v5/2005_prelim_k4b9914d6_kb23378e6_q.pdf",
+  "answerUrl": null,
+  "solutionUrl": null,
+  "questionDownload": "2005학년도_prelim_과학탐구_화학Ⅰ_문제지.pdf",
+  "answerDownload": null,
+  "listenUrl": null,
+  "scriptUrl": null,
+  "source": "kice-archive",
+  "id": 4263
+}

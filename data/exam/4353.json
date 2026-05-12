@@ -1,1 +1,20 @@
-{"curriculum": "pre2009", "gradeYear": 2010, "examYear": 2009, "month": 9, "studentGrade": 3, "typeGroup": "suneung", "type": "sept", "subject": "과학탐구", "subSubject": "지구과학Ⅰ", "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v5/2010_09_k4b9914d6_kbd4d0e37_q.pdf", "answerUrl": null, "solutionUrl": null, "questionDownload": "2010학년도_sept_과학탐구_지구과학Ⅰ_문제지.pdf", "answerDownload": null, "listenUrl": null, "scriptUrl": null, "source": "kice-archive", "id": 4353}
+{
+  "curriculum": "7차",
+  "gradeYear": 2010,
+  "examYear": 2009,
+  "month": 9,
+  "studentGrade": 3,
+  "typeGroup": "suneung",
+  "type": "sept",
+  "subject": "과학탐구",
+  "subSubject": "지구과학Ⅰ",
+  "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v5/2010_09_k4b9914d6_kbd4d0e37_q.pdf",
+  "answerUrl": null,
+  "solutionUrl": null,
+  "questionDownload": "2010학년도_sept_과학탐구_지구과학Ⅰ_문제지.pdf",
+  "answerDownload": null,
+  "listenUrl": null,
+  "scriptUrl": null,
+  "source": "kice-archive",
+  "id": 4353
+}

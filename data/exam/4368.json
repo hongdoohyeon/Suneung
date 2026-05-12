@@ -1,1 +1,20 @@
-{"curriculum": "pre2009", "gradeYear": 2011, "examYear": 2010, "month": 11, "studentGrade": 3, "typeGroup": "suneung", "type": "csat", "subject": "과학탐구", "subSubject": "물리Ⅰ", "questionUrl": null, "answerUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v5/2011_csat_k4b9914d6_kc42dfd7b_a.pdf", "solutionUrl": null, "questionDownload": null, "answerDownload": "2011학년도_csat_과학탐구_물리Ⅰ_정답표.pdf", "listenUrl": null, "scriptUrl": null, "source": "kice-archive", "id": 4368}
+{
+  "curriculum": "7차",
+  "gradeYear": 2011,
+  "examYear": 2010,
+  "month": 11,
+  "studentGrade": 3,
+  "typeGroup": "suneung",
+  "type": "csat",
+  "subject": "과학탐구",
+  "subSubject": "물리Ⅰ",
+  "questionUrl": null,
+  "answerUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v5/2011_csat_k4b9914d6_kc42dfd7b_a.pdf",
+  "solutionUrl": null,
+  "questionDownload": null,
+  "answerDownload": "2011학년도_csat_과학탐구_물리Ⅰ_정답표.pdf",
+  "listenUrl": null,
+  "scriptUrl": null,
+  "source": "kice-archive",
+  "id": 4368
+}

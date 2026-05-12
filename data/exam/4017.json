@@ -1,1 +1,22 @@
-{"id": 4017, "curriculum": "pre2009", "gradeYear": 2007, "examYear": 2006, "month": 6, "studentGrade": 3, "typeGroup": "suneung", "type": "june", "subject": "영어", "subSubject": null, "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v1/2007_06_english_k75e115_q.pdf", "questionDownload": "2007학년도_june_영어_200706외국어영역_문제지.pdf", "answerUrl": null, "answerDownload": null, "solutionUrl": null, "listenUrl": null, "listenDownload": null, "scriptUrl": null, "scriptDownload": null, "source": "kice-archive"}
+{
+  "id": 4017,
+  "curriculum": "7차",
+  "gradeYear": 2007,
+  "examYear": 2006,
+  "month": 6,
+  "studentGrade": 3,
+  "typeGroup": "suneung",
+  "type": "june",
+  "subject": "영어",
+  "subSubject": null,
+  "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v1/2007_06_english_k75e115_q.pdf",
+  "questionDownload": "2007학년도_june_영어_200706외국어영역_문제지.pdf",
+  "answerUrl": null,
+  "answerDownload": null,
+  "solutionUrl": null,
+  "listenUrl": null,
+  "listenDownload": null,
+  "scriptUrl": null,
+  "scriptDownload": null,
+  "source": "kice-archive"
+}

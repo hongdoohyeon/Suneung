@@ -136,7 +136,9 @@ for r in out_records:
     gy, t = r['gy'], r['type']
     if 2014<=gy<=2021: curr='2009'
     elif gy>=2022: curr='2015'
-    else: curr='pre2009'
+    elif gy>=2012: curr='2007개정'
+    elif gy>=2005: curr='7차'
+    else: curr='6차'
     final_items.append({
         'curriculum': curr, 'gradeYear': gy, 'examYear': gy-1,
         'month': TYPE_MONTH.get(t,0), 'studentGrade': 3,

@@ -1,1 +1,20 @@
-{"curriculum": "pre2009", "gradeYear": 2005, "examYear": 2004, "month": 11, "studentGrade": 3, "typeGroup": "suneung", "type": "csat", "subject": "과학탐구", "subSubject": "생명과학Ⅱ", "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v5/2005_csat_k4b9914d6_kd4993cd0_q.pdf", "answerUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v5/2005_csat_k4b9914d6_kd4993cd0_a.pdf", "solutionUrl": null, "questionDownload": "2005학년도_csat_과학탐구_생명과학Ⅱ_문제지.pdf", "answerDownload": "2005학년도_csat_과학탐구_생명과학Ⅱ_정답표.pdf", "listenUrl": null, "scriptUrl": null, "source": "kice-archive", "id": 4278}
+{
+  "curriculum": "7차",
+  "gradeYear": 2005,
+  "examYear": 2004,
+  "month": 11,
+  "studentGrade": 3,
+  "typeGroup": "suneung",
+  "type": "csat",
+  "subject": "과학탐구",
+  "subSubject": "생명과학Ⅱ",
+  "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v5/2005_csat_k4b9914d6_kd4993cd0_q.pdf",
+  "answerUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v5/2005_csat_k4b9914d6_kd4993cd0_a.pdf",
+  "solutionUrl": null,
+  "questionDownload": "2005학년도_csat_과학탐구_생명과학Ⅱ_문제지.pdf",
+  "answerDownload": "2005학년도_csat_과학탐구_생명과학Ⅱ_정답표.pdf",
+  "listenUrl": null,
+  "scriptUrl": null,
+  "source": "kice-archive",
+  "id": 4278
+}

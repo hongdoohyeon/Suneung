@@ -1,1 +1,20 @@
-{"curriculum": "pre2009", "gradeYear": 2010, "examYear": 2009, "month": 9, "studentGrade": 3, "typeGroup": "suneung", "type": "sept", "subject": "사회탐구", "subSubject": "정치", "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v5/2010_09_kcaf14c49_k6d3dc59c_q.pdf", "answerUrl": null, "solutionUrl": null, "questionDownload": "2010학년도_sept_사회탐구_정치_문제지.pdf", "answerDownload": null, "listenUrl": null, "scriptUrl": null, "source": "kice-archive", "id": 4346}
+{
+  "curriculum": "7차",
+  "gradeYear": 2010,
+  "examYear": 2009,
+  "month": 9,
+  "studentGrade": 3,
+  "typeGroup": "suneung",
+  "type": "sept",
+  "subject": "사회탐구",
+  "subSubject": "정치",
+  "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v5/2010_09_kcaf14c49_k6d3dc59c_q.pdf",
+  "answerUrl": null,
+  "solutionUrl": null,
+  "questionDownload": "2010학년도_sept_사회탐구_정치_문제지.pdf",
+  "answerDownload": null,
+  "listenUrl": null,
+  "scriptUrl": null,
+  "source": "kice-archive",
+  "id": 4346
+}
