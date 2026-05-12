@@ -981,6 +981,45 @@ def build_static_exam_pages(items: list[dict], template_path: Path, out_root: Pa
         # JSON-LD: </head> 직전 한 번만 삽입
         html = html.replace('</head>', '  ' + ld_block + '</head>', 1)
 
+        # [#3] 다운로드 버튼을 SSG 단계에서 미리 채워둠 (JS 로딩 전에도 작동)
+        btns = []
+        q_url   = it.get('questionUrl')
+        qE_url  = it.get('questionUrlEven')
+        a_url   = it.get('answerUrl')
+        aE_url  = it.get('answerUrlEven')
+        sol_url = it.get('solutionUrl')
+        listen  = it.get('listenUrl')
+        script  = it.get('scriptUrl')
+        q_label = '문제지 PDF (홀수형)' if qE_url else '문제지 PDF'
+        a_label = '정답 PDF (홀수형)'   if aE_url else '정답 PDF'
+        def _btn(cls, url, label, dl_name):
+            if not url: return ''
+            dl_attr = f' download="{html_escape(dl_name, quote=True)}"' if dl_name else ' download'
+            return f'<a class="btn {cls}" href="{html_escape(url, quote=True)}" target="_blank" rel="noopener"{dl_attr}>{html_escape(label, quote=False)}</a>'
+        # 영어 듣기는 최상단(#8) — 모바일에서 자료 접근 우선
+        if it.get('subject') == '영어' and listen:
+            btns.append(_btn('btn--primary', listen, '듣기 MP3', it.get('listenDownload')))
+            if script: btns.append(_btn('', script, '듣기 대본 PDF', it.get('scriptDownload')))
+            btns.append(_btn('', q_url, q_label, it.get('questionDownload')))
+            if qE_url: btns.append(_btn('', qE_url, '문제지 PDF (짝수형)', it.get('questionDownloadEven')))
+            btns.append(_btn('', a_url, a_label, it.get('answerDownload')))
+            if aE_url: btns.append(_btn('', aE_url, '정답 PDF (짝수형)', it.get('answerDownloadEven')))
+            if sol_url: btns.append(_btn('', sol_url, '해설지 PDF', it.get('solutionDownload')))
+        else:
+            btns.append(_btn('btn--primary', q_url, q_label, it.get('questionDownload')))
+            if qE_url: btns.append(_btn('', qE_url, '문제지 PDF (짝수형)', it.get('questionDownloadEven')))
+            btns.append(_btn('', a_url, a_label, it.get('answerDownload')))
+            if aE_url: btns.append(_btn('', aE_url, '정답 PDF (짝수형)', it.get('answerDownloadEven')))
+            if sol_url: btns.append(_btn('', sol_url, '해설지 PDF', it.get('solutionDownload')))
+            if listen: btns.append(_btn('', listen, '듣기 MP3', it.get('listenDownload')))
+            if script: btns.append(_btn('', script, '듣기 대본 PDF', it.get('scriptDownload')))
+        btns_html = ''.join(b for b in btns if b)
+        # 빈 <div id=examActions></div> 에 채움 — JS 가 재렌더해도 동일 내용 덮어쓰니 노출 깜빡임 최소
+        html = re.sub(
+            r'(<div class="exam__actions" id="examActions">)\s*(</div>)',
+            lambda m: m.group(1) + btns_html + m.group(2),
+            html, count=1)
+
         (out_root / f'exam-{it["id"]}.html').write_text(html, encoding='utf-8')
         written += 1
     print(f'  + exam-{{id}}.html SSG {written:,}건 (Naver/Bing 인덱싱)')
