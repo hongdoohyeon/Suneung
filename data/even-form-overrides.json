@@ -519,7 +519,9 @@
     "_split_local_odd": "tmp/even-answers/1164_a_odd.pdf",
     "_split_local_even": "tmp/even-answers/1164_a_even.pdf",
     "_target_odd": "2022_csat_id1164_a_odd.pdf",
-    "_target_even": "2022_csat_id1164_a_even.pdf"
+    "_target_even": "2022_csat_id1164_a_even.pdf",
+    "questionUrlEven": "https://suneung-files.hdh061224.workers.dev/kice-archive-v6/2022_csat_k3294535b_q_even.pdf",
+    "questionDownloadEven": "2022학년도_csat_한국사_문제지(짝수형).pdf"
   },
   {
     "match": {
@@ -535,7 +537,9 @@
     "_split_local_odd": "tmp/even-answers/1161_a_odd.pdf",
     "_split_local_even": "tmp/even-answers/1161_a_even.pdf",
     "_target_odd": "2022_csat_id1161_a_odd.pdf",
-    "_target_even": "2022_csat_id1161_a_even.pdf"
+    "_target_even": "2022_csat_id1161_a_even.pdf",
+    "questionUrlEven": "https://suneung-files.hdh061224.workers.dev/kice-archive-v6/2022_csat_kbf6e5992_q_even.pdf",
+    "questionDownloadEven": "2022학년도_csat_영어_문제지(짝수형).pdf"
   },
   {
     "match": {
@@ -551,7 +555,9 @@
     "_split_local_odd": "tmp/even-answers/1449_a_odd.pdf",
     "_split_local_even": "tmp/even-answers/1449_a_even.pdf",
     "_target_odd": "2021_csat_id1449_a_odd.pdf",
-    "_target_even": "2021_csat_id1449_a_even.pdf"
+    "_target_even": "2021_csat_id1449_a_even.pdf",
+    "questionUrlEven": "https://suneung-files.hdh061224.workers.dev/kice-archive-v6/2021_csat_kbf6e5992_q_even.pdf",
+    "questionDownloadEven": "2021학년도_csat_영어_문제지(짝수형).pdf"
   },
   {
     "match": {
@@ -567,7 +573,9 @@
     "_split_local_odd": "tmp/even-answers/1442_a_odd.pdf",
     "_split_local_even": "tmp/even-answers/1442_a_even.pdf",
     "_target_odd": "2021_csat_id1442_a_odd.pdf",
-    "_target_even": "2021_csat_id1442_a_even.pdf"
+    "_target_even": "2021_csat_id1442_a_even.pdf",
+    "questionUrlEven": "https://suneung-files.hdh061224.workers.dev/kice-archive-v6/2021_csat_k22656608_q_even.pdf",
+    "questionDownloadEven": "2021학년도_csat_국어_문제지(짝수형).pdf"
   },
   {
     "match": {
@@ -583,7 +591,9 @@
     "_split_local_odd": "tmp/even-answers/1452_a_odd.pdf",
     "_split_local_even": "tmp/even-answers/1452_a_even.pdf",
     "_target_odd": "2021_csat_id1452_a_odd.pdf",
-    "_target_even": "2021_csat_id1452_a_even.pdf"
+    "_target_even": "2021_csat_id1452_a_even.pdf",
+    "questionUrlEven": "https://suneung-files.hdh061224.workers.dev/kice-archive-v6/2021_csat_k3294535b_q_even.pdf",
+    "questionDownloadEven": "2021학년도_csat_한국사_문제지(짝수형).pdf"
   },
   {
     "match": {
@@ -599,7 +609,9 @@
     "_split_local_odd": "tmp/even-answers/1701_a_odd.pdf",
     "_split_local_even": "tmp/even-answers/1701_a_even.pdf",
     "_target_odd": "2020_csat_id1701_a_odd.pdf",
-    "_target_even": "2020_csat_id1701_a_even.pdf"
+    "_target_even": "2020_csat_id1701_a_even.pdf",
+    "questionUrlEven": "https://suneung-files.hdh061224.workers.dev/kice-archive-v6/2020_csat_k22656608_q_even.pdf",
+    "questionDownloadEven": "2020학년도_csat_국어_문제지(짝수형).pdf"
   },
   {
     "match": {
@@ -615,7 +627,9 @@
     "_split_local_odd": "tmp/even-answers/1708_a_odd.pdf",
     "_split_local_even": "tmp/even-answers/1708_a_even.pdf",
     "_target_odd": "2020_csat_id1708_a_odd.pdf",
-    "_target_even": "2020_csat_id1708_a_even.pdf"
+    "_target_even": "2020_csat_id1708_a_even.pdf",
+    "questionUrlEven": "https://suneung-files.hdh061224.workers.dev/kice-archive-v6/2020_csat_kbf6e5992_q_even.pdf",
+    "questionDownloadEven": "2020학년도_csat_영어_문제지(짝수형).pdf"
   },
   {
     "match": {
@@ -631,7 +645,9 @@
     "_split_local_odd": "tmp/even-answers/1711_a_odd.pdf",
     "_split_local_even": "tmp/even-answers/1711_a_even.pdf",
     "_target_odd": "2020_csat_id1711_a_odd.pdf",
-    "_target_even": "2020_csat_id1711_a_even.pdf"
+    "_target_even": "2020_csat_id1711_a_even.pdf",
+    "questionUrlEven": "https://suneung-files.hdh061224.workers.dev/kice-archive-v6/2020_csat_k3294535b_q_even.pdf",
+    "questionDownloadEven": "2020학년도_csat_한국사_문제지(짝수형).pdf"
   },
   {
     "match": {
@@ -647,7 +663,9 @@
     "_split_local_odd": "tmp/even-answers/2003_a_odd.pdf",
     "_split_local_even": "tmp/even-answers/2003_a_even.pdf",
     "_target_odd": "2019_csat_id2003_a_odd.pdf",
-    "_target_even": "2019_csat_id2003_a_even.pdf"
+    "_target_even": "2019_csat_id2003_a_even.pdf",
+    "questionUrlEven": "https://suneung-files.hdh061224.workers.dev/kice-archive-v6/2019_csat_k22656608_q_even.pdf",
+    "questionDownloadEven": "2019학년도_csat_국어_문제지(짝수형).pdf"
   },
   {
     "match": {
@@ -663,7 +681,9 @@
     "_split_local_odd": "tmp/even-answers/2014_a_odd.pdf",
     "_split_local_even": "tmp/even-answers/2014_a_even.pdf",
     "_target_odd": "2019_csat_id2014_a_odd.pdf",
-    "_target_even": "2019_csat_id2014_a_even.pdf"
+    "_target_even": "2019_csat_id2014_a_even.pdf",
+    "questionUrlEven": "https://suneung-files.hdh061224.workers.dev/kice-archive-v6/2019_csat_k3294535b_q_even.pdf",
+    "questionDownloadEven": "2019학년도_csat_한국사_문제지(짝수형).pdf"
   },
   {
     "match": {
@@ -679,7 +699,9 @@
     "_split_local_odd": "tmp/even-answers/2011_a_odd.pdf",
     "_split_local_even": "tmp/even-answers/2011_a_even.pdf",
     "_target_odd": "2019_csat_id2011_a_odd.pdf",
-    "_target_even": "2019_csat_id2011_a_even.pdf"
+    "_target_even": "2019_csat_id2011_a_even.pdf",
+    "questionUrlEven": "https://suneung-files.hdh061224.workers.dev/kice-archive-v6/2019_csat_kbf6e5992_q_even.pdf",
+    "questionDownloadEven": "2019학년도_csat_영어_문제지(짝수형).pdf"
   },
   {
     "match": {
@@ -695,7 +717,9 @@
     "_split_local_odd": "tmp/even-answers/2302_a_odd.pdf",
     "_split_local_even": "tmp/even-answers/2302_a_even.pdf",
     "_target_odd": "2018_csat_id2302_a_odd.pdf",
-    "_target_even": "2018_csat_id2302_a_even.pdf"
+    "_target_even": "2018_csat_id2302_a_even.pdf",
+    "questionUrlEven": "https://suneung-files.hdh061224.workers.dev/kice-archive-v6/2018_csat_k22656608_q_even.pdf",
+    "questionDownloadEven": "2018학년도_csat_국어_문제지(짝수형).pdf"
   },
   {
     "match": {
@@ -711,7 +735,9 @@
     "_split_local_odd": "tmp/even-answers/2313_a_odd.pdf",
     "_split_local_even": "tmp/even-answers/2313_a_even.pdf",
     "_target_odd": "2018_csat_id2313_a_odd.pdf",
-    "_target_even": "2018_csat_id2313_a_even.pdf"
+    "_target_even": "2018_csat_id2313_a_even.pdf",
+    "questionUrlEven": "https://suneung-files.hdh061224.workers.dev/kice-archive-v6/2018_csat_k3294535b_q_even.pdf",
+    "questionDownloadEven": "2018학년도_csat_한국사_문제지(짝수형).pdf"
   },
   {
     "match": {
@@ -727,7 +753,9 @@
     "_split_local_odd": "tmp/even-answers/2310_a_odd.pdf",
     "_split_local_even": "tmp/even-answers/2310_a_even.pdf",
     "_target_odd": "2018_csat_id2310_a_odd.pdf",
-    "_target_even": "2018_csat_id2310_a_even.pdf"
+    "_target_even": "2018_csat_id2310_a_even.pdf",
+    "questionUrlEven": "https://suneung-files.hdh061224.workers.dev/kice-archive-v6/2018_csat_kbf6e5992_q_even.pdf",
+    "questionDownloadEven": "2018학년도_csat_영어_문제지(짝수형).pdf"
   },
   {
     "match": {
@@ -743,7 +771,9 @@
     "_split_local_odd": "tmp/even-answers/2607_a_odd.pdf",
     "_split_local_even": "tmp/even-answers/2607_a_even.pdf",
     "_target_odd": "2017_csat_id2607_a_odd.pdf",
-    "_target_even": "2017_csat_id2607_a_even.pdf"
+    "_target_even": "2017_csat_id2607_a_even.pdf",
+    "questionUrlEven": "https://suneung-files.hdh061224.workers.dev/kice-archive-v6/2017_csat_k22656608_q_even.pdf",
+    "questionDownloadEven": "2017학년도_csat_국어_문제지(짝수형).pdf"
   },
   {
     "match": {
@@ -775,7 +805,9 @@
     "_split_local_odd": "tmp/even-answers/2615_a_odd.pdf",
     "_split_local_even": "tmp/even-answers/2615_a_even.pdf",
     "_target_odd": "2017_csat_id2615_a_odd.pdf",
-    "_target_even": "2017_csat_id2615_a_even.pdf"
+    "_target_even": "2017_csat_id2615_a_even.pdf",
+    "questionUrlEven": "https://suneung-files.hdh061224.workers.dev/kice-archive-v6/2017_csat_kbf6e5992_q_even.pdf",
+    "questionDownloadEven": "2017학년도_csat_영어_문제지(짝수형).pdf"
   },
   {
     "match": {
@@ -872,5 +904,135 @@
     "_split_local_even": "tmp/even-questions/879_q_even.pdf",
     "_target_odd": "2023_csat_id879_q_odd.pdf",
     "_target_even": "2023_csat_id879_q_even.pdf"
+  },
+  {
+    "match": {
+      "gradeYear": 2014,
+      "type": "prelim",
+      "subject": "수학",
+      "subSubject": null
+    },
+    "answerUrlEven": "https://suneung-files.hdh061224.workers.dev/kice-archive-v6/2014_prelim_kfa5ebfcf_a_even.pdf",
+    "answerDownloadEven": "2014학년도_prelim_수학_정답표(짝수형).pdf"
+  },
+  {
+    "match": {
+      "gradeYear": 2017,
+      "type": "csat",
+      "subject": "수학",
+      "subSubject": "가형"
+    },
+    "questionUrlEven": "https://suneung-files.hdh061224.workers.dev/kice-archive-v6/2017_csat_kfa5ebfcf_k1c94e771_q_even.pdf",
+    "questionDownloadEven": "2017학년도_csat_수학_가형_문제지(짝수형).pdf"
+  },
+  {
+    "match": {
+      "gradeYear": 2017,
+      "type": "csat",
+      "subject": "수학",
+      "subSubject": "나형"
+    },
+    "questionUrlEven": "https://suneung-files.hdh061224.workers.dev/kice-archive-v6/2017_csat_kfa5ebfcf_k2096cfe8_q_even.pdf",
+    "questionDownloadEven": "2017학년도_csat_수학_나형_문제지(짝수형).pdf"
+  },
+  {
+    "match": {
+      "gradeYear": 2018,
+      "type": "csat",
+      "subject": "수학",
+      "subSubject": "가형"
+    },
+    "questionUrlEven": "https://suneung-files.hdh061224.workers.dev/kice-archive-v6/2018_csat_kfa5ebfcf_k1c94e771_q_even.pdf",
+    "questionDownloadEven": "2018학년도_csat_수학_가형_문제지(짝수형).pdf"
+  },
+  {
+    "match": {
+      "gradeYear": 2018,
+      "type": "csat",
+      "subject": "수학",
+      "subSubject": "나형"
+    },
+    "questionUrlEven": "https://suneung-files.hdh061224.workers.dev/kice-archive-v6/2018_csat_kfa5ebfcf_k2096cfe8_q_even.pdf",
+    "questionDownloadEven": "2018학년도_csat_수학_나형_문제지(짝수형).pdf"
+  },
+  {
+    "match": {
+      "gradeYear": 2019,
+      "type": "csat",
+      "subject": "수학",
+      "subSubject": "가형"
+    },
+    "questionUrlEven": "https://suneung-files.hdh061224.workers.dev/kice-archive-v6/2019_csat_kfa5ebfcf_k1c94e771_q_even.pdf",
+    "questionDownloadEven": "2019학년도_csat_수학_가형_문제지(짝수형).pdf"
+  },
+  {
+    "match": {
+      "gradeYear": 2019,
+      "type": "csat",
+      "subject": "수학",
+      "subSubject": "나형"
+    },
+    "questionUrlEven": "https://suneung-files.hdh061224.workers.dev/kice-archive-v6/2019_csat_kfa5ebfcf_k2096cfe8_q_even.pdf",
+    "questionDownloadEven": "2019학년도_csat_수학_나형_문제지(짝수형).pdf"
+  },
+  {
+    "match": {
+      "gradeYear": 2020,
+      "type": "csat",
+      "subject": "수학",
+      "subSubject": "가형"
+    },
+    "questionUrlEven": "https://suneung-files.hdh061224.workers.dev/kice-archive-v6/2020_csat_kfa5ebfcf_k1c94e771_q_even.pdf",
+    "questionDownloadEven": "2020학년도_csat_수학_가형_문제지(짝수형).pdf"
+  },
+  {
+    "match": {
+      "gradeYear": 2020,
+      "type": "csat",
+      "subject": "수학",
+      "subSubject": "나형"
+    },
+    "questionUrlEven": "https://suneung-files.hdh061224.workers.dev/kice-archive-v6/2020_csat_kfa5ebfcf_k2096cfe8_q_even.pdf",
+    "questionDownloadEven": "2020학년도_csat_수학_나형_문제지(짝수형).pdf"
+  },
+  {
+    "match": {
+      "gradeYear": 2021,
+      "type": "csat",
+      "subject": "수학",
+      "subSubject": "나형"
+    },
+    "questionUrlEven": "https://suneung-files.hdh061224.workers.dev/kice-archive-v6/2021_csat_kfa5ebfcf_k2096cfe8_q_even.pdf",
+    "questionDownloadEven": "2021학년도_csat_수학_나형_문제지(짝수형).pdf"
+  },
+  {
+    "match": {
+      "gradeYear": 2021,
+      "type": "csat",
+      "subject": "수학",
+      "subSubject": "가형"
+    },
+    "questionUrlEven": "https://suneung-files.hdh061224.workers.dev/kice-archive-v6/2021_csat_kfa5ebfcf_k1c94e771_q_even.pdf",
+    "questionDownloadEven": "2021학년도_csat_수학_가형_문제지(짝수형).pdf"
+  },
+  {
+    "match": {
+      "gradeYear": 2022,
+      "type": "csat",
+      "subject": "국어",
+      "subSubject": null
+    },
+    "questionUrlEven": "https://suneung-files.hdh061224.workers.dev/kice-archive-v6/2022_csat_k22656608_q_even.pdf",
+    "questionDownloadEven": "2022학년도_csat_국어_문제지(짝수형).pdf"
+  },
+  {
+    "match": {
+      "gradeYear": 2022,
+      "type": "csat",
+      "subject": "수학",
+      "subSubject": null
+    },
+    "questionUrlEven": "https://suneung-files.hdh061224.workers.dev/kice-archive-v6/2022_csat_kfa5ebfcf_q_even.pdf",
+    "questionDownloadEven": "2022학년도_csat_수학_문제지(짝수형).pdf"
   }
 ]
