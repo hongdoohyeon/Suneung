@@ -119,26 +119,30 @@ function renderHead(exam) {
   const solutionUrl     = safeUrl(exam.solutionUrl);
   const listenUrl       = safeUrl(exam.listenUrl);
   const scriptUrl       = safeUrl(exam.scriptUrl);
+  // 자료 타입을 라벨에 명시 (PDF/MP3) — 카드별 어떤 자료인지 직관적으로
   // 짝수형 분리 자료가 있으면 기본 라벨에 '홀수형' 명시 (구분 명확화)
-  const qLabel = questionUrlEven ? '문제지(홀수형)' : '문제지';
-  const aLabel = answerUrlEven   ? '정답(홀수형)'   : '정답';
+  const qLabel = questionUrlEven ? '문제지 PDF (홀수형)' : '문제지 PDF';
+  const aLabel = answerUrlEven   ? '정답 PDF (홀수형)'   : '정답 PDF';
   if (questionUrl) buttons.push(
-    `<a class="btn btn--primary" href="${escHtml(questionUrl)}" target="_blank" rel="noopener" ${dl(exam.questionDownload)}>${qLabel} 다운로드</a>`
+    `<a class="btn btn--primary" href="${escHtml(questionUrl)}" target="_blank" rel="noopener" ${dl(exam.questionDownload)}>${qLabel}</a>`
   );
   if (questionUrlEven) buttons.push(
-    `<a class="btn" href="${escHtml(questionUrlEven)}" target="_blank" rel="noopener" ${dl(exam.questionDownloadEven)}>문제지(짝수형) 다운로드</a>`
+    `<a class="btn" href="${escHtml(questionUrlEven)}" target="_blank" rel="noopener" ${dl(exam.questionDownloadEven)}>문제지 PDF (짝수형)</a>`
   );
   if (answerUrl) buttons.push(
-    `<a class="btn" href="${escHtml(answerUrl)}" target="_blank" rel="noopener" ${dl(exam.answerDownload)}>${aLabel} 다운로드</a>`
+    `<a class="btn" href="${escHtml(answerUrl)}" target="_blank" rel="noopener" ${dl(exam.answerDownload)}>${aLabel}</a>`
   );
   if (answerUrlEven) buttons.push(
-    `<a class="btn" href="${escHtml(answerUrlEven)}" target="_blank" rel="noopener" ${dl(exam.answerDownloadEven)}>정답(짝수형) 다운로드</a>`
+    `<a class="btn" href="${escHtml(answerUrlEven)}" target="_blank" rel="noopener" ${dl(exam.answerDownloadEven)}>정답 PDF (짝수형)</a>`
   );
   if (solutionUrl) buttons.push(
-    `<a class="btn" href="${escHtml(solutionUrl)}" target="_blank" rel="noopener" ${dl(exam.solutionDownload)}>해설 다운로드</a>`
+    `<a class="btn" href="${escHtml(solutionUrl)}" target="_blank" rel="noopener" ${dl(exam.solutionDownload)}>해설지 PDF</a>`
+  );
+  if (listenUrl) buttons.push(
+    `<a class="btn" href="${escHtml(listenUrl)}" target="_blank" rel="noopener" ${dl(exam.listenDownload)}>듣기 MP3</a>`
   );
   if (scriptUrl) buttons.push(
-    `<a class="btn" href="${escHtml(scriptUrl)}" target="_blank" rel="noopener" ${dl(exam.scriptDownload)}>듣기 스크립트</a>`
+    `<a class="btn" href="${escHtml(scriptUrl)}" target="_blank" rel="noopener" ${dl(exam.scriptDownload)}>듣기 대본 PDF</a>`
   );
   // 공유 버튼 — 모바일 카톡·문자, 데스크톱 클립보드
   buttons.push(
