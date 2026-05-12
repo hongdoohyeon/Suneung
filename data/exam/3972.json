@@ -1,1 +1,20 @@
-{"curriculum": "pre2009", "gradeYear": 2007, "examYear": 2006, "month": 11, "studentGrade": 3, "typeGroup": "suneung", "type": "csat", "subject": "직업탐구", "subSubject": "기초 제도", "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v4/2007_csat_k9fd7b616_kb4677a4d_q.pdf", "answerUrl": null, "solutionUrl": null, "questionDownload": "2007학년도_csat_직업탐구_기초 제도_문제지.pdf", "answerDownload": null, "listenUrl": null, "scriptUrl": null, "source": "kice-archive", "id": 3972}
+{
+  "curriculum": "7차",
+  "gradeYear": 2007,
+  "examYear": 2006,
+  "month": 11,
+  "studentGrade": 3,
+  "typeGroup": "suneung",
+  "type": "csat",
+  "subject": "직업탐구",
+  "subSubject": "기초 제도",
+  "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v4/2007_csat_k9fd7b616_kb4677a4d_q.pdf",
+  "answerUrl": null,
+  "solutionUrl": null,
+  "questionDownload": "2007학년도_csat_직업탐구_기초 제도_문제지.pdf",
+  "answerDownload": null,
+  "listenUrl": null,
+  "scriptUrl": null,
+  "source": "kice-archive",
+  "id": 3972
+}

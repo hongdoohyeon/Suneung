@@ -1,1 +1,22 @@
-{"id": 3999, "curriculum": "pre2009", "gradeYear": 2007, "examYear": 2006, "month": 9, "studentGrade": 3, "typeGroup": "suneung", "type": "sept", "subject": "사회탐구", "subSubject": "한국사", "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v1/2007_09_social_kdc5fdb_q.pdf", "questionDownload": "2007학년도_sept_사회탐구_200709사회탐구한국사영역_문제지.pdf", "answerUrl": null, "answerDownload": null, "solutionUrl": null, "listenUrl": null, "listenDownload": null, "scriptUrl": null, "scriptDownload": null, "source": "kice-archive"}
+{
+  "id": 3999,
+  "curriculum": "7차",
+  "gradeYear": 2007,
+  "examYear": 2006,
+  "month": 9,
+  "studentGrade": 3,
+  "typeGroup": "suneung",
+  "type": "sept",
+  "subject": "사회탐구",
+  "subSubject": "한국사",
+  "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v1/2007_09_social_kdc5fdb_q.pdf",
+  "questionDownload": "2007학년도_sept_사회탐구_200709사회탐구한국사영역_문제지.pdf",
+  "answerUrl": null,
+  "answerDownload": null,
+  "solutionUrl": null,
+  "listenUrl": null,
+  "listenDownload": null,
+  "scriptUrl": null,
+  "scriptDownload": null,
+  "source": "kice-archive"
+}

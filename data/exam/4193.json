@@ -1,1 +1,22 @@
-{"id": 4193, "curriculum": "pre2009", "gradeYear": 2000, "examYear": 1999, "month": 11, "studentGrade": 3, "typeGroup": "suneung", "type": "csat", "subject": "과학탐구", "subSubject": "자연계", "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v1/2000_csat_k78a7bd_q.pdf", "questionDownload": "2000학년도_csat_과학탐구_자연계_문제지(통합본).pdf", "answerUrl": null, "answerDownload": null, "solutionUrl": null, "listenUrl": null, "listenDownload": null, "scriptUrl": null, "scriptDownload": null, "source": "kice-archive"}
+{
+  "id": 4193,
+  "curriculum": "6차",
+  "gradeYear": 2000,
+  "examYear": 1999,
+  "month": 11,
+  "studentGrade": 3,
+  "typeGroup": "suneung",
+  "type": "csat",
+  "subject": "과학탐구",
+  "subSubject": "자연계",
+  "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v1/2000_csat_k78a7bd_q.pdf",
+  "questionDownload": "2000학년도_csat_과학탐구_자연계_문제지(통합본).pdf",
+  "answerUrl": null,
+  "answerDownload": null,
+  "solutionUrl": null,
+  "listenUrl": null,
+  "listenDownload": null,
+  "scriptUrl": null,
+  "scriptDownload": null,
+  "source": "kice-archive"
+}

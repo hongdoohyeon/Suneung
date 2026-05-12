@@ -80,7 +80,7 @@ def main():
             a_file = files[1] if len(files) > 1 else None
 
             # 옛 수능 1999~2003: 인문/자연/예체능계 수능 (한 게시글에 한 영역 묶음)
-            curriculum = '2009' if gy >= 2014 else 'pre2009'
+            curriculum = ('2009' if gy >= 2014 else ('2007개정' if gy >= 2012 else ('7차' if gy >= 2005 else '6차')))
 
             item = {
                 'id': next_id,

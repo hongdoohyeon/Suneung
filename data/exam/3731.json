@@ -1,1 +1,22 @@
-{"id": 3731, "curriculum": "pre2009", "gradeYear": 2013, "examYear": 2012, "month": 6, "studentGrade": 3, "typeGroup": "suneung", "type": "june", "subject": "사회탐구", "subSubject": "정치", "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v1/2013_06_social_politics_q.pdf", "questionDownload": "2013학년도_june_사회탐구_정치_문제지.pdf", "answerUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v1/2013_06_social_politics_a.pdf", "answerDownload": "2013학년도_june_사회탐구_정치_정답.pdf", "solutionUrl": null, "listenUrl": null, "listenDownload": null, "scriptUrl": null, "scriptDownload": null, "source": "kice-archive"}
+{
+  "id": 3731,
+  "curriculum": "2007개정",
+  "gradeYear": 2013,
+  "examYear": 2012,
+  "month": 6,
+  "studentGrade": 3,
+  "typeGroup": "suneung",
+  "type": "june",
+  "subject": "사회탐구",
+  "subSubject": "정치",
+  "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v1/2013_06_social_politics_q.pdf",
+  "questionDownload": "2013학년도_june_사회탐구_정치_문제지.pdf",
+  "answerUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v1/2013_06_social_politics_a.pdf",
+  "answerDownload": "2013학년도_june_사회탐구_정치_정답.pdf",
+  "solutionUrl": null,
+  "listenUrl": null,
+  "listenDownload": null,
+  "scriptUrl": null,
+  "scriptDownload": null,
+  "source": "kice-archive"
+}

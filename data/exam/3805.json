@@ -1,1 +1,20 @@
-{"curriculum": "pre2009", "gradeYear": 2011, "examYear": 2010, "month": 11, "studentGrade": 3, "typeGroup": "suneung", "type": "csat", "subject": "직업탐구", "subSubject": "농업 기초 기술", "questionUrl": null, "answerUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v4/2011_csat_k9fd7b616_k5c063492_a.pdf", "solutionUrl": null, "questionDownload": null, "answerDownload": "2011학년도_csat_직업탐구_농업 기초 기술_정답표.pdf", "listenUrl": null, "scriptUrl": null, "source": "kice-archive", "id": 3805}
+{
+  "curriculum": "7차",
+  "gradeYear": 2011,
+  "examYear": 2010,
+  "month": 11,
+  "studentGrade": 3,
+  "typeGroup": "suneung",
+  "type": "csat",
+  "subject": "직업탐구",
+  "subSubject": "농업 기초 기술",
+  "questionUrl": null,
+  "answerUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v4/2011_csat_k9fd7b616_k5c063492_a.pdf",
+  "solutionUrl": null,
+  "questionDownload": null,
+  "answerDownload": "2011학년도_csat_직업탐구_농업 기초 기술_정답표.pdf",
+  "listenUrl": null,
+  "scriptUrl": null,
+  "source": "kice-archive",
+  "id": 3805
+}

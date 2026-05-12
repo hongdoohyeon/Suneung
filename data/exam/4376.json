@@ -1,1 +1,20 @@
-{"curriculum": "pre2009", "gradeYear": 2011, "examYear": 2010, "month": 6, "studentGrade": 3, "typeGroup": "suneung", "type": "june", "subject": "사회탐구", "subSubject": "경제지리", "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v5/2011_06_kcaf14c49_k2ff51da1_q.pdf", "answerUrl": null, "solutionUrl": null, "questionDownload": "2011학년도_june_사회탐구_경제지리_문제지.pdf", "answerDownload": null, "listenUrl": null, "scriptUrl": null, "source": "kice-archive", "id": 4376}
+{
+  "curriculum": "7차",
+  "gradeYear": 2011,
+  "examYear": 2010,
+  "month": 6,
+  "studentGrade": 3,
+  "typeGroup": "suneung",
+  "type": "june",
+  "subject": "사회탐구",
+  "subSubject": "경제지리",
+  "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v5/2011_06_kcaf14c49_k2ff51da1_q.pdf",
+  "answerUrl": null,
+  "solutionUrl": null,
+  "questionDownload": "2011학년도_june_사회탐구_경제지리_문제지.pdf",
+  "answerDownload": null,
+  "listenUrl": null,
+  "scriptUrl": null,
+  "source": "kice-archive",
+  "id": 4376
+}

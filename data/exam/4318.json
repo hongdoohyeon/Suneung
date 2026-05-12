@@ -1,1 +1,20 @@
-{"curriculum": "pre2009", "gradeYear": 2008, "examYear": 2007, "month": 11, "studentGrade": 3, "typeGroup": "suneung", "type": "csat", "subject": "사회탐구", "subSubject": "한국지리", "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v5/2008_csat_kcaf14c49_k9caf2f13_q.pdf", "answerUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v5/2008_csat_kcaf14c49_k9caf2f13_a.pdf", "solutionUrl": null, "questionDownload": "2008학년도_csat_사회탐구_한국지리_문제지.pdf", "answerDownload": "2008학년도_csat_사회탐구_한국지리_정답표.pdf", "listenUrl": null, "scriptUrl": null, "source": "kice-archive", "id": 4318}
+{
+  "curriculum": "7차",
+  "gradeYear": 2008,
+  "examYear": 2007,
+  "month": 11,
+  "studentGrade": 3,
+  "typeGroup": "suneung",
+  "type": "csat",
+  "subject": "사회탐구",
+  "subSubject": "한국지리",
+  "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v5/2008_csat_kcaf14c49_k9caf2f13_q.pdf",
+  "answerUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v5/2008_csat_kcaf14c49_k9caf2f13_a.pdf",
+  "solutionUrl": null,
+  "questionDownload": "2008학년도_csat_사회탐구_한국지리_문제지.pdf",
+  "answerDownload": "2008학년도_csat_사회탐구_한국지리_정답표.pdf",
+  "listenUrl": null,
+  "scriptUrl": null,
+  "source": "kice-archive",
+  "id": 4318
+}

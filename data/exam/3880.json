@@ -1,1 +1,20 @@
-{"curriculum": "pre2009", "gradeYear": 2010, "examYear": 2009, "month": 9, "studentGrade": 3, "typeGroup": "suneung", "type": "sept", "subject": "제2외국어", "subSubject": "한문", "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v4/2010_09_k8f779c37_k72eea69f_q.pdf", "answerUrl": null, "solutionUrl": null, "questionDownload": "2010학년도_sept_제2외국어_한문_문제지.pdf", "answerDownload": null, "listenUrl": null, "scriptUrl": null, "source": "kice-archive", "id": 3880}
+{
+  "curriculum": "7차",
+  "gradeYear": 2010,
+  "examYear": 2009,
+  "month": 9,
+  "studentGrade": 3,
+  "typeGroup": "suneung",
+  "type": "sept",
+  "subject": "제2외국어",
+  "subSubject": "한문",
+  "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v4/2010_09_k8f779c37_k72eea69f_q.pdf",
+  "answerUrl": null,
+  "solutionUrl": null,
+  "questionDownload": "2010학년도_sept_제2외국어_한문_문제지.pdf",
+  "answerDownload": null,
+  "listenUrl": null,
+  "scriptUrl": null,
+  "source": "kice-archive",
+  "id": 3880
+}

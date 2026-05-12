@@ -1,1 +1,22 @@
-{"id": 4087, "curriculum": "pre2009", "gradeYear": 2005, "examYear": 2004, "month": 11, "studentGrade": 3, "typeGroup": "suneung", "type": "csat", "subject": "영어", "subSubject": null, "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v1/2005_csat_english_kd06eae_q.pdf", "questionDownload": "2005학년도_csat_영어_외국어_문제지.pdf", "answerUrl": null, "answerDownload": null, "solutionUrl": null, "listenUrl": null, "listenDownload": null, "scriptUrl": null, "scriptDownload": null, "source": "kice-archive"}
+{
+  "id": 4087,
+  "curriculum": "7차",
+  "gradeYear": 2005,
+  "examYear": 2004,
+  "month": 11,
+  "studentGrade": 3,
+  "typeGroup": "suneung",
+  "type": "csat",
+  "subject": "영어",
+  "subSubject": null,
+  "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v1/2005_csat_english_kd06eae_q.pdf",
+  "questionDownload": "2005학년도_csat_영어_외국어_문제지.pdf",
+  "answerUrl": null,
+  "answerDownload": null,
+  "solutionUrl": null,
+  "listenUrl": null,
+  "listenDownload": null,
+  "scriptUrl": null,
+  "scriptDownload": null,
+  "source": "kice-archive"
+}

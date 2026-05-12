@@ -2,14 +2,14 @@
 import {
   CURRICULUM_CONFIG, EXAM_TYPE_CONFIG, TAB_CONFIG,
   getTypeConf, getGroupConf, getTabConf, legacyTabKey, prettySub,
-} from './config.js?v=20260510c';
+} from './config.js?v=20260513a';
 import {
   state, PAGE_SIZE,
   resetFilters, toggleMulti,
   getDisplayYear, availableGradeYears,
   filtered, subjectCounts, buildMockData,
   tabCurriculums, tabCurriculumConfs, tabSubjects, curriculumOfGradeYear,
-} from './state.js?v=20260510c';
+} from './state.js?v=20260513a';
 import { renderAllAdSlots } from './lib/ads.js';
 
 const tabConf = () => getTabConf(state.tab);
@@ -38,39 +38,57 @@ const tabIsSingleType = () => {
 
 // 정적 JSON 데이터 파일 — 백엔드 없이 data/exams.json 만 갱신하면 사이트가 갱신됨
 // 빌드 시 ID 재할당되므로 캐시 버스터 강제 (옛 v2 캐시 ↔ 새 SSG 불일치 방지)
-const DATA_URL = 'data/exams-v2.json?v=20260511a';
+const DATA_URL = 'data/exams-v2.json?v=20260513a';
 
 const $ = id => document.getElementById(id);
 
 // ── URL 파라미터 처리 ──────────────────────────────────────
-function applyUrlTab() {
+// 모든 필터 상태를 URL searchParams 에 반영해 뒤로가기·새로고침·링크 공유 시 복원.
+// 다중 선택은 쉼표로 직렬화. "all"·빈 상태는 URL에서 키 자체를 제거해 짧게 유지.
+
+const URL_KEYS = ['tab','typeGroup','type','gradeYear','subject','subSubject','q','page'];
+
+function serializeMulti(v) {
+  if (v === 'all' || v == null) return '';
+  if (Array.isArray(v)) return v.length ? v.join(',') : '';
+  return String(v);
+}
+function parseMulti(s) {
+  if (!s) return 'all';
+  const parts = s.split(',').map(x => x.trim()).filter(Boolean);
+  if (parts.length === 0) return 'all';
+  return parts.length === 1 ? parts[0] : parts;
+}
+
+function applyUrlState() {
   const params = new URLSearchParams(location.search);
-  const raw = params.get('tab');
-  if (raw) {
-    // 옛 URL (?tab=2015 / ?tab=사관 등) 들어오면 새 탭 키로 매핑
-    const tab = legacyTabKey(raw);
+
+  const rawTab = params.get('tab');
+  if (rawTab) {
+    const tab = legacyTabKey(rawTab);
     if (getTabConf(tab)) {
       state.tab = tab;
       document.querySelectorAll('.nav-tab').forEach(b => {
         b.classList.toggle('is-active', b.dataset.tab === tab);
       });
-      if (tabIsSingleType()) {
-        state.typeGroup = tabAvailableTypeGroups()[0];
-        state.type      = 'all';
-      } else if (tabConf()?.defaultTypeGroup) {
-        state.typeGroup = tabConf().defaultTypeGroup;
-      }
     }
   }
 
-  // index.html 빠른 필터 → typeGroup·type 직접 지정 가능
-  const typeGroup = params.get('typeGroup');
-  if (typeGroup) state.typeGroup = typeGroup;
-  const type = params.get('type');
-  if (type) state.type = type;
+  // 탭 변경 후 default typeGroup 적용 — URL에 typeGroup 명시되어 있으면 곧 덮어씀
+  if (tabIsSingleType()) {
+    state.typeGroup = tabAvailableTypeGroups()[0];
+    state.type      = 'all';
+  } else if (tabConf()?.defaultTypeGroup) {
+    state.typeGroup = tabConf().defaultTypeGroup;
+  }
 
-  // 검색 — ?search= 또는 ?q=
-  const search = params.get('search') || params.get('q');
+  if (params.has('typeGroup'))  state.typeGroup  = params.get('typeGroup') || 'all';
+  if (params.has('type'))       state.type       = parseMulti(params.get('type'));
+  if (params.has('gradeYear'))  state.gradeYear  = parseMulti(params.get('gradeYear'));
+  if (params.has('subject'))    state.subject    = params.get('subject') || 'all';
+  if (params.has('subSubject')) state.subSubject = params.get('subSubject') || 'all';
+
+  const search = params.get('q') || params.get('search');
   if (search) {
     state.query = search.trim();
     const input = document.getElementById('searchInput');
@@ -79,14 +97,60 @@ function applyUrlTab() {
       const clear = document.getElementById('clearSearch');
       if (clear) clear.style.display = 'flex';
     }
+  } else {
+    state.query = '';
+    const input = document.getElementById('searchInput');
+    if (input) input.value = '';
+    const clear = document.getElementById('clearSearch');
+    if (clear) clear.style.display = 'none';
   }
+
+  const pageRaw = parseInt(params.get('page') || '1', 10);
+  state.page = Number.isFinite(pageRaw) && pageRaw > 0 ? pageRaw : 1;
 }
 
-function syncUrlTab() {
+// 옛 단일 함수 이름 유지 (호출부 호환)
+const applyUrlTab = applyUrlState;
+
+// 현재 state 로부터 다음 URL 을 계산만 (history 조작 X).
+function buildUrlFromState() {
   const url = new URL(location.href);
+  for (const k of URL_KEYS) url.searchParams.delete(k);
+
   url.searchParams.set('tab', state.tab);
-  history.replaceState({}, '', url);
+
+  const tg = serializeMulti(state.typeGroup);
+  if (tg && tg !== 'all') url.searchParams.set('typeGroup', tg);
+
+  const t = serializeMulti(state.type);
+  if (t) url.searchParams.set('type', t);
+
+  const gy = serializeMulti(state.gradeYear);
+  if (gy) url.searchParams.set('gradeYear', gy);
+
+  if (state.subject    && state.subject    !== 'all') url.searchParams.set('subject', state.subject);
+  if (state.subSubject && state.subSubject !== 'all') url.searchParams.set('subSubject', state.subSubject);
+  if (state.query) url.searchParams.set('q', state.query);
+  if (state.page > 1) url.searchParams.set('page', String(state.page));
+
+  return url.toString();
 }
+
+// 필터 변경 — 현재 history entry 의 URL 만 교체 (history 깊이 보존)
+function syncUrl() {
+  history.replaceState({}, '', buildUrlFromState());
+}
+
+// 탭 전환 등 큰 전환 — 새 history entry 추가하여 진정한 뒤로가기 가능
+// 단, URL 이 그대로면 pushState 가 무의미한 중복 entry 를 만드니 skip.
+function pushUrl() {
+  const next = buildUrlFromState();
+  if (next === location.href) return;
+  history.pushState({}, '', next);
+}
+
+// 호환용 — 옛 syncUrlTab 호출부에서도 동작
+const syncUrlTab = syncUrl;
 
 // ── 데이터 로드 ────────────────────────────────────────────
 async function loadExams() {
@@ -128,6 +192,7 @@ $('curriculumTabs').addEventListener('click', e => {
   btn.classList.add('is-active');
   state.tab = btn.dataset.tab;
   resetFilters();
+  state.yearExpanded = false;
 
   if (tabIsSingleType()) {
     state.typeGroup = tabAvailableTypeGroups()[0];
@@ -136,7 +201,7 @@ $('curriculumTabs').addEventListener('click', e => {
     state.typeGroup = tabConf().defaultTypeGroup;
   }
 
-  syncUrlTab();
+  pushUrl();   // 탭 전환은 history 쌓아 진정한 뒤로가기 가능
   const doRender = () => { renderFilterPanel(); render(); };
   document.startViewTransition ? document.startViewTransition(doRender) : doRender();
 
@@ -189,6 +254,7 @@ $('typeGroupFilter').addEventListener('click', e => {
   renderSubtypeChips();
   renderYearChips();
   render();
+  syncUrl();
 });
 
 // ── 세부 유형 ──────────────────────────────────────────────
@@ -240,6 +306,7 @@ $('typeFilter').addEventListener('click', e => {
   state.page = 1;
   renderSubtypeChips();
   render();
+  syncUrl();
 });
 
 // ── 학년도 ─────────────────────────────────────────────────
@@ -302,6 +369,7 @@ function renderYearChips() {
   const SHOW_INITIAL = isMobile ? 5 : 8;
   const COLLAPSE_THRESHOLD = SHOW_INITIAL + 2;
   const collapseEnabled = years.length > COLLAPSE_THRESHOLD;
+  const expanded = state.yearExpanded;
   let visibleCount = 0;
   for (const y of years) {
     if (showHeaders) {
@@ -313,26 +381,22 @@ function renderYearChips() {
       }
     }
     const value = y === 'preliminary' ? 'preliminary' : String(y);
-    const hidden = collapseEnabled && visibleCount >= SHOW_INITIAL ? ' year-pill--collapsed' : '';
+    const hidden = collapseEnabled && !expanded && visibleCount >= SHOW_INITIAL ? ' year-pill--collapsed' : '';
     out.push(pill(value, yearChipLabel(y, isEdu), isYearActive(value),
                   hidden, `data-year="${value}"`));
     visibleCount++;
   }
   if (collapseEnabled) {
-    out.push(`<button type="button" class="pill pill--more" id="yearMoreBtn" data-expanded="false">더보기</button>`);
+    out.push(`<button type="button" class="pill pill--more" id="yearMoreBtn" data-expanded="${expanded}">${expanded ? '접기' : '더보기'}</button>`);
   }
   container.innerHTML = out.join('');
 }
 
 $('yearFilter').addEventListener('click', e => {
-  // 더보기 버튼 토글 — 숨겨진 학년도 칩 모두 보이게
+  // 더보기 버튼 토글 — 상태에 저장하여 다른 필터 재렌더 시에도 유지
   if (e.target.id === 'yearMoreBtn') {
-    const expanded = e.target.dataset.expanded === 'true';
-    document.querySelectorAll('#yearFilter .year-pill--collapsed').forEach(el => {
-      el.classList.toggle('year-pill--collapsed', expanded);
-    });
-    e.target.dataset.expanded = expanded ? 'false' : 'true';
-    e.target.textContent = expanded ? '더보기' : '접기';
+    state.yearExpanded = !state.yearExpanded;
+    renderYearChips();
     return;
   }
   const btn = e.target.closest('.pill:not(.pill--more)');
@@ -346,6 +410,7 @@ $('yearFilter').addEventListener('click', e => {
   state.page = 1;
   renderYearChips();
   render();
+  syncUrl();
 });
 
 // ── 영역 (subject list) ────────────────────────────────────
@@ -380,6 +445,7 @@ $('subjectFilter').addEventListener('click', e => {
     state.page = 1;
     renderSubjectFilter();
     render(true);
+    syncUrl();
     return;
   }
   if (subjBtn) {
@@ -395,6 +461,7 @@ $('subjectFilter').addEventListener('click', e => {
     state.page = 1;
     renderSubjectFilter();
     render(true);
+    syncUrl();
   }
 });
 
@@ -404,7 +471,12 @@ $('searchInput').addEventListener('input', e => {
   const val = e.target.value;
   $('clearSearch').style.display = val ? 'flex' : 'none';
   clearTimeout(searchTimer);
-  searchTimer = setTimeout(() => { state.query = val.trim(); state.page = 1; render(); }, 180);
+  searchTimer = setTimeout(() => {
+    state.query = val.trim();
+    state.page = 1;
+    render();
+    syncUrl();
+  }, 180);
 });
 $('clearSearch').addEventListener('click', () => {
   $('searchInput').value = '';
@@ -412,6 +484,7 @@ $('clearSearch').addEventListener('click', () => {
   state.query = '';
   state.page  = 1;
   render();
+  syncUrl();
 });
 
 $('resetBtn').addEventListener('click', resetAll);
@@ -422,6 +495,7 @@ $('paginationWrap').addEventListener('click', e => {
   state.page = Number(btn.dataset.pg);
   renderCards();
   $('cardsGrid').scrollIntoView({ behavior: 'instant', block: 'start' });
+  syncUrl();
 });
 
 // ── 모바일 필터 바텀시트 ────────────────────────────────────
@@ -542,6 +616,10 @@ function renderPagination(current, total, totalItems) {
   `;
 }
 
+// 영역명이 아니라 시험 형식·계열·자료유형을 나타내는 subSubject 들 — 카드 title 에 단독 노출하면
+// 어느 영역인지 모름. "수학 (인문계)" / "영어 (듣기대본)" 처럼 영역과 합쳐 표시.
+const LEGACY_SUB_FORMS = new Set(['인문계', '자연계', '예체능계', '1차', '2차', '듣기대본']);
+
 function cardHTML(exam, idx = 0) {
   const conf    = tabSubjects()[exam.subject] ?? { color: '#9ca3af' };
   const tc      = getTypeConf(exam.type);
@@ -549,7 +627,10 @@ function cardHTML(exam, idx = 0) {
   const hasFile = Boolean(exam.questionUrl || exam.answerUrl);
   const isPrelim = exam.gradeYear === 'preliminary';
 
-  const title = exam.subSubject ? prettySub(exam.subSubject) : exam.subject;
+  const isLegacySub = exam.subSubject && LEGACY_SUB_FORMS.has(exam.subSubject);
+  const title = isLegacySub
+    ? `${exam.subject} (${prettySub(exam.subSubject)})`
+    : (exam.subSubject ? prettySub(exam.subSubject) : exam.subject);
   // examYear 모드(학평): dy.label에 "N월"이 들어가므로 typeLabel 에서 month prefix 제거
   // → "2026년 3월 학력평가" (중복 X)
   const rawTypeLabel = tc?.label ?? '';
@@ -561,7 +642,8 @@ function cardHTML(exam, idx = 0) {
     : (tc?.displayMode === 'examYear'
         ? `${dy.label} ${typeLabel}`
         : `${dy.label}학년도 ${typeLabel}`);
-  const subtitle = exam.subSubject ? `${exam.subject} · ${yearPart}` : yearPart;
+  // legacy 계열 표기는 title 에 이미 영역명 합쳐졌으므로 subtitle 중복 회피
+  const subtitle = (exam.subSubject && !isLegacySub) ? `${exam.subject} · ${yearPart}` : yearPart;
 
   const yearChip = `<span class="chiplet chiplet--ink">${dy.label}${dy.suffix ? ' ' + dy.suffix : ''}</span>`;
   const typeChip = tc
@@ -658,11 +740,13 @@ $('activeTags').addEventListener('click', e => {
 
   state.page = 1;
   render();
+  syncUrl();
 });
 
 // ── 초기화 ─────────────────────────────────────────────────
 function resetAll() {
   resetFilters();
+  state.yearExpanded = false;
   $('searchInput').value = '';
   $('clearSearch').style.display = 'none';
 
@@ -672,6 +756,7 @@ function resetAll() {
   }
   renderFilterPanel();
   render();
+  syncUrl();
 }
 
 // ── 스켈레톤 ───────────────────────────────────────────────
@@ -687,6 +772,8 @@ function showSkeleton(show) {
 // 회차 친화 URL 매핑 (build-data.py 의 set_friendly_filename 와 동일 규약)
 const SET_CURR_SLUG = {
   '2015': 'kice', '2009': 'kice', '예비': 'kice',
+  // 7차 이전 분리 키는 모두 기존 exam-set-pre2009-*.html 정적 페이지로 매핑 (SEO·링크 호환)
+  '2007개정': 'pre2009', '7차': 'pre2009', '6차': 'pre2009', 'pre2009': 'pre2009',
   '사관': 'mil', '경찰대': 'police', 'LEET': 'leet', 'MEET': 'meet',
 };
 function setFriendlyURL(curr, year, type, grade) {
@@ -743,6 +830,15 @@ function escHtml(str) {
   return String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 }
 function escAttr(str) { return escHtml(str); }
+
+// ── 뒤로가기/앞으로가기: URL 변경 시 상태 재적용 ────────────
+window.addEventListener('popstate', () => {
+  // exams 아직 로드 중이면 스킵 — loadExams 가 applyUrlState 다시 호출함
+  if (state.loading) return;
+  applyUrlState();
+  renderFilterPanel();
+  render();
+});
 
 // ── 시작 ──────────────────────────────────────────────────
 loadExams();

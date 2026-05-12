@@ -1048,7 +1048,12 @@ def build_set_meta(curr: str, year: str, t: str, sg: int | None, exams_in_set: l
 
 def set_friendly_filename(curr: str, year: str, t: str, sg: int | None) -> str:
     """회차 친화 URL 파일명. 예: exam-set-edu-2027-mar-g3.html / exam-set-kice-2027-csat.html"""
-    curr_slug = {'2015':'kice','2009':'kice','예비':'kice','사관':'mil','경찰대':'police','LEET':'leet','MEET':'meet'}.get(curr, curr.lower())
+    curr_slug = {
+        '2015':'kice','2009':'kice','예비':'kice',
+        # 7차 이전 분리 키는 모두 기존 pre2009 슬러그로 통일 — SEO·이력 호환
+        '2007개정':'pre2009','7차':'pre2009','6차':'pre2009','pre2009':'pre2009',
+        '사관':'mil','경찰대':'police','LEET':'leet','MEET':'meet',
+    }.get(curr, curr.lower())
     grade_part = f'-g{sg}' if sg else ''
     return f'exam-set-{curr_slug}-{year}-{t}{grade_part}.html'
 
@@ -1246,17 +1251,21 @@ def main():
 
     # ─ 짝수형 PDF overrides 적용 — 매칭되는 item 에 questionUrlEven 부착 ─
     even_path = ROOT / 'data' / 'even-form-overrides.json'
+    # 09개정 초기(2014~2016) A/B형 ↔ 가/나형 — SUBTYPE_BASE 의 atype/btype 정규화와 동일.
+    # override 파일이 옛 'A형'/'B형' 표기를 사용하더라도 데이터의 '가형/나형' 카드에 attach.
+    EVEN_SUB_ALIAS = {'A형': '가형', 'B형': '나형'}
     if even_path.exists():
         even_overrides = json.loads(even_path.read_text(encoding='utf-8'))
         attached = 0
         for ov in even_overrides:
             m = ov['match']
+            target_sub = EVEN_SUB_ALIAS.get(m.get('subSubject'), m.get('subSubject'))
             for it in items:
                 if it.get('gradeYear') != m['gradeYear']: continue
                 if it.get('type')      != m['type']:      continue
                 if it.get('subject')   != m['subject']:   continue
-                # match.subSubject 가 명시되면 정확 일치, None 이면 모든 sub 변형에 attach (합본 PDF)
-                if m.get('subSubject') is not None and it.get('subSubject') != m['subSubject']:
+                # match.subSubject 가 명시되면 정확 일치 (alias 적용 후), None 이면 모든 sub 변형에 attach
+                if target_sub is not None and it.get('subSubject') != target_sub:
                     continue
                 # 홀수 분리본 — 기존 합본 url 을 odd 분리본으로 대체
                 if 'questionUrl' in ov:
