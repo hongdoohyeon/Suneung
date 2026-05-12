@@ -616,5 +616,65 @@
     "answerDownloadEven": "2016학년도_csat_영어_정답(짝수형).pdf",
     "_split_local": "tmp/even-answers/2916_a_even.pdf",
     "_target_name": "2016_csat_id2916_a_even.pdf"
+  },
+  {
+    "match": {
+      "gradeYear": 2026,
+      "type": "csat",
+      "subject": "영어",
+      "subSubject": null
+    },
+    "questionUrlEven": "https://suneung-files.hdh061224.workers.dev/kice-archive-v3/2026_csat_id37_q_even.pdf",
+    "questionDownloadEven": "2026학년도_csat_영어_문제지(짝수형).pdf",
+    "_split_local": "tmp/even-questions/37_q_even.pdf",
+    "_target_name": "2026_csat_id37_q_even.pdf"
+  },
+  {
+    "match": {
+      "gradeYear": 2026,
+      "type": "csat",
+      "subject": "한국사",
+      "subSubject": null
+    },
+    "questionUrlEven": "https://suneung-files.hdh061224.workers.dev/kice-archive-v3/2026_csat_id38_q_even.pdf",
+    "questionDownloadEven": "2026학년도_csat_한국사_문제지(짝수형).pdf",
+    "_split_local": "tmp/even-questions/38_q_even.pdf",
+    "_target_name": "2026_csat_id38_q_even.pdf"
+  },
+  {
+    "match": {
+      "gradeYear": 2024,
+      "type": "csat",
+      "subject": "영어",
+      "subSubject": null
+    },
+    "questionUrlEven": "https://suneung-files.hdh061224.workers.dev/kice-archive-v3/2024_csat_id571_q_even.pdf",
+    "questionDownloadEven": "2024학년도_csat_영어_문제지(짝수형).pdf",
+    "_split_local": "tmp/even-questions/571_q_even.pdf",
+    "_target_name": "2024_csat_id571_q_even.pdf"
+  },
+  {
+    "match": {
+      "gradeYear": 2024,
+      "type": "csat",
+      "subject": "한국사",
+      "subSubject": null
+    },
+    "questionUrlEven": "https://suneung-files.hdh061224.workers.dev/kice-archive-v3/2024_csat_id572_q_even.pdf",
+    "questionDownloadEven": "2024학년도_csat_한국사_문제지(짝수형).pdf",
+    "_split_local": "tmp/even-questions/572_q_even.pdf",
+    "_target_name": "2024_csat_id572_q_even.pdf"
+  },
+  {
+    "match": {
+      "gradeYear": 2023,
+      "type": "csat",
+      "subject": "한국사",
+      "subSubject": null
+    },
+    "questionUrlEven": "https://suneung-files.hdh061224.workers.dev/kice-archive-v3/2023_csat_id879_q_even.pdf",
+    "questionDownloadEven": "2023학년도_csat_한국사_문제지(짝수형).pdf",
+    "_split_local": "tmp/even-questions/879_q_even.pdf",
+    "_target_name": "2023_csat_id879_q_even.pdf"
   }
 ]

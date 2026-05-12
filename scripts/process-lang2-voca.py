@@ -13,7 +13,7 @@ DST = Path('tmp/kice-final-lang2-voca')
 OUT = Path('data/kice-lang2-voca-items.json')
 DST.mkdir(parents=True, exist_ok=True)
 
-REL_BASE = 'https://suneung-files.hdh061224.workers.dev/kice-archive-v3/'
+REL_BASE = 'https://suneung-files.hdh061224.workers.dev/kice-archive-v4/'
 
 # 직업탐구 과목명 (PDF 파일명 → subSubject 정규화)
 VOCA_NORM = {
@@ -138,6 +138,10 @@ for gy_dir in sorted(SRC.iterdir()):
                 subj_name = subj_dir.name
                 subject = '제2외국어' if subj_name.startswith('제2외국어') else '직업탐구'
                 # 디렉토리 구조: subj_dir / {q,a,sol,listen,misc} / [nested_dir/]*.pdf
+                # 통합 정답표 (a 디렉토리에 단일 PDF & subSubject 매칭 X) → 같은 게시물 모든 sub 에 fallback
+                a_dir = subj_dir / 'a'
+                a_pdfs = list(a_dir.rglob('*.pdf')) if a_dir.is_dir() else []
+                fallback_a = a_pdfs[0] if len(a_pdfs) == 1 else None
                 bucket = {}
                 for kind_dir in subj_dir.iterdir():
                     if not kind_dir.is_dir(): continue
@@ -161,6 +165,11 @@ for gy_dir in sorted(SRC.iterdir()):
                         sub_norm = normalize_sub(subj_name, raw_sub)
                         if not sub_norm: continue
                         bucket.setdefault(sub_norm, {})[kind] = f
+                # 통합 정답표 fallback: a 누락된 sub 에 단일 PDF 부착
+                if fallback_a is not None:
+                    for sub_norm, kinds in bucket.items():
+                        if 'a' not in kinds:
+                            kinds['a'] = fallback_a
                 for sub_norm, kinds in bucket.items():
                     rec = {'gradeYear': gy, 'type': type_, 'subject': subject, 'subSubject': sub_norm}
                     for k, p in kinds.items():
