@@ -1215,6 +1215,35 @@ def main():
         items = [{**it, 'id': idx} for idx, it in enumerate(items, 1)]
         print(f'  + KICE 아카이브 merge: +{len(kice_items)} → 총 {len(items)}')
 
+    # ─ 영역 보강 (사탐/과탐) area-fill items — 누락 item 의 url 채우거나 신규 추가 ─
+    area_path = ROOT / 'data' / 'kice-area-fill-items.json'
+    if area_path.exists():
+        area_items = json.loads(area_path.read_text(encoding='utf-8'))
+        # (gy, type, subject, subSubject) → 우리 item lookup
+        idx = {}
+        for it in items:
+            k = (it.get('gradeYear'), it.get('type'), it.get('subject'), it.get('subSubject'))
+            idx.setdefault(k, []).append(it)
+        attached = added = 0
+        next_id = max((it.get('id', 0) for it in items if isinstance(it.get('id'), int)), default=0) + 1
+        for ai in area_items:
+            k = (ai.get('gradeYear'), ai.get('type'), ai.get('subject'), ai.get('subSubject'))
+            matches = idx.get(k, [])
+            if matches:
+                for m in matches:
+                    # 기존 url 보존 — 누락 시에만 채움
+                    for fld in ('questionUrl','answerUrl','solutionUrl',
+                                'questionDownload','answerDownload'):
+                        if not m.get(fld) and ai.get(fld):
+                            m[fld] = ai[fld]
+                attached += 1
+            else:
+                ai['id'] = next_id
+                items.append(ai)
+                next_id += 1
+                added += 1
+        print(f'  + 영역 보강 area-fill: attach {attached}, 신규 {added} → 총 {len(items)}')
+
     # ─ 짝수형 PDF overrides 적용 — 매칭되는 item 에 questionUrlEven 부착 ─
     even_path = ROOT / 'data' / 'even-form-overrides.json'
     if even_path.exists():
@@ -1229,6 +1258,13 @@ def main():
                 # match.subSubject 가 명시되면 정확 일치, None 이면 모든 sub 변형에 attach (합본 PDF)
                 if m.get('subSubject') is not None and it.get('subSubject') != m['subSubject']:
                     continue
+                # 홀수 분리본 — 기존 합본 url 을 odd 분리본으로 대체
+                if 'questionUrl' in ov:
+                    it['questionUrl']      = ov['questionUrl']
+                    it['questionDownload'] = ov['questionDownload']
+                if 'answerUrl' in ov:
+                    it['answerUrl']      = ov['answerUrl']
+                    it['answerDownload'] = ov['answerDownload']
                 if 'questionUrlEven' in ov:
                     it['questionUrlEven']      = ov['questionUrlEven']
                     it['questionDownloadEven'] = ov['questionDownloadEven']

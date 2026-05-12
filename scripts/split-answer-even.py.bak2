@@ -90,7 +90,7 @@ print(f'  분리 완료: {len(splits)}건 → {OUT}')
 # overrides 추가 — 기존 even-form-overrides.json 에 answerUrlEven 합치기
 OV_PATH = Path('data/even-form-overrides.json')
 existing = json.loads(OV_PATH.read_text(encoding='utf-8')) if OV_PATH.exists() else []
-REL_BASE = 'https://suneung-files.hdh061224.workers.dev/kice-archive-v6/'
+REL_BASE = 'https://suneung-files.hdh061224.workers.dev/kice-archive-v3/'
 
 # id 기반 빠른 lookup 으로 추가 — match 는 item 의 (gy,type,subject,subSubject) 사용
 id_to_item = {i['id']: i for i in ITEMS}
