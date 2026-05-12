@@ -704,9 +704,12 @@ def build_exam_meta(it: dict) -> dict:
     elif tg == 'education':
         sg    = it.get('studentGrade') or 3
         month = it.get('month') or 0
-        head  = f'{gy}년 {month}월 학평 (고{sg}) {sub}{sub_part}'
-        seo_kw = f'{gy2}년 {month}월 고{sg} 학평 {sub}{sub_part} 기출답'
-        full_phrase = f'{gy}년 {month}월 고{sg} 학력평가(학평) {sub}{sub_part}'
+        ey    = it.get('examYear') or (gy - 1)
+        # primary: 시행연도 기준 ("2026년 3월 고3 학력평가") — H1·title 의 직관적 표기
+        head  = f'{ey}년 {month}월 고{sg} 학력평가 {sub}{sub_part}'
+        # SEO alias: 학년도 표기도 함께 노출 ("27학년도 3모" 같은 학생 검색어)
+        seo_kw = f'{gy}학년도 {month}모 {sub}{sub_part} 기출답 · {ey}년 {month}월 고{sg} 학평'
+        full_phrase = f'{ey}년 {month}월 고{sg} 학력평가(={gy}학년도 {month}월 학평) {sub}{sub_part}'
     elif tg == 'military':
         head  = f'{gy}학년도 사관학교 1차 {sub}{sub_part}'
         seo_kw = f'{gy2}학년도 사관학교 {sub}{sub_part} 기출'
@@ -775,19 +778,28 @@ def build_exam_meta(it: dict) -> dict:
             f'역대 수능의 응시 인원·접수 현황·과목별 채점 결과(평균·등급·계열별 분포)를 담고 있습니다. '
             f'PDF 파일을 무료로 다운로드해 확인하세요.'
         )
-    elif is_english and has_listen:
-        intro = (
-            f'{full_phrase} 기출 자료입니다. '
-            f'문제지, 정답, 해설지뿐 아니라 영어 듣기 MP3와 듣기 대본 PDF, 스크립트 자료를 함께 제공합니다. '
-            + (f'{alias_phrase}로도 검색되는 시험입니다. ' if alias_phrase else '')
-            + '듣기평가 음원과 영어 영역 기출답을 한 페이지에서 확인하세요.'
-        )
     else:
-        intro = (
-            f'{full_phrase} 기출 자료입니다. '
-            f'문제지, 정답, 해설지, 등급컷·빠른정답까지 한 페이지에서 확인하세요. '
-            + (f'{alias_phrase}로도 검색되는 시험입니다.' if alias_phrase else '')
-        )
+        # 자료 유형 조건부 노출 — 실제 보유한 url 만 문구에 포함
+        assets = []
+        if it.get('questionUrl'):  assets.append('문제지')
+        if it.get('answerUrl'):    assets.append('정답')
+        if it.get('solutionUrl'):  assets.append('해설지')
+        if it.get('listenUrl'):    assets.append('영어 듣기 MP3')
+        if it.get('scriptUrl'):    assets.append('듣기 대본 PDF')
+        assets_phrase = ('· '.join(assets) + '를 ') if assets else ''
+        if is_english and has_listen:
+            intro = (
+                f'{full_phrase} 기출 자료입니다. '
+                + (f'{assets_phrase}한 페이지에서 확인하세요. ' if assets_phrase else '')
+                + (f'{alias_phrase}로도 검색되는 시험입니다. ' if alias_phrase else '')
+                + '듣기평가 음원과 영어 영역 기출답을 한 페이지에서 확인하세요.'
+            )
+        else:
+            intro = (
+                f'{full_phrase} 기출 자료입니다. '
+                + (f'{assets_phrase}한 페이지에서 확인하세요. ' if assets_phrase else '')
+                + (f'{alias_phrase}로도 검색되는 시험입니다.' if alias_phrase else '')
+            )
 
     # JSON-LD keywords 배열
     kw = list(dict.fromkeys(
@@ -846,32 +858,62 @@ def build_static_exam_pages(items: list[dict], template_path: Path, out_root: Pa
         canonical = meta['canonical']
         head      = meta['head']
 
-        jsonld = {
-          '@context': 'https://schema.org',
-          '@type': 'LearningResource',
-          '@id':  canonical,
-          'url':  canonical,
-          'name': head,
-          'description': meta['description'],
-          'inLanguage': 'ko-KR',
-          'learningResourceType': '기출문제',
-          'educationalLevel': '고등학교' if it.get('typeGroup') in ('suneung', 'education') else '대학원',
-          'isPartOf': {'@id': 'https://kicegg.com/#website'},
-          'keywords': meta['keywords'],
-        }
-        if it.get('questionUrl'):
-            parts = [{'@type': 'DigitalDocument', 'name': '문제지',
-                      'url': it['questionUrl'], 'encodingFormat': 'application/pdf'}]
+        # reference(KICE 통계자료) → 기출이 아닌 DigitalDocument 로 분류
+        is_reference = it.get('typeGroup') == 'reference'
+        if is_reference:
+            jsonld = {
+              '@context': 'https://schema.org',
+              '@type': 'DigitalDocument',
+              '@id':  canonical,
+              'url':  canonical,
+              'name': head,
+              'description': meta['description'],
+              'inLanguage': 'ko-KR',
+              'encodingFormat': 'application/pdf',
+              'publisher': {'@type': 'Organization', 'name': '한국교육과정평가원 (KICE)'},
+              'isPartOf': {'@id': 'https://kicegg.com/#website'},
+              'keywords': meta['keywords'],
+            }
+            if it.get('questionUrl'):
+                jsonld['contentUrl'] = it['questionUrl']
+        else:
+            jsonld = {
+              '@context': 'https://schema.org',
+              '@type': 'LearningResource',
+              '@id':  canonical,
+              'url':  canonical,
+              'name': head,
+              'description': meta['description'],
+              'inLanguage': 'ko-KR',
+              'learningResourceType': '기출문제',
+              'educationalLevel': '고등학교' if it.get('typeGroup') in ('suneung', 'education') else '대학원',
+              'isPartOf': {'@id': 'https://kicegg.com/#website'},
+              'keywords': meta['keywords'],
+            }
+            parts = []
+            if it.get('questionUrl'):
+                parts.append({'@type': 'DigitalDocument', 'name': '문제지',
+                              'url': it['questionUrl'], 'encodingFormat': 'application/pdf'})
+            if it.get('questionUrlEven'):
+                parts.append({'@type': 'DigitalDocument', 'name': '문제지(짝수형)',
+                              'url': it['questionUrlEven'], 'encodingFormat': 'application/pdf'})
             if it.get('answerUrl'):
                 parts.append({'@type': 'DigitalDocument', 'name': '정답',
                               'url': it['answerUrl'], 'encodingFormat': 'application/pdf'})
+            if it.get('answerUrlEven'):
+                parts.append({'@type': 'DigitalDocument', 'name': '정답(짝수형)',
+                              'url': it['answerUrlEven'], 'encodingFormat': 'application/pdf'})
+            if it.get('solutionUrl'):
+                parts.append({'@type': 'DigitalDocument', 'name': '해설지',
+                              'url': it['solutionUrl'], 'encodingFormat': 'application/pdf'})
             if it.get('listenUrl'):
-                parts.append({'@type': 'AudioObject', 'name': '영어 듣기 mp3',
+                parts.append({'@type': 'AudioObject', 'name': '영어 듣기 MP3',
                               'contentUrl': it['listenUrl'], 'encodingFormat': 'audio/mpeg'})
             if it.get('scriptUrl'):
-                parts.append({'@type': 'DigitalDocument', 'name': '듣기 스크립트',
+                parts.append({'@type': 'DigitalDocument', 'name': '듣기 대본',
                               'url': it['scriptUrl'], 'encodingFormat': 'application/pdf'})
-            jsonld['hasPart'] = parts
+            if parts:
+                jsonld['hasPart'] = parts
 
         # BreadcrumbList — SERP rich snippet (홈 › 기출 검색 › 시험명)
         breadcrumb = {
