@@ -586,7 +586,22 @@ export function filtered() {
   }
   const lookupOr999 = (m, v) => m.get(v) ?? 999;
 
-  return items.sort((a, b) => {
+  // 검색 쿼리 있을 때만 같은 questionUrl 카드 dedupe — 1999~2004 통합 시험지가 5개 영역 카드로 노출되어 검색 결과 노이즈가 됨.
+  // 영역 필터·아카이브 일반 보기는 그대로 (필터·분류 본래 의도 유지).
+  const dedupedItems = (() => {
+    if (!hasQuery) return items;
+    const seen = new Set();
+    const out = [];
+    for (const e of items) {
+      const u = e.questionUrl;
+      if (u && seen.has(u)) continue;
+      if (u) seen.add(u);
+      out.push(e);
+    }
+    return out;
+  })();
+
+  return dedupedItems.sort((a, b) => {
     // 1) 검색 점수 우선 (쿼리 있을 때)
     if (hasQuery) {
       const sa = scoreCache.get(a) ?? 0;
