@@ -155,7 +155,18 @@ function renderHead(exam) {
       </svg>공유
     </button>`
   );
-  $('examActions').innerHTML = buttons.join('');
+  // SSG 가 이미 다운로드 버튼을 채웠으면 (정적 진입 = 1단계 작동) — 공유 버튼만 추가, 깜빡임 방지
+  const _actionsEl = $('examActions');
+  const _alreadySSG = _actionsEl && _actionsEl.querySelector('a.btn');
+  if (_alreadySSG) {
+    // SSG 출력 보존 + 공유 버튼만 append
+    const shareBtnHtml = buttons[buttons.length - 1];
+    if (shareBtnHtml && !_actionsEl.querySelector('#examShareBtn')) {
+      _actionsEl.insertAdjacentHTML('beforeend', shareBtnHtml);
+    }
+  } else {
+    _actionsEl.innerHTML = buttons.join('');
+  }
 
   // 공유 버튼 동작
   const shareBtn = document.getElementById('examShareBtn');
