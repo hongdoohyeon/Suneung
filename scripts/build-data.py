@@ -767,6 +767,14 @@ def build_exam_meta(it: dict) -> dict:
             f'{seo_kw} 한 페이지에서 해체. 다운로드 무료.'
         )
 
+    # description 160자 권장 (SERP/OG 절단 회피) — 단어 경계 보존하며 잘라냄
+    if len(desc) > 160:
+        cut = desc[:157]
+        last_space = max(cut.rfind('. '), cut.rfind(' '), cut.rfind('·'))
+        if last_space > 100:
+            cut = cut[:last_space]
+        desc = cut.rstrip(' ·,.') + '…'
+
     canonical = f'https://kicegg.com/exam-{it["id"]}.html'
 
     # SEO 본문 — H1 아래 첫 문단으로 들어갈 자연어 텍스트 (검색엔진이 본문에서 키워드 잡음)
