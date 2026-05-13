@@ -1,0 +1,744 @@
+[
+  {
+    "match": {
+      "gradeYear": 2026,
+      "type": "csat",
+      "subject": "국어"
+    },
+    "kind": "a",
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v7/2026_csat_k22656608_a_odd_46c7d36a.pdf",
+    "answerDownload": "2026학년도_csat_국어_a_(홀수형).pdf",
+    "answerUrlEven": "https://suneung-files.hdh061224.workers.dev/kice-archive-v7/2026_csat_k22656608_a_even_46c7d36a.pdf",
+    "answerDownloadEven": "2026학년도_csat_국어_a_(짝수형).pdf",
+    "_pages": 2,
+    "_marks": "oe"
+  },
+  {
+    "match": {
+      "gradeYear": 2026,
+      "type": "csat",
+      "subject": "수학"
+    },
+    "kind": "a",
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v7/2026_csat_kfa5ebfcf_a_odd_970fb683.pdf",
+    "answerDownload": "2026학년도_csat_수학_a_(홀수형).pdf",
+    "answerUrlEven": "https://suneung-files.hdh061224.workers.dev/kice-archive-v7/2026_csat_kfa5ebfcf_a_even_970fb683.pdf",
+    "answerDownloadEven": "2026학년도_csat_수학_a_(짝수형).pdf",
+    "_pages": 2,
+    "_marks": "oe"
+  },
+  {
+    "match": {
+      "gradeYear": 2026,
+      "type": "csat",
+      "subject": "영어"
+    },
+    "kind": "q",
+    "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v7/2026_csat_kbf6e5992_q_odd_e0431cad.pdf",
+    "questionDownload": "2026학년도_csat_영어_q_(홀수형).pdf",
+    "questionUrlEven": "https://suneung-files.hdh061224.workers.dev/kice-archive-v7/2026_csat_kbf6e5992_q_even_e0431cad.pdf",
+    "questionDownloadEven": "2026학년도_csat_영어_q_(짝수형).pdf",
+    "_pages": 16,
+    "_marks": "ooooooooeeeeeeee"
+  },
+  {
+    "match": {
+      "gradeYear": 2026,
+      "type": "csat",
+      "subject": "영어"
+    },
+    "kind": "a",
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v7/2026_csat_kbf6e5992_a_odd_6d7129b9.pdf",
+    "answerDownload": "2026학년도_csat_영어_a_(홀수형).pdf",
+    "answerUrlEven": "https://suneung-files.hdh061224.workers.dev/kice-archive-v7/2026_csat_kbf6e5992_a_even_6d7129b9.pdf",
+    "answerDownloadEven": "2026학년도_csat_영어_a_(짝수형).pdf",
+    "_pages": 2,
+    "_marks": "oe"
+  },
+  {
+    "match": {
+      "gradeYear": 2026,
+      "type": "csat",
+      "subject": "한국사"
+    },
+    "kind": "a",
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v7/2026_csat_k3294535b_a_odd_38d392ed.pdf",
+    "answerDownload": "2026학년도_csat_한국사_a_(홀수형).pdf",
+    "answerUrlEven": "https://suneung-files.hdh061224.workers.dev/kice-archive-v7/2026_csat_k3294535b_a_even_38d392ed.pdf",
+    "answerDownloadEven": "2026학년도_csat_한국사_a_(짝수형).pdf",
+    "_pages": 2,
+    "_marks": "oe"
+  },
+  {
+    "match": {
+      "gradeYear": 2026,
+      "type": "csat",
+      "subject": "한국사"
+    },
+    "kind": "q",
+    "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v7/2026_csat_k3294535b_q_odd_10b6d784.pdf",
+    "questionDownload": "2026학년도_csat_한국사_q_(홀수형).pdf",
+    "questionUrlEven": "https://suneung-files.hdh061224.workers.dev/kice-archive-v7/2026_csat_k3294535b_q_even_10b6d784.pdf",
+    "questionDownloadEven": "2026학년도_csat_한국사_q_(짝수형).pdf",
+    "_pages": 8,
+    "_marks": "ooooeeee"
+  },
+  {
+    "match": {
+      "gradeYear": 2026,
+      "type": "csat",
+      "subject": "수학"
+    },
+    "kind": "q",
+    "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v7/2026_csat_kfa5ebfcf_q_odd_f9055b34.pdf",
+    "questionDownload": "2026학년도_csat_수학_q_(홀수형).pdf",
+    "questionUrlEven": "https://suneung-files.hdh061224.workers.dev/kice-archive-v7/2026_csat_kfa5ebfcf_q_even_f9055b34.pdf",
+    "questionDownloadEven": "2026학년도_csat_수학_q_(짝수형).pdf",
+    "_pages": 40,
+    "_marks": "oooooooooo·oooooooooeeeeeeeeee·eeeeeeeee"
+  },
+  {
+    "match": {
+      "gradeYear": 2026,
+      "type": "csat",
+      "subject": "국어"
+    },
+    "kind": "q",
+    "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v7/2026_csat_k22656608_q_odd_60defdef.pdf",
+    "questionDownload": "2026학년도_csat_국어_q_(홀수형).pdf",
+    "questionUrlEven": "https://suneung-files.hdh061224.workers.dev/kice-archive-v7/2026_csat_k22656608_q_even_60defdef.pdf",
+    "questionDownloadEven": "2026학년도_csat_국어_q_(짝수형).pdf",
+    "_pages": 40,
+    "_marks": "ooooooooooooooooooooeeeeeeeeeeeeeeeeeeee"
+  },
+  {
+    "match": {
+      "gradeYear": 2024,
+      "type": "csat",
+      "subject": "국어"
+    },
+    "kind": "a",
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v7/2024_csat_k22656608_a_odd_3186b86a.pdf",
+    "answerDownload": "2024학년도_csat_국어_a_(홀수형).pdf",
+    "answerUrlEven": "https://suneung-files.hdh061224.workers.dev/kice-archive-v7/2024_csat_k22656608_a_even_3186b86a.pdf",
+    "answerDownloadEven": "2024학년도_csat_국어_a_(짝수형).pdf",
+    "_pages": 2,
+    "_marks": "oe"
+  },
+  {
+    "match": {
+      "gradeYear": 2024,
+      "type": "csat",
+      "subject": "수학"
+    },
+    "kind": "a",
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v7/2024_csat_kfa5ebfcf_a_odd_bf6151b8.pdf",
+    "answerDownload": "2024학년도_csat_수학_a_(홀수형).pdf",
+    "answerUrlEven": "https://suneung-files.hdh061224.workers.dev/kice-archive-v7/2024_csat_kfa5ebfcf_a_even_bf6151b8.pdf",
+    "answerDownloadEven": "2024학년도_csat_수학_a_(짝수형).pdf",
+    "_pages": 2,
+    "_marks": "oe"
+  },
+  {
+    "match": {
+      "gradeYear": 2024,
+      "type": "csat",
+      "subject": "영어"
+    },
+    "kind": "q",
+    "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v7/2024_csat_kbf6e5992_q_odd_418f1c9f.pdf",
+    "questionDownload": "2024학년도_csat_영어_q_(홀수형).pdf",
+    "questionUrlEven": "https://suneung-files.hdh061224.workers.dev/kice-archive-v7/2024_csat_kbf6e5992_q_even_418f1c9f.pdf",
+    "questionDownloadEven": "2024학년도_csat_영어_q_(짝수형).pdf",
+    "_pages": 16,
+    "_marks": "ooooooooeeeeeeee"
+  },
+  {
+    "match": {
+      "gradeYear": 2024,
+      "type": "csat",
+      "subject": "영어"
+    },
+    "kind": "a",
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v7/2024_csat_kbf6e5992_a_odd_5f01d530.pdf",
+    "answerDownload": "2024학년도_csat_영어_a_(홀수형).pdf",
+    "answerUrlEven": "https://suneung-files.hdh061224.workers.dev/kice-archive-v7/2024_csat_kbf6e5992_a_even_5f01d530.pdf",
+    "answerDownloadEven": "2024학년도_csat_영어_a_(짝수형).pdf",
+    "_pages": 2,
+    "_marks": "oe"
+  },
+  {
+    "match": {
+      "gradeYear": 2024,
+      "type": "csat",
+      "subject": "한국사"
+    },
+    "kind": "a",
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v7/2024_csat_k3294535b_a_odd_c198a7fa.pdf",
+    "answerDownload": "2024학년도_csat_한국사_a_(홀수형).pdf",
+    "answerUrlEven": "https://suneung-files.hdh061224.workers.dev/kice-archive-v7/2024_csat_k3294535b_a_even_c198a7fa.pdf",
+    "answerDownloadEven": "2024학년도_csat_한국사_a_(짝수형).pdf",
+    "_pages": 2,
+    "_marks": "oe"
+  },
+  {
+    "match": {
+      "gradeYear": 2024,
+      "type": "csat",
+      "subject": "한국사"
+    },
+    "kind": "q",
+    "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v7/2024_csat_k3294535b_q_odd_f4a39bbe.pdf",
+    "questionDownload": "2024학년도_csat_한국사_q_(홀수형).pdf",
+    "questionUrlEven": "https://suneung-files.hdh061224.workers.dev/kice-archive-v7/2024_csat_k3294535b_q_even_f4a39bbe.pdf",
+    "questionDownloadEven": "2024학년도_csat_한국사_q_(짝수형).pdf",
+    "_pages": 8,
+    "_marks": "ooooeeee"
+  },
+  {
+    "match": {
+      "gradeYear": 2023,
+      "type": "csat",
+      "subject": "국어"
+    },
+    "kind": "a",
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v7/2023_csat_k22656608_a_odd_6c164b64.pdf",
+    "answerDownload": "2023학년도_csat_국어_a_(홀수형).pdf",
+    "answerUrlEven": "https://suneung-files.hdh061224.workers.dev/kice-archive-v7/2023_csat_k22656608_a_even_6c164b64.pdf",
+    "answerDownloadEven": "2023학년도_csat_국어_a_(짝수형).pdf",
+    "_pages": 2,
+    "_marks": "oe"
+  },
+  {
+    "match": {
+      "gradeYear": 2024,
+      "type": "csat",
+      "subject": "수학"
+    },
+    "kind": "q",
+    "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v7/2024_csat_kfa5ebfcf_q_odd_23bed50b.pdf",
+    "questionDownload": "2024학년도_csat_수학_q_(홀수형).pdf",
+    "questionUrlEven": "https://suneung-files.hdh061224.workers.dev/kice-archive-v7/2024_csat_kfa5ebfcf_q_even_23bed50b.pdf",
+    "questionDownloadEven": "2024학년도_csat_수학_q_(짝수형).pdf",
+    "_pages": 40,
+    "_marks": "ooooo·ooooooooooooooeeeee·eeeeeeeeeeeeee"
+  },
+  {
+    "match": {
+      "gradeYear": 2023,
+      "type": "csat",
+      "subject": "수학"
+    },
+    "kind": "a",
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v7/2023_csat_kfa5ebfcf_a_odd_7ed981af.pdf",
+    "answerDownload": "2023학년도_csat_수학_a_(홀수형).pdf",
+    "answerUrlEven": "https://suneung-files.hdh061224.workers.dev/kice-archive-v7/2023_csat_kfa5ebfcf_a_even_7ed981af.pdf",
+    "answerDownloadEven": "2023학년도_csat_수학_a_(짝수형).pdf",
+    "_pages": 2,
+    "_marks": "oe"
+  },
+  {
+    "match": {
+      "gradeYear": 2023,
+      "type": "csat",
+      "subject": "영어"
+    },
+    "kind": "a",
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v7/2023_csat_kbf6e5992_a_odd_4b2553d1.pdf",
+    "answerDownload": "2023학년도_csat_영어_a_(홀수형).pdf",
+    "answerUrlEven": "https://suneung-files.hdh061224.workers.dev/kice-archive-v7/2023_csat_kbf6e5992_a_even_4b2553d1.pdf",
+    "answerDownloadEven": "2023학년도_csat_영어_a_(짝수형).pdf",
+    "_pages": 2,
+    "_marks": "oe"
+  },
+  {
+    "match": {
+      "gradeYear": 2024,
+      "type": "csat",
+      "subject": "국어"
+    },
+    "kind": "q",
+    "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v7/2024_csat_k22656608_q_odd_c1f3da47.pdf",
+    "questionDownload": "2024학년도_csat_국어_q_(홀수형).pdf",
+    "questionUrlEven": "https://suneung-files.hdh061224.workers.dev/kice-archive-v7/2024_csat_k22656608_q_even_c1f3da47.pdf",
+    "questionDownloadEven": "2024학년도_csat_국어_q_(짝수형).pdf",
+    "_pages": 40,
+    "_marks": "oo·oooooooooooooooooeeeeeeeeeeeeeeeeeeee"
+  },
+  {
+    "match": {
+      "gradeYear": 2023,
+      "type": "csat",
+      "subject": "한국사"
+    },
+    "kind": "a",
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v7/2023_csat_k3294535b_a_odd_889465df.pdf",
+    "answerDownload": "2023학년도_csat_한국사_a_(홀수형).pdf",
+    "answerUrlEven": "https://suneung-files.hdh061224.workers.dev/kice-archive-v7/2023_csat_k3294535b_a_even_889465df.pdf",
+    "answerDownloadEven": "2023학년도_csat_한국사_a_(짝수형).pdf",
+    "_pages": 2,
+    "_marks": "oe"
+  },
+  {
+    "match": {
+      "gradeYear": 2022,
+      "type": "csat",
+      "subject": "국어"
+    },
+    "kind": "a",
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v7/2022_csat_k22656608_a_odd_f7683448.pdf",
+    "answerDownload": "2022학년도_csat_국어_a_(홀수형).pdf",
+    "answerUrlEven": "https://suneung-files.hdh061224.workers.dev/kice-archive-v7/2022_csat_k22656608_a_even_f7683448.pdf",
+    "answerDownloadEven": "2022학년도_csat_국어_a_(짝수형).pdf",
+    "_pages": 2,
+    "_marks": "oe"
+  },
+  {
+    "match": {
+      "gradeYear": 2022,
+      "type": "csat",
+      "subject": "수학"
+    },
+    "kind": "a",
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v7/2022_csat_kfa5ebfcf_a_odd_17370fa9.pdf",
+    "answerDownload": "2022학년도_csat_수학_a_(홀수형).pdf",
+    "answerUrlEven": "https://suneung-files.hdh061224.workers.dev/kice-archive-v7/2022_csat_kfa5ebfcf_a_even_17370fa9.pdf",
+    "answerDownloadEven": "2022학년도_csat_수학_a_(짝수형).pdf",
+    "_pages": 2,
+    "_marks": "oe"
+  },
+  {
+    "match": {
+      "gradeYear": 2022,
+      "type": "csat",
+      "subject": "영어"
+    },
+    "kind": "a",
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v7/2022_csat_kbf6e5992_a_odd_ec6cab9f.pdf",
+    "answerDownload": "2022학년도_csat_영어_a_(홀수형).pdf",
+    "answerUrlEven": "https://suneung-files.hdh061224.workers.dev/kice-archive-v7/2022_csat_kbf6e5992_a_even_ec6cab9f.pdf",
+    "answerDownloadEven": "2022학년도_csat_영어_a_(짝수형).pdf",
+    "_pages": 2,
+    "_marks": "oe"
+  },
+  {
+    "match": {
+      "gradeYear": 2023,
+      "type": "csat",
+      "subject": "한국사"
+    },
+    "kind": "q",
+    "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v7/2023_csat_k3294535b_q_odd_79024681.pdf",
+    "questionDownload": "2023학년도_csat_한국사_q_(홀수형).pdf",
+    "questionUrlEven": "https://suneung-files.hdh061224.workers.dev/kice-archive-v7/2023_csat_k3294535b_q_even_79024681.pdf",
+    "questionDownloadEven": "2023학년도_csat_한국사_q_(짝수형).pdf",
+    "_pages": 8,
+    "_marks": "ooooeeee"
+  },
+  {
+    "match": {
+      "gradeYear": 2022,
+      "type": "csat",
+      "subject": "한국사"
+    },
+    "kind": "a",
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v7/2022_csat_k3294535b_a_odd_1d0fef21.pdf",
+    "answerDownload": "2022학년도_csat_한국사_a_(홀수형).pdf",
+    "answerUrlEven": "https://suneung-files.hdh061224.workers.dev/kice-archive-v7/2022_csat_k3294535b_a_even_1d0fef21.pdf",
+    "answerDownloadEven": "2022학년도_csat_한국사_a_(짝수형).pdf",
+    "_pages": 2,
+    "_marks": "oe"
+  },
+  {
+    "match": {
+      "gradeYear": 2021,
+      "type": "csat",
+      "subject": "국어"
+    },
+    "kind": "a",
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v7/2021_csat_k22656608_a_odd_2717cf72.pdf",
+    "answerDownload": "2021학년도_csat_국어_a_(홀수형).pdf",
+    "answerUrlEven": "https://suneung-files.hdh061224.workers.dev/kice-archive-v7/2021_csat_k22656608_a_even_2717cf72.pdf",
+    "answerDownloadEven": "2021학년도_csat_국어_a_(짝수형).pdf",
+    "_pages": 2,
+    "_marks": "oe"
+  },
+  {
+    "match": {
+      "gradeYear": 2021,
+      "type": "csat",
+      "subject": "영어"
+    },
+    "kind": "a",
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v7/2021_csat_kbf6e5992_a_odd_36c07c7a.pdf",
+    "answerDownload": "2021학년도_csat_영어_a_(홀수형).pdf",
+    "answerUrlEven": "https://suneung-files.hdh061224.workers.dev/kice-archive-v7/2021_csat_kbf6e5992_a_even_36c07c7a.pdf",
+    "answerDownloadEven": "2021학년도_csat_영어_a_(짝수형).pdf",
+    "_pages": 2,
+    "_marks": "oe"
+  },
+  {
+    "match": {
+      "gradeYear": 2021,
+      "type": "csat",
+      "subject": "수학"
+    },
+    "kind": "a",
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v7/2021_csat_kfa5ebfcf_a_odd_be9c7695.pdf",
+    "answerDownload": "2021학년도_csat_수학_a_(홀수형).pdf",
+    "answerUrlEven": "https://suneung-files.hdh061224.workers.dev/kice-archive-v7/2021_csat_kfa5ebfcf_a_even_be9c7695.pdf",
+    "answerDownloadEven": "2021학년도_csat_수학_a_(짝수형).pdf",
+    "_pages": 4,
+    "_marks": "oeoe"
+  },
+  {
+    "match": {
+      "gradeYear": 2021,
+      "type": "csat",
+      "subject": "한국사"
+    },
+    "kind": "a",
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v7/2021_csat_k3294535b_a_odd_49b90107.pdf",
+    "answerDownload": "2021학년도_csat_한국사_a_(홀수형).pdf",
+    "answerUrlEven": "https://suneung-files.hdh061224.workers.dev/kice-archive-v7/2021_csat_k3294535b_a_even_49b90107.pdf",
+    "answerDownloadEven": "2021학년도_csat_한국사_a_(짝수형).pdf",
+    "_pages": 2,
+    "_marks": "oe"
+  },
+  {
+    "match": {
+      "gradeYear": 2023,
+      "type": "csat",
+      "subject": "국어"
+    },
+    "kind": "q",
+    "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v7/2023_csat_k22656608_q_odd_e55bd781.pdf",
+    "questionDownload": "2023학년도_csat_국어_q_(홀수형).pdf",
+    "questionUrlEven": "https://suneung-files.hdh061224.workers.dev/kice-archive-v7/2023_csat_k22656608_q_even_e55bd781.pdf",
+    "questionDownloadEven": "2023학년도_csat_국어_q_(짝수형).pdf",
+    "_pages": 40,
+    "_marks": "ooooooooooooooooooooeeeeeeeeeeeeeeeeeeee"
+  },
+  {
+    "match": {
+      "gradeYear": 2023,
+      "type": "csat",
+      "subject": "수학"
+    },
+    "kind": "q",
+    "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v7/2023_csat_kfa5ebfcf_q_odd_4dee411e.pdf",
+    "questionDownload": "2023학년도_csat_수학_q_(홀수형).pdf",
+    "questionUrlEven": "https://suneung-files.hdh061224.workers.dev/kice-archive-v7/2023_csat_kfa5ebfcf_q_even_4dee411e.pdf",
+    "questionDownloadEven": "2023학년도_csat_수학_q_(짝수형).pdf",
+    "_pages": 40,
+    "_marks": "ooooooooooo·ooooooooeeeeeeee·eeeeeeeeeee"
+  },
+  {
+    "match": {
+      "gradeYear": 2020,
+      "type": "csat",
+      "subject": "국어"
+    },
+    "kind": "a",
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v7/2020_csat_k22656608_a_odd_763665c2.pdf",
+    "answerDownload": "2020학년도_csat_국어_a_(홀수형).pdf",
+    "answerUrlEven": "https://suneung-files.hdh061224.workers.dev/kice-archive-v7/2020_csat_k22656608_a_even_763665c2.pdf",
+    "answerDownloadEven": "2020학년도_csat_국어_a_(짝수형).pdf",
+    "_pages": 2,
+    "_marks": "oe"
+  },
+  {
+    "match": {
+      "gradeYear": 2020,
+      "type": "csat",
+      "subject": "수학"
+    },
+    "kind": "a",
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v7/2020_csat_kfa5ebfcf_a_odd_a783e596.pdf",
+    "answerDownload": "2020학년도_csat_수학_a_(홀수형).pdf",
+    "answerUrlEven": "https://suneung-files.hdh061224.workers.dev/kice-archive-v7/2020_csat_kfa5ebfcf_a_even_a783e596.pdf",
+    "answerDownloadEven": "2020학년도_csat_수학_a_(짝수형).pdf",
+    "_pages": 4,
+    "_marks": "oeoe"
+  },
+  {
+    "match": {
+      "gradeYear": 2020,
+      "type": "csat",
+      "subject": "영어"
+    },
+    "kind": "a",
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v7/2020_csat_kbf6e5992_a_odd_864f20cd.pdf",
+    "answerDownload": "2020학년도_csat_영어_a_(홀수형).pdf",
+    "answerUrlEven": "https://suneung-files.hdh061224.workers.dev/kice-archive-v7/2020_csat_kbf6e5992_a_even_864f20cd.pdf",
+    "answerDownloadEven": "2020학년도_csat_영어_a_(짝수형).pdf",
+    "_pages": 2,
+    "_marks": "oe"
+  },
+  {
+    "match": {
+      "gradeYear": 2020,
+      "type": "csat",
+      "subject": "한국사"
+    },
+    "kind": "a",
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v7/2020_csat_k3294535b_a_odd_8ce97181.pdf",
+    "answerDownload": "2020학년도_csat_한국사_a_(홀수형).pdf",
+    "answerUrlEven": "https://suneung-files.hdh061224.workers.dev/kice-archive-v7/2020_csat_k3294535b_a_even_8ce97181.pdf",
+    "answerDownloadEven": "2020학년도_csat_한국사_a_(짝수형).pdf",
+    "_pages": 2,
+    "_marks": "oe"
+  },
+  {
+    "match": {
+      "gradeYear": 2019,
+      "type": "csat",
+      "subject": "국어"
+    },
+    "kind": "a",
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v7/2019_csat_k22656608_a_odd_1315d626.pdf",
+    "answerDownload": "2019학년도_csat_국어_a_(홀수형).pdf",
+    "answerUrlEven": "https://suneung-files.hdh061224.workers.dev/kice-archive-v7/2019_csat_k22656608_a_even_1315d626.pdf",
+    "answerDownloadEven": "2019학년도_csat_국어_a_(짝수형).pdf",
+    "_pages": 2,
+    "_marks": "oe"
+  },
+  {
+    "match": {
+      "gradeYear": 2019,
+      "type": "csat",
+      "subject": "수학"
+    },
+    "kind": "a",
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v7/2019_csat_kfa5ebfcf_a_odd_4954a44d.pdf",
+    "answerDownload": "2019학년도_csat_수학_a_(홀수형).pdf",
+    "answerUrlEven": "https://suneung-files.hdh061224.workers.dev/kice-archive-v7/2019_csat_kfa5ebfcf_a_even_4954a44d.pdf",
+    "answerDownloadEven": "2019학년도_csat_수학_a_(짝수형).pdf",
+    "_pages": 4,
+    "_marks": "oeoe"
+  },
+  {
+    "match": {
+      "gradeYear": 2019,
+      "type": "csat",
+      "subject": "영어"
+    },
+    "kind": "a",
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v7/2019_csat_kbf6e5992_a_odd_43d4ba55.pdf",
+    "answerDownload": "2019학년도_csat_영어_a_(홀수형).pdf",
+    "answerUrlEven": "https://suneung-files.hdh061224.workers.dev/kice-archive-v7/2019_csat_kbf6e5992_a_even_43d4ba55.pdf",
+    "answerDownloadEven": "2019학년도_csat_영어_a_(짝수형).pdf",
+    "_pages": 2,
+    "_marks": "oe"
+  },
+  {
+    "match": {
+      "gradeYear": 2019,
+      "type": "csat",
+      "subject": "한국사"
+    },
+    "kind": "a",
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v7/2019_csat_k3294535b_a_odd_df2a4fad.pdf",
+    "answerDownload": "2019학년도_csat_한국사_a_(홀수형).pdf",
+    "answerUrlEven": "https://suneung-files.hdh061224.workers.dev/kice-archive-v7/2019_csat_k3294535b_a_even_df2a4fad.pdf",
+    "answerDownloadEven": "2019학년도_csat_한국사_a_(짝수형).pdf",
+    "_pages": 2,
+    "_marks": "oe"
+  },
+  {
+    "match": {
+      "gradeYear": 2018,
+      "type": "csat",
+      "subject": "국어"
+    },
+    "kind": "a",
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v7/2018_csat_k22656608_a_odd_1f2c7f70.pdf",
+    "answerDownload": "2018학년도_csat_국어_a_(홀수형).pdf",
+    "answerUrlEven": "https://suneung-files.hdh061224.workers.dev/kice-archive-v7/2018_csat_k22656608_a_even_1f2c7f70.pdf",
+    "answerDownloadEven": "2018학년도_csat_국어_a_(짝수형).pdf",
+    "_pages": 2,
+    "_marks": "oe"
+  },
+  {
+    "match": {
+      "gradeYear": 2018,
+      "type": "csat",
+      "subject": "영어"
+    },
+    "kind": "a",
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v7/2018_csat_kbf6e5992_a_odd_d26b3355.pdf",
+    "answerDownload": "2018학년도_csat_영어_a_(홀수형).pdf",
+    "answerUrlEven": "https://suneung-files.hdh061224.workers.dev/kice-archive-v7/2018_csat_kbf6e5992_a_even_d26b3355.pdf",
+    "answerDownloadEven": "2018학년도_csat_영어_a_(짝수형).pdf",
+    "_pages": 2,
+    "_marks": "oe"
+  },
+  {
+    "match": {
+      "gradeYear": 2018,
+      "type": "csat",
+      "subject": "수학"
+    },
+    "kind": "a",
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v7/2018_csat_kfa5ebfcf_a_odd_aceb110d.pdf",
+    "answerDownload": "2018학년도_csat_수학_a_(홀수형).pdf",
+    "answerUrlEven": "https://suneung-files.hdh061224.workers.dev/kice-archive-v7/2018_csat_kfa5ebfcf_a_even_aceb110d.pdf",
+    "answerDownloadEven": "2018학년도_csat_수학_a_(짝수형).pdf",
+    "_pages": 4,
+    "_marks": "oeoe"
+  },
+  {
+    "match": {
+      "gradeYear": 2018,
+      "type": "csat",
+      "subject": "한국사"
+    },
+    "kind": "a",
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v7/2018_csat_k3294535b_a_odd_06737fcc.pdf",
+    "answerDownload": "2018학년도_csat_한국사_a_(홀수형).pdf",
+    "answerUrlEven": "https://suneung-files.hdh061224.workers.dev/kice-archive-v7/2018_csat_k3294535b_a_even_06737fcc.pdf",
+    "answerDownloadEven": "2018학년도_csat_한국사_a_(짝수형).pdf",
+    "_pages": 2,
+    "_marks": "oe"
+  },
+  {
+    "match": {
+      "gradeYear": 2017,
+      "type": "csat",
+      "subject": "국어"
+    },
+    "kind": "a",
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v7/2017_csat_k22656608_a_odd_8a8c8595.pdf",
+    "answerDownload": "2017학년도_csat_국어_a_(홀수형).pdf",
+    "answerUrlEven": "https://suneung-files.hdh061224.workers.dev/kice-archive-v7/2017_csat_k22656608_a_even_8a8c8595.pdf",
+    "answerDownloadEven": "2017학년도_csat_국어_a_(짝수형).pdf",
+    "_pages": 2,
+    "_marks": "oe"
+  },
+  {
+    "match": {
+      "gradeYear": 2017,
+      "type": "csat",
+      "subject": "영어"
+    },
+    "kind": "a",
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v7/2017_csat_kbf6e5992_a_odd_295e96a9.pdf",
+    "answerDownload": "2017학년도_csat_영어_a_(홀수형).pdf",
+    "answerUrlEven": "https://suneung-files.hdh061224.workers.dev/kice-archive-v7/2017_csat_kbf6e5992_a_even_295e96a9.pdf",
+    "answerDownloadEven": "2017학년도_csat_영어_a_(짝수형).pdf",
+    "_pages": 2,
+    "_marks": "oe"
+  },
+  {
+    "match": {
+      "gradeYear": 2017,
+      "type": "csat",
+      "subject": "수학"
+    },
+    "kind": "a",
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v7/2017_csat_kfa5ebfcf_a_odd_6556f614.pdf",
+    "answerDownload": "2017학년도_csat_수학_a_(홀수형).pdf",
+    "answerUrlEven": "https://suneung-files.hdh061224.workers.dev/kice-archive-v7/2017_csat_kfa5ebfcf_a_even_6556f614.pdf",
+    "answerDownloadEven": "2017학년도_csat_수학_a_(짝수형).pdf",
+    "_pages": 4,
+    "_marks": "oeoe"
+  },
+  {
+    "match": {
+      "gradeYear": 2017,
+      "type": "csat",
+      "subject": "한국사"
+    },
+    "kind": "a",
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v7/2017_csat_k3294535b_a_odd_f2a01946.pdf",
+    "answerDownload": "2017학년도_csat_한국사_a_(홀수형).pdf",
+    "answerUrlEven": "https://suneung-files.hdh061224.workers.dev/kice-archive-v7/2017_csat_k3294535b_a_even_f2a01946.pdf",
+    "answerDownloadEven": "2017학년도_csat_한국사_a_(짝수형).pdf",
+    "_pages": 2,
+    "_marks": "oe"
+  },
+  {
+    "match": {
+      "gradeYear": 2016,
+      "type": "csat",
+      "subject": "영어"
+    },
+    "kind": "a",
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v7/2016_csat_kbf6e5992_a_odd_ebe886c0.pdf",
+    "answerDownload": "2016학년도_csat_영어_a_(홀수형).pdf",
+    "answerUrlEven": "https://suneung-files.hdh061224.workers.dev/kice-archive-v7/2016_csat_kbf6e5992_a_even_ebe886c0.pdf",
+    "answerDownloadEven": "2016학년도_csat_영어_a_(짝수형).pdf",
+    "_pages": 2,
+    "_marks": "oe"
+  },
+  {
+    "match": {
+      "gradeYear": 2016,
+      "type": "csat",
+      "subject": "수학"
+    },
+    "kind": "a",
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v7/2016_csat_kfa5ebfcf_a_odd_3cbede91.pdf",
+    "answerDownload": "2016학년도_csat_수학_a_(홀수형).pdf",
+    "answerUrlEven": "https://suneung-files.hdh061224.workers.dev/kice-archive-v7/2016_csat_kfa5ebfcf_a_even_3cbede91.pdf",
+    "answerDownloadEven": "2016학년도_csat_수학_a_(짝수형).pdf",
+    "_pages": 4,
+    "_marks": "oeoe"
+  },
+  {
+    "match": {
+      "gradeYear": 2016,
+      "type": "csat",
+      "subject": "국어"
+    },
+    "kind": "a",
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v7/2016_csat_k22656608_a_odd_1c039677.pdf",
+    "answerDownload": "2016학년도_csat_국어_a_(홀수형).pdf",
+    "answerUrlEven": "https://suneung-files.hdh061224.workers.dev/kice-archive-v7/2016_csat_k22656608_a_even_1c039677.pdf",
+    "answerDownloadEven": "2016학년도_csat_국어_a_(짝수형).pdf",
+    "_pages": 4,
+    "_marks": "oeoe"
+  },
+  {
+    "match": {
+      "gradeYear": 2026,
+      "type": "june",
+      "subject": "수학"
+    },
+    "kind": "q",
+    "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v7/2026_june_kfa5ebfcf_q_odd_f7c9912a.pdf",
+    "questionDownload": "2026학년도_june_수학_q_(홀수형).pdf",
+    "questionUrlEven": "https://suneung-files.hdh061224.workers.dev/kice-archive-v7/2026_june_kfa5ebfcf_q_even_f7c9912a.pdf",
+    "questionDownloadEven": "2026학년도_june_수학_q_(짝수형).pdf",
+    "_pages": 20,
+    "_marks": "·········eoo········"
+  },
+  {
+    "match": {
+      "gradeYear": 2025,
+      "type": "sept",
+      "subject": "수학"
+    },
+    "kind": "q",
+    "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v7/2025_sept_kfa5ebfcf_q_odd_5405c74a.pdf",
+    "questionDownload": "2025학년도_sept_수학_q_(홀수형).pdf",
+    "questionUrlEven": "https://suneung-files.hdh061224.workers.dev/kice-archive-v7/2025_sept_kfa5ebfcf_q_even_5405c74a.pdf",
+    "questionDownloadEven": "2025학년도_sept_수학_q_(짝수형).pdf",
+    "_pages": 20,
+    "_marks": "·········oe·········"
+  },
+  {
+    "match": {
+      "gradeYear": 2024,
+      "type": "june",
+      "subject": "수학"
+    },
+    "kind": "q",
+    "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v7/2024_june_kfa5ebfcf_q_odd_e00e4ae4.pdf",
+    "questionDownload": "2024학년도_june_수학_q_(홀수형).pdf",
+    "questionUrlEven": "https://suneung-files.hdh061224.workers.dev/kice-archive-v7/2024_june_kfa5ebfcf_q_even_e00e4ae4.pdf",
+    "questionDownloadEven": "2024학년도_june_수학_q_(짝수형).pdf",
+    "_pages": 20,
+    "_marks": "··········oe········"
+  }
+]
