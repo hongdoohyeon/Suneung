@@ -284,10 +284,47 @@ function renderQuickAnswers(exam) {
     body.innerHTML = `<p class="exam-card__sub">이 시험의 빠른정답은 추출 정확도가 낮아 표시하지 않아요 (${missing}/${exam.answers.length} 미확인). 위 <strong>[정답 다운로드]</strong> 버튼으로 평가원 정답 PDF를 받아주세요.</p>`;
     return false;
   }
+  const hasEven = Array.isArray(exam.answersEven) && exam.answersEven.length > 0;
   if (count) {
-    count.textContent = missing > 0
+    const formInfo = hasEven ? ' (홀수형)' : '';
+    count.textContent = (missing > 0
       ? `총 ${exam.answers.length}문항 · ${missing}개 미확인`
-      : `총 ${exam.answers.length}문항`;
+      : `총 ${exam.answers.length}문항`) + formInfo;
+  }
+  const CIRCLE = ['', '①', '②', '③', '④', '⑤'];
+  const renderCells = (arr) => arr.map((a, i) => {
+    const isMissing = a === '?' || a == null;
+    const isMulti = !isMissing && typeof a === 'string' && a.includes(',');
+    let display;
+    if (isMissing) display = '—';
+    else if (isMulti) display = a.split(',').map(d => CIRCLE[Number(d)] || d).join('');
+    else display = escHtml(a);
+    const title = isMissing ? ' title="정답 미제공"' : (isMulti ? ' title="복수정답"' : '');
+    return `<div class="qa-cell${isMissing ? ' qa-cell--missing' : ''}${isMulti ? ' qa-cell--multi' : ''}"${title}><span class="qa-cell__num">${i+1}</span><span class="qa-cell__ans">${display}</span></div>`;
+  }).join('');
+  if (hasEven) {
+    body.innerHTML = `
+      <div class="qa-tabs" role="tablist" style="display:flex;gap:6px;margin-bottom:10px">
+        <button class="qa-tab qa-tab--active" data-form="odd" type="button" style="padding:4px 10px;border:1px solid var(--line);background:var(--ink);color:#fff;border-radius:6px;font-size:12px">홀수형</button>
+        <button class="qa-tab" data-form="even" type="button" style="padding:4px 10px;border:1px solid var(--line);background:transparent;color:var(--ink);border-radius:6px;font-size:12px">짝수형</button>
+      </div>
+      <div class="qa-grid" id="qaGridOdd">${renderCells(exam.answers)}</div>
+      <div class="qa-grid" id="qaGridEven" style="display:none">${renderCells(exam.answersEven)}</div>`;
+    body.querySelectorAll('.qa-tab').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const isOdd = btn.dataset.form === 'odd';
+        body.querySelector('#qaGridOdd').style.display  = isOdd ? '' : 'none';
+        body.querySelector('#qaGridEven').style.display = isOdd ? 'none' : '';
+        body.querySelectorAll('.qa-tab').forEach(b => {
+          const a = b.dataset.form === btn.dataset.form;
+          b.classList.toggle('qa-tab--active', a);
+          b.style.background = a ? 'var(--ink)' : 'transparent';
+          b.style.color = a ? '#fff' : 'var(--ink)';
+        });
+        if (count) count.textContent = `총 ${(isOdd ? exam.answers : exam.answersEven).length}문항 (${isOdd?'홀수형':'짝수형'})`;
+      });
+    });
+    return true;
   }
   const cells = exam.answers.map((a, i) => {
     const isMissing = a === '?' || a == null;
@@ -337,17 +374,21 @@ async function main() {
   // 미존재 시 통합 data/exams.json (~2MB) 로 폴백.
   let exam = null, gradecuts = [], answersMap = {}, scoreDist = [];
   try {
-    const [singleRes, cutRes, ansRes, distRes] = await Promise.all([
+    const [singleRes, cutRes, ansRes, ansERes, distRes] = await Promise.all([
       fetch(`data/exam/${id}.json`),
       fetch('data/gradecuts.json'),
       fetch('data/answers.json'),
+      fetch('data/answers-even.json'),
       fetch('data/score-distribution.json'),
     ]);
     if (singleRes.ok) exam = await singleRes.json();
     if (cutRes.ok)    gradecuts  = await cutRes.json();
     if (ansRes.ok)    answersMap = await ansRes.json();
+    if (ansERes.ok)   var answersEvenMap = await ansERes.json();
+    else var answersEvenMap = {};
     if (distRes.ok)   scoreDist  = await distRes.json();
   } catch { /* fall-through */ }
+  if (typeof answersEvenMap === 'undefined') var answersEvenMap = {};
 
   // 단건 split 미배포 환경 폴백: 통합 exams.json
   if (!exam) {
@@ -365,6 +406,10 @@ async function main() {
   // 사전 추출된 정답이 있으면 합쳐 사용 (exam.answers 우선, 없으면 answersMap 폴백)
   if ((!Array.isArray(exam.answers) || exam.answers.length === 0) && answersMap[id]) {
     exam.answers = answersMap[id];
+  }
+  // 짝수 정답 — answersEvenMap 에서 fallback
+  if ((!Array.isArray(exam.answersEven) || exam.answersEven.length === 0) && answersEvenMap[id]) {
+    exam.answersEven = answersEvenMap[id];
   }
 
   renderHead(exam);
