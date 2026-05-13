@@ -276,7 +276,14 @@ function renderQuickAnswers(exam) {
     return false;
   }
   // 빠진 답이 있으면 추출 신뢰도가 떨어진 것 — 라벨로 안내
-  const missing = exam.answers.filter(a => a === '?').length;
+  const missing = exam.answers.filter(a => a === '?' || a == null).length;
+  const missingRatio = missing / exam.answers.length;
+  // 30% 이상 미확인이면 빠답 카드 자체 비노출 (잘못된 답 표시보다 정답 PDF 안내가 정확)
+  if (missingRatio >= 0.30) {
+    if (count) count.textContent = '추출 정확도 부족';
+    body.innerHTML = `<p class="exam-card__sub">이 시험의 빠른정답은 추출 정확도가 낮아 표시하지 않아요 (${missing}/${exam.answers.length} 미확인). 위 <strong>[정답 다운로드]</strong> 버튼으로 평가원 정답 PDF를 받아주세요.</p>`;
+    return false;
+  }
   if (count) {
     count.textContent = missing > 0
       ? `총 ${exam.answers.length}문항 · ${missing}개 미확인`
