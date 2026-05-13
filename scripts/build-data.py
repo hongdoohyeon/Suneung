@@ -1338,6 +1338,35 @@ def main():
                 added += 1
         print(f'  + 영역 보강 area-fill: attach {attached}, 신규 {added} → 총 {len(items)}')
 
+    # ─ KICE 평가원 합본 PDF 분리본 (split-overrides) 우선 적용 ─
+    # 평가원 자료마당 직접 다운 PDF 가 합본 (1~N 홀수형 + N+1~2N 짝수형) → 페이지 헤더로 분리.
+    # questionUrl·answerUrl 을 분리본으로 갱신 + questionUrlEven·answerUrlEven 부착.
+    split_path = ROOT / 'data' / 'kice-split-overrides.json'
+    if split_path.exists():
+        split_ovs = json.loads(split_path.read_text(encoding='utf-8'))
+        attached = 0
+        for ov in split_ovs:
+            m = ov['match']
+            kind = ov.get('kind')
+            for it in items:
+                if it.get('typeGroup') != 'suneung': continue
+                if it.get('gradeYear') != m['gradeYear']: continue
+                if it.get('type')      != m['type']:      continue
+                if it.get('subject')   != m['subject']:   continue
+                # subSubject 무관 — 평가원 합본은 영역 통합본 (모든 sub 카드에 동일 attach)
+                if kind == 'q':
+                    if 'questionUrl' in ov:     it['questionUrl']      = ov['questionUrl']
+                    if 'questionDownload' in ov: it['questionDownload'] = ov['questionDownload']
+                    if 'questionUrlEven' in ov: it['questionUrlEven']  = ov['questionUrlEven']
+                    if 'questionDownloadEven' in ov: it['questionDownloadEven'] = ov['questionDownloadEven']
+                elif kind == 'a':
+                    if 'answerUrl' in ov:       it['answerUrl']      = ov['answerUrl']
+                    if 'answerDownload' in ov:  it['answerDownload'] = ov['answerDownload']
+                    if 'answerUrlEven' in ov:   it['answerUrlEven']  = ov['answerUrlEven']
+                    if 'answerDownloadEven' in ov: it['answerDownloadEven'] = ov['answerDownloadEven']
+                attached += 1
+        print(f'  + KICE split overrides: {len(split_ovs)} → {attached}건 attach')
+
     # ─ 짝수형 PDF overrides 적용 — 매칭되는 item 에 questionUrlEven 부착 ─
     even_path = ROOT / 'data' / 'even-form-overrides.json'
     # 09개정 초기(2014~2016) A/B형 ↔ 가/나형 — SUBTYPE_BASE 의 atype/btype 정규화와 동일.
