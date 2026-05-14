@@ -74,8 +74,8 @@ export const CURRICULUM_CONFIG = {
     gradeYearRange: [2014, 2021],
     availableTypeGroups: ['suneung', 'education'],
     subjects: {
-      '국어':      { icon: '📖', bg: '#fff0e8', color: '#c44b00', subs: [] },
-      '수학':      { icon: '📐', bg: '#eef2ff', color: '#1a4fd6', subs: ['가형', '나형'] },
+      '국어':      { icon: '📖', bg: '#fff0e8', color: '#c44b00', subs: ['A형','B형'] },
+      '수학':      { icon: '📐', bg: '#eef2ff', color: '#1a4fd6', subs: ['가형', '나형', 'A형', 'B형'] },
       '영어':      { icon: '🌍', bg: '#e6f5fb', color: '#0077a8', subs: [] },
       '한국사':    { icon: '🏛️', bg: '#fdf3e7', color: '#8f5610', subs: [] },
       '과학탐구':  { icon: '🔬', bg: '#f0e8ff', color: '#6b2fbe',

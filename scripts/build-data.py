@@ -1338,6 +1338,30 @@ def main():
                 added += 1
         print(f'  + 영역 보강 area-fill: attach {attached}, 신규 {added} → 총 {len(items)}')
 
+    # ─ 학년도별 영역 명명 정정 (sqlite 잘못된 매핑) ─
+    # 2014~2016 csat 국어·수학: 실제는 A형/B형 (수준별 분리). 가형/나형은 09개정 수학용.
+    # 2014 csat 사회탐구: '한국사' 는 17수능부터 필수영역. 14년엔 '한국근현대사' 가 정답.
+    NAME_FIX = {
+        (2014, 'csat', '국어', '가형'): 'A형',
+        (2014, 'csat', '국어', '나형'): 'B형',
+        (2015, 'csat', '국어', '가형'): 'A형',
+        (2015, 'csat', '국어', '나형'): 'B형',
+        (2016, 'csat', '국어', '가형'): 'A형',
+        (2016, 'csat', '국어', '나형'): 'B형',
+        (2014, 'csat', '수학', '가형'): 'B형',   # 가형(자연) = B형
+        (2014, 'csat', '수학', '나형'): 'A형',   # 나형(인문) = A형
+        (2015, 'csat', '수학', '가형'): 'B형',
+        (2015, 'csat', '수학', '나형'): 'A형',
+        (2014, 'csat', '사회탐구', '한국사'): '한국근현대사',
+    }
+    fixed = 0
+    for it in items:
+        k = (it.get('gradeYear'), it.get('type'), it.get('subject'), it.get('subSubject'))
+        if k in NAME_FIX:
+            it['subSubject'] = NAME_FIX[k]
+            fixed += 1
+    if fixed: print(f'  + subSubject 정정: {fixed}건 (학년도별 명명 룰)')
+
     # ─ KICE 평가원 합본 PDF 분리본 (split-overrides) 우선 적용 ─
     # 평가원 자료마당 직접 다운 PDF 가 합본 (1~N 홀수형 + N+1~2N 짝수형) → 페이지 헤더로 분리.
     # questionUrl·answerUrl 을 분리본으로 갱신 + questionUrlEven·answerUrlEven 부착.

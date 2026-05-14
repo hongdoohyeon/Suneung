@@ -54186,15 +54186,13 @@
     "typeGroup": "suneung",
     "type": "csat",
     "subject": "국어",
-    "subSubject": "가형",
+    "subSubject": "A형",
     "solutionUrl": null,
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-v2/2016_csat_korean_atype_q.pdf?name=2016%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EA%B5%AD%EC%96%B4%28%EA%B0%80%ED%98%95%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
     "answerUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v7/2016_csat_k22656608_a_odd_1c039677.pdf?name=2016%ED%95%99%EB%85%84%EB%8F%84_csat_%EA%B5%AD%EC%96%B4_a_%28%ED%99%80%EC%88%98%ED%98%95%29.pdf",
     "answerDownload": "2016학년도_csat_국어_a_(홀수형).pdf",
     "answerUrlEven": "https://suneung-files.hdh061224.workers.dev/kice-archive-v7/2016_csat_k22656608_a_even_1c039677.pdf?name=2016%ED%95%99%EB%85%84%EB%8F%84_csat_%EA%B5%AD%EC%96%B4_a_%28%EC%A7%9D%EC%88%98%ED%98%95%29.pdf",
-    "answerDownloadEven": "2016학년도_csat_국어_a_(짝수형).pdf",
-    "questionUrlEven": "https://suneung-files.hdh061224.workers.dev/kice-archive-v3/2016_csat_k22656608_ke697f2c4_q_even.pdf?name=2016%ED%95%99%EB%85%84%EB%8F%84_csat_%EA%B5%AD%EC%96%B4_A%ED%98%95_%EB%AC%B8%EC%A0%9C%EC%A7%80%28%EC%A7%9D%EC%88%98%ED%98%95%29.pdf",
-    "questionDownloadEven": "2016학년도_csat_국어_A형_문제지(짝수형).pdf"
+    "answerDownloadEven": "2016학년도_csat_국어_a_(짝수형).pdf"
   },
   {
     "id": 3288,
@@ -54205,15 +54203,13 @@
     "typeGroup": "suneung",
     "type": "csat",
     "subject": "국어",
-    "subSubject": "나형",
+    "subSubject": "B형",
     "solutionUrl": null,
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-v2/2016_csat_korean_btype_q.pdf?name=2016%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EA%B5%AD%EC%96%B4%28%EB%82%98%ED%98%95%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
     "answerUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v7/2016_csat_k22656608_a_odd_1c039677.pdf?name=2016%ED%95%99%EB%85%84%EB%8F%84_csat_%EA%B5%AD%EC%96%B4_a_%28%ED%99%80%EC%88%98%ED%98%95%29.pdf",
     "answerDownload": "2016학년도_csat_국어_a_(홀수형).pdf",
     "answerUrlEven": "https://suneung-files.hdh061224.workers.dev/kice-archive-v7/2016_csat_k22656608_a_even_1c039677.pdf?name=2016%ED%95%99%EB%85%84%EB%8F%84_csat_%EA%B5%AD%EC%96%B4_a_%28%EC%A7%9D%EC%88%98%ED%98%95%29.pdf",
-    "answerDownloadEven": "2016학년도_csat_국어_a_(짝수형).pdf",
-    "questionUrlEven": "https://suneung-files.hdh061224.workers.dev/kice-archive-v3/2016_csat_k22656608_k5da9a5b6_q_even.pdf?name=2016%ED%95%99%EB%85%84%EB%8F%84_csat_%EA%B5%AD%EC%96%B4_B%ED%98%95_%EB%AC%B8%EC%A0%9C%EC%A7%80%28%EC%A7%9D%EC%88%98%ED%98%95%29.pdf",
-    "questionDownloadEven": "2016학년도_csat_국어_B형_문제지(짝수형).pdf"
+    "answerDownloadEven": "2016학년도_csat_국어_a_(짝수형).pdf"
   },
   {
     "id": 3289,
@@ -58796,7 +58792,7 @@
     "typeGroup": "suneung",
     "type": "csat",
     "subject": "국어",
-    "subSubject": "가형",
+    "subSubject": "A형",
     "solutionUrl": null,
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-v1/2015_csat_korean_atype_q.pdf?name=2015%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EA%B5%AD%EC%96%B4%28%EA%B0%80%ED%98%95%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
     "answerUrl": "https://suneung-files.hdh061224.workers.dev/kice-v1/2015_csat_korean_atype_a.pdf?name=2015%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EA%B5%AD%EC%96%B4%28%EA%B0%80%ED%98%95%29%20%EC%A0%95%EB%8B%B5.pdf"
@@ -58825,7 +58821,7 @@
     "typeGroup": "suneung",
     "type": "csat",
     "subject": "국어",
-    "subSubject": "나형",
+    "subSubject": "B형",
     "solutionUrl": null,
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-v1/2015_csat_korean_btype_q.pdf?name=2015%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EA%B5%AD%EC%96%B4%28%EB%82%98%ED%98%95%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
     "answerUrl": "https://suneung-files.hdh061224.workers.dev/kice-v1/2015_csat_korean_btype_a.pdf?name=2015%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EA%B5%AD%EC%96%B4%28%EB%82%98%ED%98%95%29%20%EC%A0%95%EB%8B%B5.pdf"
@@ -58854,7 +58850,7 @@
     "typeGroup": "suneung",
     "type": "csat",
     "subject": "수학",
-    "subSubject": "가형",
+    "subSubject": "B형",
     "solutionUrl": null,
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-v1/2015_csat_math_atype_q.pdf?name=2015%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EC%88%98%ED%95%99%28%EA%B0%80%ED%98%95%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
     "answerUrl": "https://suneung-files.hdh061224.workers.dev/kice-v1/2015_csat_math_atype_a.pdf?name=2015%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EC%88%98%ED%95%99%28%EA%B0%80%ED%98%95%29%20%EC%A0%95%EB%8B%B5.pdf"
@@ -58883,7 +58879,7 @@
     "typeGroup": "suneung",
     "type": "csat",
     "subject": "수학",
-    "subSubject": "나형",
+    "subSubject": "A형",
     "solutionUrl": null,
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-v1/2015_csat_math_btype_q.pdf?name=2015%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EC%88%98%ED%95%99%28%EB%82%98%ED%98%95%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
     "answerUrl": "https://suneung-files.hdh061224.workers.dev/kice-v1/2015_csat_math_btype_a.pdf?name=2015%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EC%88%98%ED%95%99%28%EB%82%98%ED%98%95%29%20%EC%A0%95%EB%8B%B5.pdf"
@@ -64293,7 +64289,7 @@
     "typeGroup": "suneung",
     "type": "csat",
     "subject": "국어",
-    "subSubject": "가형",
+    "subSubject": "A형",
     "solutionUrl": null,
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-v1/2014_csat_korean_atype_q.pdf?name=2014%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EA%B5%AD%EC%96%B4%28%EA%B0%80%ED%98%95%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
     "answerUrl": "https://suneung-files.hdh061224.workers.dev/kice-v1/2014_csat_korean_atype_a.pdf?name=2014%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EA%B5%AD%EC%96%B4%28%EA%B0%80%ED%98%95%29%20%EC%A0%95%EB%8B%B5.pdf"
@@ -64322,7 +64318,7 @@
     "typeGroup": "suneung",
     "type": "csat",
     "subject": "국어",
-    "subSubject": "나형",
+    "subSubject": "B형",
     "solutionUrl": null,
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-v1/2014_csat_korean_btype_q.pdf?name=2014%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EA%B5%AD%EC%96%B4%28%EB%82%98%ED%98%95%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
     "answerUrl": "https://suneung-files.hdh061224.workers.dev/kice-v1/2014_csat_korean_btype_a.pdf?name=2014%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EA%B5%AD%EC%96%B4%28%EB%82%98%ED%98%95%29%20%EC%A0%95%EB%8B%B5.pdf"
@@ -64366,7 +64362,7 @@
     "typeGroup": "suneung",
     "type": "csat",
     "subject": "수학",
-    "subSubject": "가형",
+    "subSubject": "B형",
     "solutionUrl": null,
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-v1/2014_csat_math_atype_q.pdf?name=2014%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EC%88%98%ED%95%99%28%EA%B0%80%ED%98%95%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
     "answerUrl": "https://suneung-files.hdh061224.workers.dev/kice-v1/2014_csat_math_atype_a.pdf?name=2014%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EC%88%98%ED%95%99%28%EA%B0%80%ED%98%95%29%20%EC%A0%95%EB%8B%B5.pdf"
@@ -64395,7 +64391,7 @@
     "typeGroup": "suneung",
     "type": "csat",
     "subject": "수학",
-    "subSubject": "나형",
+    "subSubject": "A형",
     "solutionUrl": null,
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-v1/2014_csat_math_btype_q.pdf?name=2014%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EC%88%98%ED%95%99%28%EB%82%98%ED%98%95%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
     "answerUrl": "https://suneung-files.hdh061224.workers.dev/kice-v1/2014_csat_math_btype_a.pdf?name=2014%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EC%88%98%ED%95%99%28%EB%82%98%ED%98%95%29%20%EC%A0%95%EB%8B%B5.pdf"
@@ -65154,7 +65150,7 @@
     "typeGroup": "suneung",
     "type": "csat",
     "subject": "사회탐구",
-    "subSubject": "한국사",
+    "subSubject": "한국근현대사",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v5/2014_csat_kcaf14c49_k3294535b_q.pdf",
     "answerUrl": null,
     "solutionUrl": null,
