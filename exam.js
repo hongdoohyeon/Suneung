@@ -310,24 +310,22 @@ function renderQuickAnswers(exam) {
   }).join('');
   if (hasEven) {
     body.innerHTML = `
-      <div class="qa-tabs" role="tablist" style="display:flex;gap:6px;margin-bottom:10px">
-        <button class="qa-tab qa-tab--active" data-form="odd" type="button" style="padding:4px 10px;border:1px solid var(--line);background:var(--ink);color:#fff;border-radius:6px;font-size:12px">홀수형</button>
-        <button class="qa-tab" data-form="even" type="button" style="padding:4px 10px;border:1px solid var(--line);background:transparent;color:var(--ink);border-radius:6px;font-size:12px">짝수형</button>
+      <div class="qa-tabs" role="tablist">
+        <button class="qa-tab is-active" data-form="odd" type="button" role="tab" aria-selected="true">홀수형</button>
+        <button class="qa-tab" data-form="even" type="button" role="tab" aria-selected="false">짝수형</button>
       </div>
-      <div class="qa-grid" id="qaGridOdd">${renderCells(exam.answers)}</div>
-      <div class="qa-grid" id="qaGridEven" style="display:none">${renderCells(exam.answersEven)}</div>`;
+      <div class="qa-grid" data-form="odd">${renderCells(exam.answers)}</div>
+      <div class="qa-grid" data-form="even" hidden>${renderCells(exam.answersEven)}</div>`;
     body.querySelectorAll('.qa-tab').forEach(btn => {
       btn.addEventListener('click', () => {
-        const isOdd = btn.dataset.form === 'odd';
-        body.querySelector('#qaGridOdd').style.display  = isOdd ? '' : 'none';
-        body.querySelector('#qaGridEven').style.display = isOdd ? 'none' : '';
+        const form = btn.dataset.form;
+        body.querySelectorAll('.qa-grid').forEach(g => { g.hidden = g.dataset.form !== form; });
         body.querySelectorAll('.qa-tab').forEach(b => {
-          const a = b.dataset.form === btn.dataset.form;
-          b.classList.toggle('qa-tab--active', a);
-          b.style.background = a ? 'var(--ink)' : 'transparent';
-          b.style.color = a ? '#fff' : 'var(--ink)';
+          const a = b.dataset.form === form;
+          b.classList.toggle('is-active', a);
+          b.setAttribute('aria-selected', a ? 'true' : 'false');
         });
-        if (count) count.textContent = `총 ${(isOdd ? exam.answers : exam.answersEven).length}문항 (${isOdd?'홀수형':'짝수형'})`;
+        if (count) count.textContent = `총 ${(form==='odd' ? exam.answers : exam.answersEven).length}문항 (${form==='odd'?'홀수형':'짝수형'})`;
       });
     });
     return true;

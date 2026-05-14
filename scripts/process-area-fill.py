@@ -79,10 +79,10 @@ for gy_dir in sorted(SRC.iterdir()):
                 subj_name = subj_dir.name
                 subject = '사회탐구' if subj_name == '사회탐구' else '과학탐구' if subj_name == '과학탐구' else None
                 if not subject: continue
-                # 통합 정답표 fallback
+                # 통합 정답표 fallback — a 디렉토리 PDF 중 가장 큰 것 (합본 가능성 큼)
                 a_dir = subj_dir / 'a'
                 a_pdfs = list(a_dir.rglob('*.pdf')) if a_dir.is_dir() else []
-                fallback_a = a_pdfs[0] if len(a_pdfs)==1 else None
+                fallback_a = max(a_pdfs, key=lambda p: p.stat().st_size) if a_pdfs else None
                 bucket = {}
                 for kind_dir in subj_dir.iterdir():
                     if not kind_dir.is_dir(): continue

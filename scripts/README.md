@@ -53,3 +53,17 @@ python3 scripts/build-data.py            # 메인 빌드
 python3 scripts/coverage-report.py       # 보고서 갱신
 python3 scripts/validate-sitemap.py      # sitemap 검증
 ```
+
+---
+
+## `_archive-1회성/` 폴더
+
+1회성 데이터 수집 작업 후 더 이상 정기 실행되지 않는 스크립트들 (참고용 보관):
+- `seed-batch-*.py` (61개): 옛 데이터 시드 import — 현재 build-data가 통합
+- `fetch-kice-1994-1998.py` / `merge-kice-1994-1998.py`: 1994~1998 옛 자료 별도 fetch
+- `prepare-kice-archive.py` / `rename-kice-archive.py` / `merge-kice-archive*.py`: KICE archive 매핑·rename·merge 작업
+- `expand-pre2009-by-area.py`: 1999~2004 인문/자연/예체능계 영역별 expand (1회 적용)
+- `clean-pre2009-subs.py`: pre2009 subSubject 정제
+- `attach-csat-even.py` / `attach-even-to-exams.py` / `upload-even-answers.py`: 짝수형 attach 1회성
+- `ocr-detect-even.py`: OCR 기반 합본 검증 1회성
+- `diff-kice-vs-ours.py`: 카탈로그 vs 데이터 diff 비교

@@ -21,7 +21,7 @@
   --ink:    #0c0a09;
   --ink-2:  #2c2a27;
   --ink-3:  #57534e;
-  --ink-4:  #8a8580;
+  --ink-4:  #76706a;   /* WCAG AA 4.5:1 충족 (이전 #8a8580 = 3.62:1 borderline) */
   --ink-5:  #b8b4ad;
   --ink-6:  #e0ddd6;
 
@@ -2542,6 +2542,30 @@ body.is-sheet-open { overflow: hidden; touch-action: none; }
   color: var(--ink-5);
   text-align: right;
   font-feature-settings: 'tnum' 1;
+}
+
+/* 빠른정답 — 홀수형/짝수형 탭 */
+.qa-tabs {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+.qa-tab {
+  padding: 5px 12px;
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--ink);
+  border-radius: 6px;
+  font-size: 12.5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+.qa-tab:hover { background: var(--surface-2); border-color: var(--line-strong); }
+.qa-tab.is-active {
+  background: var(--ink);
+  color: #fff;
+  border-color: var(--ink);
 }
 
 /* 빠른정답 grid — 격자형 깔끔 */
