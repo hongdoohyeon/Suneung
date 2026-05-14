@@ -136,9 +136,19 @@ function buildUrlFromState() {
   return url.toString();
 }
 
+// archive 의 현재 필터 상태를 sessionStorage 에 저장 — exam 상세 → 뒤로가기 시 복원에 사용
+function persistArchiveState() {
+  try {
+    const u = new URL(buildUrlFromState());
+    // 경로 + query 만 저장 (archive.html?... 그대로)
+    sessionStorage.setItem('lastArchiveUrl', u.pathname.split('/').pop() + u.search);
+  } catch {}
+}
+
 // 필터 변경 — 현재 history entry 의 URL 만 교체 (history 깊이 보존)
 function syncUrl() {
   history.replaceState({}, '', buildUrlFromState());
+  persistArchiveState();
 }
 
 // 탭 전환 등 큰 전환 — 새 history entry 추가하여 진정한 뒤로가기 가능
@@ -147,6 +157,7 @@ function pushUrl() {
   const next = buildUrlFromState();
   if (next === location.href) return;
   history.pushState({}, '', next);
+  persistArchiveState();
 }
 
 // 호환용 — 옛 syncUrlTab 호출부에서도 동작
