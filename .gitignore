@@ -5,3 +5,8 @@ data/files/pdfs
 data/files/pdfs_edu
 node_modules/
 tmp/
+*.bak
+*.bak-*
+*.json.old
+ocr-*-detected.json
+deep-split-*.json

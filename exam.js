@@ -220,7 +220,13 @@ function renderHead(exam) {
   }
 
   // archive 탭 복귀 링크에 curriculum 유지
-  $('backLink').href = `archive.html?tab=${encodeURIComponent(exam.curriculum)}`;
+  // archive 에서 진입했으면 sessionStorage 의 마지막 필터 상태를 복원 (typeGroup·gradeYear·subject·q 등 모두 유지)
+  let backHref = `archive.html?tab=${encodeURIComponent(exam.curriculum)}`;
+  try {
+    const stored = sessionStorage.getItem('lastArchiveUrl');
+    if (stored && stored.startsWith('archive.html')) backHref = stored;
+  } catch {}
+  $('backLink').href = backHref;
 }
 
 // ── 탭 (문제 / 정보) — URL ?tab=info 동기화 ────────────────
