@@ -26,7 +26,8 @@ function siteType(typeRaw, month, year) {
     return null;
   }
   if (t === '학력평가') {
-    return ({3:'mar', 4:'apr', 5:'apr', 7:'jul', 10:'oct', 11:'oct'})[month] ?? null;
+    // 고3: 3·4·7·10월 (+ 일부 5·11월), 고1·고2: 3·6·9·11월
+    return ({3:'mar', 4:'apr', 5:'apr', 6:'jun', 7:'jul', 9:'sep', 10:'oct', 11:'nov'})[month] ?? null;
   }
   return null;
 }
@@ -39,6 +40,7 @@ const SUBJ_MAP = {
   '수학(나)': ['수학', '나형'],
   '영어': ['영어', null],
   '한국사': ['한국사', null],
+  // 고2·고3 사탐 선택과목
   '생활과윤리': ['사회탐구', '생활과윤리'],
   '윤리와사상': ['사회탐구', '윤리와사상'],
   '한국지리': ['사회탐구', '한국지리'],
@@ -49,6 +51,7 @@ const SUBJ_MAP = {
   '사회문화': ['사회탐구', '사회·문화'],
   '법과정치': ['사회탐구', '법과정치'],
   '정치와법': ['사회탐구', '정치와법'],
+  // 고2·고3 과탐 선택과목
   '물리 I': ['과학탐구', '물리Ⅰ'],
   '물리 II': ['과학탐구', '물리Ⅱ'],
   '물리학 I': ['과학탐구', '물리학Ⅰ'],
@@ -59,6 +62,14 @@ const SUBJ_MAP = {
   '생명과학 II': ['과학탐구', '생명과학Ⅱ'],
   '지구과학 I': ['과학탐구', '지구과학Ⅰ'],
   '지구과학 II': ['과학탐구', '지구과학Ⅱ'],
+  // 고1: 통합사회/통합과학 → 사이트의 사회탐구/-, 과학탐구/- 와 매칭
+  //      (고1은 통합형 시험이라 단일 row로 보고됨)
+  '통합사회': ['사회탐구', null],
+  '통합과학': ['과학탐구', null],
+  '사회': ['사회탐구', null],
+  '과학': ['과학탐구', null],
+  '사회탐구': ['사회탐구', null],
+  '과학탐구': ['과학탐구', null],
 };
 
 // curriculum 추정 — 사이트의 실제 분포 기준
@@ -77,8 +88,17 @@ const sampleSubj = new Set(), sampleType = new Set();
 for (const item of raw) {
   const type = siteType(item.typeRaw, item.month, item.examYear);
   if (!type) { typeNull++; sampleType.add(item.typeRaw); continue; }
-  // 학년도 보정: 같은 해의 학평/모평/수능은 모두 examYear+1 학년도 cohort 시험
-  const gradeYear = item.examYear + 1;
+  // studentGrade — fetch가 태깅하지 않은 옛 raw도 호환되도록 기본값=3 (고3)
+  const sg = item.studentGrade ?? 3;
+  // gradeYear:
+  //   고3: examYear + 1 (학년도 = 다음 해 대학 진학 cohort)
+  //   고1·고2: examYear (사이트 컨벤션: 달력 연도 그대로)
+  const gradeYear = sg === 3 ? item.examYear + 1 : item.examYear;
+  // typeGroup:
+  //   고3 + (csat/june/sept) → 'suneung' (평가원·수능)
+  //   그 외 학평 (고3 학평 포함) → 'education' (시도교육청)
+  const isSuneungTypeFor3 = sg === 3 && (type === 'csat' || type === 'june' || type === 'sept');
+  const typeGroup = isSuneungTypeFor3 ? 'suneung' : 'education';
   const map = SUBJ_MAP[item.subjectName];
   if (!map) { subjNull++; sampleSubj.add(item.subjectName); continue; }
   const [subject, subSubject] = map;
@@ -125,7 +145,7 @@ for (const item of raw) {
   const rawCuts = RAW_COL != null ? [1,2,3,4,5,6,7,8].map(g => rawScores[g] ?? null) : null;
   if (standardCuts.filter(v => v!=null).length < 6) continue;
 
-  const key = `${gradeYear}|${type}|${subject}|${subSubject ?? ''}`;
+  const key = `${typeGroup}|${gradeYear}|${item.examYear}|${item.month}|${type}|${subject}|${subSubject ?? ''}`;
   if (seen.has(key)) continue;
   seen.add(key);
 
@@ -134,7 +154,7 @@ for (const item of raw) {
     gradeYear: gradeYear,
     examYear: item.examYear,
     month: item.month,
-    typeGroup: 'suneung',
+    typeGroup,
     type,
     subject,
     subSubject,
@@ -146,6 +166,7 @@ for (const item of raw) {
     fullScore: highestRaw,
     source: 'megastudy',
     examSeq: item.examSeq,
+    studentGrade: sg,
   });
 }
 
@@ -154,15 +175,13 @@ console.log(`type 매핑 실패: ${typeNull}건  (typeRaw 종류: ${[...sampleTy
 console.log(`subject 매핑 실패: ${subjNull}건  (subjectName 종류: ${[...sampleSubj].join(', ')})`);
 
 // 분포
-import { writeFile as wf } from 'node:fs/promises';
-const yt = {};
+const tg = {};
 for (const r of records) {
-  const k = `${r.gradeYear}_${r.type}`;
-  yt[k] = (yt[k]||0) + 1;
+  const k = `${r.typeGroup}_고${r.studentGrade}`;
+  tg[k] = (tg[k]||0) + 1;
 }
-console.log(`\n시험별 분포 (TOP 20):`);
-const sorted = Object.entries(yt).sort((a,b) => a[0].localeCompare(b[0]));
-for (const [k, c] of sorted.slice(0, 20)) console.log(`  ${k}: ${c}`);
+console.log(`\ntypeGroup × 학년 분포:`);
+for (const [k, c] of Object.entries(tg).sort()) console.log(`  ${k}: ${c}건`);
 
 await writeFile(OUT, JSON.stringify(records, null, 2));
 console.log(`\n저장: data/raw/megastudy/gradecuts-normalized.json`);

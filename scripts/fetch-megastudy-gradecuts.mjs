@@ -1,13 +1,14 @@
 #!/usr/bin/env node
-// 메가스터디 역대 등급컷(2016~2026 고3 수능/모평/학평) 자동 수집.
+// 메가스터디 역대 등급컷(고1·고2·고3 수능/모평/학평) 자동 수집.
 //
 // API:
-//   POST /Entinfo/total_rankCut/main_examNm_ax.asp     body: grdFlg=3
+//   POST /Entinfo/total_rankCut/main_examNm_ax.asp     body: grdFlg=<1|2|3>
 //   POST /Entinfo/total_rankCut/main_examRankCut_ax.asp body: examSeq=<id>&tabNo=<1|2|3>
 //
+// grdFlg: 1=고1, 2=고2, 3=고3
 // tabNo: 1=국수영한, 2=사회, 3=과학
 //
-// 출력: data/raw/megastudy/gradecuts.json (raw HTML 파싱 결과)
+// 출력: data/raw/megastudy/gradecuts-raw.json (raw HTML 파싱 결과)
 //      data/raw/megastudy/exams.json     (시험 목록 메타)
 
 import { writeFile, mkdir } from 'node:fs/promises';
@@ -34,34 +35,42 @@ async function postEucKr(url, body) {
   return new TextDecoder('euc-kr').decode(buf);
 }
 
-// 1. 시험 목록 가져오기 (grdFlg=3 고3)
-console.log('시험 목록 fetch...');
-const examListHtml = await postEucKr(`${BASE}/main_examNm_ax.asp`, 'grdFlg=3');
-// fncSelExamSeq(SEQ,'1',IDX);">YYYY.MM.DD 시험명</li>
-const examRe = /fncSelExamSeq\((\d+),'\d+',\d+\);">\s*(\d{4})\.(\d{2})\.(\d{2})\s+(\S+)\s*</g;
+// 1. 시험 목록 가져오기 (학년별 grdFlg=1·2·3)
+console.log('시험 목록 fetch (고1·고2·고3)...');
 const exams = [];
-let m;
-while ((m = examRe.exec(examListHtml)) !== null) {
-  const [, seq, year, month, day, type] = m;
-  let normalizedType = null;
-  if (type === '수능') normalizedType = 'csat';
-  else if (type === '모의평가') normalizedType = type === '모의평가' && Number(month) === 6 ? 'june' : (Number(month) === 9 ? 'sept' : 'mock');
-  else if (type === '학력평가') {
-    const M = Number(month);
-    normalizedType = ({3:'mar', 4:'apr', 7:'jul', 10:'oct', 5:'may', 11:'nov'})[M] ?? `m${M}`;
+for (const grdFlg of [1, 2, 3]) {
+  const examListHtml = await postEucKr(`${BASE}/main_examNm_ax.asp`, `grdFlg=${grdFlg}`);
+  // fncSelExamSeq(SEQ,'1',IDX);">YYYY.MM.DD 시험명</li>
+  const examRe = /fncSelExamSeq\((\d+),'\d+',\d+\);">\s*(\d{4})\.(\d{2})\.(\d{2})\s+(\S+)\s*</g;
+  let m;
+  let countForGrade = 0;
+  while ((m = examRe.exec(examListHtml)) !== null) {
+    const [, seq, year, month, day, type] = m;
+    let normalizedType = null;
+    if (type === '수능') normalizedType = 'csat';
+    else if (type === '모의평가') normalizedType = type === '모의평가' && Number(month) === 6 ? 'june' : (Number(month) === 9 ? 'sept' : 'mock');
+    else if (type === '학력평가') {
+      const M = Number(month);
+      normalizedType = ({3:'mar', 4:'apr', 7:'jul', 10:'oct', 5:'may', 11:'nov', 6:'jun', 9:'sep'})[M] ?? `m${M}`;
+    }
+    const examYear = Number(year);
+    const examMonth = Number(month);
+    // gradeYear (학년도) 컨벤션:
+    //   고3: examYear + 1 (11~12월/수능 분리 불필요 — 사이트가 11월 학평도 examYear+1로 둠)
+    //   고1·고2: examYear (calendar year — 사이트 컨벤션)
+    const gradeYear = grdFlg === 3 ? examYear + 1 : examYear;
+    exams.push({
+      examSeq: Number(seq),
+      examDate: `${year}-${month}-${day}`,
+      examYear, gradeYear, month: examMonth,
+      studentGrade: grdFlg,
+      type: normalizedType, typeRaw: type,
+    });
+    countForGrade++;
   }
-  // gradeYear: 학년도 — 11~12월 시험은 다음 해, 그 외는 같은 해
-  const examYear = Number(year);
-  const examMonth = Number(month);
-  const gradeYear = (examMonth >= 11 || normalizedType === 'csat') ? examYear + 1 : examYear;
-  exams.push({
-    examSeq: Number(seq),
-    examDate: `${year}-${month}-${day}`,
-    examYear, gradeYear, month: examMonth,
-    type: normalizedType, typeRaw: type,
-  });
+  console.log(`  고${grdFlg}: ${countForGrade}개`);
 }
-console.log(`시험 ${exams.length}개 발견`);
+console.log(`총 시험 ${exams.length}개 발견`);
 await writeFile(path.join(OUT_DIR, 'exams.json'), JSON.stringify(exams, null, 2));
 
 // 2. 각 시험 × 3 탭 등급컷 fetch
@@ -103,6 +112,7 @@ for (const ex of exams) {
       allData.push({
         examSeq: ex.examSeq, examDate: ex.examDate,
         gradeYear: ex.gradeYear, examYear: ex.examYear, month: ex.month,
+        studentGrade: ex.studentGrade,
         type: ex.type, typeRaw: ex.typeRaw,
         tabNo, subjectName: t.subjectName,
         rows: t.rows,
