@@ -112,19 +112,40 @@
       <div id="ddayBanner" class="dday-banner" aria-live="polite"></div>
     </section>
 
-    <section class="dash-popular" aria-label="최신 평가원 빠른 접근">
-      <nav class="dash-quickfilters">
-        <a href="exam-set-kice-2026-csat.html" class="dash-chip">2026 수능</a>
-        <a href="exam-set-kice-2026-sept.html" class="dash-chip">2026 9평</a>
-        <a href="exam-set-kice-2026-june.html" class="dash-chip">2026 6평</a>
-        <a href="exam-set-kice-2025-csat.html" class="dash-chip">2025 수능</a>
-        <a href="exam-set-kice-2025-sept.html" class="dash-chip">2025 9평</a>
-        <a href="exam-set-kice-2025-june.html" class="dash-chip">2025 6평</a>
-      </nav>
-    </section>
+    <section class="dash-cards" aria-label="주요 기능">
+      <a href="archive.html" class="dash-card">
+        <span class="dash-card__icon" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+               stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+            <polyline points="14 2 14 8 20 8"/>
+            <line x1="9" y1="13" x2="15" y2="13"/>
+            <line x1="9" y1="17" x2="15" y2="17"/>
+          </svg>
+        </span>
+        <div class="dash-card__body">
+          <h2 class="dash-card__title">기출검색</h2>
+          <p class="dash-card__sub">문제지·정답·등급컷·영어 듣기·대본까지 한 번에</p>
+        </div>
+        <svg class="dash-card__arrow" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
 
-    <section class="dash-recent" aria-label="최근 자료">
-      <div id="recentMount"></div>
+      <a href="gradecut.html" class="dash-card">
+        <span class="dash-card__icon" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+               stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="12" y1="20" x2="12" y2="10"/>
+            <line x1="18" y1="20" x2="18" y2="4"/>
+            <line x1="6"  y1="20" x2="6"  y2="16"/>
+            <line x1="3"  y1="20" x2="21" y2="20"/>
+          </svg>
+        </span>
+        <div class="dash-card__body">
+          <h2 class="dash-card__title">모의지원</h2>
+          <p class="dash-card__sub">점수 입력 → 등급·백분위 + 학과별 라인 분석</p>
+        </div>
+        <svg class="dash-card__arrow" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
     </section>
 
     <section class="trust-signals" aria-label="사이트 신뢰 정보">
@@ -135,7 +156,6 @@
     </section>
   </main>
 
-  <script type="module" src="lib/recent-mount.js?v=20260524a"></script>
   <script type="module" src="lib/calendar-mount.js?v=20260524a"></script>
 
   <footer class="site-footer site-footer--landing">
