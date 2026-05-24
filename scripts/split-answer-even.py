@@ -15,7 +15,7 @@ UA = {'User-Agent': 'Mozilla/5.0'}
 OUT = Path('tmp/even-answers')
 OUT.mkdir(parents=True, exist_ok=True)
 
-ITEMS = json.load(open('data/exams-v2.json'))
+ITEMS = json.load(open('data/exams.json'))
 # 대상: typeGroup=suneung, answerUrl 있음, 1994~2026 범위
 candidates = [i for i in ITEMS if i.get('typeGroup')=='suneung' and i.get('answerUrl')]
 print(f'▣ 대상 candidates: {len(candidates)}')

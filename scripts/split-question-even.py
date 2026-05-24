@@ -20,7 +20,7 @@ UA = {'User-Agent':'Mozilla/5.0'}
 OUT = Path('tmp/even-questions')
 OUT.mkdir(parents=True, exist_ok=True)
 
-ITEMS = json.load(open('data/exams-v2.json'))
+ITEMS = json.load(open('data/exams.json'))
 candidates = [i for i in ITEMS if i.get('typeGroup')=='suneung' and i.get('questionUrl')]
 print(f'▣ 대상 candidates: {len(candidates)}')
 
