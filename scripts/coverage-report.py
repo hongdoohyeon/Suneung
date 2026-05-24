@@ -12,7 +12,7 @@ import json
 from collections import defaultdict
 from pathlib import Path
 
-ITEMS = json.load(open('data/exams-v2.json'))
+ITEMS = json.load(open('data/exams.json'))
 
 # 수능·평가원 모의만
 suneung = [i for i in ITEMS if i.get('typeGroup') == 'suneung']

@@ -10,14 +10,25 @@ KICE archive (SQLite) → 정적 JSON 변환기.
 """
 
 from __future__ import annotations
-import datetime, json, re, sqlite3, sys
+import datetime, json, os, re, sqlite3, sys
 from collections import Counter
 from html import escape as html_escape
 from pathlib import Path
 from urllib.parse import quote
 
-ROOT     = Path(__file__).resolve().parents[1]            # suneung-site/
-ARCHIVE  = Path('/Users/hongduhyeon/Workspace/kice_archive')  # KICE archive 위치
+ROOT = Path(__file__).resolve().parents[1]            # suneung-site/
+
+# KICE archive 위치 — 우선순위: --archive=… argv > KICE_ARCHIVE env > ../kice_archive
+def _resolve_archive() -> Path:
+    for arg in sys.argv[1:]:
+        if arg.startswith('--archive='):
+            return Path(arg.split('=', 1)[1]).expanduser().resolve()
+    env = os.environ.get('KICE_ARCHIVE')
+    if env:
+        return Path(env).expanduser().resolve()
+    return (ROOT.parent / 'kice_archive').resolve()
+
+ARCHIVE  = _resolve_archive()
 OUT_JSON = ROOT / 'data' / 'exams.json'
 
 # Cloudflare Worker 프록시 — Github Release URL 을 가져와 Content-Disposition 에
@@ -1428,12 +1439,6 @@ def main():
     OUT_JSON.parent.mkdir(parents=True, exist_ok=True)
     with OUT_JSON.open('w', encoding='utf-8') as f:
         json.dump(items, f, ensure_ascii=False, indent=2)
-
-    # exams-v2.json — app.js 가 fetch 하는 파일, exams.json 과 동일하게 유지
-    v2_path = OUT_JSON.parent / 'exams-v2.json'
-    with v2_path.open('w', encoding='utf-8') as f:
-        json.dump(items, f, ensure_ascii=False, indent=2)
-    print(f'  + data/exams-v2.json (=exams.json) {len(items)}건')
 
     # ─ id별 단건 split (exam.html 단건 진입의 lazy fetch 용) ─
     # archive 는 통합 파일 그대로 사용 (필터링 즉시성 유지),
