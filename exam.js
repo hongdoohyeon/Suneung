@@ -259,7 +259,7 @@ function setupTabs(onActivate) {
   // 초기 탭:
   //   - URL ?tab=info → 정보
   //   - URL ?tab=paper → 문제
-  //   - 명시 없으면 데스크톱은 'paper' (PDF 우선), 모바일은 'info' (빠답·등급 우선)
+  //   - 명시 없으면 데스크톱은 'paper' (PDF 우선), 모바일은 'info' (등급컷 우선)
   const params = new URLSearchParams(location.search);
   const explicit = params.get('tab');
   let initial;
@@ -272,91 +272,7 @@ function setupTabs(onActivate) {
 }
 
 
-// ── 빠른정답 (옵셔널 데이터: exam.answers 배열) ────────────
-function renderQuickAnswers(exam) {
-  const body  = $('quickAnswersBody');
-  const count = $('quickAnswersCount');
-  if (!Array.isArray(exam.answers) || exam.answers.length === 0) {
-    if (count) count.textContent = '준비 중';
-    body.innerHTML = `<p class="exam-card__sub">이 시험의 정답 데이터가 아직 없어요. 답지 PDF는 위 [정답 다운로드] 버튼으로 받을 수 있어요.</p>`;
-    return false;
-  }
-  // 빠진 답이 있으면 추출 신뢰도가 떨어진 것 — 라벨로 안내
-  const missing = exam.answers.filter(a => a === '?' || a == null).length;
-  const missingRatio = missing / exam.answers.length;
-  // 30% 이상 미확인이면 빠답 카드 자체 비노출 (잘못된 답 표시보다 정답 PDF 안내가 정확)
-  if (missingRatio >= 0.30) {
-    if (count) count.textContent = '추출 정확도 부족';
-    body.innerHTML = `<p class="exam-card__sub">이 시험의 빠른정답은 추출 정확도가 낮아 표시하지 않아요 (${missing}/${exam.answers.length} 미확인). 위 <strong>[정답 다운로드]</strong> 버튼으로 평가원 정답 PDF를 받아주세요.</p>`;
-    return false;
-  }
-  const hasEven = Array.isArray(exam.answersEven) && exam.answersEven.length > 0;
-  if (count) {
-    const formInfo = hasEven ? ' (홀수형)' : '';
-    count.textContent = (missing > 0
-      ? `총 ${exam.answers.length}문항 · ${missing}개 미확인`
-      : `총 ${exam.answers.length}문항`) + formInfo;
-  }
-  const CIRCLE = ['', '①', '②', '③', '④', '⑤'];
-  const renderCells = (arr) => arr.map((a, i) => {
-    const isMissing = a === '?' || a == null;
-    const isMulti = !isMissing && typeof a === 'string' && a.includes(',');
-    let display;
-    if (isMissing) display = '—';
-    else if (isMulti) display = a.split(',').map(d => CIRCLE[Number(d)] || d).join('');
-    else display = escHtml(a);
-    const title = isMissing ? ' title="정답 미제공"' : (isMulti ? ' title="복수정답"' : '');
-    return `<div class="qa-cell${isMissing ? ' qa-cell--missing' : ''}${isMulti ? ' qa-cell--multi' : ''}"${title}><span class="qa-cell__num">${i+1}</span><span class="qa-cell__ans">${display}</span></div>`;
-  }).join('');
-  if (hasEven) {
-    body.innerHTML = `
-      <div class="qa-tabs" role="tablist">
-        <button class="qa-tab is-active" data-form="odd" type="button" role="tab" aria-selected="true">홀수형</button>
-        <button class="qa-tab" data-form="even" type="button" role="tab" aria-selected="false">짝수형</button>
-      </div>
-      <div class="qa-grid" data-form="odd">${renderCells(exam.answers)}</div>
-      <div class="qa-grid" data-form="even" hidden>${renderCells(exam.answersEven)}</div>`;
-    body.querySelectorAll('.qa-tab').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const form = btn.dataset.form;
-        body.querySelectorAll('.qa-grid').forEach(g => { g.hidden = g.dataset.form !== form; });
-        body.querySelectorAll('.qa-tab').forEach(b => {
-          const a = b.dataset.form === form;
-          b.classList.toggle('is-active', a);
-          b.setAttribute('aria-selected', a ? 'true' : 'false');
-        });
-        if (count) count.textContent = `총 ${(form==='odd' ? exam.answers : exam.answersEven).length}문항 (${form==='odd'?'홀수형':'짝수형'})`;
-      });
-    });
-    return true;
-  }
-  const cells = exam.answers.map((a, i) => {
-    const isMissing = a === '?' || a == null;
-    // 복수정답: "2,5" 같은 형태 → "②⑤" 같이 동그라미 숫자로 표시
-    const isMulti = !isMissing && typeof a === 'string' && a.includes(',');
-    const CIRCLE = ['', '①', '②', '③', '④', '⑤'];
-    let display;
-    if (isMissing) {
-      display = '—';
-    } else if (isMulti) {
-      display = a.split(',').map(d => CIRCLE[Number(d)] || d).join('');
-    } else {
-      display = escHtml(a);
-    }
-    const title = isMissing
-      ? ' title="정답 미제공 (PDF 추출 한계)"'
-      : (isMulti ? ' title="복수정답"' : '');
-    return `
-    <div class="qa-cell${isMissing ? ' qa-cell--missing' : ''}${isMulti ? ' qa-cell--multi' : ''}"${title}>
-      <span class="qa-cell__num">${i + 1}</span>
-      <span class="qa-cell__ans">${display}</span>
-    </div>`;
-  }).join('');
-  body.innerHTML = `<div class="qa-grid">${cells}</div>`;
-  return true;
-}
-
-// ── 등급 분포 (정규분포 히스토그램 막대) ──
+// ── 등급컷 표 ──
 // URL → 시험 ID 추출.
 // 정적 SSG 페이지(/exam-123.html)는 pathname에서, 레거시 동적(?id=N)은 query에서.
 function readExamId() {
@@ -376,23 +292,15 @@ async function main() {
 
   // 단건 lazy fetch 우선: data/exam/{id}.json (~1KB) 만 받음.
   // 미존재 시 통합 data/exams.json (~2MB) 로 폴백.
-  let exam = null, gradecuts = [], answersMap = {}, scoreDist = [];
+  let exam = null, gradecuts = [];
   try {
-    const [singleRes, cutRes, ansRes, ansERes, distRes] = await Promise.all([
+    const [singleRes, cutRes] = await Promise.all([
       fetch(`data/exam/${id}.json`),
       fetch('data/gradecuts.json'),
-      fetch('data/answers.json'),
-      fetch('data/answers-even.json'),
-      fetch('data/score-distribution.json'),
     ]);
     if (singleRes.ok) exam = await singleRes.json();
-    if (cutRes.ok)    gradecuts  = await cutRes.json();
-    if (ansRes.ok)    answersMap = await ansRes.json();
-    if (ansERes.ok)   var answersEvenMap = await ansERes.json();
-    else var answersEvenMap = {};
-    if (distRes.ok)   scoreDist  = await distRes.json();
+    if (cutRes.ok)    gradecuts = await cutRes.json();
   } catch { /* fall-through */ }
-  if (typeof answersEvenMap === 'undefined') var answersEvenMap = {};
 
   // 단건 split 미배포 환경 폴백: 통합 exams.json
   if (!exam) {
@@ -407,18 +315,8 @@ async function main() {
 
   if (!exam) { showError(); return; }
 
-  // 사전 추출된 정답이 있으면 합쳐 사용 (exam.answers 우선, 없으면 answersMap 폴백)
-  if ((!Array.isArray(exam.answers) || exam.answers.length === 0) && answersMap[id]) {
-    exam.answers = answersMap[id];
-  }
-  // 짝수 정답 — answersEvenMap 에서 fallback
-  if ((!Array.isArray(exam.answersEven) || exam.answersEven.length === 0) && answersEvenMap[id]) {
-    exam.answersEven = answersEvenMap[id];
-  }
-
   renderHead(exam);
-  renderQuickAnswers(exam);
-  renderGradeDist(exam, gradecuts, scoreDist);
+  renderGradeDist(exam, gradecuts);
   pushRecent(exam);  // localStorage 최근 본 시험 기록 (메인 페이지 chip 용)
 
   // PDF 미리보기는 'paper' 탭이 처음 활성화될 때만 렌더 (lazy).
