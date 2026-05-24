@@ -102,7 +102,26 @@ SUBTYPE_KO = {
     ('foreign', 'spanish'): '스페인어',
     ('foreign', 'vietnamese'): '베트남어',
     ('foreign', 'vietnamese_basic'): '베트남어',
-    # 직업탐구 — 사이트 매핑은 일단 raw 이름 유지 (사이트가 직업탐구를 별도 다룰 가능성 낮음)
+    # 직업탐구 — 평가원 영문 코드 → 사이트 한글 풀네임. 모호한 것은 매핑 안 함(skip).
+    ('vocation', 'accounting'): '회계 원리',
+    ('vocation', 'basic_design'): '기초 제도',
+    ('vocation', 'commerce'): '상업 경제',
+    ('vocation', 'commerce_info'): '상업 정보',
+    ('vocation', 'fishery'): '수산·해운',
+    ('vocation', 'household'): '가사·실업',
+    ('vocation', 'human'): '인간 발달',
+    ('vocation', 'lifeservice'): '생활 서비스 산업의 이해',
+    ('vocation', 'ocean'): '해양의 이해',
+    ('vocation', 'success'): '성공적인 직업생활',
+    # 농업 계열 — 평가원이 시기별로 명칭을 바꿔써서 모호. 신뢰도 위험 → skip.
+    ('vocation', 'agriculture'): None,
+    ('vocation', 'agri_old'): None,
+    ('vocation', 'agri_industry'): None,
+    # 공업 계열 — industry / industry_group / 공업 / 공업 일반 — 1:1 매핑 불명 → skip.
+    ('vocation', 'industry'): None,
+    ('vocation', 'industry_group'): None,
+    # 수산·해운 vs 수산·해운 산업 기초 vs fishery_marine — 불명 → skip.
+    ('vocation', 'fishery_marine'): None,
 }
 
 
@@ -146,11 +165,13 @@ def load_kice(db_path: Path, source_tag: str):
 
     year(DB) = gradeYear (학년도)
     examYear = gradeYear - 1 (모든 평가원 시험은 전년도 시행)
+
+    grade_cuts에 raw가 없으면 score_conversion의 grade 컬럼에서 derive
+    (grade별 MIN(raw_score) = 그 등급 컷).
     """
     out = []
     c = sqlite3.connect(str(db_path))
     # grade_cuts: (year, exam_type, subject, subtype, grade, cut_score, cut_type)
-    # 시험별로 grouping → 1~8등급 컷 배열 생성. raw·std 별도.
     bucket = defaultdict(lambda: {'raw': {}, 'std': {}})
     for year, exam_type, subject, subtype, grade, cut_score, cut_type in c.execute(
         'SELECT year, exam_type, subject, subtype, grade, cut_score, cut_type FROM grade_cuts'):
@@ -158,6 +179,21 @@ def load_kice(db_path: Path, source_tag: str):
         if cut_type not in ('raw', 'std'): continue
         key = (year, exam_type, subject, subtype)
         bucket[key][cut_type][grade] = cut_score
+
+    # score_conversion에서 raw cut derive — grade_cuts에 raw 없는 시험만
+    derived = 0
+    for year, exam_type, subject, subtype, grade, min_raw in c.execute(
+        '''SELECT year, exam_type, subject, subtype, grade, MIN(raw_score)
+           FROM score_conversion
+           WHERE grade IS NOT NULL AND raw_score IS NOT NULL
+           GROUP BY year, exam_type, subject, subtype, grade'''):
+        if exam_type not in EXAM_TYPE: continue
+        key = (year, exam_type, subject, subtype)
+        if grade in bucket[key]['raw']: continue  # grade_cuts raw 우선
+        if min_raw is None: continue
+        bucket[key]['raw'][grade] = min_raw
+        derived += 1
+    if derived: print(f"  [{db_path.name}] score_conversion으로 raw 보강: {derived}건")
     c.close()
 
     for (year, exam_type, subject, subtype), cuts in bucket.items():
@@ -209,6 +245,20 @@ def load_edu(db_path: Path):
         if sgrade not in (1, 2, 3): continue
         key = (year, month, sgrade, subject, subtype)
         bucket[key][cut_type][grade_cut] = cut_score
+
+    # score_conversion_edu의 grade_cut 컬럼은 "이 raw 점수가 정확히 어느 등급의 컷"인지 표시.
+    # grade_cuts_edu에 raw 없는 시험만 보강.
+    derived = 0
+    for year, month, sgrade, subject, subtype, gcut, raw in c.execute(
+        '''SELECT year, month, grade, subject, subtype, grade_cut, raw_score
+           FROM score_conversion_edu
+           WHERE grade_cut IS NOT NULL AND raw_score IS NOT NULL'''):
+        if sgrade not in (1, 2, 3): continue
+        key = (year, month, sgrade, subject, subtype)
+        if gcut in bucket[key]['raw']: continue
+        bucket[key]['raw'][gcut] = raw
+        derived += 1
+    if derived: print(f"  [{db_path.name}] score_conversion_edu로 raw 보강: {derived}건")
     c.close()
 
     # month → 사이트 type
