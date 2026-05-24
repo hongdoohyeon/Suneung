@@ -1365,13 +1365,26 @@ def main():
         (2015, 'csat', '수학', '나형'): 'A형',
         (2014, 'csat', '사회탐구', '한국사'): '한국근현대사',
     }
+    # 잘못된 subSubject 라벨 제거 (None 으로 → 단일 영역)
+    # 1995~98 csat 영어: 실제는 계열 통합 시험지. sqlite '인문계' 라벨은 오류.
+    BAD_LABEL = {
+        (1995, 'csat', '영어', '인문계'),
+        (1996, 'csat', '영어', '인문계'),
+        (1997, 'csat', '영어', '인문계'),
+        (1998, 'csat', '영어', '인문계'),
+    }
     fixed = 0
+    cleared = 0
     for it in items:
         k = (it.get('gradeYear'), it.get('type'), it.get('subject'), it.get('subSubject'))
         if k in NAME_FIX:
             it['subSubject'] = NAME_FIX[k]
             fixed += 1
-    if fixed: print(f'  + subSubject 정정: {fixed}건 (학년도별 명명 룰)')
+        elif k in BAD_LABEL:
+            it['subSubject'] = None
+            cleared += 1
+    if fixed:   print(f'  + subSubject 정정: {fixed}건 (학년도별 명명 룰)')
+    if cleared: print(f'  + subSubject 제거: {cleared}건 (잘못된 계열 라벨)')
 
     # ─ KICE 평가원 합본 PDF 분리본 (split-overrides) 우선 적용 ─
     # 평가원 자료마당 직접 다운 PDF 가 합본 (1~N 홀수형 + N+1~2N 짝수형) → 페이지 헤더로 분리.
@@ -1466,6 +1479,44 @@ def main():
     from urllib.parse import quote as _q
     from xml.sax.saxutils import escape as _xe
 
+    # priority 계산 — 신규 도메인의 crawl budget을 인기/최근 시험에 우선 할당.
+    # Google이 priority를 약하게 참고하긴 하나, sitemap 우선순위 신호로 차등화 의미 있음.
+    CURRENT_YEAR = datetime.date.today().year + 1  # 학년도 기준 (e.g. 2026년 5월 = 2027학년도 cohort)
+    def _exam_priority(it):
+        gy = it.get('gradeYear', 0) or 0
+        tp = it.get('type', '')
+        tg = it.get('typeGroup', '')
+        is_english = (it.get('subject') == '영어')
+        has_listen = bool(it.get('listenUrl') or it.get('scriptUrl'))
+        # 잡학(prelim/reference)·옛 1994~2007: 거의 색인 가치 없음
+        if tg == 'reference' or tp == 'prelim': return '0.2'
+        if gy and gy <= 2007: return '0.2'
+        # 최근(현재 학년도 ± 1년) 평가원 핵심
+        if tg == 'suneung' and tp in ('csat', 'june', 'sept'):
+            if gy >= CURRENT_YEAR - 1: return '0.9'
+            if gy >= CURRENT_YEAR - 3: return '0.7'
+            if gy >= 2014: return '0.5'
+            return '0.3'
+        # 최근 학평·기타
+        if gy >= CURRENT_YEAR - 1: return '0.7' if (is_english and has_listen) else '0.6'
+        if gy >= CURRENT_YEAR - 3: return '0.5' if (is_english and has_listen) else '0.4'
+        return '0.4' if (is_english and has_listen) else '0.3'
+
+    def _set_priority(curr, year_str, t, sg):
+        try: gy = int(year_str)
+        except: gy = 0
+        if t == 'prelim' or curr == 'reference': return '0.3'
+        if gy and gy <= 2007: return '0.3'
+        if t in ('csat', 'june', 'sept'):
+            if gy >= CURRENT_YEAR - 1: return '1.0'
+            if gy >= CURRENT_YEAR - 3: return '0.9'
+            if gy >= 2014: return '0.7'
+            return '0.5'
+        # 학평
+        if gy >= CURRENT_YEAR - 1: return '0.8'
+        if gy >= CURRENT_YEAR - 3: return '0.6'
+        return '0.5'
+
     # (1) sitemap-sets.xml — 회차 단위 친화 URL (검색 노출 우선)
     sets = set()
     for it in items:
@@ -1480,23 +1531,19 @@ def main():
         sets_parts.append(
             f'  <url><loc>{base}/{fname}</loc>'
             f'<lastmod>{today}</lastmod>'
-            f'<changefreq>monthly</changefreq><priority>0.8</priority></url>')
+            f'<changefreq>monthly</changefreq><priority>{_set_priority(curr, year, t, sg)}</priority></url>')
     sets_parts.append('</urlset>')
     (ROOT / 'sitemap-sets.xml').write_text('\n'.join(sets_parts) + '\n', encoding='utf-8')
 
-    # (2) sitemap-exams.xml — SSG 단건 URL (3,201)
-    # 영어 + 듣기 자료 보유 시 priority 상향 (영어 듣기/대본 검색량 우선 인덱싱)
+    # (2) sitemap-exams.xml — SSG 단건 URL
     today = datetime.date.today().isoformat()
     exams_parts = ['<?xml version="1.0" encoding="UTF-8"?>',
                    '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
     for it in items:
-        is_english = (it.get('subject') == '영어')
-        has_listen = bool(it.get('listenUrl') or it.get('scriptUrl'))
-        priority = '0.6' if (is_english and has_listen) else '0.4'
         exams_parts.append(
             f'  <url><loc>{base}/exam-{it["id"]}.html</loc>'
             f'<lastmod>{today}</lastmod>'
-            f'<changefreq>monthly</changefreq><priority>{priority}</priority></url>')
+            f'<changefreq>monthly</changefreq><priority>{_exam_priority(it)}</priority></url>')
     exams_parts.append('</urlset>')
     (ROOT / 'sitemap-exams.xml').write_text('\n'.join(exams_parts) + '\n', encoding='utf-8')
 
