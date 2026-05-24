@@ -659,7 +659,7 @@ ENGLISH_ASSET_KEYWORDS = [
     '듣기평가 음원', 'listening script',
     '영어 답지', '영어 해설지', '영어 정답', '영어 문제지',
 ]
-COMMON_ASSET_KEYWORDS = ['문제지', '기출문제', '정답', '답지', '해설지', '풀이', '등급컷', '빠른정답']
+COMMON_ASSET_KEYWORDS = ['문제지', '기출문제', '정답', '답지', '해설지', '풀이', '등급컷']
 
 def _exam_aliases(it: dict) -> list[str]:
     """시험 별 학생 검색어 별칭 (본문·keywords 양쪽에 깔리는 키워드)."""

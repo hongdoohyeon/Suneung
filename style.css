@@ -2681,6 +2681,56 @@ body.is-sheet-open { overflow: hidden; touch-action: none; }
   .grade-dist__svg { max-height: none; }  /* 모바일에선 충분한 높이 보장 */
 }
 
+/* 등급컷 표 — exam-gradedist.js gradeDistTable() 출력 */
+.grade-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  font-variant-numeric: tabular-nums;
+}
+.grade-table__h,
+.grade-table__c,
+.grade-table__corner {
+  padding: 10px 0;
+  text-align: center;
+  border: 1px solid var(--line);
+  font-size: 15px;
+}
+.grade-table__corner {
+  width: 56px;
+  background: var(--surface-2);
+  color: var(--ink-5);
+  font-weight: 600;
+  font-size: 13px;
+}
+.grade-table__h {
+  background: var(--surface-2);
+  color: var(--ink-3);
+  font-weight: 600;
+}
+.grade-table__h--g1 { color: var(--pop-darker); }
+.grade-table__c {
+  color: var(--ink);
+  font-weight: 600;
+}
+.grade-table__c--g1 {
+  background: color-mix(in srgb, var(--pop) 12%, transparent);
+  color: var(--pop-darker);
+  font-weight: 700;
+}
+.grade-table__legend {
+  margin: 12px 0 0;
+  text-align: center;
+  font-size: 13px;
+  color: var(--ink-5);
+}
+@media (max-width: 600px) {
+  .grade-table__h,
+  .grade-table__c { font-size: 14px; padding: 9px 0; }
+  .grade-table__corner { width: 44px; font-size: 12px; }
+  .grade-table__legend { font-size: 13.5px; }
+}
+
 /* 에러 박스 */
 .exam__error {
   background: var(--surface);
