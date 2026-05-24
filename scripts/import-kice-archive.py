@@ -126,10 +126,40 @@ SUBTYPE_KO = {
 
 
 def curriculum_for(gradeYear: int) -> str:
-    """gradeYear → curriculum."""
+    """gradeYear → curriculum (대략적). 2021/2022 전환기는 두 교육과정 혼재 — 사이트 exams.json lookup이 더 정확."""
     if gradeYear >= 2022:
         return '2015'
     return '2009'
+
+
+# 사이트 exams.json 기반 curriculum lookup table —
+# 전환기(2021~2022) 교육과정 혼재를 정확히 처리하기 위해.
+_CURR_LOOKUP_BUILT = False
+_CURR_LOOKUP: dict = {}
+
+def build_curr_lookup():
+    global _CURR_LOOKUP_BUILT, _CURR_LOOKUP
+    if _CURR_LOOKUP_BUILT: return
+    exams = json.loads((Path.home() / 'Workspace/suneung-site/data/exams.json').read_text(encoding='utf-8'))
+    for e in exams:
+        if e.get('typeGroup') not in ('suneung', 'education'): continue
+        k = (e.get('gradeYear'), e.get('examYear'), e.get('month'),
+             e.get('typeGroup'), e.get('type'),
+             e.get('subject'), e.get('subSubject'))
+        if e.get('curriculum'):
+            _CURR_LOOKUP[k] = e['curriculum']
+    _CURR_LOOKUP_BUILT = True
+
+def curriculum_resolve(gradeYear, examYear, month, typeGroup, type_, subject, subSubject):
+    """사이트 메타에 매칭되면 그 curriculum 사용, 안 되면 둘 다 후보 반환."""
+    build_curr_lookup()
+    k = (gradeYear, examYear, month, typeGroup, type_, subject, subSubject)
+    if k in _CURR_LOOKUP:
+        return [_CURR_LOOKUP[k]]
+    # 전환기는 둘 다 시도
+    if gradeYear in (2021, 2022):
+        return ['2009', '2015']
+    return [curriculum_for(gradeYear)]
 
 
 def resolve_subject(subject: str, subtype, curriculum: str):
@@ -201,30 +231,30 @@ def load_kice(db_path: Path, source_tag: str):
         examYear = year - 1
         month = EXAM_MONTH[exam_type]
         site_type = EXAM_TYPE[exam_type]
-        curriculum = curriculum_for(gradeYear)
-        candidates = resolve_subject(subject, subtype, curriculum)
+        # candidates는 (subject, subSubject) 페어 — curriculum별 변형 위해 일단 단일 추정으로 호출 후 양쪽 시도.
+        candidates = resolve_subject(subject, subtype, curriculum_for(gradeYear))
         if not candidates:
             continue
         rawCuts = [cuts['raw'].get(g) for g in range(1, 9)]
         standardCuts = [cuts['std'].get(g) for g in range(1, 9)]
-        # 등급컷 6개 이상은 있어야 신뢰
         if sum(v is not None for v in standardCuts) < 5 and sum(v is not None for v in rawCuts) < 5:
             continue
         for site_subject, site_subSubject in candidates:
-            out.append({
-                'curriculum': curriculum,
-                'gradeYear': gradeYear,
-                'examYear': examYear,
-                'month': month,
-                'typeGroup': 'suneung',
-                'type': site_type,
-                'subject': site_subject,
-                'subSubject': site_subSubject,
-                'rawCuts': rawCuts if any(v is not None for v in rawCuts) else None,
-                'standardCuts': standardCuts,
-                'source': source_tag,
-                'studentGrade': 3,
-            })
+            for curr in curriculum_resolve(gradeYear, examYear, month, 'suneung', site_type, site_subject, site_subSubject):
+                out.append({
+                    'curriculum': curr,
+                    'gradeYear': gradeYear,
+                    'examYear': examYear,
+                    'month': month,
+                    'typeGroup': 'suneung',
+                    'type': site_type,
+                    'subject': site_subject,
+                    'subSubject': site_subSubject,
+                    'rawCuts': rawCuts if any(v is not None for v in rawCuts) else None,
+                    'standardCuts': standardCuts,
+                    'source': source_tag,
+                    'studentGrade': 3,
+                })
     return out
 
 
@@ -263,7 +293,7 @@ def load_edu(db_path: Path):
 
     # month → 사이트 type
     MONTH_TYPE_G3 = {3:'mar', 4:'apr', 5:'may', 7:'jul', 10:'oct'}
-    MONTH_TYPE_G12 = {3:'mar', 6:'jun', 9:'sep', 11:'nov'}
+    MONTH_TYPE_G12 = {3:'mar', 6:'jun', 9:'sep', 10:'oct', 11:'nov'}
 
     for (year, month, sgrade, subject, subtype), cuts in bucket.items():
         if sgrade == 3:
@@ -273,28 +303,28 @@ def load_edu(db_path: Path):
             site_type = MONTH_TYPE_G12.get(month)
             gradeYear = year
         if site_type is None: continue
-        curriculum = curriculum_for(gradeYear)
-        candidates = resolve_subject(subject, subtype, curriculum)
+        candidates = resolve_subject(subject, subtype, curriculum_for(gradeYear))
         if not candidates: continue
         rawCuts = [cuts['raw'].get(g) for g in range(1, 9)]
         standardCuts = [cuts['std'].get(g) for g in range(1, 9)]
         if sum(v is not None for v in standardCuts) < 5 and sum(v is not None for v in rawCuts) < 5:
             continue
         for site_subject, site_subSubject in candidates:
-            out.append({
-                'curriculum': curriculum,
-                'gradeYear': gradeYear,
-                'examYear': year,
-                'month': month,
-                'typeGroup': 'education',
-                'type': site_type,
-                'subject': site_subject,
-                'subSubject': site_subSubject,
-                'rawCuts': rawCuts if any(v is not None for v in rawCuts) else None,
-                'standardCuts': standardCuts,
-                'source': 'kice-archive-edu',
-                'studentGrade': sgrade,
-            })
+            for curr in curriculum_resolve(gradeYear, year, month, 'education', site_type, site_subject, site_subSubject):
+                out.append({
+                    'curriculum': curr,
+                    'gradeYear': gradeYear,
+                    'examYear': year,
+                    'month': month,
+                    'typeGroup': 'education',
+                    'type': site_type,
+                    'subject': site_subject,
+                    'subSubject': site_subSubject,
+                    'rawCuts': rawCuts if any(v is not None for v in rawCuts) else None,
+                    'standardCuts': standardCuts,
+                    'source': 'kice-archive-edu',
+                    'studentGrade': sgrade,
+                })
     return out
 
 
