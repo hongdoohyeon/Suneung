@@ -2,14 +2,14 @@
 import {
   CURRICULUM_CONFIG, EXAM_TYPE_CONFIG, TAB_CONFIG,
   getTypeConf, getGroupConf, getTabConf, legacyTabKey, prettySub,
-} from './config.js?v=20260513a';
+} from './config.js?v=20260526a';
 import {
   state, PAGE_SIZE,
   resetFilters, toggleMulti,
   getDisplayYear, availableGradeYears,
   filtered, subjectCounts, buildMockData,
   tabCurriculums, tabCurriculumConfs, tabSubjects, curriculumOfGradeYear,
-} from './state.js?v=20260513a';
+} from './state.js?v=20260526a';
 import { renderAllAdSlots } from './lib/ads.js';
 
 const tabConf = () => getTabConf(state.tab);
@@ -173,6 +173,20 @@ async function loadExams() {
   } catch { /* 파일 없음 → 목업 사용 */ }
 
   state.exams = (Array.isArray(real) && real.length > 0) ? real : buildMockData();
+
+  // 헤더 메타: 시험 총 건수 + 최근 업데이트 일자 (reference 시험 제외)
+  const realExams = state.exams.filter(e => e.typeGroup !== 'reference');
+  const totalEl = document.getElementById('archiveTotalCount');
+  if (totalEl) totalEl.textContent = realExams.length.toLocaleString('ko-KR');
+  const updateEl = document.getElementById('archiveUpdateDate');
+  if (updateEl) {
+    // 가장 최근 examYear-month 조합 (gradeYear=9999 reference 제외)
+    const dated = realExams.filter(e => e.examYear && e.month);
+    if (dated.length) {
+      const latest = dated.reduce((a, b) => (b.examYear*100 + b.month > a.examYear*100 + a.month) ? b : a);
+      updateEl.textContent = `${latest.examYear}-${String(latest.month).padStart(2,'0')}`;
+    }
+  }
 
   applyUrlTab();   // URL ?tab=... 가 있으면 해당 탭으로 진입
 

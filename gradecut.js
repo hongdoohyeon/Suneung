@@ -218,7 +218,8 @@ function slotHTML(subj, slotIdx, subjConf, isMulti) {
   const cut      = findCut(subj, slot.subSubject);
   const fullScore= cut?.fullScore ?? defaultFullScore(subj);
   const grade    = (slot.score != null && cut) ? computeGrade(slot.score, cut.rawCuts) : null;
-  const pct      = grade != null ? computePercentile(slot.score, grade, cut.rawCuts, fullScore) : null;
+  // 절대평가(영어/한국사)는 백분위 개념 자체가 없음 — UI에서 숨김.
+  const pct      = (grade != null && !cut?.absolute) ? computePercentile(slot.score, grade, cut.rawCuts, fullScore) : null;
 
   // 같은 영역 다른 슬롯에서 선택한 sub은 중복 방지로 비활성화
   const otherSlot = isMulti ? getSlot(subj, slotIdx === 0 ? 1 : 0) : null;
@@ -322,6 +323,9 @@ function findCut(subject, subSubject) {
     if ((c.subSubject ?? null) !== (subSubject ?? null)) return false;
     // 모의지원 = 고3. 학평 cut 은 studentGrade=3 만 (없으면 평가원이라 무시).
     if (c.typeGroup === 'education' && (c.studentGrade ?? 3) !== 3) return false;
+    // rawCuts 8개 모두 유효해야 등급/백분위 계산 가능. 미완성 데이터 = NaN% 원인.
+    if (!Array.isArray(c.rawCuts) || c.rawCuts.length < 8) return false;
+    if (c.rawCuts.some(v => v == null || !Number.isFinite(v))) return false;
     return true;
   }) ?? null;
 }
@@ -358,7 +362,7 @@ function _renderTotal() {
       if (!cut) continue;
       const fullScore = cut.fullScore ?? defaultFullScore(subj);
       const grade = computeGrade(slot.score, cut.rawCuts);
-      const pct   = computePercentile(slot.score, grade, cut.rawCuts, fullScore);
+      const pct   = cut.absolute ? null : computePercentile(slot.score, grade, cut.rawCuts, fullScore);
       entries.push({
         subject: subj, slotIdx: i, subSubject: slot.subSubject, score: slot.score,
         grade, pct, fullScore, color: GRADE_COLORS[grade - 1],
@@ -560,13 +564,15 @@ function refreshSlotResult(subj, idx) {
 
   if (cut && slot.score != null) {
     const grade = computeGrade(slot.score, cut.rawCuts);
-    const pct   = computePercentile(slot.score, grade, cut.rawCuts, fullScore);
+    const pct   = cut.absolute ? null : computePercentile(slot.score, grade, cut.rawCuts, fullScore);
+    const pctHTML = pct != null
+      ? `<span class="subj-result__sep">·</span><span class="subj-result__pct">상위 ${pct.toFixed(1)}%</span>`
+      : '';
     const frag  = document.createRange().createContextualFragment(`
       <div class="subj-slot__result">
         <span class="subj-result__grade" style="color:${GRADE_COLORS[grade - 1]}">${grade}</span>
         <span class="subj-result__suffix">등급</span>
-        <span class="subj-result__sep">·</span>
-        <span class="subj-result__pct">상위 ${pct.toFixed(1)}%</span>
+        ${pctHTML}
       </div>
       ${miniBarHTML(cut.rawCuts, slot.score, grade, fullScore)}
     `);
