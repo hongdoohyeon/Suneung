@@ -2073,9 +2073,10 @@ body.is-sheet-open { overflow: hidden; touch-action: none; }
   .header-nav__hide-sm      { display: none; }
 }
 
-/* D-day 헤더 칩 — 좁은 화면에선 숨김 (메인 hero 의 본문 D-day 라인은 유지) */
+/* D-day 헤더 칩 — 좁은 화면에선 숨김 (메인 hero 의 본문 D-day 라인은 유지)
+   base 정의가 source 뒤(3155)에 와서 cascade로 덮씌어짐 → !important로 강제. */
 @media (max-width: 900px) {
-  .dday-chip { display: none; }
+  .dday-chip { display: none !important; }
 }
 
 /* 활성 태그 줄바꿈 — 좁은 화면에서 readable */
