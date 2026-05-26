@@ -168,14 +168,29 @@ function pushUrl() {
 const syncUrlTab = syncUrl;
 
 // ── 데이터 로드 ────────────────────────────────────────────
+function showDataError(msg) {
+  // 상단 고정 배너로 데이터 로드 실패 안내. 사용자가 silent broken state 모르고 헤매는 것 방지.
+  if (document.getElementById('dataErrorBanner')) return;
+  const div = document.createElement('div');
+  div.id = 'dataErrorBanner';
+  div.style.cssText = 'position:sticky;top:0;z-index:50;background:#fef3c7;color:#92400e;padding:10px 16px;text-align:center;font-size:14px;border-bottom:1px solid #fde68a';
+  div.innerHTML = `<strong>⚠️ 데이터 로드 실패</strong> · ${msg} · <a href="javascript:location.reload()" style="color:#92400e;text-decoration:underline">새로고침</a>`;
+  document.body.prepend(div);
+}
+
 async function loadExams() {
   showSkeleton(true);
   let real = [];
+  let fetchFailed = false;
   try {
     const res = await fetch(DATA_URL);   // URL 의 ?v= 토큰으로 캐시 무효화 (no-store 불필요)
     if (res.ok) real = await res.json();
-  } catch { /* 파일 없음 → 목업 사용 */ }
+    else fetchFailed = true;
+  } catch { fetchFailed = true; }
 
+  if (fetchFailed) {
+    showDataError('시험 목록을 불러올 수 없습니다. 네트워크 연결을 확인해주세요.');
+  }
   state.exams = (Array.isArray(real) && real.length > 0) ? real : buildMockData();
 
   // 헤더 메타: 시험 총 건수 + 최근 업데이트 일자 (reference 시험 제외)

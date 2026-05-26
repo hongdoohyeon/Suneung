@@ -3942,3 +3942,20 @@ body.is-sheet-open { overflow: hidden; touch-action: none; }
   .trust-stat__label { font-size: 10.5px; }
   .trust-sources { font-size: 11px; }
 }
+
+/* ═══ 초소형 단말 (iPhone SE 1세대 320px 등) ════════════════════ */
+@media (max-width: 360px) {
+  .container { padding: 0 10px; }
+  .dash { padding: 24px 12px 40px; }
+  .dash-title { font-size: 20px; }
+  .dash-sub { font-size: 12px; }
+  .dash-card { padding: 11px 10px; }
+  .dash-card__title { font-size: 12.5px; }
+  .dash-card__sub { font-size: 11px; }
+  .trust-sources { font-size: 10.5px; line-height: 1.5; }
+  /* 헤더 nav 칩이 dday-chip과 겹치지 않게 gap 줄임 */
+  .header-nav { gap: 8px; }
+  .header-nav > a { font-size: 13px; }
+  /* archive 카드 메타 — 한 줄 안 들어가면 줄바꿈 */
+  .card__meta { flex-wrap: wrap; gap: 4px 8px; }
+}

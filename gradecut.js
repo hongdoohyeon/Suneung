@@ -52,14 +52,35 @@ function setSlot(subj, idx, patch) {
 }
 
 // ── 시작 ───────────────────────────────────────────────────
-async function init() {
-  const urlTab = new URLSearchParams(location.search).get('tab');
-  if (urlTab && GC_CURRICULA.includes(urlTab)) state.curriculum = urlTab;
+function showDataError(msg) {
+  if (document.getElementById('dataErrorBanner')) return;
+  const div = document.createElement('div');
+  div.id = 'dataErrorBanner';
+  div.style.cssText = 'position:sticky;top:0;z-index:50;background:#fef3c7;color:#92400e;padding:10px 16px;text-align:center;font-size:14px;border-bottom:1px solid #fde68a';
+  div.innerHTML = `<strong>⚠️ 데이터 로드 실패</strong> · ${msg} · <a href="javascript:location.reload()" style="color:#92400e;text-decoration:underline">새로고침</a>`;
+  document.body.prepend(div);
+}
 
+async function init() {
+  const params = new URLSearchParams(location.search);
+  const urlTab = params.get('tab');
+  if (urlTab && GC_CURRICULA.includes(urlTab)) state.curriculum = urlTab;
+  // URL에서 year/type 복원 — 새로고침·공유 시 입력 유지
+  const urlYear = parseInt(params.get('year'), 10);
+  if (Number.isFinite(urlYear)) state.gradeYear = urlYear;
+  const urlType = params.get('type');
+  if (urlType) state.type = urlType;
+
+  let fetchFailed = false;
   try {
     const res = await fetch(DATA_URL);
-    state.cuts = res.ok ? await res.json() : [];
-  } catch { state.cuts = []; }
+    if (res.ok) state.cuts = await res.json();
+    else { state.cuts = []; fetchFailed = true; }
+  } catch { state.cuts = []; fetchFailed = true; }
+
+  if (fetchFailed) {
+    showDataError('등급컷 데이터를 불러올 수 없습니다. 네트워크 연결을 확인해주세요.');
+  }
 
   autoFillSingles();
   renderAll();
@@ -588,6 +609,10 @@ function refreshSlotResult(subj, idx) {
 function syncUrl() {
   const url = new URL(location.href);
   url.searchParams.set('tab', state.curriculum);
+  if (state.gradeYear != null) url.searchParams.set('year', String(state.gradeYear));
+  else url.searchParams.delete('year');
+  if (state.type) url.searchParams.set('type', state.type);
+  else url.searchParams.delete('type');
   history.replaceState({}, '', url);
 }
 
