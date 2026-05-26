@@ -968,6 +968,8 @@ a { color: inherit; text-decoration: none; }
   color: var(--ink-4);
   background: var(--bg);
   line-height: 1.8;
+  /* body가 flex-column + min-height:100vh이라 footer 아래 빈 공간 생김 — 자동 마진으로 하단 고정 */
+  margin-top: auto;
 }
 .site-footer__sub { color: var(--ink-5); font-size: 11px; margin-top: 2px; }
 .site-footer__legal {
@@ -1057,6 +1059,14 @@ a { color: inherit; text-decoration: none; }
    ╚══════════════════════════════════════════════════════════ */
 
 .page-landing { background: var(--bg); }
+/* 메인 페이지 콘텐츠 짧을 때 footer 위 빈 공간 어색함 → main이 남은 공간 차지하고
+   내부 콘텐츠를 세로 가운데 정렬해 자연스러운 시각 균형. footer는 그대로 하단. */
+.page-landing main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
 
 .landing-min {
   min-height: calc(100vh - var(--header-h));
