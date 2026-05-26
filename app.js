@@ -82,7 +82,11 @@ function applyUrlState() {
     state.typeGroup = tabConf().defaultTypeGroup;
   }
 
-  if (params.has('typeGroup'))  state.typeGroup  = params.get('typeGroup') || 'all';
+  // URL 파라미터를 알려진 값에 대해 화이트리스트 검증 — 임의 변조 시 stuck-state 방지
+  if (params.has('typeGroup')) {
+    const v = params.get('typeGroup') || 'all';
+    state.typeGroup = (v === 'all' || tabAvailableTypeGroups().includes(v)) ? v : 'all';
+  }
   if (params.has('type'))       state.type       = parseMulti(params.get('type'));
   if (params.has('gradeYear'))  state.gradeYear  = parseMulti(params.get('gradeYear'));
   if (params.has('subject'))    state.subject    = params.get('subject') || 'all';
@@ -567,6 +571,13 @@ const onMqlSheet = e => { if (e.matches) setSheetOpen(false); };
 mqlSheet.addEventListener
   ? mqlSheet.addEventListener('change', onMqlSheet)
   : mqlSheet.addListener(onMqlSheet);
+
+// 모바일/데스크톱 경계 통과 시 학년도 칩 SHOW_INITIAL 재계산 — 회전·리사이즈 대응
+const mqlMobile = window.matchMedia('(max-width: 600px)');
+const onMqlMobile = () => { renderYearChips(); };
+mqlMobile.addEventListener
+  ? mqlMobile.addEventListener('change', onMqlMobile)
+  : mqlMobile.addListener(onMqlMobile);
 
 function updateFilterBadge() {
   const count = document.querySelectorAll('#activeTags .tag').length;
