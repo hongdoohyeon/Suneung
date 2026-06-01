@@ -19,7 +19,7 @@ from pathlib import Path
 from urllib.parse import quote
 
 ROOT = Path(__file__).resolve().parents[1]
-DATA = ROOT / 'data' / 'exams-v2.json'
+DATA = ROOT / 'data' / 'exams.json'
 
 WORKER_HOST = 'workers.dev'
 

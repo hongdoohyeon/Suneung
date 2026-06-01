@@ -4,7 +4,7 @@
 
 | 스크립트 | 용도 |
 |---|---|
-| `build-data.py` | **메인 빌드** — sqlite + JSON 통합 → `data/exams.json`/`exams-v2.json`, SSG 4400+ HTML, sitemap, OG |
+| `build-data.py` | **메인 빌드** — sqlite + JSON 통합 → `data/exams.json`, SSG 4400+ HTML, sitemap, OG |
 | `coverage-report.py` | 자료 보유 현황 → `REPORT_KICE_COVERAGE.md` |
 | `validate-sitemap.py` | sitemap URL 404 검증 |
 | `validate-exams.mjs` | `data/exams.json` 스키마 검증 (CI) |
