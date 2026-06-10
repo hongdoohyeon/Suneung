@@ -46,6 +46,12 @@ function buildSubtitle(exam) {
   return [conf?.label, tc?.groupLabel].filter(Boolean).join(' · ');
 }
 
+// 자료 MIME — 잔존 HWP(사관 2018 수학 등)는 application/x-hwp 로 정확히 표기
+function docMime(url, name) {
+  return (/\.hwp(?:[?#]|$)/i.test(url || '') || /\.hwp$/i.test(name || ''))
+    ? 'application/x-hwp' : 'application/pdf';
+}
+
 // ── 헤드 렌더 ──────────────────────────────────────────────
 function renderHead(exam) {
   const title = buildTitle(exam);
@@ -73,10 +79,10 @@ function renderHead(exam) {
     isPartOf: { '@type': 'WebSite', name: '기출해체분석기',
                 url: 'https://kicegg.com/' },
     ...(exam.questionUrl ? { hasPart: [
-      { '@type': 'DigitalDocument', name: '문제지', url: exam.questionUrl, encodingFormat: 'application/pdf' },
-      ...(exam.answerUrl ? [{ '@type': 'DigitalDocument', name: '정답', url: exam.answerUrl, encodingFormat: 'application/pdf' }] : []),
+      { '@type': 'DigitalDocument', name: '문제지', url: exam.questionUrl, encodingFormat: docMime(exam.questionUrl, exam.questionDownload) },
+      ...(exam.answerUrl ? [{ '@type': 'DigitalDocument', name: '정답', url: exam.answerUrl, encodingFormat: docMime(exam.answerUrl, exam.answerDownload) }] : []),
       ...(exam.listenUrl ? [{ '@type': 'AudioObject', name: '영어 듣기 mp3', contentUrl: exam.listenUrl, encodingFormat: 'audio/mpeg' }] : []),
-      ...(exam.scriptUrl ? [{ '@type': 'DigitalDocument', name: '듣기 스크립트', url: exam.scriptUrl, encodingFormat: 'application/pdf' }] : []),
+      ...(exam.scriptUrl ? [{ '@type': 'DigitalDocument', name: '듣기 스크립트', url: exam.scriptUrl, encodingFormat: docMime(exam.scriptUrl, exam.scriptDownload) }] : []),
     ] } : {}),
   });
   // 회차 진입 link (사이드바) — 친화 URL 사용 (build-data.py set_friendly_filename 와 동일 규약)
@@ -88,7 +94,9 @@ function renderHead(exam) {
       '사관': 'mil', '경찰대': 'police', 'LEET': 'leet', 'MEET': 'meet',
     };
     const slug = SET_CURR_SLUG[exam.curriculum] || String(exam.curriculum).toLowerCase();
-    const grade = exam.studentGrade != null ? `-g${exam.studentGrade}` : '';
+    // build-data.py build_static_set_pages 와 동일: 학평(education)만 -g{학년} 접미사
+    const sg = exam.typeGroup === 'education' ? exam.studentGrade : null;
+    const grade = sg ? `-g${sg}` : '';
     setLink.href = `exam-set-${slug}-${exam.gradeYear}-${exam.type}${grade}.html`;
     setLink.hidden = false;
   }
@@ -119,10 +127,14 @@ function renderHead(exam) {
   const solutionUrl     = safeUrl(exam.solutionUrl);
   const listenUrl       = safeUrl(exam.listenUrl);
   const scriptUrl       = safeUrl(exam.scriptUrl);
-  // 자료 타입을 라벨에 명시 (PDF/MP3) — 카드별 어떤 자료인지 직관적으로
+  // 자료 타입을 라벨에 명시 (PDF/HWP/MP3) — 카드별 어떤 자료인지 직관적으로
   // 짝수형 분리 자료가 있으면 기본 라벨에 '홀수형' 명시 (구분 명확화)
-  const qLabel = questionUrlEven ? '문제지 PDF (홀수형)' : '문제지 PDF';
-  const aLabel = answerUrlEven   ? '정답 PDF (홀수형)'   : '정답 PDF';
+  const fileTag = (url, name) =>
+    (/\.hwp(?:[?#]|$)/i.test(url || '') || /\.hwp$/i.test(name || '')) ? 'HWP' : 'PDF';
+  const qTag = fileTag(questionUrl, exam.questionDownload);
+  const qLabel = questionUrlEven ? `문제지 ${qTag} (홀수형)` : `문제지 ${qTag}`;
+  const aTag = fileTag(answerUrl, exam.answerDownload);
+  const aLabel = answerUrlEven   ? `정답 ${aTag} (홀수형)`   : `정답 ${aTag}`;
   if (questionUrl) buttons.push(
     `<a class="btn btn--primary" href="${escHtml(questionUrl)}" target="_blank" rel="noopener" ${dl(exam.questionDownload)}>${qLabel}</a>`
   );

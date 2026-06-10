@@ -192,7 +192,12 @@ async function loadExams() {
   if (fetchFailed) {
     showDataError('시험 목록을 불러올 수 없습니다. 네트워크 연결을 확인해주세요.');
   }
-  state.exams = (Array.isArray(real) && real.length > 0) ? real : buildMockData();
+  // mock 은 로컬 개발 전용 — 운영에서 fetch 실패 시 mock 카드를 보여주면
+  // id 가 실제 exam-{id}.html 과 어긋나 엉뚱한 시험으로 이동하게 됨.
+  const isLocalDev = ['localhost', '127.0.0.1'].includes(location.hostname);
+  state.exams = (Array.isArray(real) && real.length > 0)
+    ? real
+    : (isLocalDev ? buildMockData() : []);
 
   // 헤더 메타: 시험 총 건수 + 최근 업데이트 일자 (reference 시험 제외)
   const realExams = state.exams.filter(e => e.typeGroup !== 'reference');
@@ -704,14 +709,14 @@ function cardHTML(exam, idx = 0) {
 
   const dl = name => name ? `download="${escAttr(name)}"` : 'download';
   const qBtn = exam.questionUrl
-    ? `<a class="btn btn--primary" href="${exam.questionUrl}" target="_blank" rel="noopener" ${dl(exam.questionDownload)}>문제지</a>`
+    ? `<a class="btn btn--primary" href="${escAttr(exam.questionUrl)}" target="_blank" rel="noopener" ${dl(exam.questionDownload)}>문제지</a>`
     : `<button class="btn btn--primary" disabled>문제지</button>`;
   const aBtn = exam.answerUrl
-    ? `<a class="btn" href="${exam.answerUrl}" target="_blank" rel="noopener" ${dl(exam.answerDownload)}>정답</a>`
+    ? `<a class="btn" href="${escAttr(exam.answerUrl)}" target="_blank" rel="noopener" ${dl(exam.answerDownload)}>정답</a>`
     : `<button class="btn" disabled>정답</button>`;
   // 해설 PDF가 없으면 해설 button 자체 숨김 (disabled 회색 button 미표시)
   const sBtn = exam.solutionUrl
-    ? `<a class="btn" href="${exam.solutionUrl}" target="_blank" rel="noopener" ${dl(exam.solutionDownload)}>해설</a>`
+    ? `<a class="btn" href="${escAttr(exam.solutionUrl)}" target="_blank" rel="noopener" ${dl(exam.solutionDownload)}>해설</a>`
     : '';
 
   const delay = `${Math.min(idx * 28, 220)}ms`;

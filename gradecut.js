@@ -276,8 +276,8 @@ function slotHTML(subj, slotIdx, subjConf, isMulti) {
       <div class="subj-slot__result">
         <span class="subj-result__grade" style="color:${GRADE_COLORS[grade - 1]}">${grade}</span>
         <span class="subj-result__suffix">등급</span>
-        <span class="subj-result__sep">·</span>
-        <span class="subj-result__pct">상위 ${pct.toFixed(1)}%</span>
+        ${pct != null ? `<span class="subj-result__sep">·</span>
+        <span class="subj-result__pct">상위 ${pct.toFixed(1)}%</span>` : ''}
       </div>
       ${miniBarHTML(cut.rawCuts, slot.score, grade, fullScore)}
     `;
@@ -444,6 +444,7 @@ function bindGlobalEvents() {
     state.type = null;
     state.scores = {};
     autoFillSingles();
+    syncUrl();
     renderAll();
   });
 
@@ -451,6 +452,7 @@ function bindGlobalEvents() {
     const btn = e.target.closest('.pill'); if (!btn) return;
     state.type = btn.dataset.value;
     state.scores = {};
+    syncUrl();
     renderAll();
   });
 
