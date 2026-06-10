@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#0a0a0a" />
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' https://cdn.jsdelivr.net 'unsafe-inline'; font-src https://cdn.jsdelivr.net data:; img-src 'self' data: https:; connect-src 'self' https://suneung-files.hdh061224.workers.dev; media-src 'self' https://suneung-files.hdh061224.workers.dev; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'self'" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; font-src 'self' data:; img-src 'self' data: https:; connect-src 'self' https://suneung-files.hdh061224.workers.dev https://cloudflareinsights.com; media-src 'self' https://suneung-files.hdh061224.workers.dev; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'self'" />
   <meta name="referrer" content="strict-origin-when-cross-origin" />
   <meta name="naver-site-verification" content="b3138c38039611bed2ce955aa7102ab33011cf14" />
   <meta name="description" content="문제지·정답·등급컷·해설지·영어 듣기 MP3·듣기 대본을 학년도·영역·시기로 해체하고 빠르게 찾아보세요. 수능·평가원·교육청·사관·경찰대·LEET·MEET." />
@@ -48,17 +48,14 @@
     }
   }
   </script>
-
-  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
-  <link rel="stylesheet" crossorigin integrity="sha384-uGEvnSEpW2nM9xJFsrxrwakwrk9QdDTQIBJh0hVMu90OaVyMAMpAK1rIn0/Kh1/k"
-        href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+  <link rel="stylesheet" href="lib/vendor/pretendard/pretendardvariable-dynamic-subset.css?v=20260611a" />
 
   <title>기출 검색 — 기출해체분석기</title>
-  <link rel="stylesheet" href="style.css?v=20260524a" />
-  <link rel="modulepreload" href="app.js?v=20260526a" />
-  <link rel="modulepreload" href="config.js?v=20260526a" />
-  <link rel="modulepreload" href="state.js?v=20260526a" />
-  <link rel="preload" href="data/exams.json?v=20260605b" as="fetch" crossorigin />
+  <link rel="stylesheet" href="style.css?v=20260611a" />
+  <link rel="modulepreload" href="app.js?v=20260611a" />
+  <link rel="modulepreload" href="config.js?v=20260611a" />
+  <link rel="modulepreload" href="state.js?v=20260611a" />
+  <link rel="preload" href="data/exams.json?v=20260611a" as="fetch" crossorigin />
 </head>
 <body>
 
@@ -204,7 +201,7 @@
             <circle cx="9" cy="9" r="6" stroke="currentColor" stroke-width="1.6"/>
             <path d="M13.5 13.5L17 17" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
           </svg>
-          <input id="searchInput" type="text" placeholder="26수능 영어 듣기, 25 9월 미적, 2403 국어" autocomplete="off" inputmode="search" enterkeyhint="search" />
+          <input id="searchInput" type="text" aria-label="기출 검색" placeholder="26수능 영어 듣기, 25 9월 미적, 2403 국어" autocomplete="off" inputmode="search" enterkeyhint="search" />
           <button id="clearSearch" class="search__clear" style="display:none" aria-label="검색 지우기">×</button>
         </div>
         <button class="btn btn--ghost filter-toggle-inline" id="filterToggleInline"
@@ -288,7 +285,7 @@
     </div>
   </footer>
 
-  <script type="module" src="app.js?v=20260526a"></script>
-  <script type="module" src="lib/dday-mount.js?v=20260526a"></script>
+  <script type="module" src="app.js?v=20260611a"></script>
+  <script type="module" src="lib/dday-mount.js?v=20260611a"></script>
 </body>
 </html>

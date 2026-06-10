@@ -730,13 +730,15 @@ def build_exam_meta(it: dict) -> dict:
         seo_kw = f'{gy2}학년도 경찰대 {sub}{sub_part} 기출'
         full_phrase = f'{gy}학년도 경찰대학 1차 시험 {sub}{sub_part}'
     elif tg == 'leet':
-        head  = f'{gy}학년도 LEET {sub}'
-        seo_kw = f'{gy2}학년도 리트 {sub} 기출'
-        full_phrase = f'{gy}학년도 LEET(법학적성시험) {sub}'
+        prelim = ' 예비시험' if typ == 'prelim' else ''   # 예비/본시험 제목 구분 (동명 중복 방지)
+        head  = f'{gy}학년도 LEET{prelim} {sub}'
+        seo_kw = f'{gy2}학년도 리트{prelim} {sub} 기출'
+        full_phrase = f'{gy}학년도 LEET(법학적성시험){prelim} {sub}'
     elif tg == 'meet':
-        head  = f'{gy}학년도 MEET {sub}'
-        seo_kw = f'{gy2}학년도 미트 {sub} 기출'
-        full_phrase = f'{gy}학년도 MEET(의·치학교육입문검사) {sub}'
+        prelim = ' 예비시험' if typ == 'prelim' else ''
+        head  = f'{gy}학년도 MEET{prelim} {sub}'
+        seo_kw = f'{gy2}학년도 미트{prelim} {sub} 기출'
+        full_phrase = f'{gy}학년도 MEET(의·치학교육입문검사){prelim} {sub}'
     elif tg == 'reference':
         # 통계 PDF — 학년도 의미 없음, 자료명 중심
         ey   = it.get('examYear') or ''
@@ -909,22 +911,27 @@ def build_static_exam_pages(items: list[dict], template_path: Path, out_root: Pa
               'isPartOf': {'@id': 'https://kicegg.com/#website'},
               'keywords': meta['keywords'],
             }
+            def _doc_mime(url, name=None):
+                # 잔존 HWP(사관 2018 수학, daumcdn 원본 등)는 application/x-hwp 로 정확히 표기
+                u = (url or '').split('?')[0].lower()
+                n = (name or '').lower()
+                return 'application/x-hwp' if (u.endswith('.hwp') or n.endswith('.hwp')) else 'application/pdf'
             parts = []
             if it.get('questionUrl'):
                 parts.append({'@type': 'DigitalDocument', 'name': '문제지',
-                              'url': it['questionUrl'], 'encodingFormat': 'application/pdf'})
+                              'url': it['questionUrl'], 'encodingFormat': _doc_mime(it['questionUrl'], it.get('questionDownload'))})
             if it.get('questionUrlEven'):
                 parts.append({'@type': 'DigitalDocument', 'name': '문제지(짝수형)',
-                              'url': it['questionUrlEven'], 'encodingFormat': 'application/pdf'})
+                              'url': it['questionUrlEven'], 'encodingFormat': _doc_mime(it['questionUrlEven'], it.get('questionDownloadEven'))})
             if it.get('answerUrl'):
                 parts.append({'@type': 'DigitalDocument', 'name': '정답',
-                              'url': it['answerUrl'], 'encodingFormat': 'application/pdf'})
+                              'url': it['answerUrl'], 'encodingFormat': _doc_mime(it['answerUrl'], it.get('answerDownload'))})
             if it.get('answerUrlEven'):
                 parts.append({'@type': 'DigitalDocument', 'name': '정답(짝수형)',
-                              'url': it['answerUrlEven'], 'encodingFormat': 'application/pdf'})
+                              'url': it['answerUrlEven'], 'encodingFormat': _doc_mime(it['answerUrlEven'], it.get('answerDownloadEven'))})
             if it.get('solutionUrl'):
                 parts.append({'@type': 'DigitalDocument', 'name': '해설지',
-                              'url': it['solutionUrl'], 'encodingFormat': 'application/pdf'})
+                              'url': it['solutionUrl'], 'encodingFormat': _doc_mime(it['solutionUrl'], it.get('solutionDownload'))})
             if it.get('listenUrl'):
                 parts.append({'@type': 'AudioObject', 'name': '영어 듣기 MP3',
                               'contentUrl': it['listenUrl'], 'encodingFormat': 'audio/mpeg'})
@@ -979,6 +986,10 @@ def build_static_exam_pages(items: list[dict], template_path: Path, out_root: Pa
         html = _set_attr(html, pat['twi'],   og_url)
         html = _set_attr(html, pat['twa'],   head + ' — 기출해체분석기')
         html = _set_attr(html, pat['robots'], 'index,follow')   # 템플릿의 noindex 덮어씀
+        # 템플릿(동적 fallback)에서 복사된 '인덱싱 제외' 주석은 SSG 페이지에선 반대 의미 — 교체
+        html = html.replace(
+            '<!-- 동적 fallback (?id=N). SSG exam-{id}.html 가 검색 노출 대상 — 이 페이지는 인덱싱 제외. -->',
+            '<!-- SSG 사전렌더링 페이지 — 인덱싱 대상 (exam.html 템플릿에서 생성). -->')
 
         # H1을 SSG 단계에서 미리 채워둠 — JS 로딩 전에도 검색엔진이 본문 키워드를 잡게.
         html = re.sub(
@@ -1009,8 +1020,14 @@ def build_static_exam_pages(items: list[dict], template_path: Path, out_root: Pa
         sol_url = it.get('solutionUrl')
         listen  = it.get('listenUrl')
         script  = it.get('scriptUrl')
-        q_label = '문제지 PDF (홀수형)' if qE_url else '문제지 PDF'
-        a_label = '정답 PDF (홀수형)'   if aE_url else '정답 PDF'
+        def _file_tag(url, name):
+            u = (url or '').split('?')[0].lower()
+            n = (name or '').lower()
+            return 'HWP' if (u.endswith('.hwp') or n.endswith('.hwp')) else 'PDF'
+        q_tag = _file_tag(q_url, it.get('questionDownload'))
+        a_tag = _file_tag(a_url, it.get('answerDownload'))
+        q_label = f'문제지 {q_tag} (홀수형)' if qE_url else f'문제지 {q_tag}'
+        a_label = f'정답 {a_tag} (홀수형)'   if aE_url else f'정답 {a_tag}'
         def _btn(cls, url, label, dl_name):
             if not url: return ''
             dl_attr = f' download="{html_escape(dl_name, quote=True)}"' if dl_name else ' download'
@@ -1320,6 +1337,36 @@ def main():
         items = [{**it, 'id': idx} for idx, it in enumerate(items, 1)]
         print(f'  + KICE 아카이브 merge: +{len(kice_items)} → 총 {len(items)}')
 
+        # 같은 시험 이중 등재 방지 — DB 원본(studentGrade null)과 아카이브 인제스트
+        # (studentGrade 3)가 매칭 실패로 쌍을 이루던 사고(426쌍, 2026-06 dedupe) 재발 차단.
+        # 평가원류는 sg 를 무시하고 비교하되 학평(education)은 sg 가 학년 구분이므로 유지.
+        seen: dict[tuple, dict] = {}
+        deduped: list[dict] = []
+        merge_fields = ('questionUrl','answerUrl','solutionUrl','scriptUrl','listenUrl',
+                        'questionUrlEven','answerUrlEven','questionDownload','answerDownload',
+                        'solutionDownload','scriptDownload','listenDownload',
+                        'questionDownloadEven','answerDownloadEven')
+        for it in items:
+            sg_norm = it.get('studentGrade') if it.get('typeGroup') == 'education' else None
+            k = (it.get('gradeYear'), it.get('type'), it.get('subject'), it.get('subSubject'),
+                 it.get('examYear'), it.get('month'), it.get('typeGroup'), it.get('curriculum'), sg_norm)
+            prev = seen.get(k)
+            if prev is None:
+                seen[k] = it
+                deduped.append(it)
+                continue
+            # 원본(source 없음) 우선 — donor 파일 필드만 보강
+            keeper, donor = (prev, it) if prev.get('source') is None else (it, prev)
+            for f in merge_fields:
+                if not keeper.get(f) and donor.get(f):
+                    keeper[f] = donor[f]
+            if keeper is not prev:
+                deduped[deduped.index(prev)] = keeper
+                seen[k] = keeper
+        if len(deduped) != len(items):
+            print(f'  - 중복 제거: {len(items) - len(deduped)}건 (원본 우선, 파일 필드 병합)')
+            items = [{**it, 'id': idx} for idx, it in enumerate(deduped, 1)]
+
     # ─ 영역 보강 (사탐/과탐) area-fill items — 누락 item 의 url 채우거나 신규 추가 ─
     area_path = ROOT / 'data' / 'kice-area-fill-items.json'
     if area_path.exists():
@@ -1543,16 +1590,19 @@ def main():
         return '0.5'
 
     # (1) sitemap-sets.xml — 회차 단위 친화 URL (검색 노출 우선)
-    sets = set()
+    # 파일명 기준 dedupe — 다른 curriculum('예비'/'2015', '7차'/'2007개정')이 같은
+    # slug 로 합쳐지며 중복 <url> 이 생기던 버그 방지.
+    sets: dict[str, tuple] = {}
     for it in items:
         if not (it.get('curriculum') and it.get('gradeYear') and it.get('type')):
             continue
-        sets.add((it['curriculum'], str(it['gradeYear']), it['type'],
-                  it.get('studentGrade') if it.get('typeGroup') == 'education' else None))
+        sg = it.get('studentGrade') if it.get('typeGroup') == 'education' else None
+        curr, year, t = it['curriculum'], str(it['gradeYear']), it['type']
+        sets.setdefault(set_friendly_filename(curr, year, t, sg), (curr, year, t, sg))
     sets_parts = ['<?xml version="1.0" encoding="UTF-8"?>',
                   '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
-    for curr, year, t, sg in sorted(sets):
-        fname = set_friendly_filename(curr, year, t, sg)
+    for fname in sorted(sets):
+        curr, year, t, sg = sets[fname]
         sets_parts.append(
             f'  <url><loc>{base}/{fname}</loc>'
             f'<lastmod>{today}</lastmod>'
@@ -1583,7 +1633,7 @@ def main():
     ]
     (ROOT / 'sitemap.xml').write_text('\n'.join(main_parts) + '\n', encoding='utf-8')
 
-    # (4) sitemap-static.xml — index/archive/gradecut
+    # (4) sitemap-static.xml — index/archive/gradecut/admissions/calendar
     # privacy/terms는 noindex 정책이라 sitemap에서 제외
     static_parts = [
         '<?xml version="1.0" encoding="UTF-8"?>',
@@ -1591,6 +1641,8 @@ def main():
         f'  <url><loc>{base}/</loc><lastmod>{today}</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>',
         f'  <url><loc>{base}/archive.html</loc><lastmod>{today}</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>',
         f'  <url><loc>{base}/gradecut.html</loc><lastmod>{today}</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>',
+        f'  <url><loc>{base}/admissions.html</loc><lastmod>{today}</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>',
+        f'  <url><loc>{base}/calendar.html</loc><lastmod>{today}</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>',
         '</urlset>',
     ]
     (ROOT / 'sitemap-static.xml').write_text('\n'.join(static_parts) + '\n', encoding='utf-8')
