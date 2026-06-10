@@ -41,6 +41,10 @@ jobs:
       - name: exams.json business rules
         run: node scripts/validate-exams.mjs
 
+      # data/exam/{id}.json 단건 split ↔ exams.json 동기화 (exam.js 가 split 우선 fetch)
+      - name: exam splits in sync
+        run: python3 scripts/regen-exam-splits.py --check
+
       # HTML 기본 정합성 (간단 grep — 깨진 태그 감지)
       - name: HTML smoke
         run: |

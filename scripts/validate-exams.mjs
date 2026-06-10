@@ -179,7 +179,7 @@ function validateBusinessRules(data) {
   // 평가원 예비(prelim) 는 평가원(suneung) 그룹에 흡수 — 'preliminary' typeGroup 폐기.
   // 학평 type: 고3은 mar/apr/jul/oct, 고1·고2는 mar/jun/sep/nov.
   const tgTypeMap = {
-    education:   new Set(['mar', 'apr', 'may', 'jun', 'jul', 'sep', 'oct', 'nov']),
+    education:   new Set(['mar', 'apr', 'may', 'jun', 'jul', 'sep', 'oct', 'nov', 'dec']),
     suneung:     new Set(['csat', 'june', 'sept', 'prelim']),
     military:    new Set(['military_annual']),
     police:      new Set(['police_annual']),
@@ -253,6 +253,14 @@ function summarize(data) {
   try { schema = JSON.parse(rawSchema); } catch (e) { console.error('schema 파싱 실패:', e.message); process.exit(1); }
 
   if (!Array.isArray(data)) { console.error('exams.json 은 배열이어야 함'); process.exit(1); }
+
+  // 총 건수 하한 — build-data.py 단독 재실행 등으로 surgical append 데이터가
+  // 통째로 소실되는 회귀를 차단 (2026-06 기준 7,609건. 대량 정리로 하한을
+  // 낮춰야 한다면 의도된 변경인지 반드시 확인할 것).
+  const MIN_ENTRIES = 7000;
+  if (data.length < MIN_ENTRIES) {
+    err(`총 항목 ${data.length}건 < 하한 ${MIN_ENTRIES}건 — 데이터 소실 의심 (build-data.py 단독 실행 금지, scripts/README.md 참고)`);
+  }
 
   validateAgainstSchema(data, schema);
   validateBusinessRules(data);

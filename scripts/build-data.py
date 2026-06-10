@@ -1449,6 +1449,31 @@ def main():
                 attached += 1
         print(f'  + 짝수형 overrides {len(even_overrides)} → {attached}건 attach')
 
+    # ─ 안전 가드: 기존 exams.json 대비 데이터 소실 차단 ─
+    # exams.json 은 1회성 ingest(ebsi-archive, savetest-* 등)가 누적된 머지
+    # 산출물이라 이 스크립트의 소스만으로는 전체를 재구성할 수 없다.
+    # 과거 단독 재실행으로 사이트 2/3가 삭제된 사고의 재발 방지용.
+    if OUT_JSON.exists():
+        prev = json.loads(OUT_JSON.read_text(encoding='utf-8'))
+        prev_sources = {it.get('source') for it in prev if it.get('source')}
+        new_sources  = {it.get('source') for it in items if it.get('source')}
+        problems = []
+        if len(items) < len(prev):
+            problems.append(f'건수 감소: {len(prev)} → {len(items)}')
+        lost = prev_sources - new_sources
+        if lost:
+            problems.append(f'소실되는 source: {", ".join(sorted(lost))}')
+        if problems and os.environ.get('FORCE_BUILD_DATA') != '1':
+            sys.exit('\n'.join([
+                '⛔ build-data.py 중단 — 기존 exams.json 대비 데이터가 줄어듭니다.',
+                *('  - ' + p for p in problems),
+                '단독 재실행은 surgical append 데이터를 파괴합니다 (scripts/README.md 참고).',
+                '새 시험 반영은 기존 exams.json에 surgical append + regen-exam-splits.py 를 쓰세요.',
+                '정말 의도한 전체 재빌드면 FORCE_BUILD_DATA=1 로 재실행하세요 (백업 .bak 생성됨).',
+            ]))
+        OUT_JSON.with_suffix('.json.bak').write_text(
+            OUT_JSON.read_text(encoding='utf-8'), encoding='utf-8')
+
     OUT_JSON.parent.mkdir(parents=True, exist_ok=True)
     with OUT_JSON.open('w', encoding='utf-8') as f:
         json.dump(items, f, ensure_ascii=False, indent=2)

@@ -4,7 +4,8 @@
 
 | 스크립트 | 용도 |
 |---|---|
-| `build-data.py` | **메인 빌드** — sqlite + JSON 통합 → `data/exams.json`, SSG 4400+ HTML, sitemap, OG |
+| `build-data.py` | ⚠️ **부분 빌더 — 단독 실행 금지** (아래 경고). sqlite + JSON 통합 → `data/exams.json`, SSG HTML, sitemap, OG |
+| `regen-exam-splits.py` | `exams.json` 수정 후 `data/exam/{id}.json` 단건 split 동기화 (`--check` = CI 검증) |
 | `coverage-report.py` | 자료 보유 현황 → `REPORT_KICE_COVERAGE.md` |
 | `validate-sitemap.py` | sitemap URL 404 검증 |
 | `validate-exams.mjs` | `data/exams.json` 스키마 검증 (CI) |
@@ -46,10 +47,21 @@
 | `build-dashboard.py` / `build-extras-merged.py` | 정시 모의지원 빌드 |
 | `extract-english-grades.py` / `extract-ratios.py` / `extract-tables.py` | 별도 통계 추출 (수동 1회성) |
 
-## 사용법 (build 한 번)
+## ⚠️ build-data.py 단독 실행 금지
+
+`data/exams.json` 은 build-data.py 산출분(~4,900건) 위에 **1회성 ingest
+(ebsi-archive, savetest-* 등 ~2,700건)가 surgical append 로 누적된 머지 산출물**이다.
+build-data.py 는 자기 소스만으로 처음부터 다시 쓰기 때문에 단독 실행하면
+append 분이 통째로 사라지고 id 가 전부 재배열된다 (과거 사이트 2/3 삭제 사고).
+지금은 스크립트 내 안전 가드가 건수 감소·source 소실을 감지하면 중단한다.
+
+**새 시험 반영 표준 절차** (PR #3·#4 패턴):
+1. 기존 `data/exams.json` 에 surgical append (`scripts/_add_*.py` 참고)
+2. `python3 scripts/regen-exam-splits.py` 로 단건 split 동기화
+3. 해당 `exam-{id}.html` 만 생성, sitemap 에 surgical 추가
+4. `node scripts/validate-exams.mjs` 통과 확인
 
 ```bash
-python3 scripts/build-data.py            # 메인 빌드
 python3 scripts/coverage-report.py       # 보고서 갱신
 python3 scripts/validate-sitemap.py      # sitemap 검증
 ```

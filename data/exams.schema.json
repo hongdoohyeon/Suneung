@@ -78,6 +78,7 @@
             "sep",
             "oct",
             "nov",
+            "dec",
             "prelim",
             "stat",
             "leet_annual",
@@ -85,7 +86,7 @@
             "military_annual",
             "police_annual"
           ],
-          "description": "시험 회차/시기(하위). jun/sep/nov는 고1·고2 학평. stat은 통계."
+          "description": "시험 회차/시기(하위). jun/sep/nov/dec는 고1·고2 학평. stat은 통계."
         },
         "studentGrade": {
           "type": ["integer", "null"],
@@ -108,9 +109,11 @@
           "description": "해설 PDF URL."
         },
         "questionUrl": {
-          "type": "string",
-          "format": "uri",
-          "description": "문제지 PDF URL."
+          "anyOf": [
+            { "type": "null" },
+            { "type": "string", "format": "uri" }
+          ],
+          "description": "문제지 PDF URL. 없을 수 있음(옛 학평 일부는 정답/해설만 수집됨)."
         },
         "answerUrl": {
           "anyOf": [
