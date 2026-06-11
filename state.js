@@ -547,6 +547,17 @@ export function availableGradeYears() {
   )].sort((a, b) => gradeYearSortKey(b) - gradeYearSortKey(a));
 }
 
+// 논술 계열 버킷 — 문과(인문)/이과(자연) 필터용. 세부 트랙명을 키워드로 분류.
+// 가이드북·보고서처럼 양 계열 통합 자료는 null (전체에서만 노출).
+const ESSAY_NAT_RE = /자연|수리|수학|과학|물리|화학|생명|지구|의학|의약|의예|약학|공학/;
+const ESSAY_HUM_RE = /인문|사회|상경|경영|경제|언어|체능|문과/;
+export function essayTrack(sub) {
+  if (!sub) return null;
+  if (ESSAY_NAT_RE.test(sub)) return '자연';
+  if (ESSAY_HUM_RE.test(sub)) return '인문';
+  return null;
+}
+
 export function filtered() {
   const allowed = tabCurriculums();
   const tabConf = getTabConf(state.tab);
@@ -564,7 +575,12 @@ export function filtered() {
     if (!matchMulti(state.type, e.type)) return false;
     if (!matchMulti(state.gradeYear, String(e.gradeYear))) return false;
     if (state.subject    !== 'all' && e.subject    !== state.subject)          return false;
-    if (state.subSubject !== 'all' && e.subSubject !== state.subSubject)       return false;
+    if (state.subSubject !== 'all') {
+      // 논술은 계열 버킷(인문/자연) 필터 — 세부 트랙명('자연1 수학' 등)을 키워드로 분류
+      if (e.typeGroup === 'essay' && (state.subSubject === '인문' || state.subSubject === '자연')) {
+        if (essayTrack(e.subSubject) !== state.subSubject)                     return false;
+      } else if (e.subSubject !== state.subSubject)                            return false;
+    }
     if (hasQuery) {
       const s = scoreQuery(e, state.query);
       if (s === 0) return false;

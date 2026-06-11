@@ -15,14 +15,30 @@ WORKER = 'https://suneung-files.hdh061224.workers.dev'
 UNI_LABEL = {'hanyang': '한양대학교', 'khu': '경희대학교', 'ewha': '이화여자대학교',
              'hufs': '한국외국어대학교', 'uos': '서울시립대학교', 'konkuk': '건국대학교',
              'dongguk': '동국대학교', 'sookmyung': '숙명여자대학교',
-             'inha': '인하대학교', 'ajou': '아주대학교'}
+             'inha': '인하대학교', 'ajou': '아주대학교',
+             'catholic': '가톨릭대학교', 'hongik': '홍익대학교', 'dankook': '단국대학교',
+             'sejong': '세종대학교', 'kw': '광운대학교', 'soongsil': '숭실대학교',
+             'swu': '서울여자대학교', 'sungshin': '성신여자대학교', 'pusan': '부산대학교',
+             'knu': '경북대학교', 'gachon': '가천대학교', 'kyonggi': '경기대학교',
+             'kau': '한국항공대학교', 'seokyeong': '서경대학교', 'sangmyung': '상명대학교'}
 KIND_WORDS = ('문제', '예시답안', '모범답안', '우수답안', '해설', '출제의도',
               '답안', '채점기준', '총평', '논술자료집', '가이드북')
 
 
 def parse(name: str):
     n = name.rsplit('.', 1)[0].strip()
-    m = re.match(r'^(\d{4})학년도\s+\S+\s+(?:수시\s+)?(모의\s*)?논술[_\s]+(.+)$', n)
+    # 가이드북·자료집 — 기출/모의 통합 수록물
+    if re.search(r'논술(?:가이드북?|자료집)', n):
+        m = re.match(r'^(\d{4})학년도', n)
+        if not m:
+            return None
+        mock = '모의' in n
+        label = '논술자료집' if '자료집' in n else '논술가이드북'
+        return int(m.group(1)), mock, f'{label}(기출·해설 수록)', 'q', f'{label}'
+    m = re.match(r'^(\d{4})학년도\s+\S+?[_\s]+(?:수시[_\s]+)?(모의\s*)?논술(?:기출)?(?:\([^)]*\))?[_\s]+(.+)$', n)
+    if not m:
+        # '성신 모의_인문 문제' 류 — '논술' 생략형
+        m = re.match(r'^(\d{4})학년도\s+\S+?[_\s]+(모의)[_\s]+(.+)$', n)
     if not m:
         return None
     gy, mock, rest = int(m.group(1)), bool(m.group(2)), m.group(3).strip()
@@ -44,7 +60,10 @@ def parse(name: str):
 
 
 def main() -> None:
-    manifest = json.load(open('/tmp/essay_manifest2.json'))
+    import sys
+    manifest_path = sys.argv[1] if len(sys.argv) > 1 else '/tmp/essay_manifest2.json'
+    tag = sys.argv[2] if len(sys.argv) > 2 else 'essay-v1'
+    manifest = json.load(open(manifest_path))
     groups: dict[tuple, list] = {}
     skipped = []
     for x in manifest:
@@ -86,7 +105,7 @@ def main() -> None:
             uf, df = F[slot]
             tp = f' {track}' if track else ''
             dl = f'{gy}학년도 {uni_full} {lbl}{tp} {kindstr}.pdf'
-            e[uf] = f'{WORKER}/essay-v1/{x["asset"]}?name={urllib.parse.quote(dl)}'
+            e[uf] = f'{WORKER}/{tag}/{x["asset"]}?name={urllib.parse.quote(dl)}'
             e[df] = dl
             e[f'{uf}_source_original'] = x['url']
 
