@@ -1056,6 +1056,15 @@ def build_static_exam_pages(items: list[dict], template_path: Path, out_root: Pa
             lambda m: m.group(1) + btns_html + m.group(2),
             html, count=1)
 
+        # 사이드바 회차 링크를 SSG 단계에서 정적으로 채움 — 크롤러가 JS 없이도
+        # exam → 회차 링크 그래프를 따라가게 (exam.js 가 로드되면 동일 값으로 재설정).
+        if it.get('curriculum') and it.get('gradeYear') and it.get('type'):
+            _sg = it.get('studentGrade') if it.get('typeGroup') == 'education' else None
+            _set_fname = set_friendly_filename(str(it['curriculum']), str(it['gradeYear']), it['type'], _sg)
+            html = html.replace(
+                '<a href="#" id="examSetSideLink" class="exam__back" hidden>',
+                f'<a href="{_set_fname}" id="examSetSideLink" class="exam__back">', 1)
+
         (out_root / f'exam-{it["id"]}.html').write_text(html, encoding='utf-8')
         written += 1
     print(f'  + exam-{{id}}.html SSG {written:,}건 (Naver/Bing 인덱싱)')
@@ -1208,10 +1217,20 @@ def build_static_set_pages(items: list[dict], template_path: Path, out_root: Pat
     def _set_attr(html, p, v):
         return re.sub(p, lambda m: m.group(1) + html_escape(v, quote=True) + m.group(2), html, count=1)
 
+    # 파일명 기준 병합 — '7차'/'2007개정'처럼 다른 curriculum 이 같은 slug 로
+    # 합쳐지는 경우(pre2009-2011-june/sept 등) 마지막 그룹이 파일을 덮어써
+    # 다른 그룹의 시험이 정적 카드에서 빠지던 문제 방지. 한 페이지에 모두 담는다.
+    by_fname: dict[str, list] = {}
+    for key, exams_in_set in groups.items():
+        fname = set_friendly_filename(key[0], key[1], key[2], key[3])
+        by_fname.setdefault(fname, []).append((key, exams_in_set))
+
     written = 0
-    for (curr, year, t, sg), exams_in_set in groups.items():
+    for fname, group_list in by_fname.items():
+        # 대표 그룹(시험 수 최다)으로 meta/H1/data-attr 구성, 카드는 전체 병합
+        (curr, year, t, sg), exams_in_set = max(group_list, key=lambda g: len(g[1]))
+        merged_exams = [e for _, es in group_list for e in es]
         meta = build_set_meta(curr, year, t, sg, exams_in_set)
-        fname = set_friendly_filename(curr, year, t, sg)
         canonical = f'https://kicegg.com/{fname}'
 
         jsonld = {
@@ -1286,9 +1305,28 @@ def build_static_set_pages(items: list[dict], template_path: Path, out_root: Pat
         # JSON-LD 삽입
         html = html.replace('</head>', '  ' + ld_block + '</head>', 1)
 
+        # 정적 카드 링크 — 크롤러가 JS 없이도 회차 → 시험 링크를 따라가게 (SEO).
+        # exam-set.js 로드 시 동일 grid 를 재렌더해 덮어쓴다.
+        def _static_card(it2):
+            t2 = it2.get('subSubject') or it2.get('subject') or ''
+            sub2 = it2.get('subject') if it2.get('subSubject') else ''
+            return ('<article class="card has-files">'
+                    f'<a class="card__link" href="exam-{it2["id"]}.html"'
+                    f' aria-label="{html_escape(t2, quote=True)} 상세 보기"></a>'
+                    f'<h4 class="card__title">{html_escape(t2, quote=False)}</h4>'
+                    + (f'<p class="card__sub">{html_escape(sub2, quote=False)}</p>' if sub2 else '')
+                    + '</article>')
+        _sorted = sorted(merged_exams, key=lambda x: (
+            SUBJECT_ORDER.get(x.get('subject'), 99), x.get('subject') or '', x.get('subSubject') or ''))
+        cards_html = ''.join(_static_card(x) for x in _sorted)
+        html = re.sub(
+            r'(<section class="examset__grid grid" id="examsetGrid">)\s*(</section>)',
+            lambda m: m.group(1) + cards_html + m.group(2),
+            html, count=1)
+
         (out_root / fname).write_text(html, encoding='utf-8')
         written += 1
-    print(f'  + {fname.split("-")[0]}-* 회차 SSG {written:,}건 (친화 URL)')
+    print(f'  + {fname.split("-")[0]}-* 회차 SSG {written:,}건 (친화 URL, 정적 카드 링크 포함)')
 
 
 def main():

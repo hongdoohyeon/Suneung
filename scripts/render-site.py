@@ -100,11 +100,77 @@ def render_sitemaps(items: list[dict]) -> None:
         f'  <url><loc>{base}/</loc><lastmod>{today}</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>',
         f'  <url><loc>{base}/archive.html</loc><lastmod>{today}</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>',
         f'  <url><loc>{base}/gradecut.html</loc><lastmod>{today}</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>',
+        f'  <url><loc>{base}/sets.html</loc><lastmod>{today}</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>',
         f'  <url><loc>{base}/admissions.html</loc><lastmod>{today}</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>',
         f'  <url><loc>{base}/calendar.html</loc><lastmod>{today}</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>',
         '</urlset>',
     ]) + '\n', encoding='utf-8')
-    print(f'  + sitemap (static 5 + sets {len(sets)} + exams {len(items)})')
+    print(f'  + sitemap (static 6 + sets {len(sets)} + exams {len(items)})')
+
+
+def render_sets_directory(items: list[dict]) -> None:
+    """sets.html — 전체 회차 정적 디렉토리. 크롤러의 정적 진입 허브:
+    footer → sets.html → 회차 페이지(정적 카드) → 시험 페이지로 이어지는
+    JS 없는 링크 그래프를 완성한다."""
+    groups: dict[str, tuple] = {}
+    for it in items:
+        if not (it.get('curriculum') and it.get('gradeYear') and it.get('type')):
+            continue
+        sg = it.get('studentGrade') if it.get('typeGroup') == 'education' else None
+        curr, year, t = str(it['curriculum']), str(it['gradeYear']), it['type']
+        fname = bd.set_friendly_filename(curr, year, t, sg)
+        groups.setdefault(fname, (curr, year, t, sg, []))[4].append(it)
+
+    by_year: dict[str, list[tuple[str, str]]] = {}
+    for fname, (curr, year, t, sg, exams) in groups.items():
+        head = bd.build_set_meta(curr, year, t, sg, exams)['head']
+        by_year.setdefault(year, []).append((fname, head))
+
+    sections = []
+    for year in sorted(by_year, reverse=True):
+        links = ''.join(
+            f'<li><a href="{fname}">{bd.html_escape(head, quote=False)}</a></li>'
+            for fname, head in sorted(by_year[year], key=lambda x: x[1]))
+        label = f'{year}학년도' if year.isdigit() and int(year) < 9000 else '기타'
+        sections.append(
+            f'<section class="legal__section"><h2>{label}</h2>'
+            f'<ul class="setsdir__list">{links}</ul></section>')
+
+    page = f'''<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="index,follow" />
+  <meta name="description" content="수능·모의평가·학력평가·사관학교·경찰대·LEET·MEET 전체 회차 목록. 회차별 문제지·정답·해설·등급컷." />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="canonical" href="https://kicegg.com/sets.html" />
+  <link rel="stylesheet" href="lib/vendor/pretendard/pretendardvariable-dynamic-subset.css?v=20260611a" />
+  <title>전체 회차 목록 — 기출해체분석기</title>
+  <link rel="stylesheet" href="style.css?v=20260611a" />
+  <style>.setsdir__list{{columns:3;column-gap:24px;list-style:none;padding:0;margin:0}}
+.setsdir__list li{{margin:4px 0;break-inside:avoid}}
+@media (max-width:800px){{.setsdir__list{{columns:2}}}}
+@media (max-width:480px){{.setsdir__list{{columns:1}}}}</style>
+</head>
+<body class="page-default">
+  <main class="container legal" style="padding:32px 20px;max-width:1080px;margin:0 auto;">
+    <h1>전체 회차 목록</h1>
+    <p><a href="./">홈</a> · <a href="archive.html">기출 검색</a></p>
+    {''.join(sections)}
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <p class="site-footer__legal">
+        <a href="sets.html">전체 회차</a> · <a href="privacy.html">개인정보처리방침</a> · <a href="terms.html">이용약관</a>
+      </p>
+    </div>
+  </footer>
+</body>
+</html>
+'''
+    (ROOT / 'sets.html').write_text(page, encoding='utf-8')
+    print(f'  + sets.html 회차 디렉토리 ({len(groups)}개 링크)')
 
 
 def render_splits(items: list[dict]) -> None:
@@ -131,6 +197,7 @@ def main() -> None:
     print(f'exams.json {len(items)}건 → 전체 재렌더')
     bd.build_static_exam_pages(items, ROOT / 'exam.html', ROOT)
     bd.build_static_set_pages(items, ROOT / 'exam-set.html', ROOT)
+    render_sets_directory(items)
     render_sitemaps(items)
     render_splits(items)
     print('완료')
