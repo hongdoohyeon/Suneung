@@ -267,10 +267,14 @@ addEventListener('DOMContentLoaded', () => {
 
 // ── 필터 패널 전체 재구성 ──────────────────────────────────
 function renderFilterPanel() {
-  $('typeGroupBlock').style.display = tabIsSingleType() ? 'none' : '';
-
   renderTypeGroupChips();
   renderSubtypeChips();
+  // '시험' 섹션은 typeGroup 칩 또는 세부유형(월) 칩이 하나라도 있을 때만 노출.
+  // 종전에는 educationOnly 탭(고1/고2)에서 블록째 숨겨 월 필터까지 사라졌음.
+  const hasGroupChips = !tabIsSingleType();
+  const hasTypeChips  = $('subtypeRow').classList.contains('is-open');
+  $('typeGroupBlock').style.display = (hasGroupChips || hasTypeChips) ? '' : 'none';
+
   renderYearChips();
   renderSubjectFilter();
 }
