@@ -739,6 +739,12 @@ def build_exam_meta(it: dict) -> dict:
         head  = f'{gy}학년도 MEET{prelim} {sub}'
         seo_kw = f'{gy2}학년도 미트{prelim} {sub} 기출'
         full_phrase = f'{gy}학년도 MEET(의·치학교육입문검사){prelim} {sub}'
+    elif tg == 'essay':
+        lbl = '모의논술' if typ == 'essay_mock' else '논술'
+        uni_short = sub.replace('학교', '')          # '연세대학교' → '연세대'
+        head  = f'{gy}학년도 {uni_short} {lbl}{sub_part}'
+        seo_kw = f'{gy2} {uni_short} {lbl}{sub_part} 기출'
+        full_phrase = f'{gy}학년도 {sub} 수시 {lbl}고사{sub_part}'
     elif tg == 'reference':
         # 통계 PDF — 학년도 의미 없음, 자료명 중심
         ey   = it.get('examYear') or ''
@@ -1134,6 +1140,12 @@ def build_set_meta(curr: str, year: str, t: str, sg: int | None, exams_in_set: l
         short = 'MEET'
         full = f'{gy}학년도 MEET(의·치학교육입문검사)'
         aliases = [f'{gy2}학년도 미트', f'{gy} MEET', f'{gy} 미트']
+    elif curr == '논술':
+        lbl = '모의논술' if t == 'essay_mock' else '논술'
+        head = f'{gy}학년도 대학별 {lbl}'
+        short = lbl
+        full = f'{gy}학년도 대학별 수시 {lbl}고사 (고려대·연세대·서강대·성균관대·중앙대 등)'
+        aliases = [f'{gy2} {lbl}', f'{gy}학년도 {lbl} 기출', f'{gy} 대학 논술']
     else:
         head = f'{gy}학년도'
         short = ''
@@ -1178,7 +1190,7 @@ def set_friendly_filename(curr: str, year: str, t: str, sg: int | None) -> str:
         '2015':'kice','2009':'kice','예비':'kice',
         # 7차 이전 분리 키는 모두 기존 pre2009 슬러그로 통일 — SEO·이력 호환
         '2007개정':'pre2009','7차':'pre2009','6차':'pre2009','pre2009':'pre2009',
-        '사관':'mil','경찰대':'police','LEET':'leet','MEET':'meet',
+        '사관':'mil','경찰대':'police','LEET':'leet','MEET':'meet','논술':'essay',
     }.get(curr, curr.lower())
     grade_part = f'-g{sg}' if sg else ''
     return f'exam-set-{curr_slug}-{year}-{t}{grade_part}.html'

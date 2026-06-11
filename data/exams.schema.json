@@ -30,7 +30,7 @@
         },
         "curriculum": {
           "type": "string",
-          "enum": ["2015", "2009", "2007개정", "7차", "6차", "사관", "경찰대", "LEET", "MEET", "예비", "pre2009", "reference"],
+          "enum": ["2015", "2009", "2007개정", "7차", "6차", "사관", "경찰대", "LEET", "MEET", "예비", "pre2009", "논술", "reference"],
           "description": "교육과정 또는 시험군. 수능은 2015/2009/2007개정/7차/6차, 그 외는 시험명. 'pre2009'는 옛 통합 키로 호환용."
         },
         "gradeYear": {
@@ -60,9 +60,10 @@
             "police",
             "leet",
             "meet",
+            "essay",
             "reference"
           ],
-          "description": "시험 카테고리(상위). reference는 통계 PDF."
+          "description": "시험 카테고리(상위). essay는 대학별 논술, reference는 통계 PDF."
         },
         "type": {
           "type": "string",
@@ -83,6 +84,8 @@
             "stat",
             "leet_annual",
             "meet_annual",
+            "essay_annual",
+            "essay_mock",
             "military_annual",
             "police_annual"
           ],

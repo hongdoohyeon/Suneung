@@ -91,7 +91,7 @@ function renderHead(exam) {
     const SET_CURR_SLUG = {
       '2015': 'kice', '2009': 'kice', '예비': 'kice',
       '2007개정': 'pre2009', '7차': 'pre2009', '6차': 'pre2009', 'pre2009': 'pre2009',
-      '사관': 'mil', '경찰대': 'police', 'LEET': 'leet', 'MEET': 'meet',
+      '사관': 'mil', '경찰대': 'police', 'LEET': 'leet', 'MEET': 'meet', '논술': 'essay',
     };
     const slug = SET_CURR_SLUG[exam.curriculum] || String(exam.curriculum).toLowerCase();
     // build-data.py build_static_set_pages 와 동일: 학평(education)만 -g{학년} 접미사

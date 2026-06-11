@@ -185,6 +185,7 @@ function validateBusinessRules(data) {
     police:      new Set(['police_annual']),
     leet:        new Set(['leet_annual', 'prelim']),
     meet:        new Set(['meet_annual', 'prelim']),
+    essay:       new Set(['essay_annual', 'essay_mock']),
     reference:   new Set(['stat']),
   };
   for (const ex of data) {

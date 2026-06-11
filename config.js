@@ -23,8 +23,7 @@ export const TAB_CONFIG = [
     curriculums: ['2015', '2009'], educationGrades: [2], educationOnly: true },
   { key: 'freshman',   label: '고1',       sub: '학평',
     curriculums: ['2015', '2009'], educationGrades: [1], educationOnly: true },
-  // ── 빈 탭 (데이터 채워지면 placeholder 해제) ───────────
-  { key: 'essay',      label: '논술',      sub: '준비 중',  curriculums: [], placeholder: true },
+  { key: 'essay',      label: '논술',      sub: '대학별 기출', curriculums: ['논술'] },
 ];
 
 export function getTabConf(tabKey) {
@@ -224,6 +223,24 @@ export const CURRICULUM_CONFIG = {
 
   // ── 리트 (LEET) ──────────────────────────────────────────
   // 첫 시행: 2008.08.24 → 2009학년도 LEET / 가장 최근: 2025.07 → 2026학년도
+  // ── 대학 논술 (수시 논술전형 기출) ────────────────────────
+  // subject = 대학명, subSubject = 계열/과목. 1차 수록: 5개교 (2026-06).
+  '논술': {
+    id: '논술',
+    label: '대학 논술',
+    rangeLabel: '수시 논술전형',
+    gradeYearRange: [2021, 2026],
+    availableTypeGroups: ['essay'],
+    subjects: {
+      '고려대학교':   { icon: '🐯', bg: '#fdeaea', color: '#8f0a17', subs: [] },
+      '연세대학교':   { icon: '🦅', bg: '#e8efff', color: '#003876', subs: [] },
+      '서강대학교':   { icon: '📕', bg: '#fdeeee', color: '#a6192e', subs: [] },
+      '성균관대학교': { icon: '🌳', bg: '#eaf7ee', color: '#0b6e4f', subs: [] },
+      '중앙대학교':   { icon: '🐉', bg: '#eef3fb', color: '#0a4595', subs: [] },
+    },
+    subjectsByTypeGroup: {},
+  },
+
   'LEET': {
     id: 'LEET',
     label: '리트 (LEET)',
@@ -336,6 +353,17 @@ export const EXAM_TYPE_CONFIG = [
     displayMode: 'gradeYear',
     types: [
       { key: 'meet_annual', label: '본시험', month: 8, badgeBg: '#ecfdf5', badgeColor: '#059669' },
+    ],
+  },
+  {
+    groupKey: 'essay',
+    groupLabel: '대학 논술',
+    groupColor: '#7c3aed',
+    groupBg: '#f5f3ff',
+    displayMode: 'gradeYear',
+    types: [
+      { key: 'essay_annual', label: '본시험',   month: 12, badgeBg: '#f5f3ff', badgeColor: '#7c3aed' },
+      { key: 'essay_mock',   label: '모의논술', month: 8,  badgeBg: '#f8fafc', badgeColor: '#475569' },
     ],
   },
 ];
