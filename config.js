@@ -229,7 +229,7 @@ export const CURRICULUM_CONFIG = {
     id: '논술',
     label: '대학 논술',
     rangeLabel: '수시 논술전형',
-    gradeYearRange: [2019, 2026],
+    gradeYearRange: [2019, 2027],
     availableTypeGroups: ['essay'],
     subjects: {
       '고려대학교':   { icon: '🐯', bg: '#fdeaea', color: '#8f0a17', subs: ['인문', '자연'] },
@@ -262,6 +262,7 @@ export const CURRICULUM_CONFIG = {
       '한국항공대학교': { icon: '✈️', bg: '#eaf2fb', color: '#15498c', subs: ['인문', '자연'] },
       '서경대학교':   { icon: '🌅', bg: '#fdf0ec', color: '#a03a1c', subs: ['인문', '자연'] },
       '상명대학교':   { icon: '🕊️', bg: '#eef5f0', color: '#1d6e44', subs: ['인문', '자연'] },
+      '연세대학교(미래)': { icon: '🏔️', bg: '#e8efff', color: '#1a4a8f', subs: ['인문', '자연'] },
     },
     subjectsByTypeGroup: {},
   },
