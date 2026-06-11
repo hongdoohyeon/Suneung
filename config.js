@@ -263,6 +263,7 @@ export const CURRICULUM_CONFIG = {
       '서경대학교':   { icon: '🌅', bg: '#fdf0ec', color: '#a03a1c', subs: ['인문', '자연'] },
       '상명대학교':   { icon: '🕊️', bg: '#eef5f0', color: '#1d6e44', subs: ['인문', '자연'] },
       '연세대학교(미래)': { icon: '🏔️', bg: '#e8efff', color: '#1a4a8f', subs: ['인문', '자연'] },
+      '덕성여자대학교': { icon: '🌹', bg: '#fbeef0', color: '#8f2741', subs: ['인문', '자연'] },
     },
     subjectsByTypeGroup: {},
   },
