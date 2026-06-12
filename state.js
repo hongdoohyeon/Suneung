@@ -2,7 +2,7 @@
 import {
   CURRICULUM_CONFIG, EXAM_TYPE_CONFIG, TAB_CONFIG,
   getTypeConf, getTabConf, prettySub, searchAliasOf, ALIAS_KEYS_DESC,
-} from './config.js?v=20260612a';
+} from './config.js?v=20260612b';
 
 // ── 검색 정규화 ─────────────────────────────────────────────
 // 로마자 숫자(Ⅰ/Ⅱ/Ⅲ) → 아라비아, 한자(一/二/三) → 아라비아, 소문자, 공백 제거.
@@ -549,7 +549,7 @@ export function availableGradeYears() {
 
 // 논술 계열 버킷 — 문과(인문)/이과(자연) 필터용. 세부 트랙명을 키워드로 분류.
 // 가이드북·보고서처럼 양 계열 통합 자료는 null (전체에서만 노출).
-const ESSAY_NAT_RE = /자연|수리|수학|과학|물리|화학|생명|지구|의학|의약|의예|약학|공학|창의인재/;
+const ESSAY_NAT_RE = /자연|수리|수학|과학|물리|화학|생명|지구|의학|의약|의예|약학|공학|이학|창의인재/;
 const ESSAY_HUM_RE = /인문|사회|상경|경영|경제|언어|국문|체능|문과|미래인재/;
 export function essayTrack(sub) {
   if (!sub) return null;

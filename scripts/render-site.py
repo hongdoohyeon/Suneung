@@ -145,9 +145,9 @@ def render_sets_directory(items: list[dict]) -> None:
   <meta name="description" content="수능·모의평가·학력평가·사관학교·경찰대·LEET·MEET 전체 회차 목록. 회차별 문제지·정답·해설·등급컷." />
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <link rel="canonical" href="https://kicegg.com/sets.html" />
-  <link rel="stylesheet" href="lib/vendor/pretendard/pretendardvariable-dynamic-subset.css?v=20260612a" />
+  <link rel="stylesheet" href="lib/vendor/pretendard/pretendardvariable-dynamic-subset.css?v=20260612b" />
   <title>전체 회차 목록 — 기출해체분석기</title>
-  <link rel="stylesheet" href="style.css?v=20260612a" />
+  <link rel="stylesheet" href="style.css?v=20260612b" />
   <style>.setsdir__list{{columns:3;column-gap:24px;list-style:none;padding:0;margin:0}}
 .setsdir__list li{{margin:4px 0;break-inside:avoid}}
 @media (max-width:800px){{.setsdir__list{{columns:2}}}}

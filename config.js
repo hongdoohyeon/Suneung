@@ -229,7 +229,7 @@ export const CURRICULUM_CONFIG = {
     id: '논술',
     label: '대학 논술',
     rangeLabel: '수시 논술전형',
-    gradeYearRange: [2019, 2027],
+    gradeYearRange: [2015, 2027],
     availableTypeGroups: ['essay'],
     subjects: {
       '고려대학교':   { icon: '🐯', bg: '#fdeaea', color: '#8f0a17', subs: ['인문', '자연'] },
