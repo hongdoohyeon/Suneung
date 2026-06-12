@@ -1,7 +1,7 @@
 'use strict';
 import { CURRICULUM_CONFIG, EXAM_TYPE_CONFIG, getTypeConf, prettySub } from './config.js';
 import { renderAllAdSlots } from './lib/ads.js';
-import { mountLineup } from './lib/lineup-mount.js?v=20260611a';
+import { mountLineup } from './lib/lineup-mount.js?v=20260612a';
 
 const DATA_URL = 'data/gradecuts.json';
 const $ = id => document.getElementById(id);
