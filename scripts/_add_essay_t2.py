@@ -22,7 +22,8 @@ UNI_LABEL = {'hanyang': '한양대학교', 'khu': '경희대학교', 'ewha': '�
              'knu': '경북대학교', 'gachon': '가천대학교', 'kyonggi': '경기대학교',
              'kau': '한국항공대학교', 'seokyeong': '서경대학교', 'sangmyung': '상명대학교',
              'eulji': '을지대학교', 'tukorea': '한국공학대학교', 'suwon': '수원대학교',
-             'hanshin': '한신대학교', 'dongduk': '동덕여자대학교', 'samyook': '삼육대학교'}
+             'hanshin': '한신대학교', 'dongduk': '동덕여자대학교', 'samyook': '삼육대학교',
+             'erica': '한양대학교(ERICA)', 'cau': '중앙대학교'}
 KIND_WORDS = ('문제', '예시답안', '모범답안', '우수답안', '해설', '출제의도',
               '답안', '채점기준', '총평', '논술자료집', '가이드북')
 

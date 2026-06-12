@@ -270,6 +270,7 @@ export const CURRICULUM_CONFIG = {
       '수원대학교':   { icon: '🏯', bg: '#f3f0ea', color: '#7a5a1e', subs: ['인문', '자연'] },
       '한신대학교':   { icon: '🌿', bg: '#ecf6ec', color: '#2e6b2e', subs: ['인문', '자연'] },
       '삼육대학교':   { icon: '🍃', bg: '#eef7ee', color: '#1e7a3c', subs: ['인문', '자연'] },
+      '한양대학교(ERICA)': { icon: '🦁', bg: '#eaf3fb', color: '#11498a', subs: ['인문', '자연'] },
     },
     subjectsByTypeGroup: {},
   },
