@@ -20,7 +20,9 @@ UNI_LABEL = {'hanyang': '한양대학교', 'khu': '경희대학교', 'ewha': '�
              'sejong': '세종대학교', 'kw': '광운대학교', 'soongsil': '숭실대학교',
              'swu': '서울여자대학교', 'sungshin': '성신여자대학교', 'pusan': '부산대학교',
              'knu': '경북대학교', 'gachon': '가천대학교', 'kyonggi': '경기대학교',
-             'kau': '한국항공대학교', 'seokyeong': '서경대학교', 'sangmyung': '상명대학교'}
+             'kau': '한국항공대학교', 'seokyeong': '서경대학교', 'sangmyung': '상명대학교',
+             'eulji': '을지대학교', 'tukorea': '한국공학대학교', 'suwon': '수원대학교',
+             'hanshin': '한신대학교', 'dongduk': '동덕여자대학교', 'samyook': '삼육대학교'}
 KIND_WORDS = ('문제', '예시답안', '모범답안', '우수답안', '해설', '출제의도',
               '답안', '채점기준', '총평', '논술자료집', '가이드북')
 
@@ -96,7 +98,7 @@ def main() -> None:
                  'subject': uni_full, 'subSubject': tr,
                  'questionUrl': None, 'answerUrl': None, 'solutionUrl': None,
                  'questionDownload': None, 'answerDownload': None, 'solutionDownload': None,
-                 'source': 'essay-v1'}
+                 'source': tag}
             next_id += 1
             added.append(e)
             return e
