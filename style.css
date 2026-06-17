@@ -3979,3 +3979,11 @@ body.is-sheet-open { overflow: hidden; touch-action: none; }
   /* archive 카드 메타 — 한 줄 안 들어가면 줄바꿈 */
   .card__meta { flex-wrap: wrap; gap: 4px 8px; }
 }
+
+/* 관련 기출문제 — SSG 내부링크 섹션 (SEO·탐색) */
+.exam__related{margin:2rem 0 1rem;padding:1.25rem 1rem;border-top:1px solid var(--border,#e5e7eb)}
+.exam__related h2{font-size:1rem;font-weight:700;margin:0 0 .75rem;color:var(--text,#111)}
+.exam__related ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:.5rem}
+.exam__related li{margin:0}
+.exam__related a{display:inline-block;padding:.4rem .7rem;border:1px solid var(--border,#e5e7eb);border-radius:999px;font-size:.85rem;color:var(--text,#333);text-decoration:none;background:var(--surface,#fafafa);transition:background .15s,border-color .15s}
+.exam__related a:hover{background:var(--accent-weak,#eef2ff);border-color:var(--accent,#6366f1)}

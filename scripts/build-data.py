@@ -879,6 +879,24 @@ def build_static_exam_pages(items: list[dict], template_path: Path, out_root: Pa
       'robots': r'(<meta name="robots" content=")[^"]*(")',
     }
 
+    # 관련 기출 내부링크 인덱스 — 얇은·고립 페이지 SEO 보강(크롤링됨-색인안됨 완화).
+    # 시리즈(같은 과목·트랙·종류, 연도만 다름) + 같은 회차(같은 시험, 영역/계열만 다름).
+    from collections import defaultdict as _dd
+    _by_series: dict = _dd(list)
+    _by_set: dict = _dd(list)
+    for _it in items:
+        _by_series[(_it.get('subject'), _it.get('subSubject'), _it.get('type'), _it.get('studentGrade'))].append(_it)
+        _by_set[(_it.get('curriculum'), _it.get('gradeYear'), _it.get('type'), _it.get('studentGrade'))].append(_it)
+    for _k in _by_series:
+        _by_series[_k].sort(key=lambda x: x.get('gradeYear') or 0, reverse=True)
+
+    def _rel_label(r: dict) -> str:
+        gy = r.get('gradeYear'); subj = r.get('subject') or ''; sub = r.get('subSubject')
+        p = [f'{gy}학년도' if gy else '', subj]
+        if sub and str(sub) not in subj:
+            p.append(str(sub))
+        return ' '.join(s for s in p if s)
+
     written = 0
     for it in items:
         meta = build_exam_meta(it)
@@ -1071,6 +1089,25 @@ def build_static_exam_pages(items: list[dict], template_path: Path, out_root: Pa
                 '<a href="#" id="examSetSideLink" class="exam__back" hidden>',
                 f'<a href="{_set_fname}" id="examSetSideLink" class="exam__back">', 1)
 
+        # 관련 기출 내부링크 — 본문에 정적 주입(내부 링크 그래프 + 고유 콘텐츠로 색인 유도).
+        _rel = []
+        _seen = {it['id']}
+        for _sib in _by_series[(it.get('subject'), it.get('subSubject'), it.get('type'), it.get('studentGrade'))]:
+            if _sib['id'] in _seen: continue
+            _seen.add(_sib['id']); _rel.append(_sib)
+            if len(_rel) >= 8: break
+        for _sib in _by_set[(it.get('curriculum'), it.get('gradeYear'), it.get('type'), it.get('studentGrade'))]:
+            if _sib['id'] in _seen: continue
+            _seen.add(_sib['id']); _rel.append(_sib)
+            if len(_rel) >= 14: break
+        if _rel:
+            _lis = ''.join(
+                f'<li><a href="exam-{r["id"]}.html">{html_escape(_rel_label(r), quote=False)}</a></li>'
+                for r in _rel)
+            _rel_html = ('<nav class="exam__related" id="examRelated" aria-label="관련 기출문제">'
+                         '<h2>관련 기출문제</h2><ul>' + _lis + '</ul></nav>')
+            html = html.replace('</main>', _rel_html + '\n  </main>', 1)
+
         (out_root / f'exam-{it["id"]}.html').write_text(html, encoding='utf-8')
         written += 1
     print(f'  + exam-{{id}}.html SSG {written:,}건 (Naver/Bing 인덱싱)')
@@ -1087,12 +1124,12 @@ def build_set_meta(curr: str, year: str, t: str, sg: int | None, exams_in_set: l
             short = '수능'
             full = f'{gy}학년도 수능(대학수학능력시험)'
             aliases = [f'{gy2}수능', f'{gy} 수능', f'{gy}학년도 수능', f'{gy2}학년도 수능']
-        elif t == 'jun':
+        elif t in ('jun', 'june'):
             head = f'{gy}학년도 6월 모의평가'
             short = '6모'
             full = f'{gy}학년도 6월 모의평가(6모)'
             aliases = [f'{gy2}학년도 6모', f'{gy}학년도 6모', f'{gy2} 6모', f'{gy}학년도 6월 모평']
-        elif t == 'sep':
+        elif t in ('sep', 'sept'):
             head = f'{gy}학년도 9월 모의평가'
             short = '9모'
             full = f'{gy}학년도 9월 모의평가(9모)'
@@ -1691,6 +1728,7 @@ def main():
         f'  <url><loc>{base}/</loc><lastmod>{today}</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>',
         f'  <url><loc>{base}/archive.html</loc><lastmod>{today}</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>',
         f'  <url><loc>{base}/gradecut.html</loc><lastmod>{today}</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>',
+        f'  <url><loc>{base}/sets.html</loc><lastmod>{today}</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>',
         f'  <url><loc>{base}/admissions.html</loc><lastmod>{today}</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>',
         f'  <url><loc>{base}/calendar.html</loc><lastmod>{today}</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>',
         '</urlset>',

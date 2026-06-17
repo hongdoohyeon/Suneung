@@ -92,6 +92,9 @@ static_parts = [
     f'  <url><loc>{BASE}/</loc><lastmod>{TODAY}</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>',
     f'  <url><loc>{BASE}/archive.html</loc><lastmod>{TODAY}</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>',
     f'  <url><loc>{BASE}/gradecut.html</loc><lastmod>{TODAY}</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>',
+    f'  <url><loc>{BASE}/sets.html</loc><lastmod>{TODAY}</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>',
+    f'  <url><loc>{BASE}/admissions.html</loc><lastmod>{TODAY}</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>',
+    f'  <url><loc>{BASE}/calendar.html</loc><lastmod>{TODAY}</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>',
     '</urlset>',
 ]
 (ROOT / 'sitemap-static.xml').write_text('\n'.join(static_parts) + '\n', encoding='utf-8')

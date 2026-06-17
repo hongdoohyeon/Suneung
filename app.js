@@ -2,14 +2,14 @@
 import {
   CURRICULUM_CONFIG, EXAM_TYPE_CONFIG, TAB_CONFIG,
   getTypeConf, getGroupConf, getTabConf, legacyTabKey, prettySub,
-} from './config.js?v=20260612b';
+} from './config.js?v=20260617a';
 import {
   state, PAGE_SIZE,
   resetFilters, toggleMulti,
   getDisplayYear, availableGradeYears,
   filtered, subjectCounts, buildMockData,
   tabCurriculums, tabCurriculumConfs, tabSubjects, curriculumOfGradeYear,
-} from './state.js?v=20260612b';
+} from './state.js?v=20260617a';
 import { renderAllAdSlots } from './lib/ads.js';
 
 const tabConf = () => getTabConf(state.tab);
@@ -38,7 +38,7 @@ const tabIsSingleType = () => {
 
 // 정적 JSON 데이터 파일 — 백엔드 없이 data/exams.json 만 갱신하면 사이트가 갱신됨
 // 빌드 시 ID 재할당되므로 캐시 버스터 강제 (옛 캐시 ↔ 새 SSG 불일치 방지)
-const DATA_URL = 'data/exams.json?v=20260612b';
+const DATA_URL = 'data/exams.json?v=20260617a';
 
 const $ = id => document.getElementById(id);
 

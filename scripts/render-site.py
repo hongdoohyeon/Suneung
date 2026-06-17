@@ -123,7 +123,11 @@ def render_sets_directory(items: list[dict]) -> None:
 
     by_year: dict[str, list[tuple[str, str]]] = {}
     for fname, (curr, year, t, sg, exams) in groups.items():
-        head = bd.build_set_meta(curr, year, t, sg, exams)['head']
+        meta = bd.build_set_meta(curr, year, t, sg, exams)
+        head = meta['head']
+        short = meta.get('short') or ''
+        if short and head.endswith('학년도') and head == f'{year}학년도':
+            head = f'{head} {short}'
         by_year.setdefault(year, []).append((fname, head))
 
     sections = []
@@ -136,15 +140,57 @@ def render_sets_directory(items: list[dict]) -> None:
             f'<section class="legal__section"><h2>{label}</h2>'
             f'<ul class="setsdir__list">{links}</ul></section>')
 
+    item_list = []
+    position = 1
+    for year in sorted(by_year, reverse=True):
+        for fname, head in sorted(by_year[year], key=lambda x: x[1]):
+            item_list.append({
+                '@type': 'ListItem',
+                'position': position,
+                'url': f'https://kicegg.com/{fname}',
+                'name': head,
+            })
+            position += 1
+
+    jsonld = {
+        '@context': 'https://schema.org',
+        '@type': 'CollectionPage',
+        '@id': 'https://kicegg.com/sets.html',
+        'url': 'https://kicegg.com/sets.html',
+        'name': '전체 회차 목록',
+        'description': '수능·모의평가·학력평가·사관학교·경찰대·LEET·MEET 기출 회차를 학년도별로 탐색하는 정적 목록입니다.',
+        'inLanguage': 'ko-KR',
+        'isPartOf': {'@id': 'https://kicegg.com/#website'},
+        'mainEntity': {
+            '@type': 'ItemList',
+            'numberOfItems': len(item_list),
+            'itemListElement': item_list[:200],
+        },
+    }
+    jsonld_block = json.dumps(jsonld, ensure_ascii=False, separators=(',', ':'))
+
     page = f'''<!DOCTYPE html>
 <html lang="ko">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="robots" content="index,follow" />
-  <meta name="description" content="수능·모의평가·학력평가·사관학교·경찰대·LEET·MEET 전체 회차 목록. 회차별 문제지·정답·해설·등급컷." />
+  <meta name="theme-color" content="#0a0a0a" />
+  <meta name="description" content="수능·모의평가·학력평가·사관학교·경찰대·LEET·MEET 전체 회차 목록. 학년도별 기출 문제지·정답·해설·등급컷 회차로 바로 이동하세요." />
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <link rel="canonical" href="https://kicegg.com/sets.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="기출해체분석기" />
+  <meta property="og:title" content="전체 회차 목록 — 기출해체분석기" />
+  <meta property="og:description" content="학년도별 수능·모의평가·학력평가·사관학교·경찰대·LEET·MEET 기출 회차 목록." />
+  <meta property="og:url" content="https://kicegg.com/sets.html" />
+  <meta property="og:image" content="https://kicegg.com/og-image.svg" />
+  <meta property="og:locale" content="ko_KR" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="전체 회차 목록 — 기출해체분석기" />
+  <meta name="twitter:description" content="학년도별 기출 회차 목록에서 문제지·정답·해설·등급컷으로 바로 이동." />
+  <meta name="twitter:image" content="https://kicegg.com/og-image.svg" />
+  <script type="application/ld+json">{jsonld_block}</script>
   <link rel="stylesheet" href="lib/vendor/pretendard/pretendardvariable-dynamic-subset.css?v=20260612b" />
   <title>전체 회차 목록 — 기출해체분석기</title>
   <link rel="stylesheet" href="style.css?v=20260612b" />
@@ -156,6 +202,7 @@ def render_sets_directory(items: list[dict]) -> None:
 <body class="page-default">
   <main class="container legal" style="padding:32px 20px;max-width:1080px;margin:0 auto;">
     <h1>전체 회차 목록</h1>
+    <p>수능·평가원·교육청·사관학교·경찰대·LEET·MEET 기출 회차를 학년도별로 모았습니다. 각 회차에서 영역별 문제지, 정답, 해설지, 등급컷 자료로 이동할 수 있습니다.</p>
     <p><a href="./">홈</a> · <a href="archive.html">기출 검색</a></p>
     {''.join(sections)}
   </main>
