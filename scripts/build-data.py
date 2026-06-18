@@ -777,13 +777,12 @@ def build_exam_meta(it: dict) -> dict:
         )
     elif is_english and has_listen:
         desc = (
-            f'{full_phrase} 문제지, 정답, 해설지, 영어 듣기 MP3, 듣기 대본 PDF를 '
-            f'한 페이지에서 확인하세요. {seo_kw}, 영어 듣기파일·스크립트도 함께 제공.'
+            f'{full_phrase} 문제지·정답·해설지와 영어 듣기 MP3·듣기 대본 PDF를 '
+            f'한 페이지에서 확인하고 무료로 내려받으세요.'
         )
     else:
         desc = (
-            f'{full_phrase} 기출 문제지·정답·답지 PDF와 등급컷 통계. '
-            f'{seo_kw} 한 페이지에서 해체. 다운로드 무료.'
+            f'{full_phrase} 기출 문제지·정답·해설지와 등급컷을 한 곳에서 확인하고 무료로 내려받으세요.'
         )
 
     # description 160자 권장 (SERP/OG 절단 회피) — 단어 경계 보존하며 잘라냄
@@ -828,10 +827,9 @@ def build_exam_meta(it: dict) -> dict:
                 + (f'{alias_phrase}로도 검색되는 시험입니다.' if alias_phrase else '')
             )
 
-    # JSON-LD keywords 배열
+    # JSON-LD keywords 배열 — 핵심어만(스터핑 방지): 제목·과목·대표 별칭 3개 + 자료유형 키워드
     kw = list(dict.fromkeys(
-        aliases
-        + [head, full_phrase, sub]
+        [head, sub] + aliases[:3]
         + (ENGLISH_ASSET_KEYWORDS if is_english else COMMON_ASSET_KEYWORDS)
     ))
 
@@ -846,6 +844,11 @@ def build_static_exam_pages(items: list[dict], template_path: Path, out_root: Pa
     """exam.html 템플릿을 시험별로 사전 렌더링해 검색엔진이 JS 없이도 인덱싱하게 한다.
     동시에 시험별 OG JPG (1200×630)도 생성 — 카톡·트위터·네이버 미리보기 카드."""
     template = template_path.read_text(encoding='utf-8')
+
+    # [SEO] SSG 페이지에선 숨김 에러블록 제거 — JS 없는 크롤러에 본문(soft-404 신호)으로
+    # 읽히는 것을 막는다. 유효 id 만 SSG 로 생성돼 showError()(exam.js)는 호출되지 않아 안전.
+    template = re.sub(r'<!-- 에러/없음.*?-->\s*<div id="examError".*?</div>',
+                      '', template, count=1, flags=re.S)
 
     # 옛 SSG 파일 정리 — exam-{숫자}.html 만 (exam-set.html 등은 보호)
     _ssg_re = re.compile(r'^exam-\d+\.html$')
@@ -896,6 +899,32 @@ def build_static_exam_pages(items: list[dict], template_path: Path, out_root: Pa
         if sub and str(sub) not in subj:
             p.append(str(sub))
         return ' '.join(s for s in p if s)
+
+    # 등급컷 정적 렌더 인덱스 — lib/exam-gradedist.js 와 동일 조인키로 매칭해
+    # JS 없이도 등급별 원점수 컷 표가 본문에 보이게(페이지별 고유 정량 콘텐츠).
+    _GRADES = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    try:
+        _cuts = json.loads((ROOT / 'data' / 'gradecuts.json').read_text(encoding='utf-8'))
+    except Exception:
+        _cuts = []
+    _cut_idx: dict = {}
+    for _c in _cuts:
+        _k = (_c.get('curriculum'), str(_c.get('gradeYear')), _c.get('type'),
+              _c.get('subject'), _c.get('subSubject'))
+        _cut_idx.setdefault(_k, _c)   # first-wins (JS .find() 와 동일)
+
+    def _grade_table_html(raw: list, full, absolute: bool) -> str:
+        th = ''.join(f'<th class="grade-table__h grade-table__h--g{g}">{g}</th>' for g in _GRADES)
+        td = ''.join(
+            '<td class="grade-table__c grade-table__c--g{0}">{1}</td>'.format(
+                i + 1, '—' if (i >= len(raw) or raw[i] is None) else raw[i])
+            for i in range(9))
+        cap = ('등급별 원점수 컷 · 절대평가' if absolute else '등급별 원점수 컷') + (f' · 만점 {full}점' if full else '')
+        return (
+            '<table class="grade-table" role="table" aria-label="등급별 원점수 컷">'
+            '<thead><tr><th class="grade-table__corner" scope="col">등급</th>' + th + '</tr></thead>'
+            '<tbody><tr><th class="grade-table__corner" scope="row">컷</th>' + td + '</tr></tbody>'
+            '</table><p class="grade-table__legend">' + cap + '</p>')
 
     written = 0
     for it in items:
@@ -1107,6 +1136,23 @@ def build_static_exam_pages(items: list[dict], template_path: Path, out_root: Pa
             _rel_html = ('<nav class="exam__related" id="examRelated" aria-label="관련 기출문제">'
                          '<h2>관련 기출문제</h2><ul>' + _lis + '</ul></nav>')
             html = html.replace('</main>', _rel_html + '\n  </main>', 1)
+
+        # 등급컷 표 정적 주입 — 매칭되는 등급컷이 있을 때만(미매칭은 JS가 '준비 중' 처리,
+        # 중복 보일러플레이트 추가 방지). exam.js 가 동일 데이터로 덮어써도 무해.
+        _ck = (it.get('curriculum'), str(it.get('gradeYear')), it.get('type'),
+               it.get('subject'), it.get('subSubject'))
+        _cut = _cut_idx.get(_ck)
+        if _cut and isinstance(_cut.get('rawCuts'), list) and any(v is not None for v in _cut['rawCuts']):
+            _raw = _cut['rawCuts']
+            _tbl = _grade_table_html(_raw, _cut.get('fullScore') or 100, bool(_cut.get('absolute')))
+            html = html.replace(
+                '<div class="exam-card__body" id="gradeDistBody"></div>',
+                '<div class="exam-card__body" id="gradeDistBody">' + _tbl + '</div>', 1)
+            if _raw and _raw[0] is not None:
+                _hint = f'1등급 컷 {_raw[0]}점' + (' · 절대평가' if _cut.get('absolute') else '')
+                html = html.replace(
+                    '<span class="exam-card__hint" id="gradeDistHint"></span>',
+                    '<span class="exam-card__hint" id="gradeDistHint">' + html_escape(_hint, quote=False) + '</span>', 1)
 
         (out_root / f'exam-{it["id"]}.html').write_text(html, encoding='utf-8')
         written += 1

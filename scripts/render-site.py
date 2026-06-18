@@ -22,6 +22,11 @@ spec = importlib.util.spec_from_file_location(
 bd = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(bd)
 
+# 사이트맵 lastmod 안정값 — exam/회차 페이지 *콘텐츠*(렌더 로직·구조)가 실질적으로
+# 바뀔 때만 갱신한다. 매 빌드 today 로 두면 8824건 lastmod 가 동시에 흔들려 변경
+# 신호가 희석되므로 고정값으로 둔다(데이터 추가만으로는 올리지 않음).
+CONTENT_VERSION = '2026-06-18'
+
 
 def render_sitemaps(items: list[dict]) -> None:
     base = 'https://kicegg.com'
@@ -71,7 +76,7 @@ def render_sitemaps(items: list[dict]) -> None:
              '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
     for fname in sorted(sets):
         curr, year, t = sets[fname]
-        parts.append(f'  <url><loc>{base}/{fname}</loc><lastmod>{today}</lastmod>'
+        parts.append(f'  <url><loc>{base}/{fname}</loc><lastmod>{CONTENT_VERSION}</lastmod>'
                      f'<changefreq>monthly</changefreq><priority>{set_priority(curr, year, t)}</priority></url>')
     parts.append('</urlset>')
     (ROOT / 'sitemap-sets.xml').write_text('\n'.join(parts) + '\n', encoding='utf-8')
@@ -80,7 +85,7 @@ def render_sitemaps(items: list[dict]) -> None:
     parts = ['<?xml version="1.0" encoding="UTF-8"?>',
              '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
     for it in items:
-        parts.append(f'  <url><loc>{base}/exam-{it["id"]}.html</loc><lastmod>{today}</lastmod>'
+        parts.append(f'  <url><loc>{base}/exam-{it["id"]}.html</loc><lastmod>{CONTENT_VERSION}</lastmod>'
                      f'<changefreq>monthly</changefreq><priority>{exam_priority(it)}</priority></url>')
     parts.append('</urlset>')
     (ROOT / 'sitemap-exams.xml').write_text('\n'.join(parts) + '\n', encoding='utf-8')
@@ -101,11 +106,12 @@ def render_sitemaps(items: list[dict]) -> None:
         f'  <url><loc>{base}/archive.html</loc><lastmod>{today}</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>',
         f'  <url><loc>{base}/gradecut.html</loc><lastmod>{today}</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>',
         f'  <url><loc>{base}/sets.html</loc><lastmod>{today}</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>',
+        f'  <url><loc>{base}/about.html</loc><lastmod>{today}</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>',
         f'  <url><loc>{base}/admissions.html</loc><lastmod>{today}</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>',
         f'  <url><loc>{base}/calendar.html</loc><lastmod>{today}</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>',
         '</urlset>',
     ]) + '\n', encoding='utf-8')
-    print(f'  + sitemap (static 6 + sets {len(sets)} + exams {len(items)})')
+    print(f'  + sitemap (static 7 + sets {len(sets)} + exams {len(items)})')
 
 
 def render_sets_directory(items: list[dict]) -> None:
@@ -209,7 +215,7 @@ def render_sets_directory(items: list[dict]) -> None:
   <footer class="site-footer">
     <div class="container">
       <p class="site-footer__legal">
-        <a href="sets.html">전체 회차</a> · <a href="privacy.html">개인정보처리방침</a> · <a href="terms.html">이용약관</a>
+        <a href="sets.html">전체 회차</a> · <a href="about.html">소개</a> · <a href="privacy.html">개인정보처리방침</a> · <a href="terms.html">이용약관</a>
       </p>
     </div>
   </footer>
