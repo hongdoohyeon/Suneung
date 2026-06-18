@@ -10,7 +10,7 @@ on:
 jobs:
   validate:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
 
@@ -28,14 +28,26 @@ jobs:
             node --check "$f"
           done
 
-      # JSON 파일 형식 검증
+      # JSON 파일 형식 검증 — 단일 프로세스 일괄 파싱
+      # (파일당 python3 spawn 은 split 수천 개 규모에서 CI 타임아웃 유발 → 한 번에 처리)
       - name: JSON files valid
         run: |
-          set -e
-          for f in $(find data sitemap*.xml -name '*.json' -maxdepth 3 2>/dev/null); do
-            python3 -c "import json,sys; json.load(open('$f'))" || (echo "✗ $f"; exit 1)
-          done
-          echo "  ok: $(find data -name '*.json' -maxdepth 3 | wc -l | xargs) JSON files"
+          python3 - <<'PY'
+          import json, glob, sys
+          files = glob.glob('data/**/*.json', recursive=True)
+          bad = []
+          for f in files:
+              try:
+                  with open(f, encoding='utf-8') as fh:
+                      json.load(fh)
+              except Exception as e:
+                  bad.append((f, str(e)))
+          if bad:
+              for f, e in bad[:20]:
+                  print(f"✗ {f}: {e}")
+              sys.exit(1)
+          print(f"  ok: {len(files)} JSON files")
+          PY
 
       # exams.json 비즈니스 규칙 (validate-exams.mjs 가 schema + dup 검사)
       - name: exams.json business rules
