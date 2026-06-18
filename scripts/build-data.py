@@ -583,6 +583,7 @@ def generate_og_image(it: dict, head: str, out_path: Path):
         'police':    '#2e3a5f',
         'leet':      '#7c2d12',
         'meet':      '#581c87',
+        'ged':       '#0e7a5f',
     }.get(it.get('typeGroup'), '#1f6feb')
     d.rectangle([0, 0, W, 12], fill=color)
 
@@ -730,6 +731,16 @@ def _exam_aliases(it: dict) -> list[str]:
         if month and 0 < month < 13:
             aliases.append(f'{gy2}학년도 {month}모')
             aliases.append(f'{gy} {month}모')
+    elif tg == 'ged':
+        sess = '2' if typ == 'ged_2' else '1'
+        ey = it.get('examYear') or gy
+        level = it.get('curriculum')
+        aliases += [
+            f'{ey}년 {level} 검정고시 {sub}',
+            f'{level} 검정고시 {sub} 기출',
+            f'검정고시 {sub} 기출',
+            f'{ey} 제{sess}회 검정고시 {sub}',
+        ]
     return list(dict.fromkeys(aliases))  # 순서 보존 dedup
 
 
@@ -784,6 +795,13 @@ def build_exam_meta(it: dict) -> dict:
         head  = f'{gy}학년도 {uni_short} {lbl}{sub_part}'
         seo_kw = f'{gy2} {uni_short} {lbl}{sub_part} 기출'
         full_phrase = f'{gy}학년도 {sub} 수시 {lbl}고사{sub_part}'
+    elif tg == 'ged':
+        sess = '2' if typ == 'ged_2' else '1'
+        ey = it.get('examYear') or gy
+        level = it.get('curriculum')           # 초졸 / 중졸 / 고졸
+        head  = f'{ey}년 제{sess}회 {level} 검정고시 {sub}'
+        seo_kw = f'{ey} {level} 검정고시 {sub} 기출답'
+        full_phrase = f'{ey}년 제{sess}회 {level} 검정고시 {sub}'
     elif tg == 'reference':
         # 통계 PDF — 학년도 의미 없음, 자료명 중심
         ey   = it.get('examYear') or ''
@@ -818,6 +836,10 @@ def build_exam_meta(it: dict) -> dict:
         desc = (
             f'{full_phrase} 문제지·정답·해설지와 영어 듣기 MP3·듣기 대본 PDF를 '
             f'한 페이지에서 확인하고 무료로 내려받으세요.'
+        )
+    elif tg == 'ged':
+        desc = (
+            f'{full_phrase} 기출 문제지와 정답(확정안)을 한 곳에서 확인하고 무료로 내려받으세요.'
         )
     else:
         desc = (
@@ -1295,6 +1317,13 @@ def build_set_meta(curr: str, year: str, t: str, sg: int | None, exams_in_set: l
         short = lbl
         full = f'{gy}학년도 대학별 수시 {lbl}고사 (고려대·연세대·서강대·성균관대·중앙대 등)'
         aliases = [f'{gy2} {lbl}', f'{gy}학년도 {lbl} 기출', f'{gy} 대학 논술']
+    elif curr in ('초졸', '중졸', '고졸'):
+        sess = '2' if t == 'ged_2' else '1'
+        head = f'{gy}년 제{sess}회 {curr} 검정고시'
+        short = '검정고시'
+        full = f'{gy}년 제{sess}회 {curr} 검정고시'
+        aliases = [f'{gy} {curr} 검정고시', f'{curr} 검정고시 기출',
+                   f'검정고시 기출', f'{gy} 검정고시 제{sess}회']
     else:
         head = f'{gy}학년도'
         short = ''
@@ -1306,8 +1335,13 @@ def build_set_meta(curr: str, year: str, t: str, sg: int | None, exams_in_set: l
         e.get('subject') == '영어' and e.get('listenUrl') for e in exams_in_set)
     subjects = sorted({e['subject'] for e in exams_in_set if e.get('subject')})
     subj_phrase = '·'.join(subjects[:6])
+    is_ged = curr in ('초졸', '중졸', '고졸')
 
-    if has_english_listen:
+    if is_ged:
+        title = f'{head} 과목별 문제·정답 — 기출해체분석기'
+        desc = (f'{full} {subj_phrase} 기출 문제지와 정답(확정안)을 한 페이지에서 '
+                f'확인하고 무료로 내려받으세요. 검정고시 과목별 기출답.')
+    elif has_english_listen:
         title = f'{head} {short} 영역별 문제·정답·영어 듣기·해설지 — 기출해체분석기'
         desc = (f'{full} {subj_phrase} 기출 문제지·정답·해설지·등급컷. '
                 f'영어 듣기 MP3와 듣기 대본 PDF도 함께. {short} 기출답 한 페이지.')
@@ -1316,8 +1350,12 @@ def build_set_meta(curr: str, year: str, t: str, sg: int | None, exams_in_set: l
         desc = (f'{full} {subj_phrase} 기출 문제지·정답·해설지·등급컷 통계. '
                 f'{short} 기출답 한 페이지에서 해체. 다운로드 무료.')
 
-    intro_parts = [f'{full} 기출 자료입니다.',
-                   f'국어·수학·영어·한국사·탐구 문제지와 정답, 해설지를 확인할 수 있습니다.']
+    if is_ged:
+        intro_parts = [f'{full} 기출 자료입니다.',
+                       f'{subj_phrase} 과목별 문제지와 정답(확정안)을 확인할 수 있습니다.']
+    else:
+        intro_parts = [f'{full} 기출 자료입니다.',
+                       f'국어·수학·영어·한국사·탐구 문제지와 정답, 해설지를 확인할 수 있습니다.']
     if has_english_listen:
         intro_parts.append('영어 영역은 듣기 MP3와 듣기 대본 PDF도 함께 제공합니다.')
     if aliases:
@@ -1340,6 +1378,7 @@ def set_friendly_filename(curr: str, year: str, t: str, sg: int | None) -> str:
         # 7차 이전 분리 키는 모두 기존 pre2009 슬러그로 통일 — SEO·이력 호환
         '2007개정':'pre2009','7차':'pre2009','6차':'pre2009','pre2009':'pre2009',
         '사관':'mil','경찰대':'police','LEET':'leet','MEET':'meet','논술':'essay',
+        '초졸':'gedelem','중졸':'gedmid','고졸':'gedhigh',
     }.get(curr, curr.lower())
     grade_part = f'-g{sg}' if sg else ''
     return f'exam-set-{curr_slug}-{year}-{t}{grade_part}.html'

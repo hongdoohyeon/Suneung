@@ -110,12 +110,13 @@ function validateBusinessRules(data) {
     if (c > 1) err(`id 중복: ${id} (${c}회)`);
   }
 
-  // 2. (gradeYear, type, subject, subSubject, studentGrade) 조합 유니크
+  // 2. (curriculum, gradeYear, type, subject, subSubject, studentGrade) 조합 유니크
   // 학평은 같은 year/type/subject라도 학년(고1/2/3) 다르면 별개 시험.
+  // 검정고시는 같은 year/회차/과목이라도 학력(초·중·고졸) 다르면 별개 → curriculum 포함.
   const comboCount = new Map();
   for (const ex of data) {
     const k = JSON.stringify([
-      ex.gradeYear, ex.type, ex.subject, ex.subSubject,
+      ex.curriculum, ex.gradeYear, ex.type, ex.subject, ex.subSubject,
       ex.studentGrade ?? null,
     ]);
     if (!comboCount.has(k)) comboCount.set(k, []);
@@ -187,6 +188,7 @@ function validateBusinessRules(data) {
     meet:        new Set(['meet_annual', 'prelim']),
     essay:       new Set(['essay_annual', 'essay_mock']),
     reference:   new Set(['stat']),
+    ged:         new Set(['ged_1', 'ged_2']),
   };
   for (const ex of data) {
     const allowed = tgTypeMap[ex.typeGroup];

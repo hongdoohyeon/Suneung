@@ -3,7 +3,9 @@
   "title": "Exams",
   "description": "기출 시험 메타데이터 카탈로그. data/exams.json 의 스키마.",
   "type": "array",
-  "items": { "$ref": "#/definitions/Exam" },
+  "items": {
+    "$ref": "#/definitions/Exam"
+  },
   "definitions": {
     "Exam": {
       "type": "object",
@@ -30,7 +32,24 @@
         },
         "curriculum": {
           "type": "string",
-          "enum": ["2015", "2009", "2007개정", "7차", "6차", "사관", "경찰대", "LEET", "MEET", "예비", "pre2009", "논술", "reference"],
+          "enum": [
+            "2015",
+            "2009",
+            "2007개정",
+            "7차",
+            "6차",
+            "사관",
+            "경찰대",
+            "LEET",
+            "MEET",
+            "예비",
+            "pre2009",
+            "논술",
+            "reference",
+            "초졸",
+            "중졸",
+            "고졸"
+          ],
           "description": "교육과정 또는 시험군. 수능은 2015/2009/2007개정/7차/6차, 그 외는 시험명. 'pre2009'는 옛 통합 키로 호환용."
         },
         "gradeYear": {
@@ -61,7 +80,8 @@
             "leet",
             "meet",
             "essay",
-            "reference"
+            "reference",
+            "ged"
           ],
           "description": "시험 카테고리(상위). essay는 대학별 논술, reference는 통계 PDF."
         },
@@ -87,13 +107,24 @@
             "essay_annual",
             "essay_mock",
             "military_annual",
-            "police_annual"
+            "police_annual",
+            "ged_1",
+            "ged_2"
           ],
           "description": "시험 회차/시기(하위). jun/sep/nov/dec는 고1·고2 학평. stat은 통계."
         },
         "studentGrade": {
-          "type": ["integer", "null"],
-          "enum": [0, 1, 2, 3, null],
+          "type": [
+            "integer",
+            "null"
+          ],
+          "enum": [
+            0,
+            1,
+            2,
+            3,
+            null
+          ],
           "description": "학평 학년 (1=고1, 2=고2, 3=고3). 0은 reference·N수생."
         },
         "subject": {
@@ -101,54 +132,101 @@
           "description": "영역명. 옛 수능 ‘인문계/자연계/예체능계’ 및 reference 자료 포함."
         },
         "subSubject": {
-          "type": ["string", "null"],
+          "type": [
+            "string",
+            "null"
+          ],
           "description": "탐구 영역 세부 과목 또는 가/나형 등. 해당 없으면 null."
         },
         "solutionUrl": {
           "anyOf": [
-            { "type": "null" },
-            { "type": "string", "format": "uri" }
+            {
+              "type": "null"
+            },
+            {
+              "type": "string",
+              "format": "uri"
+            }
           ],
           "description": "해설 PDF URL."
         },
         "questionUrl": {
           "anyOf": [
-            { "type": "null" },
-            { "type": "string", "format": "uri" }
+            {
+              "type": "null"
+            },
+            {
+              "type": "string",
+              "format": "uri"
+            }
           ],
           "description": "문제지 PDF URL. 없을 수 있음(옛 학평 일부는 정답/해설만 수집됨)."
         },
         "answerUrl": {
           "anyOf": [
-            { "type": "null" },
-            { "type": "string", "format": "uri" }
+            {
+              "type": "null"
+            },
+            {
+              "type": "string",
+              "format": "uri"
+            }
           ],
           "description": "정답 PDF URL. 없을 수 있음(예: 논술)."
         },
         "questionDownload": {
-          "type": ["string", "null"]
+          "type": [
+            "string",
+            "null"
+          ]
         },
         "answerDownload": {
-          "type": ["string", "null"]
+          "type": [
+            "string",
+            "null"
+          ]
         },
         "listenUrl": {
           "anyOf": [
-            { "type": "null" },
-            { "type": "string", "format": "uri" }
+            {
+              "type": "null"
+            },
+            {
+              "type": "string",
+              "format": "uri"
+            }
           ],
           "description": "영어 듣기 mp3 URL."
         },
-        "listenDownload": { "type": ["string", "null"] },
+        "listenDownload": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
         "scriptUrl": {
           "anyOf": [
-            { "type": "null" },
-            { "type": "string", "format": "uri" }
+            {
+              "type": "null"
+            },
+            {
+              "type": "string",
+              "format": "uri"
+            }
           ],
           "description": "영어 듣기 대본 PDF URL."
         },
-        "scriptDownload": { "type": ["string", "null"] },
+        "scriptDownload": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
         "source": {
-          "type": ["string", "null"],
+          "type": [
+            "string",
+            "null"
+          ],
           "description": "원본 출처 태그 (kice-archive 등)."
         }
       }

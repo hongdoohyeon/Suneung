@@ -24,6 +24,7 @@ export const TAB_CONFIG = [
   { key: 'freshman',   label: '고1',       sub: '학평',
     curriculums: ['2015', '2009'], educationGrades: [1], educationOnly: true },
   { key: 'essay',      label: '논술',      sub: '대학별 기출', curriculums: ['논술'] },
+  { key: 'ged',        label: '검정고시',  sub: '초·중·고졸',  curriculums: ['고졸', '중졸', '초졸'] },
 ];
 
 export function getTabConf(tabKey) {
@@ -37,6 +38,7 @@ const LEGACY_CURRICULUM_TO_TAB = {
   '예비': 'senior',
   '사관': 'mp', '경찰대': 'mp',
   'LEET': 'gradschool', 'MEET': 'gradschool',
+  '초졸': 'ged', '중졸': 'ged', '고졸': 'ged',
 };
 export function legacyTabKey(maybeOld) {
   return LEGACY_CURRICULUM_TO_TAB[maybeOld] ?? maybeOld;
@@ -307,6 +309,73 @@ export const CURRICULUM_CONFIG = {
     },
     subjectsByTypeGroup: {},
   },
+
+  // ── 검정고시 (KICE 위탁출제, 전국 공통, 연 2회) ────────────
+  // curriculum = 학력(초·중·고졸). subject = 과목, subSubject 없음. 2018~2026 공식.
+  '고졸': {
+    id: '고졸',
+    label: '고졸 검정고시',
+    rangeLabel: '고등학교 졸업학력',
+    gradeYearRange: [2018, 2026],
+    availableTypeGroups: ['ged'],
+    subjects: {
+      '국어':      { icon: '📖', bg: '#fff0e8', color: '#c44b00', subs: [] },
+      '수학':      { icon: '📐', bg: '#eef2ff', color: '#1a4fd6', subs: [] },
+      '영어':      { icon: '🌍', bg: '#e6f5fb', color: '#0077a8', subs: [] },
+      '사회':      { icon: '🌏', bg: '#ecf5e8', color: '#2a7a2a', subs: [] },
+      '과학':      { icon: '🔬', bg: '#f0e8ff', color: '#6b2fbe', subs: [] },
+      '한국사':    { icon: '🏛️', bg: '#fdf3e7', color: '#8f5610', subs: [] },
+      '도덕':      { icon: '⚖️', bg: '#f3eefa', color: '#5b2d8e', subs: [] },
+      '기술·가정': { icon: '🔧', bg: '#eef2f7', color: '#2d4a6b', subs: [] },
+      '체육':      { icon: '⚽', bg: '#fff7e0', color: '#a06b00', subs: [] },
+      '음악':      { icon: '🎵', bg: '#fbeef4', color: '#94275e', subs: [] },
+      '미술':      { icon: '🎨', bg: '#eef4fb', color: '#0c2e6e', subs: [] },
+    },
+    subjectsByTypeGroup: {},
+  },
+
+  '중졸': {
+    id: '중졸',
+    label: '중졸 검정고시',
+    rangeLabel: '중학교 졸업학력',
+    gradeYearRange: [2018, 2026],
+    availableTypeGroups: ['ged'],
+    subjects: {
+      '국어':      { icon: '📖', bg: '#fff0e8', color: '#c44b00', subs: [] },
+      '수학':      { icon: '📐', bg: '#eef2ff', color: '#1a4fd6', subs: [] },
+      '영어':      { icon: '🌍', bg: '#e6f5fb', color: '#0077a8', subs: [] },
+      '사회':      { icon: '🌏', bg: '#ecf5e8', color: '#2a7a2a', subs: [] },
+      '과학':      { icon: '🔬', bg: '#f0e8ff', color: '#6b2fbe', subs: [] },
+      '도덕':      { icon: '⚖️', bg: '#f3eefa', color: '#5b2d8e', subs: [] },
+      '기술·가정': { icon: '🔧', bg: '#eef2f7', color: '#2d4a6b', subs: [] },
+      '체육':      { icon: '⚽', bg: '#fff7e0', color: '#a06b00', subs: [] },
+      '음악':      { icon: '🎵', bg: '#fbeef4', color: '#94275e', subs: [] },
+      '미술':      { icon: '🎨', bg: '#eef4fb', color: '#0c2e6e', subs: [] },
+      '정보':      { icon: '💻', bg: '#e8f3fb', color: '#0e4a84', subs: [] },
+    },
+    subjectsByTypeGroup: {},
+  },
+
+  '초졸': {
+    id: '초졸',
+    label: '초졸 검정고시',
+    rangeLabel: '초등학교 졸업학력',
+    gradeYearRange: [2018, 2026],
+    availableTypeGroups: ['ged'],
+    subjects: {
+      '국어':   { icon: '📖', bg: '#fff0e8', color: '#c44b00', subs: [] },
+      '수학':   { icon: '📐', bg: '#eef2ff', color: '#1a4fd6', subs: [] },
+      '영어':   { icon: '🌍', bg: '#e6f5fb', color: '#0077a8', subs: [] },
+      '사회':   { icon: '🌏', bg: '#ecf5e8', color: '#2a7a2a', subs: [] },
+      '과학':   { icon: '🔬', bg: '#f0e8ff', color: '#6b2fbe', subs: [] },
+      '도덕':   { icon: '⚖️', bg: '#f3eefa', color: '#5b2d8e', subs: [] },
+      '실과':   { icon: '🌱', bg: '#ecf6ec', color: '#2e6b2e', subs: [] },
+      '체육':   { icon: '⚽', bg: '#fff7e0', color: '#a06b00', subs: [] },
+      '음악':   { icon: '🎵', bg: '#fbeef4', color: '#94275e', subs: [] },
+      '미술':   { icon: '🎨', bg: '#eef4fb', color: '#0c2e6e', subs: [] },
+    },
+    subjectsByTypeGroup: {},
+  },
 };
 
 export const EXAM_TYPE_CONFIG = [
@@ -398,6 +467,17 @@ export const EXAM_TYPE_CONFIG = [
     types: [
       { key: 'essay_annual', label: '본시험',   month: 12, badgeBg: '#f5f3ff', badgeColor: '#7c3aed' },
       { key: 'essay_mock',   label: '모의논술', month: 8,  badgeBg: '#f8fafc', badgeColor: '#475569' },
+    ],
+  },
+  {
+    groupKey: 'ged',
+    groupLabel: '검정고시',
+    groupColor: '#0e7a5f',
+    groupBg: '#e7f5ef',
+    displayMode: 'examYear',
+    types: [
+      { key: 'ged_1', label: '제1회', month: 4, badgeBg: '#e7f5ef', badgeColor: '#0e7a5f' },
+      { key: 'ged_2', label: '제2회', month: 8, badgeBg: '#e7f5ef', badgeColor: '#0e7a5f' },
     ],
   },
 ];
