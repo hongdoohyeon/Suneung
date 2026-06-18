@@ -24,7 +24,10 @@ export const TAB_CONFIG = [
   { key: 'freshman',   label: '고1',       sub: '학평',
     curriculums: ['2015', '2009'], educationGrades: [1], educationOnly: true },
   { key: 'essay',      label: '논술',      sub: '대학별 기출', curriculums: ['논술'] },
-  { key: 'ged',        label: '검정고시',  sub: '초·중·고졸',  curriculums: ['고졸', '중졸', '초졸'] },
+  // 검정고시: 고1·고2·고3처럼 학력별 탭으로 분리 (학력마다 과목셋이 달라 혼합 방지)
+  { key: 'gedhigh',    label: '고졸',      sub: '검정고시',    curriculums: ['고졸'] },
+  { key: 'gedmid',     label: '중졸',      sub: '검정고시',    curriculums: ['중졸'] },
+  { key: 'gedelem',    label: '초졸',      sub: '검정고시',    curriculums: ['초졸'] },
 ];
 
 export function getTabConf(tabKey) {
@@ -38,7 +41,7 @@ const LEGACY_CURRICULUM_TO_TAB = {
   '예비': 'senior',
   '사관': 'mp', '경찰대': 'mp',
   'LEET': 'gradschool', 'MEET': 'gradschool',
-  '초졸': 'ged', '중졸': 'ged', '고졸': 'ged',
+  '고졸': 'gedhigh', '중졸': 'gedmid', '초졸': 'gedelem',
 };
 export function legacyTabKey(maybeOld) {
   return LEGACY_CURRICULUM_TO_TAB[maybeOld] ?? maybeOld;
