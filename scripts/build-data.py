@@ -953,13 +953,23 @@ def build_static_exam_pages(items: list[dict], template_path: Path, out_root: Pa
     from collections import defaultdict as _dd
     _by_series: dict = _dd(list)
     _by_set: dict = _dd(list)
+    def _series_key(d):
+        # 검정고시: 학력(curriculum)이 다르면 별개 시험 → 학력 포함, 회차(type)는
+        # 무시해 같은 학력 전 회차(1·2회)·전 연도를 한 시리즈로 묶음.
+        if d.get('typeGroup') == 'ged':
+            return ('ged', d.get('curriculum'), d.get('subject'))
+        return (d.get('subject'), d.get('subSubject'), d.get('type'), d.get('studentGrade'))
     for _it in items:
-        _by_series[(_it.get('subject'), _it.get('subSubject'), _it.get('type'), _it.get('studentGrade'))].append(_it)
+        _by_series[_series_key(_it)].append(_it)
         _by_set[(_it.get('curriculum'), _it.get('gradeYear'), _it.get('type'), _it.get('studentGrade'))].append(_it)
     for _k in _by_series:
         _by_series[_k].sort(key=lambda x: x.get('gradeYear') or 0, reverse=True)
 
     def _rel_label(r: dict) -> str:
+        if r.get('typeGroup') == 'ged':
+            ey = r.get('examYear') or r.get('gradeYear')
+            sess = '2' if r.get('type') == 'ged_2' else '1'
+            return f'{ey}년 제{sess}회 {r.get("subject") or ""}'.strip()
         gy = r.get('gradeYear'); subj = r.get('subject') or ''; sub = r.get('subSubject')
         p = [f'{gy}학년도' if gy else '', subj]
         if sub and str(sub) not in subj:
@@ -1214,7 +1224,7 @@ def build_static_exam_pages(items: list[dict], template_path: Path, out_root: Pa
         # 관련 기출 내부링크 — 본문에 정적 주입(내부 링크 그래프 + 고유 콘텐츠로 색인 유도).
         _rel = []
         _seen = {it['id']}
-        for _sib in _by_series[(it.get('subject'), it.get('subSubject'), it.get('type'), it.get('studentGrade'))]:
+        for _sib in _by_series[_series_key(it)]:
             if _sib['id'] in _seen: continue
             _seen.add(_sib['id']); _rel.append(_sib)
             if len(_rel) >= 8: break
@@ -1226,9 +1236,12 @@ def build_static_exam_pages(items: list[dict], template_path: Path, out_root: Pa
             _lis = ''.join(
                 f'<li><a href="exam-{r["id"]}.html">{html_escape(_rel_label(r), quote=False)}</a></li>'
                 for r in _rel)
-            _rel_html = ('<nav class="exam__related" id="examRelated" aria-label="관련 기출문제">'
-                         '<h2>관련 기출문제</h2><ul>' + _lis + '</ul></nav>')
-            html = html.replace('</main>', _rel_html + '\n  </main>', 1)
+            # 관련 기출은 .exam 그리드 '밖'(</main> 뒤)에 전체폭 섹션으로 배치.
+            # 그리드 안(col1·row2)에 두면 sticky 사이드바가 그 위로 흘러내려 겹침.
+            _rel_html = ('<section class="container exam-related">'
+                         '<nav class="exam__related" id="examRelated" aria-label="관련 기출문제">'
+                         '<h2>관련 기출문제</h2><ul>' + _lis + '</ul></nav></section>')
+            html = html.replace('</main>', '</main>\n  ' + _rel_html, 1)
 
         # 등급컷 표 정적 주입 — 매칭되는 등급컷이 있을 때만(미매칭은 JS가 '준비 중' 처리,
         # 중복 보일러플레이트 추가 방지). exam.js 가 동일 데이터로 덮어써도 무해.
