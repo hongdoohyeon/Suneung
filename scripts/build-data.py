@@ -661,6 +661,30 @@ ENGLISH_ASSET_KEYWORDS = [
 ]
 COMMON_ASSET_KEYWORDS = ['문제지', '기출문제', '정답', '답지', '해설지', '풀이', '등급컷']
 
+# 대학별 논술 허브 URL 슬러그 (subject 전체명 → ASCII slug). 허브: nonsul-{slug}.html
+ESSAY_SCHOOL_SLUG = {
+    '한양대학교': 'hanyang', '경희대학교': 'khu', '이화여자대학교': 'ewha',
+    '한국외국어대학교': 'hufs', '서울시립대학교': 'uos', '건국대학교': 'konkuk',
+    '동국대학교': 'dongguk', '숙명여자대학교': 'sookmyung', '인하대학교': 'inha',
+    '아주대학교': 'ajou', '가톨릭대학교': 'catholic', '홍익대학교': 'hongik',
+    '단국대학교': 'dankook', '세종대학교': 'sejong', '광운대학교': 'kw',
+    '숭실대학교': 'soongsil', '서울여자대학교': 'swu', '성신여자대학교': 'sungshin',
+    '부산대학교': 'pusan', '경북대학교': 'knu', '가천대학교': 'gachon',
+    '경기대학교': 'kyonggi', '한국항공대학교': 'kau', '서경대학교': 'seokyeong',
+    '상명대학교': 'sangmyung', '을지대학교': 'eulji', '한국공학대학교': 'tukorea',
+    '수원대학교': 'suwon', '한신대학교': 'hanshin', '동덕여자대학교': 'dongduk',
+    '삼육대학교': 'samyook', '한양대학교(ERICA)': 'erica', '중앙대학교': 'cau',
+    '연세대학교': 'yonsei', '고려대학교': 'korea', '성균관대학교': 'skku',
+    '서강대학교': 'sogang', '덕성여자대학교': 'duksung', '연세대학교(미래)': 'yonsei-mirae',
+}
+
+
+def essay_hub_filename(subject: str) -> str:
+    """대학별 논술 허브 페이지 파일명. 매핑 없으면 빈 문자열(허브 미생성)."""
+    slug = ESSAY_SCHOOL_SLUG.get(subject)
+    return f'nonsul-{slug}.html' if slug else ''
+
+
 def _exam_aliases(it: dict) -> list[str]:
     """시험 별 학생 검색어 별칭 (본문·keywords 양쪽에 깔리는 키워드)."""
     gy = it['gradeYear']; gy2 = str(gy)[-2:]
@@ -1108,6 +1132,21 @@ def build_static_exam_pages(items: list[dict], template_path: Path, out_root: Pa
             r'(<div class="exam__actions" id="examActions">)\s*(</div>)',
             lambda m: m.group(1) + btns_html + m.group(2),
             html, count=1)
+
+        # 대학별 논술 허브 링크 — 논술 페이지 사이드바에 "이 대학 논술 전체" 추가
+        # (학교 단위 집계 허브로 내부링크·크롤 경로 보강). 정적 전용, exam.js 무관.
+        if it.get('typeGroup') == 'essay':
+            _hub = essay_hub_filename(it.get('subject'))
+            if _hub:
+                _hub_anchor = (
+                    f'<a href="{_hub}" class="exam__back">'
+                    '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" '
+                    'stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'
+                    '<path d="M3 21h18"/><path d="M5 21V8l7-5 7 5v13"/><path d="M9 21v-6h6v6"/></svg>'
+                    '<span>이 대학 논술 전체</span></a>\n        ')
+                html = html.replace(
+                    '<a href="#" id="examSetSideLink" class="exam__back" hidden>',
+                    _hub_anchor + '<a href="#" id="examSetSideLink" class="exam__back" hidden>', 1)
 
         # 사이드바 회차 링크를 SSG 단계에서 정적으로 채움 — 크롤러가 JS 없이도
         # exam → 회차 링크 그래프를 따라가게 (exam.js 가 로드되면 동일 값으로 재설정).

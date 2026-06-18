@@ -28,7 +28,7 @@ spec.loader.exec_module(bd)
 CONTENT_VERSION = '2026-06-18'
 
 
-def render_sitemaps(items: list[dict]) -> None:
+def render_sitemaps(items: list[dict], hubs=None) -> None:
     base = 'https://kicegg.com'
     today = datetime.date.today().isoformat()
     current_year = datetime.date.today().year + 1  # 학년도 cohort
@@ -99,7 +99,7 @@ def render_sitemaps(items: list[dict]) -> None:
         f'  <sitemap><loc>{base}/sitemap-exams.xml</loc></sitemap>',
         '</sitemapindex>',
     ]) + '\n', encoding='utf-8')
-    (ROOT / 'sitemap-static.xml').write_text('\n'.join([
+    static_rows = [
         '<?xml version="1.0" encoding="UTF-8"?>',
         '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
         f'  <url><loc>{base}/</loc><lastmod>{today}</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>',
@@ -109,12 +109,174 @@ def render_sitemaps(items: list[dict]) -> None:
         f'  <url><loc>{base}/about.html</loc><lastmod>{today}</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>',
         f'  <url><loc>{base}/admissions.html</loc><lastmod>{today}</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>',
         f'  <url><loc>{base}/calendar.html</loc><lastmod>{today}</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>',
-        '</urlset>',
-    ]) + '\n', encoding='utf-8')
-    print(f'  + sitemap (static 7 + sets {len(sets)} + exams {len(items)})')
+    ]
+    for h in (hubs or []):
+        static_rows.append(f'  <url><loc>{base}/{h["fname"]}</loc><lastmod>{CONTENT_VERSION}</lastmod>'
+                           f'<changefreq>monthly</changefreq><priority>0.7</priority></url>')
+    static_rows.append('</urlset>')
+    (ROOT / 'sitemap-static.xml').write_text('\n'.join(static_rows) + '\n', encoding='utf-8')
+    print(f'  + sitemap (static {7 + len(hubs or [])} + sets {len(sets)} + exams {len(items)})')
 
 
-def render_sets_directory(items: list[dict]) -> None:
+def _essay_label(it: dict) -> str:
+    lbl = '모의논술' if it.get('type') == 'essay_mock' else '논술'
+    track = it.get('subSubject') or ''
+    return f'{it.get("gradeYear")}학년도 {lbl}' + (f' · {track}' if track else '')
+
+
+def essay_hub_list(items: list[dict]) -> list[dict]:
+    """대학별 논술 허브 데이터 — subject(대학)별로 essay 엔트리를 모은다."""
+    by_school: dict[str, list] = {}
+    for it in items:
+        if it.get('typeGroup') != 'essay' or not bd.essay_hub_filename(it.get('subject')):
+            continue
+        by_school.setdefault(it['subject'], []).append(it)
+    hubs = []
+    for school, exams in by_school.items():
+        years = [e.get('gradeYear') for e in exams if e.get('gradeYear')]
+        hubs.append({'fname': bd.essay_hub_filename(school), 'school': school,
+                     'exams': exams, 'count': len(exams),
+                     'ymin': min(years) if years else None, 'ymax': max(years) if years else None})
+    hubs.sort(key=lambda h: -h['count'])
+    return hubs
+
+
+def _write_essay_hub(h: dict) -> None:
+    base = 'https://kicegg.com'
+    school, fname, count = h['school'], h['fname'], h['count']
+    n_mock = sum(1 for e in h['exams'] if e.get('type') == 'essay_mock')
+    n_annual = count - n_mock
+    yr = ''
+    if h['ymin'] and h['ymax']:
+        yr = f'{h["ymax"]}학년도' if h['ymin'] == h['ymax'] else f'{h["ymin"]}~{h["ymax"]}학년도'
+
+    years: dict = {}
+    for it in h['exams']:
+        years.setdefault(it.get('gradeYear'), []).append(it)
+    sections, item_list, pos = [], [], 1
+    for gy in sorted(years, key=lambda y: (y is None, -(y or 0))):
+        lis = []
+        for it in sorted(years[gy], key=lambda x: (0 if x.get('type') == 'essay_annual' else 1,
+                                                   str(x.get('subSubject') or ''))):
+            lab = _essay_label(it)
+            lis.append(f'<li><a href="exam-{it["id"]}.html">{bd.html_escape(lab, quote=False)}</a></li>')
+            item_list.append({'@type': 'ListItem', 'position': pos,
+                              'url': f'{base}/exam-{it["id"]}.html', 'name': lab})
+            pos += 1
+        label = f'{gy}학년도' if gy else '기타'
+        sections.append(f'<section class="legal__section"><h2>{label}</h2>'
+                        f'<ul class="setsdir__list">{"".join(lis)}</ul></section>')
+
+    yr_sp = (yr + ' ') if yr else ''
+    intro = (f'{school} 수시 논술전형 기출 {count}건을 한곳에 모았습니다. '
+             f'{yr_sp}논술·모의논술 기출 문제지와 (제공되는 경우) 예시답안·해설을 '
+             f'연도별로 정리했으니, 필요한 회차를 골라 PDF로 내려받아 확인하세요.')
+    stat = f'본논술 {n_annual}건 · 모의논술 {n_mock}건'
+    title = f'{school} 논술 기출 전체{(" (" + yr + ")") if yr else ""} — 기출해체분석기'
+    desc = (f'{school} 수시 논술전형 기출 {count}건 — {yr_sp}'
+            f'논술·모의논술 문제지·예시답안·해설을 연도별로 한곳에서 확인하고 PDF로 내려받으세요.')
+    canonical = f'{base}/{fname}'
+
+    jsonld = {'@context': 'https://schema.org', '@type': 'CollectionPage', '@id': canonical,
+              'url': canonical, 'name': f'{school} 논술 기출', 'description': desc, 'inLanguage': 'ko-KR',
+              'isPartOf': {'@id': 'https://kicegg.com/#website'},
+              'mainEntity': {'@type': 'ItemList', 'numberOfItems': len(item_list),
+                             'itemListElement': item_list[:200]}}
+    breadcrumb = {'@context': 'https://schema.org', '@type': 'BreadcrumbList', 'itemListElement': [
+        {'@type': 'ListItem', 'position': 1, 'name': '홈', 'item': base + '/'},
+        {'@type': 'ListItem', 'position': 2, 'name': '전체 회차', 'item': base + '/sets.html'},
+        {'@type': 'ListItem', 'position': 3, 'name': f'{school} 논술', 'item': canonical}]}
+    ld = (json.dumps(jsonld, ensure_ascii=False, separators=(',', ':'))
+          + '</script>\n  <script type="application/ld+json">'
+          + json.dumps(breadcrumb, ensure_ascii=False, separators=(',', ':')))
+
+    page = f'''<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0a0a0a" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <meta name="naver-site-verification" content="b3138c38039611bed2ce955aa7102ab33011cf14" />
+  <meta name="description" content="{bd.html_escape(desc, quote=True)}" />
+  <meta name="robots" content="index,follow" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="canonical" href="{canonical}" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="기출해체분석기" />
+  <meta property="og:title" content="{bd.html_escape(title, quote=True)}" />
+  <meta property="og:description" content="{bd.html_escape(desc, quote=True)}" />
+  <meta property="og:url" content="{canonical}" />
+  <meta property="og:image" content="https://kicegg.com/og-image.svg" />
+  <meta property="og:locale" content="ko_KR" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="{bd.html_escape(title, quote=True)}" />
+  <meta name="twitter:description" content="{bd.html_escape(desc, quote=True)}" />
+  <meta name="twitter:image" content="https://kicegg.com/og-image.svg" />
+  <script type="application/ld+json">{ld}</script>
+  <link rel="stylesheet" href="lib/vendor/pretendard/pretendardvariable-dynamic-subset.css?v=20260618a" />
+  <title>{bd.html_escape(title, quote=True)}</title>
+  <link rel="stylesheet" href="style.css?v=20260618a" />
+  <style>.setsdir__list{{columns:2;column-gap:24px;list-style:none;padding:0;margin:0}}
+.setsdir__list li{{margin:4px 0;break-inside:avoid}}
+@media (max-width:480px){{.setsdir__list{{columns:1}}}}</style>
+</head>
+<body class="page-legal">
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a href="index.html" class="brand">
+        <span class="brand__mark" aria-hidden="true">
+          <svg viewBox="0 0 32 32" width="22" height="22" fill="none">
+            <rect width="32" height="32" rx="7" fill="currentColor"/>
+            <rect x="8"  y="14" width="3" height="11" rx="1" fill="#fff" opacity=".45"/>
+            <rect x="14" y="9"  width="3" height="16" rx="1" fill="#fff" opacity=".7"/>
+            <rect x="20" y="6"  width="3" height="19" rx="1" fill="#fff"/>
+          </svg>
+        </span>
+        <span class="brand__name">기출해체분석기</span>
+      </a>
+      <nav class="header-nav" aria-label="주요 메뉴">
+        <a href="archive.html">기출검색</a>
+        <a href="gradecut.html">모의지원</a>
+      </nav>
+    </div>
+  </header>
+  <main class="container legal" style="padding:32px 20px;max-width:1080px;margin:0 auto;">
+    <h1>{bd.html_escape(school, quote=False)} 논술 기출 전체</h1>
+    <p>{bd.html_escape(intro, quote=False)}</p>
+    <p class="legal__sub">{stat}</p>
+    <p><a href="./">홈</a> · <a href="sets.html">전체 회차</a> · <a href="archive.html">기출 검색</a></p>
+    {''.join(sections)}
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <p>출처 · 한국교육과정평가원 · 법학전문대학원협의회 · 의·치학교육입문검사 관리위원회</p>
+      <p class="site-footer__sub">저작권은 각 발행기관에 있으며 교육 목적으로만 이용할 수 있습니다.</p>
+      <p class="site-footer__legal">
+        <a href="sets.html">전체 회차</a> · <a href="about.html">소개</a> · <a href="privacy.html">개인정보처리방침</a> · <a href="terms.html">이용약관</a>
+      </p>
+    </div>
+  </footer>
+  <script type="module" src="lib/dday-mount.js?v=20260618a"></script>
+  <script src="lib/measure.js?v=20260618a" defer></script>
+</body>
+</html>
+'''
+    (ROOT / fname).write_text(page, encoding='utf-8')
+
+
+def render_essay_school_hubs(items: list[dict]) -> list[dict]:
+    """대학별 논술 허브 nonsul-{slug}.html 생성. 옛 허브 정리 후 재생성."""
+    for old in ROOT.glob('nonsul-*.html'):
+        old.unlink()
+    hubs = essay_hub_list(items)
+    for h in hubs:
+        _write_essay_hub(h)
+    print(f'  + 대학별 논술 허브 {len(hubs)}개')
+    return hubs
+
+
+def render_sets_directory(items: list[dict], hubs=None) -> None:
     """sets.html — 전체 회차 정적 디렉토리. 크롤러의 정적 진입 허브:
     footer → sets.html → 회차 페이지(정적 카드) → 시험 페이지로 이어지는
     JS 없는 링크 그래프를 완성한다."""
@@ -145,6 +307,14 @@ def render_sets_directory(items: list[dict]) -> None:
         sections.append(
             f'<section class="legal__section"><h2>{label}</h2>'
             f'<ul class="setsdir__list">{links}</ul></section>')
+
+    # 대학별 논술 허브 인덱스 — 맨 위에 노출(학교별 집계 페이지 발견 경로)
+    if hubs:
+        hub_links = ''.join(
+            f'<li><a href="{h["fname"]}">{bd.html_escape(h["school"], quote=False)} ({h["count"]})</a></li>'
+            for h in sorted(hubs, key=lambda x: x['school']))
+        sections.insert(0, '<section class="legal__section"><h2>대학별 논술</h2>'
+                           f'<ul class="setsdir__list">{hub_links}</ul></section>')
 
     item_list = []
     position = 1
@@ -219,6 +389,7 @@ def render_sets_directory(items: list[dict]) -> None:
       </p>
     </div>
   </footer>
+  <script src="lib/measure.js?v=20260618a" defer></script>
 </body>
 </html>
 '''
@@ -250,8 +421,9 @@ def main() -> None:
     print(f'exams.json {len(items)}건 → 전체 재렌더')
     bd.build_static_exam_pages(items, ROOT / 'exam.html', ROOT)
     bd.build_static_set_pages(items, ROOT / 'exam-set.html', ROOT)
-    render_sets_directory(items)
-    render_sitemaps(items)
+    hubs = render_essay_school_hubs(items)
+    render_sets_directory(items, hubs)
+    render_sitemaps(items, hubs)
     render_splits(items)
     print('완료')
 
