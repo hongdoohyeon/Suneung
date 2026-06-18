@@ -838,9 +838,14 @@ def build_exam_meta(it: dict) -> dict:
             f'한 페이지에서 확인하고 무료로 내려받으세요.'
         )
     elif tg == 'ged':
-        desc = (
-            f'{full_phrase} 기출 문제지와 정답(확정안)을 한 곳에서 확인하고 무료로 내려받으세요.'
-        )
+        if it.get('answerUrl'):
+            desc = (
+                f'{full_phrase} 기출 문제지와 정답(확정안)을 한 곳에서 확인하고 무료로 내려받으세요.'
+            )
+        else:
+            desc = (
+                f'{full_phrase} 기출 문제지를 한 곳에서 확인하고 무료로 내려받으세요.'
+            )
     else:
         desc = (
             f'{full_phrase} 기출 문제지·정답·해설지와 등급컷을 한 곳에서 확인하고 무료로 내려받으세요.'

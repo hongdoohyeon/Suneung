@@ -66,5 +66,47 @@ for r in records:
     next_id += 1
     added += 1
 
+# ── 2013~2017 회차 합본 (신당야학 평가원 원본 재배포, ged-v2) ──────
+# 공식 온라인 보관(평가원·검정고시지원센터)이 2018부터라, 그 이전은 회차
+# 전과목 통합 문제지(합본)로만 존재. subject='전과목' 단일 카드로 등록.
+# 정답표는 전북교육청 2016 제2회(중·고졸)만 별도 확보 → 해당 카드에만 매칭.
+TAG2 = 'ged-v2'
+yahak_path = os.path.join(WORK, 'pre2018', 'yahak_recs.json')
+JBE_ANS = {
+    (2016, 2, '중졸'): '2016_2_mid_answer.pdf',
+    (2016, 2, '고졸'): '2016_2_high_answer.pdf',
+}
+added2 = 0
+if os.path.exists(yahak_path):
+    for r in json.load(open(yahak_path, encoding='utf-8')):
+        if not r.get('file'):
+            continue
+        year, sess, level = r['year'], r['sess'], r['level']
+        q_korean = f'{year}년 제{sess}회 {level} 검정고시 전과목 문제지(통합본).pdf'
+        a_asset = JBE_ANS.get((year, sess, level))
+        a_korean = f'{year}년 제{sess}회 {level} 검정고시 정답표.pdf' if a_asset else None
+        entry = {
+            'id': next_id,
+            'curriculum': level,
+            'gradeYear': year,
+            'examYear': year,
+            'month': 4 if sess == 1 else 8,
+            'typeGroup': 'ged',
+            'type': 'ged_1' if sess == 1 else 'ged_2',
+            'studentGrade': None,
+            'subject': '전과목',
+            'subSubject': None,
+            'solutionUrl': None,
+            'questionUrl': f"{WORKER}/{TAG2}/{r['asset']}?name={quote(q_korean, safe='')}",
+            'answerUrl': (f"{WORKER}/{TAG2}/{a_asset}?name={quote(a_korean, safe='')}"
+                          if a_asset else None),
+            'questionDownload': q_korean,
+            'answerDownload': a_korean,
+            'source': TAG2,
+        }
+        exams.append(entry)
+        next_id += 1
+        added2 += 1
+
 json.dump(exams, open(exams_path, 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
-print(f'검정고시 카드 {added}건 추가 → exams.json 총 {len(exams)}건')
+print(f'검정고시 카드 {added}건(2018+) + {added2}건(2013~2017 합본) 추가 → exams.json 총 {len(exams)}건')
