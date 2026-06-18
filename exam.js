@@ -242,10 +242,15 @@ function renderHead(exam) {
 }
 
 // ── 탭 (문제 / 정보) — URL ?tab=info 동기화 ────────────────
-function setupTabs(onActivate) {
+function setupTabs(onActivate, hideInfo) {
   const tabs  = document.querySelectorAll('.exam-tab');
   const panes = document.querySelectorAll('.exam-pane');
   if (tabs.length === 0) return;
+  // 등급컷이 없는 시험(검정고시 등): 정보(등급컷) 탭 UI 숨기고 문제만 노출.
+  if (hideInfo) {
+    const nav = document.querySelector('.exam__tabs');
+    if (nav) nav.style.display = 'none';
+  }
 
   function activate(key) {
     tabs.forEach(t => {
@@ -275,7 +280,9 @@ function setupTabs(onActivate) {
   const params = new URLSearchParams(location.search);
   const explicit = params.get('tab');
   let initial;
-  if (explicit === 'info' || explicit === 'paper') {
+  if (hideInfo) {
+    initial = 'paper';
+  } else if (explicit === 'info' || explicit === 'paper') {
     initial = explicit;
   } else {
     initial = window.innerWidth <= 600 ? 'info' : 'paper';
@@ -348,7 +355,7 @@ async function main() {
   }
   setupTabs(key => {
     if (key === 'paper') ensurePdfStarted();
-  });
+  }, exam.typeGroup === 'ged');
 }
 
 function showError() {
