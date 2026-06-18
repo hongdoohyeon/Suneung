@@ -685,6 +685,21 @@ def essay_hub_filename(subject: str) -> str:
     return f'nonsul-{slug}.html' if slug else ''
 
 
+# 과목별 기출 허브 — 수능(suneung-{slug})·학평(hakpyeong-{slug}). 상위 과목 축.
+SUBJECT_HUB_SLUG = {
+    '국어': 'korean', '수학': 'math', '영어': 'english', '한국사': 'history',
+    '사회탐구': 'social', '과학탐구': 'science', '직업탐구': 'vocational', '제2외국어': 'foreign',
+}
+SUBJECT_HUB_PREFIX = {'suneung': 'suneung', 'education': 'hakpyeong'}
+
+
+def subject_hub_filename(it: dict) -> str:
+    """과목별 기출 허브 파일명. 수능/학평의 매핑된 상위 과목만, 아니면 빈 문자열."""
+    pre = SUBJECT_HUB_PREFIX.get(it.get('typeGroup'))
+    slug = SUBJECT_HUB_SLUG.get(it.get('subject'))
+    return f'{pre}-{slug}.html' if (pre and slug) else ''
+
+
 def _exam_aliases(it: dict) -> list[str]:
     """시험 별 학생 검색어 별칭 (본문·keywords 양쪽에 깔리는 키워드)."""
     gy = it['gradeYear']; gy2 = str(gy)[-2:]
@@ -1147,6 +1162,18 @@ def build_static_exam_pages(items: list[dict], template_path: Path, out_root: Pa
                 html = html.replace(
                     '<a href="#" id="examSetSideLink" class="exam__back" hidden>',
                     _hub_anchor + '<a href="#" id="examSetSideLink" class="exam__back" hidden>', 1)
+        elif it.get('typeGroup') in ('suneung', 'education'):
+            _shub = subject_hub_filename(it)
+            if _shub:
+                _shub_anchor = (
+                    f'<a href="{_shub}" class="exam__back">'
+                    '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" '
+                    'stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'
+                    '<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>'
+                    '<span>이 과목 전체 기출</span></a>\n        ')
+                html = html.replace(
+                    '<a href="#" id="examSetSideLink" class="exam__back" hidden>',
+                    _shub_anchor + '<a href="#" id="examSetSideLink" class="exam__back" hidden>', 1)
 
         # 사이드바 회차 링크를 SSG 단계에서 정적으로 채움 — 크롤러가 JS 없이도
         # exam → 회차 링크 그래프를 따라가게 (exam.js 가 로드되면 동일 값으로 재설정).

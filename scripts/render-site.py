@@ -141,51 +141,20 @@ def essay_hub_list(items: list[dict]) -> list[dict]:
     return hubs
 
 
-def _write_essay_hub(h: dict) -> None:
+def _hub_page(fname: str, h1: str, title: str, desc: str, intro: str,
+              stat: str, sections: list, breadcrumb_name: str, item_list: list) -> None:
+    """허브 페이지(논술·과목 공용) HTML 생성·기록. legal 페이지 골격 재사용."""
     base = 'https://kicegg.com'
-    school, fname, count = h['school'], h['fname'], h['count']
-    n_mock = sum(1 for e in h['exams'] if e.get('type') == 'essay_mock')
-    n_annual = count - n_mock
-    yr = ''
-    if h['ymin'] and h['ymax']:
-        yr = f'{h["ymax"]}학년도' if h['ymin'] == h['ymax'] else f'{h["ymin"]}~{h["ymax"]}학년도'
-
-    years: dict = {}
-    for it in h['exams']:
-        years.setdefault(it.get('gradeYear'), []).append(it)
-    sections, item_list, pos = [], [], 1
-    for gy in sorted(years, key=lambda y: (y is None, -(y or 0))):
-        lis = []
-        for it in sorted(years[gy], key=lambda x: (0 if x.get('type') == 'essay_annual' else 1,
-                                                   str(x.get('subSubject') or ''))):
-            lab = _essay_label(it)
-            lis.append(f'<li><a href="exam-{it["id"]}.html">{bd.html_escape(lab, quote=False)}</a></li>')
-            item_list.append({'@type': 'ListItem', 'position': pos,
-                              'url': f'{base}/exam-{it["id"]}.html', 'name': lab})
-            pos += 1
-        label = f'{gy}학년도' if gy else '기타'
-        sections.append(f'<section class="legal__section"><h2>{label}</h2>'
-                        f'<ul class="setsdir__list">{"".join(lis)}</ul></section>')
-
-    yr_sp = (yr + ' ') if yr else ''
-    intro = (f'{school} 수시 논술전형 기출 {count}건을 한곳에 모았습니다. '
-             f'{yr_sp}논술·모의논술 기출 문제지와 (제공되는 경우) 예시답안·해설을 '
-             f'연도별로 정리했으니, 필요한 회차를 골라 PDF로 내려받아 확인하세요.')
-    stat = f'본논술 {n_annual}건 · 모의논술 {n_mock}건'
-    title = f'{school} 논술 기출 전체{(" (" + yr + ")") if yr else ""} — 기출해체분석기'
-    desc = (f'{school} 수시 논술전형 기출 {count}건 — {yr_sp}'
-            f'논술·모의논술 문제지·예시답안·해설을 연도별로 한곳에서 확인하고 PDF로 내려받으세요.')
     canonical = f'{base}/{fname}'
-
     jsonld = {'@context': 'https://schema.org', '@type': 'CollectionPage', '@id': canonical,
-              'url': canonical, 'name': f'{school} 논술 기출', 'description': desc, 'inLanguage': 'ko-KR',
+              'url': canonical, 'name': h1, 'description': desc, 'inLanguage': 'ko-KR',
               'isPartOf': {'@id': 'https://kicegg.com/#website'},
               'mainEntity': {'@type': 'ItemList', 'numberOfItems': len(item_list),
                              'itemListElement': item_list[:200]}}
     breadcrumb = {'@context': 'https://schema.org', '@type': 'BreadcrumbList', 'itemListElement': [
         {'@type': 'ListItem', 'position': 1, 'name': '홈', 'item': base + '/'},
         {'@type': 'ListItem', 'position': 2, 'name': '전체 회차', 'item': base + '/sets.html'},
-        {'@type': 'ListItem', 'position': 3, 'name': f'{school} 논술', 'item': canonical}]}
+        {'@type': 'ListItem', 'position': 3, 'name': breadcrumb_name, 'item': canonical}]}
     ld = (json.dumps(jsonld, ensure_ascii=False, separators=(',', ':'))
           + '</script>\n  <script type="application/ld+json">'
           + json.dumps(breadcrumb, ensure_ascii=False, separators=(',', ':')))
@@ -242,9 +211,9 @@ def _write_essay_hub(h: dict) -> None:
     </div>
   </header>
   <main class="container legal" style="padding:32px 20px;max-width:1080px;margin:0 auto;">
-    <h1>{bd.html_escape(school, quote=False)} 논술 기출 전체</h1>
+    <h1>{bd.html_escape(h1, quote=False)}</h1>
     <p>{bd.html_escape(intro, quote=False)}</p>
-    <p class="legal__sub">{stat}</p>
+    <p class="legal__sub">{bd.html_escape(stat, quote=False)}</p>
     <p><a href="./">홈</a> · <a href="sets.html">전체 회차</a> · <a href="archive.html">기출 검색</a></p>
     {''.join(sections)}
   </main>
@@ -265,6 +234,44 @@ def _write_essay_hub(h: dict) -> None:
     (ROOT / fname).write_text(page, encoding='utf-8')
 
 
+def _write_essay_hub(h: dict) -> None:
+    base = 'https://kicegg.com'
+    school, fname, count = h['school'], h['fname'], h['count']
+    n_mock = sum(1 for e in h['exams'] if e.get('type') == 'essay_mock')
+    n_annual = count - n_mock
+    yr = ''
+    if h['ymin'] and h['ymax']:
+        yr = f'{h["ymax"]}학년도' if h['ymin'] == h['ymax'] else f'{h["ymin"]}~{h["ymax"]}학년도'
+
+    years: dict = {}
+    for it in h['exams']:
+        years.setdefault(it.get('gradeYear'), []).append(it)
+    sections, item_list, pos = [], [], 1
+    for gy in sorted(years, key=lambda y: (y is None, -(y or 0))):
+        lis = []
+        for it in sorted(years[gy], key=lambda x: (0 if x.get('type') == 'essay_annual' else 1,
+                                                   str(x.get('subSubject') or ''))):
+            lab = _essay_label(it)
+            lis.append(f'<li><a href="exam-{it["id"]}.html">{bd.html_escape(lab, quote=False)}</a></li>')
+            item_list.append({'@type': 'ListItem', 'position': pos,
+                              'url': f'{base}/exam-{it["id"]}.html', 'name': lab})
+            pos += 1
+        label = f'{gy}학년도' if gy else '기타'
+        sections.append(f'<section class="legal__section"><h2>{label}</h2>'
+                        f'<ul class="setsdir__list">{"".join(lis)}</ul></section>')
+
+    yr_sp = (yr + ' ') if yr else ''
+    intro = (f'{school} 수시 논술전형 기출 {count}건을 한곳에 모았습니다. '
+             f'{yr_sp}논술·모의논술 기출 문제지와 (제공되는 경우) 예시답안·해설을 '
+             f'연도별로 정리했으니, 필요한 회차를 골라 PDF로 내려받아 확인하세요.')
+    stat = f'본논술 {n_annual}건 · 모의논술 {n_mock}건'
+    title = f'{school} 논술 기출 전체{(" (" + yr + ")") if yr else ""} — 기출해체분석기'
+    desc = (f'{school} 수시 논술전형 기출 {count}건 — {yr_sp}'
+            f'논술·모의논술 문제지·예시답안·해설을 연도별로 한곳에서 확인하고 PDF로 내려받으세요.')
+    _hub_page(fname, f'{school} 논술 기출 전체', title, desc, intro, stat,
+              sections, f'{school} 논술', item_list)
+
+
 def render_essay_school_hubs(items: list[dict]) -> list[dict]:
     """대학별 논술 허브 nonsul-{slug}.html 생성. 옛 허브 정리 후 재생성."""
     for old in ROOT.glob('nonsul-*.html'):
@@ -276,7 +283,80 @@ def render_essay_school_hubs(items: list[dict]) -> list[dict]:
     return hubs
 
 
-def render_sets_directory(items: list[dict], hubs=None) -> None:
+# ── 과목별 기출 허브 (수능/학평) ──
+_TG_HUB_LABEL = {'suneung': '수능·평가원', 'education': '고등 학력평가'}
+
+
+def subject_hub_list(items: list[dict]) -> list[dict]:
+    """과목별 허브 데이터 — (typeGroup·상위과목)별로 묶는다."""
+    by_key: dict = {}
+    for it in items:
+        fn = bd.subject_hub_filename(it)
+        if not fn:
+            continue
+        h = by_key.setdefault(fn, {'fname': fn, 'tg': it['typeGroup'],
+                                   'subject': it['subject'], 'exams': []})
+        h['exams'].append(it)
+    hubs = []
+    for h in by_key.values():
+        years = [e.get('gradeYear') for e in h['exams'] if e.get('gradeYear')]
+        h['count'] = len(h['exams'])
+        h['ymin'] = min(years) if years else None
+        h['ymax'] = max(years) if years else None
+        hubs.append(h)
+    hubs.sort(key=lambda h: -h['count'])
+    return hubs
+
+
+def _write_subject_hub(h: dict) -> None:
+    base = 'https://kicegg.com'
+    tl = _TG_HUB_LABEL[h['tg']]
+    subject, fname, count = h['subject'], h['fname'], h['count']
+    topic = f'{tl} {subject}'
+    yr = ''
+    if h['ymin'] and h['ymax']:
+        yr = f'{h["ymax"]}학년도' if h['ymin'] == h['ymax'] else f'{h["ymin"]}~{h["ymax"]}학년도'
+
+    years: dict = {}
+    for it in h['exams']:
+        years.setdefault(it.get('gradeYear'), []).append(it)
+    sections, item_list, pos = [], [], 1
+    for gy in sorted(years, key=lambda y: (y is None, -(y or 0))):
+        lis = []
+        for it in sorted(years[gy], key=lambda x: (str(x.get('type') or ''), str(x.get('subSubject') or ''))):
+            lab = bd.build_exam_meta(it)['head']
+            lis.append(f'<li><a href="exam-{it["id"]}.html">{bd.html_escape(lab, quote=False)}</a></li>')
+            item_list.append({'@type': 'ListItem', 'position': pos,
+                              'url': f'{base}/exam-{it["id"]}.html', 'name': lab})
+            pos += 1
+        label = f'{gy}학년도' if gy else '기타'
+        sections.append(f'<section class="legal__section"><h2>{label}</h2>'
+                        f'<ul class="setsdir__list">{"".join(lis)}</ul></section>')
+
+    yr_sp = (yr + ' ') if yr else ''
+    intro = (f'{topic} 기출 {count}건을 한곳에 모았습니다. '
+             f'{yr_sp}연도별 문제지·정답·해설지와 등급컷을 한 번에 확인하고 PDF로 내려받으세요. '
+             f'선택과목·회차별 자료가 모두 포함됩니다.')
+    stat = f'{topic} 기출 {count}건' + (f' · {yr}' if yr else '')
+    title = f'{topic} 기출 전체{(" (" + yr + ")") if yr else ""} — 기출해체분석기'
+    desc = (f'{topic} 기출 {count}건 — {yr_sp}'
+            f'연도별 문제지·정답·해설지·등급컷을 한곳에서 확인하고 PDF로 내려받으세요.')
+    _hub_page(fname, f'{topic} 기출 전체', title, desc, intro, stat, sections, topic, item_list)
+
+
+def render_subject_hubs(items: list[dict]) -> list[dict]:
+    """과목별 기출 허브 suneung-{slug}.html / hakpyeong-{slug}.html 생성."""
+    for pat in ('suneung-*.html', 'hakpyeong-*.html'):
+        for old in ROOT.glob(pat):
+            old.unlink()
+    hubs = subject_hub_list(items)
+    for h in hubs:
+        _write_subject_hub(h)
+    print(f'  + 과목별 기출 허브 {len(hubs)}개')
+    return hubs
+
+
+def render_sets_directory(items: list[dict], essay_hubs=None, subject_hubs=None) -> None:
     """sets.html — 전체 회차 정적 디렉토리. 크롤러의 정적 진입 허브:
     footer → sets.html → 회차 페이지(정적 카드) → 시험 페이지로 이어지는
     JS 없는 링크 그래프를 완성한다."""
@@ -308,13 +388,20 @@ def render_sets_directory(items: list[dict], hubs=None) -> None:
             f'<section class="legal__section"><h2>{label}</h2>'
             f'<ul class="setsdir__list">{links}</ul></section>')
 
-    # 대학별 논술 허브 인덱스 — 맨 위에 노출(학교별 집계 페이지 발견 경로)
-    if hubs:
+    # 과목별 / 대학별 허브 인덱스 — 상단 노출(집계 페이지 발견 경로)
+    if essay_hubs:
         hub_links = ''.join(
             f'<li><a href="{h["fname"]}">{bd.html_escape(h["school"], quote=False)} ({h["count"]})</a></li>'
-            for h in sorted(hubs, key=lambda x: x['school']))
+            for h in sorted(essay_hubs, key=lambda x: x['school']))
         sections.insert(0, '<section class="legal__section"><h2>대학별 논술</h2>'
                            f'<ul class="setsdir__list">{hub_links}</ul></section>')
+    if subject_hubs:
+        sub_links = ''.join(
+            f'<li><a href="{h["fname"]}">'
+            f'{bd.html_escape(_TG_HUB_LABEL[h["tg"]] + " " + h["subject"], quote=False)} ({h["count"]})</a></li>'
+            for h in sorted(subject_hubs, key=lambda x: (x['tg'], -x['count'])))
+        sections.insert(0, '<section class="legal__section"><h2>과목별 기출</h2>'
+                           f'<ul class="setsdir__list">{sub_links}</ul></section>')
 
     item_list = []
     position = 1
@@ -421,9 +508,10 @@ def main() -> None:
     print(f'exams.json {len(items)}건 → 전체 재렌더')
     bd.build_static_exam_pages(items, ROOT / 'exam.html', ROOT)
     bd.build_static_set_pages(items, ROOT / 'exam-set.html', ROOT)
-    hubs = render_essay_school_hubs(items)
-    render_sets_directory(items, hubs)
-    render_sitemaps(items, hubs)
+    essay_hubs = render_essay_school_hubs(items)
+    subject_hubs = render_subject_hubs(items)
+    render_sets_directory(items, essay_hubs, subject_hubs)
+    render_sitemaps(items, essay_hubs + subject_hubs)
     render_splits(items)
     print('완료')
 
