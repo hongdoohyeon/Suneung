@@ -258,7 +258,7 @@ def _write_essay_hub(h: dict) -> None:
     </div>
   </footer>
   <script type="module" src="lib/dday-mount.js?v=20260618a"></script>
-  <script src="lib/measure.js?v=20260618a" defer></script>
+  <script src="lib/measure.js?v=20260618b" defer></script>
 </body>
 </html>
 '''
@@ -389,7 +389,7 @@ def render_sets_directory(items: list[dict], hubs=None) -> None:
       </p>
     </div>
   </footer>
-  <script src="lib/measure.js?v=20260618a" defer></script>
+  <script src="lib/measure.js?v=20260618b" defer></script>
 </body>
 </html>
 '''
