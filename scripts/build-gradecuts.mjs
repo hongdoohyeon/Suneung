@@ -384,10 +384,57 @@ for (const r of out) {
     expanded.push({ ...r, studentGrade: g });
   }
 }
+// 7. 학년별 컷 교정 — makeKey가 5튜플이라 학년이 붕괴(한 학년 컷이 전 학년에 복제)된다.
+//    kice-archive(공식)의 학년별 원본으로 교정한다. 가드(오교정 방지): ① 현재값이 형제 학년의
+//    값과 일치(=붕괴 확정) ② 동일학년 kice값이 유일하고 검증(단조감소·≤만점·8개) 통과
+//    ③ 직업탐구(subSubject=null 다중행으로 모호)는 제외. 멱등 — 이미 교정된 데이터엔 0건.
+const FS_VALID = { '국어': 100, '수학': 100, '영어': 100, '한국사': 50, '사회탐구': 50,
+  '과학탐구': 50, '통합사회': 50, '통합과학': 50, '직업탐구': 50, '제2외국어': 50 };
+function validCuts(c, subj) {
+  if (!Array.isArray(c) || c.length !== 8) return false;
+  if (c.some(v => v == null || !Number.isFinite(v))) return false;
+  const fs = FS_VALID[subj] ?? 200;
+  return c.every(v => v >= 0 && v <= fs) && c.every((v, i) => i === 0 || c[i - 1] >= v);
+}
+const kiceVals = new Map();      // 6key -> Set(JSON rawCuts)
+for (const r of kiceArchive) {
+  if (!validCuts(r.rawCuts, r.subject)) continue;
+  const k = `${makeKey(r.curriculum, r.gradeYear, r.type, r.subject, r.subSubject)}|${r.studentGrade}`;
+  if (!kiceVals.has(k)) kiceVals.set(k, new Set());
+  kiceVals.get(k).add(JSON.stringify(r.rawCuts));
+}
+const kiceBy5 = new Map();       // 5key -> Map(grade -> 유일 rawCuts)
+for (const [k, vs] of kiceVals) {
+  if (vs.size !== 1) continue;   // 충돌(다중값)이면 제외
+  const cut = k.lastIndexOf('|');
+  const five = k.slice(0, cut), g = k.slice(cut + 1);
+  if (!kiceBy5.has(five)) kiceBy5.set(five, new Map());
+  kiceBy5.get(five).set(g, JSON.parse([...vs][0]));
+}
+let gradeCorrected = 0;
+for (const rec of expanded) {
+  if (rec.typeGroup !== 'education' || ![1, 2, 3].includes(rec.studentGrade)) continue;
+  if (rec.subject === '직업탐구') continue;
+  const sibs = kiceBy5.get(makeKey(rec.curriculum, rec.gradeYear, rec.type, rec.subject, rec.subSubject));
+  if (!sibs) continue;
+  const mine = sibs.get(String(rec.studentGrade));
+  if (!mine) continue;
+  const cur = JSON.stringify(rec.rawCuts);
+  if (JSON.stringify(mine) === cur) continue;
+  let collapsed = false;
+  for (const [g, v] of sibs) {
+    if (g !== String(rec.studentGrade) && JSON.stringify(v) === cur) { collapsed = true; break; }
+  }
+  if (!collapsed) continue;
+  rec.rawCuts = mine;
+  gradeCorrected++;
+}
+
 // id 재부여
 expanded.forEach((r, i) => { r.id = i + 1; });
 
 await writeFile(OUT_PATH, JSON.stringify(expanded, null, 2) + '\n');
+console.log(`학년별 컷 교정: ${gradeCorrected}건`);
 
 console.log(`기존 rawCuts: ${existing.length}건`);
 console.log(`hwpx 적재: ${hwpxApplied}건`);
