@@ -565,7 +565,10 @@ def from_meet(db: Path, items: list):
 # ── 메인 ───────────────────────────────────────────────────
 ## ── OG 이미지 (시험별 1200×630 JPG) ────────────────────────
 # 카톡·트위터·네이버 공유 시 미리보기 카드. macOS 빌드 환경 가정.
-_OG_FONT_PATH = '/System/Library/Fonts/AppleSDGothicNeo.ttc'
+# OG 폰트: repo 동봉 Pretendard 우선(로컬·CI 어디서나 동일 렌더). 없으면 맥 시스템 폰트 폴백.
+_BUNDLED_OG_FONT = Path(__file__).resolve().parent.parent / 'fonts' / 'Pretendard-Regular.ttf'
+_OG_FONT_PATH = (str(_BUNDLED_OG_FONT) if _BUNDLED_OG_FONT.exists()
+                 else '/System/Library/Fonts/AppleSDGothicNeo.ttc')
 _OG_DIR = ROOT / 'og'
 
 def generate_og_image(it: dict, head: str, out_path: Path):

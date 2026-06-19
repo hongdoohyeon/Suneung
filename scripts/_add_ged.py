@@ -11,11 +11,20 @@ import json, os
 from urllib.parse import quote
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-WORK = os.path.expanduser('~/Workspace/geomjeong_work')
+WORK = os.path.expanduser('~/Workspace/geomjeong_work')   # 로컬 스크래치(폴백)
+SRC = os.path.join(ROOT, 'data', 'sources')               # repo 동봉 매니페스트(우선)
 WORKER = 'https://suneung-files.hdh061224.workers.dev'
 TAG = 'ged-v1'
 
-records = json.load(open(os.path.join(WORK, 'records.json'), encoding='utf-8'))
+
+def _load_src(repo_name, local_path):
+    """repo 동봉 매니페스트 우선, 없으면 로컬 스크래치 폴백.
+    로컬을 통째로 지워도 repo 클론만으로 재현되게."""
+    p = os.path.join(SRC, repo_name)
+    return json.load(open(p if os.path.exists(p) else local_path, encoding='utf-8'))
+
+
+records = _load_src('ged_records.json', os.path.join(WORK, 'records.json'))
 exams_path = os.path.join(ROOT, 'data', 'exams.json')
 exams = json.load(open(exams_path, encoding='utf-8'))
 
@@ -71,14 +80,15 @@ for r in records:
 # 전과목 통합 문제지(합본)로만 존재. subject='전과목' 단일 카드로 등록.
 # 정답표는 전북교육청 2016 제2회(중·고졸)만 별도 확보 → 해당 카드에만 매칭.
 TAG2 = 'ged-v2'
-yahak_path = os.path.join(WORK, 'pre2018', 'yahak_recs.json')
 JBE_ANS = {
     (2016, 2, '중졸'): '2016_2_mid_answer.pdf',
     (2016, 2, '고졸'): '2016_2_high_answer.pdf',
 }
 added2 = 0
-if os.path.exists(yahak_path):
-    for r in json.load(open(yahak_path, encoding='utf-8')):
+_yahak_repo = os.path.join(SRC, 'ged_yahak_recs.json')
+_yahak_local = os.path.join(WORK, 'pre2018', 'yahak_recs.json')
+if os.path.exists(_yahak_repo) or os.path.exists(_yahak_local):
+    for r in _load_src('ged_yahak_recs.json', _yahak_local):
         if not r.get('file'):
             continue
         year, sess, level = r['year'], r['sess'], r['level']

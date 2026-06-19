@@ -1,0 +1,58 @@
+name: build
+
+# 데이터/템플릿/스크립트가 바뀌면 CI가 render-site.py 를 돌려 산출물(HTML·OG·
+# sitemap·feed·split)을 자동 생성·커밋한다. → 로컬에서 빌드할 필요가 없어짐.
+# (생성물 경로는 트리거에서 제외 → 봇 커밋이 워크플로를 재발화하지 않음)
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'data/exams.json'
+      - 'data/gradecuts.json'
+      - 'scripts/render-site.py'
+      - 'scripts/build-data.py'
+      - 'exam.html'
+      - 'exam-set.html'
+      - 'fonts/**'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: build-main
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install deps
+        run: pip install pillow
+
+      - name: Render site
+        run: PYTHONUTF8=1 python3 scripts/render-site.py
+
+      - name: Commit generated output
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "산출물 변경 없음 — 커밋 생략"
+          else
+            git commit -m "build: render-site.py 산출물 자동 갱신 [skip ci]"
+            git push
+          fi
+
+      - name: IndexNow 제출 (변경된 페이지)
+        run: PYTHONUTF8=1 python3 scripts/indexnow-submit.py || true
