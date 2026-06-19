@@ -992,15 +992,18 @@ def build_static_exam_pages(items: list[dict], template_path: Path, out_root: Pa
     except Exception:
         _cuts = []
     _cut_idx: dict = {}
-    _cut_idx6: dict = {}   # 학평 학년별(studentGrade) 정확 매칭용
+    _cut_idx6: dict = {}      # 학평 학년별(studentGrade) 정확 매칭용
+    _cut_idx_none: dict = {}  # 학년무관(studentGrade=null) 컷 — 학평 폴백 허용 대상
     for _c in _cuts:
         _k = (_c.get('curriculum'), str(_c.get('gradeYear')), _c.get('type'),
               _c.get('subject'), _c.get('subSubject'))
         _cut_idx.setdefault(_k, _c)   # first-wins (JS .find() 와 동일)
         _cut_idx6.setdefault(_k + (_c.get('studentGrade'),), _c)
+        if _c.get('studentGrade') is None:
+            _cut_idx_none.setdefault(_k, _c)
 
     def _grade_table_html(raw: list, full, absolute: bool) -> str:
-        th = ''.join(f'<th class="grade-table__h grade-table__h--g{g}">{g}</th>' for g in _GRADES)
+        th = ''.join(f'<th class="grade-table__h grade-table__h--g{g}" scope="col">{g}</th>' for g in _GRADES)
         td = ''.join(
             '<td class="grade-table__c grade-table__c--g{0}">{1}</td>'.format(
                 i + 1, '—' if (i >= len(raw) or raw[i] is None) else raw[i])
@@ -1257,11 +1260,14 @@ def build_static_exam_pages(items: list[dict], template_path: Path, out_root: Pa
         # 중복 보일러플레이트 추가 방지). exam.js 가 동일 데이터로 덮어써도 무해.
         _ck = (it.get('curriculum'), str(it.get('gradeYear')), it.get('type'),
                it.get('subject'), it.get('subSubject'))
-        # 학평은 학년별 컷 정확 매칭 우선, 없으면 5요소 폴백(exam-gradedist.js 와 동일 규칙)
+        # 학평(education)은 학년별 컷 정확매칭 우선, 없으면 학년무관(sg=null) 컷만 폴백 허용
+        # — 다른 학년 컷으로는 폴백하지 않는다(타학년 등급컷 오노출 방지). 수능 등은 5요소 매칭.
+        # 검정고시(ged)는 절대평가 pass/fail이라 등급컷 표를 주입하지 않는다.
         _cut = None
-        if it.get('typeGroup') == 'education':
-            _cut = _cut_idx6.get(_ck + (it.get('studentGrade'),))
-        if _cut is None:
+        _tg = it.get('typeGroup')
+        if _tg == 'education':
+            _cut = _cut_idx6.get(_ck + (it.get('studentGrade'),)) or _cut_idx_none.get(_ck)
+        elif _tg != 'ged':
             _cut = _cut_idx.get(_ck)
         if _cut and isinstance(_cut.get('rawCuts'), list) and any(v is not None for v in _cut['rawCuts']):
             _raw = _cut['rawCuts']

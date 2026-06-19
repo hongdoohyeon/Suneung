@@ -295,16 +295,20 @@ const ABSOLUTE_CUTS = {
 let absoluteApplied = 0;
 // 사이트 시험 + 빌드된 모든 record 둘 다 순회 (megastudy-only 레코드도 정리하기 위해)
 const absoluteTargets = new Set();
+// 절대평가 영어/한국사 9등급 컷은 수능(suneung)·학평/모평(education)에만 적용된다.
+// 검정고시(ged, pass/fail)·사관/경찰(military/police)·LEET/MEET 의 영어/한국사에는
+// 9등급 절대평가가 존재하지 않으므로 typeGroup 가드로 가짜 컷 주입을 차단한다.
+const ABSOLUTE_TG = new Set(['suneung', 'education']);
 for (const e of exams) {
   const ab = ABSOLUTE_CUTS[e.subject];
-  if (ab && e.gradeYear >= ab.absoluteSince) {
+  if (ab && e.gradeYear >= ab.absoluteSince && ABSOLUTE_TG.has(e.typeGroup)) {
     absoluteTargets.add(makeKey(e.curriculum, e.gradeYear, e.type, e.subject, e.subSubject));
   }
 }
 for (const [k, rec] of resultMap) {
   const ab = ABSOLUTE_CUTS[rec.subject];
   if (!ab) continue;
-  if (rec.gradeYear >= ab.absoluteSince) absoluteTargets.add(k);
+  if (rec.gradeYear >= ab.absoluteSince && ABSOLUTE_TG.has(rec.typeGroup)) absoluteTargets.add(k);
 }
 for (const k of absoluteTargets) {
   // 사이트 미존재 record 도 ensureRecord 로 정리
@@ -430,11 +434,24 @@ for (const rec of expanded) {
   gradeCorrected++;
 }
 
+// 8. 최종 rawCuts 위생 가드 — non-null 값들의 부분수열이 단조감소가 아니면(역전) 손상
+//    데이터(예: megastudy 파싱오류 [465,42,345,…])이므로 출력에서 제거(준비중 처리).
+//    중간 null(부분결손)은 화면에서 '—'로 정상 표시되므로 보존한다(유효데이터 오제거 방지).
+//    ≤만점은 보지 않는다(직업탐구 등 fullScore 메타 오설정과 무관히 값은 유효할 수 있음).
+let rawDropped = 0;
+for (const rec of expanded) {
+  const c = rec.rawCuts;
+  if (!Array.isArray(c)) continue;
+  const nn = c.filter(v => v != null && Number.isFinite(v));
+  const bad = nn.length >= 2 && nn.some((v, i) => i > 0 && nn[i - 1] < v);
+  if (bad) { delete rec.rawCuts; rawDropped++; }
+}
+
 // id 재부여
 expanded.forEach((r, i) => { r.id = i + 1; });
 
 await writeFile(OUT_PATH, JSON.stringify(expanded, null, 2) + '\n');
-console.log(`학년별 컷 교정: ${gradeCorrected}건`);
+console.log(`학년별 컷 교정: ${gradeCorrected}건 / 손상 rawCuts 제거: ${rawDropped}건`);
 
 console.log(`기존 rawCuts: ${existing.length}건`);
 console.log(`hwpx 적재: ${hwpxApplied}건`);

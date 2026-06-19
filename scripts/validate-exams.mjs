@@ -14,6 +14,7 @@ const ROOT = resolve(HERE, '..');
 const DATA_PATH    = resolve(ROOT, 'data/exams.json');
 const SCHEMA_PATH  = resolve(ROOT, 'data/exams.schema.json');
 const ANSWERS_PATH = resolve(ROOT, 'data/answers.json');
+const GRADECUTS_PATH = resolve(ROOT, 'data/gradecuts.json');
 
 const WORKER_HOST = 'suneung-files.hdh061224.workers.dev';
 
@@ -236,6 +237,38 @@ async function validateAnswers(exams) {
   }
 }
 
+// 등급컷(gradecuts.json) rawCuts 위생 검증 — 손상 데이터(비단조·결손) 회귀 차단.
+// (만점 초과는 직업탐구 등 fullScore 메타 이슈와 얽혀 별도 — 여기선 비단조·결손만.)
+async function validateGradecuts() {
+  let raw;
+  try { raw = await readFile(GRADECUTS_PATH, 'utf-8'); }
+  catch { return; }   // 없으면 skip
+  let cuts;
+  try { cuts = JSON.parse(raw); }
+  catch (e) { err(`gradecuts.json 파싱 실패: ${e.message}`); return; }
+  if (!Array.isArray(cuts)) { err('gradecuts.json 은 배열이어야 함'); return; }
+  let badRaw = 0;
+  const samples = [];
+  for (const c of cuts) {
+    const r = c.rawCuts;
+    if (!Array.isArray(r)) continue;            // rawCuts 없음(준비중) = 정상
+    // non-null 값들의 부분수열이 단조감소가 아니면 손상(역전). 중간 null(부분결손)은
+    // '—'로 정상 표시되므로 손상으로 보지 않는다.
+    const nn = r.filter(v => v != null && Number.isFinite(v));
+    const nonmono = nn.some((v, i) => i > 0 && nn[i - 1] < v);
+    if (nonmono) {
+      badRaw++;
+      if (samples.length < 10) samples.push(`id=${c.id} ${c.subject}${c.subSubject ? '/' + c.subSubject : ''} ${c.gradeYear} ${c.type} [${r.join(',')}]`);
+    }
+  }
+  if (badRaw > 0) {
+    warn(`gradecuts rawCuts 손상(비단조/결손) ${badRaw}건 — 손상 데이터 (build-gradecuts.mjs 위생가드로 제거되어야 함)`);
+    for (const s of samples) warns.push('  ' + s);
+  } else {
+    console.log(`gradecuts rawCuts 위생: 손상 0건`);
+  }
+}
+
 function summarize(data) {
   const c = {};
   for (const ex of data) {
@@ -268,6 +301,7 @@ function summarize(data) {
   validateAgainstSchema(data, schema);
   validateBusinessRules(data);
   await validateAnswers(data);
+  await validateGradecuts();
 
   const sum = summarize(data);
   console.log(`총 항목: ${data.length}`);

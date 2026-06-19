@@ -69,7 +69,9 @@ function applyUrlState() {
     if (getTabConf(tab)) {
       state.tab = tab;
       document.querySelectorAll('.nav-tab').forEach(b => {
-        b.classList.toggle('is-active', b.dataset.tab === tab);
+        const on = b.dataset.tab === tab;
+        b.classList.toggle('is-active', on);
+        if (on) b.setAttribute('aria-current', 'true'); else b.removeAttribute('aria-current');
       });
     }
   }
@@ -238,8 +240,9 @@ function scrollActiveTabIntoView() {
 $('curriculumTabs').addEventListener('click', e => {
   const btn = e.target.closest('.nav-tab');
   if (!btn) return;
-  document.querySelectorAll('.nav-tab').forEach(b => b.classList.remove('is-active'));
+  document.querySelectorAll('.nav-tab').forEach(b => { b.classList.remove('is-active'); b.removeAttribute('aria-current'); });
   btn.classList.add('is-active');
+  btn.setAttribute('aria-current', 'true');
   state.tab = btn.dataset.tab;
   resetFilters();
   state.yearExpanded = false;
