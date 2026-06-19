@@ -593,8 +593,13 @@ def generate_og_image(it: dict, head: str, out_path: Path):
     bottom_font = ImageFont.truetype(_OG_FONT_PATH, 26)
     domain_font = ImageFont.truetype(_OG_FONT_PATH, 22)
 
-    # 좌상단 브랜드
+    # 좌상단 브랜드 + 차별화 슬로건 태그라인 (공유될 때마다 노출)
     d.text((60, 56), '기출해체분석기', fill='#64748b', font=brand_font)
+    tagline_font = ImageFont.truetype(_OG_FONT_PATH, 22)
+    tagline = ('가입 없이 · 한 페이지에서 · 등급컷까지'
+               if it.get('typeGroup') in ('suneung', 'education')
+               else '가입 없이 · 한 페이지에서 · 전부 무료')
+    d.text((60, 96), tagline, fill='#94a3b8', font=tagline_font)
 
     # 중앙 시험명 — 너무 길면 자동 줄바꿈
     title = head

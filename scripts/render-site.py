@@ -106,6 +106,8 @@ def render_sitemaps(items: list[dict], hubs=None) -> None:
         f'  <url><loc>{base}/archive.html</loc><lastmod>{today}</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>',
         f'  <url><loc>{base}/gradecut.html</loc><lastmod>{today}</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>',
         f'  <url><loc>{base}/sets.html</loc><lastmod>{today}</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>',
+        f'  <url><loc>{base}/essay.html</loc><lastmod>{CONTENT_VERSION}</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>',
+        f'  <url><loc>{base}/ged.html</loc><lastmod>{CONTENT_VERSION}</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>',
         f'  <url><loc>{base}/about.html</loc><lastmod>{today}</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>',
         f'  <url><loc>{base}/admissions.html</loc><lastmod>{today}</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>',
         f'  <url><loc>{base}/calendar.html</loc><lastmod>{today}</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>',
@@ -115,7 +117,7 @@ def render_sitemaps(items: list[dict], hubs=None) -> None:
                            f'<changefreq>monthly</changefreq><priority>0.7</priority></url>')
     static_rows.append('</urlset>')
     (ROOT / 'sitemap-static.xml').write_text('\n'.join(static_rows) + '\n', encoding='utf-8')
-    print(f'  + sitemap (static {7 + len(hubs or [])} + sets {len(sets)} + exams {len(items)})')
+    print(f'  + sitemap (static {9 + len(hubs or [])} + sets {len(sets)} + exams {len(items)})')
 
 
 def _essay_label(it: dict) -> str:
@@ -356,6 +358,77 @@ def render_subject_hubs(items: list[dict]) -> list[dict]:
     return hubs
 
 
+def render_category_landings(items: list[dict]) -> None:
+    """카테고리 전용 SEO 랜딩 — 대학별 논술(essay.html)·검정고시(ged.html).
+    경쟁 통합처가 약한 블루오션 키워드('대학별 논술 기출', '검정고시 기출 다운')를
+    잡는 상위 진입점. 기존 허브/시험 페이지로의 내부링크 허브 역할도."""
+    base = 'https://kicegg.com'
+
+    # ── 대학별 논술 랜딩: 39개 학교별 허브로 링크 ──
+    essays = [e for e in items if e.get('typeGroup') == 'essay']
+    if essays:
+        counts: dict = {}
+        for e in essays:
+            counts[e['subject']] = counts.get(e['subject'], 0) + 1
+        lis, item_list, pos = [], [], 1
+        for school, cnt in sorted(counts.items(), key=lambda x: -x[1]):
+            hub = bd.essay_hub_filename(school)
+            if not hub:
+                continue
+            lab = f'{school} 논술 기출 ({cnt}건)'
+            lis.append(f'<li><a href="{hub}">{bd.html_escape(lab, quote=False)}</a></li>')
+            item_list.append({'@type': 'ListItem', 'position': pos,
+                              'url': f'{base}/{hub}', 'name': lab})
+            pos += 1
+        n_school = len(lis)
+        sections = [f'<section class="legal__section"><h2>대학별 논술 기출 ({n_school}개교)</h2>'
+                    f'<ul class="setsdir__list">{"".join(lis)}</ul></section>']
+        intro = (f'전국 {n_school}개 대학의 수시 논술전형 기출 {len(essays)}건을 한곳에 모았습니다. '
+                 f'회원가입 없이 대학을 골라 본논술·모의논술 문제지와 (제공되는 경우) 예시답안·해설을 '
+                 f'연도별로 확인하고 PDF로 바로 내려받으세요.')
+        stat = f'{n_school}개교 · 논술 기출 {len(essays)}건'
+        title = f'대학별 논술 기출 — {n_school}개교 {len(essays)}건 한곳에 | 기출해체분석기'
+        desc = (f'가입 없이 대학별 논술 기출 한곳에서. 고려대·연세대·성균관대 등 {n_school}개교 '
+                f'수시 논술전형 본논술·모의논술 기출 {len(essays)}건을 문제지·예시답안·해설 PDF로 무료 다운로드.')
+        _hub_page('essay.html', '대학별 논술 기출', title, desc, intro, stat,
+                  sections, '대학별 논술', item_list)
+        print('  + 논술 랜딩 essay.html')
+
+    # ── 검정고시 랜딩: 학력(고·중·초졸)별 연도 목록 ──
+    geds = [e for e in items if e.get('typeGroup') == 'ged']
+    if geds:
+        sections, item_list, pos = [], [], 1
+        for lvl in ('고졸', '중졸', '초졸'):
+            lvl_items = [e for e in geds if e.get('curriculum') == lvl]
+            if not lvl_items:
+                continue
+            years: dict = {}
+            for it in lvl_items:
+                years.setdefault(it.get('examYear'), []).append(it)
+            lis = []
+            for y in sorted(years, key=lambda v: -(v or 0)):
+                for it in sorted(years[y], key=lambda x: (str(x.get('type') or ''), str(x.get('subject') or ''))):
+                    lab = bd.build_exam_meta(it)['head']
+                    lis.append(f'<li><a href="exam-{it["id"]}.html">{bd.html_escape(lab, quote=False)}</a></li>')
+                    item_list.append({'@type': 'ListItem', 'position': pos,
+                                      'url': f'{base}/exam-{it["id"]}.html', 'name': lab})
+                    pos += 1
+            sections.append(f'<section class="legal__section"><h2>{lvl} 검정고시 ({len(lvl_items)}건)</h2>'
+                            f'<ul class="setsdir__list">{"".join(lis)}</ul></section>')
+        yrs = [e.get('examYear') for e in geds if e.get('examYear')]
+        span = f'{min(yrs)}~{max(yrs)}' if yrs else ''
+        intro = (f'고졸·중졸·초졸 검정고시 기출 {len(geds)}건을 한곳에 모았습니다. '
+                 f'회원가입·앱 설치 없이 회차별 문제지와 정답(확정안)을 바로 PDF로 내려받으세요. '
+                 f'출처는 한국교육과정평가원·시도교육청 공식 자료입니다.')
+        stat = f'검정고시 기출 {len(geds)}건 · 초·중·고졸' + (f' {span}' if span else '')
+        title = f'검정고시 기출 — 고졸·중졸·초졸 {len(geds)}건 한곳에 | 기출해체분석기'
+        desc = (f'가입 없이 검정고시 기출 한곳에서. 고졸·중졸·초졸 회차별 문제지·정답 {len(geds)}건을 '
+                f'PDF로 무료 다운로드. 한국교육과정평가원 공식 기출({span}).')
+        _hub_page('ged.html', '검정고시 기출', title, desc, intro, stat,
+                  sections, '검정고시', item_list)
+        print('  + 검정고시 랜딩 ged.html')
+
+
 def render_sets_directory(items: list[dict], essay_hubs=None, subject_hubs=None) -> None:
     """sets.html — 전체 회차 정적 디렉토리. 크롤러의 정적 진입 허브:
     footer → sets.html → 회차 페이지(정적 카드) → 시험 페이지로 이어지는
@@ -548,6 +621,7 @@ def main() -> None:
     bd.build_static_set_pages(items, ROOT / 'exam-set.html', ROOT)
     essay_hubs = render_essay_school_hubs(items)
     subject_hubs = render_subject_hubs(items)
+    render_category_landings(items)
     render_sets_directory(items, essay_hubs, subject_hubs)
     render_sitemaps(items, essay_hubs + subject_hubs)
     render_rss(items)
