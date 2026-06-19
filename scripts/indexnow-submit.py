@@ -17,7 +17,8 @@ KEY = open(os.path.join(ROOT, '.indexnow-key'), encoding='utf-8').read().strip()
 
 PAGE_RE = re.compile(
     r'^(exam-\d+|exam-set-[a-z0-9_\-]+|nonsul-[a-z\-]+|suneung-[a-z]+|'
-    r'hakpyeong-[a-z]+|index|archive|sets|gradecut|about|calendar|admissions)\.html$')
+    r'hakpyeong-[a-z]+|index|archive|sets|gradecut|about|calendar|admissions|'
+    r'essay|ged)\.html$')
 
 
 def all_urls():
