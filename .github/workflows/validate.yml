@@ -57,12 +57,22 @@ jobs:
       - name: exam splits in sync
         run: python3 scripts/regen-exam-splits.py --check
 
-      # HTML 기본 정합성 (간단 grep — 깨진 태그 감지)
+      # HTML 기본 정합성 (깨진 태그 감지) — 파일당 grep spawn(수천 회)은 느린 러너에서
+      # 타임아웃 위험이라 단일 python3 프로세스로 일괄 검사.
       - name: HTML smoke
         run: |
-          set -e
-          for f in *.html; do
-            grep -q '</html>' "$f" || (echo "✗ $f no </html>"; exit 1)
-            grep -q '<head>'  "$f" || (echo "✗ $f no <head>"; exit 1)
-          done
-          echo "  ok: $(ls *.html | wc -l | xargs) HTML files"
+          python3 - <<'PY'
+          import glob, sys
+          files = glob.glob('*.html')
+          bad = []
+          for f in files:
+              with open(f, encoding='utf-8', errors='ignore') as fh:
+                  t = fh.read()
+              if '</html>' not in t or '<head>' not in t:
+                  bad.append(f)
+          if bad:
+              for f in bad[:20]:
+                  print(f"✗ {f}: </html> 또는 <head> 누락")
+              sys.exit(1)
+          print(f"  ok: {len(files)} HTML files")
+          PY

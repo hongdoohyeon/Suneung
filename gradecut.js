@@ -403,9 +403,13 @@ function _renderTotal() {
   $('gcTotalHint').textContent = `${entries.length}개 영역 입력`;
 
   const avgGrade = entries.reduce((s, e) => s + e.grade, 0) / entries.length;
-  const avgPct   = entries.reduce((s, e) => s + e.pct,   0) / entries.length;
+  // 절대평가(영어·한국사)는 pct=null — 평균/표시에서 제외(null 전파로 NaN·TypeError 방지).
+  const pctEntries = entries.filter(e => e.pct != null);
+  const avgPct = pctEntries.length
+    ? pctEntries.reduce((s, e) => s + e.pct, 0) / pctEntries.length
+    : null;
   $('gcAvgGrade').textContent = avgGrade.toFixed(2);
-  $('gcAvgPct').textContent   = `${avgPct.toFixed(1)}%`;
+  $('gcAvgPct').textContent   = avgPct == null ? '—' : `${avgPct.toFixed(1)}%`;
 
   // 영역별 막대 (등급 시각화)
   $('gcTotalBars').innerHTML = entries.map(e => {
@@ -418,7 +422,7 @@ function _renderTotal() {
         </div>
         <div class="total-bar__meta">
           <span class="total-bar__grade" style="color:${e.color};">${e.grade}등급</span>
-          <span class="total-bar__pct">상위 ${e.pct.toFixed(1)}%</span>
+          <span class="total-bar__pct">${e.pct == null ? '절대평가' : `상위 ${e.pct.toFixed(1)}%`}</span>
         </div>
       </div>
     `;

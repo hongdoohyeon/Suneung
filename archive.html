@@ -52,7 +52,7 @@
 
   <title>기출 검색 — 기출해체분석기</title>
   <link rel="stylesheet" href="style.css?v=20260617a" />
-  <link rel="modulepreload" href="app.js?v=20260619c" />
+  <link rel="modulepreload" href="app.js?v=20260620a" />
   <link rel="modulepreload" href="config.js?v=20260619c" />
   <link rel="modulepreload" href="state.js?v=20260619c" />
   <link rel="preload" href="data/exams.json?v=20260619c" as="fetch" crossorigin />
@@ -99,7 +99,7 @@
 
       <div class="nav-group">
         <div class="nav-group__tabs">
-          <button class="nav-tab is-active" data-tab="senior">
+          <button class="nav-tab is-active" data-tab="senior" aria-current="true">
             <span class="nav-tab__title">고3</span>
             <span class="nav-tab__sub">수능·평가원·학평</span>
           </button>
@@ -227,7 +227,7 @@
         <button class="btn btn--ghost filter-toggle-inline" id="filterToggleInline"
                 aria-label="필터 열기" aria-expanded="false" type="button">필터</button>
         <div class="toolbar__right">
-          <span id="resultCount" class="count"></span>
+          <span id="resultCount" class="count" aria-live="polite"></span>
           <button class="btn-text" id="resetBtn">초기화</button>
         </div>
       </div>
@@ -305,7 +305,7 @@
     </div>
   </footer>
 
-  <script type="module" src="app.js?v=20260619c"></script>
+  <script type="module" src="app.js?v=20260620a"></script>
   <script type="module" src="lib/dday-mount.js?v=20260617a"></script>
 </body>
 </html>
