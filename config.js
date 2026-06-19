@@ -422,6 +422,7 @@ export const EXAM_TYPE_CONFIG = [
       { key: 'sep', label: '9월 학평',  shortLabel: '9월',  month:  9, studentGrades: [1,2],   badgeBg: '#eef1f4', badgeColor: '#475569' },
       { key: 'oct', label: '10월 학평', shortLabel: '10월', month: 10, studentGrades: [1,2,3], badgeBg: '#eef1f4', badgeColor: '#475569' },
       { key: 'nov', label: '11월 학평', shortLabel: '11월', month: 11, studentGrades: [1,2],   badgeBg: '#eef1f4', badgeColor: '#475569' },
+      { key: 'dec', label: '12월 학평', shortLabel: '12월', month: 12, studentGrades: [1,2],   badgeBg: '#eef1f4', badgeColor: '#475569' },
     ],
   },
   {

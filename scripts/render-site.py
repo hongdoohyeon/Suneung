@@ -167,6 +167,7 @@ def _hub_page(fname: str, h1: str, title: str, desc: str, intro: str,
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#0a0a0a" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://static.cloudflareinsights.com https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; font-src 'self' data:; img-src 'self' data: https:; connect-src 'self' https://suneung-files.hdh061224.workers.dev https://cloudflareinsights.com https://www.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com; media-src 'self' https://suneung-files.hdh061224.workers.dev; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'self'" />
   <meta name="referrer" content="strict-origin-when-cross-origin" />
   <meta name="naver-site-verification" content="b3138c38039611bed2ce955aa7102ab33011cf14" />
   <meta name="description" content="{bd.html_escape(desc, quote=True)}" />
@@ -178,16 +179,16 @@ def _hub_page(fname: str, h1: str, title: str, desc: str, intro: str,
   <meta property="og:title" content="{bd.html_escape(title, quote=True)}" />
   <meta property="og:description" content="{bd.html_escape(desc, quote=True)}" />
   <meta property="og:url" content="{canonical}" />
-  <meta property="og:image" content="https://kicegg.com/og-image.svg" />
+  <meta property="og:image" content="https://kicegg.com/og-image.png" />
   <meta property="og:locale" content="ko_KR" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="{bd.html_escape(title, quote=True)}" />
   <meta name="twitter:description" content="{bd.html_escape(desc, quote=True)}" />
-  <meta name="twitter:image" content="https://kicegg.com/og-image.svg" />
+  <meta name="twitter:image" content="https://kicegg.com/og-image.png" />
   <script type="application/ld+json">{ld}</script>
   <link rel="stylesheet" href="lib/vendor/pretendard/pretendardvariable-dynamic-subset.css?v=20260618a" />
   <title>{bd.html_escape(title, quote=True)}</title>
-  <link rel="stylesheet" href="style.css?v=20260618a" />
+  <link rel="stylesheet" href="style.css?v=20260620b" />
   <style>.setsdir__list{{columns:2;column-gap:24px;list-style:none;padding:0;margin:0}}
 .setsdir__list li{{margin:4px 0;break-inside:avoid}}
 @media (max-width:480px){{.setsdir__list{{columns:1}}}}</style>
@@ -513,6 +514,7 @@ def render_sets_directory(items: list[dict], essay_hubs=None, subject_hubs=None)
   <meta name="robots" content="index,follow" />
   <meta name="naver-site-verification" content="b3138c38039611bed2ce955aa7102ab33011cf14" />
   <meta name="theme-color" content="#0a0a0a" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://static.cloudflareinsights.com https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; font-src 'self' data:; img-src 'self' data: https:; connect-src 'self' https://suneung-files.hdh061224.workers.dev https://cloudflareinsights.com https://www.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com; media-src 'self' https://suneung-files.hdh061224.workers.dev; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'self'" />
   <meta name="description" content="수능·모의평가·학력평가·사관학교·경찰대·LEET·MEET 전체 회차 목록. 학년도별 기출 문제지·정답·해설·등급컷 회차로 바로 이동하세요." />
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <link rel="canonical" href="https://kicegg.com/sets.html" />
@@ -521,16 +523,16 @@ def render_sets_directory(items: list[dict], essay_hubs=None, subject_hubs=None)
   <meta property="og:title" content="전체 회차 목록 — 기출해체분석기" />
   <meta property="og:description" content="학년도별 수능·모의평가·학력평가·사관학교·경찰대·LEET·MEET 기출 회차 목록." />
   <meta property="og:url" content="https://kicegg.com/sets.html" />
-  <meta property="og:image" content="https://kicegg.com/og-image.svg" />
+  <meta property="og:image" content="https://kicegg.com/og-image.png" />
   <meta property="og:locale" content="ko_KR" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="전체 회차 목록 — 기출해체분석기" />
   <meta name="twitter:description" content="학년도별 기출 회차 목록에서 문제지·정답·해설·등급컷으로 바로 이동." />
-  <meta name="twitter:image" content="https://kicegg.com/og-image.svg" />
+  <meta name="twitter:image" content="https://kicegg.com/og-image.png" />
   <script type="application/ld+json">{jsonld_block}</script>
   <link rel="stylesheet" href="lib/vendor/pretendard/pretendardvariable-dynamic-subset.css?v=20260612b" />
   <title>전체 회차 목록 — 기출해체분석기</title>
-  <link rel="stylesheet" href="style.css?v=20260612b" />
+  <link rel="stylesheet" href="style.css?v=20260620b" />
   <style>.setsdir__list{{columns:3;column-gap:24px;list-style:none;padding:0;margin:0}}
 .setsdir__list li{{margin:4px 0;break-inside:avoid}}
 @media (max-width:800px){{.setsdir__list{{columns:2}}}}

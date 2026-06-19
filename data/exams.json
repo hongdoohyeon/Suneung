@@ -66145,8 +66145,8 @@
   "answerUrl": null,
   "answerDownload": null,
   "solutionUrl": null,
-  "listenUrl": "https://github.com/hongdoohyeon/Suneung/releases/download/kice-archive-v1/2012_06_english_listen.zip",
-  "listenDownload": "2012학년도 6모 영어 듣기.zip",
+  "listenUrl": null,
+  "listenDownload": null,
   "scriptUrl": null,
   "scriptDownload": null,
   "source": "kice-archive"
