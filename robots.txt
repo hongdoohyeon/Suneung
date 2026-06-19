@@ -1,4 +1,9 @@
 User-agent: *
 Allow: /
 
+# 네이버 검색 크롤러(Yeti) 명시 허용
+User-agent: Yeti
+Allow: /
+
 Sitemap: https://kicegg.com/sitemap.xml
+# RSS(최신 자료 피드): https://kicegg.com/feed.xml

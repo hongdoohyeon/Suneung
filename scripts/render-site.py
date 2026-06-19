@@ -438,6 +438,7 @@ def render_sets_directory(items: list[dict], essay_hubs=None, subject_hubs=None)
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="robots" content="index,follow" />
+  <meta name="naver-site-verification" content="b3138c38039611bed2ce955aa7102ab33011cf14" />
   <meta name="theme-color" content="#0a0a0a" />
   <meta name="description" content="수능·모의평가·학력평가·사관학교·경찰대·LEET·MEET 전체 회차 목록. 학년도별 기출 문제지·정답·해설·등급컷 회차로 바로 이동하세요." />
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
@@ -503,6 +504,43 @@ def render_splits(items: list[dict]) -> None:
     print(f'  + split 동기화 {written}건 / 고아 제거 {pruned}건')
 
 
+def render_rss(items: list[dict]) -> None:
+    """최신 추가 자료 RSS 피드(feed.xml). 네이버는 RSS를 사이트맵과 별개의
+    freshness(최신성) 신호로 취급 — 전수가 아니라 '최근 추가 N개'만 담는다.
+    pubDate는 시험 시행 시점(examYear·month) 기준으로 안정적(신규 시험만 최신 신호)."""
+    import calendar
+    from email.utils import formatdate
+    base = 'https://kicegg.com'
+    recent = sorted(items, key=lambda x: x.get('id', 0), reverse=True)[:40]
+    today_rfc = formatdate(calendar.timegm(datetime.date.today().timetuple()))
+    rows = ['<?xml version="1.0" encoding="UTF-8"?>',
+            '<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">',
+            '<channel>',
+            '<title>기출해체분석기 — 최신 기출 자료</title>',
+            f'<link>{base}/</link>',
+            '<description>수능·평가원·학력평가·논술·검정고시 등 최근 추가된 기출 문제지·정답·해설·등급컷</description>',
+            '<language>ko</language>',
+            f'<atom:link href="{base}/feed.xml" rel="self" type="application/rss+xml" />',
+            f'<lastBuildDate>{today_rfc}</lastBuildDate>']
+    for it in recent:
+        meta = bd.build_exam_meta(it)
+        url = f'{base}/exam-{it["id"]}.html'
+        ey = it.get('examYear') or it.get('gradeYear') or datetime.date.today().year
+        mo = it.get('month') or 1
+        try:
+            pub = formatdate(calendar.timegm(datetime.date(int(ey), int(mo), 1).timetuple()))
+        except (ValueError, TypeError):
+            pub = today_rfc
+        title = bd.html_escape(meta['head'], quote=False)
+        desc = bd.html_escape(meta['description'], quote=False)
+        rows.append(f'<item><title>{title}</title><link>{url}</link>'
+                    f'<guid isPermaLink="true">{url}</guid><pubDate>{pub}</pubDate>'
+                    f'<description>{desc}</description></item>')
+    rows.append('</channel></rss>')
+    (ROOT / 'feed.xml').write_text('\n'.join(rows) + '\n', encoding='utf-8')
+    print(f'  + feed.xml RSS ({len(recent)}건 최신 자료)')
+
+
 def main() -> None:
     items = json.loads((ROOT / 'data' / 'exams.json').read_text(encoding='utf-8'))
     print(f'exams.json {len(items)}건 → 전체 재렌더')
@@ -512,6 +550,7 @@ def main() -> None:
     subject_hubs = render_subject_hubs(items)
     render_sets_directory(items, essay_hubs, subject_hubs)
     render_sitemaps(items, essay_hubs + subject_hubs)
+    render_rss(items)
     render_splits(items)
     print('완료')
 
