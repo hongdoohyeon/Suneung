@@ -57,8 +57,9 @@ function showDataError(msg) {
   const div = document.createElement('div');
   div.id = 'dataErrorBanner';
   div.style.cssText = 'position:sticky;top:0;z-index:100;background:#fef3c7;color:#92400e;padding:10px 12px;text-align:center;font-size:13px;line-height:1.5;border-bottom:1px solid #fde68a';
-  div.innerHTML = `<strong>⚠️ 데이터 로드 실패</strong> · ${msg} · <a href="javascript:location.reload()" style="color:#92400e;text-decoration:underline">새로고침</a>`;
+  div.innerHTML = `<strong>⚠️ 데이터 로드 실패</strong> · ${msg} · <button type="button" class="data-reload" style="color:#92400e;text-decoration:underline;background:none;border:0;font:inherit;cursor:pointer;padding:0">새로고침</button>`;
   document.body.prepend(div);
+  div.querySelector('.data-reload')?.addEventListener('click', () => location.reload());
 }
 
 async function init() {

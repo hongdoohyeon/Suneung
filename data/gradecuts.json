@@ -1863,7 +1863,7 @@
     "examYear": 2026,
     "month": 5,
     "typeGroup": "education",
-    "type": "apr",
+    "type": "may",
     "subject": "과학탐구",
     "subSubject": "물리학Ⅰ",
     "standardCuts": [
@@ -1918,7 +1918,7 @@
     "examYear": 2026,
     "month": 5,
     "typeGroup": "education",
-    "type": "apr",
+    "type": "may",
     "subject": "과학탐구",
     "subSubject": "물리학Ⅱ",
     "standardCuts": [
@@ -1973,7 +1973,7 @@
     "examYear": 2026,
     "month": 5,
     "typeGroup": "education",
-    "type": "apr",
+    "type": "may",
     "subject": "과학탐구",
     "subSubject": "생명과학Ⅰ",
     "standardCuts": [
@@ -2028,7 +2028,7 @@
     "examYear": 2026,
     "month": 5,
     "typeGroup": "education",
-    "type": "apr",
+    "type": "may",
     "subject": "과학탐구",
     "subSubject": "생명과학Ⅱ",
     "standardCuts": [
@@ -2083,7 +2083,7 @@
     "examYear": 2026,
     "month": 5,
     "typeGroup": "education",
-    "type": "apr",
+    "type": "may",
     "subject": "과학탐구",
     "subSubject": "지구과학Ⅰ",
     "standardCuts": [
@@ -2138,7 +2138,7 @@
     "examYear": 2026,
     "month": 5,
     "typeGroup": "education",
-    "type": "apr",
+    "type": "may",
     "subject": "과학탐구",
     "subSubject": "지구과학Ⅱ",
     "standardCuts": [
@@ -2193,7 +2193,7 @@
     "examYear": 2026,
     "month": 5,
     "typeGroup": "education",
-    "type": "apr",
+    "type": "may",
     "subject": "과학탐구",
     "subSubject": "화학Ⅰ",
     "standardCuts": [
@@ -2248,7 +2248,7 @@
     "examYear": 2026,
     "month": 5,
     "typeGroup": "education",
-    "type": "apr",
+    "type": "may",
     "subject": "과학탐구",
     "subSubject": "화학Ⅱ",
     "standardCuts": [
@@ -2303,7 +2303,7 @@
     "examYear": 2026,
     "month": 5,
     "typeGroup": "education",
-    "type": "apr",
+    "type": "may",
     "subject": "국어",
     "subSubject": null,
     "standardCuts": [
@@ -2348,7 +2348,7 @@
     "examYear": 2026,
     "month": 5,
     "typeGroup": "education",
-    "type": "apr",
+    "type": "may",
     "subject": "사회탐구",
     "subSubject": "경제",
     "standardCuts": [
@@ -2403,7 +2403,7 @@
     "examYear": 2026,
     "month": 5,
     "typeGroup": "education",
-    "type": "apr",
+    "type": "may",
     "subject": "사회탐구",
     "subSubject": "동아시아사",
     "standardCuts": [
@@ -2458,7 +2458,7 @@
     "examYear": 2026,
     "month": 5,
     "typeGroup": "education",
-    "type": "apr",
+    "type": "may",
     "subject": "사회탐구",
     "subSubject": "사회·문화",
     "standardCuts": [
@@ -2513,7 +2513,7 @@
     "examYear": 2026,
     "month": 5,
     "typeGroup": "education",
-    "type": "apr",
+    "type": "may",
     "subject": "사회탐구",
     "subSubject": "생활과윤리",
     "standardCuts": [
@@ -2568,7 +2568,7 @@
     "examYear": 2026,
     "month": 5,
     "typeGroup": "education",
-    "type": "apr",
+    "type": "may",
     "subject": "사회탐구",
     "subSubject": "세계사",
     "standardCuts": [
@@ -2623,7 +2623,7 @@
     "examYear": 2026,
     "month": 5,
     "typeGroup": "education",
-    "type": "apr",
+    "type": "may",
     "subject": "사회탐구",
     "subSubject": "세계지리",
     "standardCuts": [
@@ -2678,7 +2678,7 @@
     "examYear": 2026,
     "month": 5,
     "typeGroup": "education",
-    "type": "apr",
+    "type": "may",
     "subject": "사회탐구",
     "subSubject": "윤리와사상",
     "standardCuts": [
@@ -2733,7 +2733,7 @@
     "examYear": 2026,
     "month": 5,
     "typeGroup": "education",
-    "type": "apr",
+    "type": "may",
     "subject": "사회탐구",
     "subSubject": "정치와법",
     "standardCuts": [
@@ -2788,7 +2788,7 @@
     "examYear": 2026,
     "month": 5,
     "typeGroup": "education",
-    "type": "apr",
+    "type": "may",
     "subject": "사회탐구",
     "subSubject": "한국지리",
     "standardCuts": [
@@ -2843,7 +2843,7 @@
     "examYear": 2026,
     "month": 5,
     "typeGroup": "education",
-    "type": "apr",
+    "type": "may",
     "subject": "수학",
     "subSubject": null,
     "standardCuts": [
@@ -2888,7 +2888,7 @@
     "examYear": 2026,
     "month": 5,
     "typeGroup": "education",
-    "type": "apr",
+    "type": "may",
     "subject": "영어",
     "subSubject": null,
     "source": "megastudy+kice-archive-edu",
@@ -2913,7 +2913,7 @@
     "examYear": 2026,
     "month": 5,
     "typeGroup": "education",
-    "type": "apr",
+    "type": "may",
     "subject": "한국사",
     "subSubject": null,
     "source": "megastudy+kice-archive-edu",
@@ -69003,7 +69003,7 @@
     ],
     "source": "kice-archive-2015+kice-archive-2015",
     "id": 1698,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2015",
@@ -69095,7 +69095,7 @@
     ],
     "source": "kice-archive-2015",
     "id": 1702,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2015",
@@ -70926,7 +70926,7 @@
     ],
     "source": "kice-archive-2015+kice-archive-2015",
     "id": 1751,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2015",
@@ -71058,7 +71058,7 @@
     ],
     "source": "kice-archive-2015",
     "id": 1755,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2015",
@@ -73106,7 +73106,7 @@
     ],
     "source": "kice-archive-2015+kice-archive-2015",
     "id": 1813,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2015",
@@ -73172,7 +73172,7 @@
     ],
     "source": "kice-archive-2015",
     "id": 1815,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2015",
@@ -73238,7 +73238,7 @@
     ],
     "source": "kice-archive-2015",
     "id": 1817,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2015",
@@ -73304,7 +73304,7 @@
     ],
     "source": "kice-archive-2015",
     "id": 1819,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2015",
@@ -73370,7 +73370,7 @@
     ],
     "source": "kice-archive-2015",
     "id": 1821,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2015",
@@ -75452,7 +75452,7 @@
     ],
     "source": "kice-archive-edu+kice-archive-edu+kice-archive-edu",
     "id": 1876,
-    "fullScore": 50,
+    "fullScore": 100,
     "studentGrade": 3
   },
   {
@@ -75520,7 +75520,7 @@
     ],
     "source": "kice-archive-edu",
     "id": 1878,
-    "fullScore": 50,
+    "fullScore": 100,
     "studentGrade": 3
   },
   {
@@ -75588,7 +75588,7 @@
     ],
     "source": "kice-archive-edu",
     "id": 1880,
-    "fullScore": 50,
+    "fullScore": 100,
     "studentGrade": 3
   },
   {
@@ -75656,7 +75656,7 @@
     ],
     "source": "kice-archive-edu",
     "id": 1882,
-    "fullScore": 50,
+    "fullScore": 100,
     "studentGrade": 3
   },
   {
@@ -75724,7 +75724,7 @@
     ],
     "source": "kice-archive-edu",
     "id": 1884,
-    "fullScore": 50,
+    "fullScore": 100,
     "studentGrade": 3
   },
   {
@@ -75792,7 +75792,7 @@
     ],
     "source": "kice-archive-edu",
     "id": 1886,
-    "fullScore": 50,
+    "fullScore": 100,
     "studentGrade": 3
   },
   {
@@ -75860,7 +75860,7 @@
     ],
     "source": "kice-archive-edu",
     "id": 1888,
-    "fullScore": 50,
+    "fullScore": 100,
     "studentGrade": 3
   },
   {
@@ -75928,7 +75928,7 @@
     ],
     "source": "kice-archive-edu",
     "id": 1890,
-    "fullScore": 50,
+    "fullScore": 100,
     "studentGrade": 3
   },
   {
@@ -75996,7 +75996,7 @@
     ],
     "source": "kice-archive-edu",
     "id": 1892,
-    "fullScore": 50,
+    "fullScore": 100,
     "studentGrade": 3
   },
   {
@@ -84772,7 +84772,7 @@
     ],
     "source": "kice-archive-edu+kice-archive-edu",
     "id": 2092,
-    "fullScore": 50,
+    "fullScore": 100,
     "studentGrade": 3
   },
   {
@@ -84840,7 +84840,7 @@
     ],
     "source": "kice-archive-edu",
     "id": 2094,
-    "fullScore": 50,
+    "fullScore": 100,
     "studentGrade": 3
   },
   {
@@ -84908,7 +84908,7 @@
     ],
     "source": "kice-archive-edu",
     "id": 2096,
-    "fullScore": 50,
+    "fullScore": 100,
     "studentGrade": 3
   },
   {
@@ -84976,7 +84976,7 @@
     ],
     "source": "kice-archive-edu",
     "id": 2098,
-    "fullScore": 50,
+    "fullScore": 100,
     "studentGrade": 3
   },
   {
@@ -85044,7 +85044,7 @@
     ],
     "source": "kice-archive-edu",
     "id": 2100,
-    "fullScore": 50,
+    "fullScore": 100,
     "studentGrade": 3
   },
   {
@@ -87120,7 +87120,7 @@
     ],
     "source": "kice-archive-2009+kice-archive-2009+kice-archive-2009+kice-archive-2009+kice-archive-2009+kice-archive-2009",
     "id": 2157,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2015",
@@ -87186,7 +87186,7 @@
     ],
     "source": "kice-archive-2009+kice-archive-2009",
     "id": 2159,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2009",
@@ -87219,7 +87219,7 @@
     ],
     "source": "kice-archive-2009+kice-archive-2009",
     "id": 2160,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2009",
@@ -87252,7 +87252,7 @@
     ],
     "source": "kice-archive-2009+kice-archive-2009",
     "id": 2161,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2009",
@@ -87285,7 +87285,7 @@
     ],
     "source": "kice-archive-2009+kice-archive-2009",
     "id": 2162,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2015",
@@ -87351,7 +87351,7 @@
     ],
     "source": "kice-archive-2009+kice-archive-2009",
     "id": 2164,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2009",
@@ -87384,7 +87384,7 @@
     ],
     "source": "kice-archive-2009+kice-archive-2009",
     "id": 2165,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2009",
@@ -87417,7 +87417,7 @@
     ],
     "source": "kice-archive-2009+kice-archive-2009",
     "id": 2166,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2009",
@@ -89157,7 +89157,7 @@
     ],
     "source": "kice-archive-2009+kice-archive-2009+kice-archive-2009+kice-archive-2009+kice-archive-2009+kice-archive-2009",
     "id": 2211,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2015",
@@ -89223,7 +89223,7 @@
     ],
     "source": "kice-archive-2009+kice-archive-2009",
     "id": 2213,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2015",
@@ -89289,7 +89289,7 @@
     ],
     "source": "kice-archive-2009+kice-archive-2009",
     "id": 2215,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2015",
@@ -89355,7 +89355,7 @@
     ],
     "source": "kice-archive-2009+kice-archive-2009",
     "id": 2217,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2015",
@@ -89421,7 +89421,7 @@
     ],
     "source": "kice-archive-2009+kice-archive-2009",
     "id": 2219,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2015",
@@ -89487,7 +89487,7 @@
     ],
     "source": "kice-archive-2009+kice-archive-2009",
     "id": 2221,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2015",
@@ -89553,7 +89553,7 @@
     ],
     "source": "kice-archive-2009+kice-archive-2009",
     "id": 2223,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2015",
@@ -89619,7 +89619,7 @@
     ],
     "source": "kice-archive-2009+kice-archive-2009",
     "id": 2225,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2015",
@@ -91392,7 +91392,7 @@
     ],
     "source": "kice-archive-2009+kice-archive-2009+kice-archive-2009+kice-archive-2009+kice-archive-2009+kice-archive-2009",
     "id": 2271,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2015",
@@ -91458,7 +91458,7 @@
     ],
     "source": "kice-archive-2009+kice-archive-2009",
     "id": 2273,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2015",
@@ -91524,7 +91524,7 @@
     ],
     "source": "kice-archive-2009+kice-archive-2009",
     "id": 2275,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2015",
@@ -91590,7 +91590,7 @@
     ],
     "source": "kice-archive-2009+kice-archive-2009",
     "id": 2277,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2015",
@@ -91656,7 +91656,7 @@
     ],
     "source": "kice-archive-2009+kice-archive-2009",
     "id": 2279,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2015",
@@ -91722,7 +91722,7 @@
     ],
     "source": "kice-archive-2009+kice-archive-2009",
     "id": 2281,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2015",
@@ -91788,7 +91788,7 @@
     ],
     "source": "kice-archive-2009+kice-archive-2009",
     "id": 2283,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2015",
@@ -91854,7 +91854,7 @@
     ],
     "source": "kice-archive-2009+kice-archive-2009",
     "id": 2285,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2015",
@@ -93667,7 +93667,7 @@
     ],
     "source": "kice-archive-edu+kice-archive-edu+kice-archive-edu+kice-archive-edu+kice-archive-edu+kice-archive-edu",
     "id": 2331,
-    "fullScore": 50,
+    "fullScore": 100,
     "studentGrade": 3
   },
   {
@@ -93735,7 +93735,7 @@
     ],
     "source": "kice-archive-edu+kice-archive-edu",
     "id": 2333,
-    "fullScore": 50,
+    "fullScore": 100,
     "studentGrade": 3
   },
   {
@@ -93803,7 +93803,7 @@
     ],
     "source": "kice-archive-edu+kice-archive-edu",
     "id": 2335,
-    "fullScore": 50,
+    "fullScore": 100,
     "studentGrade": 3
   },
   {
@@ -93871,7 +93871,7 @@
     ],
     "source": "kice-archive-edu+kice-archive-edu",
     "id": 2337,
-    "fullScore": 50,
+    "fullScore": 100,
     "studentGrade": 3
   },
   {
@@ -93939,7 +93939,7 @@
     ],
     "source": "kice-archive-edu+kice-archive-edu",
     "id": 2339,
-    "fullScore": 50,
+    "fullScore": 100,
     "studentGrade": 3
   },
   {
@@ -94007,7 +94007,7 @@
     ],
     "source": "kice-archive-edu+kice-archive-edu",
     "id": 2341,
-    "fullScore": 50,
+    "fullScore": 100,
     "studentGrade": 3
   },
   {
@@ -94075,7 +94075,7 @@
     ],
     "source": "kice-archive-edu+kice-archive-edu",
     "id": 2343,
-    "fullScore": 50,
+    "fullScore": 100,
     "studentGrade": 3
   },
   {
@@ -94143,7 +94143,7 @@
     ],
     "source": "kice-archive-edu+kice-archive-edu",
     "id": 2345,
-    "fullScore": 50,
+    "fullScore": 100,
     "studentGrade": 3
   },
   {
@@ -107180,7 +107180,7 @@
     ],
     "source": "kice-archive-edu+kice-archive-edu+kice-archive-edu+kice-archive-edu",
     "id": 2675,
-    "fullScore": 50,
+    "fullScore": 100,
     "studentGrade": 3
   },
   {
@@ -107248,7 +107248,7 @@
     ],
     "source": "kice-archive-edu+kice-archive-edu",
     "id": 2677,
-    "fullScore": 50,
+    "fullScore": 100,
     "studentGrade": 3
   },
   {
@@ -107316,7 +107316,7 @@
     ],
     "source": "kice-archive-edu+kice-archive-edu",
     "id": 2679,
-    "fullScore": 50,
+    "fullScore": 100,
     "studentGrade": 3
   },
   {
@@ -107384,7 +107384,7 @@
     ],
     "source": "kice-archive-edu+kice-archive-edu",
     "id": 2681,
-    "fullScore": 50,
+    "fullScore": 100,
     "studentGrade": 3
   },
   {
@@ -107452,7 +107452,7 @@
     ],
     "source": "kice-archive-edu+kice-archive-edu",
     "id": 2683,
-    "fullScore": 50,
+    "fullScore": 100,
     "studentGrade": 3
   },
   {
@@ -109436,7 +109436,7 @@
     ],
     "source": "kice-archive-2009+kice-archive-2009+kice-archive-2009+kice-archive-2009+kice-archive-2009+kice-archive-2009",
     "id": 2736,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2009",
@@ -109458,7 +109458,7 @@
       37
     ],
     "id": 2737,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2009",
@@ -109491,7 +109491,7 @@
     ],
     "source": "kice-archive-2009+kice-archive-2009",
     "id": 2738,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2009",
@@ -109513,7 +109513,7 @@
       37
     ],
     "id": 2739,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2009",
@@ -109535,7 +109535,7 @@
       32
     ],
     "id": 2740,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2009",
@@ -109557,7 +109557,7 @@
       31
     ],
     "id": 2741,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2009",
@@ -109590,7 +109590,7 @@
     ],
     "source": "kice-archive-2009+kice-archive-2009",
     "id": 2742,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2009",
@@ -109612,7 +109612,7 @@
       37
     ],
     "id": 2743,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2009",
@@ -109645,7 +109645,7 @@
     ],
     "source": "kice-archive-2009+kice-archive-2009",
     "id": 2744,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2009",
@@ -109678,7 +109678,7 @@
     ],
     "source": "kice-archive-2009+kice-archive-2009",
     "id": 2745,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2009",
@@ -109711,7 +109711,7 @@
     ],
     "source": "kice-archive-2009+kice-archive-2009",
     "id": 2746,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2009",
@@ -109733,7 +109733,7 @@
       37
     ],
     "id": 2747,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2009",
@@ -109766,7 +109766,7 @@
     ],
     "source": "kice-archive-2009+kice-archive-2009",
     "id": 2748,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2009",
@@ -109799,7 +109799,7 @@
     ],
     "source": "kice-archive-2009+kice-archive-2009",
     "id": 2749,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2009",
@@ -109821,7 +109821,7 @@
       36
     ],
     "id": 2750,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2009",
@@ -111429,7 +111429,7 @@
     ],
     "source": "kice-archive-2009+kice-archive-2009+kice-archive-2009+kice-archive-2009+kice-archive-2009+kice-archive-2009",
     "id": 2792,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2009",
@@ -111462,7 +111462,7 @@
     ],
     "source": "kice-archive-2009+kice-archive-2009",
     "id": 2793,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2009",
@@ -111495,7 +111495,7 @@
     ],
     "source": "kice-archive-2009+kice-archive-2009",
     "id": 2794,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2009",
@@ -111528,7 +111528,7 @@
     ],
     "source": "kice-archive-2009+kice-archive-2009",
     "id": 2795,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2009",
@@ -111561,7 +111561,7 @@
     ],
     "source": "kice-archive-2009+kice-archive-2009",
     "id": 2796,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2009",
@@ -111594,7 +111594,7 @@
     ],
     "source": "kice-archive-2009+kice-archive-2009",
     "id": 2797,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2009",
@@ -111627,7 +111627,7 @@
     ],
     "source": "kice-archive-2009+kice-archive-2009",
     "id": 2798,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2009",
@@ -111660,7 +111660,7 @@
     ],
     "source": "kice-archive-2009+kice-archive-2009",
     "id": 2799,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2009",
@@ -113268,7 +113268,7 @@
     ],
     "source": "kice-archive-2009+kice-archive-2009+kice-archive-2009+kice-archive-2009+kice-archive-2009+kice-archive-2009",
     "id": 2841,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2009",
@@ -113301,7 +113301,7 @@
     ],
     "source": "kice-archive-2009+kice-archive-2009",
     "id": 2842,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2009",
@@ -113334,7 +113334,7 @@
     ],
     "source": "kice-archive-2009+kice-archive-2009",
     "id": 2843,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2009",
@@ -113367,7 +113367,7 @@
     ],
     "source": "kice-archive-2009+kice-archive-2009",
     "id": 2844,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2009",
@@ -113400,7 +113400,7 @@
     ],
     "source": "kice-archive-2009+kice-archive-2009",
     "id": 2845,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2009",
@@ -113433,7 +113433,7 @@
     ],
     "source": "kice-archive-2009+kice-archive-2009",
     "id": 2846,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2009",
@@ -113466,7 +113466,7 @@
     ],
     "source": "kice-archive-2009+kice-archive-2009",
     "id": 2847,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2009",
@@ -113499,7 +113499,7 @@
     ],
     "source": "kice-archive-2009+kice-archive-2009",
     "id": 2848,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2009",
@@ -115051,7 +115051,7 @@
     ],
     "source": "kice-archive-edu+kice-archive-edu+kice-archive-edu+kice-archive-edu+kice-archive-edu+kice-archive-edu",
     "id": 2886,
-    "fullScore": 50,
+    "fullScore": 100,
     "studentGrade": 3
   },
   {
@@ -115085,7 +115085,7 @@
     ],
     "source": "kice-archive-edu+kice-archive-edu",
     "id": 2887,
-    "fullScore": 50,
+    "fullScore": 100,
     "studentGrade": 3
   },
   {
@@ -115119,7 +115119,7 @@
     ],
     "source": "kice-archive-edu+kice-archive-edu",
     "id": 2888,
-    "fullScore": 50,
+    "fullScore": 100,
     "studentGrade": 3
   },
   {
@@ -115153,7 +115153,7 @@
     ],
     "source": "kice-archive-edu+kice-archive-edu",
     "id": 2889,
-    "fullScore": 50,
+    "fullScore": 100,
     "studentGrade": 3
   },
   {
@@ -115187,7 +115187,7 @@
     ],
     "source": "kice-archive-edu+kice-archive-edu",
     "id": 2890,
-    "fullScore": 50,
+    "fullScore": 100,
     "studentGrade": 3
   },
   {
@@ -115221,7 +115221,7 @@
     ],
     "source": "kice-archive-edu+kice-archive-edu",
     "id": 2891,
-    "fullScore": 50,
+    "fullScore": 100,
     "studentGrade": 3
   },
   {
@@ -115255,7 +115255,7 @@
     ],
     "source": "kice-archive-edu+kice-archive-edu",
     "id": 2892,
-    "fullScore": 50,
+    "fullScore": 100,
     "studentGrade": 3
   },
   {
@@ -115289,7 +115289,7 @@
     ],
     "source": "kice-archive-edu+kice-archive-edu",
     "id": 2893,
-    "fullScore": 50,
+    "fullScore": 100,
     "studentGrade": 3
   },
   {
@@ -123758,7 +123758,7 @@
     ],
     "source": "kice-archive-edu+kice-archive-edu+kice-archive-edu+kice-archive-edu+kice-archive-edu+kice-archive-edu",
     "id": 3074,
-    "fullScore": 50,
+    "fullScore": 100,
     "studentGrade": 3
   },
   {
@@ -123792,7 +123792,7 @@
     ],
     "source": "kice-archive-edu+kice-archive-edu",
     "id": 3075,
-    "fullScore": 50,
+    "fullScore": 100,
     "studentGrade": 3
   },
   {
@@ -123826,7 +123826,7 @@
     ],
     "source": "kice-archive-edu+kice-archive-edu",
     "id": 3076,
-    "fullScore": 50,
+    "fullScore": 100,
     "studentGrade": 3
   },
   {
@@ -123860,7 +123860,7 @@
     ],
     "source": "kice-archive-edu+kice-archive-edu",
     "id": 3077,
-    "fullScore": 50,
+    "fullScore": 100,
     "studentGrade": 3
   },
   {
@@ -123894,7 +123894,7 @@
     ],
     "source": "kice-archive-edu+kice-archive-edu",
     "id": 3078,
-    "fullScore": 50,
+    "fullScore": 100,
     "studentGrade": 3
   },
   {
@@ -123928,7 +123928,7 @@
     ],
     "source": "kice-archive-edu+kice-archive-edu",
     "id": 3079,
-    "fullScore": 50,
+    "fullScore": 100,
     "studentGrade": 3
   },
   {
@@ -123962,7 +123962,7 @@
     ],
     "source": "kice-archive-edu+kice-archive-edu",
     "id": 3080,
-    "fullScore": 50,
+    "fullScore": 100,
     "studentGrade": 3
   },
   {
@@ -123996,7 +123996,7 @@
     ],
     "source": "kice-archive-edu+kice-archive-edu",
     "id": 3081,
-    "fullScore": 50,
+    "fullScore": 100,
     "studentGrade": 3
   },
   {
@@ -124030,7 +124030,7 @@
     ],
     "source": "kice-archive-edu+kice-archive-edu",
     "id": 3082,
-    "fullScore": 50,
+    "fullScore": 100,
     "studentGrade": 3
   },
   {
@@ -125745,7 +125745,7 @@
     ],
     "source": "kice-archive-2009+kice-archive-2009+kice-archive-2009+kice-archive-2009+kice-archive-2009+kice-archive-2009",
     "id": 3129,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2009",
@@ -125767,7 +125767,7 @@
       37
     ],
     "id": 3130,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2009",
@@ -125790,7 +125790,7 @@
     ],
     "source": "kice-archive-2009+kice-archive-2009",
     "id": 3131,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2009",
@@ -125812,7 +125812,7 @@
       37
     ],
     "id": 3132,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2009",
@@ -125834,7 +125834,7 @@
       34
     ],
     "id": 3133,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2009",
@@ -125856,7 +125856,7 @@
       32
     ],
     "id": 3134,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2009",
@@ -125879,7 +125879,7 @@
     ],
     "source": "kice-archive-2009+kice-archive-2009",
     "id": 3135,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2009",
@@ -125901,7 +125901,7 @@
       36
     ],
     "id": 3136,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2009",
@@ -125924,7 +125924,7 @@
     ],
     "source": "kice-archive-2009+kice-archive-2009",
     "id": 3137,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2009",
@@ -125947,7 +125947,7 @@
     ],
     "source": "kice-archive-2009+kice-archive-2009",
     "id": 3138,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2009",
@@ -125970,7 +125970,7 @@
     ],
     "source": "kice-archive-2009+kice-archive-2009",
     "id": 3139,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2009",
@@ -125992,7 +125992,7 @@
       35
     ],
     "id": 3140,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2009",
@@ -126015,7 +126015,7 @@
     ],
     "source": "kice-archive-2009+kice-archive-2009",
     "id": 3141,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2009",
@@ -126038,7 +126038,7 @@
     ],
     "source": "kice-archive-2009+kice-archive-2009",
     "id": 3142,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2009",
@@ -126060,7 +126060,7 @@
       36
     ],
     "id": 3143,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2009",
@@ -127668,7 +127668,7 @@
     ],
     "source": "kice-archive-2009+kice-archive-2009+kice-archive-2009+kice-archive-2009+kice-archive-2009+kice-archive-2009",
     "id": 3185,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2009",
@@ -127701,7 +127701,7 @@
     ],
     "source": "kice-archive-2009+kice-archive-2009",
     "id": 3186,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2009",
@@ -127734,7 +127734,7 @@
     ],
     "source": "kice-archive-2009+kice-archive-2009",
     "id": 3187,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2009",
@@ -127767,7 +127767,7 @@
     ],
     "source": "kice-archive-2009+kice-archive-2009",
     "id": 3188,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2009",
@@ -127800,7 +127800,7 @@
     ],
     "source": "kice-archive-2009+kice-archive-2009",
     "id": 3189,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2009",
@@ -127833,7 +127833,7 @@
     ],
     "source": "kice-archive-2009+kice-archive-2009",
     "id": 3190,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2009",
@@ -127866,7 +127866,7 @@
     ],
     "source": "kice-archive-2009+kice-archive-2009",
     "id": 3191,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2009",
@@ -127899,7 +127899,7 @@
     ],
     "source": "kice-archive-2009+kice-archive-2009",
     "id": 3192,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2009",
@@ -129487,7 +129487,7 @@
     ],
     "source": "kice-archive-2009+kice-archive-2009+kice-archive-2009+kice-archive-2009+kice-archive-2009+kice-archive-2009",
     "id": 3234,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2009",
@@ -129520,7 +129520,7 @@
     ],
     "source": "kice-archive-2009+kice-archive-2009",
     "id": 3235,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2009",
@@ -129553,7 +129553,7 @@
     ],
     "source": "kice-archive-2009+kice-archive-2009",
     "id": 3236,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2009",
@@ -129586,7 +129586,7 @@
     ],
     "source": "kice-archive-2009+kice-archive-2009",
     "id": 3237,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2009",
@@ -129619,7 +129619,7 @@
     ],
     "source": "kice-archive-2009+kice-archive-2009",
     "id": 3238,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2009",
@@ -129652,7 +129652,7 @@
     ],
     "source": "kice-archive-2009+kice-archive-2009",
     "id": 3239,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2009",
@@ -129685,7 +129685,7 @@
     ],
     "source": "kice-archive-2009+kice-archive-2009",
     "id": 3240,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2009",
@@ -129718,7 +129718,7 @@
     ],
     "source": "kice-archive-2009+kice-archive-2009",
     "id": 3241,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2009",
@@ -131270,7 +131270,7 @@
     ],
     "source": "kice-archive-edu+kice-archive-edu+kice-archive-edu+kice-archive-edu+kice-archive-edu+kice-archive-edu",
     "id": 3279,
-    "fullScore": 50,
+    "fullScore": 100,
     "studentGrade": 3
   },
   {
@@ -131304,7 +131304,7 @@
     ],
     "source": "kice-archive-edu+kice-archive-edu",
     "id": 3280,
-    "fullScore": 50,
+    "fullScore": 100,
     "studentGrade": 3
   },
   {
@@ -131338,7 +131338,7 @@
     ],
     "source": "kice-archive-edu+kice-archive-edu",
     "id": 3281,
-    "fullScore": 50,
+    "fullScore": 100,
     "studentGrade": 3
   },
   {
@@ -131372,7 +131372,7 @@
     ],
     "source": "kice-archive-edu+kice-archive-edu",
     "id": 3282,
-    "fullScore": 50,
+    "fullScore": 100,
     "studentGrade": 3
   },
   {
@@ -131396,7 +131396,7 @@
     ],
     "source": "kice-archive-edu+kice-archive-edu",
     "id": 3283,
-    "fullScore": 50,
+    "fullScore": 100,
     "studentGrade": 3
   },
   {
@@ -131430,7 +131430,7 @@
     ],
     "source": "kice-archive-edu+kice-archive-edu",
     "id": 3284,
-    "fullScore": 50,
+    "fullScore": 100,
     "studentGrade": 3
   },
   {
@@ -131464,7 +131464,7 @@
     ],
     "source": "kice-archive-edu+kice-archive-edu",
     "id": 3285,
-    "fullScore": 50,
+    "fullScore": 100,
     "studentGrade": 3
   },
   {
@@ -131498,7 +131498,7 @@
     ],
     "source": "kice-archive-edu+kice-archive-edu",
     "id": 3286,
-    "fullScore": 50,
+    "fullScore": 100,
     "studentGrade": 3
   },
   {
@@ -140123,7 +140123,7 @@
     ],
     "source": "kice-archive-edu+kice-archive-edu+kice-archive-edu+kice-archive-edu+kice-archive-edu+kice-archive-edu",
     "id": 3466,
-    "fullScore": 50,
+    "fullScore": 100,
     "studentGrade": 3
   },
   {
@@ -140157,7 +140157,7 @@
     ],
     "source": "kice-archive-edu+kice-archive-edu",
     "id": 3467,
-    "fullScore": 50,
+    "fullScore": 100,
     "studentGrade": 3
   },
   {
@@ -140191,7 +140191,7 @@
     ],
     "source": "kice-archive-edu+kice-archive-edu",
     "id": 3468,
-    "fullScore": 50,
+    "fullScore": 100,
     "studentGrade": 3
   },
   {
@@ -140225,7 +140225,7 @@
     ],
     "source": "kice-archive-edu+kice-archive-edu",
     "id": 3469,
-    "fullScore": 50,
+    "fullScore": 100,
     "studentGrade": 3
   },
   {
@@ -140259,7 +140259,7 @@
     ],
     "source": "kice-archive-edu+kice-archive-edu",
     "id": 3470,
-    "fullScore": 50,
+    "fullScore": 100,
     "studentGrade": 3
   },
   {
@@ -140293,7 +140293,7 @@
     ],
     "source": "kice-archive-edu+kice-archive-edu",
     "id": 3471,
-    "fullScore": 50,
+    "fullScore": 100,
     "studentGrade": 3
   },
   {
@@ -140327,7 +140327,7 @@
     ],
     "source": "kice-archive-edu+kice-archive-edu",
     "id": 3472,
-    "fullScore": 50,
+    "fullScore": 100,
     "studentGrade": 3
   },
   {
@@ -140361,7 +140361,7 @@
     ],
     "source": "kice-archive-edu+kice-archive-edu",
     "id": 3473,
-    "fullScore": 50,
+    "fullScore": 100,
     "studentGrade": 3
   },
   {
@@ -142076,7 +142076,7 @@
     ],
     "source": "kice-archive-2009+kice-archive-2009+kice-archive-2009+kice-archive-2009+kice-archive-2009+kice-archive-2009",
     "id": 3520,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2009",
@@ -142098,7 +142098,7 @@
       33
     ],
     "id": 3521,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2009",
@@ -142121,7 +142121,7 @@
     ],
     "source": "kice-archive-2009+kice-archive-2009",
     "id": 3522,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2009",
@@ -142143,7 +142143,7 @@
       37
     ],
     "id": 3523,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2009",
@@ -142165,7 +142165,7 @@
       33
     ],
     "id": 3524,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2009",
@@ -142187,7 +142187,7 @@
       30
     ],
     "id": 3525,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2009",
@@ -142210,7 +142210,7 @@
     ],
     "source": "kice-archive-2009+kice-archive-2009",
     "id": 3526,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2009",
@@ -142232,7 +142232,7 @@
       35
     ],
     "id": 3527,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2009",
@@ -142255,7 +142255,7 @@
     ],
     "source": "kice-archive-2009+kice-archive-2009",
     "id": 3528,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2009",
@@ -142278,7 +142278,7 @@
     ],
     "source": "kice-archive-2009+kice-archive-2009",
     "id": 3529,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2009",
@@ -142301,7 +142301,7 @@
     ],
     "source": "kice-archive-2009+kice-archive-2009",
     "id": 3530,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2009",
@@ -142323,7 +142323,7 @@
       36
     ],
     "id": 3531,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2009",
@@ -142346,7 +142346,7 @@
     ],
     "source": "kice-archive-2009+kice-archive-2009",
     "id": 3532,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2009",
@@ -142369,7 +142369,7 @@
     ],
     "source": "kice-archive-2009+kice-archive-2009",
     "id": 3533,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2009",
@@ -142391,7 +142391,7 @@
       35
     ],
     "id": 3534,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2009",
@@ -143979,7 +143979,7 @@
     ],
     "source": "kice-archive-2009+kice-archive-2009+kice-archive-2009+kice-archive-2009+kice-archive-2009+kice-archive-2009",
     "id": 3576,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2009",
@@ -144002,7 +144002,7 @@
     ],
     "source": "kice-archive-2009+kice-archive-2009",
     "id": 3577,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2009",
@@ -144025,7 +144025,7 @@
     ],
     "source": "kice-archive-2009+kice-archive-2009",
     "id": 3578,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2009",
@@ -144048,7 +144048,7 @@
     ],
     "source": "kice-archive-2009+kice-archive-2009",
     "id": 3579,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2009",
@@ -144071,7 +144071,7 @@
     ],
     "source": "kice-archive-2009+kice-archive-2009",
     "id": 3580,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2009",
@@ -144094,7 +144094,7 @@
     ],
     "source": "kice-archive-2009+kice-archive-2009",
     "id": 3581,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2009",
@@ -144117,7 +144117,7 @@
     ],
     "source": "kice-archive-2009+kice-archive-2009",
     "id": 3582,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2009",
@@ -144140,7 +144140,7 @@
     ],
     "source": "kice-archive-2009+kice-archive-2009",
     "id": 3583,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2009",
@@ -145728,7 +145728,7 @@
     ],
     "source": "kice-archive-2009+kice-archive-2009+kice-archive-2009+kice-archive-2009+kice-archive-2009+kice-archive-2009",
     "id": 3625,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2009",
@@ -145751,7 +145751,7 @@
     ],
     "source": "kice-archive-2009+kice-archive-2009",
     "id": 3626,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2009",
@@ -145774,7 +145774,7 @@
     ],
     "source": "kice-archive-2009+kice-archive-2009",
     "id": 3627,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2009",
@@ -145797,7 +145797,7 @@
     ],
     "source": "kice-archive-2009+kice-archive-2009",
     "id": 3628,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2009",
@@ -145820,7 +145820,7 @@
     ],
     "source": "kice-archive-2009+kice-archive-2009",
     "id": 3629,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2009",
@@ -145843,7 +145843,7 @@
     ],
     "source": "kice-archive-2009+kice-archive-2009",
     "id": 3630,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2009",
@@ -145866,7 +145866,7 @@
     ],
     "source": "kice-archive-2009+kice-archive-2009",
     "id": 3631,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2009",
@@ -145889,7 +145889,7 @@
     ],
     "source": "kice-archive-2009+kice-archive-2009",
     "id": 3632,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2009",
@@ -147441,7 +147441,7 @@
     ],
     "source": "kice-archive-edu+kice-archive-edu+kice-archive-edu+kice-archive-edu+kice-archive-edu+kice-archive-edu",
     "id": 3670,
-    "fullScore": 50,
+    "fullScore": 100,
     "studentGrade": 3
   },
   {
@@ -147475,7 +147475,7 @@
     ],
     "source": "kice-archive-edu+kice-archive-edu",
     "id": 3671,
-    "fullScore": 50,
+    "fullScore": 100,
     "studentGrade": 3
   },
   {
@@ -147509,7 +147509,7 @@
     ],
     "source": "kice-archive-edu+kice-archive-edu",
     "id": 3672,
-    "fullScore": 50,
+    "fullScore": 100,
     "studentGrade": 3
   },
   {
@@ -147543,7 +147543,7 @@
     ],
     "source": "kice-archive-edu+kice-archive-edu",
     "id": 3673,
-    "fullScore": 50,
+    "fullScore": 100,
     "studentGrade": 3
   },
   {
@@ -147577,7 +147577,7 @@
     ],
     "source": "kice-archive-edu+kice-archive-edu",
     "id": 3674,
-    "fullScore": 50,
+    "fullScore": 100,
     "studentGrade": 3
   },
   {
@@ -147611,7 +147611,7 @@
     ],
     "source": "kice-archive-edu+kice-archive-edu",
     "id": 3675,
-    "fullScore": 50,
+    "fullScore": 100,
     "studentGrade": 3
   },
   {
@@ -147645,7 +147645,7 @@
     ],
     "source": "kice-archive-edu+kice-archive-edu",
     "id": 3676,
-    "fullScore": 50,
+    "fullScore": 100,
     "studentGrade": 3
   },
   {
@@ -147679,7 +147679,7 @@
     ],
     "source": "kice-archive-edu+kice-archive-edu",
     "id": 3677,
-    "fullScore": 50,
+    "fullScore": 100,
     "studentGrade": 3
   },
   {
@@ -156146,7 +156146,7 @@
     ],
     "source": "kice-archive-edu+kice-archive-edu+kice-archive-edu+kice-archive-edu+kice-archive-edu+kice-archive-edu",
     "id": 3853,
-    "fullScore": 50,
+    "fullScore": 100,
     "studentGrade": 3
   },
   {
@@ -156180,7 +156180,7 @@
     ],
     "source": "kice-archive-edu+kice-archive-edu",
     "id": 3854,
-    "fullScore": 50,
+    "fullScore": 100,
     "studentGrade": 3
   },
   {
@@ -156214,7 +156214,7 @@
     ],
     "source": "kice-archive-edu+kice-archive-edu",
     "id": 3855,
-    "fullScore": 50,
+    "fullScore": 100,
     "studentGrade": 3
   },
   {
@@ -156248,7 +156248,7 @@
     ],
     "source": "kice-archive-edu+kice-archive-edu",
     "id": 3856,
-    "fullScore": 50,
+    "fullScore": 100,
     "studentGrade": 3
   },
   {
@@ -156282,7 +156282,7 @@
     ],
     "source": "kice-archive-edu+kice-archive-edu",
     "id": 3857,
-    "fullScore": 50,
+    "fullScore": 100,
     "studentGrade": 3
   },
   {
@@ -156316,7 +156316,7 @@
     ],
     "source": "kice-archive-edu+kice-archive-edu",
     "id": 3858,
-    "fullScore": 50,
+    "fullScore": 100,
     "studentGrade": 3
   },
   {
@@ -156350,7 +156350,7 @@
     ],
     "source": "kice-archive-edu+kice-archive-edu",
     "id": 3859,
-    "fullScore": 50,
+    "fullScore": 100,
     "studentGrade": 3
   },
   {
@@ -156384,7 +156384,7 @@
     ],
     "source": "kice-archive-edu+kice-archive-edu",
     "id": 3860,
-    "fullScore": 50,
+    "fullScore": 100,
     "studentGrade": 3
   },
   {
@@ -158239,7 +158239,7 @@
     ],
     "source": "kice-archive-2009+kice-archive-2009+kice-archive-2009+kice-archive-2009+kice-archive-2009+kice-archive-2009",
     "id": 3907,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2009",
@@ -158261,7 +158261,7 @@
       33
     ],
     "id": 3908,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2009",
@@ -158294,7 +158294,7 @@
     ],
     "source": "kice-archive-2009+kice-archive-2009",
     "id": 3909,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2009",
@@ -158316,7 +158316,7 @@
       37
     ],
     "id": 3910,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2009",
@@ -158338,7 +158338,7 @@
       33
     ],
     "id": 3911,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2009",
@@ -158360,7 +158360,7 @@
       33
     ],
     "id": 3912,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2009",
@@ -158393,7 +158393,7 @@
     ],
     "source": "kice-archive-2009+kice-archive-2009",
     "id": 3913,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2009",
@@ -158415,7 +158415,7 @@
       35
     ],
     "id": 3914,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2009",
@@ -158448,7 +158448,7 @@
     ],
     "source": "kice-archive-2009+kice-archive-2009",
     "id": 3915,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2009",
@@ -158481,7 +158481,7 @@
     ],
     "source": "kice-archive-2009+kice-archive-2009",
     "id": 3916,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2009",
@@ -158514,7 +158514,7 @@
     ],
     "source": "kice-archive-2009+kice-archive-2009",
     "id": 3917,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2009",
@@ -158536,7 +158536,7 @@
       36
     ],
     "id": 3918,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2009",
@@ -158569,7 +158569,7 @@
     ],
     "source": "kice-archive-2009+kice-archive-2009",
     "id": 3919,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2009",
@@ -158602,7 +158602,7 @@
     ],
     "source": "kice-archive-2009+kice-archive-2009",
     "id": 3920,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2009",
@@ -158624,7 +158624,7 @@
       36
     ],
     "id": 3921,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2009",
@@ -160262,7 +160262,7 @@
     ],
     "source": "kice-archive-2009+kice-archive-2009+kice-archive-2009+kice-archive-2009+kice-archive-2009+kice-archive-2009",
     "id": 3963,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2009",
@@ -160295,7 +160295,7 @@
     ],
     "source": "kice-archive-2009+kice-archive-2009",
     "id": 3964,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2009",
@@ -160328,7 +160328,7 @@
     ],
     "source": "kice-archive-2009+kice-archive-2009",
     "id": 3965,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2009",
@@ -160361,7 +160361,7 @@
     ],
     "source": "kice-archive-2009+kice-archive-2009",
     "id": 3966,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2009",
@@ -160394,7 +160394,7 @@
     ],
     "source": "kice-archive-2009+kice-archive-2009",
     "id": 3967,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2009",
@@ -160427,7 +160427,7 @@
     ],
     "source": "kice-archive-2009+kice-archive-2009",
     "id": 3968,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2009",
@@ -160460,7 +160460,7 @@
     ],
     "source": "kice-archive-2009+kice-archive-2009",
     "id": 3969,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2009",
@@ -160493,7 +160493,7 @@
     ],
     "source": "kice-archive-2009+kice-archive-2009",
     "id": 3970,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2009",
@@ -162131,7 +162131,7 @@
     ],
     "source": "kice-archive-2009+kice-archive-2009+kice-archive-2009+kice-archive-2009+kice-archive-2009+kice-archive-2009",
     "id": 4012,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2009",
@@ -162164,7 +162164,7 @@
     ],
     "source": "kice-archive-2009+kice-archive-2009",
     "id": 4013,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2009",
@@ -162197,7 +162197,7 @@
     ],
     "source": "kice-archive-2009+kice-archive-2009",
     "id": 4014,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2009",
@@ -162230,7 +162230,7 @@
     ],
     "source": "kice-archive-2009+kice-archive-2009",
     "id": 4015,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2009",
@@ -162263,7 +162263,7 @@
     ],
     "source": "kice-archive-2009+kice-archive-2009",
     "id": 4016,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2009",
@@ -162296,7 +162296,7 @@
     ],
     "source": "kice-archive-2009+kice-archive-2009",
     "id": 4017,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2009",
@@ -162329,7 +162329,7 @@
     ],
     "source": "kice-archive-2009+kice-archive-2009",
     "id": 4018,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2009",
@@ -162362,7 +162362,7 @@
     ],
     "source": "kice-archive-2009+kice-archive-2009",
     "id": 4019,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2009",
@@ -164080,7 +164080,7 @@
     ],
     "source": "kice-archive-edu+kice-archive-edu+kice-archive-edu+kice-archive-edu+kice-archive-edu+kice-archive-edu+kice-archive-edu+kice-archive-edu+kice-archive-edu+kice-archive-edu+kice-archive-edu+kice-archive-edu",
     "id": 4061,
-    "fullScore": 50,
+    "fullScore": 100,
     "studentGrade": 3
   },
   {
@@ -164114,7 +164114,7 @@
     ],
     "source": "kice-archive-edu+kice-archive-edu",
     "id": 4062,
-    "fullScore": 50,
+    "fullScore": 100,
     "studentGrade": 3
   },
   {
@@ -164148,7 +164148,7 @@
     ],
     "source": "kice-archive-edu+kice-archive-edu",
     "id": 4063,
-    "fullScore": 50,
+    "fullScore": 100,
     "studentGrade": 3
   },
   {
@@ -164182,7 +164182,7 @@
     ],
     "source": "kice-archive-edu+kice-archive-edu",
     "id": 4064,
-    "fullScore": 50,
+    "fullScore": 100,
     "studentGrade": 3
   },
   {
@@ -164216,7 +164216,7 @@
     ],
     "source": "kice-archive-edu+kice-archive-edu",
     "id": 4065,
-    "fullScore": 50,
+    "fullScore": 100,
     "studentGrade": 3
   },
   {
@@ -164250,7 +164250,7 @@
     ],
     "source": "kice-archive-edu+kice-archive-edu",
     "id": 4066,
-    "fullScore": 50,
+    "fullScore": 100,
     "studentGrade": 3
   },
   {
@@ -164284,7 +164284,7 @@
     ],
     "source": "kice-archive-edu+kice-archive-edu",
     "id": 4067,
-    "fullScore": 50,
+    "fullScore": 100,
     "studentGrade": 3
   },
   {
@@ -164318,7 +164318,7 @@
     ],
     "source": "kice-archive-edu+kice-archive-edu",
     "id": 4068,
-    "fullScore": 50,
+    "fullScore": 100,
     "studentGrade": 3
   },
   {
@@ -164352,7 +164352,7 @@
     ],
     "source": "kice-archive-edu+kice-archive-edu",
     "id": 4069,
-    "fullScore": 50,
+    "fullScore": 100,
     "studentGrade": 3
   },
   {
@@ -164386,7 +164386,7 @@
     ],
     "source": "kice-archive-edu+kice-archive-edu",
     "id": 4070,
-    "fullScore": 50,
+    "fullScore": 100,
     "studentGrade": 3
   },
   {
@@ -173582,7 +173582,7 @@
     ],
     "source": "kice-archive-edu+kice-archive-edu+kice-archive-edu+kice-archive-edu+kice-archive-edu+kice-archive-edu",
     "id": 4259,
-    "fullScore": 50,
+    "fullScore": 100,
     "studentGrade": 3
   },
   {
@@ -173616,7 +173616,7 @@
     ],
     "source": "kice-archive-edu+kice-archive-edu",
     "id": 4260,
-    "fullScore": 50,
+    "fullScore": 100,
     "studentGrade": 3
   },
   {
@@ -173650,7 +173650,7 @@
     ],
     "source": "kice-archive-edu+kice-archive-edu",
     "id": 4261,
-    "fullScore": 50,
+    "fullScore": 100,
     "studentGrade": 3
   },
   {
@@ -173684,7 +173684,7 @@
     ],
     "source": "kice-archive-edu+kice-archive-edu",
     "id": 4262,
-    "fullScore": 50,
+    "fullScore": 100,
     "studentGrade": 3
   },
   {
@@ -173718,7 +173718,7 @@
     ],
     "source": "kice-archive-edu+kice-archive-edu",
     "id": 4263,
-    "fullScore": 50,
+    "fullScore": 100,
     "studentGrade": 3
   },
   {
@@ -173752,7 +173752,7 @@
     ],
     "source": "kice-archive-edu+kice-archive-edu",
     "id": 4264,
-    "fullScore": 50,
+    "fullScore": 100,
     "studentGrade": 3
   },
   {
@@ -173786,7 +173786,7 @@
     ],
     "source": "kice-archive-edu+kice-archive-edu",
     "id": 4265,
-    "fullScore": 50,
+    "fullScore": 100,
     "studentGrade": 3
   },
   {
@@ -173820,7 +173820,7 @@
     ],
     "source": "kice-archive-edu+kice-archive-edu",
     "id": 4266,
-    "fullScore": 50,
+    "fullScore": 100,
     "studentGrade": 3
   },
   {
@@ -174980,7 +174980,7 @@
       71
     ],
     "id": 4312,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2009",
@@ -175002,7 +175002,7 @@
       72
     ],
     "id": 4313,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2009",
@@ -175024,7 +175024,7 @@
       63
     ],
     "id": 4314,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2009",
@@ -178426,7 +178426,7 @@
     ],
     "source": "kice-archive-edu+kice-archive-edu+kice-archive-edu+kice-archive-edu+kice-archive-edu+kice-archive-edu",
     "id": 4437,
-    "fullScore": 50,
+    "fullScore": 100,
     "studentGrade": 3
   },
   {
@@ -178460,7 +178460,7 @@
     ],
     "source": "kice-archive-edu+kice-archive-edu",
     "id": 4438,
-    "fullScore": 50,
+    "fullScore": 100,
     "studentGrade": 3
   },
   {
@@ -178494,7 +178494,7 @@
     ],
     "source": "kice-archive-edu+kice-archive-edu",
     "id": 4439,
-    "fullScore": 50,
+    "fullScore": 100,
     "studentGrade": 3
   },
   {
@@ -187505,7 +187505,7 @@
     ],
     "source": "kice-archive-edu+kice-archive-edu+kice-archive-edu+kice-archive-edu+kice-archive-edu+kice-archive-edu+kice-archive-edu+kice-archive-edu+kice-archive-edu+kice-archive-edu+kice-archive-edu+kice-archive-edu",
     "id": 4631,
-    "fullScore": 50,
+    "fullScore": 100,
     "studentGrade": 3
   },
   {
@@ -187539,7 +187539,7 @@
     ],
     "source": "kice-archive-edu+kice-archive-edu",
     "id": 4632,
-    "fullScore": 50,
+    "fullScore": 100,
     "studentGrade": 3
   },
   {
@@ -187573,7 +187573,7 @@
     ],
     "source": "kice-archive-edu+kice-archive-edu",
     "id": 4633,
-    "fullScore": 50,
+    "fullScore": 100,
     "studentGrade": 3
   },
   {
@@ -187607,7 +187607,7 @@
     ],
     "source": "kice-archive-edu+kice-archive-edu",
     "id": 4634,
-    "fullScore": 50,
+    "fullScore": 100,
     "studentGrade": 3
   },
   {
@@ -187641,7 +187641,7 @@
     ],
     "source": "kice-archive-edu+kice-archive-edu",
     "id": 4635,
-    "fullScore": 50,
+    "fullScore": 100,
     "studentGrade": 3
   },
   {
@@ -187675,7 +187675,7 @@
     ],
     "source": "kice-archive-edu+kice-archive-edu",
     "id": 4636,
-    "fullScore": 50,
+    "fullScore": 100,
     "studentGrade": 3
   },
   {
@@ -187709,7 +187709,7 @@
     ],
     "source": "kice-archive-edu+kice-archive-edu",
     "id": 4637,
-    "fullScore": 50,
+    "fullScore": 100,
     "studentGrade": 3
   },
   {
@@ -187743,7 +187743,7 @@
     ],
     "source": "kice-archive-edu+kice-archive-edu",
     "id": 4638,
-    "fullScore": 50,
+    "fullScore": 100,
     "studentGrade": 3
   },
   {
@@ -187777,7 +187777,7 @@
     ],
     "source": "kice-archive-edu+kice-archive-edu",
     "id": 4639,
-    "fullScore": 50,
+    "fullScore": 100,
     "studentGrade": 3
   },
   {
@@ -187811,7 +187811,7 @@
     ],
     "source": "kice-archive-edu+kice-archive-edu",
     "id": 4640,
-    "fullScore": 50,
+    "fullScore": 100,
     "studentGrade": 3
   },
   {
@@ -189190,7 +189190,7 @@
       73
     ],
     "id": 4686,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2009",
@@ -189212,7 +189212,7 @@
       74
     ],
     "id": 4687,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2009",
@@ -189234,7 +189234,7 @@
       69
     ],
     "id": 4688,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2009",
@@ -192603,7 +192603,7 @@
     ],
     "source": "kice-archive-edu+kice-archive-edu+kice-archive-edu+kice-archive-edu+kice-archive-edu+kice-archive-edu",
     "id": 4809,
-    "fullScore": 50,
+    "fullScore": 100,
     "studentGrade": 3
   },
   {
@@ -192637,7 +192637,7 @@
     ],
     "source": "kice-archive-edu+kice-archive-edu",
     "id": 4810,
-    "fullScore": 50,
+    "fullScore": 100,
     "studentGrade": 3
   },
   {
@@ -192671,7 +192671,7 @@
     ],
     "source": "kice-archive-edu+kice-archive-edu",
     "id": 4811,
-    "fullScore": 50,
+    "fullScore": 100,
     "studentGrade": 3
   },
   {
@@ -200089,7 +200089,7 @@
     ],
     "source": "kice-archive-edu+kice-archive-edu+kice-archive-edu+kice-archive-edu+kice-archive-edu+kice-archive-edu",
     "id": 5009,
-    "fullScore": 50,
+    "fullScore": 100,
     "studentGrade": 3
   },
   {
@@ -200123,7 +200123,7 @@
     ],
     "source": "kice-archive-edu+kice-archive-edu",
     "id": 5010,
-    "fullScore": 50,
+    "fullScore": 100,
     "studentGrade": 3
   },
   {
@@ -200157,7 +200157,7 @@
     ],
     "source": "kice-archive-edu+kice-archive-edu",
     "id": 5011,
-    "fullScore": 50,
+    "fullScore": 100,
     "studentGrade": 3
   },
   {
@@ -201517,7 +201517,7 @@
       72
     ],
     "id": 5058,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2009",
@@ -201539,7 +201539,7 @@
       70
     ],
     "id": 5059,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2009",
@@ -201561,7 +201561,7 @@
       66
     ],
     "id": 5060,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2009",
@@ -206574,7 +206574,7 @@
     ],
     "source": "kice-archive-edu+kice-archive-edu+kice-archive-edu+kice-archive-edu+kice-archive-edu+kice-archive-edu",
     "id": 5238,
-    "fullScore": 50,
+    "fullScore": 100,
     "studentGrade": 3
   },
   {
@@ -206608,7 +206608,7 @@
     ],
     "source": "kice-archive-edu+kice-archive-edu",
     "id": 5239,
-    "fullScore": 50,
+    "fullScore": 100,
     "studentGrade": 3
   },
   {
@@ -206642,7 +206642,7 @@
     ],
     "source": "kice-archive-edu+kice-archive-edu",
     "id": 5240,
-    "fullScore": 50,
+    "fullScore": 100,
     "studentGrade": 3
   },
   {
@@ -207491,7 +207491,7 @@
       33
     ],
     "id": 5278,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2007개정",
@@ -207513,7 +207513,7 @@
       33
     ],
     "id": 5279,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2007개정",
@@ -207535,7 +207535,7 @@
       34
     ],
     "id": 5280,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2007개정",
@@ -207557,7 +207557,7 @@
       36
     ],
     "id": 5281,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2007개정",
@@ -207579,7 +207579,7 @@
       36
     ],
     "id": 5282,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2007개정",
@@ -208283,7 +208283,7 @@
       36
     ],
     "id": 5314,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2007개정",
@@ -208305,7 +208305,7 @@
       33
     ],
     "id": 5315,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2007개정",
@@ -208327,7 +208327,7 @@
       30
     ],
     "id": 5316,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2007개정",
@@ -208349,7 +208349,7 @@
       35
     ],
     "id": 5317,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "2007개정",
@@ -208371,7 +208371,7 @@
       36
     ],
     "id": 5318,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "7차",
@@ -210351,7 +210351,7 @@
       36
     ],
     "id": 5408,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "7차",
@@ -210373,7 +210373,7 @@
       34
     ],
     "id": 5409,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "7차",
@@ -210395,7 +210395,7 @@
       28
     ],
     "id": 5410,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "7차",
@@ -210417,7 +210417,7 @@
       35
     ],
     "id": 5411,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "7차",
@@ -210439,7 +210439,7 @@
       35
     ],
     "id": 5412,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "7차",
@@ -210813,7 +210813,7 @@
       690
     ],
     "id": 5429,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "7차",
@@ -210835,7 +210835,7 @@
       62
     ],
     "id": 5430,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "7차",
@@ -210857,7 +210857,7 @@
       1106
     ],
     "id": 5431,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "7차",
@@ -210879,7 +210879,7 @@
       593
     ],
     "id": 5432,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "7차",
@@ -210901,7 +210901,7 @@
       58
     ],
     "id": 5433,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "7차",
@@ -210923,7 +210923,7 @@
       584
     ],
     "id": 5434,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "7차",
@@ -210945,7 +210945,7 @@
       700
     ],
     "id": 5435,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "7차",
@@ -211473,7 +211473,7 @@
       35
     ],
     "id": 5459,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "7차",
@@ -211495,7 +211495,7 @@
       32
     ],
     "id": 5460,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "7차",
@@ -211517,7 +211517,7 @@
       32
     ],
     "id": 5461,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "7차",
@@ -211539,7 +211539,7 @@
       34
     ],
     "id": 5462,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "7차",
@@ -211561,7 +211561,7 @@
       36
     ],
     "id": 5463,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "7차",
@@ -211583,7 +211583,7 @@
       34
     ],
     "id": 5464,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "7차",
@@ -211605,7 +211605,7 @@
       34
     ],
     "id": 5465,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "7차",
@@ -211627,7 +211627,7 @@
       34
     ],
     "id": 5466,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "7차",
@@ -211649,7 +211649,7 @@
       33
     ],
     "id": 5467,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "7차",
@@ -211671,7 +211671,7 @@
       33
     ],
     "id": 5468,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "7차",
@@ -212375,7 +212375,7 @@
       34
     ],
     "id": 5500,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "7차",
@@ -212397,7 +212397,7 @@
       33
     ],
     "id": 5501,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "7차",
@@ -212419,7 +212419,7 @@
       32
     ],
     "id": 5502,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "7차",
@@ -212441,7 +212441,7 @@
       33
     ],
     "id": 5503,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "7차",
@@ -212463,7 +212463,7 @@
       36
     ],
     "id": 5504,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "7차",
@@ -212485,7 +212485,7 @@
       33
     ],
     "id": 5505,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "7차",
@@ -212507,7 +212507,7 @@
       34
     ],
     "id": 5506,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "7차",
@@ -212529,7 +212529,7 @@
       35
     ],
     "id": 5507,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "7차",
@@ -212551,7 +212551,7 @@
       32
     ],
     "id": 5508,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "7차",
@@ -212573,7 +212573,7 @@
       37
     ],
     "id": 5509,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "7차",
@@ -213189,7 +213189,7 @@
       33
     ],
     "id": 5537,
-    "fullScore": 50
+    "fullScore": 100
   },
   {
     "curriculum": "7차",
@@ -213211,6 +213211,6 @@
       32
     ],
     "id": 5538,
-    "fullScore": 50
+    "fullScore": 100
   }
 ]

@@ -2,14 +2,14 @@
 import {
   CURRICULUM_CONFIG, EXAM_TYPE_CONFIG, TAB_CONFIG,
   getTypeConf, getGroupConf, getTabConf, legacyTabKey, prettySub,
-} from './config.js?v=20260619c';
+} from './config.js?v=20260620b';
 import {
   state, PAGE_SIZE,
   resetFilters, toggleMulti,
   getDisplayYear, availableGradeYears,
   filtered, subjectCounts, buildMockData,
   tabCurriculums, tabCurriculumConfs, tabSubjects, curriculumOfGradeYear,
-} from './state.js?v=20260619c';
+} from './state.js?v=20260620b';
 import { renderAllAdSlots } from './lib/ads.js';
 
 const tabConf = () => getTabConf(state.tab);
@@ -38,7 +38,7 @@ const tabIsSingleType = () => {
 
 // 정적 JSON 데이터 파일 — 백엔드 없이 data/exams.json 만 갱신하면 사이트가 갱신됨
 // 빌드 시 ID 재할당되므로 캐시 버스터 강제 (옛 캐시 ↔ 새 SSG 불일치 방지)
-const DATA_URL = 'data/exams.json?v=20260619c';
+const DATA_URL = 'data/exams.json?v=20260620b';
 
 const $ = id => document.getElementById(id);
 
@@ -177,8 +177,9 @@ function showDataError(msg) {
   div.id = 'dataErrorBanner';
   // z-index 100 — site-header(80) 위. 모바일 padding은 작게.
   div.style.cssText = 'position:sticky;top:0;z-index:100;background:#fef3c7;color:#92400e;padding:10px 12px;text-align:center;font-size:13px;line-height:1.5;border-bottom:1px solid #fde68a';
-  div.innerHTML = `<strong>⚠️ 데이터 로드 실패</strong> · ${msg} · <a href="javascript:location.reload()" style="color:#92400e;text-decoration:underline">새로고침</a>`;
+  div.innerHTML = `<strong>⚠️ 데이터 로드 실패</strong> · ${msg} · <button type="button" class="data-reload" style="color:#92400e;text-decoration:underline;background:none;border:0;font:inherit;cursor:pointer;padding:0">새로고침</button>`;
   document.body.prepend(div);
+  div.querySelector('.data-reload')?.addEventListener('click', () => location.reload());
 }
 
 async function loadExams() {

@@ -97,9 +97,10 @@ def discover_release_tags() -> list[str]:
     if r.returncode != 0:
         # gh 미설치/네트워크 오류 시 fallback (구 하드코드)
         print(f'[warn] gh release list failed: {r.stderr.strip()}', file=sys.stderr)
-        return ['kice-v1', 'kice-v2', 'kice-v3', 'kice-v4',
-                'edu-v1', 'edu-v2', 'edu-v3',
-                'leet-v1', 'meet-v1', 'military-v1', 'police-v1']
+        return ['kice-v1', 'kice-v2', 'kice-v3', 'kice-v4', 'kice-v5',
+                'edu-v1', 'edu-v2', 'edu-v3', 'edu-v4', 'edu-listening-v1',
+                'leet-v1', 'meet-v1', 'military-v1', 'police-v1',
+                'ged-v1', 'ged-v2']
     return [t for t in r.stdout.strip().split('\n') if t]
 
 
@@ -1049,7 +1050,11 @@ def build_static_exam_pages(items: list[dict], template_path: Path, out_root: Pa
               'description': meta['description'],
               'inLanguage': 'ko-KR',
               'learningResourceType': '기출문제',
-              'educationalLevel': '고등학교' if it.get('typeGroup') in ('suneung', 'education') else '대학원',
+              'educationalLevel': (
+                  '대학원' if it.get('typeGroup') in ('leet', 'meet')
+                  else {'초졸': '초등학교', '중졸': '중학교'}.get(it.get('curriculum'), '고등학교')
+                  if it.get('typeGroup') == 'ged'
+                  else '고등학교'),   # 수능·학평·논술·사관·경찰=고등학교, 검정고시=학력별, LEET/MEET=대학원
               'isPartOf': {'@id': 'https://kicegg.com/#website'},
               'keywords': meta['keywords'],
             }
@@ -1113,7 +1118,7 @@ def build_static_exam_pages(items: list[dict], template_path: Path, out_root: Pa
         except Exception as e:
             # 폰트 또는 PIL 없으면 default OG로 fallback
             print(f'[warn] og fail id={it["id"]}: {e}', file=sys.stderr)
-            og_url = 'https://kicegg.com/og-image.svg'
+            og_url = 'https://kicegg.com/og-image.png'
 
         html = template
         html = _set_attr(html, pat['title'], meta['title'])

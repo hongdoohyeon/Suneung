@@ -2,7 +2,7 @@
 import {
   CURRICULUM_CONFIG, EXAM_TYPE_CONFIG, TAB_CONFIG,
   getTypeConf, getTabConf, prettySub, searchAliasOf, ALIAS_KEYS_DESC,
-} from './config.js?v=20260619c';
+} from './config.js?v=20260620b';
 
 // ── 검색 정규화 ─────────────────────────────────────────────
 // 로마자 숫자(Ⅰ/Ⅱ/Ⅲ) → 아라비아, 한자(一/二/三) → 아라비아, 소문자, 공백 제거.
@@ -553,6 +553,10 @@ const ESSAY_NAT_RE = /자연|수리|수학|과학|물리|화학|생명|지구|�
 const ESSAY_HUM_RE = /인문|사회|상경|경영|경제|언어|국문|체능|문과|미래인재/;
 export function essayTrack(sub) {
   if (!sub) return null;
+  // 인문·자연 통합/전계열 자료는 계열 무관 → null('전체'에서만 노출).
+  if (/통합|공통|전계열|인문.?자연|자연.?인문/.test(sub)) return null;
+  // '사회과학'은 인문 계열 — NAT 정규식의 '과학' 오매칭을 막기 위해 먼저 분기.
+  if (/사회과학|사회·과학/.test(sub)) return '인문';
   if (ESSAY_NAT_RE.test(sub)) return '자연';
   if (ESSAY_HUM_RE.test(sub)) return '인문';
   return null;
