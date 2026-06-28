@@ -1,0 +1,12 @@
+name = "kicegg-security-headers"
+main = "src/index.js"
+compatibility_date = "2025-06-27"
+
+# Deploy to kicegg.com domain
+[[routes]]
+pattern = "kicegg.com/*"
+zone_name = "kicegg.com"
+
+[observability]
+enabled = true
+head_sampling_rate = 0.01

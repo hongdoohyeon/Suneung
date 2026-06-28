@@ -753,6 +753,42 @@ def _exam_aliases(it: dict) -> list[str]:
     return list(dict.fromkeys(aliases))  # 순서 보존 dedup
 
 
+def _exam_date(it: dict) -> str:
+    """Return ISO 8601 date (YYYY-MM-DD) for an exam, approximated from metadata."""
+    tg = it.get('typeGroup', '')
+    gy = it.get('gradeYear', 0)
+    ey = it.get('examYear', 0)
+    m  = it.get('month', 0)
+    typ = it.get('type', '')
+    if tg == 'suneung':
+        # 수능: November of (gradeYear - 1), e.g. 2026학년도 = 2025-11-14
+        return f'{gy - 1}-11-14'
+    elif tg == 'education':
+        # 학평: examYear-month-01 (month 0일 때는 1월로 fallback)
+        if m and m > 0:
+            return f'{ey or (gy - 1)}-{m:02d}-01'
+        return f'{ey or (gy - 1)}-01-01'
+    elif tg == 'ged':
+        # 검정고시: 1회=4월, 2회=8월
+        mm = '08' if typ == 'ged_2' else '04'
+        return f'{ey or gy}-{mm}-01'
+    elif tg in ('military', 'police'):
+        # 사관학교/경찰대 1차: July–August
+        return f'{gy - 1}-07-31'
+    elif tg in ('leet', 'meet'):
+        # LEET/MEET: July
+        return f'{gy - 1}-07-27'
+    elif tg == 'essay':
+        # 대학별 논술: October–November
+        return f'{gy - 1}-10-15'
+    elif tg == 'reference':
+        if ey:
+            return f'{ey}-01-01'
+        return f'{gy}-01-01'
+    else:
+        return f'{gy or 2020}-01-01'
+
+
 def build_exam_meta(it: dict) -> dict:
     """SSG 페이지·sitemap에 쓰일 시험 단건 메타 빌드.
     학생 검색 키워드(9모/6모/학평/기출/답지/등급컷)를 자연스럽게 포함한다.
@@ -912,6 +948,7 @@ def build_exam_meta(it: dict) -> dict:
         'title': title, 'description': desc, 'canonical': canonical,
         'head': head, 'intro': intro, 'keywords': kw,
         'is_english': is_english, 'has_listen': has_listen,
+        'datePublished': _exam_date(it),
     }
 
 
@@ -955,6 +992,8 @@ def build_static_exam_pages(items: list[dict], template_path: Path, out_root: Pa
       'twi':    r'(<meta name="twitter:image" content=")[^"]*(")',
       'twa':    r'(<meta name="twitter:image:alt" content=")[^"]*(")',
       'robots': r'(<meta name="robots" content=")[^"]*(")',
+      'pub':    r'(<meta property="article:published_time" content=")[^"]*(")',
+      'mod':    r'(<meta property="article:modified_time" content=")[^"]*(")',
     }
 
     # 관련 기출 내부링크 인덱스 — 얇은·고립 페이지 SEO 보강(크롤링됨-색인안됨 완화).
@@ -1016,6 +1055,7 @@ def build_static_exam_pages(items: list[dict], template_path: Path, out_root: Pa
             '<tbody><tr><th class="grade-table__corner" scope="row">컷</th>' + td + '</tr></tbody>'
             '</table><p class="grade-table__legend">' + cap + '</p>')
 
+    TODAY_ISO = datetime.date.today().isoformat()
     written = 0
     for it in items:
         meta = build_exam_meta(it)
@@ -1034,6 +1074,7 @@ def build_static_exam_pages(items: list[dict], template_path: Path, out_root: Pa
               'description': meta['description'],
               'inLanguage': 'ko-KR',
               'encodingFormat': 'application/pdf',
+              'dateModified': TODAY_ISO,
               'publisher': {'@type': 'Organization', 'name': '한국교육과정평가원 (KICE)'},
               'isPartOf': {'@id': 'https://kicegg.com/#website'},
               'keywords': meta['keywords'],
@@ -1050,6 +1091,7 @@ def build_static_exam_pages(items: list[dict], template_path: Path, out_root: Pa
               'description': meta['description'],
               'inLanguage': 'ko-KR',
               'learningResourceType': '기출문제',
+              'dateModified': TODAY_ISO,
               'educationalLevel': (
                   '대학원' if it.get('typeGroup') in ('leet', 'meet')
                   else {'초졸': '초등학교', '중졸': '중학교'}.get(it.get('curriculum'), '고등학교')
@@ -1057,6 +1099,7 @@ def build_static_exam_pages(items: list[dict], template_path: Path, out_root: Pa
                   else '고등학교'),   # 수능·학평·논술·사관·경찰=고등학교, 검정고시=학력별, LEET/MEET=대학원
               'isPartOf': {'@id': 'https://kicegg.com/#website'},
               'keywords': meta['keywords'],
+              'publisher': {'@type': 'Organization', 'name': '기출해체분석기', 'url': 'https://kicegg.com'},
             }
             def _doc_mime(url, name=None):
                 # 잔존 HWP(사관 2018 수학, daumcdn 원본 등)는 application/x-hwp 로 정확히 표기
@@ -1133,6 +1176,9 @@ def build_static_exam_pages(items: list[dict], template_path: Path, out_root: Pa
         html = _set_attr(html, pat['twi'],   og_url)
         html = _set_attr(html, pat['twa'],   head + ' — 기출해체분석기')
         html = _set_attr(html, pat['robots'], 'index,follow')   # 템플릿의 noindex 덮어씀
+        pub_date = meta['datePublished']
+        html = _set_attr(html, pat['pub'], pub_date)
+        html = _set_attr(html, pat['mod'], TODAY_ISO)  # SSG 생성일 = 최종 수정일
         # 템플릿(동적 fallback)에서 복사된 '인덱싱 제외' 주석은 SSG 페이지에선 반대 의미 — 교체
         html = html.replace(
             '<!-- 동적 fallback (?id=N). SSG exam-{id}.html 가 검색 노출 대상 — 이 페이지는 인덱싱 제외. -->',
