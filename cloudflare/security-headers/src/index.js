@@ -43,35 +43,37 @@ const CACHE_HEADERS = {
   'cache-control': 'public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800',
 };
 
-export default {
-  async fetch(request, env, ctx) {
-    const url = new URL(request.url);
-    const response = await fetch(request);
+addEventListener('fetch', event => {
+  event.respondWith(handleRequest(event.request));
+});
 
-    // Clone so we can modify headers
-    const modified = new Response(response.body, response);
+async function handleRequest(request) {
+  const url = new URL(request.url);
+  const response = await fetch(request);
 
-    // Add security headers
-    for (const [key, value] of Object.entries(SECURITY_HEADERS)) {
+  // Clone so we can modify headers
+  const modified = new Response(response.body, response);
+
+  // Add security headers
+  for (const [key, value] of Object.entries(SECURITY_HEADERS)) {
+    modified.headers.set(key, value);
+  }
+
+  // Add cache headers for static assets
+  const path = url.pathname.toLowerCase();
+  if (path.match(/\.(js|css|svg|png|jpg|jpeg|gif|ico|woff2?|ttf)$/)) {
+    for (const [key, value] of Object.entries(CACHE_HEADERS)) {
       modified.headers.set(key, value);
     }
+  }
 
-    // Add cache headers for static assets
-    const path = url.pathname.toLowerCase();
-    if (path.match(/\.(js|css|svg|png|jpg|jpeg|gif|ico|woff2?|ttf)$/)) {
-      for (const [key, value] of Object.entries(CACHE_HEADERS)) {
-        modified.headers.set(key, value);
-      }
-    }
+  // Add cache headers for HTML (shorter TTL)
+  if (path.endsWith('.html') || path === '/' || !path.includes('.')) {
+    modified.headers.set(
+      'cache-control',
+      'public, max-age=600, s-maxage=3600, stale-while-revalidate=86400'
+    );
+  }
 
-    // Add cache headers for HTML (shorter TTL)
-    if (path.endsWith('.html') || path === '/' || !path.includes('.')) {
-      modified.headers.set(
-        'cache-control',
-        'public, max-age=600, s-maxage=3600, stale-while-revalidate=86400'
-      );
-    }
-
-    return modified;
-  },
-};
+  return modified;
+}
