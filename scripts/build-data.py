@@ -923,7 +923,10 @@ def build_exam_meta(it: dict) -> dict:
         if it.get('solutionUrl'):  assets.append('해설지')
         if it.get('listenUrl'):    assets.append('영어 듣기 MP3')
         if it.get('scriptUrl'):    assets.append('듣기 대본 PDF')
-        assets_phrase = ('· '.join(assets) + '를 ') if assets else ''
+        _last = assets[-1] if assets else ''
+        _has_batchim = bool(_last) and '가' <= _last[-1] <= '힣' and (ord(_last[-1]) - ord('가')) % 28 > 0
+        _particle = '을' if _has_batchim else '를'
+        assets_phrase = ('·'.join(assets) + _particle + ' ') if assets else ''
         if is_english and has_listen:
             intro = (
                 f'{full_phrase} 기출 자료입니다. '
