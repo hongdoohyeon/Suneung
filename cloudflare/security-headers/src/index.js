@@ -67,6 +67,15 @@ async function handleRequest(request) {
     }
   }
 
+  // JSON data is versioned by query string on pages that need aggressive busting.
+  // Override GitHub Pages' no-store so repeat users do not re-download exams.json.
+  if (path.match(/\.json$/)) {
+    modified.headers.set(
+      'cache-control',
+      'public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800'
+    );
+  }
+
   // Add cache headers for HTML (shorter TTL)
   if (path.endsWith('.html') || path === '/' || !path.includes('.')) {
     modified.headers.set(

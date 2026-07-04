@@ -579,6 +579,67 @@ def render_splits(items: list[dict]) -> None:
     print(f'  + split 동기화 {written}건 / 고아 제거 {pruned}건')
 
 
+def _summary_sub_from_exam(e: dict) -> str:
+    if e.get('typeGroup') == 'education':
+        sg = f"고{e.get('studentGrade')}" if e.get('studentGrade') else ''
+        return f"{e.get('examYear')}년 {e.get('month')}월 {sg} 학평".strip()
+    if e.get('typeGroup') == 'suneung':
+        t = {'csat': '수능', 'sept': '9모', 'june': '6모', 'prelim': '예비'}.get(str(e.get('type') or ''), '')
+        return f"{e.get('gradeYear')}학년도 {t}".strip()
+    if e.get('typeGroup') == 'military': return f"{e.get('gradeYear')}학년도 사관학교"
+    if e.get('typeGroup') == 'police':   return f"{e.get('gradeYear')}학년도 경찰대"
+    if e.get('typeGroup') == 'leet':     return f"{e.get('gradeYear')}학년도 LEET"
+    if e.get('typeGroup') == 'meet':     return f"{e.get('gradeYear')}학년도 MEET"
+    return ''
+
+
+def _summary_update_label(items: list[dict]) -> str | None:
+    def ts_key(e: dict) -> int:
+        if e.get('typeGroup') == 'reference': return -1
+        if e.get('gradeYear') == 'preliminary' or e.get('type') == 'prelim': return -1
+        raw_ey = e.get('examYear')
+        raw_gy = e.get('gradeYear')
+        raw_m = e.get('month')
+        ey = raw_ey if isinstance(raw_ey, int) and raw_ey > 1990 else None
+        if ey is None:
+            ey = raw_gy - 1 if isinstance(raw_gy, int) else 0
+        m = raw_m if isinstance(raw_m, int) and raw_m > 0 else 0
+        return ey * 100 + m
+    latest = max(items, key=ts_key, default=None)
+    if not latest: return None
+    if latest.get('typeGroup') == 'education' and latest.get('examYear') and latest.get('month'):
+        sg = f"고{latest.get('studentGrade')}" if latest.get('studentGrade') else ''
+        return f"{latest.get('examYear')}.{str(latest.get('month')).zfill(2)} {sg} 학평".strip()
+    if latest.get('typeGroup') == 'suneung':
+        t = {'csat': '수능', 'sept': '9모', 'june': '6모'}.get(str(latest.get('type') or ''), '')
+        return f"{latest.get('gradeYear')}학년도 {t}".strip()
+    if latest.get('gradeYear'):
+        return f"{latest.get('gradeYear')}학년도"
+    return None
+
+
+def render_site_summary(items: list[dict]) -> None:
+    """홈 landing용 경량 summary. data/exams.json 전체 fetch를 피한다."""
+    recent = []
+    for e in sorted(items, key=lambda x: x.get('id', 0), reverse=True)[:12]:
+        title = (e.get('subject') or '') + (f" {e.get('subSubject')}" if e.get('subSubject') else '')
+        sub = _summary_sub_from_exam(e)
+        recent.append({
+            'id': e.get('id'),
+            'title': title,
+            'sub': sub,
+            'label': f'{sub} {title}'.strip() if sub else title,
+        })
+    payload = {
+        'count': len(items),
+        'updateLabel': _summary_update_label(items),
+        'recentUpdates': recent,
+    }
+    out = ROOT / 'data' / 'site-summary.json'
+    out.write_text(json.dumps(payload, ensure_ascii=False, separators=(',', ':')) + '\n', encoding='utf-8')
+    print(f'  + data/site-summary.json ({len(recent)}건 최신 요약)')
+
+
 def render_rss(items: list[dict]) -> None:
     """최신 추가 자료 RSS 피드(feed.xml). 네이버는 RSS를 사이트맵과 별개의
     freshness(최신성) 신호로 취급 — 전수가 아니라 '최근 추가 N개'만 담는다.
@@ -626,6 +687,7 @@ def main() -> None:
     render_category_landings(items)
     render_sets_directory(items, essay_hubs, subject_hubs)
     render_sitemaps(items, essay_hubs + subject_hubs)
+    render_site_summary(items)
     render_rss(items)
     render_splits(items)
     print('완료')
