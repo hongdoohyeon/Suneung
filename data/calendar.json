@@ -1,34 +1,430 @@
 {
   "_meta": {
-    "description": "시험·입시 일정 캘린더. 학평·모의·수능 시행일 + 수시·정시 주요 일정.",
-    "lastUpdated": "2026-05-08",
+    "description": "시험·입시 일정 캘린더. 학평·모의·수능·사관·경찰·LEET·MDEET·검정고시 시행일 + 수시·정시 주요 일정.",
+    "lastUpdated": "2026-07-06",
     "scoreYear": 2026,
-    "note": "일정은 변경 가능. 실제 학교별 일정은 입학처 공식 안내 확인."
+    "note": "일정은 변경 가능. 실제 시험·접수 일정은 각 주관기관 공식 안내 확인."
   },
   "events": [
-    {"date": "2026-03-27", "type": "exam", "category": "edu", "title": "3월 전국연합학력평가", "grades": [1,2,3], "org": "서울교육청"},
-    {"date": "2026-05-07", "type": "exam", "category": "edu", "title": "5월 학력평가 (고3)", "grades": [3], "org": "서울교육청"},
-    {"date": "2026-06-04", "type": "exam", "category": "kice", "title": "6월 모의평가", "grades": [3], "org": "한국교육과정평가원"},
-    {"date": "2026-06-04", "type": "exam", "category": "edu", "title": "6월 학력평가 (고1·고2)", "grades": [1,2], "org": "부산교육청"},
-    {"date": "2026-07-08", "type": "exam", "category": "edu", "title": "7월 학력평가 (고3)", "grades": [3], "org": "인천교육청"},
-    {"date": "2026-09-03", "type": "exam", "category": "kice", "title": "9월 모의평가", "grades": [3], "org": "한국교육과정평가원"},
-    {"date": "2026-09-03", "type": "exam", "category": "edu", "title": "9월 학력평가 (고1·고2)", "grades": [1,2], "org": "인천교육청"},
-    {"date": "2026-10-07", "type": "exam", "category": "edu", "title": "10월 전국연합학력평가", "grades": [1,2,3], "org": "서울교육청"},
-    {"date": "2026-11-12", "type": "exam", "category": "csat", "title": "2027학년도 대학수학능력시험", "grades": [3], "org": "한국교육과정평가원"},
-    {"date": "2026-11-18", "type": "exam", "category": "edu", "title": "11월 학력평가 (고1·고2)", "grades": [1,2], "org": "경기교육청"},
-
-    {"dateRange": ["2025-12-29", "2025-12-31"], "type": "admission", "category": "정시", "title": "2026학년도 정시 원서접수", "scoreYear": 2026},
-    {"dateRange": ["2026-01-09", "2026-01-15"], "type": "admission", "category": "정시", "title": "2026학년도 정시 면접·실기", "scoreYear": 2026},
-    {"date": "2026-01-30", "type": "admission", "category": "정시", "title": "2026학년도 정시 최초합격자 발표", "scoreYear": 2026},
-    {"dateRange": ["2026-02-03", "2026-02-05"], "type": "admission", "category": "정시", "title": "정시 합격자 등록", "scoreYear": 2026},
-    {"dateRange": ["2026-02-06", "2026-02-12"], "type": "admission", "category": "정시", "title": "정시 추가합격 (충원) 발표", "scoreYear": 2026},
-
-    {"dateRange": ["2026-09-08", "2026-09-12"], "type": "admission", "category": "수시", "title": "2027학년도 수시 원서접수", "scoreYear": 2027},
-    {"dateRange": ["2026-10-01", "2026-12-15"], "type": "admission", "category": "수시", "title": "수시 1단계 합격자 발표·면접·논술", "scoreYear": 2027},
-    {"dateRange": ["2026-12-12", "2026-12-19"], "type": "admission", "category": "수시", "title": "2027학년도 수시 합격자 발표", "scoreYear": 2027},
-    {"dateRange": ["2026-12-22", "2026-12-24"], "type": "admission", "category": "수시", "title": "수시 합격자 등록", "scoreYear": 2027},
-
-    {"dateRange": ["2026-12-28", "2026-12-30"], "type": "admission", "category": "정시", "title": "2027학년도 정시 원서접수", "scoreYear": 2027},
-    {"date": "2027-02-05", "type": "admission", "category": "정시", "title": "2027학년도 정시 최초합격자 발표", "scoreYear": 2027}
+    {
+      "dateRange": [
+        "2025-12-29",
+        "2025-12-31"
+      ],
+      "type": "admission",
+      "category": "정시",
+      "title": "2026학년도 정시 원서접수",
+      "scoreYear": 2026
+    },
+    {
+      "dateRange": [
+        "2026-01-09",
+        "2026-01-15"
+      ],
+      "type": "admission",
+      "category": "정시",
+      "title": "2026학년도 정시 면접·실기",
+      "scoreYear": 2026
+    },
+    {
+      "date": "2026-01-30",
+      "type": "admission",
+      "category": "정시",
+      "title": "2026학년도 정시 최초합격자 발표",
+      "scoreYear": 2026
+    },
+    {
+      "dateRange": [
+        "2026-02-03",
+        "2026-02-05"
+      ],
+      "type": "admission",
+      "category": "정시",
+      "title": "정시 합격자 등록",
+      "scoreYear": 2026
+    },
+    {
+      "dateRange": [
+        "2026-02-06",
+        "2026-02-12"
+      ],
+      "type": "admission",
+      "category": "정시",
+      "title": "정시 추가합격 (충원) 발표",
+      "scoreYear": 2026
+    },
+    {
+      "dateRange": [
+        "2026-02-09",
+        "2026-02-13"
+      ],
+      "type": "admission",
+      "category": "검정고시",
+      "title": "2026년 제1회 검정고시 원서접수",
+      "scoreYear": 2026,
+      "org": "각 시도교육청"
+    },
+    {
+      "date": "2026-03-27",
+      "type": "exam",
+      "category": "edu",
+      "title": "3월 전국연합학력평가",
+      "grades": [
+        1,
+        2,
+        3
+      ],
+      "org": "서울교육청"
+    },
+    {
+      "date": "2026-04-04",
+      "type": "exam",
+      "category": "검정고시",
+      "title": "2026년 제1회 고등검정고시",
+      "scoreYear": 2026,
+      "org": "각 시도교육청"
+    },
+    {
+      "dateRange": [
+        "2026-05-04",
+        "2026-05-14"
+      ],
+      "type": "admission",
+      "category": "경찰",
+      "title": "2027학년도 경찰대학 특별전형 원서접수",
+      "scoreYear": 2027,
+      "org": "경찰대학"
+    },
+    {
+      "date": "2026-05-07",
+      "type": "exam",
+      "category": "edu",
+      "title": "5월 학력평가 (고3)",
+      "grades": [
+        3
+      ],
+      "org": "서울교육청"
+    },
+    {
+      "date": "2026-05-08",
+      "type": "admission",
+      "category": "검정고시",
+      "title": "2026년 제1회 검정고시 합격자 발표",
+      "scoreYear": 2026,
+      "org": "각 시도교육청"
+    },
+    {
+      "dateRange": [
+        "2026-05-18",
+        "2026-05-28"
+      ],
+      "type": "admission",
+      "category": "경찰",
+      "title": "2027학년도 경찰대학 일반전형 원서접수",
+      "scoreYear": 2027,
+      "org": "경찰대학"
+    },
+    {
+      "dateRange": [
+        "2026-05-26",
+        "2026-06-04"
+      ],
+      "type": "admission",
+      "category": "리트",
+      "title": "2027학년도 LEET 원서접수",
+      "scoreYear": 2027,
+      "org": "법학전문대학원협의회"
+    },
+    {
+      "date": "2026-06-04",
+      "type": "exam",
+      "category": "kice",
+      "title": "6월 모의평가",
+      "grades": [
+        3
+      ],
+      "org": "한국교육과정평가원"
+    },
+    {
+      "date": "2026-06-04",
+      "type": "exam",
+      "category": "edu",
+      "title": "6월 학력평가 (고1·고2)",
+      "grades": [
+        1,
+        2
+      ],
+      "org": "부산교육청"
+    },
+    {
+      "dateRange": [
+        "2026-06-09",
+        "2026-06-19"
+      ],
+      "type": "admission",
+      "category": "미트",
+      "title": "2027학년도 MDEET 원서접수",
+      "scoreYear": 2027,
+      "org": "의·치의학교육입문검사협의회"
+    },
+    {
+      "dateRange": [
+        "2026-06-19",
+        "2026-06-29"
+      ],
+      "type": "admission",
+      "category": "사관",
+      "title": "2027학년도 사관학교 원서접수 (육·해·공·국간사)",
+      "scoreYear": 2027,
+      "org": "육·해·공·국군간호사관학교"
+    },
+    {
+      "dateRange": [
+        "2026-06-22",
+        "2026-06-26"
+      ],
+      "type": "admission",
+      "category": "검정고시",
+      "title": "2026년 제2회 검정고시 원서접수",
+      "scoreYear": 2026,
+      "org": "각 시도교육청"
+    },
+    {
+      "date": "2026-07-08",
+      "type": "exam",
+      "category": "edu",
+      "title": "7월 학력평가 (고3)",
+      "grades": [
+        3
+      ],
+      "org": "인천교육청"
+    },
+    {
+      "date": "2026-07-19",
+      "type": "exam",
+      "category": "리트",
+      "title": "2027학년도 법학적성시험 (LEET)",
+      "scoreYear": 2027,
+      "org": "법학전문대학원협의회"
+    },
+    {
+      "date": "2026-08-01",
+      "type": "exam",
+      "category": "사관",
+      "title": "2027학년도 사관학교·국간사 1차 시험",
+      "scoreYear": 2027,
+      "org": "육·해·공·국군간호사관학교"
+    },
+    {
+      "date": "2026-08-01",
+      "type": "exam",
+      "category": "경찰",
+      "title": "2027학년도 경찰대학 1차 필기시험",
+      "scoreYear": 2027,
+      "org": "경찰대학"
+    },
+    {
+      "date": "2026-08-09",
+      "type": "exam",
+      "category": "미트",
+      "title": "2027학년도 의·치의학교육입문검사 (MDEET)",
+      "scoreYear": 2027,
+      "org": "의·치의학교육입문검사협의회"
+    },
+    {
+      "date": "2026-08-11",
+      "type": "exam",
+      "category": "검정고시",
+      "title": "2026년 제2회 고등검정고시",
+      "scoreYear": 2026,
+      "org": "각 시도교육청"
+    },
+    {
+      "date": "2026-08-18",
+      "type": "admission",
+      "category": "리트",
+      "title": "LEET 성적 발표",
+      "scoreYear": 2027,
+      "org": "법학전문대학원협의회"
+    },
+    {
+      "dateRange": [
+        "2026-08-20",
+        "2026-09-03"
+      ],
+      "type": "admission",
+      "category": "정시",
+      "title": "2027학년도 수능 원서접수 (온라인 사전입력)",
+      "scoreYear": 2027,
+      "org": "한국교육과정평가원"
+    },
+    {
+      "date": "2026-08-28",
+      "type": "admission",
+      "category": "검정고시",
+      "title": "2026년 제2회 검정고시 합격자 발표",
+      "scoreYear": 2026,
+      "org": "각 시도교육청"
+    },
+    {
+      "dateRange": [
+        "2026-09-01",
+        "2026-10-30"
+      ],
+      "type": "admission",
+      "category": "사관",
+      "title": "사관학교 2차 시험 (신체·체력·면접)",
+      "scoreYear": 2027,
+      "org": "육·해·공·국군간호사관학교"
+    },
+    {
+      "date": "2026-09-03",
+      "type": "exam",
+      "category": "kice",
+      "title": "9월 모의평가",
+      "grades": [
+        3
+      ],
+      "org": "한국교육과정평가원"
+    },
+    {
+      "date": "2026-09-03",
+      "type": "exam",
+      "category": "edu",
+      "title": "9월 학력평가 (고1·고2)",
+      "grades": [
+        1,
+        2
+      ],
+      "org": "인천교육청"
+    },
+    {
+      "dateRange": [
+        "2026-09-03",
+        "2026-09-30"
+      ],
+      "type": "admission",
+      "category": "경찰",
+      "title": "경찰대학 2차 시험 (신체·체력·면접)",
+      "scoreYear": 2027,
+      "org": "경찰대학"
+    },
+    {
+      "dateRange": [
+        "2026-09-08",
+        "2026-09-12"
+      ],
+      "type": "admission",
+      "category": "수시",
+      "title": "2027학년도 수시 원서접수",
+      "scoreYear": 2027
+    },
+    {
+      "date": "2026-09-08",
+      "type": "admission",
+      "category": "미트",
+      "title": "MDEET 성적 발표",
+      "scoreYear": 2027,
+      "org": "의·치의학교육입문검사협의회"
+    },
+    {
+      "dateRange": [
+        "2026-10-01",
+        "2026-12-15"
+      ],
+      "type": "admission",
+      "category": "수시",
+      "title": "수시 1단계 합격자 발표·면접·논술",
+      "scoreYear": 2027
+    },
+    {
+      "date": "2026-10-07",
+      "type": "exam",
+      "category": "edu",
+      "title": "10월 전국연합학력평가",
+      "grades": [
+        1,
+        2,
+        3
+      ],
+      "org": "서울교육청"
+    },
+    {
+      "dateRange": [
+        "2026-11-05",
+        "2026-12-21"
+      ],
+      "type": "admission",
+      "category": "사관",
+      "title": "사관학교 최종합격자 발표",
+      "scoreYear": 2027,
+      "org": "육·해·공·국군간호사관학교"
+    },
+    {
+      "date": "2026-11-12",
+      "type": "exam",
+      "category": "csat",
+      "title": "2027학년도 대학수학능력시험",
+      "grades": [
+        3
+      ],
+      "org": "한국교육과정평가원"
+    },
+    {
+      "date": "2026-11-18",
+      "type": "exam",
+      "category": "edu",
+      "title": "11월 학력평가 (고1·고2)",
+      "grades": [
+        1,
+        2
+      ],
+      "org": "경기교육청"
+    },
+    {
+      "dateRange": [
+        "2026-12-12",
+        "2026-12-19"
+      ],
+      "type": "admission",
+      "category": "수시",
+      "title": "2027학년도 수시 합격자 발표",
+      "scoreYear": 2027
+    },
+    {
+      "dateRange": [
+        "2026-12-22",
+        "2026-12-24"
+      ],
+      "type": "admission",
+      "category": "수시",
+      "title": "수시 합격자 등록",
+      "scoreYear": 2027
+    },
+    {
+      "dateRange": [
+        "2026-12-28",
+        "2026-12-30"
+      ],
+      "type": "admission",
+      "category": "정시",
+      "title": "2027학년도 정시 원서접수",
+      "scoreYear": 2027
+    },
+    {
+      "date": "2027-01-04",
+      "type": "admission",
+      "category": "경찰",
+      "title": "2027학년도 경찰대학 최종합격자 발표",
+      "scoreYear": 2027,
+      "org": "경찰대학"
+    },
+    {
+      "date": "2027-02-05",
+      "type": "admission",
+      "category": "정시",
+      "title": "2027학년도 정시 최초합격자 발표",
+      "scoreYear": 2027
+    }
   ]
 }
