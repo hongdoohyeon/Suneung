@@ -73,12 +73,14 @@
 /* ═══ Base ════════════════════════════════════════════════ */
 html {
   -webkit-text-size-adjust: 100%;
-  /* 페이지 콘텐츠 양에 따라 스크롤바가 나타났다 사라지면 콘텐츠가
-     좌우로 밀리는 현상이 생김 → 항상 스크롤바 자리를 예약해서 고정 */
-  scrollbar-gutter: stable both-edges;
+  /* 데스크톱에서만 스크롤바 자리 예약. 모바일/패드는 overlay scrollbar + flex
+     min-content 계산이 섞이면 메인 dash가 한쪽으로 7px 정도 밀려 보일 수 있음. */
   /* 모바일에서 어떤 자식이 viewport를 넘쳐도 가로 스크롤이 생기지 않도록 봉쇄.
      'clip'은 fixed/sticky 잠금이 'hidden'보다 안전 */
   overflow-x: clip;
+}
+@media (min-width: 1101px) {
+  html { scrollbar-gutter: stable; }
 }
 body { overflow-x: clip; }
 
@@ -135,6 +137,7 @@ a { color: inherit; text-decoration: none; }
 .brand {
   display: flex;
   align-items: center;
+  min-height: var(--tap);
   gap: 9px;
   color: var(--ink);
 }
@@ -588,7 +591,7 @@ a { color: inherit; text-decoration: none; }
 }
 #searchInput {
   width: 100%;
-  height: 40px;
+  height: var(--tap);
   padding: 0 36px 0 36px;
   border: 1px solid var(--line);
   border-radius: 9px;
@@ -607,14 +610,14 @@ a { color: inherit; text-decoration: none; }
 
 .search__clear {
   position: absolute;
-  right: 8px;
-  width: 22px;
-  height: 22px;
+  right: 2px;
+  width: var(--tap);
+  height: var(--tap);
   display: flex;
   align-items: center;
   justify-content: center;
   border: none;
-  background: var(--surface-hover);
+  background: transparent;
   border-radius: 99px;
   color: var(--ink-3);
   font-size: 14px;
@@ -981,6 +984,11 @@ a { color: inherit; text-decoration: none; }
   color: var(--ink-5);
 }
 .site-footer__legal a {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--tap);
+  min-width: var(--tap);
+  justify-content: center;
   color: var(--ink-3);
   text-decoration: none;
   margin: 0 4px;
@@ -1272,11 +1280,15 @@ a { color: inherit; text-decoration: none; }
   align-items: center;
 }
 .header-nav a {
+  min-height: var(--tap);
   padding: 7px 12px;
   border-radius: 8px;
   font-size: 13px;
   font-weight: 600;
   color: var(--ink-3);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   transition: var(--t);
 }
 .header-nav a:hover { color: var(--ink); background: var(--surface-2); }
@@ -1962,7 +1974,7 @@ body.is-sheet-open { overflow: hidden; touch-action: none; }
   .nav-group         { flex-direction: row; align-items: center; gap: 2px; }
   .nav-group__label  { display: none; }
   .nav-group__tabs   { gap: 2px; }
-  .nav-tab           { flex-direction: row; padding: 6px 12px; gap: 0; border-radius: 8px; min-width: 0; min-height: 38px; }
+  .nav-tab           { flex-direction: row; padding: 6px 12px; gap: 0; border-radius: 8px; min-width: 0; min-height: var(--tap); }
   .nav-tab__sub      { display: none; }
   .nav-tab__title    { font-size: 12px; line-height: 1.2; letter-spacing: -0.2px; }
   .nav-sep           { margin: 0; height: 14px; align-self: center; }
@@ -1979,6 +1991,51 @@ body.is-sheet-open { overflow: hidden; touch-action: none; }
   .icon-btn           { width: var(--tap); height: var(--tap); }
   .pill               { min-height: var(--tap); padding: 10px 14px; }
   .year-row .pill     { min-height: var(--tap); }
+  .subject-row,
+  .sub-row            { min-height: var(--tap); height: auto; }
+  .legal > p a        { display: inline-flex; align-items: center; min-height: var(--tap); min-width: var(--tap); justify-content: center; }
+}
+
+/* 태블릿 가로(1024px급)도 터치 기기 기준으로 44px 이상 유지 */
+@media (max-width: 1100px) {
+  .exam__actions .btn,
+  .card__actions .btn,
+  .exam-tab,
+  .exam__related a,
+  .preview__more,
+  .preview__zoom-btn,
+  .pg-btn,
+  .subject-row,
+  .sub-row,
+  .pill,
+  .btn-text,
+  .legal > p a {
+    min-height: var(--tap);
+  }
+  .exam__actions .btn,
+  .card__actions .btn,
+  .preview__zoom-btn,
+  .pg-btn {
+    height: var(--tap);
+  }
+  .preview__zoom-btn,
+  .pg-btn {
+    min-width: var(--tap);
+  }
+  .tag {
+    min-height: var(--tap);
+    padding: 0 4px 0 12px;
+  }
+  .tag button {
+    width: var(--tap);
+    height: var(--tap);
+  }
+  .legal > p a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: var(--tap);
+  }
 }
 
 /* 터치 디바이스에서 :hover 효과 stuck 방지 */
@@ -2086,10 +2143,11 @@ body.is-sheet-open { overflow: hidden; touch-action: none; }
 /* 헤더 — 좁은 화면에서 nav 라벨 압축 + 보조 메뉴 숨김 */
 @media (max-width: 700px) {
   .site-header__inner       { gap: 8px; flex-wrap: nowrap; }
-  .icon-btn                 { width: 36px; height: 36px; }
+  .icon-btn                 { width: var(--tap); height: var(--tap); }
+  .brand                    { min-width: var(--tap); justify-content: center; }
   .brand__name              { display: none; }
   .header-nav               { gap: 0; flex-wrap: nowrap; }
-  .header-nav a             { padding: 6px 10px; font-size: 12.5px; white-space: nowrap; }
+  .header-nav a             { min-height: var(--tap); padding: 0 10px; font-size: 12.5px; white-space: nowrap; }
   .header-nav__hide-sm      { display: none; }
 }
 
@@ -2779,6 +2837,13 @@ body.is-sheet-open { overflow: hidden; touch-action: none; }
     order: 1;        /* 메타·다운로드 버튼 먼저 */
   }
   .exam__main { order: 2; }   /* PDF 미리보기 그 아래 */
+  .exam__back,
+  .examset-link,
+  .exam__related a {
+    min-height: var(--tap);
+    display: inline-flex;
+    align-items: center;
+  }
   /* 다운로드 버튼 모바일 2열 그리드 — 영어 듣기 5종 동시 보기 좋음 */
   .exam__actions {
     display: grid;
@@ -3141,6 +3206,7 @@ body.is-sheet-open { overflow: hidden; touch-action: none; }
 .dday-banner:empty { display: none; }
 .dday-line {
   display: inline-flex;
+  max-width: 100%;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
@@ -3160,8 +3226,12 @@ body.is-sheet-open { overflow: hidden; touch-action: none; }
 .dday-line__sep { color: var(--ink-6, #cfcfcf); font-weight: 400; }
 .dday-line__next {
   width: 100%;
+  max-width: 100%;
   display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
   justify-content: center;
+  min-height: var(--tap);
   gap: 4px;
   margin-top: 4px;
   font-size: 12px;
@@ -3416,7 +3486,8 @@ body.is-sheet-open { overflow: hidden; touch-action: none; }
 }
 .dash-searchbar__input::placeholder { color: var(--ink-5); }
 .dash-searchbar__btn {
-  height: 40px;
+  height: var(--tap);
+  min-height: var(--tap);
   margin-right: 6px;
   padding: 0 18px;
   background: var(--ink);
@@ -3547,21 +3618,28 @@ body.is-sheet-open { overflow: hidden; touch-action: none; }
 
 /* 모바일 — 첫 화면에 검색창과 필터 보이게 */
 @media (max-width: 600px) {
-  .dash { padding: 28px 16px 48px; }
+  .dash { width: 100%; max-width: 100%; padding: 28px 16px 48px; }
   .dash-eyebrow { font-size: 10.5px; margin-bottom: 10px; }
   .dash-title { font-size: 22px; line-height: 1.25; margin-bottom: 6px; }
   .dash-sub { font-size: 13px; margin-bottom: 18px; }
+  .dash-searchbar { width: 100%; min-width: 0; }
+  .dash-searchbar__icon {
+    width: var(--tap);
+    min-width: var(--tap);
+    padding: 0;
+  }
   .dash-searchbar__input {
     height: 48px;
     font-size: 16px;             /* iOS 확대 방지 (≥16px) */
     min-width: 0;                /* flex 자식 폭 축소 허용 */
   }
   .dash-searchbar__btn {
-    height: 38px;
+    height: var(--tap);
+    min-height: var(--tap);
     padding: 0;                  /* 아이콘 버튼 — 폭 압축 */
     font-size: 0;                /* 텍스트 숨김 */
-    width: 38px;
-    flex: 0 0 38px;
+    width: var(--tap);
+    flex: 0 0 var(--tap);
     background: transparent;
     color: var(--ink);
     position: relative;
@@ -3586,7 +3664,7 @@ body.is-sheet-open { overflow: hidden; touch-action: none; }
   .dash-quickfilters::-webkit-scrollbar { display: none; }
   .dash-chip { padding: 5px 10px; font-size: 11.5px; flex: 0 0 auto; }
   .dash-cards { margin-top: 28px; gap: 8px; }
-  .dash-card { padding: 13px 12px; min-height: 64px; gap: 10px; }
+  .dash-card { padding: 13px 12px; min-height: var(--tap); gap: 10px; }
   .dash-card__icon { width: 32px; height: 32px; }
   .dash-card__title { font-size: 13px; }
   .dash-card__sub { font-size: 11px; }
@@ -3969,6 +4047,7 @@ body.is-sheet-open { overflow: hidden; touch-action: none; }
 @media (max-width: 360px) {
   .container { padding-left: 10px; padding-right: 10px; }
   .dash { padding: 24px 12px 40px; }
+  .pagination { gap: 2px; }
   .dash-title { font-size: 20px; }
   .dash-card { padding: 11px 10px; }
   .dash-card__title { font-size: 12.5px; }
