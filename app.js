@@ -552,7 +552,7 @@ $('paginationWrap').addEventListener('click', e => {
   if (!btn || btn.disabled) return;
   state.page = Number(btn.dataset.pg);
   renderCards();
-  $('cardsGrid').scrollIntoView({ behavior: 'instant', block: 'start' });
+  $('cardsGrid').scrollIntoView({ behavior: 'auto', block: 'start' });
   syncUrl();
 });
 
@@ -652,7 +652,7 @@ function renderCards() {
   const totalPages = Math.max(1, Math.ceil(data.length / PAGE_SIZE));
   state.page = Math.min(Math.max(1, state.page), totalPages);
   const shown = data.slice((state.page - 1) * PAGE_SIZE, state.page * PAGE_SIZE);
-  grid.innerHTML = shown.map((e, i) => cardHTML(e, i)).join('');
+  grid.innerHTML = shown.map((e, i) => { try { return cardHTML(e, i); } catch(_) { return ''; } }).join('');
   renderPagination(state.page, totalPages, data.length);
 }
 
@@ -892,7 +892,7 @@ function pill(value, label, active, extra = '', attrs = '') {
 
 function escHtml(str) {
   if (str == null) return '';
-  return String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  return String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');
 }
 function escAttr(str) { return escHtml(str); }
 

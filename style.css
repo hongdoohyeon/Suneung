@@ -101,6 +101,30 @@ body {
   flex-direction: column;
 }
 
+/* ── Skip Link (접근성) ─────────────────────────────────── */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 0;
+  background: var(--ink);
+  color: #fff;
+  padding: 8px 16px;
+  z-index: 9999;
+  border-radius: 0 0 8px 0;
+  text-decoration: none;
+  font-size: 14px;
+  transition: top .15s;
+}
+.skip-link:focus { top: 0; }
+
+/* ── 모바일 미리보기 힌트 ────────────────────────────────── */
+.preview__hint {
+  font-size: 12px;
+  color: var(--ink-5);
+  text-align: center;
+  padding: 8px;
+}
+
 button { font-family: inherit; cursor: pointer; }
 a { color: inherit; text-decoration: none; }
 
@@ -1025,7 +1049,7 @@ a { color: inherit; text-decoration: none; }
 .legal__section p { margin: 8px 0; font-size: 14.5px; }
 .legal__section ul { margin: 8px 0 8px 20px; padding: 0; }
 .legal__section li { margin: 4px 0; font-size: 14.5px; }
-.legal__section a { color: var(--accent); text-decoration: underline; }
+.legal__section a { color: var(--accent, var(--pop)); text-decoration: underline; }
 .legal__section a:hover { opacity: 0.8; }
 @media (max-width: 600px) {
   .legal { padding: 24px 18px 60px; }
@@ -4060,9 +4084,38 @@ body.is-sheet-open { overflow: hidden; touch-action: none; }
 }
 
 /* 관련 기출문제 — SSG 내부링크 섹션 (SEO·탐색) */
-.exam__related{margin:2rem 0 1rem;padding:1.25rem 1rem;border-top:1px solid var(--border,#e5e7eb)}
-.exam__related h2{font-size:1rem;font-weight:700;margin:0 0 .75rem;color:var(--text,#111)}
-.exam__related ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:.5rem}
-.exam__related li{margin:0}
-.exam__related a{display:inline-block;padding:.4rem .7rem;border:1px solid var(--border,#e5e7eb);border-radius:999px;font-size:.85rem;color:var(--text,#333);text-decoration:none;background:var(--surface,#fafafa);transition:background .15s,border-color .15s}
-.exam__related a:hover{background:var(--accent-weak,#eef2ff);border-color:var(--accent,#6366f1)}
+.exam__related {
+  margin: 2rem 0 1rem;
+  padding: 1.25rem 1rem;
+  border-top: 1px solid var(--line, #e5e7eb);
+}
+.exam__related h2 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 0 0 .75rem;
+  color: var(--ink, #111);
+}
+.exam__related ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+}
+.exam__related li { margin: 0; }
+.exam__related a {
+  display: inline-block;
+  padding: .4rem .7rem;
+  border: 1px solid var(--line, #e5e7eb);
+  border-radius: 999px;
+  font-size: .85rem;
+  color: var(--ink, #333);
+  text-decoration: none;
+  background: var(--surface, #fafafa);
+  transition: background .15s, border-color .15s;
+}
+.exam__related a:hover {
+  background: var(--surface-hover, #eef2ff);
+  border-color: var(--pop, #6366f1);
+}

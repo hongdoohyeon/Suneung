@@ -43,7 +43,7 @@
           "@type": "SearchAction",
           "target": {
             "@type": "EntryPoint",
-            "urlTemplate": "https://kicegg.com/archive.html?search={search_term_string}"
+            "urlTemplate": "https://kicegg.com/archive.html?q={search_term_string}"
           },
           "query-input": "required name=search_term_string"
         }
@@ -63,6 +63,7 @@
   <script src="lib/measure.js?v=20260618b" async></script>
 </head>
 <body class="page-landing">
+  <a href="#main" class="skip-link">본문 건너뛰기</a>
 
   <header class="site-header">
     <div class="container site-header__inner">
@@ -80,11 +81,12 @@
       <nav class="header-nav" aria-label="주요 메뉴">
         <a href="archive.html">기출검색</a>
         <a href="gradecut.html">모의지원</a>
+        <a href="admissions.html">정시반영</a>
       </nav>
     </div>
   </header>
 
-  <main class="dash">
+  <main id="main" class="dash">
     <section class="dash-search" aria-labelledby="dash-heading">
       <h1 class="dash-title" id="dash-heading">기출 PDF·등급컷을 한 곳에서</h1>
 

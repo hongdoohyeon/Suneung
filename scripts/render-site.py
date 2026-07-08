@@ -579,6 +579,40 @@ def render_splits(items: list[dict]) -> None:
     print(f'  + split 동기화 {written}건 / 고아 제거 {pruned}건')
 
 
+def render_gradecut_splits(items: list[dict]) -> None:
+    """data/gradecuts.json → data/gradecut/{exam_id}.json 단건 분할.
+
+    exam.js가 data/gradecut/{id}.json 을 우선 fetch → 실패 시 data/gradecuts.json 폴백.
+    gradecut 엔트리에는 'id' 필드(매칭용 exam id)가 있으므로 이를 키로 사용한다.
+    """
+    gc_path = ROOT / 'data' / 'gradecuts.json'
+    if not gc_path.exists():
+        print('  + gradecut split: gradecuts.json 없음, 스킵')
+        return
+    cuts = json.loads(gc_path.read_text(encoding='utf-8'))
+    out_dir = ROOT / 'data' / 'gradecut'
+    out_dir.mkdir(exist_ok=True)
+    written = 0
+    seen_ids: set[int] = set()
+    for c in cuts:
+        cid = c.get('id')
+        if cid is None:
+            continue
+        seen_ids.add(cid)
+        p = out_dir / f'{cid}.json'
+        body = json.dumps(c, ensure_ascii=False, separators=(',', ':'))
+        if not p.exists() or p.read_text(encoding='utf-8') != body:
+            p.write_text(body, encoding='utf-8')
+            written += 1
+    # 고아 split 제거
+    pruned = 0
+    for p in out_dir.glob('*.json'):
+        if p.stem.isdigit() and int(p.stem) not in seen_ids:
+            p.unlink()
+            pruned += 1
+    print(f'  + gradecut split {written}건 / 고아 제거 {pruned}건')
+
+
 def _summary_sub_from_exam(e: dict) -> str:
     if e.get('typeGroup') == 'education':
         sg = f"고{e.get('studentGrade')}" if e.get('studentGrade') else ''
@@ -690,6 +724,7 @@ def main() -> None:
     render_site_summary(items)
     render_rss(items)
     render_splits(items)
+    render_gradecut_splits(items)
     print('완료')
 
 

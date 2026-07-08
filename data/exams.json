@@ -48,8 +48,7 @@
     "questionDownload": "수능 연도별 채점현황 (KICE 공식).pdf",
     "answerUrl": null,
     "solutionUrl": null,
-    "source": "kice-stat",
-    "_note": "연도별 평균점수·표준점수·등급·계열별 통계 (1994~ 49쪽)"
+    "source": "kice-stat"
   },
   {
     "id": 4,

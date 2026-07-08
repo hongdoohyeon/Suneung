@@ -58,6 +58,7 @@
   <script src="lib/measure.js?v=20260630a" defer></script>
 </head>
 <body>
+  <a href="#main" class="skip-link">본문 건너뛰기</a>
 
   <!-- ── Header ─────────────────────────────────────────── -->
   <header class="site-header">
@@ -77,6 +78,7 @@
       <nav class="header-nav" aria-label="주요 메뉴">
         <a href="archive.html" class="is-active">기출검색</a>
         <a href="gradecut.html">모의지원</a>
+        <a href="admissions.html">정시반영</a>
       </nav>
     </div>
   </header>
@@ -155,7 +157,7 @@
   </nav>
 
   <!-- ── Main ───────────────────────────────────────────── -->
-  <main class="container main">
+  <main id="main" class="container main">
 
     <!-- Sidebar / Mobile Bottom Sheet -->
     <aside class="filter" id="filterPanel" aria-label="필터" role="region">
@@ -257,7 +259,7 @@
       </div>
 
       <!-- Cards -->
-      <div id="cardsGrid" class="grid" style="display:none;"></div>
+      <div id="cardsGrid" class="grid" role="list" style="display:none;"></div>
 
       <!-- Pagination -->
       <div id="paginationWrap" class="pagination-wrap" style="display:none;"></div>

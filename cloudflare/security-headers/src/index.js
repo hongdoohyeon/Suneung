@@ -9,6 +9,7 @@
  *   - Content-Security-Policy (HTTP-level, stronger than meta tag)
  *   - X-Content-Type-Options
  *   - X-Frame-Options
+ *   - X-XSS-Protection
  *   - Referrer-Policy
  *   - Permissions-Policy
  */
@@ -24,7 +25,7 @@ const SECURITY_HEADERS = {
     "style-src 'self' 'unsafe-inline'",
     "font-src 'self' data:",
     "img-src 'self' data: https:",
-    "connect-src 'self' https://suneung-files.hdh061224.workers.dev https://cloudflareinsights.com https://www.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com",
+    "connect-src 'self' https://suneung-files.hdh061224.workers.dev https://cloudflareinsights.com https://www.google-analytics.com https://*.analytics.google.com https://www.google.com",
     "media-src 'self' https://suneung-files.hdh061224.workers.dev",
     "worker-src 'self' blob:",
     "object-src 'none'",
@@ -34,6 +35,7 @@ const SECURITY_HEADERS = {
 
   'x-content-type-options': 'nosniff',
   'x-frame-options': 'DENY',
+  'x-xss-protection': '1; mode=block',
   'referrer-policy': 'strict-origin-when-cross-origin',
   'permissions-policy': 'camera=(), microphone=(), geolocation=()',
 };

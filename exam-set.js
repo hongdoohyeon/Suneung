@@ -136,7 +136,7 @@ function renderHead(curriculum, gradeYear, type, items) {
         '@type': 'ListItem',
         position: i + 1,
         name: (it.subSubject ? `${it.subject} · ${it.subSubject}` : it.subject),
-        url: `${location.origin}${location.pathname.replace(/exam-set\.html$/, '')}exam-${it.id}.html`,
+        url: `${location.origin}${location.pathname.replace(/\/exam-set-?[^/]*\.html$/, '/')}exam-${it.id}.html`,
       })),
     },
   });
@@ -181,7 +181,7 @@ async function main() {
 
   let exams = [];
   try {
-    const res = await fetch('data/exams.json');
+    const res = await fetch('data/exams.json?v=20260707a');
     if (res.ok) exams = await res.json();
   } catch { /* fall-through */ }
 

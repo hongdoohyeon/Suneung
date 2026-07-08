@@ -273,6 +273,26 @@ function setupTabs(onActivate, hideInfo) {
 
   tabs.forEach(t => t.addEventListener('click', () => activate(t.dataset.tab)));
 
+  // WAI-ARIA tab pattern: 방향키·Home·End 로 탭 전환
+  const tabArr = Array.from(tabs);
+  tabArr.forEach((t, i) => {
+    t.addEventListener('keydown', e => {
+      if (e.key === 'ArrowRight') {
+        e.preventDefault();
+        tabArr[(i + 1) % tabArr.length].focus();
+      } else if (e.key === 'ArrowLeft') {
+        e.preventDefault();
+        tabArr[(i - 1 + tabArr.length) % tabArr.length].focus();
+      } else if (e.key === 'Home') {
+        e.preventDefault();
+        tabArr[0].focus();
+      } else if (e.key === 'End') {
+        e.preventDefault();
+        tabArr[tabArr.length - 1].focus();
+      }
+    });
+  });
+
   // 초기 탭:
   //   - URL ?tab=info → 정보
   //   - URL ?tab=paper → 문제
@@ -312,19 +332,31 @@ async function main() {
   // 단건 lazy fetch 우선: data/exam/{id}.json (~1KB) 만 받음.
   // 미존재 시 통합 data/exams.json (~2MB) 로 폴백.
   let exam = null, gradecuts = [];
-  try {
-    const [singleRes, cutRes] = await Promise.all([
-      fetch(`data/exam/${id}.json`),
-      fetch('data/gradecuts.json'),
-    ]);
-    if (singleRes.ok) exam = await singleRes.json();
-    if (cutRes.ok)    gradecuts = await cutRes.json();
-  } catch { /* fall-through */ }
+    try {
+      const singleRes = await fetch(`data/exam/${id}.json?v=20260707a`);
+      if (singleRes.ok) exam = await singleRes.json();
+    } catch { /* fall-through */ }
+
+    // 등급컷 단건 split 우선: data/gradecut/{id}.json (~0.2KB)
+    // 실패 시 전체 data/gradecuts.json (~400KB) 폴백.
+    try {
+      const cutRes = await fetch(`data/gradecut/${id}.json?v=20260707a`);
+      if (cutRes.ok) {
+        const singleCut = await cutRes.json();
+        gradecuts = [singleCut];
+      }
+    } catch { /* fall-through to full gradecuts.json */ }
+    if (gradecuts.length === 0) {
+      try {
+        const cutRes = await fetch('data/gradecuts.json?v=20260707a');
+        if (cutRes.ok) gradecuts = await cutRes.json();
+      } catch { /* fall-through */ }
+    }
 
   // 단건 split 미배포 환경 폴백: 통합 exams.json
   if (!exam) {
     try {
-      const res = await fetch('data/exams.json');
+      const res = await fetch('data/exams.json?v=20260707a');
       if (res.ok) {
         const exams = await res.json();
         exam = exams.find(e => e.id === id) ?? null;
