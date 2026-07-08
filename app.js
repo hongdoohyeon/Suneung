@@ -465,6 +465,14 @@ $('yearFilter').addEventListener('click', e => {
   } else {
     toggleMulti('gradeYear', val);
   }
+  // 28예비 학년도 선택 시 자동으로 시험 종류도 '예비시험'으로 설정
+  if (val === 'preliminary') {
+    state.type = ['prelim'];
+  } else if (state.gradeYear !== 'preliminary') {
+    // 다른 학년도 선택 시 예비시험 타입 해제 (예비만 선택된 경우에만)
+    if (!Array.isArray(state.type)) { /* no-op */ }
+    else if (state.type.length === 1 && state.type[0] === 'prelim') state.type = 'all';
+  }
   state.page = 1;
   renderYearChips();
   render();
@@ -794,7 +802,10 @@ $('activeTags').addEventListener('click', e => {
     renderSubtypeChips();
   } else if (key === 'gradeYear') {
     state.gradeYear = 'all';
+    // 예비시험 타입도 함께 해제 (학년도가 예비가 아니게 되므로)
+    if (Array.isArray(state.type) && state.type.length === 1 && state.type[0] === 'prelim') state.type = 'all';
     renderYearChips();
+    renderSubtypeChips();
   } else if (key === 'subject') {
     state.subject = state.subSubject = 'all';
     renderSubjectFilter();
