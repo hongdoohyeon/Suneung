@@ -1045,15 +1045,16 @@ def build_static_exam_pages(items: list[dict], template_path: Path, out_root: Pa
         if _c.get('studentGrade') is None:
             _cut_idx_none.setdefault(_k, _c)
 
-    def _grade_table_html(raw: list, full, absolute: bool) -> str:
+    def _grade_table_html(cuts: list, full, absolute: bool, score_type: str = 'raw') -> str:
         th = ''.join(f'<th class="grade-table__h grade-table__h--g{g}" scope="col">{g}</th>' for g in _GRADES)
         td = ''.join(
             '<td class="grade-table__c grade-table__c--g{0}">{1}</td>'.format(
-                i + 1, '—' if (i >= len(raw) or raw[i] is None) else raw[i])
+                i + 1, '—' if (i >= len(cuts) or cuts[i] is None) else cuts[i])
             for i in range(9))
-        cap = ('등급별 원점수 컷 · 절대평가' if absolute else '등급별 원점수 컷') + (f' · 만점 {full}점' if full else '')
+        label = '표준점수' if score_type == 'standard' else '원점수'
+        cap = (f'등급별 {label} 컷 · 절대평가' if absolute else f'등급별 {label} 컷') + (f' · 만점 {full}점' if full and score_type == 'raw' else '')
         return (
-            '<table class="grade-table" role="table" aria-label="등급별 원점수 컷">'
+            f'<table class="grade-table" role="table" aria-label="등급별 {label} 컷">'
             '<thead><tr><th class="grade-table__corner" scope="col">등급</th>' + th + '</tr></thead>'
             '<tbody><tr><th class="grade-table__corner" scope="row">컷</th>' + td + '</tr></tbody>'
             '</table><p class="grade-table__legend">' + cap + '</p>')
@@ -1323,17 +1324,21 @@ def build_static_exam_pages(items: list[dict], template_path: Path, out_root: Pa
             _cut = _cut_idx6.get(_ck + (it.get('studentGrade'),)) or _cut_idx_none.get(_ck)
         elif _tg != 'ged':
             _cut = _cut_idx.get(_ck)
-        if _cut and isinstance(_cut.get('rawCuts'), list) and any(v is not None for v in _cut['rawCuts']):
-            _raw = _cut['rawCuts']
-            _tbl = _grade_table_html(_raw, _cut.get('fullScore') or 100, bool(_cut.get('absolute')))
-            html = html.replace(
-                '<div class="exam-card__body" id="gradeDistBody"></div>',
-                '<div class="exam-card__body" id="gradeDistBody">' + _tbl + '</div>', 1)
-            if _raw and _raw[0] is not None:
-                _hint = f'1등급 컷 {_raw[0]}점' + (' · 절대평가' if _cut.get('absolute') else '')
+        if _cut:
+            _has_raw = isinstance(_cut.get('rawCuts'), list) and any(v is not None for v in _cut['rawCuts'])
+            _has_std = isinstance(_cut.get('standardCuts'), list) and any(v is not None for v in _cut['standardCuts'])
+            if _has_raw or _has_std:
+                _score_type = 'raw' if _has_raw else 'standard'
+                _vals = _cut['rawCuts'] if _has_raw else _cut['standardCuts']
+                _tbl = _grade_table_html(_vals, _cut.get('fullScore') or 100, bool(_cut.get('absolute')), _score_type)
                 html = html.replace(
-                    '<span class="exam-card__hint" id="gradeDistHint"></span>',
-                    '<span class="exam-card__hint" id="gradeDistHint">' + html_escape(_hint, quote=False) + '</span>', 1)
+                    '<div class="exam-card__body" id="gradeDistBody"></div>',
+                    '<div class="exam-card__body" id="gradeDistBody">' + _tbl + '</div>', 1)
+                if _vals and _vals[0] is not None:
+                    _hint = f'1등급 컷 {_vals[0]}점' + (' · 표준점수' if _score_type == 'standard' else '') + (' · 절대평가' if _cut.get('absolute') else '')
+                    html = html.replace(
+                        '<span class="exam-card__hint" id="gradeDistHint"></span>',
+                        '<span class="exam-card__hint" id="gradeDistHint">' + html_escape(_hint, quote=False) + '</span>', 1)
 
         (out_root / f'exam-{it["id"]}.html').write_text(html, encoding='utf-8')
         written += 1

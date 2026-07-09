@@ -4,7 +4,7 @@ import { escHtml as _escHtml, escAttr, safeUrl as _safeUrl, $ as _$ } from './li
 import { setMeta, setMetaProp, setCanonical, injectJsonLd as _injectJsonLd, applySeo } from './lib/seo.js';
 import { renderAllAdSlots } from './lib/ads.js';
 import { renderPdf, renderUnsupported, renderEmpty, urlExtension } from './lib/exam-pdf.js';
-import { renderGradeDist } from './lib/exam-gradedist.js?v=20260620a';
+import { renderGradeDist } from './lib/exam-gradedist.js?v=20260709b';
 import { pushRecent } from './lib/recent.js';
 import { shareLink } from './lib/share.js';
 

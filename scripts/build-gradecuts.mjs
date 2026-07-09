@@ -10,10 +10,11 @@
 //   5) data/raw/manual/verified-rawcuts.json           - 공개 아카이브 대조 검증 raw 보강
 //   6) data/raw/crux/suneungcalc-csat-rawcuts.json     - Crux Table 계산기 기반 최근 수능 국어/수학 raw
 //   7) data/raw/crux/suneungcalc-mock-rawcuts.json     - Crux Table 계산기 기반 최근 모의고사 국어/수학 raw
-//   8) data/raw/kice-archive/gradecuts-normalized.json - 평가원 공식 + 시도교육청 공식 (kice_archive ingest)
+//   8) data/raw/ebsi/gradecuts-normalized.json         - EBSi 풀서비스 등급컷 보강
+//   9) data/raw/kice-archive/gradecuts-normalized.json - 평가원 공식 + 시도교육청 공식 (kice_archive ingest)
 //
 // 적용 순서 (뒤가 우선):
-//   hwpx → 평가원 recent → 메가스터디 → 이투스 → 수동 검증 → Crux → kice-archive (최우선, std·raw 둘 다 공식) → 절대평가 자동
+//   hwpx → 평가원 recent → 메가스터디 → 이투스 → 수동 검증 → Crux → EBSi → kice-archive (최우선, std·raw 둘 다 공식) → 절대평가 자동
 // 표준점수/백분위/누적은 데이터로만 보존 (사이트 미표시).
 
 import { readFile, writeFile } from 'node:fs/promises';
@@ -47,7 +48,7 @@ async function readJsonOr(p, fallback) {
   catch { return fallback; }
 }
 
-const [exams, megastudy, hwpxData, recentData, etoosArchived, manualVerifiedRawCuts, cruxCsatRawCuts, cruxMockRawCuts, kiceArchive] = await Promise.all([
+const [exams, megastudy, hwpxData, recentData, etoosArchived, manualVerifiedRawCuts, cruxCsatRawCuts, cruxMockRawCuts, ebsiGradecuts, kiceArchive] = await Promise.all([
   readFile(EXAMS_PATH, 'utf-8').then(JSON.parse),
   readJsonOr(path.resolve(ROOT, 'data/raw/megastudy/gradecuts-normalized.json'), []),
   readJsonOr('/tmp/csat_gc_normalized_v3.json', []),
@@ -56,6 +57,7 @@ const [exams, megastudy, hwpxData, recentData, etoosArchived, manualVerifiedRawC
   readJsonOr(path.resolve(ROOT, 'data/raw/manual/verified-rawcuts.json'), []),
   readJsonOr(path.resolve(ROOT, 'data/raw/crux/suneungcalc-csat-rawcuts.json'), []),
   readJsonOr(path.resolve(ROOT, 'data/raw/crux/suneungcalc-mock-rawcuts.json'), []),
+  readJsonOr(path.resolve(ROOT, 'data/raw/ebsi/gradecuts-normalized.json'), []),
   readJsonOr(path.resolve(ROOT, 'data/raw/kice-archive/gradecuts-normalized.json'), []),
 ]);
 const cruxRawCuts = [...cruxCsatRawCuts, ...cruxMockRawCuts];
@@ -263,9 +265,29 @@ for (const r of cruxRawCuts) {
   cruxApplied++;
 }
 
-// 5d. kice-archive — 평가원 공식 + 시도교육청 공식 자료 (최우선 신뢰도).
+// 5d. EBSi 풀서비스 보강 — 평가원 공식 원자료가 들어오기 전 최신 시험의 std/raw를 채운다.
+//      kice-archive가 나중에 적용되므로 공식 DB 값이 있으면 그쪽이 덮어쓴다.
+let ebsiApplied = 0;
+let ebsiRawApplied = 0;
+for (const r of ebsiGradecuts) {
+  const rec = ensureRecord(r);
+  if (Array.isArray(r.standardCuts) && r.standardCuts.some(v => v != null)) {
+    rec.standardCuts = r.standardCuts;
+  }
+  if (Array.isArray(r.rawCuts) && r.rawCuts.some(v => v != null) && isMonotonicCuts(r.rawCuts)) {
+    rec.rawCuts = r.rawCuts;
+    ebsiRawApplied++;
+  }
+  if (r.fullScore != null) rec.fullScore = r.fullScore;
+  if (r.source && !hasSourceTag(rec.source, r.source)) {
+    rec.source = rec.source ? `${rec.source}+${r.source}` : r.source;
+  }
+  ebsiApplied++;
+}
+
+// 5e. kice-archive — 평가원 공식 + 시도교육청 공식 자료 (최우선 신뢰도).
 //      standardCuts는 무조건 덮어쓰기 (공식이라 가장 정확).
-//      rawCuts는 kice-archive가 가진 경우만 덮어쓰기. 없으면 기존(megastudy/etoos/manual/crux) 유지.
+//      rawCuts는 kice-archive가 가진 경우만 덮어쓰기. 없으면 기존(megastudy/etoos/manual/crux/EBSi) 유지.
 let kiceArchiveApplied = 0;
 let kiceArchiveRawApplied = 0;
 for (const r of kiceArchive) {
@@ -460,6 +482,7 @@ console.log(`megastudy 적재: ${megaApplied}건`);
 console.log(`etoos archived rawCuts: ${etoosApplied}건 (표준점수 불일치 skip ${etoosSkippedByStdMismatch}건, 만점 불일치 skip ${etoosSkippedByFullScoreMismatch}건, rawCuts 단조성 skip ${etoosSkippedByNonMonotonicRawCuts}건)`);
 console.log(`manual verified rawCuts: ${manualApplied}건 (기존 rawCuts 유지 skip ${manualSkippedByExistingRawCuts}건, 표준점수 불일치 skip ${manualSkippedByStdMismatch}건, rawCuts 단조성 skip ${manualSkippedByNonMonotonicRawCuts}건)`);
 console.log(`crux rawCuts: ${cruxApplied}건 (기존 rawCuts 유지 skip ${cruxSkippedByExistingRawCuts}건, 표준점수 불일치 skip ${cruxSkippedByStdMismatch}건, rawCuts 단조성 skip ${cruxSkippedByNonMonotonicRawCuts}건)`);
+console.log(`EBSi gradecuts: ${ebsiApplied}건 (rawCuts 보강 ${ebsiRawApplied}건)`);
 console.log(`kice-archive 적재: ${kiceArchiveApplied}건 (rawCuts 보강 ${kiceArchiveRawApplied}건)`);
 console.log(`절대평가 자동 추가: ${absoluteApplied}건`);
 console.log(`최종: ${out.length}건`);
