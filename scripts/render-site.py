@@ -582,8 +582,8 @@ def render_splits(items: list[dict]) -> None:
 def render_gradecut_splits(items: list[dict]) -> None:
     """data/gradecuts.json → data/gradecut/{exam_id}.json 단건 분할.
 
-    exam.js가 data/gradecut/{id}.json 을 우선 fetch → 실패 시 data/gradecuts.json 폴백.
-    gradecut 엔트리에는 'id' 필드(매칭용 exam id)가 있으므로 이를 키로 사용한다.
+    exam.js는 시험 id로 data/gradecut/{id}.json 을 요청한다. 따라서 split 파일명은
+    gradecut record의 자체 id가 아니라 exams.json의 exam id여야 한다.
     """
     gc_path = ROOT / 'data' / 'gradecuts.json'
     if not gc_path.exists():
@@ -592,19 +592,43 @@ def render_gradecut_splits(items: list[dict]) -> None:
     cuts = json.loads(gc_path.read_text(encoding='utf-8'))
     out_dir = ROOT / 'data' / 'gradecut'
     out_dir.mkdir(exist_ok=True)
+
+    def cut_key(d: dict):
+        return (d.get('curriculum'), str(d.get('gradeYear')), d.get('type'),
+                d.get('subject'), d.get('subSubject'))
+
+    by_key: dict[tuple, list[dict]] = {}
+    by_key_grade: dict[tuple, dict] = {}
+    by_key_none: dict[tuple, dict] = {}
+    for c in cuts:
+        k = cut_key(c)
+        by_key.setdefault(k, []).append(c)
+        if c.get('studentGrade') is None:
+            by_key_none.setdefault(k, c)
+        else:
+            by_key_grade.setdefault(k + (c.get('studentGrade'),), c)
+
     written = 0
     seen_ids: set[int] = set()
-    for c in cuts:
-        cid = c.get('id')
-        if cid is None:
+    for it in items:
+        eid = it.get('id')
+        if eid is None:
             continue
-        seen_ids.add(cid)
-        p = out_dir / f'{cid}.json'
+        k = cut_key(it)
+        if it.get('typeGroup') == 'education':
+            c = by_key_grade.get(k + (it.get('studentGrade'),)) or by_key_none.get(k)
+        else:
+            c = by_key.get(k, [None])[0]
+        if not c:
+            continue
+        seen_ids.add(eid)
+        p = out_dir / f'{eid}.json'
         body = json.dumps(c, ensure_ascii=False, separators=(',', ':'))
         if not p.exists() or p.read_text(encoding='utf-8') != body:
             p.write_text(body, encoding='utf-8')
             written += 1
-    # 고아 split 제거
+
+    # 고아/옛 잘못 split 제거
     pruned = 0
     for p in out_dir.glob('*.json'):
         if p.stem.isdigit() and int(p.stem) not in seen_ids:
