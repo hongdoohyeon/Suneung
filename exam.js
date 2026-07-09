@@ -333,14 +333,14 @@ async function main() {
   // 미존재 시 통합 data/exams.json (~2MB) 로 폴백.
   let exam = null, gradecuts = [];
     try {
-      const singleRes = await fetch(`data/exam/${id}.json?v=20260707a`);
+      const singleRes = await fetch(`data/exam/${id}.json?v=20260709a`);
       if (singleRes.ok) exam = await singleRes.json();
     } catch { /* fall-through */ }
 
     // 등급컷 단건 split 우선: data/gradecut/{id}.json (~0.2KB)
     // 실패 시 전체 data/gradecuts.json (~400KB) 폴백.
     try {
-      const cutRes = await fetch(`data/gradecut/${id}.json?v=20260707a`);
+      const cutRes = await fetch(`data/gradecut/${id}.json?v=20260709a`);
       if (cutRes.ok) {
         const singleCut = await cutRes.json();
         gradecuts = [singleCut];
@@ -348,7 +348,7 @@ async function main() {
     } catch { /* fall-through to full gradecuts.json */ }
     if (gradecuts.length === 0) {
       try {
-        const cutRes = await fetch('data/gradecuts.json?v=20260707a');
+        const cutRes = await fetch('data/gradecuts.json?v=20260709a');
         if (cutRes.ok) gradecuts = await cutRes.json();
       } catch { /* fall-through */ }
     }
@@ -356,7 +356,7 @@ async function main() {
   // 단건 split 미배포 환경 폴백: 통합 exams.json
   if (!exam) {
     try {
-      const res = await fetch('data/exams.json?v=20260707a');
+      const res = await fetch('data/exams.json?v=20260709a');
       if (res.ok) {
         const exams = await res.json();
         exam = exams.find(e => e.id === id) ?? null;

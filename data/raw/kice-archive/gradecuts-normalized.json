@@ -8768,38 +8768,6 @@
     "studentGrade": 3
   },
   {
-    "curriculum": "2015",
-    "gradeYear": 2021,
-    "examYear": 2020,
-    "month": 6,
-    "typeGroup": "suneung",
-    "type": "june",
-    "subject": "사회탐구",
-    "subSubject": "정치와법",
-    "rawCuts": [
-      47,
-      42,
-      35,
-      28,
-      20,
-      14,
-      8,
-      6
-    ],
-    "standardCuts": [
-      68,
-      64,
-      58,
-      53,
-      46,
-      42,
-      37,
-      35
-    ],
-    "source": "kice-archive-2009",
-    "studentGrade": 3
-  },
-  {
     "curriculum": "2009",
     "gradeYear": 2021,
     "examYear": 2020,
@@ -11777,38 +11745,6 @@
   },
   {
     "curriculum": "2009",
-    "gradeYear": 2021,
-    "examYear": 2020,
-    "month": 9,
-    "typeGroup": "suneung",
-    "type": "sept",
-    "subject": "사회탐구",
-    "subSubject": "정치와법",
-    "rawCuts": [
-      47,
-      44,
-      36,
-      27,
-      18,
-      13,
-      9,
-      7
-    ],
-    "standardCuts": [
-      67,
-      65,
-      59,
-      52,
-      45,
-      41,
-      38,
-      36
-    ],
-    "source": "kice-archive-2009",
-    "studentGrade": 3
-  },
-  {
-    "curriculum": "2015",
     "gradeYear": 2021,
     "examYear": 2020,
     "month": 9,
@@ -21004,7 +20940,7 @@
     "studentGrade": 3
   },
   {
-    "curriculum": "2009",
+    "curriculum": "2007개정",
     "gradeYear": 2014,
     "examYear": 2013,
     "month": 9,
@@ -21027,7 +20963,7 @@
     "studentGrade": 3
   },
   {
-    "curriculum": "2009",
+    "curriculum": "2007개정",
     "gradeYear": 2014,
     "examYear": 2013,
     "month": 9,
@@ -21050,7 +20986,7 @@
     "studentGrade": 3
   },
   {
-    "curriculum": "2009",
+    "curriculum": "2007개정",
     "gradeYear": 2014,
     "examYear": 2013,
     "month": 9,
@@ -21096,7 +21032,7 @@
     "studentGrade": 3
   },
   {
-    "curriculum": "2009",
+    "curriculum": "2007개정",
     "gradeYear": 2014,
     "examYear": 2013,
     "month": 9,
@@ -21119,7 +21055,7 @@
     "studentGrade": 3
   },
   {
-    "curriculum": "2009",
+    "curriculum": "2007개정",
     "gradeYear": 2014,
     "examYear": 2013,
     "month": 9,
@@ -21142,7 +21078,7 @@
     "studentGrade": 3
   },
   {
-    "curriculum": "2009",
+    "curriculum": "2007개정",
     "gradeYear": 2014,
     "examYear": 2013,
     "month": 9,
@@ -21165,7 +21101,7 @@
     "studentGrade": 3
   },
   {
-    "curriculum": "2009",
+    "curriculum": "2007개정",
     "gradeYear": 2014,
     "examYear": 2013,
     "month": 9,
@@ -21625,7 +21561,7 @@
     "studentGrade": 3
   },
   {
-    "curriculum": "2009",
+    "curriculum": "2007개정",
     "gradeYear": 2014,
     "examYear": 2013,
     "month": 6,
@@ -21648,7 +21584,7 @@
     "studentGrade": 3
   },
   {
-    "curriculum": "2009",
+    "curriculum": "2007개정",
     "gradeYear": 2014,
     "examYear": 2013,
     "month": 6,
@@ -21671,7 +21607,7 @@
     "studentGrade": 3
   },
   {
-    "curriculum": "2009",
+    "curriculum": "2007개정",
     "gradeYear": 2014,
     "examYear": 2013,
     "month": 6,
@@ -21717,7 +21653,7 @@
     "studentGrade": 3
   },
   {
-    "curriculum": "2009",
+    "curriculum": "2007개정",
     "gradeYear": 2014,
     "examYear": 2013,
     "month": 6,
@@ -21740,7 +21676,7 @@
     "studentGrade": 3
   },
   {
-    "curriculum": "2009",
+    "curriculum": "2007개정",
     "gradeYear": 2014,
     "examYear": 2013,
     "month": 6,
@@ -21763,7 +21699,7 @@
     "studentGrade": 3
   },
   {
-    "curriculum": "2009",
+    "curriculum": "2007개정",
     "gradeYear": 2014,
     "examYear": 2013,
     "month": 6,
@@ -135344,11 +135280,11 @@
     "standardCuts": [
       131,
       125,
-      117,
+      118,
       108,
       95,
       81,
-      72,
+      73,
       68
     ],
     "source": "kice-archive-edu",
@@ -135366,7 +135302,7 @@
     "rawCuts": null,
     "standardCuts": [
       135,
-      127,
+      128,
       118,
       106,
       91,
@@ -135465,9 +135401,9 @@
       64,
       58,
       52,
-      46,
+      45,
       41,
-      37,
+      38,
       36
     ],
     "source": "kice-archive-edu",
@@ -135490,17 +135426,17 @@
       16,
       11,
       7,
-      null
+      6
     ],
     "standardCuts": [
-      68,
-      64,
+      70,
+      65,
       59,
-      52,
+      51,
       45,
-      41,
-      37,
-      null
+      42,
+      38,
+      37
     ],
     "source": "kice-archive-edu",
     "studentGrade": 3
@@ -135525,14 +135461,14 @@
       7
     ],
     "standardCuts": [
-      69,
-      64,
-      58,
-      52,
-      46,
-      41,
-      39,
-      37
+      70,
+      63,
+      57,
+      50,
+      45,
+      42,
+      40,
+      38
     ],
     "source": "kice-archive-edu",
     "studentGrade": 3
@@ -135561,10 +135497,10 @@
       65,
       59,
       51,
-      45,
+      44,
       41,
       39,
-      37
+      36
     ],
     "source": "kice-archive-edu",
     "studentGrade": 3
@@ -135591,12 +135527,12 @@
     "standardCuts": [
       71,
       65,
-      57,
-      50,
+      59,
+      51,
       45,
-      42,
+      41,
       39,
-      38
+      37
     ],
     "source": "kice-archive-edu",
     "studentGrade": 3
@@ -135621,13 +135557,13 @@
       7
     ],
     "standardCuts": [
-      68,
+      69,
       64,
-      60,
+      59,
       53,
-      46,
+      45,
       40,
-      37,
+      38,
       36
     ],
     "source": "kice-archive-edu",
@@ -135656,7 +135592,7 @@
       68,
       64,
       58,
-      52,
+      53,
       45,
       41,
       39,
@@ -135692,7 +135628,7 @@
       44,
       42,
       40,
-      38
+      39
     ],
     "source": "kice-archive-edu",
     "studentGrade": 3
@@ -135717,14 +135653,14 @@
       7
     ],
     "standardCuts": [
-      65,
-      63,
-      59,
+      66,
+      62,
+      58,
       54,
       46,
-      40,
-      37,
-      35
+      41,
+      36,
+      34
     ],
     "source": "kice-archive-edu",
     "studentGrade": 3
@@ -135749,14 +135685,14 @@
       5
     ],
     "standardCuts": [
-      68,
-      65,
-      59,
-      52,
-      45,
+      67,
+      64,
+      60,
+      53,
+      46,
       41,
-      39,
-      36
+      38,
+      35
     ],
     "source": "kice-archive-edu",
     "studentGrade": 3
@@ -135781,13 +135717,13 @@
       6
     ],
     "standardCuts": [
-      69,
+      70,
       64,
-      58,
+      59,
       51,
       45,
-      42,
-      39,
+      43,
+      40,
       37
     ],
     "source": "kice-archive-edu",
@@ -135813,14 +135749,14 @@
       9
     ],
     "standardCuts": [
-      66,
+      67,
       63,
-      58,
+      59,
       53,
-      47,
+      48,
       42,
-      37,
-      33
+      38,
+      35
     ],
     "source": "kice-archive-edu",
     "studentGrade": 3
@@ -135845,12 +135781,12 @@
       7
     ],
     "standardCuts": [
-      68,
+      69,
       64,
-      59,
-      53,
-      45,
-      40,
+      60,
+      52,
+      46,
+      41,
       38,
       36
     ],
@@ -135877,14 +135813,14 @@
       5
     ],
     "standardCuts": [
-      77,
-      63,
-      52,
-      48,
-      46,
+      76,
+      64,
+      55,
+      50,
+      47,
+      45,
       43,
-      41,
-      39
+      40
     ],
     "source": "kice-archive-edu",
     "studentGrade": 3
@@ -135909,14 +135845,14 @@
       6
     ],
     "standardCuts": [
-      75,
+      74,
       64,
-      55,
-      49,
-      45,
-      43,
+      56,
+      50,
+      46,
+      44,
       40,
-      39
+      38
     ],
     "source": "kice-archive-edu",
     "studentGrade": 3
@@ -135941,14 +135877,14 @@
       4
     ],
     "standardCuts": [
-      75,
-      62,
-      55,
-      49,
-      46,
+      74,
+      65,
+      57,
+      51,
+      48,
+      43,
       42,
-      41,
-      37
+      40
     ],
     "source": "kice-archive-edu",
     "studentGrade": 3
@@ -135973,14 +135909,14 @@
       5
     ],
     "standardCuts": [
-      78,
-      58,
-      53,
+      79,
+      61,
+      54,
+      51,
       49,
       47,
-      44,
-      42,
-      40
+      45,
+      42
     ],
     "source": "kice-archive-edu",
     "studentGrade": 3
@@ -137166,814 +137102,23 @@
     "studentGrade": 3
   },
   {
-    "curriculum": "2009",
-    "gradeYear": 2021,
-    "examYear": 2020,
-    "month": 5,
-    "typeGroup": "education",
-    "type": "may",
-    "subject": "국어",
-    "subSubject": null,
-    "rawCuts": [
-      95,
-      90,
-      81,
-      68,
-      55,
-      41,
-      28,
-      19
-    ],
-    "standardCuts": [
-      130,
-      126,
-      118,
-      107,
-      95,
-      83,
-      72,
-      64
-    ],
-    "source": "kice-archive-edu",
-    "studentGrade": 3
-  },
-  {
-    "curriculum": "2009",
-    "gradeYear": 2021,
-    "examYear": 2020,
-    "month": 5,
-    "typeGroup": "education",
-    "type": "may",
-    "subject": "수학",
-    "subSubject": "가형",
-    "rawCuts": [
-      81,
-      72,
-      62,
-      52,
-      41,
-      29,
-      19,
-      12
-    ],
-    "standardCuts": [
-      134,
-      125,
-      115,
-      106,
-      95,
-      83,
-      73,
-      67
-    ],
-    "source": "kice-archive-edu",
-    "studentGrade": 3
-  },
-  {
-    "curriculum": "2009",
-    "gradeYear": 2021,
-    "examYear": 2020,
-    "month": 5,
-    "typeGroup": "education",
-    "type": "may",
-    "subject": "수학",
-    "subSubject": "나형",
-    "rawCuts": [
-      88,
-      80,
-      67,
-      48,
-      27,
-      16,
-      12,
-      8
-    ],
-    "standardCuts": [
-      135,
-      129,
-      119,
-      105,
-      89,
-      81,
-      78,
-      75
-    ],
-    "source": "kice-archive-edu",
-    "studentGrade": 3
-  },
-  {
-    "curriculum": "2009",
-    "gradeYear": 2021,
-    "examYear": 2020,
-    "month": 5,
-    "typeGroup": "education",
-    "type": "may",
-    "subject": "영어",
-    "subSubject": null,
-    "rawCuts": [
-      90,
-      80,
-      70,
-      60,
-      50,
-      40,
-      30,
-      20
-    ],
-    "standardCuts": [
-      null,
-      null,
-      null,
-      null,
-      null,
-      null,
-      null,
-      null
-    ],
-    "source": "kice-archive-edu",
-    "studentGrade": 3
-  },
-  {
-    "curriculum": "2009",
-    "gradeYear": 2021,
-    "examYear": 2020,
-    "month": 5,
-    "typeGroup": "education",
-    "type": "may",
-    "subject": "한국사",
-    "subSubject": null,
-    "rawCuts": [
-      40,
-      35,
-      30,
-      25,
-      20,
-      15,
-      10,
-      5
-    ],
-    "standardCuts": [
-      null,
-      null,
-      null,
-      null,
-      null,
-      null,
-      null,
-      null
-    ],
-    "source": "kice-archive-edu",
-    "studentGrade": 3
-  },
-  {
-    "curriculum": "2009",
-    "gradeYear": 2021,
-    "examYear": 2020,
-    "month": 5,
-    "typeGroup": "education",
-    "type": "may",
-    "subject": "사회탐구",
-    "subSubject": "생활과윤리",
-    "rawCuts": [
-      41,
-      36,
-      31,
-      25,
-      19,
-      13,
-      9,
-      7
-    ],
-    "standardCuts": [
-      68,
-      63,
-      58,
-      52,
-      47,
-      41,
-      37,
-      35
-    ],
-    "source": "kice-archive-edu",
-    "studentGrade": 3
-  },
-  {
-    "curriculum": "2009",
-    "gradeYear": 2021,
-    "examYear": 2020,
-    "month": 5,
-    "typeGroup": "education",
-    "type": "may",
-    "subject": "사회탐구",
-    "subSubject": "윤리와사상",
-    "rawCuts": [
-      44,
-      37,
-      28,
-      19,
-      12,
-      9,
-      8,
-      5
-    ],
-    "standardCuts": [
-      71,
-      65,
-      57,
-      50,
-      44,
-      41,
-      40,
-      38
-    ],
-    "source": "kice-archive-edu",
-    "studentGrade": 3
-  },
-  {
-    "curriculum": "2009",
-    "gradeYear": 2021,
-    "examYear": 2020,
-    "month": 5,
-    "typeGroup": "education",
-    "type": "may",
-    "subject": "사회탐구",
-    "subSubject": "한국지리",
-    "rawCuts": [
-      47,
-      42,
-      36,
-      31,
-      24,
-      18,
-      13,
-      9
-    ],
-    "standardCuts": [
-      67,
-      63,
-      58,
-      53,
-      47,
-      42,
-      37,
-      34
-    ],
-    "source": "kice-archive-edu",
-    "studentGrade": 3
-  },
-  {
-    "curriculum": "2009",
-    "gradeYear": 2021,
-    "examYear": 2020,
-    "month": 5,
-    "typeGroup": "education",
-    "type": "may",
-    "subject": "사회탐구",
-    "subSubject": "세계사",
-    "rawCuts": [
-      47,
-      39,
-      27,
-      20,
-      15,
-      11,
-      9,
-      6
-    ],
-    "standardCuts": [
-      73,
-      66,
-      56,
-      50,
-      45,
-      42,
-      40,
-      38
-    ],
-    "source": "kice-archive-edu",
-    "studentGrade": 3
-  },
-  {
-    "curriculum": "2009",
-    "gradeYear": 2021,
-    "examYear": 2020,
-    "month": 5,
-    "typeGroup": "education",
-    "type": "may",
-    "subject": "사회탐구",
-    "subSubject": "세계지리",
-    "rawCuts": [
-      47,
-      45,
-      40,
-      33,
-      24,
-      17,
-      10,
-      8
-    ],
-    "standardCuts": [
-      65,
-      63,
-      59,
-      54,
-      47,
-      41,
-      36,
-      34
-    ],
-    "source": "kice-archive-edu",
-    "studentGrade": 3
-  },
-  {
-    "curriculum": "2009",
-    "gradeYear": 2021,
-    "examYear": 2020,
-    "month": 5,
-    "typeGroup": "education",
-    "type": "may",
-    "subject": "사회탐구",
-    "subSubject": "동아시아사",
-    "rawCuts": [
-      47,
-      41,
-      33,
-      23,
-      16,
-      12,
-      8,
-      6
-    ],
-    "standardCuts": [
-      70,
-      65,
-      59,
-      51,
-      45,
-      42,
-      39,
-      37
-    ],
-    "source": "kice-archive-edu",
-    "studentGrade": 3
-  },
-  {
-    "curriculum": "2009",
-    "gradeYear": 2021,
-    "examYear": 2020,
-    "month": 5,
-    "typeGroup": "education",
-    "type": "may",
-    "subject": "사회탐구",
-    "subSubject": "법과정치",
-    "rawCuts": [
-      45,
-      37,
-      29,
-      22,
-      16,
-      11,
-      7,
-      5
-    ],
-    "standardCuts": [
-      71,
-      64,
-      57,
-      51,
-      46,
-      42,
-      38,
-      36
-    ],
-    "source": "kice-archive-edu",
-    "studentGrade": 3
-  },
-  {
-    "curriculum": "2009",
-    "gradeYear": 2021,
-    "examYear": 2020,
-    "month": 5,
-    "typeGroup": "education",
-    "type": "may",
-    "subject": "사회탐구",
-    "subSubject": "정치와법",
-    "rawCuts": [
-      45,
-      37,
-      29,
-      22,
-      16,
-      11,
-      7,
-      5
-    ],
-    "standardCuts": [
-      71,
-      64,
-      57,
-      51,
-      46,
-      42,
-      38,
-      36
-    ],
-    "source": "kice-archive-edu",
-    "studentGrade": 3
-  },
-  {
-    "curriculum": "2015",
-    "gradeYear": 2021,
-    "examYear": 2020,
-    "month": 5,
-    "typeGroup": "education",
-    "type": "may",
-    "subject": "사회탐구",
-    "subSubject": "정치와법",
-    "rawCuts": [
-      45,
-      37,
-      29,
-      22,
-      16,
-      11,
-      7,
-      5
-    ],
-    "standardCuts": [
-      71,
-      64,
-      57,
-      51,
-      46,
-      42,
-      38,
-      36
-    ],
-    "source": "kice-archive-edu",
-    "studentGrade": 3
-  },
-  {
-    "curriculum": "2009",
-    "gradeYear": 2021,
-    "examYear": 2020,
-    "month": 5,
-    "typeGroup": "education",
-    "type": "may",
-    "subject": "사회탐구",
-    "subSubject": "경제",
-    "rawCuts": [
-      47,
-      37,
-      28,
-      20,
-      13,
-      11,
-      8,
-      5
-    ],
-    "standardCuts": [
-      73,
-      64,
-      57,
-      50,
-      44,
-      42,
-      40,
-      37
-    ],
-    "source": "kice-archive-edu",
-    "studentGrade": 3
-  },
-  {
-    "curriculum": "2009",
-    "gradeYear": 2021,
-    "examYear": 2020,
-    "month": 5,
-    "typeGroup": "education",
-    "type": "may",
-    "subject": "사회탐구",
-    "subSubject": "사회·문화",
-    "rawCuts": [
-      47,
-      42,
-      35,
-      28,
-      20,
-      15,
-      10,
-      7
-    ],
-    "standardCuts": [
-      68,
-      64,
-      58,
-      52,
-      46,
-      41,
-      37,
-      35
-    ],
-    "source": "kice-archive-edu",
-    "studentGrade": 3
-  },
-  {
-    "curriculum": "2009",
-    "gradeYear": 2021,
-    "examYear": 2020,
-    "month": 5,
-    "typeGroup": "education",
-    "type": "may",
-    "subject": "과학탐구",
-    "subSubject": "물리Ⅰ",
-    "rawCuts": [
-      47,
-      42,
-      37,
-      30,
-      19,
-      14,
-      9,
-      7
-    ],
-    "standardCuts": [
-      67,
-      63,
-      59,
-      53,
-      45,
-      41,
-      37,
-      35
-    ],
-    "source": "kice-archive-edu",
-    "studentGrade": 3
-  },
-  {
-    "curriculum": "2009",
-    "gradeYear": 2021,
-    "examYear": 2020,
-    "month": 5,
-    "typeGroup": "education",
-    "type": "may",
-    "subject": "과학탐구",
-    "subSubject": "화학Ⅰ",
-    "rawCuts": [
-      47,
-      41,
-      34,
-      25,
-      18,
-      14,
-      11,
-      7
-    ],
-    "standardCuts": [
-      70,
-      65,
-      59,
-      51,
-      45,
-      42,
-      39,
-      36
-    ],
-    "source": "kice-archive-edu",
-    "studentGrade": 3
-  },
-  {
-    "curriculum": "2009",
-    "gradeYear": 2021,
-    "examYear": 2020,
-    "month": 5,
-    "typeGroup": "education",
-    "type": "may",
-    "subject": "과학탐구",
-    "subSubject": "생명과학Ⅰ",
-    "rawCuts": [
-      42,
-      37,
-      30,
-      22,
-      16,
-      12,
-      9,
-      6
-    ],
-    "standardCuts": [
-      69,
-      65,
-      58,
-      51,
-      45,
-      42,
-      39,
-      36
-    ],
-    "source": "kice-archive-edu",
-    "studentGrade": 3
-  },
-  {
-    "curriculum": "2009",
-    "gradeYear": 2021,
-    "examYear": 2020,
-    "month": 5,
-    "typeGroup": "education",
-    "type": "may",
-    "subject": "과학탐구",
-    "subSubject": "지구과학Ⅰ",
-    "rawCuts": [
-      44,
-      37,
-      28,
-      22,
-      15,
-      11,
-      8,
-      5
-    ],
-    "standardCuts": [
-      71,
-      65,
-      57,
-      51,
-      45,
-      42,
-      39,
-      36
-    ],
-    "source": "kice-archive-edu",
-    "studentGrade": 3
-  },
-  {
-    "curriculum": "2009",
-    "gradeYear": 2021,
-    "examYear": 2020,
-    "month": 5,
-    "typeGroup": "education",
-    "type": "may",
-    "subject": "과학탐구",
-    "subSubject": "물리Ⅱ",
-    "rawCuts": [
-      44,
-      35,
-      24,
-      16,
-      12,
-      10,
-      7,
-      5
-    ],
-    "standardCuts": [
-      74,
-      66,
-      56,
-      49,
-      45,
-      43,
-      41,
-      39
-    ],
-    "source": "kice-archive-edu",
-    "studentGrade": 3
-  },
-  {
-    "curriculum": "2009",
-    "gradeYear": 2021,
-    "examYear": 2020,
-    "month": 5,
-    "typeGroup": "education",
-    "type": "may",
-    "subject": "과학탐구",
-    "subSubject": "화학Ⅱ",
-    "rawCuts": [
-      44,
-      37,
-      28,
-      19,
-      14,
-      11,
-      8,
-      4
-    ],
-    "standardCuts": [
-      71,
-      65,
-      57,
-      49,
-      45,
-      43,
-      40,
-      37
-    ],
-    "source": "kice-archive-edu",
-    "studentGrade": 3
-  },
-  {
-    "curriculum": "2009",
-    "gradeYear": 2021,
-    "examYear": 2020,
-    "month": 5,
-    "typeGroup": "education",
-    "type": "may",
-    "subject": "과학탐구",
-    "subSubject": "생명과학Ⅱ",
-    "rawCuts": [
-      47,
-      39,
-      26,
-      18,
-      13,
-      10,
-      7,
-      4
-    ],
-    "standardCuts": [
-      73,
-      66,
-      56,
-      49,
-      45,
-      43,
-      40,
-      38
-    ],
-    "source": "kice-archive-edu",
-    "studentGrade": 3
-  },
-  {
-    "curriculum": "2009",
-    "gradeYear": 2021,
-    "examYear": 2020,
-    "month": 5,
-    "typeGroup": "education",
-    "type": "may",
-    "subject": "과학탐구",
-    "subSubject": "지구과학Ⅱ",
-    "rawCuts": [
-      45,
-      35,
-      24,
-      16,
-      12,
-      9,
-      6,
-      3
-    ],
-    "standardCuts": [
-      74,
-      65,
-      56,
-      49,
-      45,
-      43,
-      40,
-      38
-    ],
-    "source": "kice-archive-edu",
-    "studentGrade": 3
-  },
-  {
     "curriculum": "2015",
     "gradeYear": 2027,
     "examYear": 2026,
-    "month": 5,
+    "month": 7,
     "typeGroup": "education",
-    "type": "may",
-    "subject": "국어",
-    "subSubject": null,
-    "rawCuts": null,
-    "standardCuts": [
-      129,
-      124,
-      118,
-      109,
-      96,
-      82,
-      70,
-      65
-    ],
-    "source": "kice-archive-edu",
-    "studentGrade": 3
-  },
-  {
-    "curriculum": "2015",
-    "gradeYear": 2027,
-    "examYear": 2026,
-    "month": 5,
-    "typeGroup": "education",
-    "type": "may",
+    "type": "jul",
     "subject": "국어",
     "subSubject": "화법과작문",
     "rawCuts": [
-      96,
       90,
       83,
-      72,
-      56,
-      39,
-      24,
-      18
+      75,
+      63,
+      48,
+      32,
+      23,
+      17
     ],
     "standardCuts": [
       null,
@@ -137992,18 +137137,18 @@
     "curriculum": "2015",
     "gradeYear": 2027,
     "examYear": 2026,
-    "month": 5,
+    "month": 7,
     "typeGroup": "education",
-    "type": "may",
+    "type": "jul",
     "subject": "국어",
     "subSubject": "언어와매체",
     "rawCuts": [
-      94,
-      88,
-      80,
-      69,
-      54,
-      36,
+      87,
+      81,
+      73,
+      61,
+      47,
+      31,
       22,
       16
     ],
@@ -138024,43 +137169,20 @@
     "curriculum": "2015",
     "gradeYear": 2027,
     "examYear": 2026,
-    "month": 5,
+    "month": 7,
     "typeGroup": "education",
-    "type": "may",
-    "subject": "수학",
-    "subSubject": null,
-    "rawCuts": null,
-    "standardCuts": [
-      133,
-      126,
-      119,
-      106,
-      89,
-      80,
-      77,
-      73
-    ],
-    "source": "kice-archive-edu",
-    "studentGrade": 3
-  },
-  {
-    "curriculum": "2015",
-    "gradeYear": 2027,
-    "examYear": 2026,
-    "month": 5,
-    "typeGroup": "education",
-    "type": "may",
+    "type": "jul",
     "subject": "수학",
     "subSubject": "확률과통계",
     "rawCuts": [
-      86,
+      85,
       76,
-      67,
-      50,
-      28,
-      17,
-      13,
-      8
+      63,
+      48,
+      29,
+      15,
+      10,
+      6
     ],
     "standardCuts": [
       null,
@@ -138079,20 +137201,20 @@
     "curriculum": "2015",
     "gradeYear": 2027,
     "examYear": 2026,
-    "month": 5,
+    "month": 7,
     "typeGroup": "education",
-    "type": "may",
+    "type": "jul",
     "subject": "수학",
     "subSubject": "미적분",
     "rawCuts": [
-      82,
-      73,
-      64,
-      47,
-      25,
-      14,
-      10,
-      5
+      80,
+      71,
+      59,
+      44,
+      26,
+      12,
+      7,
+      4
     ],
     "standardCuts": [
       null,
@@ -138111,638 +137233,30 @@
     "curriculum": "2015",
     "gradeYear": 2027,
     "examYear": 2026,
-    "month": 5,
+    "month": 7,
     "typeGroup": "education",
-    "type": "may",
+    "type": "jul",
     "subject": "수학",
     "subSubject": "기하",
     "rawCuts": [
-      83,
-      74,
-      65,
-      49,
-      27,
-      15,
-      11,
-      6
-    ],
-    "standardCuts": [
-      null,
-      null,
-      null,
-      null,
-      null,
-      null,
-      null,
-      null
-    ],
-    "source": "kice-archive-edu",
-    "studentGrade": 3
-  },
-  {
-    "curriculum": "2015",
-    "gradeYear": 2027,
-    "examYear": 2026,
-    "month": 5,
-    "typeGroup": "education",
-    "type": "may",
-    "subject": "영어",
-    "subSubject": null,
-    "rawCuts": [
-      90,
-      80,
-      70,
-      60,
-      50,
-      40,
-      30,
-      20
-    ],
-    "standardCuts": [
-      null,
-      null,
-      null,
-      null,
-      null,
-      null,
-      null,
-      null
-    ],
-    "source": "kice-archive-edu",
-    "studentGrade": 3
-  },
-  {
-    "curriculum": "2015",
-    "gradeYear": 2027,
-    "examYear": 2026,
-    "month": 5,
-    "typeGroup": "education",
-    "type": "may",
-    "subject": "한국사",
-    "subSubject": null,
-    "rawCuts": [
-      40,
-      35,
-      30,
-      25,
-      20,
-      15,
-      10,
-      5
-    ],
-    "standardCuts": [
-      null,
-      null,
-      null,
-      null,
-      null,
-      null,
-      null,
-      null
-    ],
-    "source": "kice-archive-edu",
-    "studentGrade": 3
-  },
-  {
-    "curriculum": "2015",
-    "gradeYear": 2027,
-    "examYear": 2026,
-    "month": 5,
-    "typeGroup": "education",
-    "type": "may",
-    "subject": "사회탐구",
-    "subSubject": "생활과윤리",
-    "rawCuts": [
-      45,
-      40,
-      34,
-      28,
-      22,
-      14,
-      10,
-      7
-    ],
-    "standardCuts": [
-      68,
-      63,
-      58,
-      53,
-      48,
-      41,
-      38,
-      35
-    ],
-    "source": "kice-archive-edu",
-    "studentGrade": 3
-  },
-  {
-    "curriculum": "2015",
-    "gradeYear": 2027,
-    "examYear": 2026,
-    "month": 5,
-    "typeGroup": "education",
-    "type": "may",
-    "subject": "사회탐구",
-    "subSubject": "윤리와사상",
-    "rawCuts": [
-      44,
-      37,
-      30,
-      23,
-      15,
-      12,
-      9,
-      6
-    ],
-    "standardCuts": [
-      71,
-      65,
-      58,
-      52,
-      45,
-      43,
-      40,
-      37
-    ],
-    "source": "kice-archive-edu",
-    "studentGrade": 3
-  },
-  {
-    "curriculum": "2015",
-    "gradeYear": 2027,
-    "examYear": 2026,
-    "month": 5,
-    "typeGroup": "education",
-    "type": "may",
-    "subject": "사회탐구",
-    "subSubject": "한국지리",
-    "rawCuts": [
-      43,
-      39,
-      30,
-      24,
-      17,
-      12,
-      8,
-      6
-    ],
-    "standardCuts": [
-      69,
-      65,
-      57,
-      52,
-      46,
-      42,
-      38,
-      36
-    ],
-    "source": "kice-archive-edu",
-    "studentGrade": 3
-  },
-  {
-    "curriculum": "2015",
-    "gradeYear": 2027,
-    "examYear": 2026,
-    "month": 5,
-    "typeGroup": "education",
-    "type": "may",
-    "subject": "사회탐구",
-    "subSubject": "세계사",
-    "rawCuts": [
-      50,
-      45,
-      36,
-      26,
-      17,
-      13,
-      9,
-      6
-    ],
-    "standardCuts": [
-      69,
-      65,
-      59,
-      51,
-      45,
-      42,
-      39,
-      36
-    ],
-    "source": "kice-archive-edu",
-    "studentGrade": 3
-  },
-  {
-    "curriculum": "2015",
-    "gradeYear": 2027,
-    "examYear": 2026,
-    "month": 5,
-    "typeGroup": "education",
-    "type": "may",
-    "subject": "사회탐구",
-    "subSubject": "세계지리",
-    "rawCuts": [
-      47,
-      43,
-      38,
-      31,
-      23,
-      15,
-      11,
-      7
-    ],
-    "standardCuts": [
-      67,
-      63,
-      59,
-      53,
-      47,
-      40,
-      37,
-      34
-    ],
-    "source": "kice-archive-edu",
-    "studentGrade": 3
-  },
-  {
-    "curriculum": "2015",
-    "gradeYear": 2027,
-    "examYear": 2026,
-    "month": 5,
-    "typeGroup": "education",
-    "type": "may",
-    "subject": "사회탐구",
-    "subSubject": "동아시아사",
-    "rawCuts": [
-      48,
-      41,
-      35,
-      27,
-      19,
-      13,
-      10,
-      7
-    ],
-    "standardCuts": [
-      69,
-      64,
-      59,
-      52,
-      46,
-      41,
-      38,
-      36
-    ],
-    "source": "kice-archive-edu",
-    "studentGrade": 3
-  },
-  {
-    "curriculum": "2015",
-    "gradeYear": 2027,
-    "examYear": 2026,
-    "month": 5,
-    "typeGroup": "education",
-    "type": "may",
-    "subject": "사회탐구",
-    "subSubject": "정치와법",
-    "rawCuts": [
-      48,
-      42,
-      35,
-      27,
-      19,
-      12,
-      9,
-      6
-    ],
-    "standardCuts": [
-      69,
-      65,
-      59,
-      53,
-      46,
-      41,
-      38,
-      36
-    ],
-    "source": "kice-archive-edu",
-    "studentGrade": 3
-  },
-  {
-    "curriculum": "2015",
-    "gradeYear": 2027,
-    "examYear": 2026,
-    "month": 5,
-    "typeGroup": "education",
-    "type": "may",
-    "subject": "사회탐구",
-    "subSubject": "경제",
-    "rawCuts": [
-      39,
-      31,
-      23,
-      17,
-      12,
-      10,
-      7,
-      5
-    ],
-    "standardCuts": [
-      72,
-      64,
-      57,
-      51,
-      46,
-      44,
-      41,
-      39
-    ],
-    "source": "kice-archive-edu",
-    "studentGrade": 3
-  },
-  {
-    "curriculum": "2015",
-    "gradeYear": 2027,
-    "examYear": 2026,
-    "month": 5,
-    "typeGroup": "education",
-    "type": "may",
-    "subject": "사회탐구",
-    "subSubject": "사회·문화",
-    "rawCuts": [
-      45,
-      42,
-      36,
-      30,
-      22,
-      15,
-      11,
-      7
-    ],
-    "standardCuts": [
-      66,
-      63,
-      58,
-      53,
-      46,
-      41,
-      37,
-      34
-    ],
-    "source": "kice-archive-edu",
-    "studentGrade": 3
-  },
-  {
-    "curriculum": "2015",
-    "gradeYear": 2027,
-    "examYear": 2026,
-    "month": 5,
-    "typeGroup": "education",
-    "type": "may",
-    "subject": "과학탐구",
-    "subSubject": "물리학Ⅰ",
-    "rawCuts": [
-      46,
-      41,
-      34,
-      24,
-      18,
-      12,
-      9,
-      6
-    ],
-    "standardCuts": [
-      69,
-      65,
-      59,
-      51,
-      46,
-      41,
-      38,
-      36
-    ],
-    "source": "kice-archive-edu",
-    "studentGrade": 3
-  },
-  {
-    "curriculum": "2015",
-    "gradeYear": 2027,
-    "examYear": 2026,
-    "month": 5,
-    "typeGroup": "education",
-    "type": "may",
-    "subject": "과학탐구",
-    "subSubject": "화학Ⅰ",
-    "rawCuts": [
-      47,
-      43,
-      36,
-      28,
-      20,
-      14,
-      10,
-      7
-    ],
-    "standardCuts": [
-      68,
-      64,
-      59,
-      52,
-      45,
-      40,
-      37,
-      35
-    ],
-    "source": "kice-archive-edu",
-    "studentGrade": 3
-  },
-  {
-    "curriculum": "2015",
-    "gradeYear": 2027,
-    "examYear": 2026,
-    "month": 5,
-    "typeGroup": "education",
-    "type": "may",
-    "subject": "과학탐구",
-    "subSubject": "생명과학Ⅰ",
-    "rawCuts": [
-      43,
-      40,
-      34,
-      27,
-      20,
-      14,
-      10,
-      6
-    ],
-    "standardCuts": [
-      67,
-      64,
-      59,
-      53,
-      47,
-      41,
-      38,
-      34
-    ],
-    "source": "kice-archive-edu",
-    "studentGrade": 3
-  },
-  {
-    "curriculum": "2015",
-    "gradeYear": 2027,
-    "examYear": 2026,
-    "month": 5,
-    "typeGroup": "education",
-    "type": "may",
-    "subject": "과학탐구",
-    "subSubject": "지구과학Ⅰ",
-    "rawCuts": [
-      48,
-      44,
-      37,
-      28,
-      19,
-      12,
-      9,
-      6
-    ],
-    "standardCuts": [
-      67,
-      64,
-      59,
-      52,
-      45,
-      40,
-      38,
-      36
-    ],
-    "source": "kice-archive-edu",
-    "studentGrade": 3
-  },
-  {
-    "curriculum": "2015",
-    "gradeYear": 2027,
-    "examYear": 2026,
-    "month": 5,
-    "typeGroup": "education",
-    "type": "may",
-    "subject": "과학탐구",
-    "subSubject": "물리학Ⅱ",
-    "rawCuts": [
-      42,
-      32,
-      22,
-      15,
-      11,
-      9,
-      7,
-      5
-    ],
-    "standardCuts": [
-      74,
-      65,
-      56,
-      50,
-      46,
-      44,
-      42,
-      41
-    ],
-    "source": "kice-archive-edu",
-    "studentGrade": 3
-  },
-  {
-    "curriculum": "2015",
-    "gradeYear": 2027,
-    "examYear": 2026,
-    "month": 5,
-    "typeGroup": "education",
-    "type": "may",
-    "subject": "과학탐구",
-    "subSubject": "화학Ⅱ",
-    "rawCuts": [
-      43,
-      33,
-      23,
-      15,
-      11,
-      9,
-      7,
-      4
-    ],
-    "standardCuts": [
-      73,
-      64,
-      56,
-      49,
-      45,
-      44,
-      42,
-      39
-    ],
-    "source": "kice-archive-edu",
-    "studentGrade": 3
-  },
-  {
-    "curriculum": "2015",
-    "gradeYear": 2027,
-    "examYear": 2026,
-    "month": 5,
-    "typeGroup": "education",
-    "type": "may",
-    "subject": "과학탐구",
-    "subSubject": "생명과학Ⅱ",
-    "rawCuts": [
-      43,
-      32,
-      23,
-      15,
-      11,
-      8,
-      6,
-      4
-    ],
-    "standardCuts": [
-      74,
-      64,
-      56,
-      49,
-      46,
-      43,
-      41,
-      40
-    ],
-    "source": "kice-archive-edu",
-    "studentGrade": 3
-  },
-  {
-    "curriculum": "2015",
-    "gradeYear": 2027,
-    "examYear": 2026,
-    "month": 5,
-    "typeGroup": "education",
-    "type": "may",
-    "subject": "과학탐구",
-    "subSubject": "지구과학Ⅱ",
-    "rawCuts": [
-      42,
-      29,
-      21,
-      14,
-      10,
-      8,
-      6,
-      4
-    ],
-    "standardCuts": [
+      84,
       75,
-      63,
-      56,
-      50,
-      46,
-      44,
-      42,
-      41
+      62,
+      47,
+      29,
+      15,
+      10,
+      6
+    ],
+    "standardCuts": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
     ],
     "source": "kice-archive-edu",
     "studentGrade": 3

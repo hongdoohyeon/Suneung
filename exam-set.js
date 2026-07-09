@@ -181,7 +181,7 @@ async function main() {
 
   let exams = [];
   try {
-    const res = await fetch('data/exams.json?v=20260707a');
+    const res = await fetch('data/exams.json?v=20260709a');
     if (res.ok) exams = await res.json();
   } catch { /* fall-through */ }
 
