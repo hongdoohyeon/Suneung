@@ -1,0 +1,67 @@
+[
+  {
+    "curriculum": "2015",
+    "gradeYear": 2027,
+    "examYear": 2026,
+    "month": 6,
+    "typeGroup": "suneung",
+    "type": "june",
+    "subject": "국어",
+    "subSubject": "화법과작문",
+    "rawCuts": [96.5, 90.5, 82, 70.5, 56.5, 40.5, 27.5, 20],
+    "fullScore": 100,
+    "source": "jinhak-7agency-avg-20260605"
+  },
+  {
+    "curriculum": "2015",
+    "gradeYear": 2027,
+    "examYear": 2026,
+    "month": 6,
+    "typeGroup": "suneung",
+    "type": "june",
+    "subject": "국어",
+    "subSubject": "언어와매체",
+    "rawCuts": [95, 89, 80.5, 69.5, 55.5, 40, 26.5, 19],
+    "fullScore": 100,
+    "source": "jinhak-7agency-avg-20260605"
+  },
+  {
+    "curriculum": "2015",
+    "gradeYear": 2027,
+    "examYear": 2026,
+    "month": 6,
+    "typeGroup": "suneung",
+    "type": "june",
+    "subject": "수학",
+    "subSubject": "확률과통계",
+    "rawCuts": [91.5, 83.5, 76.5, 64.5, 42, 23, 15.5, 11.5],
+    "fullScore": 100,
+    "source": "jinhak-7agency-avg-20260605"
+  },
+  {
+    "curriculum": "2015",
+    "gradeYear": 2027,
+    "examYear": 2026,
+    "month": 6,
+    "typeGroup": "suneung",
+    "type": "june",
+    "subject": "수학",
+    "subSubject": "미적분",
+    "rawCuts": [87.5, 79.5, 72, 60, 38, 19.5, 11.5, 7.5],
+    "fullScore": 100,
+    "source": "jinhak-7agency-avg-20260605"
+  },
+  {
+    "curriculum": "2015",
+    "gradeYear": 2027,
+    "examYear": 2026,
+    "month": 6,
+    "typeGroup": "suneung",
+    "type": "june",
+    "subject": "수학",
+    "subSubject": "기하",
+    "rawCuts": [88.5, 81, 73.5, 62, 39.5, 21, 13.5, 10],
+    "fullScore": 100,
+    "source": "jinhak-7agency-avg-20260605"
+  }
+]
