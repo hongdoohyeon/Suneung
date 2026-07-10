@@ -381,10 +381,9 @@ function yearChipLabel(y, isEdu) {
   if (conf?.id === '예비' && typeof y === 'number') {
     return `${String(y).slice(-2)}예비`;
   }
-  const disp = isEdu ? y - 1 : y;
+  const disp = isEdu ? (getTabConf(state.tab)?.key === 'senior' ? y - 1 : y) : y;
   return `${disp}${isEdu ? '년' : '학년도'}`;
 }
-
 // 탭의 curriculum 들이 학년도 범위에서 겹치는지 — 겹치면 header 그룹화가 잘못됨
 // (예: 사관·경찰대는 둘 다 2007~2026 → 모두 첫 conf로 매핑되어 "사관"만 표시).
 function curriculumsOverlap() {

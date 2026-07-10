@@ -20,9 +20,9 @@ export const TAB_CONFIG = [
   { key: 'gradschool', label: 'LEET·MEET', sub: '전문대학원',       curriculums: ['LEET', 'MEET'] },
   // 고1·고2: 교육청 학평만 (typeGroup=education, studentGrade=2/1)
   { key: 'junior',     label: '고2',       sub: '학평',
-    curriculums: ['2015', '2009'], educationGrades: [2], educationOnly: true },
+    curriculums: ['2015', '2009', '2007개정', '7차'], educationGrades: [2], educationOnly: true },
   { key: 'freshman',   label: '고1',       sub: '학평',
-    curriculums: ['2015', '2009'], educationGrades: [1], educationOnly: true },
+    curriculums: ['2015', '2009', '2007개정', '7차'], educationGrades: [1], educationOnly: true },
   { key: 'essay',      label: '논술',      sub: '대학별 기출', curriculums: ['논술'] },
   // 검정고시: 고1·고2·고3처럼 학력별 탭으로 분리 (학력마다 과목셋이 달라 혼합 방지)
   { key: 'gedhigh',    label: '고졸',      sub: '검정고시',    curriculums: ['고졸'] },
@@ -129,7 +129,7 @@ export const CURRICULUM_CONFIG = {
     label: '7차 교육과정',
     rangeLabel: '2005~2011학년도',
     gradeYearRange: [2005, 2011],
-    availableTypeGroups: ['suneung'],
+    availableTypeGroups: ['suneung', 'education'],
     subjects: {
       '국어':       { icon: '📖', bg: '#fff0e8', color: '#c44b00', subs: ['듣기대본'] },
       '수학':       { icon: '📐', bg: '#eef2ff', color: '#1a4fd6', subs: ['가형','나형'] },
@@ -143,6 +143,8 @@ export const CURRICULUM_CONFIG = {
                      subs: ['기초 제도','농업 기초 기술','농업 이해','상업 경제','인간 발달','회계 원리'] },
       '제2외국어':  { icon: '🗣️', bg: '#f3e8ff', color: '#5a2ea8',
                      subs: ['독일어','러시아어','스페인어','아랍어','일본어','중국어','프랑스어','한문'] },
+      '한국사':    { icon: '🏛️', bg: '#fdf3e7', color: '#8f5610', subs: [] },
+      '통합탐구':  { icon: '🔬', bg: '#f0e8ff', color: '#6b2fbe', subs: [] },
     },
     subjectsByTypeGroup: {},
   },
@@ -153,7 +155,7 @@ export const CURRICULUM_CONFIG = {
     label: '2007 개정',
     rangeLabel: '2012~2013학년도',
     gradeYearRange: [2012, 2013],
-    availableTypeGroups: ['suneung'],
+    availableTypeGroups: ['suneung', 'education'],
     subjects: {
       '국어':       { icon: '📖', bg: '#fff0e8', color: '#c44b00', subs: [] },
       '수학':       { icon: '📐', bg: '#eef2ff', color: '#1a4fd6', subs: ['가형','나형'] },
@@ -166,6 +168,8 @@ export const CURRICULUM_CONFIG = {
                      subs: ['기초 제도','농업 기초 기술','농업 이해','상업 경제','인간 발달','회계 원리'] },
       '제2외국어':  { icon: '🗣️', bg: '#f3e8ff', color: '#5a2ea8',
                      subs: ['독일어','러시아어','스페인어','아랍어','일본어','중국어','프랑스어','한문'] },
+      '한국사':    { icon: '🏛️', bg: '#fdf3e7', color: '#8f5610', subs: [] },
+      '통합탐구':  { icon: '🔬', bg: '#f0e8ff', color: '#6b2fbe', subs: [] },
     },
     subjectsByTypeGroup: {},
   },
