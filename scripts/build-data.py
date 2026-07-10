@@ -84,6 +84,16 @@ KOREAN_DOC_LABEL = {'q': '문제지', 'a': '정답', 's': '해설',
                     'l': '듣기', 't': '듣기 스크립트'}
 
 
+def _has_batchim(text: str) -> bool:
+    """문구 마지막 한글 음절의 받침 여부."""
+    for ch in reversed(text):
+        if '가' <= ch <= '힣':
+            return (ord(ch) - ord('가')) % 28 > 0
+        if ch.isalnum():
+            return False
+    return False
+
+
 def discover_release_tags() -> list[str]:
     """gh CLI 로 repo의 모든 release tag 동적 수집.
     하드코드 KICE_RELEASES/FUTURE_RELEASE 의존 제거 — 새 release가 생기면 자동 반영.
@@ -924,21 +934,21 @@ def build_exam_meta(it: dict) -> dict:
         if it.get('listenUrl'):    assets.append('영어 듣기 MP3')
         if it.get('scriptUrl'):    assets.append('듣기 대본 PDF')
         _last = assets[-1] if assets else ''
-        _has_batchim = bool(_last) and '가' <= _last[-1] <= '힣' and (ord(_last[-1]) - ord('가')) % 28 > 0
-        _particle = '을' if _has_batchim else '를'
+        _particle = '을' if _has_batchim(_last) else '를'
         assets_phrase = ('·'.join(assets) + _particle + ' ') if assets else ''
+        alias_particle = '으로도' if _has_batchim(alias_phrase) else '로도'
         if is_english and has_listen:
             intro = (
                 f'{full_phrase} 기출 자료입니다. '
                 + (f'{assets_phrase}한 페이지에서 확인하세요. ' if assets_phrase else '')
-                + (f'{alias_phrase}로도 검색되는 시험입니다. ' if alias_phrase else '')
+                + (f'{alias_phrase}{alias_particle} 검색되는 시험입니다. ' if alias_phrase else '')
                 + '듣기평가 음원과 영어 영역 기출답을 한 페이지에서 확인하세요.'
             )
         else:
             intro = (
                 f'{full_phrase} 기출 자료입니다. '
                 + (f'{assets_phrase}한 페이지에서 확인하세요. ' if assets_phrase else '')
-                + (f'{alias_phrase}로도 검색되는 시험입니다.' if alias_phrase else '')
+                + (f'{alias_phrase}{alias_particle} 검색되는 시험입니다.' if alias_phrase else '')
             )
 
     # JSON-LD keywords 배열 — 핵심어만(스터핑 방지): 제목·과목·대표 별칭 3개 + 자료유형 키워드
@@ -1410,6 +1420,11 @@ def build_set_meta(curr: str, year: str, t: str, sg: int | None, exams_in_set: l
         short = lbl
         full = f'{gy}학년도 대학별 수시 {lbl}고사 (고려대·연세대·서강대·성균관대·중앙대 등)'
         aliases = [f'{gy2} {lbl}', f'{gy}학년도 {lbl} 기출', f'{gy} 대학 논술']
+    elif curr == 'reference':
+        head = 'KICE 공식 수능 통계'
+        short = '수능 통계'
+        full = '한국교육과정평가원(KICE) 공식 수능 통계'
+        aliases = ['수능 응시현황', '수능 접수현황', '수능 채점현황']
     elif curr in ('초졸', '중졸', '고졸'):
         sess = '2' if t == 'ged_2' else '1'
         head = f'{gy}년 제{sess}회 {curr} 검정고시'
@@ -1429,8 +1444,12 @@ def build_set_meta(curr: str, year: str, t: str, sg: int | None, exams_in_set: l
     subjects = sorted({e['subject'] for e in exams_in_set if e.get('subject')})
     subj_phrase = '·'.join(subjects[:6])
     is_ged = curr in ('초졸', '중졸', '고졸')
+    is_reference = curr == 'reference'
 
-    if is_ged:
+    if is_reference:
+        title = f'{head} PDF — 기출해체분석기'
+        desc = f'{full} 응시·접수·채점 현황 PDF를 한 페이지에서 확인하고 무료로 내려받으세요.'
+    elif is_ged:
         title = f'{head} 과목별 문제·정답 — 기출해체분석기'
         desc = (f'{full} {subj_phrase} 기출 문제지와 정답(확정안)을 한 페이지에서 '
                 f'확인하고 무료로 내려받으세요. 검정고시 과목별 기출답.')
@@ -1443,7 +1462,10 @@ def build_set_meta(curr: str, year: str, t: str, sg: int | None, exams_in_set: l
         desc = (f'{full} {subj_phrase} 기출 문제지·정답·해설지·등급컷 통계. '
                 f'{short} 기출답 한 페이지에서 해체. 다운로드 무료.')
 
-    if is_ged:
+    if is_reference:
+        intro_parts = [f'{full} 자료입니다.',
+                       '연도별 응시 인원·접수 현황·과목별 채점 결과 PDF를 확인할 수 있습니다.']
+    elif is_ged:
         intro_parts = [f'{full} 기출 자료입니다.',
                        f'{subj_phrase} 과목별 문제지와 정답(확정안)을 확인할 수 있습니다.']
     else:
@@ -1452,7 +1474,9 @@ def build_set_meta(curr: str, year: str, t: str, sg: int | None, exams_in_set: l
     if has_english_listen:
         intro_parts.append('영어 영역은 듣기 MP3와 듣기 대본 PDF도 함께 제공합니다.')
     if aliases:
-        intro_parts.append(', '.join(aliases[:5]) + '로도 검색되는 시험입니다.')
+        alias_phrase = ', '.join(aliases[:5])
+        alias_particle = '으로도' if _has_batchim(alias_phrase) else '로도'
+        intro_parts.append(alias_phrase + alias_particle + ' 검색되는 시험입니다.')
     intro = ' '.join(intro_parts)
 
     keywords = list(dict.fromkeys(aliases + [head, full, short] + subjects + COMMON_ASSET_KEYWORDS

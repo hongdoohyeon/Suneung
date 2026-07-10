@@ -38,7 +38,7 @@
       line-height: 1.55;
       color: var(--ink-3, #4b5563);
     }
-    .adm-notice strong { color: var(--ink-1, #1f2328); font-weight: 700; font-size: 13px; }
+    .adm-notice strong { color: var(--ink); font-weight: 700; font-size: 13px; }
 
     .adm-compare-btn {
       padding: 8px 14px;
@@ -52,11 +52,11 @@
       cursor: pointer;
       transition: border-color 140ms, color 140ms, background 140ms;
     }
-    .adm-compare-btn:hover  { border-color: var(--ink-3, #9ca3af); color: var(--ink-1); }
+    .adm-compare-btn:hover  { border-color: var(--ink-3, #9ca3af); color: var(--ink); }
     .adm-compare-btn.is-active {
-      background: var(--ink-1, #111);
+      background: var(--ink);
       color: var(--bg, #fff);
-      border-color: var(--ink-1, #111);
+      border-color: var(--ink);
     }
 
     .adm-compare-list {

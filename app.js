@@ -2,14 +2,14 @@
 import {
   CURRICULUM_CONFIG, EXAM_TYPE_CONFIG, TAB_CONFIG,
   getTypeConf, getGroupConf, getTabConf, legacyTabKey, prettySub,
-} from './config.js?v=20260709a';
+} from './config.js?v=20260710a';
 import {
   state, PAGE_SIZE,
   resetFilters, toggleMulti,
   getDisplayYear, availableGradeYears,
   filtered, subjectCounts, buildMockData,
   tabCurriculums, tabCurriculumConfs, tabSubjects, curriculumOfGradeYear,
-} from './state.js?v=20260709a';
+} from './state.js?v=20260710a';
 import { renderAllAdSlots } from './lib/ads.js';
 
 const tabConf = () => getTabConf(state.tab);
@@ -38,7 +38,7 @@ const tabIsSingleType = () => {
 
 // 정적 JSON 데이터 파일 — 백엔드 없이 data/exams.json 만 갱신하면 사이트가 갱신됨
 // 빌드 시 ID 재할당되므로 캐시 버스터 강제 (옛 캐시 ↔ 새 SSG 불일치 방지)
-const DATA_URL = 'data/exams.json?v=20260709a';
+const DATA_URL = 'data/exams.json?v=20260710a';
 
 const $ = id => document.getElementById(id);
 
@@ -91,6 +91,11 @@ function applyUrlState() {
   }
   if (params.has('type'))       state.type       = parseMulti(params.get('type'));
   if (params.has('gradeYear'))  state.gradeYear  = parseMulti(params.get('gradeYear'));
+  // 예비 curriculum 학년도 URL은 type 파라미터가 없어도 실제 예비시험으로 복원한다.
+  if (!params.has('type') && state.gradeYear !== 'all') {
+    const years = Array.isArray(state.gradeYear) ? state.gradeYear : [state.gradeYear];
+    if (years.some(y => curriculumOfGradeYear(Number(y))?.id === '예비')) state.type = ['prelim'];
+  }
   if (params.has('subject'))    state.subject    = params.get('subject') || 'all';
   if (params.has('subSubject')) state.subSubject = params.get('subSubject') || 'all';
 
@@ -465,13 +470,17 @@ $('yearFilter').addEventListener('click', e => {
   } else {
     toggleMulti('gradeYear', val);
   }
-  // 28예비 학년도 선택 시 자동으로 시험 종류도 '예비시험'으로 설정
-  if (val === 'preliminary') {
+  // 예비 curriculum 학년도(현재 2028) 선택 시 시험 종류도 자동 연동.
+  // 과거의 'preliminary' sentinel이 아니라 실제 exams.json 학년도 값을 기준으로 판별한다.
+  const selectedPrelimYear = val !== 'all' && curriculumOfGradeYear(Number(val))?.id === '예비';
+  const hasSelectedPrelimYear = state.gradeYear !== 'all' &&
+    (Array.isArray(state.gradeYear) ? state.gradeYear : [state.gradeYear])
+      .some(y => curriculumOfGradeYear(Number(y))?.id === '예비');
+  if (selectedPrelimYear && hasSelectedPrelimYear) {
     state.type = ['prelim'];
-  } else if (state.gradeYear !== 'preliminary') {
-    // 다른 학년도 선택 시 예비시험 타입 해제 (예비만 선택된 경우에만)
-    if (!Array.isArray(state.type)) { /* no-op */ }
-    else if (state.type.length === 1 && state.type[0] === 'prelim') state.type = 'all';
+  } else if (!hasSelectedPrelimYear && Array.isArray(state.type) &&
+             state.type.length === 1 && state.type[0] === 'prelim') {
+    state.type = 'all';
   }
   state.page = 1;
   renderYearChips();

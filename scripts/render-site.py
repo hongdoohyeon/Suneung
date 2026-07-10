@@ -187,13 +187,14 @@ def _hub_page(fname: str, h1: str, title: str, desc: str, intro: str,
   <meta name="twitter:image" content="https://kicegg.com/og-image.png" />
   <script type="application/ld+json">{ld}</script>
   <title>{bd.html_escape(title, quote=True)}</title>
-  <link rel="stylesheet" href="style.css?v=20260706a" />
+  <link rel="stylesheet" href="style.css?v=20260710a" />
   <style>.setsdir__list{{columns:2;column-gap:24px;list-style:none;padding:0;margin:0}}
 .setsdir__list li{{margin:4px 0;break-inside:avoid}}
 .setsdir__list a{{display:inline-flex;align-items:center;min-height:44px}}
 @media (max-width:480px){{.setsdir__list{{columns:1}}}}</style>
 </head>
 <body class="page-legal">
+  <a href="#main" class="skip-link">본문 건너뛰기</a>
   <header class="site-header">
     <div class="container site-header__inner">
       <a href="index.html" class="brand">
@@ -210,10 +211,11 @@ def _hub_page(fname: str, h1: str, title: str, desc: str, intro: str,
       <nav class="header-nav" aria-label="주요 메뉴">
         <a href="archive.html">기출검색</a>
         <a href="gradecut.html">모의지원</a>
+        <a href="admissions.html">정시반영</a>
       </nav>
     </div>
   </header>
-  <main class="container legal" style="padding:32px 20px;max-width:1080px;margin:0 auto;">
+  <main id="main" class="container legal" style="padding:32px 20px;max-width:1080px;margin:0 auto;">
     <h1>{bd.html_escape(h1, quote=False)}</h1>
     <p>{bd.html_escape(intro, quote=False)}</p>
     <p class="legal__sub">{bd.html_escape(stat, quote=False)}</p>
@@ -531,7 +533,7 @@ def render_sets_directory(items: list[dict], essay_hubs=None, subject_hubs=None)
   <meta name="twitter:image" content="https://kicegg.com/og-image.png" />
   <script type="application/ld+json">{jsonld_block}</script>
   <title>전체 회차 목록 — 기출해체분석기</title>
-  <link rel="stylesheet" href="style.css?v=20260706a" />
+  <link rel="stylesheet" href="style.css?v=20260710a" />
   <style>.setsdir__list{{columns:3;column-gap:24px;list-style:none;padding:0;margin:0}}
 .setsdir__list li{{margin:4px 0;break-inside:avoid}}
 .setsdir__list a{{display:inline-flex;align-items:center;min-height:44px}}
@@ -539,7 +541,28 @@ def render_sets_directory(items: list[dict], essay_hubs=None, subject_hubs=None)
 @media (max-width:480px){{.setsdir__list{{columns:1}}}}</style>
 </head>
 <body class="page-default">
-  <main class="container legal" style="padding:32px 20px;max-width:1080px;margin:0 auto;">
+  <a href="#main" class="skip-link">본문 건너뛰기</a>
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a href="index.html" class="brand">
+        <span class="brand__mark" aria-hidden="true">
+          <svg viewBox="0 0 32 32" width="22" height="22" fill="none">
+            <rect width="32" height="32" rx="7" fill="currentColor"/>
+            <rect x="8" y="14" width="3" height="11" rx="1" fill="#fff" opacity=".45"/>
+            <rect x="14" y="9" width="3" height="16" rx="1" fill="#fff" opacity=".7"/>
+            <rect x="20" y="6" width="3" height="19" rx="1" fill="#fff"/>
+          </svg>
+        </span>
+        <span class="brand__name">기출해체분석기</span>
+      </a>
+      <nav class="header-nav" aria-label="주요 메뉴">
+        <a href="archive.html">기출검색</a>
+        <a href="gradecut.html">모의지원</a>
+        <a href="admissions.html">정시반영</a>
+      </nav>
+    </div>
+  </header>
+  <main id="main" class="container legal" style="padding:32px 20px;max-width:1080px;margin:0 auto;">
     <h1>전체 회차 목록</h1>
     <p>수능·평가원·교육청·사관학교·경찰대·LEET·MEET 기출 회차를 학년도별로 모았습니다. 각 회차에서 영역별 문제지, 정답, 해설지, 등급컷 자료로 이동할 수 있습니다.</p>
     <p><a href="./">홈</a> · <a href="archive.html">기출 검색</a></p>
@@ -552,6 +575,7 @@ def render_sets_directory(items: list[dict], essay_hubs=None, subject_hubs=None)
       </p>
     </div>
   </footer>
+  <script type="module" src="lib/dday-mount.js?v=20260618a"></script>
   <script src="lib/measure.js?v=20260618b" defer></script>
 </body>
 </html>
