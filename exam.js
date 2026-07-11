@@ -136,25 +136,25 @@ function renderHead(exam) {
   const aTag = fileTag(answerUrl, exam.answerDownload);
   const aLabel = answerUrlEven   ? `정답 ${aTag} (홀수형)`   : `정답 ${aTag}`;
   if (questionUrl) buttons.push(
-    `<a class="btn btn--primary" href="${escHtml(questionUrl)}" target="_blank" rel="noopener" ${dl(exam.questionDownload)}>${qLabel}</a>`
+    `<a class="btn btn--primary" href="${escHtml(questionUrl)}" ${dl(exam.questionDownload)}>${qLabel}</a>`
   );
   if (questionUrlEven) buttons.push(
-    `<a class="btn" href="${escHtml(questionUrlEven)}" target="_blank" rel="noopener" ${dl(exam.questionDownloadEven)}>문제지 PDF (짝수형)</a>`
+    `<a class="btn" href="${escHtml(questionUrlEven)}" ${dl(exam.questionDownloadEven)}>문제지 PDF (짝수형)</a>`
   );
   if (answerUrl) buttons.push(
-    `<a class="btn" href="${escHtml(answerUrl)}" target="_blank" rel="noopener" ${dl(exam.answerDownload)}>${aLabel}</a>`
+    `<a class="btn" href="${escHtml(answerUrl)}" ${dl(exam.answerDownload)}>${aLabel}</a>`
   );
   if (answerUrlEven) buttons.push(
-    `<a class="btn" href="${escHtml(answerUrlEven)}" target="_blank" rel="noopener" ${dl(exam.answerDownloadEven)}>정답 PDF (짝수형)</a>`
+    `<a class="btn" href="${escHtml(answerUrlEven)}" ${dl(exam.answerDownloadEven)}>정답 PDF (짝수형)</a>`
   );
   if (solutionUrl) buttons.push(
-    `<a class="btn" href="${escHtml(solutionUrl)}" target="_blank" rel="noopener" ${dl(exam.solutionDownload)}>해설지 PDF</a>`
+    `<a class="btn" href="${escHtml(solutionUrl)}" ${dl(exam.solutionDownload)}>해설지 PDF</a>`
   );
   if (listenUrl) buttons.push(
-    `<a class="btn" href="${escHtml(listenUrl)}" target="_blank" rel="noopener" ${dl(exam.listenDownload)}>듣기 MP3</a>`
+    `<a class="btn" href="${escHtml(listenUrl)}" ${dl(exam.listenDownload)}>듣기 MP3</a>`
   );
   if (scriptUrl) buttons.push(
-    `<a class="btn" href="${escHtml(scriptUrl)}" target="_blank" rel="noopener" ${dl(exam.scriptDownload)}>듣기 대본 PDF</a>`
+    `<a class="btn" href="${escHtml(scriptUrl)}" ${dl(exam.scriptDownload)}>듣기 대본 PDF</a>`
   );
   // 공유 버튼 — 모바일 카톡·문자, 데스크톱 클립보드
   buttons.push(
@@ -215,7 +215,7 @@ function renderHead(exam) {
           <span>영어 듣기 음원</span>
         </div>
         <audio controls preload="metadata" src="${escHtml(listenUrl)}" class="exam__listen-audio"></audio>
-        <a class="exam__listen-dl" href="${escHtml(listenUrl)}" target="_blank" rel="noopener" ${dl(exam.listenDownload)}>mp3 다운로드</a>
+        <a class="exam__listen-dl" href="${escHtml(listenUrl)}" ${dl(exam.listenDownload)}>mp3 다운로드</a>
       `;
     } else {
       audioBlock.classList.add('exam__listen--empty');

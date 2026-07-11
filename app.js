@@ -733,14 +733,14 @@ function cardHTML(exam, idx = 0) {
 
   const dl = name => name ? `download="${escAttr(name)}"` : 'download';
   const qBtn = exam.questionUrl
-    ? `<a class="btn btn--primary" href="${escAttr(exam.questionUrl)}" target="_blank" rel="noopener" ${dl(exam.questionDownload)}>문제지</a>`
+    ? `<a class="btn btn--primary" href="${escAttr(exam.questionUrl)}" ${dl(exam.questionDownload)}>문제지</a>`
     : `<button class="btn btn--primary" disabled>문제지</button>`;
   const aBtn = exam.answerUrl
-    ? `<a class="btn" href="${escAttr(exam.answerUrl)}" target="_blank" rel="noopener" ${dl(exam.answerDownload)}>정답</a>`
+    ? `<a class="btn" href="${escAttr(exam.answerUrl)}" ${dl(exam.answerDownload)}>정답</a>`
     : `<button class="btn" disabled>정답</button>`;
   // 해설 PDF가 없으면 해설 button 자체 숨김 (disabled 회색 button 미표시)
   const sBtn = exam.solutionUrl
-    ? `<a class="btn" href="${escAttr(exam.solutionUrl)}" target="_blank" rel="noopener" ${dl(exam.solutionDownload)}>해설</a>`
+    ? `<a class="btn" href="${escAttr(exam.solutionUrl)}" ${dl(exam.solutionDownload)}>해설</a>`
     : '';
 
   const delay = `${Math.min(idx * 28, 220)}ms`;

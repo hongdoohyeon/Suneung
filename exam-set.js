@@ -65,13 +65,13 @@ function cardHTML(exam) {
   const aUrl = safeUrl(exam.answerUrl);
   const sUrl = safeUrl(exam.solutionUrl);
   const qBtn = qUrl
-    ? `<a class="btn btn--primary" href="${escAttr(qUrl)}" target="_blank" rel="noopener" ${dl(exam.questionDownload)}>문제지</a>`
+    ? `<a class="btn btn--primary" href="${escAttr(qUrl)}" ${dl(exam.questionDownload)}>문제지</a>`
     : `<button class="btn btn--primary" disabled>문제지</button>`;
   const aBtn = aUrl
-    ? `<a class="btn" href="${escAttr(aUrl)}" target="_blank" rel="noopener" ${dl(exam.answerDownload)}>정답</a>`
+    ? `<a class="btn" href="${escAttr(aUrl)}" ${dl(exam.answerDownload)}>정답</a>`
     : `<button class="btn" disabled>정답</button>`;
   const sBtn = sUrl
-    ? `<a class="btn" href="${escAttr(sUrl)}" target="_blank" rel="noopener" ${dl(exam.solutionDownload)}>해설</a>`
+    ? `<a class="btn" href="${escAttr(sUrl)}" ${dl(exam.solutionDownload)}>해설</a>`
     : '';
 
   const ariaLabel = `${exam.subject}${exam.subSubject ? ' ' + prettySub(exam.subSubject) : ''} 상세 보기`;
