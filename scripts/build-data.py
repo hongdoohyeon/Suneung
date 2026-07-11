@@ -1237,7 +1237,7 @@ def build_static_exam_pages(items: list[dict], template_path: Path, out_root: Pa
         def _btn(cls, url, label, dl_name):
             if not url: return ''
             dl_attr = f' download="{html_escape(dl_name, quote=True)}"' if dl_name else ' download'
-            return f'<a class="btn {cls}" href="{html_escape(url, quote=True)}" target="_blank" rel="noopener"{dl_attr}>{html_escape(label, quote=False)}</a>'
+            return f'<a class="btn {cls}" href="{html_escape(url, quote=True)}"{dl_attr}>{html_escape(label, quote=False)}</a>'
         # 영어 듣기는 최상단(#8) — 모바일에서 자료 접근 우선
         if it.get('subject') == '영어' and listen:
             btns.append(_btn('btn--primary', listen, '듣기 MP3', it.get('listenDownload')))
