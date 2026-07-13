@@ -2,7 +2,7 @@
     .adm-page h1 { font-size: 22px; margin: 8px 0 16px; }
     .adm-page p.lead { color: #555; margin: 0 0 20px; line-height: 1.6; font-size: 14px; }
     .adm-controls { display: flex; gap: 8px; margin-bottom: 20px; flex-wrap: wrap; align-items: center; }
-    .adm-controls select, .adm-controls input { font: inherit; padding: 8px 10px; border: 1px solid #ccc; border-radius: 6px; background: #fff; min-width: 200px; }
+    .adm-controls select, .adm-controls input { font: inherit; min-height: 44px; padding: 8px 10px; border: 1px solid #ccc; border-radius: 6px; background: #fff; min-width: 200px; }
     .adm-meta { font-size: 13px; color: #666; margin-bottom: 12px; }
     .adm-tier { display: inline-block; padding: 2px 8px; border-radius: 4px; background: #e8edf3; color: #2a5; font-size: 11px; margin-left: 6px; }
     .adm-track { background: #fafbfc; border: 1px solid #e3e6ec; border-radius: 8px; padding: 14px 16px; margin-bottom: 12px; }
@@ -18,7 +18,8 @@
     .adm-confidence--low { background: #f4e8ff; color: #6020a0; }
     .adm-confidence--no_data { background: #f0f0f0; color: #888; }
     @media (max-width: 600px) {
-      .adm-controls select, .adm-controls input { min-width: 0; flex: 1; width: 100%; }
+      .adm-controls select, .adm-controls input { min-width: 0; flex: 1 1 100%; width: 100%; font-size: 16px; }
+      .adm-compare-btn { width: 100%; }
       .adm-eng-table { display: block; overflow-x: auto; }
       .adm-page { padding: 16px 12px 60px; }
       .adm-track { padding: 10px 12px; }
@@ -41,6 +42,7 @@
     .adm-notice strong { color: var(--ink); font-weight: 700; font-size: 13px; }
 
     .adm-compare-btn {
+      min-height: 44px;
       padding: 8px 14px;
       border: 1px solid var(--line, #e5e7eb);
       background: var(--surface, #fff);

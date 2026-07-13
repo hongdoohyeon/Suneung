@@ -1,9 +1,9 @@
 'use strict';
-import { CURRICULUM_CONFIG, EXAM_TYPE_CONFIG, getTypeConf, prettySub } from './config.js';
-import { renderAllAdSlots } from './lib/ads.js';
-import { mountLineup } from './lib/lineup-mount.js?v=20260617a';
+import { CURRICULUM_CONFIG, EXAM_TYPE_CONFIG, getTypeConf, prettySub } from './config.js?v=20260713a';
+import { renderAllAdSlots } from './lib/ads.js?v=20260713a';
+import { mountLineup } from './lib/lineup-mount.js?v=20260713a';
 
-const DATA_URL = 'data/gradecuts.json';
+const DATA_URL = 'data/gradecuts.json?v=20260713a';
 const $ = id => document.getElementById(id);
 
 // 모의지원에서 지원하는 커리큘럼 목록.
@@ -130,7 +130,7 @@ function availableTypes() {
 
 // ── 칩 ────────────────────────────────────────────────────
 function pill(value, label, active = false, attrs = '') {
-  return `<button class="pill${active ? ' is-active' : ''}" data-value="${value}" ${attrs}>${label}</button>`;
+  return `<button class="pill${active ? ' is-active' : ''}" data-value="${value}" aria-pressed="${active}" ${attrs}>${label}</button>`;
 }
 
 function renderAll() {
@@ -260,7 +260,7 @@ function slotHTML(subj, slotIdx, subjConf, isMulti) {
         const isDisabled = (otherSub === s) || inquiryLocked;
         return `<button class="pill${isActive ? ' is-active' : ''}${isDisabled ? ' is-disabled' : ''}"
                   data-action="set-sub" data-subject="${subj}" data-slot="${slotIdx}" data-sub="${s}"
-                  ${isDisabled ? 'disabled' : ''}>${prettySub(s)}</button>`;
+                  aria-pressed="${isActive}" ${isDisabled ? 'disabled' : ''}>${prettySub(s)}</button>`;
       }).join('')
     }</div>`;
   }
@@ -301,6 +301,7 @@ function slotHTML(subj, slotIdx, subjConf, isMulti) {
       <div class="subj-slot__input-row">
         <input type="text" inputmode="numeric" pattern="[0-9]*" enterkeyhint="next"
           class="subj-input" maxlength="3"
+          aria-label="${subj}${slot.subSubject ? ` ${prettySub(slot.subSubject)}` : ''}${isMulti ? ` ${slotIdx + 1}과목` : ''} 원점수"
           placeholder="${placeholder}"
           value="${scoreVal}"
           data-action="set-score" data-subject="${subj}" data-slot="${slotIdx}"
@@ -459,6 +460,7 @@ function bindGlobalEvents() {
     state.scores = {};
     syncUrl();
     renderAll();
+    toggleFilter(false);
   });
 
   // 영역 카드 (이벤트 위임 — pill / input)
@@ -469,7 +471,7 @@ function bindGlobalEvents() {
     const idx  = Number(btn.dataset.slot);
     const sub  = btn.dataset.sub;
     const cur  = getSlot(subj, idx).subSubject;
-    setSlot(subj, idx, { subSubject: cur === sub ? null : sub });
+    setSlot(subj, idx, { subSubject: cur === sub ? null : sub, score: null });
     renderSubjects();
     renderTotal();
   });
@@ -539,24 +541,68 @@ function bindGlobalEvents() {
     renderTotal();
   });
 
-  // 모바일 필터 토글
-  function toggleFilter(force) {
-    const panel  = $('filterPanel');
-    const isOpen = force === undefined ? panel.classList.toggle('is-open')
-                                       : panel.classList.toggle('is-open', force);
-    const btn    = $('filterToggle');
+  // 모바일 필터 시트: backdrop·스크롤 잠금·포커스 복귀 포함
+  let filterReturnFocus = null;
+  function toggleFilter(force, trigger = null) {
+    const panel = $('filterPanel');
+    if (!window.matchMedia('(max-width: 960px)').matches) {
+      panel.classList.remove('is-open');
+      const backdrop = $('filterBackdrop');
+      backdrop?.classList.remove('is-open');
+      backdrop?.setAttribute('hidden', '');
+      document.body.classList.remove('is-sheet-open');
+      document.querySelector('.content').inert = false;
+      panel.setAttribute('role', 'region');
+      panel.removeAttribute('aria-modal');
+      return false;
+    }
+    const isOpen = force === undefined ? !panel.classList.contains('is-open') : Boolean(force);
+    panel.classList.toggle('is-open', isOpen);
+    const backdrop = $('filterBackdrop');
+    backdrop?.classList.toggle('is-open', isOpen);
+    if (backdrop) isOpen ? backdrop.removeAttribute('hidden') : backdrop.setAttribute('hidden', '');
+    document.body.classList.toggle('is-sheet-open', isOpen);
+    const btn = $('filterToggle');
     if (btn) {
-      btn.setAttribute('aria-label',    isOpen ? '시험 선택 닫기' : '시험 선택 열기');
+      btn.setAttribute('aria-label', isOpen ? '시험 선택 닫기' : '시험 선택 열기');
       btn.setAttribute('aria-expanded', String(isOpen));
     }
+    if (isOpen) {
+      filterReturnFocus = trigger || document.activeElement;
+      panel.setAttribute('role', 'dialog');
+      panel.setAttribute('aria-modal', 'true');
+      document.querySelector('.content').inert = true;
+      requestAnimationFrame(() => $('filterSheetClose')?.focus());
+    } else {
+      panel.setAttribute('role', 'region');
+      panel.removeAttribute('aria-modal');
+      document.querySelector('.content').inert = false;
+      if (filterReturnFocus?.isConnected) filterReturnFocus.focus();
+    }
   }
-  $('filterToggle')?.addEventListener('click', () => toggleFilter());
-  $('gcEmptyCta')?.addEventListener('click', () => {
-    toggleFilter(true);
+  $('filterToggle')?.addEventListener('click', e => toggleFilter(undefined, e.currentTarget));
+  $('filterSheetClose')?.addEventListener('click', () => toggleFilter(false));
+  $('filterBackdrop')?.addEventListener('click', () => toggleFilter(false));
+  const filterMq = window.matchMedia('(min-width: 961px)');
+  filterMq.addEventListener?.('change', e => { if (e.matches) toggleFilter(false); });
+  document.addEventListener('keydown', e => {
+    const open = $('filterPanel').classList.contains('is-open');
+    if (e.key === 'Escape' && open) { toggleFilter(false); return; }
+    if (e.key === 'Tab' && open) {
+      const focusable = [...$('filterPanel').querySelectorAll('button:not(:disabled),input:not(:disabled),select:not(:disabled),a[href]')]
+        .filter(el => el.offsetParent !== null);
+      if (!focusable.length) return;
+      const first = focusable[0], last = focusable[focusable.length - 1];
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+    }
+  });
+  $('gcEmptyCta')?.addEventListener('click', e => {
+    toggleFilter(true, e.currentTarget);
     $('filterPanel').scrollIntoView({ behavior: 'smooth', block: 'start' });
   });
-  $('gcChangeBtn')?.addEventListener('click', () => {
-    toggleFilter(true);
+  $('gcChangeBtn')?.addEventListener('click', e => {
+    toggleFilter(true, e.currentTarget);
     $('filterPanel').scrollIntoView({ behavior: 'smooth', block: 'start' });
   });
 }

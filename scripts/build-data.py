@@ -1235,7 +1235,7 @@ def build_static_exam_pages(items: list[dict], template_path: Path, out_root: Pa
         q_label = f'문제지 {q_tag} (홀수형)' if qE_url else f'문제지 {q_tag}'
         a_label = f'정답 {a_tag} (홀수형)'   if aE_url else f'정답 {a_tag}'
         def _btn(cls, url, label, dl_name):
-            if not url: return ''
+            if not url or not re.match(r'^https?://', str(url), flags=re.I): return ''
             dl_attr = f' download="{html_escape(dl_name, quote=True)}"' if dl_name else ' download'
             return f'<a class="btn {cls}" href="{html_escape(url, quote=True)}"{dl_attr}>{html_escape(label, quote=False)}</a>'
         # 영어 듣기는 최상단(#8) — 모바일에서 자료 접근 우선
@@ -1333,7 +1333,10 @@ def build_static_exam_pages(items: list[dict], template_path: Path, out_root: Pa
             _cut = _cut_idx6.get(_ck + (it.get('studentGrade'),)) or _cut_idx_none.get(_ck)
         elif _tg != 'ged':
             _cut = _cut_idx.get(_ck)
-        if _cut and isinstance(_cut.get('rawCuts'), list) and any(v is not None for v in _cut['rawCuts']):
+        if (_cut is not None and isinstance(_cut.get('rawCuts'), list)
+                and any(v is not None for v in _cut['rawCuts'])):
+            html = html.replace('<body class="page-exam">',
+                                '<body class="page-exam has-gradecut">', 1)
             _raw = _cut['rawCuts']
             _tbl = _grade_table_html(_raw, _cut.get('fullScore') or 100, bool(_cut.get('absolute')))
             html = html.replace(
@@ -1609,30 +1612,52 @@ def build_static_set_pages(items: list[dict], template_path: Path, out_root: Pat
             lambda m: m.group(1) + html_escape(meta['head'], quote=True) + m.group(2),
             html, count=1)
 
-        # SEO 인트로 본문 — H1 아래
-        intro_html = (
+        # 회차 수·SEO 인트로를 정적으로 채워 JS 없이도 완성된 본문 유지.
+        count_intro_html = (
+            f'<p class="examset__count" id="examsetCount">총 {len(merged_exams):,}개 영역</p>\n      '
             '<p class="exam__seo-intro" id="examsetSeoIntro">'
             + html_escape(meta['intro'], quote=False)
             + '</p>'
         )
         html = re.sub(
-            r'(<p class="examset__count" id="examsetCount"></p>)',
-            r'\1\n      ' + intro_html, html, count=1)
+            r'<p class="examset__count" id="examsetCount"></p>',
+            lambda _m: count_intro_html, html, count=1)
 
         # JSON-LD 삽입
         html = html.replace('</head>', '  ' + ld_block + '</head>', 1)
 
-        # 정적 카드 링크 — 크롤러가 JS 없이도 회차 → 시험 링크를 따라가게 (SEO).
-        # exam-set.js 로드 시 동일 grid 를 재렌더해 덮어쓴다.
+        # 완전한 정적 카드 — 친화 URL 페이지는 JS fetch·재렌더 없이 즉시 사용한다.
         def _static_card(it2):
-            t2 = it2.get('subSubject') or it2.get('subject') or ''
-            sub2 = it2.get('subject') if it2.get('subSubject') else ''
-            return ('<article class="card has-files">'
-                    f'<a class="card__link" href="exam-{it2["id"]}.html"'
-                    f' aria-label="{html_escape(t2, quote=True)} 상세 보기"></a>'
-                    f'<h4 class="card__title">{html_escape(t2, quote=False)}</h4>'
-                    + (f'<p class="card__sub">{html_escape(sub2, quote=False)}</p>' if sub2 else '')
-                    + '</article>')
+            title2 = it2.get('subSubject') or it2.get('subject') or ''
+            subject2 = it2.get('subject') or ''
+            has_files = any(it2.get(k) for k in ('questionUrl', 'answerUrl', 'solutionUrl'))
+
+            def _action(label, url, dl_name, primary=False):
+                if not url or not re.match(r'^https?://', str(url), flags=re.I):
+                    return ''
+                cls = 'btn btn--primary' if primary else 'btn'
+                dl = f' download="{html_escape(dl_name, quote=True)}"' if dl_name else ' download'
+                return (f'<a class="{cls}" href="{html_escape(url, quote=True)}"{dl}>'
+                        f'{html_escape(label, quote=False)}</a>')
+
+            actions = ''.join(filter(None, [
+                _action('문제지', it2.get('questionUrl'), it2.get('questionDownload'), True),
+                _action('정답', it2.get('answerUrl'), it2.get('answerDownload')),
+                _action('해설', it2.get('solutionUrl'), it2.get('solutionDownload')),
+            ]))
+            card_cls = 'card has-files' if has_files else 'card'
+            return (
+                f'<article class="{card_cls}">'
+                f'<a class="card__link" href="exam-{it2["id"]}.html"'
+                f' aria-label="{html_escape(title2, quote=True)} 상세 보기"></a>'
+                '<div class="card__meta"><span class="chiplet chiplet--ink">'
+                + html_escape(subject2, quote=False) + '</span></div>'
+                f'<h2 class="card__title">{html_escape(title2, quote=False)}</h2>'
+                f'<p class="card__sub">{html_escape(subject2, quote=False)}</p>'
+                '<div class="card__divider"></div>'
+                f'<div class="card__actions">{actions}</div>'
+                '</article>'
+            )
         _sorted = sorted(merged_exams, key=lambda x: (
             SUBJECT_ORDER.get(x.get('subject'), 99), x.get('subject') or '', x.get('subSubject') or ''))
         cards_html = ''.join(_static_card(x) for x in _sorted)

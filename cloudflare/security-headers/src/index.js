@@ -25,7 +25,7 @@ const SECURITY_HEADERS = {
     "style-src 'self' 'unsafe-inline'",
     "font-src 'self' data:",
     "img-src 'self' data: https:",
-    "connect-src 'self' https://suneung-files.hdh061224.workers.dev https://cloudflareinsights.com https://www.google-analytics.com https://*.analytics.google.com https://www.google.com",
+    "connect-src 'self' https://suneung-files.hdh061224.workers.dev https://cloudflareinsights.com https://www.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com https://www.google.com",
     "media-src 'self' https://suneung-files.hdh061224.workers.dev",
     "worker-src 'self' blob:",
     "object-src 'none'",
@@ -63,7 +63,7 @@ async function handleRequest(request) {
 
   // Add cache headers for static assets
   const path = url.pathname.toLowerCase();
-  if (path.match(/\.(js|css|svg|png|jpg|jpeg|gif|ico|woff2?|ttf)$/)) {
+  if (response.ok && response.status === 200 && path.match(/\.(js|css|svg|png|jpg|jpeg|gif|ico|woff2?|ttf)$/)) {
     for (const [key, value] of Object.entries(CACHE_HEADERS)) {
       modified.headers.set(key, value);
     }
@@ -71,7 +71,7 @@ async function handleRequest(request) {
 
   // JSON data is versioned by query string on pages that need aggressive busting.
   // Override GitHub Pages' no-store so repeat users do not re-download exams.json.
-  if (path.match(/\.json$/)) {
+  if (response.ok && response.status === 200 && path.match(/\.json$/)) {
     modified.headers.set(
       'cache-control',
       'public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800'
@@ -79,7 +79,7 @@ async function handleRequest(request) {
   }
 
   // Add cache headers for HTML (shorter TTL)
-  if (path.endsWith('.html') || path === '/' || !path.includes('.')) {
+  if (response.ok && response.status === 200 && (path.endsWith('.html') || path === '/' || !path.includes('.'))) {
     modified.headers.set(
       'cache-control',
       'public, max-age=600, s-maxage=3600, stale-while-revalidate=86400'

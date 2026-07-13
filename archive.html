@@ -50,11 +50,11 @@
   </script>
 
   <title>기출 검색 — 기출해체분석기</title>
-  <link rel="stylesheet" href="style.css?v=20260710a" />
-  <link rel="modulepreload" href="app.js?v=20260711a" />
-  <link rel="modulepreload" href="config.js?v=20260710a" />
-  <link rel="modulepreload" href="state.js?v=20260710a" />
-  <link rel="preload" href="data/exams.json?v=20260710a" as="fetch" crossorigin />
+  <link rel="stylesheet" href="style.css?v=20260713a" />
+  <link rel="modulepreload" href="app.js?v=20260713a" />
+  <link rel="modulepreload" href="config.js?v=20260713a" />
+  <link rel="modulepreload" href="state.js?v=20260713a" />
+  <link rel="preload" href="data/exams.json?v=20260713a" as="fetch" crossorigin />
   <script src="lib/measure.js?v=20260630a" defer></script>
 </head>
 <body>
@@ -63,7 +63,7 @@
   <!-- ── Header ─────────────────────────────────────────── -->
   <header class="site-header">
     <div class="container site-header__inner">
-      <a href="index.html" class="brand">
+      <a href="index.html" class="brand" aria-label="기출해체분석기 홈">
         <span class="brand__mark" aria-hidden="true">
           <svg viewBox="0 0 32 32" width="22" height="22" fill="none">
             <rect width="32" height="32" rx="7" fill="currentColor"/>
@@ -160,12 +160,12 @@
   <main id="main" class="container main">
 
     <!-- Sidebar / Mobile Bottom Sheet -->
-    <aside class="filter" id="filterPanel" aria-label="필터" role="region">
+    <aside class="filter" id="filterPanel" aria-label="필터" role="region" aria-labelledby="filterSheetTitle">
 
       <!-- 모바일 바텀시트 핸들 + 닫기 (데스크톱에서는 숨김) -->
       <div class="filter__sheet-head" aria-hidden="false">
         <span class="filter__sheet-handle" aria-hidden="true"></span>
-        <h2 class="filter__sheet-title">필터</h2>
+        <h2 class="filter__sheet-title" id="filterSheetTitle">필터</h2>
         <button class="filter__sheet-close" id="filterSheetClose"
                 type="button" aria-label="필터 닫기">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -226,7 +226,7 @@
           <button id="clearSearch" class="search__clear" style="display:none" aria-label="검색 지우기">×</button>
         </div>
         <button class="btn btn--ghost filter-toggle-inline" id="filterToggleInline"
-                aria-label="필터 열기" aria-expanded="false" type="button">필터</button>
+                aria-controls="filterPanel" aria-expanded="false" type="button">필터</button>
         <div class="toolbar__right">
           <span id="resultCount" class="count" aria-live="polite"></span>
           <button class="btn-text" id="resetBtn">초기화</button>
@@ -306,7 +306,7 @@
     </div>
   </footer>
 
-  <script type="module" src="app.js?v=20260711a"></script>
+  <script type="module" src="app.js?v=20260713a"></script>
   <script type="module" src="lib/dday-mount.js?v=20260630a"></script>
 </body>
 </html>

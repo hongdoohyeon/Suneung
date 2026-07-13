@@ -2,7 +2,7 @@
 import {
   CURRICULUM_CONFIG, EXAM_TYPE_CONFIG, TAB_CONFIG,
   getTypeConf, getTabConf, prettySub, searchAliasOf, ALIAS_KEYS_DESC,
-} from './config.js?v=20260710a';
+} from './config.js?v=20260713a';
 
 // ── 검색 정규화 ─────────────────────────────────────────────
 // 로마자 숫자(Ⅰ/Ⅱ/Ⅲ) → 아라비아, 한자(一/二/三) → 아라비아, 소문자, 공백 제거.
@@ -332,8 +332,12 @@ function scoreToken(hayObj, tok) {
   return 0;
 }
 
-// 쿼리 파싱 — 구문(`"..."`) 정확 일치, `-token` 제외, 그 외 일반 토큰.
+// 쿼리 파싱 — 같은 검색어로 9천 건을 검사할 때 매 항목마다 다시 파싱하지 않는다.
+let _queryCacheKey = null;
+let _queryCacheValue = null;
 function parseQuery(query) {
+  const cacheKey = String(query ?? '');
+  if (cacheKey === _queryCacheKey && _queryCacheValue) return _queryCacheValue;
   const include = []; const exclude = []; const phrases = [];
   const folded = fold(query);
   // 구문 추출
@@ -357,7 +361,9 @@ function parseQuery(query) {
     const exp = expandYYMM(t);
     if (exp) include.push(...exp); else include.push(t);
   }
-  return { include, exclude, phrases };
+  _queryCacheKey = cacheKey;
+  _queryCacheValue = { include, exclude, phrases };
+  return _queryCacheValue;
 }
 
 // 쿼리 매칭 점수 — 0(제외) 또는 양수(랭킹 정렬용).

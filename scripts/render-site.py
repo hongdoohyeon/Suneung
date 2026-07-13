@@ -25,7 +25,7 @@ spec.loader.exec_module(bd)
 # 사이트맵 lastmod 안정값 — exam/회차 페이지 *콘텐츠*(렌더 로직·구조)가 실질적으로
 # 바뀔 때만 갱신한다. 매 빌드 today 로 두면 8824건 lastmod 가 동시에 흔들려 변경
 # 신호가 희석되므로 고정값으로 둔다(데이터 추가만으로는 올리지 않음).
-CONTENT_VERSION = '2026-06-18'
+CONTENT_VERSION = '2026-07-13'
 
 
 def render_sitemaps(items: list[dict], hubs=None) -> None:
@@ -187,7 +187,7 @@ def _hub_page(fname: str, h1: str, title: str, desc: str, intro: str,
   <meta name="twitter:image" content="https://kicegg.com/og-image.png" />
   <script type="application/ld+json">{ld}</script>
   <title>{bd.html_escape(title, quote=True)}</title>
-  <link rel="stylesheet" href="style.css?v=20260710a" />
+  <link rel="stylesheet" href="style.css?v=20260713a" />
   <style>.setsdir__list{{columns:2;column-gap:24px;list-style:none;padding:0;margin:0}}
 .setsdir__list li{{margin:4px 0;break-inside:avoid}}
 .setsdir__list a{{display:inline-flex;align-items:center;min-height:44px}}
@@ -197,7 +197,7 @@ def _hub_page(fname: str, h1: str, title: str, desc: str, intro: str,
   <a href="#main" class="skip-link">본문 건너뛰기</a>
   <header class="site-header">
     <div class="container site-header__inner">
-      <a href="index.html" class="brand">
+      <a href="index.html" class="brand" aria-label="기출해체분석기 홈">
         <span class="brand__mark" aria-hidden="true">
           <svg viewBox="0 0 32 32" width="22" height="22" fill="none">
             <rect width="32" height="32" rx="7" fill="currentColor"/>
@@ -532,7 +532,7 @@ def render_sets_directory(items: list[dict], essay_hubs=None, subject_hubs=None)
   <meta name="twitter:image" content="https://kicegg.com/og-image.png" />
   <script type="application/ld+json">{jsonld_block}</script>
   <title>전체 회차 목록 — 기출해체분석기</title>
-  <link rel="stylesheet" href="style.css?v=20260710a" />
+  <link rel="stylesheet" href="style.css?v=20260713a" />
   <style>.setsdir__list{{columns:3;column-gap:24px;list-style:none;padding:0;margin:0}}
 .setsdir__list li{{margin:4px 0;break-inside:avoid}}
 .setsdir__list a{{display:inline-flex;align-items:center;min-height:44px}}
@@ -543,7 +543,7 @@ def render_sets_directory(items: list[dict], essay_hubs=None, subject_hubs=None)
   <a href="#main" class="skip-link">본문 건너뛰기</a>
   <header class="site-header">
     <div class="container site-header__inner">
-      <a href="index.html" class="brand">
+      <a href="index.html" class="brand" aria-label="기출해체분석기 홈">
         <span class="brand__mark" aria-hidden="true">
           <svg viewBox="0 0 32 32" width="22" height="22" fill="none">
             <rect width="32" height="32" rx="7" fill="currentColor"/>
@@ -599,6 +599,34 @@ def render_splits(items: list[dict]) -> None:
             p.unlink()
             pruned += 1
     print(f'  + split 동기화 {written}건 / 고아 제거 {pruned}건')
+
+
+def render_set_splits(items: list[dict]) -> None:
+    """회차 페이지용 경량 split. exam-set.js가 9MB exams.json 대신 이 파일만 읽는다."""
+    out = ROOT / 'data' / 'set'
+    out.mkdir(parents=True, exist_ok=True)
+    groups: dict[str, list[dict]] = {}
+    for it in items:
+        if not (it.get('curriculum') and it.get('gradeYear') and it.get('type')):
+            continue
+        sg = it.get('studentGrade') if it.get('typeGroup') == 'education' else None
+        fname = bd.set_friendly_filename(str(it['curriculum']), str(it['gradeYear']), it['type'], sg)
+        groups.setdefault(Path(fname).stem, []).append(it)
+
+    written = 0
+    for stem, exams in groups.items():
+        p = out / f'{stem}.json'
+        body = json.dumps(exams, ensure_ascii=False, separators=(',', ':'))
+        if not p.exists() or p.read_text(encoding='utf-8') != body:
+            p.write_text(body, encoding='utf-8')
+            written += 1
+
+    pruned = 0
+    for p in out.glob('exam-set-*.json'):
+        if p.stem not in groups:
+            p.unlink()
+            pruned += 1
+    print(f'  + set split {written}건 / 고아 제거 {pruned}건')
 
 
 def render_gradecut_splits(items: list[dict]) -> None:
@@ -770,6 +798,7 @@ def main() -> None:
     render_site_summary(items)
     render_rss(items)
     render_splits(items)
+    render_set_splits(items)
     render_gradecut_splits(items)
     print('완료')
 

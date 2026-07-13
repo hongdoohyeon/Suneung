@@ -1,12 +1,12 @@
 'use strict';
-import { CURRICULUM_CONFIG, getTypeConf, prettySub } from './config.js';
-import { escHtml as _escHtml, escAttr, safeUrl as _safeUrl, $ as _$ } from './lib/dom.js';
-import { setMeta, setMetaProp, setCanonical, injectJsonLd as _injectJsonLd, applySeo } from './lib/seo.js';
-import { renderAllAdSlots } from './lib/ads.js';
-import { renderPdf, renderUnsupported, renderEmpty, urlExtension } from './lib/exam-pdf.js';
-import { renderGradeDist } from './lib/exam-gradedist.js?v=20260710a';
-import { pushRecent } from './lib/recent.js';
-import { shareLink } from './lib/share.js';
+import { CURRICULUM_CONFIG, getTypeConf, prettySub } from './config.js?v=20260713a';
+import { escHtml as _escHtml, escAttr, safeUrl as _safeUrl, $ as _$ } from './lib/dom.js?v=20260713a';
+import { setMeta, setMetaProp, setCanonical, injectJsonLd as _injectJsonLd, applySeo } from './lib/seo.js?v=20260713a';
+import { renderAllAdSlots } from './lib/ads.js?v=20260713a';
+import { renderPdf, renderUnsupported, renderEmpty, urlExtension } from './lib/exam-pdf.js?v=20260713a';
+import { renderGradeDist } from './lib/exam-gradedist.js?v=20260713a';
+import { pushRecent } from './lib/recent.js?v=20260713a';
+import { shareLink } from './lib/share.js?v=20260713a';
 
 // 공통 헬퍼는 lib/dom.js, lib/seo.js 에서 import. 로컬 별칭만 유지 (호환성).
 const $ = _$;
@@ -308,6 +308,7 @@ function setupTabs(onActivate, hideInfo) {
     initial = window.innerWidth <= 600 ? 'info' : 'paper';
   }
   activate(initial);
+  document.body.classList.add('is-hydrated');
 }
 
 
@@ -329,27 +330,19 @@ async function main() {
     return;
   }
 
-  // 단건 lazy fetch 우선: data/exam/{id}.json (~1KB) 만 받음.
-  // 미존재 시 통합 data/exams.json (~2MB) 로 폴백.
+  // 시험/등급컷 split은 서로 독립이므로 병렬 요청한다.
   let exam = null, gradecuts = [];
-    try {
-      const singleRes = await fetch(`data/exam/${id}.json?v=20260710a`);
-      if (singleRes.ok) exam = await singleRes.json();
-    } catch { /* fall-through */ }
-
-    // 등급컷 단건 split: data/gradecut/{id}.json. 미존재 시 '준비 중' 처리 (전체 폴백 제거 — 60%+ 페이지에서 3.5MB 불필요 다운로드).
-    try {
-      const cutRes = await fetch(`data/gradecut/${id}.json?v=20260710a`);
-      if (cutRes.ok) {
-        const singleCut = await cutRes.json();
-        gradecuts = [singleCut];
-      }
-    } catch { /* no gradecut data — normal for ~60% of exams */ }
+  const [examResult, cutResult] = await Promise.allSettled([
+    fetch(`data/exam/${id}.json?v=20260713a`).then(async res => res.ok ? res.json() : null),
+    fetch(`data/gradecut/${id}.json?v=20260713a`).then(async res => res.ok ? res.json() : null),
+  ]);
+  if (examResult.status === 'fulfilled') exam = examResult.value;
+  if (cutResult.status === 'fulfilled' && cutResult.value) gradecuts = [cutResult.value];
 
   // 단건 split 미배포 환경 폴백: 통합 exams.json
   if (!exam) {
     try {
-      const res = await fetch('data/exams.json?v=20260710a');
+      const res = await fetch('data/exams.json?v=20260713a');
       if (res.ok) {
         const exams = await res.json();
         exam = exams.find(e => e.id === id) ?? null;
@@ -357,7 +350,15 @@ async function main() {
     } catch { /* fall-through */ }
   }
 
-  if (!exam) { showError(); return; }
+  if (!exam) {
+    const staticTitle = $('examTitle')?.textContent?.trim();
+    if (staticTitle && staticTitle !== '자료 불러오는 중…') {
+      document.body.classList.add('is-hydrated');
+      return; // SSG 본문·다운로드 링크는 네트워크 실패와 무관하게 유지
+    }
+    showError();
+    return;
+  }
 
   renderHead(exam);
   renderGradeDist(exam, gradecuts);
@@ -380,7 +381,7 @@ async function main() {
   }
   setupTabs(key => {
     if (key === 'paper') ensurePdfStarted();
-  }, exam.typeGroup === 'ged');
+  }, exam.typeGroup === 'ged' || gradecuts.length === 0);
 }
 
 function showError() {

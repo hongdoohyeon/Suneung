@@ -2,14 +2,14 @@
 import {
   CURRICULUM_CONFIG, EXAM_TYPE_CONFIG, TAB_CONFIG,
   getTypeConf, getGroupConf, getTabConf, legacyTabKey, prettySub,
-} from './config.js?v=20260710a';
+} from './config.js?v=20260713a';
 import {
   state, PAGE_SIZE,
   resetFilters, toggleMulti,
   getDisplayYear, availableGradeYears,
   filtered, subjectCounts, buildMockData,
   tabCurriculums, tabCurriculumConfs, tabSubjects, curriculumOfGradeYear,
-} from './state.js?v=20260710a';
+} from './state.js?v=20260713a';
 import { renderAllAdSlots } from './lib/ads.js';
 
 const tabConf = () => getTabConf(state.tab);
@@ -38,7 +38,7 @@ const tabIsSingleType = () => {
 
 // 정적 JSON 데이터 파일 — 백엔드 없이 data/exams.json 만 갱신하면 사이트가 갱신됨
 // 빌드 시 ID 재할당되므로 캐시 버스터 강제 (옛 캐시 ↔ 새 SSG 불일치 방지)
-const DATA_URL = 'data/exams.json?v=20260710a';
+const DATA_URL = 'data/exams.json?v=20260713a';
 
 const $ = id => document.getElementById(id);
 
@@ -59,22 +59,32 @@ function parseMulti(s) {
   if (parts.length === 0) return 'all';
   return parts.length === 1 ? parts[0] : parts;
 }
+function allowMulti(value, allowed) {
+  if (value === 'all') return 'all';
+  const values = Array.isArray(value) ? value : [value];
+  const valid = values.filter(v => allowed.has(String(v)));
+  if (!valid.length) return 'all';
+  return valid.length === 1 ? valid[0] : valid;
+}
 
 function applyUrlState() {
   const params = new URLSearchParams(location.search);
 
+  // history 이동 시 URL에 없는 값이 이전 화면에서 새어 나오지 않도록 먼저 기본화.
+  clearTimeout(searchTimer);
+  resetFilters();
+  state.tab = 'senior';
+
   const rawTab = params.get('tab');
   if (rawTab) {
     const tab = legacyTabKey(rawTab);
-    if (getTabConf(tab)) {
-      state.tab = tab;
-      document.querySelectorAll('.nav-tab').forEach(b => {
-        const on = b.dataset.tab === tab;
-        b.classList.toggle('is-active', on);
-        if (on) b.setAttribute('aria-current', 'true'); else b.removeAttribute('aria-current');
-      });
-    }
+    if (getTabConf(tab)) state.tab = tab;
   }
+  document.querySelectorAll('.nav-tab').forEach(b => {
+    const on = b.dataset.tab === state.tab;
+    b.classList.toggle('is-active', on);
+    if (on) b.setAttribute('aria-current', 'true'); else b.removeAttribute('aria-current');
+  });
 
   // 탭 변경 후 default typeGroup 적용 — URL에 typeGroup 명시되어 있으면 곧 덮어씀
   if (tabIsSingleType()) {
@@ -89,15 +99,28 @@ function applyUrlState() {
     const v = params.get('typeGroup') || 'all';
     state.typeGroup = (v === 'all' || tabAvailableTypeGroups().includes(v)) ? v : 'all';
   }
-  if (params.has('type'))       state.type       = parseMulti(params.get('type'));
-  if (params.has('gradeYear'))  state.gradeYear  = parseMulti(params.get('gradeYear'));
+  if (params.has('type')) {
+    const knownTypes = new Set(EXAM_TYPE_CONFIG.flatMap(g => g.types.map(t => String(t.key))));
+    state.type = allowMulti(parseMulti(params.get('type')), knownTypes);
+  }
+  if (params.has('gradeYear')) {
+    const knownYears = new Set(availableGradeYears().map(String));
+    state.gradeYear = allowMulti(parseMulti(params.get('gradeYear')), knownYears);
+  }
   // 예비 curriculum 학년도 URL은 type 파라미터가 없어도 실제 예비시험으로 복원한다.
   if (!params.has('type') && state.gradeYear !== 'all') {
     const years = Array.isArray(state.gradeYear) ? state.gradeYear : [state.gradeYear];
     if (years.some(y => curriculumOfGradeYear(Number(y))?.id === '예비')) state.type = ['prelim'];
   }
-  if (params.has('subject'))    state.subject    = params.get('subject') || 'all';
-  if (params.has('subSubject')) state.subSubject = params.get('subSubject') || 'all';
+  if (params.has('subject')) {
+    const subject = params.get('subject') || 'all';
+    state.subject = subject === 'all' || tabSubjects()[subject] ? subject : 'all';
+  }
+  if (params.has('subSubject')) {
+    const sub = params.get('subSubject') || 'all';
+    const allSubs = new Set(Object.values(tabSubjects()).flatMap(s => s.subs || []).map(String));
+    state.subSubject = sub === 'all' || allSubs.has(sub) ? sub : 'all';
+  }
 
   const search = params.get('q') || params.get('search');
   if (search) {
@@ -246,6 +269,7 @@ function scrollActiveTabIntoView() {
 $('curriculumTabs').addEventListener('click', e => {
   const btn = e.target.closest('.nav-tab');
   if (!btn) return;
+  clearTimeout(searchTimer);
   document.querySelectorAll('.nav-tab').forEach(b => { b.classList.remove('is-active'); b.removeAttribute('aria-current'); });
   btn.classList.add('is-active');
   btn.setAttribute('aria-current', 'true');
@@ -546,6 +570,7 @@ $('searchInput').addEventListener('input', e => {
   $('clearSearch').style.display = val ? 'flex' : 'none';
   clearTimeout(searchTimer);
   searchTimer = setTimeout(() => {
+    if ($('searchInput').value !== val) return;
     state.query = val.trim();
     state.page = 1;
     render();
@@ -553,6 +578,7 @@ $('searchInput').addEventListener('input', e => {
   }, 180);
 });
 $('clearSearch').addEventListener('click', () => {
+  clearTimeout(searchTimer);
   $('searchInput').value = '';
   $('clearSearch').style.display = 'none';
   state.query = '';
@@ -574,7 +600,8 @@ $('paginationWrap').addEventListener('click', e => {
 
 // ── 모바일 필터 바텀시트 ────────────────────────────────────
 // 데스크톱에서는 sticky 사이드바 유지, 모바일(≤960px)에서만 시트로 동작
-function setSheetOpen(open) {
+let sheetReturnFocus = null;
+function setSheetOpen(open, trigger = null) {
   const panel    = $('filterPanel');
   const backdrop = $('filterBackdrop');
   panel.classList.toggle('is-open', open);
@@ -585,16 +612,31 @@ function setSheetOpen(open) {
   }
   document.body.classList.toggle('is-sheet-open', open);
 
+  if (open) {
+    sheetReturnFocus = trigger || document.activeElement;
+    panel.setAttribute('role', 'dialog');
+    panel.setAttribute('aria-modal', 'true');
+  } else {
+    panel.setAttribute('role', 'region');
+    panel.removeAttribute('aria-modal');
+  }
+  for (const el of [document.querySelector('.site-header'), document.querySelector('.curriculum-nav'), document.querySelector('.content')]) {
+    if (el) el.inert = open;
+  }
+
   [$('filterToggle'), $('filterToggleInline')].forEach(btn => {
     if (!btn) return;
-    btn.setAttribute('aria-label',    open ? '필터 닫기' : '필터 열기');
+    if (btn.id === 'filterToggleInline') btn.removeAttribute('aria-label');
+    else btn.setAttribute('aria-label', open ? '필터 닫기' : '필터 열기');
     btn.setAttribute('aria-expanded', String(open));
   });
+  if (open) requestAnimationFrame(() => $('filterSheetClose')?.focus());
+  else if (sheetReturnFocus?.isConnected) sheetReturnFocus.focus();
 }
 function isSheetOpen() {
   return $('filterPanel').classList.contains('is-open');
 }
-function toggleFilter() { setSheetOpen(!isSheetOpen()); }
+function toggleFilter(e) { setSheetOpen(!isSheetOpen(), e?.currentTarget); }
 
 $('filterToggle')?.addEventListener('click', toggleFilter);
 $('filterToggleInline')?.addEventListener('click', toggleFilter);
@@ -607,7 +649,18 @@ $('filterSheetReset')?.addEventListener('click', () => {
 
 // ESC 로 닫기
 document.addEventListener('keydown', e => {
-  if (e.key === 'Escape' && isSheetOpen()) setSheetOpen(false);
+  if (e.key === 'Escape' && isSheetOpen()) {
+    setSheetOpen(false);
+    return;
+  }
+  if (e.key === 'Tab' && isSheetOpen()) {
+    const focusable = [...$('filterPanel').querySelectorAll('button:not(:disabled),a[href],input:not(:disabled),select:not(:disabled),[tabindex]:not([tabindex="-1"])')]
+      .filter(el => el.offsetParent !== null);
+    if (!focusable.length) return;
+    const first = focusable[0], last = focusable[focusable.length - 1];
+    if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+    else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+  }
 });
 
 // 데스크톱으로 리사이즈 시 시트/스크롤락 자동 해제
@@ -684,14 +737,14 @@ function renderPagination(current, total, totalItems) {
 
   const nums = [];
   for (let p = winStart; p <= winEnd; p++) {
-    nums.push(`<button class="pg-btn${p === current ? ' is-active' : ''}" data-pg="${p}">${p}</button>`);
+    nums.push(`<button class="pg-btn${p === current ? ' is-active' : ''}" data-pg="${p}"${p === current ? ' aria-current="page"' : ''} aria-label="${p}페이지">${p}</button>`);
   }
 
   wrap.innerHTML = `
     <div class="pagination">
-      <button class="pg-btn pg-arrow" data-pg="${winStart - 1}" ${winStart <= 1 ? 'disabled' : ''}>‹</button>
+      <button class="pg-btn pg-arrow" data-pg="${winStart - 1}" aria-label="이전 페이지 묶음" ${winStart <= 1 ? 'disabled' : ''}>‹</button>
       ${nums.join('')}
-      <button class="pg-btn pg-arrow" data-pg="${winEnd + 1}" ${winEnd >= total ? 'disabled' : ''}>›</button>
+      <button class="pg-btn pg-arrow" data-pg="${winEnd + 1}" aria-label="다음 페이지 묶음" ${winEnd >= total ? 'disabled' : ''}>›</button>
     </div>
     <span class="pg-info">${totalItems.toLocaleString()}건 · ${current} / ${total}페이지</span>
   `;
@@ -732,28 +785,31 @@ function cardHTML(exam, idx = 0) {
     : '';
 
   const dl = name => name ? `download="${escAttr(name)}"` : 'download';
-  const qBtn = exam.questionUrl
-    ? `<a class="btn btn--primary" href="${escAttr(exam.questionUrl)}" ${dl(exam.questionDownload)}>문제지</a>`
+  const qUrl = safeUrl(exam.questionUrl);
+  const aUrl = safeUrl(exam.answerUrl);
+  const sUrl = safeUrl(exam.solutionUrl);
+  const qBtn = qUrl
+    ? `<a class="btn btn--primary" href="${escAttr(qUrl)}" ${dl(exam.questionDownload)}>문제지</a>`
     : `<button class="btn btn--primary" disabled>문제지</button>`;
-  const aBtn = exam.answerUrl
-    ? `<a class="btn" href="${escAttr(exam.answerUrl)}" ${dl(exam.answerDownload)}>정답</a>`
+  const aBtn = aUrl
+    ? `<a class="btn" href="${escAttr(aUrl)}" ${dl(exam.answerDownload)}>정답</a>`
     : `<button class="btn" disabled>정답</button>`;
   // 해설 PDF가 없으면 해설 button 자체 숨김 (disabled 회색 button 미표시)
-  const sBtn = exam.solutionUrl
-    ? `<a class="btn" href="${escAttr(exam.solutionUrl)}" ${dl(exam.solutionDownload)}>해설</a>`
+  const sBtn = sUrl
+    ? `<a class="btn" href="${escAttr(sUrl)}" ${dl(exam.solutionDownload)}>해설</a>`
     : '';
 
   const delay = `${Math.min(idx * 28, 220)}ms`;
   const ariaLabel = `${yearPart} ${title} 상세 보기`;
   return `
-    <article class="card${hasFile ? ' has-files' : ''}" style="--subject-color:${conf.color};animation-delay:${delay};">
+    <div class="card${hasFile ? ' has-files' : ''}" role="listitem" style="--subject-color:${conf.color};animation-delay:${delay};">
       <a class="card__link" href="exam-${exam.id}.html" aria-label="${escAttr(ariaLabel)}"></a>
       <div class="card__meta">${yearChip}${typeChip}</div>
       <h4 class="card__title" title="${escAttr(title)}">${escHtml(title)}</h4>
       <p class="card__sub">${escHtml(subtitle)}</p>
       <div class="card__divider"></div>
       <div class="card__actions">${qBtn}${aBtn}${sBtn}</div>
-    </article>
+    </div>
   `;
 }
 
@@ -794,6 +850,7 @@ function renderActiveTags() {
 $('activeTags').addEventListener('click', e => {
   const btn = e.target.closest('button[data-clear]');
   if (!btn) return;
+  clearTimeout(searchTimer);
   const key = btn.dataset.clear;
 
   if (key === 'query') {
@@ -829,6 +886,7 @@ $('activeTags').addEventListener('click', e => {
 
 // ── 초기화 ─────────────────────────────────────────────────
 function resetAll() {
+  clearTimeout(searchTimer);
   resetFilters();
   state.yearExpanded = false;
   $('searchInput').value = '';
@@ -906,7 +964,7 @@ function updateEmptyState(isPlaceholder) {
 // ── helpers ───────────────────────────────────────────────
 function pill(value, label, active, extra = '', attrs = '') {
   return `<button class="pill${extra ? ' ' + extra : ''}${active ? ' is-active' : ''}"
-            data-value="${escAttr(value)}" ${attrs}>${escHtml(label)}</button>`;
+            data-value="${escAttr(value)}" aria-pressed="${active}" ${attrs}>${escHtml(label)}</button>`;
 }
 
 function escHtml(str) {
@@ -914,6 +972,13 @@ function escHtml(str) {
   return String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');
 }
 function escAttr(str) { return escHtml(str); }
+function safeUrl(value) {
+  if (!value) return '';
+  try {
+    const url = new URL(String(value), location.href);
+    return (url.protocol === 'http:' || url.protocol === 'https:') ? String(value) : '';
+  } catch { return ''; }
+}
 
 // ── 뒤로가기/앞으로가기: URL 변경 시 상태 재적용 ────────────
 window.addEventListener('popstate', () => {

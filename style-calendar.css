@@ -4,7 +4,7 @@
 
 .cal-controls { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
 .cal-month-label { font-size: 18px; font-weight: 600; margin: 0; min-width: 140px; text-align: center; }
-.cal-nav, .cal-today { padding: 6px 14px; border: 1px solid #d8dde5; background: #fff; border-radius: 6px; cursor: pointer; font: inherit; }
+.cal-nav, .cal-today { min-width: 44px; min-height: 44px; padding: 6px 12px; border: 1px solid #d8dde5; background: #fff; border-radius: 6px; cursor: pointer; font: inherit; }
 .cal-nav { font-size: 18px; line-height: 1; }
 .cal-today { margin-left: auto; }
 
@@ -31,6 +31,9 @@
 .cal-empty { color: #9ca3af; padding: 16px; text-align: center; list-style: none; }
 
 @media (max-width: 600px) {
+  .cal-controls { gap: 6px; }
+  .cal-month-label { min-width: 0; flex: 1; font-size: 17px; }
+  .cal-today { margin-left: 0; }
   .cal-cell { min-height: 56px; }
   .cal-day { font-size: 11px; }
   .cal-item__date { min-width: 76px; font-size: 12px; }

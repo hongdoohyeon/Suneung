@@ -1,9 +1,17 @@
 'use strict';
-import { CURRICULUM_CONFIG, getTypeConf, prettySub, legacyTabKey } from './config.js';
-import { $, escHtml, escAttr, safeUrl } from './lib/dom.js';
-import { setMeta, setMetaProp, setCanonical, injectJsonLd as _injectJsonLd } from './lib/seo.js';
-import { renderAllAdSlots } from './lib/ads.js';
+import { CURRICULUM_CONFIG, getTypeConf, prettySub, legacyTabKey } from './config.js?v=20260713a';
+import { $, escHtml, escAttr, safeUrl } from './lib/dom.js?v=20260713a';
+import { setMeta, setMetaProp, setCanonical, injectJsonLd as _injectJsonLd } from './lib/seo.js?v=20260713a';
+import { renderAllAdSlots } from './lib/ads.js?v=20260713a';
 const injectJsonLd = (p) => _injectJsonLd('jsonld-set', p);
+const SET_CURR_SLUG = {
+  '2015':'kice','2009':'kice','예비':'kice','2007개정':'pre2009','7차':'pre2009','6차':'pre2009','pre2009':'pre2009',
+  '사관':'mil','경찰대':'police','LEET':'leet','MEET':'meet','논술':'essay','초졸':'gedelem','중졸':'gedmid','고졸':'gedhigh',
+};
+function splitStem(curriculum, year, type, grade) {
+  const slug = SET_CURR_SLUG[curriculum] || String(curriculum).toLowerCase();
+  return `exam-set-${slug}-${year}-${type}${grade ? `-g${grade}` : ''}`;
+}
 
 // ── 표시 라벨 ─────────────────────────────────────────────
 function displayYear(item) {
@@ -79,7 +87,7 @@ function cardHTML(exam) {
     <article class="card${hasFile ? ' has-files' : ''}" style="--subject-color:${subjConf.color};">
       <a class="card__link" href="exam-${exam.id}.html" aria-label="${escAttr(ariaLabel)}"></a>
       <div class="card__meta">${subjChip}</div>
-      <h4 class="card__title" title="${escAttr(title)}">${escHtml(title)}</h4>
+      <h2 class="card__title" title="${escAttr(title)}">${escHtml(title)}</h2>
       <p class="card__sub">${escHtml(subtitle)}</p>
       <div class="card__divider"></div>
       <div class="card__actions">${qBtn}${aBtn}${sBtn}</div>
@@ -180,18 +188,34 @@ async function main() {
   }
 
   let exams = [];
-  try {
-    const res = await fetch('data/exams.json?v=20260709a');
-    if (res.ok) exams = await res.json();
-  } catch { /* fall-through */ }
+  let loadedSplit = false;
+  const friendlyMatch = location.pathname.match(/\/(exam-set-[^/]+)\.html$/);
+  // 친화 URL은 빌드 시 완전한 카드가 SSG되어 있다. 네트워크·재렌더 없이 그대로 사용.
+  if (friendlyMatch && $('examsetGrid')?.children.length) return;
+  const stem = friendlyMatch?.[1] || splitStem(curriculum, yearRaw, type, studentGrade);
+  const sources = [`data/set/${stem}.json?v=20260713a`, 'data/exams.json?v=20260713a'];
+  for (const source of sources) {
+    try {
+      const res = await fetch(source);
+      if (res.ok) {
+        exams = await res.json();
+        loadedSplit = source.startsWith('data/set/');
+        break;
+      }
+    } catch { /* 다음 소스로 폴백 */ }
+  }
 
-  const items = exams.filter(e =>
+  const items = loadedSplit ? exams : exams.filter(e =>
     e.curriculum === curriculum &&
     String(e.gradeYear) === String(gradeYear) &&
     e.type === type &&
     (studentGrade == null || (e.studentGrade ?? null) === studentGrade)
   );
-  if (items.length === 0) { showError(); return; }
+  if (items.length === 0) {
+    if ($('examsetGrid')?.children.length) return; // 네트워크 실패 시 SSG 카드 보존
+    showError();
+    return;
+  }
 
   // 정렬: subject (curriculum.subjects 정의 순) → subSubject (subjConf.subs 정의 순)
   const conf = CURRICULUM_CONFIG[curriculum];
