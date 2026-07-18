@@ -1,6 +1,6 @@
 name = "kicegg-security-headers"
 main = "src/index.js"
-compatibility_date = "2025-06-27"
+compatibility_date = "2026-07-18"
 
 # Deploy to kicegg.com domain
 [[routes]]

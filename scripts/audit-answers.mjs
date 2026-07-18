@@ -20,17 +20,17 @@ const ROOT = path.resolve(__dirname, '..');
 // 시험별 표준 문항 수 (참고용 — 정확치 아닐 수 있음)
 function expectedLen(exam) {
   const c = exam.curriculum, t = exam.type, s = exam.subject;
-  // 수능/평가원/교육청
-  if (['suneung', 'csat', 'june', 'sept', 'mar', 'apr', 'jul', 'oct'].includes(t) || c === '2015' || c === '2009') {
-    if (s === '국어') return 45;
-    if (s === '수학') return 30;
-    if (s === '영어') return 45;
-    if (s === '한국사') return 20;
-    if (s === '사회탐구' || s === '과학탐구') return 20;
-    if (s === '통합과학' || s === '통합사회') return 25;
+  if (t === 'prelim') {
+    return { '국어': 45, '수학': 30, '통합사회': 25, '통합과학': 24 }[s] ?? null;
+  }
+  if (['suneung', 'education'].includes(exam.typeGroup)) {
+    return {
+      '국어': 45, '수학': 30, '영어': 45, '한국사': 20,
+      '사회탐구': 20, '과학탐구': 20,
+    }[s] ?? null;
   }
   // 사관학교
-  if (c === '사관' || t === 'military_annual') {
+  if ((c === '사관' || t === 'military_annual') && exam.gradeYear >= 2021) {
     if (s === '국어') return 30;
     if (s === '수학') return 30;
     if (s === '영어') return 30;
@@ -84,7 +84,7 @@ for (const exam of exams) {
     pushIssue(exam, 'short', { actual: a.length, expected });
   }
   // 5) 길이 초과 (거짓 매칭 의심)
-  if (expected != null && a.length > expected + 5) {
+  if (expected != null && a.length > expected) {
     pushIssue(exam, 'long', { actual: a.length, expected });
   }
 

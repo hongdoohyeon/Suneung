@@ -17,6 +17,7 @@
 
 import fs from 'node:fs/promises';
 import path from 'node:path';
+import { spawn } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -115,6 +116,8 @@ async function fetchTextItems(url) {
   const got = await fetchPdfBuf(url);
   if (got.error) return { error: got.error };
   const buf = got.buf;
+  // PDF.js가 전달받은 ArrayBuffer를 분리할 수 있으므로 pdftotext용 복사본 보존.
+  const layoutBuf = buf.slice();
   const lib = await getPdfjs();
   let items;
   try {
@@ -135,8 +138,83 @@ async function fetchTextItems(url) {
   } catch {
     return { error: 'pdf-error' };
   }
-  if (items.length === 0) return { error: 'no-text' };
-  return { items };
+  return { items, buf: layoutBuf, noText: items.length === 0 };
+}
+
+// pdftotext -layout 는 PDF.js 좌표 파싱이 놓치는 다중 열 표에서도 열 간격을
+// 보존한다. 실행 파일이 없거나 텍스트를 얻지 못하면 기존 파서만 사용한다.
+async function extractLayoutText(buf) {
+  return new Promise(resolve => {
+    const child = spawn('pdftotext', ['-layout', '-', '-'], {
+      stdio: ['pipe', 'pipe', 'ignore'],
+    });
+    const chunks = [];
+    child.stdout.on('data', chunk => chunks.push(chunk));
+    child.stdin.on('error', () => {});
+    child.on('error', () => resolve(''));
+    child.on('close', code => {
+      resolve(code === 0 ? Buffer.concat(chunks).toString('utf8') : '');
+    });
+    child.stdin.end(Buffer.from(buf));
+  });
+}
+
+function normalizedPosition(line, target) {
+  const wanted = norm(target);
+  if (!wanted) return null;
+  let normalized = '';
+  const rawPositions = [];
+  for (let i = 0; i < line.length; i++) {
+    if (/\s|·/.test(line[i])) continue;
+    normalized += line[i];
+    rawPositions.push(i);
+  }
+  const idx = normalized.indexOf(wanted);
+  if (idx < 0) return null;
+  const start = rawPositions[idx];
+  const end = rawPositions[idx + wanted.length - 1] ?? start;
+  return (start + end) / 2;
+}
+
+function parseLayoutAnswers(text, exam) {
+  const expected = expectedLengthFor(exam);
+  if (!expected) return null;
+
+  const lines = String(text || '').split(/\r?\n/);
+  let headerX = null;
+  if (exam.subSubject) {
+    for (const line of lines) {
+      const pos = normalizedPosition(line, exam.subSubject);
+      if (pos != null) { headerX = pos; break; }
+    }
+    if (headerX == null) return null;
+  }
+
+  const candidates = new Map();
+  const tripleRe = /(\d{1,2})\s+([①②③④⑤]|\d{1,4})\s+([1-5])(?!\d)/g;
+  for (const line of lines) {
+    let match;
+    while ((match = tripleRe.exec(line)) != null) {
+      const number = Number(match[1]);
+      if (number < 1 || number > expected) continue;
+      const answerOffset = match[0].indexOf(match[2]);
+      const answer = CIRCLED_TO_NUM[match[2]] || match[2];
+      const item = { answer, x: match.index + answerOffset };
+      if (!candidates.has(number)) candidates.set(number, []);
+      candidates.get(number).push(item);
+    }
+  }
+
+  const answers = [];
+  for (let number = 1; number <= expected; number++) {
+    const options = candidates.get(number) || [];
+    if (options.length === 0) return null;
+    const selected = options.length === 1 || headerX == null
+      ? options[0]
+      : [...options].sort((a, b) => Math.abs(a.x - headerX) - Math.abs(b.x - headerX))[0];
+    answers.push(String(selected.answer));
+  }
+  return answers;
 }
 
 // ── 인접 토큰 N개를 합쳐서 헤더 검색 (헤더 텍스트가 분할되어 있어도 매칭) ──
@@ -363,7 +441,7 @@ async function loadJson(p, fallback) {
 async function saveOut(out) {
   const sorted = {};
   for (const k of Object.keys(out).sort((a, b) => Number(a) - Number(b))) sorted[k] = out[k];
-  await fs.writeFile(OUT_PATH, JSON.stringify(sorted) + '\n');
+  await fs.writeFile(OUT_PATH, JSON.stringify(sorted, null, 2) + '\n');
 }
 
 // ── 메인 ─────────────────────────────────────────────────
@@ -421,13 +499,20 @@ async function main() {
         for (const exam of group) { recordFail(exam, result.error); done++; }
       } else {
         const items = result.items;
+        let layoutTextPromise;
+        const getLayoutText = () => {
+          layoutTextPromise ??= extractLayoutText(result.buf);
+          return layoutTextPromise;
+        };
         // V1 fallback 용 텍스트 미리 만들어 둠
         const flatText = items.map(it => it.s).join(' ');
         for (const exam of group) {
           let arr = buildAnswersV2(items, exam);
           if (!arr) arr = parseAnswersV1(flatText, exam);
+          if (!arr || arr.includes('?')) arr = parseLayoutAnswers(await getLayoutText(), exam);
+          if (arr?.includes('?')) arr = null;
           if (arr) { out[String(exam.id)] = arr; ok++; }
-          else recordFail(exam, 'parse-fail');
+          else recordFail(exam, result.noText ? 'no-text' : 'parse-fail');
           done++;
         }
       }

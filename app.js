@@ -2,14 +2,14 @@
 import {
   CURRICULUM_CONFIG, EXAM_TYPE_CONFIG, TAB_CONFIG,
   getTypeConf, getGroupConf, getTabConf, legacyTabKey, prettySub,
-} from './config.js?v=20260713a';
+} from './config.js?v=20260718a';
 import {
   state, PAGE_SIZE,
   resetFilters, toggleMulti,
   getDisplayYear, availableGradeYears,
-  filtered, subjectCounts, buildMockData,
+  filtered, subjectCounts,
   tabCurriculums, tabCurriculumConfs, tabSubjects, curriculumOfGradeYear,
-} from './state.js?v=20260713a';
+} from './state.js?v=20260718a';
 import { renderAllAdSlots } from './lib/ads.js';
 
 const tabConf = () => getTabConf(state.tab);
@@ -36,9 +36,13 @@ const tabIsSingleType = () => {
   return tabCurriculumConfs().every(c => c.singleType);
 };
 
-// 정적 JSON 데이터 파일 — 백엔드 없이 data/exams.json 만 갱신하면 사이트가 갱신됨
-// 빌드 시 ID 재할당되므로 캐시 버스터 강제 (옛 캐시 ↔ 새 SSG 불일치 방지)
-const DATA_URL = 'data/exams.json?v=20260713a';
+// 검색 첫 진입에서 9MB 전체 목록을 받지 않고 현재 탭 split만 로드한다.
+// CI render-site.py가 data/archive/{tab}.json을 exams.json에서 생성한다.
+const DATA_VERSION = '20260718a';
+const FULL_DATA_URL = `data/exams.json?v=${DATA_VERSION}`;
+const tabDataCache = new Map();
+let fullDataCache = null;
+let dataRequestId = 0;
 
 const $ = id => document.getElementById(id);
 
@@ -210,46 +214,101 @@ function showDataError(msg) {
   div.querySelector('.data-reload')?.addEventListener('click', () => location.reload());
 }
 
-async function loadExams() {
+function showDataFallbackNotice() {
+  if (document.getElementById('dataFallbackBanner')) return;
+  const div = document.createElement('div');
+  div.id = 'dataFallbackBanner';
+  div.style.cssText = 'position:sticky;top:0;z-index:100;background:#eff6ff;color:#1e3a5f;padding:8px 12px;text-align:center;font-size:12px;line-height:1.5;border-bottom:1px solid #bfdbfe';
+  div.textContent = '빠른 시험 목록이 아직 준비되지 않아 전체 목록으로 표시합니다.';
+  document.body.prepend(div);
+}
+
+function tabFromLocation() {
+  const raw = new URLSearchParams(location.search).get('tab');
+  if (!raw) return 'senior';
+  const tab = legacyTabKey(raw);
+  return getTabConf(tab) ? tab : 'senior';
+}
+
+async function fetchTabData(tab) {
+  if (tabDataCache.has(tab)) return tabDataCache.get(tab);
+  const res = await fetch(`data/archive/${encodeURIComponent(tab)}.json?v=${DATA_VERSION}`);
+  if (!res.ok) throw new Error(`archive split HTTP ${res.status}`);
+  const data = await res.json();
+  if (!Array.isArray(data)) throw new Error('archive split 형식 오류');
+  tabDataCache.set(tab, data);
+  return data;
+}
+
+async function fetchFullData() {
+  if (fullDataCache) return fullDataCache;
+  const res = await fetch(FULL_DATA_URL);
+  if (!res.ok) throw new Error(`exams.json HTTP ${res.status}`);
+  const data = await res.json();
+  if (!Array.isArray(data) || data.length === 0) throw new Error('exams.json 형식 오류');
+  fullDataCache = data;
+  return data;
+}
+
+async function replaceExamsForTab(tab) {
+  const requestId = ++dataRequestId;
+  state.loading = true;
   showSkeleton(true);
-  let real = [];
-  let fetchFailed = false;
+  let data;
   try {
-    const res = await fetch(DATA_URL);   // URL 의 ?v= 토큰으로 캐시 무효화 (no-store 불필요)
-    if (res.ok) real = await res.json();
-    else fetchFailed = true;
-  } catch { fetchFailed = true; }
-
-  if (fetchFailed) {
-    showDataError('시험 목록을 불러올 수 없습니다. 네트워크 연결을 확인해주세요.');
-  }
-  // mock 은 로컬 개발 전용 — 운영에서 fetch 실패 시 mock 카드를 보여주면
-  // id 가 실제 exam-{id}.html 과 어긋나 엉뚱한 시험으로 이동하게 됨.
-  const isLocalDev = ['localhost', '127.0.0.1'].includes(location.hostname);
-  state.exams = (Array.isArray(real) && real.length > 0)
-    ? real
-    : (isLocalDev ? buildMockData() : []);
-
-  // 헤더 메타: 시험 총 건수 + 최근 업데이트 일자 (reference 시험 제외)
-  const realExams = state.exams.filter(e => e.typeGroup !== 'reference');
-  const totalEl = document.getElementById('archiveTotalCount');
-  if (totalEl) totalEl.textContent = realExams.length.toLocaleString('ko-KR');
-  const updateEl = document.getElementById('archiveUpdateDate');
-  if (updateEl) {
-    // 가장 최근 examYear-month 조합 (gradeYear=9999 reference 제외)
-    const dated = realExams.filter(e => e.examYear && e.month);
-    if (dated.length) {
-      const latest = dated.reduce((a, b) => (b.examYear*100 + b.month > a.examYear*100 + a.month) ? b : a);
-      updateEl.textContent = `${latest.examYear}-${String(latest.month).padStart(2,'0')}`;
+    data = await fetchTabData(tab);
+  } catch (splitError) {
+    console.warn('archive split load failed; loading full dataset:', splitError);
+    showDataFallbackNotice();
+    try {
+      data = await fetchFullData();
+    } catch {
+      if (requestId === dataRequestId) {
+        state.exams = [];
+        state.loading = false;
+        showSkeleton(false);
+        showDataError('시험 목록을 불러올 수 없습니다. 네트워크 연결을 확인해주세요.');
+      }
+      return false;
     }
   }
-
-  applyUrlTab();   // URL ?tab=... 가 있으면 해당 탭으로 진입
-
+  if (requestId !== dataRequestId) return false;
+  state.exams = data;
   state.loading = false;
   showSkeleton(false);
+  return true;
+}
+
+async function loadArchiveMeta() {
+  const totalEl = $('archiveTotalCount');
+  const updateEl = $('archiveUpdateDate');
+  try {
+    const res = await fetch(`data/site-summary.json?v=${DATA_VERSION}`);
+    if (!res.ok) throw new Error(`site-summary HTTP ${res.status}`);
+    const summary = await res.json();
+    const count = summary.archiveCount ?? summary.count;
+    if (totalEl && Number.isInteger(count)) totalEl.textContent = count.toLocaleString('ko-KR');
+    if (updateEl && summary.updateDate) updateEl.textContent = summary.updateDate;
+  } catch {
+    const realExams = state.exams.filter(e => e.typeGroup !== 'reference');
+    if (totalEl) totalEl.textContent = realExams.length.toLocaleString('ko-KR');
+    const dated = realExams.filter(e => e.examYear && e.month);
+    if (updateEl && dated.length) {
+      const latest = dated.reduce((a, b) => (b.examYear * 100 + b.month > a.examYear * 100 + a.month) ? b : a);
+      updateEl.textContent = `${latest.examYear}-${String(latest.month).padStart(2, '0')}`;
+    }
+  }
+}
+
+async function loadExams() {
+  const initialTab = tabFromLocation();
+  state.tab = initialTab;
+  if (!await replaceExamsForTab(initialTab)) return;
+
+  applyUrlTab();   // URL ?tab=... 가 있으면 해당 탭으로 진입
   renderFilterPanel();
   render();
+  loadArchiveMeta();
 }
 
 // ── 렌더링 조율 ────────────────────────────────────────────
@@ -266,7 +325,7 @@ function scrollActiveTabIntoView() {
   active?.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
 }
 
-$('curriculumTabs').addEventListener('click', e => {
+$('curriculumTabs').addEventListener('click', async e => {
   const btn = e.target.closest('.nav-tab');
   if (!btn) return;
   clearTimeout(searchTimer);
@@ -285,6 +344,7 @@ $('curriculumTabs').addEventListener('click', e => {
   }
 
   pushUrl();   // 탭 전환은 history 쌓아 진정한 뒤로가기 가능
+  if (!await replaceExamsForTab(state.tab)) return;
   const doRender = () => { renderFilterPanel(); render(); };
   document.startViewTransition ? document.startViewTransition(doRender) : doRender();
 
@@ -981,9 +1041,9 @@ function safeUrl(value) {
 }
 
 // ── 뒤로가기/앞으로가기: URL 변경 시 상태 재적용 ────────────
-window.addEventListener('popstate', () => {
-  // exams 아직 로드 중이면 스킵 — loadExams 가 applyUrlState 다시 호출함
-  if (state.loading) return;
+window.addEventListener('popstate', async () => {
+  const nextTab = tabFromLocation();
+  if (!await replaceExamsForTab(nextTab)) return;
   applyUrlState();
   renderFilterPanel();
   render();

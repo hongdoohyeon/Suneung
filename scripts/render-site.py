@@ -7,6 +7,7 @@ build-data.py(DB 인제스트, 단독 실행 금지)와 달리 이 스크립트�
   2. exam-set-*.html 회차 SSG               (build_static_set_pages)
   3. sitemap 4종 (index/static/sets/exams — sets 는 파일명 dedupe)
   4. data/exam/{id}.json 단건 split (+고아 split 제거)
+  5. data/archive/{tab}.json 검색 탭 split
 
 exams.json 을 수정했으면 이 스크립트 한 번으로 사이트 전체가 동기화된다.
 """
@@ -26,6 +27,18 @@ spec.loader.exec_module(bd)
 # 바뀔 때만 갱신한다. 매 빌드 today 로 두면 8824건 lastmod 가 동시에 흔들려 변경
 # 신호가 희석되므로 고정값으로 둔다(데이터 추가만으로는 올리지 않음).
 CONTENT_VERSION = '2026-07-13'
+
+ARCHIVE_TAB_RULES = {
+    'senior':     {'curriculums': {'2015', '2009', '2007개정', '7차', '6차', '예비'}, 'education_grade': 3},
+    'junior':     {'curriculums': {'2015', '2009', '2007개정', '7차'}, 'education_grade': 2, 'education_only': True},
+    'freshman':   {'curriculums': {'2015', '2009', '2007개정', '7차'}, 'education_grade': 1, 'education_only': True},
+    'mp':         {'curriculums': {'사관', '경찰대'}},
+    'gradschool': {'curriculums': {'LEET', 'MEET'}},
+    'essay':      {'curriculums': {'논술'}},
+    'gedhigh':    {'curriculums': {'고졸'}},
+    'gedmid':     {'curriculums': {'중졸'}},
+    'gedelem':    {'curriculums': {'초졸'}},
+}
 
 
 def render_sitemaps(items: list[dict], hubs=None) -> None:
@@ -187,7 +200,7 @@ def _hub_page(fname: str, h1: str, title: str, desc: str, intro: str,
   <meta name="twitter:image" content="https://kicegg.com/og-image.png" />
   <script type="application/ld+json">{ld}</script>
   <title>{bd.html_escape(title, quote=True)}</title>
-  <link rel="stylesheet" href="style.css?v=20260713a" />
+  <link rel="stylesheet" href="style.css?v=20260718a" />
   <style>.setsdir__list{{columns:2;column-gap:24px;list-style:none;padding:0;margin:0}}
 .setsdir__list li{{margin:4px 0;break-inside:avoid}}
 .setsdir__list a{{display:inline-flex;align-items:center;min-height:44px}}
@@ -532,7 +545,7 @@ def render_sets_directory(items: list[dict], essay_hubs=None, subject_hubs=None)
   <meta name="twitter:image" content="https://kicegg.com/og-image.png" />
   <script type="application/ld+json">{jsonld_block}</script>
   <title>전체 회차 목록 — 기출해체분석기</title>
-  <link rel="stylesheet" href="style.css?v=20260713a" />
+  <link rel="stylesheet" href="style.css?v=20260718a" />
   <style>.setsdir__list{{columns:3;column-gap:24px;list-style:none;padding:0;margin:0}}
 .setsdir__list li{{margin:4px 0;break-inside:avoid}}
 .setsdir__list a{{display:inline-flex;align-items:center;min-height:44px}}
@@ -599,6 +612,51 @@ def render_splits(items: list[dict]) -> None:
             p.unlink()
             pruned += 1
     print(f'  + split 동기화 {written}건 / 고아 제거 {pruned}건')
+
+
+def render_archive_splits(items: list[dict]) -> None:
+    """검색 아카이브가 현재 탭에 필요한 데이터만 받도록 탭별 JSON을 만든다."""
+    out_dir = ROOT / 'data' / 'archive'
+    out_dir.mkdir(parents=True, exist_ok=True)
+    assigned: dict[int, str] = {}
+    expected_ids = {it['id'] for it in items if it.get('typeGroup') != 'reference'}
+    written = 0
+
+    for tab, rule in ARCHIVE_TAB_RULES.items():
+        selected = []
+        for it in items:
+            if it.get('curriculum') not in rule['curriculums']:
+                continue
+            if rule.get('education_only') and it.get('typeGroup') != 'education':
+                continue
+            if it.get('typeGroup') == 'education' and it.get('studentGrade') != rule.get('education_grade'):
+                continue
+            selected.append(it)
+            previous = assigned.setdefault(it['id'], tab)
+            if previous != tab:
+                raise RuntimeError(f'archive split 중복 id={it["id"]}: {previous}, {tab}')
+
+        body = json.dumps(selected, ensure_ascii=False, separators=(',', ':')) + '\n'
+        path = out_dir / f'{tab}.json'
+        if not path.exists() or path.read_text(encoding='utf-8') != body:
+            path.write_text(body, encoding='utf-8')
+            written += 1
+
+    missing = sorted(expected_ids - set(assigned))
+    unexpected = sorted(set(assigned) - expected_ids)
+    if missing or unexpected:
+        raise RuntimeError(
+            f'archive split 불완전: 누락 {len(missing)}건 / 예상 밖 {len(unexpected)}건 '
+            f'(누락 sample={missing[:10]})'
+        )
+
+    valid_names = {f'{tab}.json' for tab in ARCHIVE_TAB_RULES}
+    pruned = 0
+    for path in out_dir.glob('*.json'):
+        if path.name not in valid_names:
+            path.unlink()
+            pruned += 1
+    print(f'  + archive split {len(assigned)}건 / 갱신 {written}파일 / 고아 제거 {pruned}파일')
 
 
 def render_set_splits(items: list[dict]) -> None:
@@ -738,8 +796,13 @@ def render_site_summary(items: list[dict]) -> None:
             'sub': sub,
             'label': f'{sub} {title}'.strip() if sub else title,
         })
+    archive_items = [e for e in items if e.get('typeGroup') != 'reference']
+    dated = [e for e in archive_items if e.get('examYear') and e.get('month')]
+    latest = max(dated, key=lambda e: (e['examYear'], e['month'])) if dated else None
     payload = {
         'count': len(items),
+        'archiveCount': len(archive_items),
+        'updateDate': f"{latest['examYear']}-{str(latest['month']).zfill(2)}" if latest else None,
         'updateLabel': _summary_update_label(items),
         'recentUpdates': recent,
     }
@@ -798,6 +861,7 @@ def main() -> None:
     render_site_summary(items)
     render_rss(items)
     render_splits(items)
+    render_archive_splits(items)
     render_set_splits(items)
     render_gradecut_splits(items)
     print('완료')

@@ -170,7 +170,8 @@ function validateBusinessRules(data) {
       if (k in ex && ex[k] !== null) {
         const v = String(ex[k]);
         // 옛 LEET/MEET (~2021학년도) 자료는 .hwp 원본만 존재 — 허용.
-        if (!v.endsWith('.pdf') && !v.endsWith('.hwp')) {
+        const lower = v.toLowerCase();
+        if (!lower.endsWith('.pdf') && !lower.endsWith('.hwp')) {
           warn(`id=${ex.id} ${k}가 .pdf/.hwp로 끝나지 않음: ${v}`);
         }
       }
@@ -202,19 +203,29 @@ function validateBusinessRules(data) {
 async function validateAnswers(exams) {
   let raw;
   try { raw = await readFile(ANSWERS_PATH, 'utf-8'); }
-  catch { return; }   // answers.json 없으면 skip
+  catch (e) { warn(`answers.json 읽기 실패: ${e.message}`); return; }
   let answers;
   try { answers = JSON.parse(raw); }
   catch (e) { err(`answers.json 파싱 실패: ${e.message}`); return; }
 
   const examById = new Map(exams.map(e => [e.id, e]));
   let lengthMismatch = 0, totalChecked = 0;
+  let unknownAnswerExams = 0, unknownAnswerCells = 0;
+  let invalidAnswerCells = 0;
   const samples = [];
   for (const [eid_str, arr] of Object.entries(answers)) {
     if (!Array.isArray(arr)) {
       err(`answers id=${eid_str} 배열이 아님`);
       continue;
     }
+    const unknown = arr.filter(value => value === '?').length;
+    if (unknown > 0) {
+      unknownAnswerExams++;
+      unknownAnswerCells += unknown;
+    }
+    invalidAnswerCells += arr.filter(
+      value => typeof value !== 'string' || !/^\d+(,\d+)*$/.test(value)
+    ).length;
     const exam = examById.get(Number(eid_str));
     if (!exam) {
       warn(`answers id=${eid_str} 매칭 시험 없음 (orphan)`);
@@ -229,11 +240,16 @@ async function validateAnswers(exams) {
     }
   }
   if (lengthMismatch > 0) {
-    // 옛 자료(28예시 등) 문항수가 표준과 다를 수 있음 — 배포 차단 대신 경고
-    warn(`answers 길이 불일치 ${lengthMismatch}/${totalChecked}건 (정상화 필요: npm run normalize-answers)`);
-    for (const s of samples) warns.push('  ' + s);
+    err(`answers 길이 불일치 ${lengthMismatch}/${totalChecked}건 — npm run normalize-answers 후 원본 재검증 필요`);
+    for (const s of samples) errors.push('  ' + s);
   } else if (totalChecked > 0) {
     console.log(`answers 길이 검증: ${totalChecked}건 모두 정상`);
+  }
+  if (unknownAnswerCells > 0) {
+    err(`answers 미확정 값('?') ${unknownAnswerCells}개 / ${unknownAnswerExams}개 시험 — 검증 데이터에 포함할 수 없음`);
+  }
+  if (invalidAnswerCells > 0) {
+    err(`answers 허용되지 않은 값 ${invalidAnswerCells}개 — 숫자 또는 쉼표로 구분한 복수정답만 허용`);
   }
 }
 
@@ -242,7 +258,7 @@ async function validateAnswers(exams) {
 async function validateGradecuts() {
   let raw;
   try { raw = await readFile(GRADECUTS_PATH, 'utf-8'); }
-  catch { return; }   // 없으면 skip
+  catch (e) { warn(`gradecuts.json 읽기 실패: ${e.message}`); return; }
   let cuts;
   try { cuts = JSON.parse(raw); }
   catch (e) { err(`gradecuts.json 파싱 실패: ${e.message}`); return; }
@@ -309,7 +325,10 @@ function summarize(data) {
 
   if (warns.length) {
     console.log(`\n⚠️  경고 ${warns.length}건`);
-    for (const w of warns.slice(0, 20)) console.log('  ' + w);
+    const warningRank = message => message.includes('answers') || message.startsWith('  id=')
+      ? 0 : message.includes('외부 호스트') ? 2 : 1;
+    const displayWarns = [...warns].sort((a, b) => warningRank(a) - warningRank(b));
+    for (const w of displayWarns.slice(0, 20)) console.log('  ' + w);
     if (warns.length > 20) console.log(`  ... +${warns.length - 20} 건 더`);
   }
   if (errors.length) {

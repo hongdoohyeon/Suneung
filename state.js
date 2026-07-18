@@ -2,7 +2,7 @@
 import {
   CURRICULUM_CONFIG, EXAM_TYPE_CONFIG, TAB_CONFIG,
   getTypeConf, getTabConf, prettySub, searchAliasOf, ALIAS_KEYS_DESC,
-} from './config.js?v=20260713a';
+} from './config.js?v=20260718a';
 
 // ── 검색 정규화 ─────────────────────────────────────────────
 // 로마자 숫자(Ⅰ/Ⅱ/Ⅲ) → 아라비아, 한자(一/二/三) → 아라비아, 소문자, 공백 제거.
@@ -189,7 +189,7 @@ function buildHay(e) {
   }
 
   // 자료 타입 키워드 — 검색에 "듣기", "대본", "mp3", "스크립트" 직접 입력해도 잡히게
-  items.push('문제지', '문제', '기출', '기출문제', '정답', '답지', '해설', '해설지', '풀이', '등급컷', '빠른정답');
+  items.push('문제지', '문제', '기출', '기출문제', '정답', '답지', '해설', '해설지', '풀이', '등급컷');
   if (e.subject === '영어' && (e.listenUrl || e.scriptUrl)) {
     items.push('듣기', '듣기파일', '듣기mp3', 'mp3', '음원',
                '대본', '듣기대본', '스크립트', '영어스크립트', 'listening', 'script',

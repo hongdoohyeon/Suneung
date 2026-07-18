@@ -1999,7 +1999,7 @@ body.is-sheet-open { overflow: hidden; touch-action: none; }
   .nav-group         { flex-direction: row; align-items: center; gap: 2px; }
   .nav-group__label  { display: none; }
   .nav-group__tabs   { gap: 2px; }
-  .nav-tab           { flex-direction: row; padding: 6px 12px; gap: 0; border-radius: 8px; min-width: 0; min-height: var(--tap); }
+  .nav-tab           { flex-direction: row; padding: 6px 12px; gap: 0; border-radius: 8px; min-width: var(--tap); min-height: var(--tap); }
   .nav-tab__sub      { display: none; }
   .nav-tab__title    { font-size: 12px; line-height: 1.2; letter-spacing: -0.2px; }
   .nav-sep           { margin: 0; height: 14px; align-self: center; }

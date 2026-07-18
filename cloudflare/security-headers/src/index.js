@@ -40,10 +40,9 @@ const SECURITY_HEADERS = {
   'permissions-policy': 'camera=(), microphone=(), geolocation=()',
 };
 
-// Cache TTL for static assets to reduce origin requests
-const CACHE_HEADERS = {
-  'cache-control': 'public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800',
-};
+const VERSIONED_CACHE = 'public, max-age=31536000, immutable';
+const STATIC_CACHE = 'public, max-age=86400, s-maxage=604800, stale-while-revalidate=2592000';
+const DATA_CACHE = 'public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800';
 
 addEventListener('fetch', event => {
   event.respondWith(handleRequest(event.request));
@@ -63,19 +62,15 @@ async function handleRequest(request) {
 
   // Add cache headers for static assets
   const path = url.pathname.toLowerCase();
+  const versioned = url.searchParams.has('v');
   if (response.ok && response.status === 200 && path.match(/\.(js|css|svg|png|jpg|jpeg|gif|ico|woff2?|ttf)$/)) {
-    for (const [key, value] of Object.entries(CACHE_HEADERS)) {
-      modified.headers.set(key, value);
-    }
+    modified.headers.set('cache-control', versioned ? VERSIONED_CACHE : STATIC_CACHE);
   }
 
   // JSON data is versioned by query string on pages that need aggressive busting.
   // Override GitHub Pages' no-store so repeat users do not re-download exams.json.
   if (response.ok && response.status === 200 && path.match(/\.json$/)) {
-    modified.headers.set(
-      'cache-control',
-      'public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800'
-    );
+    modified.headers.set('cache-control', versioned ? VERSIONED_CACHE : DATA_CACHE);
   }
 
   // Add cache headers for HTML (shorter TTL)

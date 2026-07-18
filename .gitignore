@@ -10,6 +10,7 @@ tmp/
 *.json.old
 ocr-*-detected.json
 deep-split-*.json
+data/audit-report.json
 
 # admissions guide PDFs — Worker/Release 로 서빙, repo tracking 제외
 data/admissions/pdfs/

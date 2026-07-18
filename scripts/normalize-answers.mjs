@@ -1,8 +1,8 @@
 #!/usr/bin/env node
-// data/answers.json 정상화: 과목별 표준 문항 수에 array 길이 강제.
-//   - 길이가 더 길면 잘라냄 (다른 컬럼 답이 섞인 케이스)
-//   - 길이가 더 짧으면 '?' 로 padding (단답형 추출 누락 케이스)
-//   - 정상 문항 수가 정의되지 않은 카테고리(LEET/MEET/사관/경찰대)는 건드리지 않음.
+// data/answers.json 정상화: 검증할 수 없는 자동 추출값을 별도 격리.
+//   - '?' 포함 또는 표준 문항 수 불일치 값을 임의 보정하지 않음.
+//   - 원본 값과 사유는 data/answers-unverified.json 에 보존.
+//   - 정상 문항 수가 정의되지 않은 카테고리는 '?' 포함 여부만 검사.
 //
 // 실행:  node scripts/normalize-answers.mjs           # 미리보기
 //        node scripts/normalize-answers.mjs --write   # 실제 갱신
@@ -14,6 +14,7 @@ import { fileURLToPath } from 'node:url';
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(HERE, '..');
 const ANSWERS_PATH = path.resolve(ROOT, 'data/answers.json');
+const UNVERIFIED_PATH = path.resolve(ROOT, 'data/answers-unverified.json');
 const EXAMS_PATH   = path.resolve(ROOT, 'data/exams.json');
 
 const WRITE = process.argv.includes('--write');
@@ -40,7 +41,13 @@ function expectedLength(exam) {
   // 평가원 예비(prelim) 는 typeGroup='suneung' 이지만 문항수가 다름 → type 우선 분기
   if (exam.type === 'prelim') return PRELIM_LENGTH[exam.subject] ?? null;
   if (SUNEUNG_LIKE.has(exam.typeGroup)) return SUNEUNG_LENGTH[exam.subject] ?? null;
-  // LEET/MEET/사관/경찰대: 시기별 문항 수 변화가 커서 미정의
+  if (exam.typeGroup === 'leet') {
+    return { '언어이해': 30, '추리논증': 40 }[exam.subject] ?? null;
+  }
+  if (exam.typeGroup === 'military' && exam.gradeYear >= 2021) {
+    return { '국어': 30, '수학': 30, '영어': 30 }[exam.subject] ?? null;
+  }
+  // MEET/옛 사관/경찰대: 시기별 문항 수 변화가 커서 미정의
   return null;
 }
 
@@ -48,59 +55,52 @@ const answers = JSON.parse(await fs.readFile(ANSWERS_PATH, 'utf-8'));
 const exams   = JSON.parse(await fs.readFile(EXAMS_PATH,   'utf-8'));
 const examById = new Map(exams.map(e => [e.id, e]));
 
-let trimmed = 0, padded = 0, untouched = 0, skipped = 0;
-const trimSamples = [], padSamples = [];
+let quarantined = 0, verified = 0;
+let unverified = {};
+try { unverified = JSON.parse(await fs.readFile(UNVERIFIED_PATH, 'utf-8')); }
+catch {}
+const samples = [];
 
 for (const [eid_str, arr] of Object.entries(answers)) {
   const exam = examById.get(Number(eid_str));
-  if (!exam) { skipped++; continue; }
-  const expected = expectedLength(exam);
-  if (expected == null) { skipped++; continue; }
-
-  if (arr.length === expected) { untouched++; continue; }
-
-  if (arr.length > expected) {
-    const removed = arr.slice(expected);
-    answers[eid_str] = arr.slice(0, expected);
-    trimmed++;
-    if (trimSamples.length < 5) trimSamples.push({
-      id: exam.id, subject: exam.subject, sub: exam.subSubject,
-      from: arr.length, to: expected, removed,
-    });
-  } else {
-    const padded_arr = [...arr];
-    while (padded_arr.length < expected) padded_arr.push('?');
-    answers[eid_str] = padded_arr;
-    padded++;
-    if (padSamples.length < 5) padSamples.push({
-      id: exam.id, subject: exam.subject, sub: exam.subSubject,
-      from: arr.length, to: expected,
-    });
+  const expected = exam ? expectedLength(exam) : null;
+  const reasons = [];
+  if (!exam) reasons.push('orphan');
+  if (!Array.isArray(arr)) reasons.push('not-array');
+  if (Array.isArray(arr) && arr.includes('?')) reasons.push('unknown-values');
+  if (Array.isArray(arr) && expected != null && arr.length !== expected) {
+    reasons.push(`length-${arr.length}-expected-${expected}`);
   }
+  if (reasons.length === 0) {
+    delete unverified[eid_str];
+    verified++;
+    continue;
+  }
+
+  unverified[eid_str] = {
+    reasons,
+    exam: exam ? {
+      id: exam.id,
+      gradeYear: exam.gradeYear,
+      type: exam.type,
+      subject: exam.subject,
+      subSubject: exam.subSubject,
+      answerUrl: exam.answerUrl,
+    } : null,
+    answers: arr,
+  };
+  delete answers[eid_str];
+  quarantined++;
+  if (samples.length < 10) samples.push(`id=${eid_str} ${reasons.join(', ')}`);
 }
 
-console.log(`총 ${Object.keys(answers).length}건`);
-console.log(`  ✓ 정상 (변경없음): ${untouched}`);
-console.log(`  ✂ 자름 (length 초과): ${trimmed}`);
-console.log(`  ＋ padding (length 부족): ${padded}`);
-console.log(`  − skip (정상길이 미정의): ${skipped}`);
-
-if (trimSamples.length) {
-  console.log('\n자른 샘플:');
-  for (const s of trimSamples) {
-    console.log(`  id=${s.id} ${s.subject}${s.sub?`(${s.sub})`:''} ${s.from}→${s.to}, 제거: ${s.removed.join(',')}`);
-  }
-}
-if (padSamples.length) {
-  console.log('\npadding 샘플:');
-  for (const s of padSamples) {
-    console.log(`  id=${s.id} ${s.subject}${s.sub?`(${s.sub})`:''} ${s.from}→${s.to}`);
-  }
-}
+console.log(`검증 완료 ${verified}건 / 격리 ${quarantined}건`);
+for (const sample of samples) console.log(`  ${sample}`);
 
 if (WRITE) {
-  await fs.writeFile(ANSWERS_PATH, JSON.stringify(answers) + '\n');
-  console.log('\n✅ data/answers.json 갱신');
+  await fs.writeFile(ANSWERS_PATH, JSON.stringify(answers, null, 2) + '\n');
+  await fs.writeFile(UNVERIFIED_PATH, JSON.stringify(unverified, null, 2) + '\n');
+  console.log('\n✅ answers.json 검증값 갱신 / answers-unverified.json 격리값 보존');
 } else {
   console.log('\n(미리보기 모드. 실제 적용은 --write 추가)');
 }
