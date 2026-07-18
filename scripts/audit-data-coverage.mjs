@@ -105,6 +105,12 @@ const adigaNumeric = adigaSchools.filter(([, school]) => school.status === 'nume
 const adigaNoNumeric = adigaSchools.filter(([, school]) => school.status === 'no_numeric_cut' || school.status === 'no_rows');
 const adigaUnlisted = adigaSchools.filter(([, school]) => school.status === 'not_listed_in_adiga');
 const directSupplements = adigaSchools.filter(([, school]) => school.directSupplement);
+const adigaUniversities = Object.entries(adigaCoverage.universities || {});
+const adigaUniversityNumeric = adigaUniversities.filter(([, university]) => university.status === 'numeric_cut_available');
+const adigaUniversityNoNumeric = adigaUniversities.filter(([, university]) => university.status !== 'numeric_cut_available');
+const adigaAdditionalUniversities = adigaUniversities.filter(([, university]) => !(university.targetSlugs || []).length);
+const adigaAdditionalNumeric = adigaAdditionalUniversities.filter(([, university]) => university.status === 'numeric_cut_available');
+const adigaAdditionalUnitCount = adigaAdditionalUniversities.reduce((sum, [, university]) => sum + university.numericCutCount, 0);
 
 if (ratioSlugs.length !== 103 || manualRatios._meta?.schoolCount !== ratioSlugs.length) {
   errors.push(`정시 반영비율 ${ratioSlugs.length}개교 (예상 103개교)`);
@@ -113,6 +119,23 @@ if (adigaCoverage._meta?.targetSchoolCount !== ratioSlugs.length
   || adigaCoverage._meta?.auditedSchoolCount !== adigaSchools.length
   || adigaSchools.length !== ratioSlugs.length) {
   errors.push(`2026 어디가 감사 ${adigaSchools.length}/${ratioSlugs.length}개교`);
+}
+if (adigaUniversities.length !== 220
+  || adigaCoverage._meta?.auditedOfficialUniversityCount !== adigaUniversities.length
+  || adigaCoverage._meta?.officialUniversityCount !== adigaUniversities.length) {
+  errors.push(`2026 어디가 전체 감사 ${adigaUniversities.length}/220개 대학·캠퍼스`);
+}
+if (adigaUniversityNumeric.length !== 182
+  || adigaCoverage._meta?.officialUniversitiesWithNumericCut !== adigaUniversityNumeric.length
+  || adigaCoverage._meta?.officialNumericCutCount !== 4821) {
+  errors.push(`2026 어디가 전체 숫자 공개 ${adigaUniversityNumeric.length}곳 ${adigaCoverage._meta?.officialNumericCutCount}건 (예상 182곳 4821건)`);
+}
+if (adigaUniversityNoNumeric.length !== 38
+  || adigaCoverage._meta?.officialUniversitiesWithoutNumericCut !== adigaUniversityNoNumeric.length) {
+  errors.push(`2026 어디가 전체 숫자 미공개 ${adigaUniversityNoNumeric.length}곳 (예상 38곳)`);
+}
+if (adigaAdditionalUniversities.length !== 103 || adigaAdditionalNumeric.length !== 73 || adigaAdditionalUnitCount !== 1070) {
+  errors.push(`반영비율 외 공식 입결 ${adigaAdditionalUniversities.length}코드 · 숫자 ${adigaAdditionalNumeric.length}곳 ${adigaAdditionalUnitCount}건`);
 }
 if (adigaNumeric.length !== 94 || adigaCoverage._meta?.schoolsWithNumericCut !== adigaNumeric.length
   || adigaCoverage._meta?.numericCutCount !== 3751) {
@@ -145,8 +168,11 @@ const unavailableLines = [...adigaNoNumeric, ...adigaUnlisted]
 const supplementLines = directSupplements
   .sort((a, b) => a[1].name.localeCompare(b[1].name, 'ko'))
   .map(([, school]) => `- ${school.name}: ${supplementStatusLabel[school.directSupplement.status] || school.directSupplement.status}`);
+const allUnavailableLines = adigaUniversityNoNumeric
+  .sort((a, b) => a[1].officialName.localeCompare(b[1].officialName, 'ko') || a[1].campus.localeCompare(b[1].campus, 'ko'))
+  .map(([, university]) => `- ${university.officialName}${university.campus === '본교' ? '' : ` (${university.campus})`}: ${Object.entries(university.missingReasons || {}).map(([reason, count]) => `${reason} ${count}건`).join(' · ') || '수능위주전형 결과 표 없음'}`);
 
-const today = new Date().toISOString().slice(0, 10);
+const today = new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Seoul' }).format(new Date());
 const report = `# 데이터 커버리지 현황
 
 기준일 ${today} · \`data/exams.json\` 실측
@@ -185,9 +211,12 @@ ${questionOnlySchools.map(([school, count]) => `- ${school}: ${count}회차`).jo
 ## 정시 반영비율·입결
 
 - 반영비율: ${ratioSlugs.length}개교 / ${ratioTrackCount}개 전형
-- 2026학년도 어디가 수능위주전형 공식 결과 감사: ${adigaSchools.length}/${ratioSlugs.length}개교
-- 공식 백분위 70% 평균 공개: ${adigaNumeric.length}개교 / ${adigaCoverage._meta.numericCutCount}개 모집단위
-- 공식 숫자 미공개: ${adigaNoNumeric.length + adigaUnlisted.length}개교 (어디가 등재 ${adigaNoNumeric.length}개교, 과학기술원 등 미등재 ${adigaUnlisted.length}개교)
+- 2026학년도 어디가 일반대학 전체 감사: ${adigaUniversities.length}/${adigaCoverage._meta.officialUniversityCount}개 대학·캠퍼스
+- 전체 공식 백분위 70% 평균 공개: ${adigaUniversityNumeric.length}곳 / ${adigaCoverage._meta.officialNumericCutCount}개 모집단위
+- 전체 공식 숫자 미공개: ${adigaUniversityNoNumeric.length}곳
+- 반영비율 외 추가 공식 입결: ${adigaAdditionalUniversities.length}개 대학코드 중 ${adigaAdditionalNumeric.length}곳 / ${adigaAdditionalUnitCount}개 모집단위
+- 반영비율 대상 공식 결과 감사: ${adigaSchools.length}/${ratioSlugs.length}개교 · 숫자 ${adigaNumeric.length}개교 / ${adigaCoverage._meta.numericCutCount}개 모집단위
+- 반영비율 대상 공식 숫자 미공개: ${adigaNoNumeric.length + adigaUnlisted.length}개교 (어디가 등재 ${adigaNoNumeric.length}개교, 과학기술원 등 미등재 ${adigaUnlisted.length}개교)
 - 2021~2026학년도 누적 참고 입결: ${resultSlugs.length}개교 / ${resultUnitCount}개 모집단위
 - 대학 입학처 별도 공개 상태 보강: ${directSupplements.length}개교
 
@@ -199,18 +228,22 @@ ${unavailableLines.join('\n')}
 
 ${supplementLines.join('\n')}
 
+### 어디가 전체 공식 숫자 미공개 대학·캠퍼스
+
+${allUnavailableLines.join('\n')}
+
 ## 해석 주의
 
 - 논술 본고사는 대학이 예시답안·해설을 공개하지 않는 경우가 많아, 문제만 있는 회차가 곧 수집 실패를 뜻하지는 않는다.
 - 2027학년도 모의논술은 대학별 공개 일정이 달라 수시로 갱신해야 한다.
-- 정시 70%컷이 없는 9개교는 누락이 아니라 어디가 미등재 또는 공식 수치 미공개 상태다. 대체 척도는 백분위로 변환하지 않는다.
+- 어디가 220개 대학·캠퍼스 중 38곳, 반영비율 대상 103개교 중 9개교는 공식 수치 미공개 또는 미등재 상태다. 대체 척도는 백분위로 변환하지 않는다.
 - 정시 데이터의 원본-사이트 동기화는 \`npm run validate-admissions\`에서 별도 검증한다.
 `;
 
 console.log(`고1 ${exams.filter(e => e.typeGroup === 'education' && e.studentGrade === 1).length}건 / 고2 ${exams.filter(e => e.typeGroup === 'education' && e.studentGrade === 2).length}건`);
 console.log(`논술 ${essays.length}건 / ${essaySchools.length}개교 / 문제만 ${questionOnly.length}회차 / 2027학년도 ${essays.filter(e => e.gradeYear === 2027).length}건`);
 console.log(`2027 시행대학 전체 이력 ${representedTargetSchools.size}/${essayTarget.expectedUniversityCount}개교 / 2026 기출 ${represented2026TargetSchools.size}/${essayTarget.expectedUniversityCount}개교`);
-console.log(`정시 반영비율 ${ratioSlugs.length}개교 ${ratioTrackCount}전형 / 2026 어디가 ${adigaSchools.length}개교 감사 · ${adigaNumeric.length}개교 ${adigaCoverage._meta.numericCutCount}컷`);
+console.log(`정시 반영비율 ${ratioSlugs.length}개교 ${ratioTrackCount}전형 / 2026 어디가 전체 ${adigaUniversities.length}곳 감사 · ${adigaUniversityNumeric.length}곳 ${adigaCoverage._meta.officialNumericCutCount}컷`);
 if (errors.length) {
   for (const message of errors) console.error(`- ${message}`);
   process.exit(1);

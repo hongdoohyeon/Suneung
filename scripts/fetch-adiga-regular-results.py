@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """대입정보포털 어디가의 2026학년도 정시 70%컷을 공식 응답에서 수집한다.
 
-기본 실행은 대학코드 매핑만 점검한다. ``--write``를 지정하면 103개 대상
-대학을 전부 조회해 출처·미제출 사유를 기록하고, 숫자가 공개된 대학의
-2026학년도 자료를 ``manual-results.json``에 반영한다.
+기본 실행은 대학코드 매핑만 점검한다. ``--write``를 지정하면 어디가 일반대학
+목록 220개 대학·캠퍼스를 전부 조회해 출처·미제출 사유를 기록하고, 기존
+103개 반영비율 대상 대학의 2026학년도 자료를 ``manual-results.json``에 반영한다.
 """
 
 from __future__ import annotations
@@ -452,10 +452,38 @@ def detail_url(unv_cd: str) -> str:
     )
 
 
-def collect_results(
+def collect_official_results(
     client: AdigaClient,
+    universities: list[dict[str, str]],
+) -> dict[str, object]:
+    results: dict[str, object] = {}
+    for index, university in enumerate(universities, start=1):
+        print(
+            f"[{index:03d}/{len(universities)}] {university['unvCd']} "
+            f"{university['name']} {university['campus']}",
+            file=sys.stderr,
+        )
+        fragment = client.post(
+            RESULT_URL,
+            {
+                "searchSyr": SEARCH_SYR,
+                "unvCd": university["unvCd"],
+                "tsrdCmphSlcnArtclUpCd": "40",
+                "compUnvCd": "",
+            },
+        )
+        parsed = parse_result_fragment(fragment, university)
+        parsed["sourceUrl"] = detail_url(university["unvCd"])
+        parsed["targetSlugs"] = []
+        results[university["unvCd"]] = parsed
+        time.sleep(0.1)
+    return results
+
+
+def build_target_results(
     ratios: dict[str, object],
     mapping: dict[str, list[dict[str, str]]],
+    official_universities: dict[str, object],
 ) -> dict[str, object]:
     schools: dict[str, object] = {}
     target_slugs = [slug for slug in ratios if slug != "_meta"]
@@ -475,20 +503,10 @@ def collect_results(
         campuses = []
         all_units = []
         for university in mapping[slug]:
-            fragment = client.post(
-                RESULT_URL,
-                {
-                    "searchSyr": SEARCH_SYR,
-                    "unvCd": university["unvCd"],
-                    "tsrdCmphSlcnArtclUpCd": "40",
-                    "compUnvCd": "",
-                },
-            )
-            parsed = parse_result_fragment(fragment, university)
-            parsed["sourceUrl"] = detail_url(university["unvCd"])
+            parsed = copy.deepcopy(official_universities[university["unvCd"]])
             all_units.extend(parsed.pop("units"))
+            parsed.pop("targetSlugs", None)
             campuses.append(parsed)
-            time.sleep(0.1)
         unique_units = {}
         for unit in all_units:
             key = (
@@ -519,7 +537,9 @@ def collect_results(
 
 
 def build_source_payload(
-    schools: dict[str, object], target_count: int, university_count: int
+    schools: dict[str, object],
+    target_count: int,
+    official_universities: dict[str, object],
 ) -> dict[str, object]:
     numeric_schools = sum(
         school["status"] == "numeric_cut_available" for school in schools.values()
@@ -529,19 +549,30 @@ def build_source_payload(
     )
     unit_count = sum(school["numericCutCount"] for school in schools.values())
     code_count = sum(len(school["campuses"]) for school in schools.values())
+    official_numeric_count = sum(
+        university["status"] == "numeric_cut_available"
+        for university in official_universities.values()
+    )
+    official_unit_count = sum(
+        university["numericCutCount"] for university in official_universities.values()
+    )
     for slug, supplement in DIRECT_SUPPLEMENTS.items():
         if slug in schools:
             schools[slug]["directSupplement"] = copy.deepcopy(supplement)
     return {
         "_meta": {
-            "description": "대입정보포털 어디가 2026학년도 수능위주전형 공식 입시결과 전수 조회",
+            "description": "대입정보포털 어디가 2026학년도 수능위주전형 공식 입시결과 220개 대학·캠퍼스 전수 조회",
             "source": "대입정보포털 어디가",
             "sourceUrl": VIEW_URL,
             "sourceEndpoint": RESULT_URL,
             "searchSyr": SEARCH_SYR,
             "resultYear": RESULT_YEAR,
             "collectedAt": datetime.now(KST).date().isoformat(),
-            "officialUniversityCount": university_count,
+            "officialUniversityCount": len(official_universities),
+            "auditedOfficialUniversityCount": len(official_universities),
+            "officialUniversitiesWithNumericCut": official_numeric_count,
+            "officialUniversitiesWithoutNumericCut": len(official_universities) - official_numeric_count,
+            "officialNumericCutCount": official_unit_count,
             "targetSchoolCount": target_count,
             "auditedSchoolCount": len(schools),
             "mappedSchoolCount": target_count - unlisted_schools,
@@ -550,8 +581,9 @@ def build_source_payload(
             "schoolsWithNumericCut": numeric_schools,
             "schoolsWithoutNumericCut": target_count - numeric_schools,
             "numericCutCount": unit_count,
-            "note": "숫자가 없는 대학도 대학 미제출·통합모집·등록인원 3명 이하 등 공식 사유와 함께 기록한다.",
+            "note": "어디가 일반대학 220개 대학·캠퍼스를 모두 조회한다. 숫자가 없는 대학도 대학 미제출·통합모집·등록인원 3명 이하 등 공식 사유와 함께 기록한다.",
         },
+        "universities": official_universities,
         "schools": schools,
     }
 
@@ -561,7 +593,15 @@ def build_coverage_payload(source_payload: dict[str, object]) -> dict[str, objec
         slug: {key: value for key, value in school.items() if key != "units"}
         for slug, school in source_payload["schools"].items()
     }
-    return {"_meta": copy.deepcopy(source_payload["_meta"]), "schools": schools}
+    universities = {
+        code: {key: value for key, value in university.items() if key != "units"}
+        for code, university in source_payload["universities"].items()
+    }
+    return {
+        "_meta": copy.deepcopy(source_payload["_meta"]),
+        "universities": universities,
+        "schools": schools,
+    }
 
 
 def merge_manual_results(
@@ -621,12 +661,17 @@ def merge_manual_results(
             "official2026UnlistedSchoolCount": source_meta["unlistedSchoolCount"],
             "official2026SchoolCount": source_meta["schoolsWithNumericCut"],
             "official2026UnitCount": source_meta["numericCutCount"],
+            "official2026UniversityCount": source_meta["auditedOfficialUniversityCount"],
+            "official2026UniversityNumericCount": source_meta["officialUniversitiesWithNumericCut"],
+            "official2026UniversityUnitCount": source_meta["officialNumericCutCount"],
             "official2026StatusFile": "data/admissions/sources/adiga-regular-2026.json",
             "official2026CoverageFile": "data/admissions/adiga-coverage-2026.json",
             "note": (
                 f"2021~2026학년도 {len(result_schools)}개교 {unit_count}개 모집단위. "
-                f"2026학년도는 103개 대상 대학을 어디가에서 전수 조회해 "
-                f"{source_meta['schoolsWithNumericCut']}개교 {source_meta['numericCutCount']}개 공개 수치를 반영했다. "
+                f"2026학년도는 어디가 일반대학 {source_meta['auditedOfficialUniversityCount']}개 대학·캠퍼스를 전수 조회해 "
+                f"{source_meta['officialUniversitiesWithNumericCut']}곳 {source_meta['officialNumericCutCount']}개 공개 수치를 보존했다. "
+                f"이 중 반영비율 대상 103개교에는 {source_meta['schoolsWithNumericCut']}개교 "
+                f"{source_meta['numericCutCount']}개 공개 수치를 반영했다. "
                 f"목록에 없는 과학기술원 {source_meta['unlistedSchoolCount']}곳과 "
                 "미제출·소수인원 비공개 상태는 별도 출처 파일에 보존한다. 대학별 산식이 달라 단순 비교하면 안 된다."
             ),
@@ -652,7 +697,7 @@ def main() -> int:
     parser.add_argument(
         "--write",
         action="store_true",
-        help="103개교 결과를 수집하고 출처 파일 및 manual-results.json을 갱신",
+        help="어디가 220개 대학·캠퍼스 결과를 수집하고 출처 파일 및 manual-results.json을 갱신",
     )
     args = parser.parse_args()
 
@@ -681,8 +726,16 @@ def main() -> int:
         print("\n매핑 점검 완료. 실제 수집·반영은 --write를 지정하세요.")
         return 0
 
-    schools = collect_results(client, ratios, mapping)
-    source_payload = build_source_payload(schools, target_count, len(universities))
+    official_universities = collect_official_results(client, universities)
+    for slug, candidates in mapping.items():
+        for candidate in candidates:
+            official_universities[candidate["unvCd"]]["targetSlugs"].append(slug)
+    for university in official_universities.values():
+        university["targetSlugs"].sort()
+    schools = build_target_results(ratios, mapping, official_universities)
+    source_payload = build_source_payload(schools, target_count, official_universities)
+    if source_payload["_meta"]["auditedOfficialUniversityCount"] != len(universities):
+        raise RuntimeError("어디가 일반대학 전체가 수집되지 않아 파일을 쓰지 않습니다")
     if source_payload["_meta"]["auditedSchoolCount"] != target_count:
         raise RuntimeError("모든 대상 대학이 수집되지 않아 파일을 쓰지 않습니다")
     manual_results = json.loads(RESULTS_PATH.read_text(encoding="utf-8"))
@@ -692,7 +745,12 @@ def main() -> int:
     write_json(RESULTS_PATH, merged)
     meta = source_payload["_meta"]
     print(
-        f"\n정시 공식 결과: {meta['schoolsWithNumericCut']}/{target_count}개교, "
+        f"\n정시 공식 전체 결과: {meta['officialUniversitiesWithNumericCut']}/"
+        f"{meta['auditedOfficialUniversityCount']}개 대학·캠퍼스, "
+        f"숫자 {meta['officialNumericCutCount']}건"
+    )
+    print(
+        f"반영비율 대상 결과: {meta['schoolsWithNumericCut']}/{target_count}개교, "
         f"숫자 {meta['numericCutCount']}건, 미공개 상태 {meta['schoolsWithoutNumericCut']}개교"
     )
     print(f"출처 저장: {SOURCE_PATH.relative_to(ROOT)}")

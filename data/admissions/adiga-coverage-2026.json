@@ -1,13 +1,17 @@
 {
   "_meta": {
-    "description": "대입정보포털 어디가 2026학년도 수능위주전형 공식 입시결과 전수 조회",
+    "description": "대입정보포털 어디가 2026학년도 수능위주전형 공식 입시결과 220개 대학·캠퍼스 전수 조회",
     "source": "대입정보포털 어디가",
     "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univView.do?menuId=MOUVTINF1001",
     "sourceEndpoint": "https://m.adiga.kr/mob/uct/acd/ade/criteriaAndResultItemNewAjax.do",
     "searchSyr": 2027,
     "resultYear": 2026,
-    "collectedAt": "2026-07-18",
+    "collectedAt": "2026-07-19",
     "officialUniversityCount": 220,
+    "auditedOfficialUniversityCount": 220,
+    "officialUniversitiesWithNumericCut": 182,
+    "officialUniversitiesWithoutNumericCut": 38,
+    "officialNumericCutCount": 4821,
     "targetSchoolCount": 103,
     "auditedSchoolCount": 103,
     "mappedSchoolCount": 99,
@@ -16,7 +20,3402 @@
     "schoolsWithNumericCut": 94,
     "schoolsWithoutNumericCut": 9,
     "numericCutCount": 3751,
-    "note": "숫자가 없는 대학도 대학 미제출·통합모집·등록인원 3명 이하 등 공식 사유와 함께 기록한다."
+    "note": "어디가 일반대학 220개 대학·캠퍼스를 모두 조회한다. 숫자가 없는 대학도 대학 미제출·통합모집·등록인원 3명 이하 등 공식 사유와 함께 기록한다."
+  },
+  "universities": {
+    "0002748": {
+      "unvCd": "0002748",
+      "officialName": "가야대학교",
+      "campus": "본교",
+      "status": "numeric_cut_available",
+      "rowCount": 12,
+      "numericCutCount": 5,
+      "missingReasons": {
+        "사유 미상": 3,
+        "이월인원 1명이지만 지원자 없음": 1,
+        "이월인원 없음": 3
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0002748&searchSyr=2027",
+      "targetSlugs": []
+    },
+    "0000063": {
+      "unvCd": "0000063",
+      "officialName": "가천대학교",
+      "campus": "본교",
+      "status": "no_numeric_cut",
+      "rowCount": 132,
+      "numericCutCount": 0,
+      "missingReasons": {
+        "모집인원 3명 이하": 6,
+        "미선발": 66,
+        "사유 미상": 60
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000063&searchSyr=2027",
+      "targetSlugs": [
+        "gachon"
+      ]
+    },
+    "0000072": {
+      "unvCd": "0000072",
+      "officialName": "가톨릭관동대학교",
+      "campus": "본교",
+      "status": "numeric_cut_available",
+      "rowCount": 95,
+      "numericCutCount": 33,
+      "missingReasons": {
+        "이월인원없음": 4,
+        "정원외": 58
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000072&searchSyr=2027",
+      "targetSlugs": [
+        "cu_kd"
+      ]
+    },
+    "0000215": {
+      "unvCd": "0000215",
+      "officialName": "가톨릭꽃동네대학교",
+      "campus": "본교",
+      "status": "numeric_cut_available",
+      "rowCount": 5,
+      "numericCutCount": 2,
+      "missingReasons": {
+        "3명이하 모집단위 미제출": 2,
+        "모집인원 없음": 1
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000215&searchSyr=2027",
+      "targetSlugs": []
+    },
+    "0000046": {
+      "unvCd": "0000046",
+      "officialName": "가톨릭대학교",
+      "campus": "본교",
+      "status": "numeric_cut_available",
+      "rowCount": 31,
+      "numericCutCount": 14,
+      "missingReasons": {
+        "모집인원 3명이하": 2,
+        "이월인원 없어 운영하지 않음": 15
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000046&searchSyr=2027",
+      "targetSlugs": [
+        "catholic"
+      ]
+    },
+    "0000048": {
+      "unvCd": "0000048",
+      "officialName": "가톨릭대학교",
+      "campus": "제2캠퍼스",
+      "status": "numeric_cut_available",
+      "rowCount": 2,
+      "numericCutCount": 2,
+      "missingReasons": {},
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000048&searchSyr=2027",
+      "targetSlugs": [
+        "catholic"
+      ]
+    },
+    "0000049": {
+      "unvCd": "0000049",
+      "officialName": "가톨릭대학교",
+      "campus": "제3캠퍼스",
+      "status": "numeric_cut_available",
+      "rowCount": 2,
+      "numericCutCount": 1,
+      "missingReasons": {
+        "미실시": 1
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000049&searchSyr=2027",
+      "targetSlugs": [
+        "catholic"
+      ]
+    },
+    "0000050": {
+      "unvCd": "0000050",
+      "officialName": "감리교신학대학교",
+      "campus": "본교",
+      "status": "numeric_cut_available",
+      "rowCount": 3,
+      "numericCutCount": 2,
+      "missingReasons": {
+        "등록인원 없음": 1
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000050&searchSyr=2027",
+      "targetSlugs": []
+    },
+    "0000051": {
+      "unvCd": "0000051",
+      "officialName": "강남대학교",
+      "campus": "본교",
+      "status": "numeric_cut_available",
+      "rowCount": 42,
+      "numericCutCount": 16,
+      "missingReasons": {
+        "3인 이하 모집단위 미제출": 6,
+        "백분위 70% 평균 미제출": 20
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000051&searchSyr=2027",
+      "targetSlugs": []
+    },
+    "0000079": {
+      "unvCd": "0000079",
+      "officialName": "강서대학교",
+      "campus": "본교",
+      "status": "numeric_cut_available",
+      "rowCount": 22,
+      "numericCutCount": 6,
+      "missingReasons": {
+        "모집인원없음": 16
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000079&searchSyr=2027",
+      "targetSlugs": []
+    },
+    "0000003": {
+      "unvCd": "0000003",
+      "officialName": "강원대학교",
+      "campus": "본교",
+      "status": "numeric_cut_available",
+      "rowCount": 168,
+      "numericCutCount": 86,
+      "missingReasons": {
+        "3명이하 모집단위 미제출": 6,
+        "수시모집 이월선발 모집단위": 76
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000003&searchSyr=2027",
+      "targetSlugs": [
+        "kangwon"
+      ]
+    },
+    "0000004": {
+      "unvCd": "0000004",
+      "officialName": "강원대학교",
+      "campus": "제2캠퍼스",
+      "status": "numeric_cut_available",
+      "rowCount": 61,
+      "numericCutCount": 25,
+      "missingReasons": {
+        "3명이하 모집단위": 16,
+        "등록생 없음": 20
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000004&searchSyr=2027",
+      "targetSlugs": [
+        "kangwon"
+      ]
+    },
+    "0003363": {
+      "unvCd": "0003363",
+      "officialName": "강원대학교",
+      "campus": "제3캠퍼스",
+      "status": "no_rows",
+      "rowCount": 0,
+      "numericCutCount": 0,
+      "missingReasons": {},
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0003363&searchSyr=2027",
+      "targetSlugs": [
+        "kangwon"
+      ]
+    },
+    "0003364": {
+      "unvCd": "0003364",
+      "officialName": "강원대학교",
+      "campus": "제4캠퍼스",
+      "status": "no_rows",
+      "rowCount": 0,
+      "numericCutCount": 0,
+      "missingReasons": {},
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0003364&searchSyr=2027",
+      "targetSlugs": [
+        "kangwon"
+      ]
+    },
+    "0000052": {
+      "unvCd": "0000052",
+      "officialName": "건국대학교",
+      "campus": "본교",
+      "status": "numeric_cut_available",
+      "rowCount": 152,
+      "numericCutCount": 60,
+      "missingReasons": {
+        "모집인원 3명 이하 미제출": 92
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000052&searchSyr=2027",
+      "targetSlugs": [
+        "konkuk"
+      ]
+    },
+    "0000053": {
+      "unvCd": "0000053",
+      "officialName": "건국대학교(글로컬)",
+      "campus": "분교",
+      "status": "numeric_cut_available",
+      "rowCount": 78,
+      "numericCutCount": 24,
+      "missingReasons": {
+        "최초모집인원 없음": 48,
+        "최초모집인원 없음 이월 인원 3명 이하": 6
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000053&searchSyr=2027",
+      "targetSlugs": [
+        "konkuk"
+      ]
+    },
+    "0000054": {
+      "unvCd": "0000054",
+      "officialName": "건양대학교",
+      "campus": "본교",
+      "status": "numeric_cut_available",
+      "rowCount": 34,
+      "numericCutCount": 19,
+      "missingReasons": {
+        "수시 이월인원 없음.": 11,
+        "입시 결과 미존재": 3,
+        "해당 전형의 경우, 점수 산출지표가 다르고 모집인원 3명 이하로 성적을 제공하지 않음.": 1
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000054&searchSyr=2027",
+      "targetSlugs": [
+        "konyang"
+      ]
+    },
+    "0000055": {
+      "unvCd": "0000055",
+      "officialName": "건양대학교",
+      "campus": "제2캠퍼스",
+      "status": "numeric_cut_available",
+      "rowCount": 37,
+      "numericCutCount": 17,
+      "missingReasons": {
+        "수시 이월인원 없음.": 20
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000055&searchSyr=2027",
+      "targetSlugs": [
+        "konyang"
+      ]
+    },
+    "0000056": {
+      "unvCd": "0000056",
+      "officialName": "경기대학교",
+      "campus": "본교",
+      "status": "numeric_cut_available",
+      "rowCount": 85,
+      "numericCutCount": 42,
+      "missingReasons": {
+        "입시 결과 미존재": 43
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000056&searchSyr=2027",
+      "targetSlugs": [
+        "kyonggi"
+      ]
+    },
+    "0000058": {
+      "unvCd": "0000058",
+      "officialName": "경기대학교",
+      "campus": "제2캠퍼스",
+      "status": "numeric_cut_available",
+      "rowCount": 18,
+      "numericCutCount": 6,
+      "missingReasons": {
+        "입시 결과 미존재": 12
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000058&searchSyr=2027",
+      "targetSlugs": [
+        "kyonggi"
+      ]
+    },
+    "0000059": {
+      "unvCd": "0000059",
+      "officialName": "경남대학교",
+      "campus": "본교",
+      "status": "numeric_cut_available",
+      "rowCount": 41,
+      "numericCutCount": 40,
+      "missingReasons": {
+        "백분위 70% 평균 미제출": 1
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000059&searchSyr=2027",
+      "targetSlugs": []
+    },
+    "0000060": {
+      "unvCd": "0000060",
+      "officialName": "경동대학교",
+      "campus": "본교",
+      "status": "no_rows",
+      "rowCount": 0,
+      "numericCutCount": 0,
+      "missingReasons": {},
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000060&searchSyr=2027",
+      "targetSlugs": []
+    },
+    "0002574": {
+      "unvCd": "0002574",
+      "officialName": "경동대학교",
+      "campus": "제3캠퍼스",
+      "status": "no_numeric_cut",
+      "rowCount": 28,
+      "numericCutCount": 0,
+      "missingReasons": {
+        "백분위 70% 평균 미제출": 6,
+        "사유 미상": 22
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0002574&searchSyr=2027",
+      "targetSlugs": []
+    },
+    "0002744": {
+      "unvCd": "0002744",
+      "officialName": "경동대학교",
+      "campus": "제4캠퍼스",
+      "status": "numeric_cut_available",
+      "rowCount": 74,
+      "numericCutCount": 18,
+      "missingReasons": {
+        "백분위 70% 평균 미제출": 56
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0002744&searchSyr=2027",
+      "targetSlugs": []
+    },
+    "0000005": {
+      "unvCd": "0000005",
+      "officialName": "경북대학교",
+      "campus": "본교",
+      "status": "numeric_cut_available",
+      "rowCount": 280,
+      "numericCutCount": 105,
+      "missingReasons": {
+        "3명이하 모집단위 미제출": 175
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000005&searchSyr=2027",
+      "targetSlugs": [
+        "knu"
+      ]
+    },
+    "0000007": {
+      "unvCd": "0000007",
+      "officialName": "경상국립대학교",
+      "campus": "본교",
+      "status": "numeric_cut_available",
+      "rowCount": 230,
+      "numericCutCount": 100,
+      "missingReasons": {
+        "3명 이하": 12,
+        "미운영": 118
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000007&searchSyr=2027",
+      "targetSlugs": [
+        "gnu"
+      ]
+    },
+    "0000062": {
+      "unvCd": "0000062",
+      "officialName": "경성대학교",
+      "campus": "본교",
+      "status": "numeric_cut_available",
+      "rowCount": 54,
+      "numericCutCount": 40,
+      "missingReasons": {
+        "2명 이하 모집단위": 9,
+        "모집 또는 등록인원 없는 모집단위": 3,
+        "모집 또는 등록인원이 없는 모집단위": 2
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000062&searchSyr=2027",
+      "targetSlugs": [
+        "kyungsung"
+      ]
+    },
+    "0000244": {
+      "unvCd": "0000244",
+      "officialName": "경운대학교",
+      "campus": "본교",
+      "status": "numeric_cut_available",
+      "rowCount": 50,
+      "numericCutCount": 18,
+      "missingReasons": {
+        "백분위 70% 평균 미제출": 27,
+        "어디가 1.0 대체값(70% 세부 백분위 0/1)": 5
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000244&searchSyr=2027",
+      "targetSlugs": []
+    },
+    "0000256": {
+      "unvCd": "0000256",
+      "officialName": "경인교육대학교",
+      "campus": "본교",
+      "status": "numeric_cut_available",
+      "rowCount": 2,
+      "numericCutCount": 2,
+      "missingReasons": {},
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000256&searchSyr=2027",
+      "targetSlugs": [
+        "gnue_in"
+      ]
+    },
+    "0000064": {
+      "unvCd": "0000064",
+      "officialName": "경일대학교",
+      "campus": "본교",
+      "status": "numeric_cut_available",
+      "rowCount": 92,
+      "numericCutCount": 17,
+      "missingReasons": {
+        "모집인원 3명 이하": 3,
+        "어디가 1.0 대체값(70% 세부 백분위 0/1)": 72
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000064&searchSyr=2027",
+      "targetSlugs": []
+    },
+    "0000066": {
+      "unvCd": "0000066",
+      "officialName": "경희대학교",
+      "campus": "본교",
+      "status": "numeric_cut_available",
+      "rowCount": 195,
+      "numericCutCount": 83,
+      "missingReasons": {
+        "모집인원3명이하": 108,
+        "수시이월인원 미발생으로 정시모집하지 않음": 4
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000066&searchSyr=2027",
+      "targetSlugs": [
+        "khu"
+      ]
+    },
+    "0000068": {
+      "unvCd": "0000068",
+      "officialName": "계명대학교",
+      "campus": "본교",
+      "status": "numeric_cut_available",
+      "rowCount": 152,
+      "numericCutCount": 72,
+      "missingReasons": {
+        "백분위 70% 평균 미제출": 80
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000068&searchSyr=2027",
+      "targetSlugs": [
+        "kmu"
+      ]
+    },
+    "0000069": {
+      "unvCd": "0000069",
+      "officialName": "고려대학교",
+      "campus": "본교",
+      "status": "numeric_cut_available",
+      "rowCount": 343,
+      "numericCutCount": 125,
+      "missingReasons": {
+        "소수인원 모집": 218
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000069&searchSyr=2027",
+      "targetSlugs": [
+        "korea"
+      ]
+    },
+    "0000070": {
+      "unvCd": "0000070",
+      "officialName": "고려대학교(세종)",
+      "campus": "분교",
+      "status": "numeric_cut_available",
+      "rowCount": 121,
+      "numericCutCount": 34,
+      "missingReasons": {
+        "3명이하 모집단위 미제출": 87
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000070&searchSyr=2027",
+      "targetSlugs": [
+        "korea_sejong"
+      ]
+    },
+    "0000071": {
+      "unvCd": "0000071",
+      "officialName": "고신대학교",
+      "campus": "본교",
+      "status": "numeric_cut_available",
+      "rowCount": 20,
+      "numericCutCount": 16,
+      "missingReasons": {
+        "사유 미상": 3,
+        "최종등록자 없음": 1
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000071&searchSyr=2027",
+      "targetSlugs": [
+        "kosin"
+      ]
+    },
+    "0000251": {
+      "unvCd": "0000251",
+      "officialName": "공주교육대학교",
+      "campus": "본교",
+      "status": "numeric_cut_available",
+      "rowCount": 4,
+      "numericCutCount": 4,
+      "missingReasons": {},
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000251&searchSyr=2027",
+      "targetSlugs": []
+    },
+    "0000073": {
+      "unvCd": "0000073",
+      "officialName": "광신대학교",
+      "campus": "본교",
+      "status": "no_rows",
+      "rowCount": 0,
+      "numericCutCount": 0,
+      "missingReasons": {},
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000073&searchSyr=2027",
+      "targetSlugs": []
+    },
+    "0000074": {
+      "unvCd": "0000074",
+      "officialName": "광운대학교",
+      "campus": "본교",
+      "status": "numeric_cut_available",
+      "rowCount": 104,
+      "numericCutCount": 59,
+      "missingReasons": {
+        "수시 이월 미발생": 45
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000074&searchSyr=2027",
+      "targetSlugs": [
+        "kw"
+      ]
+    },
+    "0000075": {
+      "unvCd": "0000075",
+      "officialName": "광주가톨릭대학교",
+      "campus": "본교",
+      "status": "no_rows",
+      "rowCount": 0,
+      "numericCutCount": 0,
+      "missingReasons": {},
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000075&searchSyr=2027",
+      "targetSlugs": []
+    },
+    "0000252": {
+      "unvCd": "0000252",
+      "officialName": "광주교육대학교",
+      "campus": "본교",
+      "status": "numeric_cut_available",
+      "rowCount": 4,
+      "numericCutCount": 1,
+      "missingReasons": {
+        "3명이하 모집단위 미제출": 1,
+        "입시 결과 미존재": 1,
+        "최종 등록 인원 1명으로 미제출": 1
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000252&searchSyr=2027",
+      "targetSlugs": [
+        "gnue"
+      ]
+    },
+    "0000231": {
+      "unvCd": "0000231",
+      "officialName": "광주대학교",
+      "campus": "본교",
+      "status": "numeric_cut_available",
+      "rowCount": 23,
+      "numericCutCount": 13,
+      "missingReasons": {
+        "등록자 3명 이하": 7,
+        "어디가 1.0 대체값(70% 세부 백분위 0/1)": 3
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000231&searchSyr=2027",
+      "targetSlugs": []
+    },
+    "0000076": {
+      "unvCd": "0000076",
+      "officialName": "광주여자대학교",
+      "campus": "본교",
+      "status": "numeric_cut_available",
+      "rowCount": 20,
+      "numericCutCount": 6,
+      "missingReasons": {
+        "모집인원 3명 이하": 12,
+        "모집인원 4명이나 등록인원 없음": 1,
+        "어디가 1.0 대체값(70% 세부 백분위 0/1)": 1
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000076&searchSyr=2027",
+      "targetSlugs": []
+    },
+    "0000001": {
+      "unvCd": "0000001",
+      "officialName": "국립강릉원주대학교",
+      "campus": "본교",
+      "status": "numeric_cut_available",
+      "rowCount": 98,
+      "numericCutCount": 30,
+      "missingReasons": {
+        "단과대학 통합선발": 57,
+        "미선발": 1,
+        "이월인원 없음": 10
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000001&searchSyr=2027",
+      "targetSlugs": [
+        "gwnu"
+      ]
+    },
+    "0000002": {
+      "unvCd": "0000002",
+      "officialName": "국립강릉원주대학교",
+      "campus": "제2캠퍼스",
+      "status": "numeric_cut_available",
+      "rowCount": 34,
+      "numericCutCount": 10,
+      "missingReasons": {
+        "미선발(이월인원없음)": 5,
+        "미선발(이월인원없음, 단과대학 통합선발)": 19
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000002&searchSyr=2027",
+      "targetSlugs": [
+        "gwnu"
+      ]
+    },
+    "0000021": {
+      "unvCd": "0000021",
+      "officialName": "국립경국대학교",
+      "campus": "본교",
+      "status": "numeric_cut_available",
+      "rowCount": 43,
+      "numericCutCount": 27,
+      "missingReasons": {
+        "3명 이하 모집단위 미제출": 16
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000021&searchSyr=2027",
+      "targetSlugs": []
+    },
+    "0000008": {
+      "unvCd": "0000008",
+      "officialName": "국립공주대학교",
+      "campus": "본교",
+      "status": "numeric_cut_available",
+      "rowCount": 200,
+      "numericCutCount": 28,
+      "missingReasons": {
+        "모집인원 3명 이하": 39,
+        "최초 모집인원 0명, 이월인원 0명": 133
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000008&searchSyr=2027",
+      "targetSlugs": [
+        "kongju"
+      ]
+    },
+    "0000009": {
+      "unvCd": "0000009",
+      "officialName": "국립군산대학교",
+      "campus": "본교",
+      "status": "numeric_cut_available",
+      "rowCount": 44,
+      "numericCutCount": 37,
+      "missingReasons": {
+        "3명 이하": 7
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000009&searchSyr=2027",
+      "targetSlugs": []
+    },
+    "0000010": {
+      "unvCd": "0000010",
+      "officialName": "국립금오공과대학교",
+      "campus": "본교",
+      "status": "numeric_cut_available",
+      "rowCount": 24,
+      "numericCutCount": 12,
+      "missingReasons": {
+        "3명 이하 모집단위 미제출": 12
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000010&searchSyr=2027",
+      "targetSlugs": [
+        "kumoh"
+      ]
+    },
+    "0000011": {
+      "unvCd": "0000011",
+      "officialName": "국립목포대학교",
+      "campus": "본교",
+      "status": "no_numeric_cut",
+      "rowCount": 44,
+      "numericCutCount": 0,
+      "missingReasons": {
+        "모집인원 1명": 7,
+        "모집인원 2명": 6,
+        "모집인원 3명": 3,
+        "어디가 1.0 대체값(70% 세부 백분위 0/1)": 26,
+        "이월인원 없음": 2
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000011&searchSyr=2027",
+      "targetSlugs": [
+        "mokpo"
+      ]
+    },
+    "0000012": {
+      "unvCd": "0000012",
+      "officialName": "국립목포해양대학교",
+      "campus": "본교",
+      "status": "numeric_cut_available",
+      "rowCount": 26,
+      "numericCutCount": 11,
+      "missingReasons": {
+        "선발인원 1명 이하": 3,
+        "선발인원 3명 이하": 3,
+        "선발인원 없음": 9
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000012&searchSyr=2027",
+      "targetSlugs": []
+    },
+    "0000013": {
+      "unvCd": "0000013",
+      "officialName": "국립부경대학교",
+      "campus": "본교",
+      "status": "numeric_cut_available",
+      "rowCount": 191,
+      "numericCutCount": 61,
+      "missingReasons": {
+        "모집인원 3명 이하 비공개": 9,
+        "모집인원 없음": 121
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000013&searchSyr=2027",
+      "targetSlugs": []
+    },
+    "0000020": {
+      "unvCd": "0000020",
+      "officialName": "국립순천대학교",
+      "campus": "본교",
+      "status": "numeric_cut_available",
+      "rowCount": 56,
+      "numericCutCount": 14,
+      "missingReasons": {
+        "3명이하 모집단위 미제출": 20,
+        "등록인원 3명 이하": 1,
+        "모집인원 없음(0명)": 21
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000020&searchSyr=2027",
+      "targetSlugs": [
+        "sunchon"
+      ]
+    },
+    "0000028": {
+      "unvCd": "0000028",
+      "officialName": "국립창원대학교",
+      "campus": "본교",
+      "status": "numeric_cut_available",
+      "rowCount": 132,
+      "numericCutCount": 36,
+      "missingReasons": {
+        "3명 이하 등록(개인정보)": 13,
+        "합격자없음": 83
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000028&searchSyr=2027",
+      "targetSlugs": []
+    },
+    "0003297": {
+      "unvCd": "0003297",
+      "officialName": "국립창원대학교",
+      "campus": "제2캠퍼스",
+      "status": "no_rows",
+      "rowCount": 0,
+      "numericCutCount": 0,
+      "missingReasons": {},
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0003297&searchSyr=2027",
+      "targetSlugs": []
+    },
+    "0003298": {
+      "unvCd": "0003298",
+      "officialName": "국립창원대학교",
+      "campus": "제3캠퍼스",
+      "status": "no_rows",
+      "rowCount": 0,
+      "numericCutCount": 0,
+      "missingReasons": {},
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0003298&searchSyr=2027",
+      "targetSlugs": []
+    },
+    "0000034": {
+      "unvCd": "0000034",
+      "officialName": "국립한국교통대학교",
+      "campus": "본교",
+      "status": "numeric_cut_available",
+      "rowCount": 45,
+      "numericCutCount": 42,
+      "missingReasons": {
+        "수시 미충원 이월인원 없음": 3
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000034&searchSyr=2027",
+      "targetSlugs": []
+    },
+    "0000033": {
+      "unvCd": "0000033",
+      "officialName": "국립한국해양대학교",
+      "campus": "본교",
+      "status": "numeric_cut_available",
+      "rowCount": 92,
+      "numericCutCount": 33,
+      "missingReasons": {
+        "백분위 70% 평균 미제출": 58,
+        "선발인원 ３명이하(개인정보보호）": 1
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000033&searchSyr=2027",
+      "targetSlugs": []
+    },
+    "0000039": {
+      "unvCd": "0000039",
+      "officialName": "국립한밭대학교",
+      "campus": "본교",
+      "status": "numeric_cut_available",
+      "rowCount": 126,
+      "numericCutCount": 21,
+      "missingReasons": {
+        "등록인원 3명 이하": 3,
+        "모집인원 1명": 2,
+        "모집인원 3명 이하": 9,
+        "미선발": 52,
+        "미선발 또는 등록인원 3명 이하": 39
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000039&searchSyr=2027",
+      "targetSlugs": [
+        "hanbat"
+      ]
+    },
+    "0000078": {
+      "unvCd": "0000078",
+      "officialName": "국민대학교",
+      "campus": "본교",
+      "status": "numeric_cut_available",
+      "rowCount": 63,
+      "numericCutCount": 39,
+      "missingReasons": {
+        "3명이하 모집단위 미제출": 7,
+        "백분위 70% 평균 미제출": 17
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000078&searchSyr=2027",
+      "targetSlugs": [
+        "kookmin"
+      ]
+    },
+    "0000080": {
+      "unvCd": "0000080",
+      "officialName": "극동대학교",
+      "campus": "본교",
+      "status": "numeric_cut_available",
+      "rowCount": 44,
+      "numericCutCount": 3,
+      "missingReasons": {
+        "모집인원 3명 이하": 1,
+        "모집인원 없음": 3,
+        "백분위 70% 평균 미제출": 36,
+        "어디가 1.0 대체값(70% 세부 백분위 0/1)": 1
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000080&searchSyr=2027",
+      "targetSlugs": []
+    },
+    "0000224": {
+      "unvCd": "0000224",
+      "officialName": "금강대학교",
+      "campus": "본교",
+      "status": "numeric_cut_available",
+      "rowCount": 4,
+      "numericCutCount": 3,
+      "missingReasons": {
+        "입시 결과 미존재": 1
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000224&searchSyr=2027",
+      "targetSlugs": []
+    },
+    "0000241": {
+      "unvCd": "0000241",
+      "officialName": "김천대학교",
+      "campus": "본교",
+      "status": "numeric_cut_available",
+      "rowCount": 23,
+      "numericCutCount": 12,
+      "missingReasons": {
+        "등록자 없음": 1,
+        "모집인원(이월포함) 없음": 3,
+        "어디가 1.0 대체값(70% 세부 백분위 0/1)": 6,
+        "입시 결과 미존재": 1
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000241&searchSyr=2027",
+      "targetSlugs": []
+    },
+    "0000081": {
+      "unvCd": "0000081",
+      "officialName": "나사렛대학교",
+      "campus": "본교",
+      "status": "numeric_cut_available",
+      "rowCount": 8,
+      "numericCutCount": 7,
+      "missingReasons": {
+        "모집인원 3명 이하": 1
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000081&searchSyr=2027",
+      "targetSlugs": []
+    },
+    "0000216": {
+      "unvCd": "0000216",
+      "officialName": "남부대학교",
+      "campus": "본교",
+      "status": "numeric_cut_available",
+      "rowCount": 31,
+      "numericCutCount": 3,
+      "missingReasons": {
+        "모집인원 0명": 4,
+        "모집인원 1명": 4,
+        "모집인원 2명": 3,
+        "모집인원 3명": 3,
+        "사유 미상": 14
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000216&searchSyr=2027",
+      "targetSlugs": []
+    },
+    "0000245": {
+      "unvCd": "0000245",
+      "officialName": "남서울대학교",
+      "campus": "본교",
+      "status": "numeric_cut_available",
+      "rowCount": 113,
+      "numericCutCount": 27,
+      "missingReasons": {
+        "등록인원 3명 이하": 59,
+        "통합모집": 27
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000245&searchSyr=2027",
+      "targetSlugs": []
+    },
+    "0000082": {
+      "unvCd": "0000082",
+      "officialName": "단국대학교",
+      "campus": "본교",
+      "status": "numeric_cut_available",
+      "rowCount": 118,
+      "numericCutCount": 37,
+      "missingReasons": {
+        "3명이하 모집단위 미제출": 1,
+        "수시모집 미충원 인원 선발": 80
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000082&searchSyr=2027",
+      "targetSlugs": [
+        "dankook"
+      ]
+    },
+    "0002726": {
+      "unvCd": "0002726",
+      "officialName": "단국대학교",
+      "campus": "제2캠퍼스",
+      "status": "numeric_cut_available",
+      "rowCount": 121,
+      "numericCutCount": 45,
+      "missingReasons": {
+        "3명이하 모집단위": 3,
+        "남녀구분선발": 1,
+        "수시모집 미충원인원 선발": 72
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0002726&searchSyr=2027",
+      "targetSlugs": [
+        "dankook_cheonan"
+      ]
+    },
+    "0000088": {
+      "unvCd": "0000088",
+      "officialName": "대구가톨릭대학교",
+      "campus": "본교",
+      "status": "numeric_cut_available",
+      "rowCount": 125,
+      "numericCutCount": 25,
+      "missingReasons": {
+        "모집인원 없음": 99,
+        "최종등록자 없음": 1
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000088&searchSyr=2027",
+      "targetSlugs": [
+        "extra_08009_대구가톨릭"
+      ]
+    },
+    "0000253": {
+      "unvCd": "0000253",
+      "officialName": "대구교육대학교",
+      "campus": "본교",
+      "status": "no_numeric_cut",
+      "rowCount": 5,
+      "numericCutCount": 0,
+      "missingReasons": {
+        "등록인원 3명 이하": 2,
+        "사유 미상": 2,
+        "입시 결과 미존재": 1
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000253&searchSyr=2027",
+      "targetSlugs": []
+    },
+    "0000084": {
+      "unvCd": "0000084",
+      "officialName": "대구대학교",
+      "campus": "본교",
+      "status": "numeric_cut_available",
+      "rowCount": 216,
+      "numericCutCount": 14,
+      "missingReasons": {
+        "모집인원 3명 이하": 202
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000084&searchSyr=2027",
+      "targetSlugs": []
+    },
+    "0000087": {
+      "unvCd": "0000087",
+      "officialName": "대구예술대학교",
+      "campus": "본교",
+      "status": "no_rows",
+      "rowCount": 0,
+      "numericCutCount": 0,
+      "missingReasons": {},
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000087&searchSyr=2027",
+      "targetSlugs": []
+    },
+    "0000061": {
+      "unvCd": "0000061",
+      "officialName": "대구한의대학교",
+      "campus": "본교",
+      "status": "numeric_cut_available",
+      "rowCount": 72,
+      "numericCutCount": 10,
+      "missingReasons": {
+        "미사용전형": 46,
+        "뷰티계열통합단위로 모집": 3,
+        "인문계열통합단위로 모집": 3,
+        "자연계열통합단위로 모집": 10
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000061&searchSyr=2027",
+      "targetSlugs": [
+        "extra_08014_대구한의"
+      ]
+    },
+    "0000093": {
+      "unvCd": "0000093",
+      "officialName": "대신대학교",
+      "campus": "본교",
+      "status": "no_rows",
+      "rowCount": 0,
+      "numericCutCount": 0,
+      "missingReasons": {},
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000093&searchSyr=2027",
+      "targetSlugs": []
+    },
+    "0000094": {
+      "unvCd": "0000094",
+      "officialName": "대전가톨릭대학교",
+      "campus": "본교",
+      "status": "numeric_cut_available",
+      "rowCount": 2,
+      "numericCutCount": 1,
+      "missingReasons": {
+        "3명이하 모집단위 미제출": 1
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000094&searchSyr=2027",
+      "targetSlugs": []
+    },
+    "0000095": {
+      "unvCd": "0000095",
+      "officialName": "대전대학교",
+      "campus": "본교",
+      "status": "numeric_cut_available",
+      "rowCount": 100,
+      "numericCutCount": 15,
+      "missingReasons": {
+        "등록인원 3명 이하": 1,
+        "등록인원 없음": 6,
+        "모집인원 3명 이하": 6,
+        "어디가 1.0 대체값(70% 세부 백분위 0/1)": 6,
+        "이월인원 없음": 66
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000095&searchSyr=2027",
+      "targetSlugs": [
+        "daejeon"
+      ]
+    },
+    "0000238": {
+      "unvCd": "0000238",
+      "officialName": "대전신학대학교",
+      "campus": "본교",
+      "status": "no_numeric_cut",
+      "rowCount": 1,
+      "numericCutCount": 0,
+      "missingReasons": {
+        "입시 결과 미존재": 1
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000238&searchSyr=2027",
+      "targetSlugs": []
+    },
+    "0000097": {
+      "unvCd": "0000097",
+      "officialName": "대진대학교",
+      "campus": "본교",
+      "status": "numeric_cut_available",
+      "rowCount": 65,
+      "numericCutCount": 6,
+      "missingReasons": {
+        "모집인원 3명 이하": 7,
+        "미선발": 27,
+        "사유 미상": 25
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000097&searchSyr=2027",
+      "targetSlugs": []
+    },
+    "0000099": {
+      "unvCd": "0000099",
+      "officialName": "덕성여자대학교",
+      "campus": "본교",
+      "status": "numeric_cut_available",
+      "rowCount": 18,
+      "numericCutCount": 8,
+      "missingReasons": {
+        "백분위 70% 평균 미제출": 10
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000099&searchSyr=2027",
+      "targetSlugs": [
+        "duksung"
+      ]
+    },
+    "0000100": {
+      "unvCd": "0000100",
+      "officialName": "동국대학교",
+      "campus": "본교",
+      "status": "numeric_cut_available",
+      "rowCount": 120,
+      "numericCutCount": 62,
+      "missingReasons": {
+        "특별전형": 58
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000100&searchSyr=2027",
+      "targetSlugs": [
+        "dongguk"
+      ]
+    },
+    "0000101": {
+      "unvCd": "0000101",
+      "officialName": "동국대학교(WISE)",
+      "campus": "분교",
+      "status": "numeric_cut_available",
+      "rowCount": 74,
+      "numericCutCount": 34,
+      "missingReasons": {
+        "미시행": 3,
+        "성적산출대상 3명 이하": 37
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000101&searchSyr=2027",
+      "targetSlugs": [
+        "dongguk_wise"
+      ]
+    },
+    "0000102": {
+      "unvCd": "0000102",
+      "officialName": "동덕여자대학교",
+      "campus": "본교",
+      "status": "numeric_cut_available",
+      "rowCount": 73,
+      "numericCutCount": 19,
+      "missingReasons": {
+        "3명 이하 모집단위": 36,
+        "모집인원 없음": 18
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000102&searchSyr=2027",
+      "targetSlugs": [
+        "dongduk"
+      ]
+    },
+    "0000235": {
+      "unvCd": "0000235",
+      "officialName": "동명대학교",
+      "campus": "본교",
+      "status": "numeric_cut_available",
+      "rowCount": 25,
+      "numericCutCount": 13,
+      "missingReasons": {
+        "모집인원 3명 이하": 12
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000235&searchSyr=2027",
+      "targetSlugs": []
+    },
+    "0000103": {
+      "unvCd": "0000103",
+      "officialName": "동서대학교",
+      "campus": "본교",
+      "status": "numeric_cut_available",
+      "rowCount": 25,
+      "numericCutCount": 20,
+      "missingReasons": {
+        "3명이하 모집단위 미제출": 5
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000103&searchSyr=2027",
+      "targetSlugs": [
+        "extra_09007_동서"
+      ]
+    },
+    "0000104": {
+      "unvCd": "0000104",
+      "officialName": "동신대학교",
+      "campus": "본교",
+      "status": "numeric_cut_available",
+      "rowCount": 77,
+      "numericCutCount": 19,
+      "missingReasons": {
+        "3명이하 모집단위": 6,
+        "모집안함": 6,
+        "미지정 그룹모집": 36,
+        "사유 미상": 9,
+        "어디가 1.0 대체값(70% 세부 백분위 0/1)": 1
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000104&searchSyr=2027",
+      "targetSlugs": [
+        "dongshin"
+      ]
+    },
+    "0000105": {
+      "unvCd": "0000105",
+      "officialName": "동아대학교",
+      "campus": "본교",
+      "status": "numeric_cut_available",
+      "rowCount": 133,
+      "numericCutCount": 53,
+      "missingReasons": {
+        "모집단위 3명 이하": 80
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000105&searchSyr=2027",
+      "targetSlugs": [
+        "donga"
+      ]
+    },
+    "0000106": {
+      "unvCd": "0000106",
+      "officialName": "동양대학교",
+      "campus": "본교",
+      "status": "numeric_cut_available",
+      "rowCount": 34,
+      "numericCutCount": 8,
+      "missingReasons": {
+        "선발인원 3명이하": 26
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000106&searchSyr=2027",
+      "targetSlugs": []
+    },
+    "0000107": {
+      "unvCd": "0000107",
+      "officialName": "동의대학교",
+      "campus": "본교",
+      "status": "numeric_cut_available",
+      "rowCount": 65,
+      "numericCutCount": 45,
+      "missingReasons": {
+        "모집인원 1명 이하": 4,
+        "정시 이월인원 없음": 16
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000107&searchSyr=2027",
+      "targetSlugs": [
+        "extra_09009_동의"
+      ]
+    },
+    "0000108": {
+      "unvCd": "0000108",
+      "officialName": "루터대학교",
+      "campus": "본교",
+      "status": "numeric_cut_available",
+      "rowCount": 1,
+      "numericCutCount": 1,
+      "missingReasons": {},
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000108&searchSyr=2027",
+      "targetSlugs": []
+    },
+    "0000109": {
+      "unvCd": "0000109",
+      "officialName": "명지대학교",
+      "campus": "본교",
+      "status": "numeric_cut_available",
+      "rowCount": 35,
+      "numericCutCount": 6,
+      "missingReasons": {
+        "백분위 70% 평균 미제출": 29
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000109&searchSyr=2027",
+      "targetSlugs": [
+        "mju"
+      ]
+    },
+    "0000111": {
+      "unvCd": "0000111",
+      "officialName": "명지대학교",
+      "campus": "제2캠퍼스",
+      "status": "numeric_cut_available",
+      "rowCount": 39,
+      "numericCutCount": 7,
+      "missingReasons": {
+        "백분위 70% 평균 미제출": 32
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000111&searchSyr=2027",
+      "targetSlugs": [
+        "mju"
+      ]
+    },
+    "0000112": {
+      "unvCd": "0000112",
+      "officialName": "목원대학교",
+      "campus": "본교",
+      "status": "numeric_cut_available",
+      "rowCount": 34,
+      "numericCutCount": 24,
+      "missingReasons": {
+        "※정시 미선발학과": 10
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000112&searchSyr=2027",
+      "targetSlugs": [
+        "extra_05011_목원"
+      ]
+    },
+    "0000221": {
+      "unvCd": "0000221",
+      "officialName": "목포가톨릭대학교",
+      "campus": "본교",
+      "status": "numeric_cut_available",
+      "rowCount": 5,
+      "numericCutCount": 1,
+      "missingReasons": {
+        "등록인원 3명 이하": 1,
+        "모집인원 0명": 2,
+        "모집인원 3명 이하": 1
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000221&searchSyr=2027",
+      "targetSlugs": []
+    },
+    "0000113": {
+      "unvCd": "0000113",
+      "officialName": "배재대학교",
+      "campus": "본교",
+      "status": "no_numeric_cut",
+      "rowCount": 44,
+      "numericCutCount": 0,
+      "missingReasons": {
+        "백분위 70% 평균 미제출": 44
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000113&searchSyr=2027",
+      "targetSlugs": []
+    },
+    "0000178": {
+      "unvCd": "0000178",
+      "officialName": "백석대학교",
+      "campus": "본교",
+      "status": "numeric_cut_available",
+      "rowCount": 82,
+      "numericCutCount": 22,
+      "missingReasons": {
+        "등록인원 3명 이하": 2,
+        "등록인원 없음": 55,
+        "백분위 70% 평균 미제출": 3
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000178&searchSyr=2027",
+      "targetSlugs": [
+        "extra_05021_백석"
+      ]
+    },
+    "0000114": {
+      "unvCd": "0000114",
+      "officialName": "부산가톨릭대학교",
+      "campus": "본교",
+      "status": "numeric_cut_available",
+      "rowCount": 22,
+      "numericCutCount": 10,
+      "missingReasons": {
+        "모집없음(이월 0)": 5,
+        "모집인원 3명 이하": 7
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000114&searchSyr=2027",
+      "targetSlugs": []
+    },
+    "0000254": {
+      "unvCd": "0000254",
+      "officialName": "부산교육대학교",
+      "campus": "본교",
+      "status": "numeric_cut_available",
+      "rowCount": 4,
+      "numericCutCount": 2,
+      "missingReasons": {
+        "백분위 70% 평균 미제출": 2
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000254&searchSyr=2027",
+      "targetSlugs": [
+        "bnue"
+      ]
+    },
+    "0000014": {
+      "unvCd": "0000014",
+      "officialName": "부산대학교",
+      "campus": "본교",
+      "status": "numeric_cut_available",
+      "rowCount": 128,
+      "numericCutCount": 109,
+      "missingReasons": {
+        "모집인원 3명 이하": 5,
+        "백분위 70% 평균 미제출": 13,
+        "추가 안내 자료 참조": 1
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000014&searchSyr=2027",
+      "targetSlugs": [
+        "pusan"
+      ]
+    },
+    "0000115": {
+      "unvCd": "0000115",
+      "officialName": "부산외국어대학교",
+      "campus": "본교",
+      "status": "numeric_cut_available",
+      "rowCount": 4,
+      "numericCutCount": 4,
+      "missingReasons": {},
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000115&searchSyr=2027",
+      "targetSlugs": []
+    },
+    "0000222": {
+      "unvCd": "0000222",
+      "officialName": "부산장신대학교",
+      "campus": "본교",
+      "status": "no_rows",
+      "rowCount": 0,
+      "numericCutCount": 0,
+      "missingReasons": {},
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000222&searchSyr=2027",
+      "targetSlugs": []
+    },
+    "0000116": {
+      "unvCd": "0000116",
+      "officialName": "삼육대학교",
+      "campus": "본교",
+      "status": "numeric_cut_available",
+      "rowCount": 62,
+      "numericCutCount": 22,
+      "missingReasons": {
+        "미모집": 36,
+        "타전형에 비해 모집정원이 적어 표준값 유효하지 않음": 4
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000116&searchSyr=2027",
+      "targetSlugs": [
+        "sahmyook"
+      ]
+    },
+    "0000117": {
+      "unvCd": "0000117",
+      "officialName": "상명대학교",
+      "campus": "본교",
+      "status": "numeric_cut_available",
+      "rowCount": 77,
+      "numericCutCount": 28,
+      "missingReasons": {
+        "수시모집 미충원 이월인원 미발생": 1,
+        "인문, 자연/예체능 계열 선발 전형으로 모집단위별 성적 미입력": 48
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000117&searchSyr=2027",
+      "targetSlugs": [
+        "smu"
+      ]
+    },
+    "0002959": {
+      "unvCd": "0002959",
+      "officialName": "상명대학교",
+      "campus": "제2캠퍼스",
+      "status": "numeric_cut_available",
+      "rowCount": 84,
+      "numericCutCount": 24,
+      "missingReasons": {
+        "입시 결과 미존재": 60
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0002959&searchSyr=2027",
+      "targetSlugs": [
+        "smu"
+      ]
+    },
+    "0000119": {
+      "unvCd": "0000119",
+      "officialName": "상지대학교",
+      "campus": "본교",
+      "status": "numeric_cut_available",
+      "rowCount": 30,
+      "numericCutCount": 19,
+      "missingReasons": {
+        "상지대학교 수능전형은 백분위가 높은 2개 영역을 선택하여 반영합니다. 이에 따라 학생별 반영 과목이 상이하므로, 수능 과목별 50%·70% 컷을 구분하여 제시하는 것은 적절하지 않다고 판단됩니다.": 8,
+        "지원자가 없는 경우, 경쟁률은 0으로 표시됨. 상지대학교 수능전형은 백분위가 높은 2개 영역을 선택하여 반영합니다. 이에 따라 학생별 반영 과목이 상이하므로, 수능 과목별 50%·70% 컷을 구분하여 제시하는 것은 적절하지 않다고 판단됩니다.": 3
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000119&searchSyr=2027",
+      "targetSlugs": [
+        "sangji"
+      ]
+    },
+    "0000120": {
+      "unvCd": "0000120",
+      "officialName": "서강대학교",
+      "campus": "본교",
+      "status": "numeric_cut_available",
+      "rowCount": 92,
+      "numericCutCount": 23,
+      "missingReasons": {
+        "계열별 선발, 입시결과 첨부파일로 업로드": 68,
+        "수시이월 미발생으로 미선발": 1
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000120&searchSyr=2027",
+      "targetSlugs": [
+        "sogang"
+      ]
+    },
+    "0000121": {
+      "unvCd": "0000121",
+      "officialName": "서경대학교",
+      "campus": "본교",
+      "status": "no_numeric_cut",
+      "rowCount": 21,
+      "numericCutCount": 0,
+      "missingReasons": {
+        "백분위 70% 평균 미제출": 21
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000121&searchSyr=2027",
+      "targetSlugs": [
+        "skuniv"
+      ]
+    },
+    "0000036": {
+      "unvCd": "0000036",
+      "officialName": "서울과학기술대학교",
+      "campus": "본교",
+      "status": "numeric_cut_available",
+      "rowCount": 83,
+      "numericCutCount": 42,
+      "missingReasons": {
+        "모집인원 3명 이하 미제출": 41
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000036&searchSyr=2027",
+      "targetSlugs": [
+        "seoultech"
+      ]
+    },
+    "0000255": {
+      "unvCd": "0000255",
+      "officialName": "서울교육대학교",
+      "campus": "본교",
+      "status": "no_numeric_cut",
+      "rowCount": 3,
+      "numericCutCount": 0,
+      "missingReasons": {
+        "사유 미상": 3
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000255&searchSyr=2027",
+      "targetSlugs": [
+        "snue"
+      ]
+    },
+    "0000098": {
+      "unvCd": "0000098",
+      "officialName": "서울기독대학교",
+      "campus": "본교",
+      "status": "numeric_cut_available",
+      "rowCount": 4,
+      "numericCutCount": 2,
+      "missingReasons": {
+        "등록인원 3명 이하": 1,
+        "모집인원 3인이하": 1
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000098&searchSyr=2027",
+      "targetSlugs": []
+    },
+    "0000019": {
+      "unvCd": "0000019",
+      "officialName": "서울대학교",
+      "campus": "본교",
+      "status": "numeric_cut_available",
+      "rowCount": 222,
+      "numericCutCount": 82,
+      "missingReasons": {
+        "3명이하": 127,
+        "모집인원0": 5,
+        "사유 미상": 8
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000019&searchSyr=2027",
+      "targetSlugs": [
+        "snu"
+      ]
+    },
+    "0000040": {
+      "unvCd": "0000040",
+      "officialName": "서울시립대학교",
+      "campus": "본교",
+      "status": "numeric_cut_available",
+      "rowCount": 160,
+      "numericCutCount": 37,
+      "missingReasons": {
+        "3명 이하 모집단위 미제출": 123
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000040&searchSyr=2027",
+      "targetSlugs": [
+        "uos"
+      ]
+    },
+    "0000125": {
+      "unvCd": "0000125",
+      "officialName": "서울신학대학교",
+      "campus": "본교",
+      "status": "numeric_cut_available",
+      "rowCount": 30,
+      "numericCutCount": 12,
+      "missingReasons": {
+        "3명 이하 모집단위 미제출": 18
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000125&searchSyr=2027",
+      "targetSlugs": []
+    },
+    "0000126": {
+      "unvCd": "0000126",
+      "officialName": "서울여자대학교",
+      "campus": "본교",
+      "status": "numeric_cut_available",
+      "rowCount": 87,
+      "numericCutCount": 40,
+      "missingReasons": {
+        "수시모집 미충원 인원으로 인해 선발함. 계열별 통합모집전형": 19,
+        "수시모집 미충원인원으로 인한 선발, 등록자 1명으로 미제공": 1,
+        "수시모집 이월이 있을 경우 실시하며, 이월인원 없음에 따라 미실시": 27
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000126&searchSyr=2027",
+      "targetSlugs": [
+        "swu"
+      ]
+    },
+    "0000127": {
+      "unvCd": "0000127",
+      "officialName": "서울장신대학교",
+      "campus": "본교",
+      "status": "numeric_cut_available",
+      "rowCount": 2,
+      "numericCutCount": 2,
+      "missingReasons": {},
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000127&searchSyr=2027",
+      "targetSlugs": []
+    },
+    "0000205": {
+      "unvCd": "0000205",
+      "officialName": "서울한영대학교",
+      "campus": "본교",
+      "status": "numeric_cut_available",
+      "rowCount": 15,
+      "numericCutCount": 10,
+      "missingReasons": {
+        "백분위 70% 평균 미제출": 5
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000205&searchSyr=2027",
+      "targetSlugs": []
+    },
+    "0000128": {
+      "unvCd": "0000128",
+      "officialName": "서원대학교",
+      "campus": "본교",
+      "status": "numeric_cut_available",
+      "rowCount": 117,
+      "numericCutCount": 5,
+      "missingReasons": {
+        "만학도 대상 전형": 1,
+        "모집인원이 3명 이하": 61,
+        "정시 미모집": 50
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000128&searchSyr=2027",
+      "targetSlugs": []
+    },
+    "0000129": {
+      "unvCd": "0000129",
+      "officialName": "선문대학교",
+      "campus": "본교",
+      "status": "numeric_cut_available",
+      "rowCount": 12,
+      "numericCutCount": 11,
+      "missingReasons": {
+        "모집인원, 이월인원 없음": 1
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000129&searchSyr=2027",
+      "targetSlugs": [
+        "extra_05015_선문"
+      ]
+    },
+    "0000131": {
+      "unvCd": "0000131",
+      "officialName": "성결대학교",
+      "campus": "본교",
+      "status": "numeric_cut_available",
+      "rowCount": 49,
+      "numericCutCount": 21,
+      "missingReasons": {
+        "모집인원 3인이하": 3,
+        "해당없음": 25
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000131&searchSyr=2027",
+      "targetSlugs": []
+    },
+    "0000132": {
+      "unvCd": "0000132",
+      "officialName": "성공회대학교",
+      "campus": "본교",
+      "status": "numeric_cut_available",
+      "rowCount": 7,
+      "numericCutCount": 7,
+      "missingReasons": {},
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000132&searchSyr=2027",
+      "targetSlugs": []
+    },
+    "0000133": {
+      "unvCd": "0000133",
+      "officialName": "성균관대학교",
+      "campus": "본교",
+      "status": "numeric_cut_available",
+      "rowCount": 75,
+      "numericCutCount": 33,
+      "missingReasons": {
+        "미선발": 1,
+        "특별전형": 41
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000133&searchSyr=2027",
+      "targetSlugs": [
+        "skku"
+      ]
+    },
+    "0000136": {
+      "unvCd": "0000136",
+      "officialName": "성신여자대학교",
+      "campus": "본교",
+      "status": "numeric_cut_available",
+      "rowCount": 116,
+      "numericCutCount": 51,
+      "missingReasons": {
+        "통합모집": 65
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000136&searchSyr=2027",
+      "targetSlugs": [
+        "sungshin"
+      ]
+    },
+    "0000137": {
+      "unvCd": "0000137",
+      "officialName": "세명대학교",
+      "campus": "본교",
+      "status": "numeric_cut_available",
+      "rowCount": 136,
+      "numericCutCount": 32,
+      "missingReasons": {
+        "수시모집100%선발": 1,
+        "통합선발(3명이하 등록)": 103
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000137&searchSyr=2027",
+      "targetSlugs": [
+        "extra_04005_세명"
+      ]
+    },
+    "0000138": {
+      "unvCd": "0000138",
+      "officialName": "세종대학교",
+      "campus": "본교",
+      "status": "numeric_cut_available",
+      "rowCount": 77,
+      "numericCutCount": 52,
+      "missingReasons": {
+        "등록인원 없음": 1,
+        "모집인원 없음": 24
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000138&searchSyr=2027",
+      "targetSlugs": [
+        "sejong"
+      ]
+    },
+    "0000092": {
+      "unvCd": "0000092",
+      "officialName": "세한대학교",
+      "campus": "본교",
+      "status": "no_numeric_cut",
+      "rowCount": 13,
+      "numericCutCount": 0,
+      "missingReasons": {
+        "백분위 70% 평균 미제출": 13
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000092&searchSyr=2027",
+      "targetSlugs": []
+    },
+    "0000243": {
+      "unvCd": "0000243",
+      "officialName": "송원대학교",
+      "campus": "본교",
+      "status": "numeric_cut_available",
+      "rowCount": 19,
+      "numericCutCount": 7,
+      "missingReasons": {
+        "3명 이하 모집단위 미제출": 1,
+        "모집인원이 3명 이하": 2,
+        "사유 미상": 7,
+        "최종 등록자 없음": 2
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000243&searchSyr=2027",
+      "targetSlugs": []
+    },
+    "0000139": {
+      "unvCd": "0000139",
+      "officialName": "수원가톨릭대학교",
+      "campus": "본교",
+      "status": "numeric_cut_available",
+      "rowCount": 3,
+      "numericCutCount": 1,
+      "missingReasons": {
+        "지원자 없음": 2
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000139&searchSyr=2027",
+      "targetSlugs": []
+    },
+    "0000140": {
+      "unvCd": "0000140",
+      "officialName": "수원대학교",
+      "campus": "본교",
+      "status": "numeric_cut_available",
+      "rowCount": 60,
+      "numericCutCount": 36,
+      "missingReasons": {
+        "정시 이월인원 없음": 24
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000140&searchSyr=2027",
+      "targetSlugs": []
+    },
+    "0000141": {
+      "unvCd": "0000141",
+      "officialName": "숙명여자대학교",
+      "campus": "본교",
+      "status": "numeric_cut_available",
+      "rowCount": 143,
+      "numericCutCount": 46,
+      "missingReasons": {
+        "3명이하 모집단위 미제출": 35,
+        "선발인원 없음": 62
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000141&searchSyr=2027",
+      "targetSlugs": [
+        "sookmyung"
+      ]
+    },
+    "0000142": {
+      "unvCd": "0000142",
+      "officialName": "순천향대학교",
+      "campus": "본교",
+      "status": "numeric_cut_available",
+      "rowCount": 189,
+      "numericCutCount": 51,
+      "missingReasons": {
+        "선발인원 0명": 138
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000142&searchSyr=2027",
+      "targetSlugs": [
+        "sch"
+      ]
+    },
+    "0000143": {
+      "unvCd": "0000143",
+      "officialName": "숭실대학교",
+      "campus": "본교",
+      "status": "numeric_cut_available",
+      "rowCount": 94,
+      "numericCutCount": 91,
+      "missingReasons": {
+        "미선발": 3
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000143&searchSyr=2027",
+      "targetSlugs": [
+        "ssu"
+      ]
+    },
+    "0000065": {
+      "unvCd": "0000065",
+      "officialName": "신경주대학교",
+      "campus": "본교",
+      "status": "numeric_cut_available",
+      "rowCount": 15,
+      "numericCutCount": 15,
+      "missingReasons": {},
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000065&searchSyr=2027",
+      "targetSlugs": []
+    },
+    "0000144": {
+      "unvCd": "0000144",
+      "officialName": "신라대학교",
+      "campus": "본교",
+      "status": "numeric_cut_available",
+      "rowCount": 36,
+      "numericCutCount": 35,
+      "missingReasons": {
+        "미선발": 1
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000144&searchSyr=2027",
+      "targetSlugs": []
+    },
+    "0002712": {
+      "unvCd": "0002712",
+      "officialName": "신한대학교",
+      "campus": "본교",
+      "status": "numeric_cut_available",
+      "rowCount": 2,
+      "numericCutCount": 2,
+      "missingReasons": {},
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0002712&searchSyr=2027",
+      "targetSlugs": []
+    },
+    "0002800": {
+      "unvCd": "0002800",
+      "officialName": "신한대학교",
+      "campus": "제2캠퍼스",
+      "status": "numeric_cut_available",
+      "rowCount": 28,
+      "numericCutCount": 28,
+      "missingReasons": {},
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0002800&searchSyr=2027",
+      "targetSlugs": []
+    },
+    "0000145": {
+      "unvCd": "0000145",
+      "officialName": "아신대학교",
+      "campus": "본교",
+      "status": "no_rows",
+      "rowCount": 0,
+      "numericCutCount": 0,
+      "missingReasons": {},
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000145&searchSyr=2027",
+      "targetSlugs": []
+    },
+    "0000146": {
+      "unvCd": "0000146",
+      "officialName": "아주대학교",
+      "campus": "본교",
+      "status": "numeric_cut_available",
+      "rowCount": 101,
+      "numericCutCount": 46,
+      "missingReasons": {
+        "등록인원 3명 미만 모집단위 미제출": 55
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000146&searchSyr=2027",
+      "targetSlugs": [
+        "ajou"
+      ]
+    },
+    "0000147": {
+      "unvCd": "0000147",
+      "officialName": "안양대학교",
+      "campus": "본교",
+      "status": "numeric_cut_available",
+      "rowCount": 65,
+      "numericCutCount": 34,
+      "missingReasons": {
+        "백분위 70% 평균 미제출": 31
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000147&searchSyr=2027",
+      "targetSlugs": [
+        "anyang"
+      ]
+    },
+    "0000148": {
+      "unvCd": "0000148",
+      "officialName": "안양대학교",
+      "campus": "제2캠퍼스",
+      "status": "numeric_cut_available",
+      "rowCount": 3,
+      "numericCutCount": 3,
+      "missingReasons": {},
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000148&searchSyr=2027",
+      "targetSlugs": [
+        "anyang"
+      ]
+    },
+    "0000149": {
+      "unvCd": "0000149",
+      "officialName": "연세대학교",
+      "campus": "본교",
+      "status": "numeric_cut_available",
+      "rowCount": 217,
+      "numericCutCount": 73,
+      "missingReasons": {
+        "대상인원 소수로 미제공": 141,
+        "정시 미선발 모집단위": 3
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000149&searchSyr=2027",
+      "targetSlugs": [
+        "yonsei"
+      ]
+    },
+    "0000150": {
+      "unvCd": "0000150",
+      "officialName": "연세대학교(미래)",
+      "campus": "분교",
+      "status": "numeric_cut_available",
+      "rowCount": 16,
+      "numericCutCount": 15,
+      "missingReasons": {
+        "수시에서 정시로 이월인원 없음(수시이월 인원 없음)": 1
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000150&searchSyr=2027",
+      "targetSlugs": [
+        "yonsei_mirae"
+      ]
+    },
+    "0000151": {
+      "unvCd": "0000151",
+      "officialName": "영남대학교",
+      "campus": "본교",
+      "status": "numeric_cut_available",
+      "rowCount": 164,
+      "numericCutCount": 66,
+      "missingReasons": {
+        "등록인원 3인 이하": 6,
+        "백분위 70% 평균 미제출": 92
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000151&searchSyr=2027",
+      "targetSlugs": [
+        "yu"
+      ]
+    },
+    "0000153": {
+      "unvCd": "0000153",
+      "officialName": "영남신학대학교",
+      "campus": "본교",
+      "status": "no_rows",
+      "rowCount": 0,
+      "numericCutCount": 0,
+      "missingReasons": {},
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000153&searchSyr=2027",
+      "targetSlugs": []
+    },
+    "0003193": {
+      "unvCd": "0003193",
+      "officialName": "영산대학교",
+      "campus": "본교",
+      "status": "no_numeric_cut",
+      "rowCount": 15,
+      "numericCutCount": 0,
+      "missingReasons": {
+        "백분위 70% 평균 미제출": 15
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0003193&searchSyr=2027",
+      "targetSlugs": []
+    },
+    "0003194": {
+      "unvCd": "0003194",
+      "officialName": "영산대학교",
+      "campus": "제2캠퍼스",
+      "status": "no_numeric_cut",
+      "rowCount": 7,
+      "numericCutCount": 0,
+      "missingReasons": {
+        "백분위 70% 평균 미제출": 7
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0003194&searchSyr=2027",
+      "targetSlugs": []
+    },
+    "0000155": {
+      "unvCd": "0000155",
+      "officialName": "영산선학대학교",
+      "campus": "본교",
+      "status": "no_rows",
+      "rowCount": 0,
+      "numericCutCount": 0,
+      "missingReasons": {},
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000155&searchSyr=2027",
+      "targetSlugs": []
+    },
+    "0000228": {
+      "unvCd": "0000228",
+      "officialName": "예수대학교",
+      "campus": "본교",
+      "status": "numeric_cut_available",
+      "rowCount": 3,
+      "numericCutCount": 1,
+      "missingReasons": {
+        "수시 이월인원 없음(전형 미실시)": 2
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000228&searchSyr=2027",
+      "targetSlugs": []
+    },
+    "0000218": {
+      "unvCd": "0000218",
+      "officialName": "예원예술대학교",
+      "campus": "본교",
+      "status": "no_rows",
+      "rowCount": 0,
+      "numericCutCount": 0,
+      "missingReasons": {},
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000218&searchSyr=2027",
+      "targetSlugs": []
+    },
+    "0000219": {
+      "unvCd": "0000219",
+      "officialName": "예원예술대학교",
+      "campus": "제2캠퍼스",
+      "status": "no_rows",
+      "rowCount": 0,
+      "numericCutCount": 0,
+      "missingReasons": {},
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000219&searchSyr=2027",
+      "targetSlugs": []
+    },
+    "0000156": {
+      "unvCd": "0000156",
+      "officialName": "용인대학교",
+      "campus": "본교",
+      "status": "numeric_cut_available",
+      "rowCount": 68,
+      "numericCutCount": 30,
+      "missingReasons": {
+        "등록인원 1명으로 50%cut, 70cut 존재하지 않음": 1,
+        "모집인원 0명": 36,
+        "모집인원 1명으로 50%cut, 70cut 존재하지 않음": 1
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000156&searchSyr=2027",
+      "targetSlugs": []
+    },
+    "0000157": {
+      "unvCd": "0000157",
+      "officialName": "우석대학교",
+      "campus": "본교",
+      "status": "numeric_cut_available",
+      "rowCount": 21,
+      "numericCutCount": 4,
+      "missingReasons": {
+        "등록인원 3명 이하로 인한 미제출": 2,
+        "모집인원 3명 이하로 인한 미제출": 15
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000157&searchSyr=2027",
+      "targetSlugs": [
+        "woosuk"
+      ]
+    },
+    "0000240": {
+      "unvCd": "0000240",
+      "officialName": "우송대학교",
+      "campus": "본교",
+      "status": "numeric_cut_available",
+      "rowCount": 142,
+      "numericCutCount": 15,
+      "missingReasons": {
+        "모집단위 모집인원 3명 이하": 127
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000240&searchSyr=2027",
+      "targetSlugs": []
+    },
+    "0000158": {
+      "unvCd": "0000158",
+      "officialName": "울산대학교",
+      "campus": "본교",
+      "status": "numeric_cut_available",
+      "rowCount": 37,
+      "numericCutCount": 14,
+      "missingReasons": {
+        "모집인원 3명 이하": 7,
+        "수시미충원 이월 인원 선발 대상이나 미충원 미발생": 16
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000158&searchSyr=2027",
+      "targetSlugs": [
+        "ulsan"
+      ]
+    },
+    "0000159": {
+      "unvCd": "0000159",
+      "officialName": "원광대학교",
+      "campus": "본교",
+      "status": "numeric_cut_available",
+      "rowCount": 110,
+      "numericCutCount": 31,
+      "missingReasons": {
+        "모집인원 3명 이하": 30,
+        "모집인원 없음": 49
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000159&searchSyr=2027",
+      "targetSlugs": [
+        "wku"
+      ]
+    },
+    "0000160": {
+      "unvCd": "0000160",
+      "officialName": "위덕대학교",
+      "campus": "본교",
+      "status": "numeric_cut_available",
+      "rowCount": 15,
+      "numericCutCount": 8,
+      "missingReasons": {
+        "선발인원 3명 이하 모집단위": 7
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000160&searchSyr=2027",
+      "targetSlugs": []
+    },
+    "0000154": {
+      "unvCd": "0000154",
+      "officialName": "유원대학교",
+      "campus": "본교",
+      "status": "numeric_cut_available",
+      "rowCount": 61,
+      "numericCutCount": 32,
+      "missingReasons": {
+        "백분위 70% 평균 미제출": 27,
+        "수능 미응시자": 1,
+        "어디가 1.0 대체값(70% 세부 백분위 0/1)": 1
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000154&searchSyr=2027",
+      "targetSlugs": []
+    },
+    "0000161": {
+      "unvCd": "0000161",
+      "officialName": "을지대학교",
+      "campus": "본교",
+      "status": "numeric_cut_available",
+      "rowCount": 5,
+      "numericCutCount": 1,
+      "missingReasons": {
+        "등록인원 3명 이하 미공개": 1,
+        "모집 인원 없음": 3
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000161&searchSyr=2027",
+      "targetSlugs": [
+        "eulji"
+      ]
+    },
+    "0000162": {
+      "unvCd": "0000162",
+      "officialName": "을지대학교",
+      "campus": "제2캠퍼스",
+      "status": "numeric_cut_available",
+      "rowCount": 66,
+      "numericCutCount": 22,
+      "missingReasons": {
+        "등록인원 3명 이하 미공개": 1,
+        "모집 인원 없음": 43
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000162&searchSyr=2027",
+      "targetSlugs": [
+        "eulji"
+      ]
+    },
+    "0002911": {
+      "unvCd": "0002911",
+      "officialName": "을지대학교",
+      "campus": "제3캠퍼스",
+      "status": "numeric_cut_available",
+      "rowCount": 14,
+      "numericCutCount": 5,
+      "missingReasons": {
+        "등록인원 3명 이하 미공개": 1,
+        "모집 인원 없음": 8
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0002911&searchSyr=2027",
+      "targetSlugs": [
+        "eulji"
+      ]
+    },
+    "0000163": {
+      "unvCd": "0000163",
+      "officialName": "이화여자대학교",
+      "campus": "본교",
+      "status": "numeric_cut_available",
+      "rowCount": 165,
+      "numericCutCount": 30,
+      "missingReasons": {
+        "계열별 선발을 실시하여 모집단위별 입시결과 산출이 어려움": 135
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000163&searchSyr=2027",
+      "targetSlugs": [
+        "ewha"
+      ]
+    },
+    "0000164": {
+      "unvCd": "0000164",
+      "officialName": "인제대학교",
+      "campus": "본교",
+      "status": "numeric_cut_available",
+      "rowCount": 49,
+      "numericCutCount": 28,
+      "missingReasons": {
+        "등록인원 없음": 1,
+        "미모집 모집단위": 20
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000164&searchSyr=2027",
+      "targetSlugs": [
+        "inje"
+      ]
+    },
+    "0000168": {
+      "unvCd": "0000168",
+      "officialName": "인천가톨릭대학교",
+      "campus": "본교",
+      "status": "no_rows",
+      "rowCount": 0,
+      "numericCutCount": 0,
+      "missingReasons": {},
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000168&searchSyr=2027",
+      "targetSlugs": [
+        "extra_02021_인천가톨릭"
+      ]
+    },
+    "0000167": {
+      "unvCd": "0000167",
+      "officialName": "인천가톨릭대학교",
+      "campus": "제2캠퍼스",
+      "status": "numeric_cut_available",
+      "rowCount": 6,
+      "numericCutCount": 1,
+      "missingReasons": {
+        "3명 이하선발": 5
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000167&searchSyr=2027",
+      "targetSlugs": [
+        "extra_02021_인천가톨릭"
+      ]
+    },
+    "0002660": {
+      "unvCd": "0002660",
+      "officialName": "인천대학교",
+      "campus": "본교",
+      "status": "numeric_cut_available",
+      "rowCount": 171,
+      "numericCutCount": 58,
+      "missingReasons": {
+        "모집인원 3명 이하": 113
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0002660&searchSyr=2027",
+      "targetSlugs": [
+        "inu"
+      ]
+    },
+    "0000169": {
+      "unvCd": "0000169",
+      "officialName": "인하대학교",
+      "campus": "본교",
+      "status": "numeric_cut_available",
+      "rowCount": 140,
+      "numericCutCount": 64,
+      "missingReasons": {
+        "모집인원 3명 이하": 76
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000169&searchSyr=2027",
+      "targetSlugs": [
+        "inha"
+      ]
+    },
+    "0000170": {
+      "unvCd": "0000170",
+      "officialName": "장로회신학대학교",
+      "campus": "본교",
+      "status": "numeric_cut_available",
+      "rowCount": 12,
+      "numericCutCount": 3,
+      "missingReasons": {
+        "대상자0명": 8,
+        "대상자1명": 1
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000170&searchSyr=2027",
+      "targetSlugs": []
+    },
+    "0000023": {
+      "unvCd": "0000023",
+      "officialName": "전남대학교",
+      "campus": "본교",
+      "status": "numeric_cut_available",
+      "rowCount": 173,
+      "numericCutCount": 78,
+      "missingReasons": {
+        "3명 이하 모집단위 미제출": 95
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000023&searchSyr=2027",
+      "targetSlugs": [
+        "jnu"
+      ]
+    },
+    "0000024": {
+      "unvCd": "0000024",
+      "officialName": "전남대학교",
+      "campus": "제2캠퍼스",
+      "status": "numeric_cut_available",
+      "rowCount": 34,
+      "numericCutCount": 15,
+      "missingReasons": {
+        "3명 이하 모집단위 미제출": 18,
+        "등록인원 3명 이하": 1
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000024&searchSyr=2027",
+      "targetSlugs": [
+        "jnu"
+      ]
+    },
+    "0000025": {
+      "unvCd": "0000025",
+      "officialName": "전북대학교",
+      "campus": "본교",
+      "status": "numeric_cut_available",
+      "rowCount": 76,
+      "numericCutCount": 29,
+      "missingReasons": {
+        "모집인원 3명 이하": 1,
+        "모집인원 3명이하": 2,
+        "백분위 70% 평균 미제출": 44
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000025&searchSyr=2027",
+      "targetSlugs": [
+        "jbnu"
+      ]
+    },
+    "0000258": {
+      "unvCd": "0000258",
+      "officialName": "전주교육대학교",
+      "campus": "본교",
+      "status": "no_numeric_cut",
+      "rowCount": 4,
+      "numericCutCount": 0,
+      "missingReasons": {
+        "백분위 70% 평균 미제출": 4
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000258&searchSyr=2027",
+      "targetSlugs": [
+        "jnue"
+      ]
+    },
+    "0000171": {
+      "unvCd": "0000171",
+      "officialName": "전주대학교",
+      "campus": "본교",
+      "status": "numeric_cut_available",
+      "rowCount": 31,
+      "numericCutCount": 31,
+      "missingReasons": {},
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000171&searchSyr=2027",
+      "targetSlugs": [
+        "extra_06009_전주"
+      ]
+    },
+    "0000248": {
+      "unvCd": "0000248",
+      "officialName": "제주국제대학교",
+      "campus": "본교",
+      "status": "no_numeric_cut",
+      "rowCount": 40,
+      "numericCutCount": 0,
+      "missingReasons": {
+        "등록인원 3명 이하": 1,
+        "입시 결과 미존재": 39
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000248&searchSyr=2027",
+      "targetSlugs": []
+    },
+    "0000027": {
+      "unvCd": "0000027",
+      "officialName": "제주대학교",
+      "campus": "본교",
+      "status": "numeric_cut_available",
+      "rowCount": 152,
+      "numericCutCount": 66,
+      "missingReasons": {
+        "등록인원 3명 이하": 66,
+        "모집단위 3인이하": 20
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000027&searchSyr=2027",
+      "targetSlugs": [
+        "jejunu"
+      ]
+    },
+    "0000172": {
+      "unvCd": "0000172",
+      "officialName": "조선대학교",
+      "campus": "본교",
+      "status": "numeric_cut_available",
+      "rowCount": 70,
+      "numericCutCount": 24,
+      "missingReasons": {
+        "등록인원 3명 이하": 1,
+        "모집인원 3명 이하": 27,
+        "수시 이월인원 미발생으로 미선발": 18
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000172&searchSyr=2027",
+      "targetSlugs": [
+        "chosun"
+      ]
+    },
+    "0000173": {
+      "unvCd": "0000173",
+      "officialName": "중부대학교",
+      "campus": "본교",
+      "status": "numeric_cut_available",
+      "rowCount": 104,
+      "numericCutCount": 13,
+      "missingReasons": {
+        "3명 이하": 24,
+        "정원외 통합모집": 67
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000173&searchSyr=2027",
+      "targetSlugs": []
+    },
+    "0000175": {
+      "unvCd": "0000175",
+      "officialName": "중앙대학교",
+      "campus": "본교",
+      "status": "numeric_cut_available",
+      "rowCount": 102,
+      "numericCutCount": 44,
+      "missingReasons": {
+        "백분위 70% 평균 미제출": 58
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000175&searchSyr=2027",
+      "targetSlugs": [
+        "cau"
+      ]
+    },
+    "0000174": {
+      "unvCd": "0000174",
+      "officialName": "중앙대학교",
+      "campus": "제2캠퍼스",
+      "status": "numeric_cut_available",
+      "rowCount": 24,
+      "numericCutCount": 13,
+      "missingReasons": {
+        "백분위 70% 평균 미제출": 11
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000174&searchSyr=2027",
+      "targetSlugs": [
+        "cau"
+      ]
+    },
+    "0000177": {
+      "unvCd": "0000177",
+      "officialName": "중앙승가대학교",
+      "campus": "본교",
+      "status": "no_rows",
+      "rowCount": 0,
+      "numericCutCount": 0,
+      "missingReasons": {},
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000177&searchSyr=2027",
+      "targetSlugs": []
+    },
+    "0000239": {
+      "unvCd": "0000239",
+      "officialName": "중원대학교",
+      "campus": "본교",
+      "status": "numeric_cut_available",
+      "rowCount": 49,
+      "numericCutCount": 21,
+      "missingReasons": {
+        "3명이하로 산출불가": 9,
+        "미지원자로 산출불가": 17,
+        "사유 미상": 1,
+        "어디가 1.0 대체값(70% 세부 백분위 0/1)": 1
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000239&searchSyr=2027",
+      "targetSlugs": []
+    },
+    "0000260": {
+      "unvCd": "0000260",
+      "officialName": "진주교육대학교",
+      "campus": "본교",
+      "status": "numeric_cut_available",
+      "rowCount": 4,
+      "numericCutCount": 1,
+      "missingReasons": {
+        "3명이하 모집단위 미제출": 2,
+        "입시 결과 미존재": 1
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000260&searchSyr=2027",
+      "targetSlugs": [
+        "gnue_jinju"
+      ]
+    },
+    "0000187": {
+      "unvCd": "0000187",
+      "officialName": "차의과학대학교",
+      "campus": "본교",
+      "status": "numeric_cut_available",
+      "rowCount": 9,
+      "numericCutCount": 3,
+      "missingReasons": {
+        "모집인원 없음": 6
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000187&searchSyr=2027",
+      "targetSlugs": [
+        "cha"
+      ]
+    },
+    "0000249": {
+      "unvCd": "0000249",
+      "officialName": "창신대학교",
+      "campus": "본교",
+      "status": "numeric_cut_available",
+      "rowCount": 22,
+      "numericCutCount": 9,
+      "missingReasons": {
+        "선발인원 3명 이하": 13
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000249&searchSyr=2027",
+      "targetSlugs": []
+    },
+    "0000284": {
+      "unvCd": "0000284",
+      "officialName": "청운대학교",
+      "campus": "본교",
+      "status": "numeric_cut_available",
+      "rowCount": 20,
+      "numericCutCount": 18,
+      "missingReasons": {
+        "최종 등록자 없음": 2
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000284&searchSyr=2027",
+      "targetSlugs": []
+    },
+    "0000261": {
+      "unvCd": "0000261",
+      "officialName": "청주교육대학교",
+      "campus": "본교",
+      "status": "numeric_cut_available",
+      "rowCount": 4,
+      "numericCutCount": 2,
+      "missingReasons": {
+        "등록인원 3명 이하": 1,
+        "모집인원 없음": 1
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000261&searchSyr=2027",
+      "targetSlugs": []
+    },
+    "0000179": {
+      "unvCd": "0000179",
+      "officialName": "청주대학교",
+      "campus": "본교",
+      "status": "numeric_cut_available",
+      "rowCount": 49,
+      "numericCutCount": 49,
+      "missingReasons": {},
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000179&searchSyr=2027",
+      "targetSlugs": []
+    },
+    "0000246": {
+      "unvCd": "0000246",
+      "officialName": "초당대학교",
+      "campus": "본교",
+      "status": "numeric_cut_available",
+      "rowCount": 2,
+      "numericCutCount": 2,
+      "missingReasons": {},
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000246&searchSyr=2027",
+      "targetSlugs": []
+    },
+    "0000180": {
+      "unvCd": "0000180",
+      "officialName": "총신대학교",
+      "campus": "본교",
+      "status": "numeric_cut_available",
+      "rowCount": 9,
+      "numericCutCount": 2,
+      "missingReasons": {
+        "모집인원3명이하": 7
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000180&searchSyr=2027",
+      "targetSlugs": []
+    },
+    "0000181": {
+      "unvCd": "0000181",
+      "officialName": "추계예술대학교",
+      "campus": "본교",
+      "status": "numeric_cut_available",
+      "rowCount": 5,
+      "numericCutCount": 1,
+      "missingReasons": {
+        "3명이하": 3,
+        "최종등록 3명이하(모집정원 5명, 지원자 4명, 최종등록 1명)": 1
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000181&searchSyr=2027",
+      "targetSlugs": []
+    },
+    "0000262": {
+      "unvCd": "0000262",
+      "officialName": "춘천교육대학교",
+      "campus": "본교",
+      "status": "no_numeric_cut",
+      "rowCount": 5,
+      "numericCutCount": 0,
+      "missingReasons": {
+        "사유 미상": 2,
+        "선발인원 없음": 3
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000262&searchSyr=2027",
+      "targetSlugs": []
+    },
+    "0000029": {
+      "unvCd": "0000029",
+      "officialName": "충남대학교",
+      "campus": "본교",
+      "status": "numeric_cut_available",
+      "rowCount": 200,
+      "numericCutCount": 81,
+      "missingReasons": {
+        "3명 이하 모집단위 미제출": 119
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000029&searchSyr=2027",
+      "targetSlugs": [
+        "cnu"
+      ]
+    },
+    "0000030": {
+      "unvCd": "0000030",
+      "officialName": "충북대학교",
+      "campus": "본교",
+      "status": "numeric_cut_available",
+      "rowCount": 205,
+      "numericCutCount": 77,
+      "missingReasons": {
+        "모집단위별 최종선발인원 3명이하 미제출": 19,
+        "이월인원 없음": 109
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000030&searchSyr=2027",
+      "targetSlugs": [
+        "chungbuk"
+      ]
+    },
+    "0000184": {
+      "unvCd": "0000184",
+      "officialName": "칼빈대학교",
+      "campus": "본교",
+      "status": "no_numeric_cut",
+      "rowCount": 9,
+      "numericCutCount": 0,
+      "missingReasons": {
+        "3명 이하 모집단위 미제출": 9
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000184&searchSyr=2027",
+      "targetSlugs": []
+    },
+    "0000186": {
+      "unvCd": "0000186",
+      "officialName": "평택대학교",
+      "campus": "본교",
+      "status": "no_numeric_cut",
+      "rowCount": 21,
+      "numericCutCount": 0,
+      "missingReasons": {
+        "사유 미상": 21
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000186&searchSyr=2027",
+      "targetSlugs": []
+    },
+    "0000188": {
+      "unvCd": "0000188",
+      "officialName": "포항공과대학교",
+      "campus": "본교",
+      "status": "no_rows",
+      "rowCount": 0,
+      "numericCutCount": 0,
+      "missingReasons": {},
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000188&searchSyr=2027",
+      "targetSlugs": []
+    },
+    "0000037": {
+      "unvCd": "0000037",
+      "officialName": "한경국립대학교",
+      "campus": "본교",
+      "status": "numeric_cut_available",
+      "rowCount": 67,
+      "numericCutCount": 15,
+      "missingReasons": {
+        "3명 이하 모집단위": 36,
+        "3명이하 모집단위": 12,
+        "실기전형으로 미공개": 4
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000037&searchSyr=2027",
+      "targetSlugs": []
+    },
+    "0000247": {
+      "unvCd": "0000247",
+      "officialName": "한국공학대학교",
+      "campus": "본교",
+      "status": "numeric_cut_available",
+      "rowCount": 88,
+      "numericCutCount": 69,
+      "missingReasons": {
+        "모집인원 없음": 19
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000247&searchSyr=2027",
+      "targetSlugs": [
+        "ktech"
+      ]
+    },
+    "0000031": {
+      "unvCd": "0000031",
+      "officialName": "한국교원대학교",
+      "campus": "본교",
+      "status": "numeric_cut_available",
+      "rowCount": 46,
+      "numericCutCount": 22,
+      "missingReasons": {
+        "모집인원 3명 이하": 24
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000031&searchSyr=2027",
+      "targetSlugs": [
+        "knue"
+      ]
+    },
+    "0000189": {
+      "unvCd": "0000189",
+      "officialName": "한국기술교육대학교",
+      "campus": "본교",
+      "status": "numeric_cut_available",
+      "rowCount": 5,
+      "numericCutCount": 5,
+      "missingReasons": {},
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000189&searchSyr=2027",
+      "targetSlugs": []
+    },
+    "0000191": {
+      "unvCd": "0000191",
+      "officialName": "한국성서대학교",
+      "campus": "본교",
+      "status": "numeric_cut_available",
+      "rowCount": 5,
+      "numericCutCount": 5,
+      "missingReasons": {},
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000191&searchSyr=2027",
+      "targetSlugs": []
+    },
+    "0000192": {
+      "unvCd": "0000192",
+      "officialName": "한국외국어대학교",
+      "campus": "본교",
+      "status": "numeric_cut_available",
+      "rowCount": 173,
+      "numericCutCount": 88,
+      "missingReasons": {
+        "등록인원 3명 이하": 34,
+        "모집인원 3명 이하": 3,
+        "통합모집": 48
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000192&searchSyr=2027",
+      "targetSlugs": [
+        "hufs"
+      ]
+    },
+    "0000032": {
+      "unvCd": "0000032",
+      "officialName": "한국체육대학교",
+      "campus": "본교",
+      "status": "numeric_cut_available",
+      "rowCount": 23,
+      "numericCutCount": 8,
+      "missingReasons": {
+        "모집인원 3명 이하": 12,
+        "지원자 없음": 3
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000032&searchSyr=2027",
+      "targetSlugs": []
+    },
+    "0000182": {
+      "unvCd": "0000182",
+      "officialName": "한국침례신학대학교",
+      "campus": "본교",
+      "status": "no_rows",
+      "rowCount": 0,
+      "numericCutCount": 0,
+      "missingReasons": {},
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000182&searchSyr=2027",
+      "targetSlugs": []
+    },
+    "0000194": {
+      "unvCd": "0000194",
+      "officialName": "한국항공대학교",
+      "campus": "본교",
+      "status": "numeric_cut_available",
+      "rowCount": 22,
+      "numericCutCount": 12,
+      "missingReasons": {
+        "등록인원 3명 이하": 10
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000194&searchSyr=2027",
+      "targetSlugs": [
+        "kau"
+      ]
+    },
+    "0000195": {
+      "unvCd": "0000195",
+      "officialName": "한남대학교",
+      "campus": "본교",
+      "status": "numeric_cut_available",
+      "rowCount": 184,
+      "numericCutCount": 54,
+      "missingReasons": {
+        "모집단위 미지정 선발로 미입력": 126,
+        "정시모집 미선발": 4
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000195&searchSyr=2027",
+      "targetSlugs": []
+    },
+    "0000196": {
+      "unvCd": "0000196",
+      "officialName": "한동대학교",
+      "campus": "본교",
+      "status": "numeric_cut_available",
+      "rowCount": 3,
+      "numericCutCount": 2,
+      "missingReasons": {
+        "모집인원 3명 이하": 1
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000196&searchSyr=2027",
+      "targetSlugs": [
+        "handong"
+      ]
+    },
+    "0000197": {
+      "unvCd": "0000197",
+      "officialName": "한라대학교",
+      "campus": "본교",
+      "status": "numeric_cut_available",
+      "rowCount": 20,
+      "numericCutCount": 19,
+      "missingReasons": {
+        "백분위 70% 평균 미제출": 1
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000197&searchSyr=2027",
+      "targetSlugs": []
+    },
+    "0000198": {
+      "unvCd": "0000198",
+      "officialName": "한림대학교",
+      "campus": "본교",
+      "status": "numeric_cut_available",
+      "rowCount": 58,
+      "numericCutCount": 27,
+      "missingReasons": {
+        "모집인원 3명 이하": 8,
+        "모집인원 없음": 23
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000198&searchSyr=2027",
+      "targetSlugs": [
+        "hallym"
+      ]
+    },
+    "0000199": {
+      "unvCd": "0000199",
+      "officialName": "한서대학교",
+      "campus": "본교",
+      "status": "numeric_cut_available",
+      "rowCount": 34,
+      "numericCutCount": 19,
+      "missingReasons": {
+        "3명이하 미공개": 15
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000199&searchSyr=2027",
+      "targetSlugs": []
+    },
+    "0000200": {
+      "unvCd": "0000200",
+      "officialName": "한성대학교",
+      "campus": "본교",
+      "status": "numeric_cut_available",
+      "rowCount": 35,
+      "numericCutCount": 14,
+      "missingReasons": {
+        "일반전형만 공개": 16,
+        "해당사항 없음": 5
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000200&searchSyr=2027",
+      "targetSlugs": [
+        "hansung"
+      ]
+    },
+    "0000201": {
+      "unvCd": "0000201",
+      "officialName": "한세대학교",
+      "campus": "본교",
+      "status": "numeric_cut_available",
+      "rowCount": 16,
+      "numericCutCount": 6,
+      "missingReasons": {
+        "3명이하 모집단위 미제출": 10
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000201&searchSyr=2027",
+      "targetSlugs": [
+        "hansei"
+      ]
+    },
+    "0000202": {
+      "unvCd": "0000202",
+      "officialName": "한신대학교",
+      "campus": "본교",
+      "status": "numeric_cut_available",
+      "rowCount": 28,
+      "numericCutCount": 11,
+      "missingReasons": {
+        "수시 이월인원을 선발하는 전형으로서 매년 선발인원 및 선발 모집단위가 유동적이기 때문에 전년도 입시결과를 공개하지 않습니다.": 17
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000202&searchSyr=2027",
+      "targetSlugs": []
+    },
+    "0000203": {
+      "unvCd": "0000203",
+      "officialName": "한양대학교",
+      "campus": "본교",
+      "status": "numeric_cut_available",
+      "rowCount": 183,
+      "numericCutCount": 60,
+      "missingReasons": {
+        "제출 대상 전형 아님": 123
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000203&searchSyr=2027",
+      "targetSlugs": [
+        "hanyang"
+      ]
+    },
+    "0000204": {
+      "unvCd": "0000204",
+      "officialName": "한양대학교(ERICA)",
+      "campus": "분교",
+      "status": "numeric_cut_available",
+      "rowCount": 108,
+      "numericCutCount": 35,
+      "missingReasons": {
+        "사유 미상": 73
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000204&searchSyr=2027",
+      "targetSlugs": [
+        "hanyang_erica"
+      ]
+    },
+    "0000206": {
+      "unvCd": "0000206",
+      "officialName": "한일장신대학교",
+      "campus": "본교",
+      "status": "no_rows",
+      "rowCount": 0,
+      "numericCutCount": 0,
+      "missingReasons": {},
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000206&searchSyr=2027",
+      "targetSlugs": []
+    },
+    "0000207": {
+      "unvCd": "0000207",
+      "officialName": "협성대학교",
+      "campus": "본교",
+      "status": "numeric_cut_available",
+      "rowCount": 67,
+      "numericCutCount": 27,
+      "missingReasons": {
+        "수시 이월 인원 없음": 40
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000207&searchSyr=2027",
+      "targetSlugs": []
+    },
+    "0000208": {
+      "unvCd": "0000208",
+      "officialName": "호남대학교",
+      "campus": "본교",
+      "status": "numeric_cut_available",
+      "rowCount": 14,
+      "numericCutCount": 9,
+      "missingReasons": {
+        "3명 이하 모집단위 미제출": 3,
+        "사유 미상": 2
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000208&searchSyr=2027",
+      "targetSlugs": [
+        "extra_07020_호남"
+      ]
+    },
+    "0000209": {
+      "unvCd": "0000209",
+      "officialName": "호남신학대학교",
+      "campus": "본교",
+      "status": "no_rows",
+      "rowCount": 0,
+      "numericCutCount": 0,
+      "missingReasons": {},
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000209&searchSyr=2027",
+      "targetSlugs": []
+    },
+    "0000211": {
+      "unvCd": "0000211",
+      "officialName": "호서대학교",
+      "campus": "본교",
+      "status": "numeric_cut_available",
+      "rowCount": 149,
+      "numericCutCount": 34,
+      "missingReasons": {
+        "3명이하 모집단위 미제출": 32,
+        "미선발": 29,
+        "어디가 1.0 대체값(70% 세부 백분위 0/1)": 54
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000211&searchSyr=2027",
+      "targetSlugs": [
+        "hoseo"
+      ]
+    },
+    "0000282": {
+      "unvCd": "0000282",
+      "officialName": "호원대학교",
+      "campus": "본교",
+      "status": "no_numeric_cut",
+      "rowCount": 26,
+      "numericCutCount": 0,
+      "missingReasons": {
+        "3명이하모집단위미제출": 9,
+        "사유 미상": 17
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000282&searchSyr=2027",
+      "targetSlugs": []
+    },
+    "0000212": {
+      "unvCd": "0000212",
+      "officialName": "홍익대학교",
+      "campus": "본교",
+      "status": "numeric_cut_available",
+      "rowCount": 95,
+      "numericCutCount": 34,
+      "missingReasons": {
+        "모집단위 아님": 4,
+        "사유 미상": 3,
+        "특별전형은 수능표준점수를 공개하지않음": 33,
+        "특별전형은 수능표준점수를 공개하지않음/수시모집 이월 발생 시 모집": 21
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000212&searchSyr=2027",
+      "targetSlugs": [
+        "hongik"
+      ]
+    },
+    "0002949": {
+      "unvCd": "0002949",
+      "officialName": "홍익대학교",
+      "campus": "제2캠퍼스",
+      "status": "numeric_cut_available",
+      "rowCount": 47,
+      "numericCutCount": 16,
+      "missingReasons": {
+        "사유 미상": 1,
+        "어디가 1.0 대체값(70% 세부 백분위 0/1)": 1,
+        "특별전형은 수능 표준점수를 공개하지 않음": 19,
+        "특별전형은 수능표준점수를 공개하지않음/수시모집 이월 발생 시 모집": 10
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0002949&searchSyr=2027",
+      "targetSlugs": [
+        "hongik"
+      ]
+    },
+    "0000233": {
+      "unvCd": "0000233",
+      "officialName": "화성의과학대학교",
+      "campus": "본교",
+      "status": "numeric_cut_available",
+      "rowCount": 12,
+      "numericCutCount": 11,
+      "missingReasons": {
+        "3명이하 모집단위 미제출": 1
+      },
+      "unexpectedRowCount": 0,
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000233&searchSyr=2027",
+      "targetSlugs": []
+    }
   },
   "schools": {
     "yonsei": {
