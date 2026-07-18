@@ -17,6 +17,7 @@ const ANSWERS_PATH = resolve(ROOT, 'data/answers.json');
 const GRADECUTS_PATH = resolve(ROOT, 'data/gradecuts.json');
 
 const TRUSTED_DOCUMENT_HOSTS = new Set([
+  'admission.kangnam.ac.kr',
   'suneung-files.hdh061224.workers.dev',
   'wdown.ebsi.co.kr',
 ]);
