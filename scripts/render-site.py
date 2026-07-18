@@ -230,7 +230,7 @@ def _hub_page(fname: str, h1: str, title: str, desc: str, intro: str,
       </p>
     </div>
   </footer>
-  <script type="module" src="lib/dday-mount.js?v=20260618a"></script>
+  <script type="module" src="lib/dday-mount.js?v=20260718a"></script>
   <script src="lib/measure.js?v=20260713c" defer></script>
 </body>
 </html>
@@ -573,7 +573,7 @@ def render_sets_directory(items: list[dict], essay_hubs=None, subject_hubs=None)
       </p>
     </div>
   </footer>
-  <script type="module" src="lib/dday-mount.js?v=20260618a"></script>
+  <script type="module" src="lib/dday-mount.js?v=20260718a"></script>
   <script src="lib/measure.js?v=20260713c" defer></script>
 </body>
 </html>
