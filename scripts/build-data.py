@@ -696,6 +696,9 @@ ESSAY_SCHOOL_SLUG = {
     '삼육대학교': 'samyook', '한양대학교(ERICA)': 'erica', '중앙대학교': 'cau',
     '연세대학교': 'yonsei', '고려대학교': 'korea', '성균관대학교': 'skku',
     '서강대학교': 'sogang', '덕성여자대학교': 'duksung', '연세대학교(미래)': 'yonsei-mirae',
+    '강남대학교': 'kangnam', '고려대학교(세종)': 'korea-sejong', '국민대학교': 'kookmin',
+    '서울과학기술대학교': 'seoultech', '신한대학교': 'shinhan',
+    '한국기술교육대학교': 'koreatech',
 }
 
 

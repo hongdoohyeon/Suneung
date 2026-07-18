@@ -141,9 +141,15 @@ def _essay_label(it: dict) -> str:
 
 def essay_hub_list(items: list[dict]) -> list[dict]:
     """대학별 논술 허브 데이터 — subject(대학)별로 essay 엔트리를 모은다."""
+    missing = sorted({it.get('subject') for it in items
+                      if it.get('typeGroup') == 'essay'
+                      and not bd.essay_hub_filename(it.get('subject'))})
+    if missing:
+        raise ValueError(f'ESSAY_SCHOOL_SLUG 매핑 누락: {", ".join(missing)}')
+
     by_school: dict[str, list] = {}
     for it in items:
-        if it.get('typeGroup') != 'essay' or not bd.essay_hub_filename(it.get('subject')):
+        if it.get('typeGroup') != 'essay':
             continue
         by_school.setdefault(it['subject'], []).append(it)
     hubs = []
@@ -379,7 +385,7 @@ def render_category_landings(items: list[dict]) -> None:
     잡는 상위 진입점. 기존 허브/시험 페이지로의 내부링크 허브 역할도."""
     base = 'https://kicegg.com'
 
-    # ── 대학별 논술 랜딩: 39개 학교별 허브로 링크 ──
+    # ── 대학별 논술 랜딩: 학교별 허브로 링크 ──
     essays = [e for e in items if e.get('typeGroup') == 'essay']
     if essays:
         counts: dict = {}
