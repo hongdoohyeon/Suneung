@@ -43,7 +43,7 @@ function buildTitle(exam) {
 function buildSubtitle(exam) {
   const conf = CURRICULUM_CONFIG[exam.curriculum];
   const tc   = getTypeConf(exam.type);
-  return [conf?.label, tc?.groupLabel].filter(Boolean).join(' · ');
+  return [...new Set([conf?.label, tc?.groupLabel].filter(Boolean))].join(' · ');
 }
 
 // 자료 MIME — 잔존 HWP(사관 2018 수학 등)는 application/x-hwp 로 정확히 표기
@@ -79,10 +79,11 @@ function renderHead(exam) {
     isPartOf: { '@type': 'WebSite', name: '기출해체분석기',
                 url: 'https://kicegg.com/' },
     ...(exam.questionUrl ? { hasPart: [
-      { '@type': 'DigitalDocument', name: '문제지', url: exam.questionUrl, encodingFormat: docMime(exam.questionUrl, exam.questionDownload) },
+      { '@type': 'DigitalDocument', name: exam.questionUrl === exam.solutionUrl ? '문제·해설' : '문제지', url: exam.questionUrl, encodingFormat: docMime(exam.questionUrl, exam.questionDownload) },
       ...(exam.answerUrl ? [{ '@type': 'DigitalDocument', name: '정답', url: exam.answerUrl, encodingFormat: docMime(exam.answerUrl, exam.answerDownload) }] : []),
       ...(exam.listenUrl ? [{ '@type': 'AudioObject', name: '영어 듣기 mp3', contentUrl: exam.listenUrl, encodingFormat: 'audio/mpeg' }] : []),
       ...(exam.scriptUrl ? [{ '@type': 'DigitalDocument', name: '듣기 스크립트', url: exam.scriptUrl, encodingFormat: docMime(exam.scriptUrl, exam.scriptDownload) }] : []),
+      ...(exam.solutionUrl && exam.solutionUrl !== exam.questionUrl ? [{ '@type': 'DigitalDocument', name: '해설지', url: exam.solutionUrl, encodingFormat: docMime(exam.solutionUrl, exam.solutionDownload) }] : []),
     ] } : {}),
   });
   // 회차 진입 link (사이드바) — 친화 URL 사용 (build-data.py set_friendly_filename 와 동일 규약)
@@ -132,7 +133,8 @@ function renderHead(exam) {
   const fileTag = (url, name) =>
     (/\.hwp(?:[?#]|$)/i.test(url || '') || /\.hwp$/i.test(name || '')) ? 'HWP' : 'PDF';
   const qTag = fileTag(questionUrl, exam.questionDownload);
-  const qLabel = questionUrlEven ? `문제지 ${qTag} (홀수형)` : `문제지 ${qTag}`;
+  const combinedDocument = questionUrl && questionUrl === solutionUrl;
+  const qLabel = combinedDocument ? `문제·해설 ${qTag}` : (questionUrlEven ? `문제지 ${qTag} (홀수형)` : `문제지 ${qTag}`);
   const aTag = fileTag(answerUrl, exam.answerDownload);
   const aLabel = answerUrlEven   ? `정답 ${aTag} (홀수형)`   : `정답 ${aTag}`;
   if (questionUrl) buttons.push(
@@ -147,7 +149,7 @@ function renderHead(exam) {
   if (answerUrlEven) buttons.push(
     `<a class="btn" href="${escHtml(answerUrlEven)}" ${dl(exam.answerDownloadEven)}>정답 PDF (짝수형)</a>`
   );
-  if (solutionUrl) buttons.push(
+  if (solutionUrl && !combinedDocument) buttons.push(
     `<a class="btn" href="${escHtml(solutionUrl)}" ${dl(exam.solutionDownload)}>해설지 PDF</a>`
   );
   if (listenUrl) buttons.push(

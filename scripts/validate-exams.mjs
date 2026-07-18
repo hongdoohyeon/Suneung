@@ -16,7 +16,10 @@ const SCHEMA_PATH  = resolve(ROOT, 'data/exams.schema.json');
 const ANSWERS_PATH = resolve(ROOT, 'data/answers.json');
 const GRADECUTS_PATH = resolve(ROOT, 'data/gradecuts.json');
 
-const WORKER_HOST = 'suneung-files.hdh061224.workers.dev';
+const TRUSTED_DOCUMENT_HOSTS = new Set([
+  'suneung-files.hdh061224.workers.dev',
+  'wdown.ebsi.co.kr',
+]);
 
 // 표준 문항 수 (normalize-answers.mjs 와 동일 정의 — 단일 진실 소스로 유지)
 const SUNEUNG_LIKE = new Set(['suneung', 'education']);
@@ -131,7 +134,7 @@ function validateBusinessRules(data) {
     }
   }
 
-  // 3. URL 검증 — 외부 URL은 worker 호스트만, 상대 경로는 실제 파일 존재 필요
+  // 3. URL 검증 — 신뢰 문서 호스트 외 URL은 경고, 상대 경로는 실제 파일 존재 필요
   const urlKeys = ['questionUrl', 'answerUrl', 'solutionUrl'];
   for (const ex of data) {
     for (const k of urlKeys) {
@@ -144,7 +147,7 @@ function validateBusinessRules(data) {
             err(`id=${ex.id} ${k} 허용되지 않는 URL 스킴: ${u.protocol}`);
             continue;
           }
-          if (u.hostname !== WORKER_HOST) {
+          if (!TRUSTED_DOCUMENT_HOSTS.has(u.hostname)) {
             warn(`id=${ex.id} ${k} 외부 호스트: ${u.hostname}`);
           }
         } catch {

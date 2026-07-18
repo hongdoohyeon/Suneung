@@ -2,6 +2,8 @@
 
 생성: 2026-05-06
 
+> 이 문서는 2026-05-06 자동 추출 파이프라인의 과거 스냅샷이다. 현재 서비스 기준은 `ratios-lookup.json` 103개교, `manual-results.json` 81개교이며 `npm run validate-admissions`로 검증한다.
+
 ## 종합
 - **PDF**: 총 364개 (universities.json 235 + extras 129)
 - **학교**: 총 87개 (universities.json 61 + extras 26)

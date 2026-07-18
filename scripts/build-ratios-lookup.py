@@ -19,6 +19,7 @@ format:
 """
 from __future__ import annotations
 import json
+from datetime import date
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -293,10 +294,39 @@ def main():
                 'pdf_available': has_pdf_e,
             }
 
+    # merged 목록에 아직 반영되지 않은 수동 보강 학교도 lookup에서 누락하지 않는다.
+    manual_data = json.loads(MANUAL.read_text()) if MANUAL.exists() else {}
+    for slug, manual in manual_data.items():
+        if slug == '_meta' or slug in lookup:
+            continue
+        manual_tracks = []
+        for t in manual.get('tracks', []):
+            manual_tracks.append({
+                'label': t['label'],
+                'ratios': {k: v for k, v in t['ratios'].items() if isinstance(v, (int, float))},
+                'ratios_note': {k: v for k, v in t['ratios'].items() if isinstance(v, str)},
+                'scoreFormula': t.get('scoreFormula'),
+                'math_pick': t.get('math_pick'),
+                'tamgu_pick': t.get('tamgu_pick'),
+                'manual': True,
+            })
+        if manual.get('english_grades'):
+            for mt in manual_tracks:
+                mt['english_grades'] = manual['english_grades']
+        if manual_tracks:
+            lookup[slug] = {
+                'name': manual.get('name', slug),
+                'tracks': manual_tracks,
+                'confidence': 'high',
+                'category': 'extra',
+                'source': 'data/admissions/manual-ratios.json',
+                'pdf_available': False,
+            }
+
     OUT.write_text(json.dumps({
         '_meta': {
-            'description': '모의지원 코드용 lookup. slug별 ratio + 영어 환산. 자동 추출, 검증 필요.',
-            'generated': '2026-05-06',
+            'description': '대학별 정시 반영비율 lookup. 수동 검수 자료 우선, 자동 추출 자료는 별도 신뢰도 표시.',
+            'generated': date.today().isoformat(),
             'count': len(lookup),
             'with_ratio': sum(1 for v in lookup.values() if any('ratios' in t for t in v['tracks'])),
             'with_eng_only': sum(1 for v in lookup.values() if all('ratios' not in t for t in v['tracks']) and v['tracks']),

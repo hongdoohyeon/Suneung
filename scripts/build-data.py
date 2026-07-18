@@ -1121,7 +1121,7 @@ def build_static_exam_pages(items: list[dict], template_path: Path, out_root: Pa
                 return 'application/x-hwp' if (u.endswith('.hwp') or n.endswith('.hwp')) else 'application/pdf'
             parts = []
             if it.get('questionUrl'):
-                parts.append({'@type': 'DigitalDocument', 'name': '문제지',
+                parts.append({'@type': 'DigitalDocument', 'name': '문제·해설' if it.get('questionUrl') == it.get('solutionUrl') else '문제지',
                               'url': it['questionUrl'], 'encodingFormat': _doc_mime(it['questionUrl'], it.get('questionDownload'))})
             if it.get('questionUrlEven'):
                 parts.append({'@type': 'DigitalDocument', 'name': '문제지(짝수형)',
@@ -1132,7 +1132,7 @@ def build_static_exam_pages(items: list[dict], template_path: Path, out_root: Pa
             if it.get('answerUrlEven'):
                 parts.append({'@type': 'DigitalDocument', 'name': '정답(짝수형)',
                               'url': it['answerUrlEven'], 'encodingFormat': _doc_mime(it['answerUrlEven'], it.get('answerDownloadEven'))})
-            if it.get('solutionUrl'):
+            if it.get('solutionUrl') and it.get('solutionUrl') != it.get('questionUrl'):
                 parts.append({'@type': 'DigitalDocument', 'name': '해설지',
                               'url': it['solutionUrl'], 'encodingFormat': _doc_mime(it['solutionUrl'], it.get('solutionDownload'))})
             if it.get('listenUrl'):
@@ -1232,7 +1232,8 @@ def build_static_exam_pages(items: list[dict], template_path: Path, out_root: Pa
             return 'HWP' if (u.endswith('.hwp') or n.endswith('.hwp')) else 'PDF'
         q_tag = _file_tag(q_url, it.get('questionDownload'))
         a_tag = _file_tag(a_url, it.get('answerDownload'))
-        q_label = f'문제지 {q_tag} (홀수형)' if qE_url else f'문제지 {q_tag}'
+        combined_document = bool(q_url and q_url == sol_url)
+        q_label = f'문제·해설 {q_tag}' if combined_document else (f'문제지 {q_tag} (홀수형)' if qE_url else f'문제지 {q_tag}')
         a_label = f'정답 {a_tag} (홀수형)'   if aE_url else f'정답 {a_tag}'
         def _btn(cls, url, label, dl_name):
             if not url or not re.match(r'^https?://', str(url), flags=re.I): return ''
@@ -1246,13 +1247,13 @@ def build_static_exam_pages(items: list[dict], template_path: Path, out_root: Pa
             if qE_url: btns.append(_btn('', qE_url, '문제지 PDF (짝수형)', it.get('questionDownloadEven')))
             btns.append(_btn('', a_url, a_label, it.get('answerDownload')))
             if aE_url: btns.append(_btn('', aE_url, '정답 PDF (짝수형)', it.get('answerDownloadEven')))
-            if sol_url: btns.append(_btn('', sol_url, '해설지 PDF', it.get('solutionDownload')))
+            if sol_url and not combined_document: btns.append(_btn('', sol_url, '해설지 PDF', it.get('solutionDownload')))
         else:
             btns.append(_btn('btn--primary', q_url, q_label, it.get('questionDownload')))
             if qE_url: btns.append(_btn('', qE_url, '문제지 PDF (짝수형)', it.get('questionDownloadEven')))
             btns.append(_btn('', a_url, a_label, it.get('answerDownload')))
             if aE_url: btns.append(_btn('', aE_url, '정답 PDF (짝수형)', it.get('answerDownloadEven')))
-            if sol_url: btns.append(_btn('', sol_url, '해설지 PDF', it.get('solutionDownload')))
+            if sol_url and not combined_document: btns.append(_btn('', sol_url, '해설지 PDF', it.get('solutionDownload')))
             if listen: btns.append(_btn('', listen, '듣기 MP3', it.get('listenDownload')))
             if script: btns.append(_btn('', script, '듣기 대본 PDF', it.get('scriptDownload')))
         btns_html = ''.join(b for b in btns if b)
