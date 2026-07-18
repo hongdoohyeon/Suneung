@@ -20,7 +20,13 @@
     "schoolsWithNumericCut": 94,
     "schoolsWithoutNumericCut": 9,
     "numericCutCount": 3751,
-    "note": "어디가 일반대학 220개 대학·캠퍼스를 모두 조회한다. 숫자가 없는 대학도 대학 미제출·통합모집·등록인원 3명 이하 등 공식 사유와 함께 기록한다."
+    "note": "어디가 일반대학 220개 대학·캠퍼스를 모두 조회한다. 숫자가 없는 대학도 대학 미제출·통합모집·등록인원 3명 이하 등 공식 사유와 함께 기록한다.",
+    "official2027SelectionSourceFile": "data/admissions/sources/adiga-regular-ratios-2027.json",
+    "official2027UniversitiesWithStructuredRatioTable": 176,
+    "official2027UniversitiesWithRatioText": 17,
+    "official2027UniversitiesWithCriteriaTextOnly": 1,
+    "official2027UniversitiesWithoutSelectionCriteria": 26,
+    "official2027StructuredRatioTableCount": 391
   },
   "universities": {
     "0002748": {

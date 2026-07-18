@@ -20,7 +20,13 @@
     "schoolsWithNumericCut": 94,
     "schoolsWithoutNumericCut": 9,
     "numericCutCount": 3751,
-    "note": "어디가 일반대학 220개 대학·캠퍼스를 모두 조회한다. 숫자가 없는 대학도 대학 미제출·통합모집·등록인원 3명 이하 등 공식 사유와 함께 기록한다."
+    "note": "어디가 일반대학 220개 대학·캠퍼스를 모두 조회한다. 숫자가 없는 대학도 대학 미제출·통합모집·등록인원 3명 이하 등 공식 사유와 함께 기록한다.",
+    "official2027SelectionSourceFile": "data/admissions/sources/adiga-regular-ratios-2027.json",
+    "official2027UniversitiesWithStructuredRatioTable": 176,
+    "official2027UniversitiesWithRatioText": 17,
+    "official2027UniversitiesWithCriteriaTextOnly": 1,
+    "official2027UniversitiesWithoutSelectionCriteria": 26,
+    "official2027StructuredRatioTableCount": 391
   },
   "universities": {
     "0002748": {
@@ -37,7 +43,11 @@
       },
       "unexpectedRowCount": 0,
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0002748&searchSyr=2027",
-      "targetSlugs": []
+      "targetSlugs": [],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 1,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0002748&searchSyr=2027",
+      "ratioTextLength": 858
     },
     "0000063": {
       "unvCd": "0000063",
@@ -55,7 +65,11 @@
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000063&searchSyr=2027",
       "targetSlugs": [
         "gachon"
-      ]
+      ],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 2,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000063&searchSyr=2027",
+      "ratioTextLength": 854
     },
     "0000072": {
       "unvCd": "0000072",
@@ -72,7 +86,11 @@
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000072&searchSyr=2027",
       "targetSlugs": [
         "cu_kd"
-      ]
+      ],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 2,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000072&searchSyr=2027",
+      "ratioTextLength": 2353
     },
     "0000215": {
       "unvCd": "0000215",
@@ -87,7 +105,11 @@
       },
       "unexpectedRowCount": 0,
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000215&searchSyr=2027",
-      "targetSlugs": []
+      "targetSlugs": [],
+      "ratioStatus": "ratio_text_available",
+      "ratioTableCount": 0,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000215&searchSyr=2027",
+      "ratioTextLength": 730
     },
     "0000046": {
       "unvCd": "0000046",
@@ -104,7 +126,11 @@
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000046&searchSyr=2027",
       "targetSlugs": [
         "catholic"
-      ]
+      ],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 1,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000046&searchSyr=2027",
+      "ratioTextLength": 3306
     },
     "0000048": {
       "unvCd": "0000048",
@@ -118,7 +144,11 @@
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000048&searchSyr=2027",
       "targetSlugs": [
         "catholic"
-      ]
+      ],
+      "ratioStatus": "no_selection_criteria",
+      "ratioTableCount": 0,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000048&searchSyr=2027",
+      "ratioTextLength": 0
     },
     "0000049": {
       "unvCd": "0000049",
@@ -134,7 +164,11 @@
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000049&searchSyr=2027",
       "targetSlugs": [
         "catholic"
-      ]
+      ],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 1,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000049&searchSyr=2027",
+      "ratioTextLength": 3306
     },
     "0000050": {
       "unvCd": "0000050",
@@ -148,7 +182,11 @@
       },
       "unexpectedRowCount": 0,
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000050&searchSyr=2027",
-      "targetSlugs": []
+      "targetSlugs": [],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 3,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000050&searchSyr=2027",
+      "ratioTextLength": 472
     },
     "0000051": {
       "unvCd": "0000051",
@@ -163,7 +201,11 @@
       },
       "unexpectedRowCount": 0,
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000051&searchSyr=2027",
-      "targetSlugs": []
+      "targetSlugs": [],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 3,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000051&searchSyr=2027",
+      "ratioTextLength": 1180
     },
     "0000079": {
       "unvCd": "0000079",
@@ -177,7 +219,11 @@
       },
       "unexpectedRowCount": 0,
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000079&searchSyr=2027",
-      "targetSlugs": []
+      "targetSlugs": [],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 1,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000079&searchSyr=2027",
+      "ratioTextLength": 834
     },
     "0000003": {
       "unvCd": "0000003",
@@ -194,7 +240,11 @@
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000003&searchSyr=2027",
       "targetSlugs": [
         "kangwon"
-      ]
+      ],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 2,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000003&searchSyr=2027",
+      "ratioTextLength": 2108
     },
     "0000004": {
       "unvCd": "0000004",
@@ -211,7 +261,11 @@
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000004&searchSyr=2027",
       "targetSlugs": [
         "kangwon"
-      ]
+      ],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 3,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000004&searchSyr=2027",
+      "ratioTextLength": 1489
     },
     "0003363": {
       "unvCd": "0003363",
@@ -225,7 +279,11 @@
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0003363&searchSyr=2027",
       "targetSlugs": [
         "kangwon"
-      ]
+      ],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 4,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0003363&searchSyr=2027",
+      "ratioTextLength": 2161
     },
     "0003364": {
       "unvCd": "0003364",
@@ -239,7 +297,11 @@
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0003364&searchSyr=2027",
       "targetSlugs": [
         "kangwon"
-      ]
+      ],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 4,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0003364&searchSyr=2027",
+      "ratioTextLength": 1833
     },
     "0000052": {
       "unvCd": "0000052",
@@ -255,7 +317,11 @@
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000052&searchSyr=2027",
       "targetSlugs": [
         "konkuk"
-      ]
+      ],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 2,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000052&searchSyr=2027",
+      "ratioTextLength": 1833
     },
     "0000053": {
       "unvCd": "0000053",
@@ -272,7 +338,11 @@
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000053&searchSyr=2027",
       "targetSlugs": [
         "konkuk"
-      ]
+      ],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 3,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000053&searchSyr=2027",
+      "ratioTextLength": 1437
     },
     "0000054": {
       "unvCd": "0000054",
@@ -290,7 +360,11 @@
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000054&searchSyr=2027",
       "targetSlugs": [
         "konyang"
-      ]
+      ],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 3,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000054&searchSyr=2027",
+      "ratioTextLength": 2257
     },
     "0000055": {
       "unvCd": "0000055",
@@ -306,7 +380,11 @@
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000055&searchSyr=2027",
       "targetSlugs": [
         "konyang"
-      ]
+      ],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 2,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000055&searchSyr=2027",
+      "ratioTextLength": 2609
     },
     "0000056": {
       "unvCd": "0000056",
@@ -322,7 +400,11 @@
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000056&searchSyr=2027",
       "targetSlugs": [
         "kyonggi"
-      ]
+      ],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 3,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000056&searchSyr=2027",
+      "ratioTextLength": 6575
     },
     "0000058": {
       "unvCd": "0000058",
@@ -338,7 +420,11 @@
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000058&searchSyr=2027",
       "targetSlugs": [
         "kyonggi"
-      ]
+      ],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 3,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000058&searchSyr=2027",
+      "ratioTextLength": 6575
     },
     "0000059": {
       "unvCd": "0000059",
@@ -352,7 +438,11 @@
       },
       "unexpectedRowCount": 0,
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000059&searchSyr=2027",
-      "targetSlugs": []
+      "targetSlugs": [],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 1,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000059&searchSyr=2027",
+      "ratioTextLength": 1205
     },
     "0000060": {
       "unvCd": "0000060",
@@ -364,7 +454,11 @@
       "missingReasons": {},
       "unexpectedRowCount": 0,
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000060&searchSyr=2027",
-      "targetSlugs": []
+      "targetSlugs": [],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 1,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000060&searchSyr=2027",
+      "ratioTextLength": 662
     },
     "0002574": {
       "unvCd": "0002574",
@@ -379,7 +473,11 @@
       },
       "unexpectedRowCount": 0,
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0002574&searchSyr=2027",
-      "targetSlugs": []
+      "targetSlugs": [],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 1,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0002574&searchSyr=2027",
+      "ratioTextLength": 662
     },
     "0002744": {
       "unvCd": "0002744",
@@ -393,7 +491,11 @@
       },
       "unexpectedRowCount": 0,
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0002744&searchSyr=2027",
-      "targetSlugs": []
+      "targetSlugs": [],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 1,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0002744&searchSyr=2027",
+      "ratioTextLength": 662
     },
     "0000005": {
       "unvCd": "0000005",
@@ -409,7 +511,11 @@
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000005&searchSyr=2027",
       "targetSlugs": [
         "knu"
-      ]
+      ],
+      "ratioStatus": "ratio_text_available",
+      "ratioTableCount": 0,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000005&searchSyr=2027",
+      "ratioTextLength": 2228
     },
     "0000007": {
       "unvCd": "0000007",
@@ -426,7 +532,11 @@
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000007&searchSyr=2027",
       "targetSlugs": [
         "gnu"
-      ]
+      ],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 2,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000007&searchSyr=2027",
+      "ratioTextLength": 1711
     },
     "0000062": {
       "unvCd": "0000062",
@@ -444,7 +554,11 @@
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000062&searchSyr=2027",
       "targetSlugs": [
         "kyungsung"
-      ]
+      ],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 3,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000062&searchSyr=2027",
+      "ratioTextLength": 799
     },
     "0000244": {
       "unvCd": "0000244",
@@ -459,7 +573,11 @@
       },
       "unexpectedRowCount": 0,
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000244&searchSyr=2027",
-      "targetSlugs": []
+      "targetSlugs": [],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 1,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000244&searchSyr=2027",
+      "ratioTextLength": 687
     },
     "0000256": {
       "unvCd": "0000256",
@@ -473,7 +591,11 @@
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000256&searchSyr=2027",
       "targetSlugs": [
         "gnue_in"
-      ]
+      ],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 2,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000256&searchSyr=2027",
+      "ratioTextLength": 1721
     },
     "0000064": {
       "unvCd": "0000064",
@@ -488,7 +610,11 @@
       },
       "unexpectedRowCount": 0,
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000064&searchSyr=2027",
-      "targetSlugs": []
+      "targetSlugs": [],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 2,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000064&searchSyr=2027",
+      "ratioTextLength": 1178
     },
     "0000066": {
       "unvCd": "0000066",
@@ -505,7 +631,11 @@
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000066&searchSyr=2027",
       "targetSlugs": [
         "khu"
-      ]
+      ],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 1,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000066&searchSyr=2027",
+      "ratioTextLength": 1616
     },
     "0000068": {
       "unvCd": "0000068",
@@ -521,7 +651,11 @@
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000068&searchSyr=2027",
       "targetSlugs": [
         "kmu"
-      ]
+      ],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 2,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000068&searchSyr=2027",
+      "ratioTextLength": 1104
     },
     "0000069": {
       "unvCd": "0000069",
@@ -537,7 +671,11 @@
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000069&searchSyr=2027",
       "targetSlugs": [
         "korea"
-      ]
+      ],
+      "ratioStatus": "ratio_text_available",
+      "ratioTableCount": 0,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000069&searchSyr=2027",
+      "ratioTextLength": 2168
     },
     "0000070": {
       "unvCd": "0000070",
@@ -553,7 +691,11 @@
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000070&searchSyr=2027",
       "targetSlugs": [
         "korea_sejong"
-      ]
+      ],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 3,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000070&searchSyr=2027",
+      "ratioTextLength": 3813
     },
     "0000071": {
       "unvCd": "0000071",
@@ -570,7 +712,11 @@
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000071&searchSyr=2027",
       "targetSlugs": [
         "kosin"
-      ]
+      ],
+      "ratioStatus": "ratio_text_available",
+      "ratioTableCount": 0,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000071&searchSyr=2027",
+      "ratioTextLength": 2012
     },
     "0000251": {
       "unvCd": "0000251",
@@ -582,7 +728,11 @@
       "missingReasons": {},
       "unexpectedRowCount": 0,
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000251&searchSyr=2027",
-      "targetSlugs": []
+      "targetSlugs": [],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 4,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000251&searchSyr=2027",
+      "ratioTextLength": 1155
     },
     "0000073": {
       "unvCd": "0000073",
@@ -594,7 +744,11 @@
       "missingReasons": {},
       "unexpectedRowCount": 0,
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000073&searchSyr=2027",
-      "targetSlugs": []
+      "targetSlugs": [],
+      "ratioStatus": "no_selection_criteria",
+      "ratioTableCount": 0,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000073&searchSyr=2027",
+      "ratioTextLength": 0
     },
     "0000074": {
       "unvCd": "0000074",
@@ -610,7 +764,11 @@
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000074&searchSyr=2027",
       "targetSlugs": [
         "kw"
-      ]
+      ],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 2,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000074&searchSyr=2027",
+      "ratioTextLength": 1923
     },
     "0000075": {
       "unvCd": "0000075",
@@ -622,7 +780,11 @@
       "missingReasons": {},
       "unexpectedRowCount": 0,
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000075&searchSyr=2027",
-      "targetSlugs": []
+      "targetSlugs": [],
+      "ratioStatus": "no_selection_criteria",
+      "ratioTableCount": 0,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000075&searchSyr=2027",
+      "ratioTextLength": 20
     },
     "0000252": {
       "unvCd": "0000252",
@@ -640,7 +802,11 @@
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000252&searchSyr=2027",
       "targetSlugs": [
         "gnue"
-      ]
+      ],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 2,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000252&searchSyr=2027",
+      "ratioTextLength": 1092
     },
     "0000231": {
       "unvCd": "0000231",
@@ -655,7 +821,11 @@
       },
       "unexpectedRowCount": 0,
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000231&searchSyr=2027",
-      "targetSlugs": []
+      "targetSlugs": [],
+      "ratioStatus": "ratio_text_available",
+      "ratioTableCount": 0,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000231&searchSyr=2027",
+      "ratioTextLength": 477
     },
     "0000076": {
       "unvCd": "0000076",
@@ -671,7 +841,11 @@
       },
       "unexpectedRowCount": 0,
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000076&searchSyr=2027",
-      "targetSlugs": []
+      "targetSlugs": [],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 2,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000076&searchSyr=2027",
+      "ratioTextLength": 2620
     },
     "0000001": {
       "unvCd": "0000001",
@@ -689,7 +863,11 @@
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000001&searchSyr=2027",
       "targetSlugs": [
         "gwnu"
-      ]
+      ],
+      "ratioStatus": "no_selection_criteria",
+      "ratioTableCount": 0,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000001&searchSyr=2027",
+      "ratioTextLength": 0
     },
     "0000002": {
       "unvCd": "0000002",
@@ -706,7 +884,11 @@
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000002&searchSyr=2027",
       "targetSlugs": [
         "gwnu"
-      ]
+      ],
+      "ratioStatus": "no_selection_criteria",
+      "ratioTableCount": 0,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000002&searchSyr=2027",
+      "ratioTextLength": 0
     },
     "0000021": {
       "unvCd": "0000021",
@@ -720,7 +902,11 @@
       },
       "unexpectedRowCount": 0,
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000021&searchSyr=2027",
-      "targetSlugs": []
+      "targetSlugs": [],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 2,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000021&searchSyr=2027",
+      "ratioTextLength": 1031
     },
     "0000008": {
       "unvCd": "0000008",
@@ -737,7 +923,11 @@
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000008&searchSyr=2027",
       "targetSlugs": [
         "kongju"
-      ]
+      ],
+      "ratioStatus": "ratio_text_available",
+      "ratioTableCount": 0,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000008&searchSyr=2027",
+      "ratioTextLength": 1631
     },
     "0000009": {
       "unvCd": "0000009",
@@ -751,7 +941,11 @@
       },
       "unexpectedRowCount": 0,
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000009&searchSyr=2027",
-      "targetSlugs": []
+      "targetSlugs": [],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 2,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000009&searchSyr=2027",
+      "ratioTextLength": 2284
     },
     "0000010": {
       "unvCd": "0000010",
@@ -767,7 +961,11 @@
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000010&searchSyr=2027",
       "targetSlugs": [
         "kumoh"
-      ]
+      ],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 2,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000010&searchSyr=2027",
+      "ratioTextLength": 1285
     },
     "0000011": {
       "unvCd": "0000011",
@@ -787,7 +985,11 @@
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000011&searchSyr=2027",
       "targetSlugs": [
         "mokpo"
-      ]
+      ],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 1,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000011&searchSyr=2027",
+      "ratioTextLength": 1646
     },
     "0000012": {
       "unvCd": "0000012",
@@ -803,7 +1005,11 @@
       },
       "unexpectedRowCount": 0,
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000012&searchSyr=2027",
-      "targetSlugs": []
+      "targetSlugs": [],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 2,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000012&searchSyr=2027",
+      "ratioTextLength": 1773
     },
     "0000013": {
       "unvCd": "0000013",
@@ -818,7 +1024,11 @@
       },
       "unexpectedRowCount": 0,
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000013&searchSyr=2027",
-      "targetSlugs": []
+      "targetSlugs": [],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 1,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000013&searchSyr=2027",
+      "ratioTextLength": 1549
     },
     "0000020": {
       "unvCd": "0000020",
@@ -836,7 +1046,11 @@
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000020&searchSyr=2027",
       "targetSlugs": [
         "sunchon"
-      ]
+      ],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 3,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000020&searchSyr=2027",
+      "ratioTextLength": 1710
     },
     "0000028": {
       "unvCd": "0000028",
@@ -851,7 +1065,11 @@
       },
       "unexpectedRowCount": 0,
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000028&searchSyr=2027",
-      "targetSlugs": []
+      "targetSlugs": [],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 3,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000028&searchSyr=2027",
+      "ratioTextLength": 2482
     },
     "0003297": {
       "unvCd": "0003297",
@@ -863,7 +1081,11 @@
       "missingReasons": {},
       "unexpectedRowCount": 0,
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0003297&searchSyr=2027",
-      "targetSlugs": []
+      "targetSlugs": [],
+      "ratioStatus": "no_selection_criteria",
+      "ratioTableCount": 0,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0003297&searchSyr=2027",
+      "ratioTextLength": 0
     },
     "0003298": {
       "unvCd": "0003298",
@@ -875,7 +1097,11 @@
       "missingReasons": {},
       "unexpectedRowCount": 0,
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0003298&searchSyr=2027",
-      "targetSlugs": []
+      "targetSlugs": [],
+      "ratioStatus": "no_selection_criteria",
+      "ratioTableCount": 0,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0003298&searchSyr=2027",
+      "ratioTextLength": 0
     },
     "0000034": {
       "unvCd": "0000034",
@@ -889,7 +1115,11 @@
       },
       "unexpectedRowCount": 0,
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000034&searchSyr=2027",
-      "targetSlugs": []
+      "targetSlugs": [],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 2,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000034&searchSyr=2027",
+      "ratioTextLength": 1126
     },
     "0000033": {
       "unvCd": "0000033",
@@ -904,7 +1134,11 @@
       },
       "unexpectedRowCount": 0,
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000033&searchSyr=2027",
-      "targetSlugs": []
+      "targetSlugs": [],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 1,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000033&searchSyr=2027",
+      "ratioTextLength": 3460
     },
     "0000039": {
       "unvCd": "0000039",
@@ -924,7 +1158,11 @@
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000039&searchSyr=2027",
       "targetSlugs": [
         "hanbat"
-      ]
+      ],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 2,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000039&searchSyr=2027",
+      "ratioTextLength": 1316
     },
     "0000078": {
       "unvCd": "0000078",
@@ -941,7 +1179,11 @@
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000078&searchSyr=2027",
       "targetSlugs": [
         "kookmin"
-      ]
+      ],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 1,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000078&searchSyr=2027",
+      "ratioTextLength": 2304
     },
     "0000080": {
       "unvCd": "0000080",
@@ -958,7 +1200,11 @@
       },
       "unexpectedRowCount": 0,
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000080&searchSyr=2027",
-      "targetSlugs": []
+      "targetSlugs": [],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 2,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000080&searchSyr=2027",
+      "ratioTextLength": 2974
     },
     "0000224": {
       "unvCd": "0000224",
@@ -972,7 +1218,11 @@
       },
       "unexpectedRowCount": 0,
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000224&searchSyr=2027",
-      "targetSlugs": []
+      "targetSlugs": [],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 1,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000224&searchSyr=2027",
+      "ratioTextLength": 729
     },
     "0000241": {
       "unvCd": "0000241",
@@ -989,7 +1239,11 @@
       },
       "unexpectedRowCount": 0,
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000241&searchSyr=2027",
-      "targetSlugs": []
+      "targetSlugs": [],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 2,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000241&searchSyr=2027",
+      "ratioTextLength": 1359
     },
     "0000081": {
       "unvCd": "0000081",
@@ -1003,7 +1257,11 @@
       },
       "unexpectedRowCount": 0,
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000081&searchSyr=2027",
-      "targetSlugs": []
+      "targetSlugs": [],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 1,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000081&searchSyr=2027",
+      "ratioTextLength": 939
     },
     "0000216": {
       "unvCd": "0000216",
@@ -1021,7 +1279,11 @@
       },
       "unexpectedRowCount": 0,
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000216&searchSyr=2027",
-      "targetSlugs": []
+      "targetSlugs": [],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 2,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000216&searchSyr=2027",
+      "ratioTextLength": 2695
     },
     "0000245": {
       "unvCd": "0000245",
@@ -1036,7 +1298,11 @@
       },
       "unexpectedRowCount": 0,
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000245&searchSyr=2027",
-      "targetSlugs": []
+      "targetSlugs": [],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 2,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000245&searchSyr=2027",
+      "ratioTextLength": 1457
     },
     "0000082": {
       "unvCd": "0000082",
@@ -1053,7 +1319,11 @@
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000082&searchSyr=2027",
       "targetSlugs": [
         "dankook"
-      ]
+      ],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 2,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000082&searchSyr=2027",
+      "ratioTextLength": 1948
     },
     "0002726": {
       "unvCd": "0002726",
@@ -1071,7 +1341,11 @@
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0002726&searchSyr=2027",
       "targetSlugs": [
         "dankook_cheonan"
-      ]
+      ],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 1,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0002726&searchSyr=2027",
+      "ratioTextLength": 3526
     },
     "0000088": {
       "unvCd": "0000088",
@@ -1088,7 +1362,11 @@
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000088&searchSyr=2027",
       "targetSlugs": [
         "extra_08009_대구가톨릭"
-      ]
+      ],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 1,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000088&searchSyr=2027",
+      "ratioTextLength": 1627
     },
     "0000253": {
       "unvCd": "0000253",
@@ -1104,7 +1382,11 @@
       },
       "unexpectedRowCount": 0,
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000253&searchSyr=2027",
-      "targetSlugs": []
+      "targetSlugs": [],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 1,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000253&searchSyr=2027",
+      "ratioTextLength": 832
     },
     "0000084": {
       "unvCd": "0000084",
@@ -1118,7 +1400,11 @@
       },
       "unexpectedRowCount": 0,
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000084&searchSyr=2027",
-      "targetSlugs": []
+      "targetSlugs": [],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 1,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000084&searchSyr=2027",
+      "ratioTextLength": 1190
     },
     "0000087": {
       "unvCd": "0000087",
@@ -1130,7 +1416,11 @@
       "missingReasons": {},
       "unexpectedRowCount": 0,
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000087&searchSyr=2027",
-      "targetSlugs": []
+      "targetSlugs": [],
+      "ratioStatus": "no_selection_criteria",
+      "ratioTableCount": 0,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000087&searchSyr=2027",
+      "ratioTextLength": 0
     },
     "0000061": {
       "unvCd": "0000061",
@@ -1149,7 +1439,11 @@
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000061&searchSyr=2027",
       "targetSlugs": [
         "extra_08014_대구한의"
-      ]
+      ],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 1,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000061&searchSyr=2027",
+      "ratioTextLength": 1522
     },
     "0000093": {
       "unvCd": "0000093",
@@ -1161,7 +1455,11 @@
       "missingReasons": {},
       "unexpectedRowCount": 0,
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000093&searchSyr=2027",
-      "targetSlugs": []
+      "targetSlugs": [],
+      "ratioStatus": "no_selection_criteria",
+      "ratioTableCount": 0,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000093&searchSyr=2027",
+      "ratioTextLength": 0
     },
     "0000094": {
       "unvCd": "0000094",
@@ -1175,7 +1473,11 @@
       },
       "unexpectedRowCount": 0,
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000094&searchSyr=2027",
-      "targetSlugs": []
+      "targetSlugs": [],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 1,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000094&searchSyr=2027",
+      "ratioTextLength": 541
     },
     "0000095": {
       "unvCd": "0000095",
@@ -1195,7 +1497,11 @@
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000095&searchSyr=2027",
       "targetSlugs": [
         "daejeon"
-      ]
+      ],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 2,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000095&searchSyr=2027",
+      "ratioTextLength": 2620
     },
     "0000238": {
       "unvCd": "0000238",
@@ -1209,7 +1515,11 @@
       },
       "unexpectedRowCount": 0,
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000238&searchSyr=2027",
-      "targetSlugs": []
+      "targetSlugs": [],
+      "ratioStatus": "ratio_text_available",
+      "ratioTableCount": 0,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000238&searchSyr=2027",
+      "ratioTextLength": 429
     },
     "0000097": {
       "unvCd": "0000097",
@@ -1225,7 +1535,11 @@
       },
       "unexpectedRowCount": 0,
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000097&searchSyr=2027",
-      "targetSlugs": []
+      "targetSlugs": [],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 3,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000097&searchSyr=2027",
+      "ratioTextLength": 641
     },
     "0000099": {
       "unvCd": "0000099",
@@ -1241,7 +1555,11 @@
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000099&searchSyr=2027",
       "targetSlugs": [
         "duksung"
-      ]
+      ],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 3,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000099&searchSyr=2027",
+      "ratioTextLength": 1902
     },
     "0000100": {
       "unvCd": "0000100",
@@ -1257,7 +1575,11 @@
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000100&searchSyr=2027",
       "targetSlugs": [
         "dongguk"
-      ]
+      ],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 3,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000100&searchSyr=2027",
+      "ratioTextLength": 2359
     },
     "0000101": {
       "unvCd": "0000101",
@@ -1274,7 +1596,11 @@
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000101&searchSyr=2027",
       "targetSlugs": [
         "dongguk_wise"
-      ]
+      ],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 1,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000101&searchSyr=2027",
+      "ratioTextLength": 1849
     },
     "0000102": {
       "unvCd": "0000102",
@@ -1291,7 +1617,11 @@
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000102&searchSyr=2027",
       "targetSlugs": [
         "dongduk"
-      ]
+      ],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 3,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000102&searchSyr=2027",
+      "ratioTextLength": 2266
     },
     "0000235": {
       "unvCd": "0000235",
@@ -1305,7 +1635,11 @@
       },
       "unexpectedRowCount": 0,
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000235&searchSyr=2027",
-      "targetSlugs": []
+      "targetSlugs": [],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 1,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000235&searchSyr=2027",
+      "ratioTextLength": 792
     },
     "0000103": {
       "unvCd": "0000103",
@@ -1321,7 +1655,11 @@
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000103&searchSyr=2027",
       "targetSlugs": [
         "extra_09007_동서"
-      ]
+      ],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 3,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000103&searchSyr=2027",
+      "ratioTextLength": 1158
     },
     "0000104": {
       "unvCd": "0000104",
@@ -1341,7 +1679,11 @@
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000104&searchSyr=2027",
       "targetSlugs": [
         "dongshin"
-      ]
+      ],
+      "ratioStatus": "ratio_text_available",
+      "ratioTableCount": 0,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000104&searchSyr=2027",
+      "ratioTextLength": 1359
     },
     "0000105": {
       "unvCd": "0000105",
@@ -1357,7 +1699,11 @@
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000105&searchSyr=2027",
       "targetSlugs": [
         "donga"
-      ]
+      ],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 1,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000105&searchSyr=2027",
+      "ratioTextLength": 1451
     },
     "0000106": {
       "unvCd": "0000106",
@@ -1371,7 +1717,11 @@
       },
       "unexpectedRowCount": 0,
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000106&searchSyr=2027",
-      "targetSlugs": []
+      "targetSlugs": [],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 3,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000106&searchSyr=2027",
+      "ratioTextLength": 1066
     },
     "0000107": {
       "unvCd": "0000107",
@@ -1388,7 +1738,11 @@
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000107&searchSyr=2027",
       "targetSlugs": [
         "extra_09009_동의"
-      ]
+      ],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 4,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000107&searchSyr=2027",
+      "ratioTextLength": 1836
     },
     "0000108": {
       "unvCd": "0000108",
@@ -1400,7 +1754,11 @@
       "missingReasons": {},
       "unexpectedRowCount": 0,
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000108&searchSyr=2027",
-      "targetSlugs": []
+      "targetSlugs": [],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 2,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000108&searchSyr=2027",
+      "ratioTextLength": 872
     },
     "0000109": {
       "unvCd": "0000109",
@@ -1416,7 +1774,11 @@
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000109&searchSyr=2027",
       "targetSlugs": [
         "mju"
-      ]
+      ],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 3,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000109&searchSyr=2027",
+      "ratioTextLength": 2196
     },
     "0000111": {
       "unvCd": "0000111",
@@ -1432,7 +1794,11 @@
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000111&searchSyr=2027",
       "targetSlugs": [
         "mju"
-      ]
+      ],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 3,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000111&searchSyr=2027",
+      "ratioTextLength": 2196
     },
     "0000112": {
       "unvCd": "0000112",
@@ -1448,7 +1814,11 @@
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000112&searchSyr=2027",
       "targetSlugs": [
         "extra_05011_목원"
-      ]
+      ],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 4,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000112&searchSyr=2027",
+      "ratioTextLength": 1131
     },
     "0000221": {
       "unvCd": "0000221",
@@ -1464,7 +1834,11 @@
       },
       "unexpectedRowCount": 0,
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000221&searchSyr=2027",
-      "targetSlugs": []
+      "targetSlugs": [],
+      "ratioStatus": "ratio_text_available",
+      "ratioTableCount": 0,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000221&searchSyr=2027",
+      "ratioTextLength": 647
     },
     "0000113": {
       "unvCd": "0000113",
@@ -1478,7 +1852,11 @@
       },
       "unexpectedRowCount": 0,
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000113&searchSyr=2027",
-      "targetSlugs": []
+      "targetSlugs": [],
+      "ratioStatus": "no_selection_criteria",
+      "ratioTableCount": 0,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000113&searchSyr=2027",
+      "ratioTextLength": 0
     },
     "0000178": {
       "unvCd": "0000178",
@@ -1496,7 +1874,11 @@
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000178&searchSyr=2027",
       "targetSlugs": [
         "extra_05021_백석"
-      ]
+      ],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 2,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000178&searchSyr=2027",
+      "ratioTextLength": 1161
     },
     "0000114": {
       "unvCd": "0000114",
@@ -1511,7 +1893,11 @@
       },
       "unexpectedRowCount": 0,
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000114&searchSyr=2027",
-      "targetSlugs": []
+      "targetSlugs": [],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 2,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000114&searchSyr=2027",
+      "ratioTextLength": 996
     },
     "0000254": {
       "unvCd": "0000254",
@@ -1527,7 +1913,11 @@
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000254&searchSyr=2027",
       "targetSlugs": [
         "bnue"
-      ]
+      ],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 3,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000254&searchSyr=2027",
+      "ratioTextLength": 1392
     },
     "0000014": {
       "unvCd": "0000014",
@@ -1545,7 +1935,11 @@
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000014&searchSyr=2027",
       "targetSlugs": [
         "pusan"
-      ]
+      ],
+      "ratioStatus": "ratio_text_available",
+      "ratioTableCount": 0,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000014&searchSyr=2027",
+      "ratioTextLength": 2705
     },
     "0000115": {
       "unvCd": "0000115",
@@ -1557,7 +1951,11 @@
       "missingReasons": {},
       "unexpectedRowCount": 0,
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000115&searchSyr=2027",
-      "targetSlugs": []
+      "targetSlugs": [],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 3,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000115&searchSyr=2027",
+      "ratioTextLength": 1472
     },
     "0000222": {
       "unvCd": "0000222",
@@ -1569,7 +1967,11 @@
       "missingReasons": {},
       "unexpectedRowCount": 0,
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000222&searchSyr=2027",
-      "targetSlugs": []
+      "targetSlugs": [],
+      "ratioStatus": "no_selection_criteria",
+      "ratioTableCount": 0,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000222&searchSyr=2027",
+      "ratioTextLength": 9
     },
     "0000116": {
       "unvCd": "0000116",
@@ -1586,7 +1988,11 @@
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000116&searchSyr=2027",
       "targetSlugs": [
         "sahmyook"
-      ]
+      ],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 2,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000116&searchSyr=2027",
+      "ratioTextLength": 1746
     },
     "0000117": {
       "unvCd": "0000117",
@@ -1603,7 +2009,11 @@
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000117&searchSyr=2027",
       "targetSlugs": [
         "smu"
-      ]
+      ],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 4,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000117&searchSyr=2027",
+      "ratioTextLength": 2852
     },
     "0002959": {
       "unvCd": "0002959",
@@ -1619,7 +2029,11 @@
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0002959&searchSyr=2027",
       "targetSlugs": [
         "smu"
-      ]
+      ],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 3,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0002959&searchSyr=2027",
+      "ratioTextLength": 1724
     },
     "0000119": {
       "unvCd": "0000119",
@@ -1636,7 +2050,11 @@
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000119&searchSyr=2027",
       "targetSlugs": [
         "sangji"
-      ]
+      ],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 1,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000119&searchSyr=2027",
+      "ratioTextLength": 1247
     },
     "0000120": {
       "unvCd": "0000120",
@@ -1653,7 +2071,11 @@
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000120&searchSyr=2027",
       "targetSlugs": [
         "sogang"
-      ]
+      ],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 7,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000120&searchSyr=2027",
+      "ratioTextLength": 2075
     },
     "0000121": {
       "unvCd": "0000121",
@@ -1669,7 +2091,11 @@
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000121&searchSyr=2027",
       "targetSlugs": [
         "skuniv"
-      ]
+      ],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 1,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000121&searchSyr=2027",
+      "ratioTextLength": 2767
     },
     "0000036": {
       "unvCd": "0000036",
@@ -1685,7 +2111,11 @@
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000036&searchSyr=2027",
       "targetSlugs": [
         "seoultech"
-      ]
+      ],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 2,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000036&searchSyr=2027",
+      "ratioTextLength": 2480
     },
     "0000255": {
       "unvCd": "0000255",
@@ -1701,7 +2131,11 @@
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000255&searchSyr=2027",
       "targetSlugs": [
         "snue"
-      ]
+      ],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 1,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000255&searchSyr=2027",
+      "ratioTextLength": 559
     },
     "0000098": {
       "unvCd": "0000098",
@@ -1716,7 +2150,11 @@
       },
       "unexpectedRowCount": 0,
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000098&searchSyr=2027",
-      "targetSlugs": []
+      "targetSlugs": [],
+      "ratioStatus": "ratio_text_available",
+      "ratioTableCount": 0,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000098&searchSyr=2027",
+      "ratioTextLength": 1588
     },
     "0000019": {
       "unvCd": "0000019",
@@ -1734,7 +2172,11 @@
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000019&searchSyr=2027",
       "targetSlugs": [
         "snu"
-      ]
+      ],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 13,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000019&searchSyr=2027",
+      "ratioTextLength": 13607
     },
     "0000040": {
       "unvCd": "0000040",
@@ -1750,7 +2192,11 @@
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000040&searchSyr=2027",
       "targetSlugs": [
         "uos"
-      ]
+      ],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 2,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000040&searchSyr=2027",
+      "ratioTextLength": 1514
     },
     "0000125": {
       "unvCd": "0000125",
@@ -1764,7 +2210,11 @@
       },
       "unexpectedRowCount": 0,
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000125&searchSyr=2027",
-      "targetSlugs": []
+      "targetSlugs": [],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 1,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000125&searchSyr=2027",
+      "ratioTextLength": 864
     },
     "0000126": {
       "unvCd": "0000126",
@@ -1782,7 +2232,11 @@
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000126&searchSyr=2027",
       "targetSlugs": [
         "swu"
-      ]
+      ],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 4,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000126&searchSyr=2027",
+      "ratioTextLength": 1920
     },
     "0000127": {
       "unvCd": "0000127",
@@ -1794,7 +2248,11 @@
       "missingReasons": {},
       "unexpectedRowCount": 0,
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000127&searchSyr=2027",
-      "targetSlugs": []
+      "targetSlugs": [],
+      "ratioStatus": "ratio_text_available",
+      "ratioTableCount": 0,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000127&searchSyr=2027",
+      "ratioTextLength": 1294
     },
     "0000205": {
       "unvCd": "0000205",
@@ -1808,7 +2266,11 @@
       },
       "unexpectedRowCount": 0,
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000205&searchSyr=2027",
-      "targetSlugs": []
+      "targetSlugs": [],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 2,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000205&searchSyr=2027",
+      "ratioTextLength": 557
     },
     "0000128": {
       "unvCd": "0000128",
@@ -1824,7 +2286,11 @@
       },
       "unexpectedRowCount": 0,
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000128&searchSyr=2027",
-      "targetSlugs": []
+      "targetSlugs": [],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 2,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000128&searchSyr=2027",
+      "ratioTextLength": 2765
     },
     "0000129": {
       "unvCd": "0000129",
@@ -1840,7 +2306,11 @@
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000129&searchSyr=2027",
       "targetSlugs": [
         "extra_05015_선문"
-      ]
+      ],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 4,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000129&searchSyr=2027",
+      "ratioTextLength": 1950
     },
     "0000131": {
       "unvCd": "0000131",
@@ -1855,7 +2325,11 @@
       },
       "unexpectedRowCount": 0,
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000131&searchSyr=2027",
-      "targetSlugs": []
+      "targetSlugs": [],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 1,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000131&searchSyr=2027",
+      "ratioTextLength": 1289
     },
     "0000132": {
       "unvCd": "0000132",
@@ -1867,7 +2341,11 @@
       "missingReasons": {},
       "unexpectedRowCount": 0,
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000132&searchSyr=2027",
-      "targetSlugs": []
+      "targetSlugs": [],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 3,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000132&searchSyr=2027",
+      "ratioTextLength": 908
     },
     "0000133": {
       "unvCd": "0000133",
@@ -1884,7 +2362,11 @@
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000133&searchSyr=2027",
       "targetSlugs": [
         "skku"
-      ]
+      ],
+      "ratioStatus": "ratio_text_available",
+      "ratioTableCount": 0,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000133&searchSyr=2027",
+      "ratioTextLength": 1872
     },
     "0000136": {
       "unvCd": "0000136",
@@ -1900,7 +2382,11 @@
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000136&searchSyr=2027",
       "targetSlugs": [
         "sungshin"
-      ]
+      ],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 3,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000136&searchSyr=2027",
+      "ratioTextLength": 2058
     },
     "0000137": {
       "unvCd": "0000137",
@@ -1917,7 +2403,11 @@
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000137&searchSyr=2027",
       "targetSlugs": [
         "extra_04005_세명"
-      ]
+      ],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 2,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000137&searchSyr=2027",
+      "ratioTextLength": 2521
     },
     "0000138": {
       "unvCd": "0000138",
@@ -1934,7 +2424,11 @@
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000138&searchSyr=2027",
       "targetSlugs": [
         "sejong"
-      ]
+      ],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 3,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000138&searchSyr=2027",
+      "ratioTextLength": 3441
     },
     "0000092": {
       "unvCd": "0000092",
@@ -1948,7 +2442,11 @@
       },
       "unexpectedRowCount": 0,
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000092&searchSyr=2027",
-      "targetSlugs": []
+      "targetSlugs": [],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 1,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000092&searchSyr=2027",
+      "ratioTextLength": 475
     },
     "0000243": {
       "unvCd": "0000243",
@@ -1965,7 +2463,11 @@
       },
       "unexpectedRowCount": 0,
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000243&searchSyr=2027",
-      "targetSlugs": []
+      "targetSlugs": [],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 7,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000243&searchSyr=2027",
+      "ratioTextLength": 2240
     },
     "0000139": {
       "unvCd": "0000139",
@@ -1979,7 +2481,11 @@
       },
       "unexpectedRowCount": 0,
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000139&searchSyr=2027",
-      "targetSlugs": []
+      "targetSlugs": [],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 2,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000139&searchSyr=2027",
+      "ratioTextLength": 1675
     },
     "0000140": {
       "unvCd": "0000140",
@@ -1993,7 +2499,11 @@
       },
       "unexpectedRowCount": 0,
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000140&searchSyr=2027",
-      "targetSlugs": []
+      "targetSlugs": [],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 6,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000140&searchSyr=2027",
+      "ratioTextLength": 2137
     },
     "0000141": {
       "unvCd": "0000141",
@@ -2010,7 +2520,11 @@
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000141&searchSyr=2027",
       "targetSlugs": [
         "sookmyung"
-      ]
+      ],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 1,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000141&searchSyr=2027",
+      "ratioTextLength": 1309
     },
     "0000142": {
       "unvCd": "0000142",
@@ -2026,7 +2540,11 @@
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000142&searchSyr=2027",
       "targetSlugs": [
         "sch"
-      ]
+      ],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 1,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000142&searchSyr=2027",
+      "ratioTextLength": 2621
     },
     "0000143": {
       "unvCd": "0000143",
@@ -2042,7 +2560,11 @@
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000143&searchSyr=2027",
       "targetSlugs": [
         "ssu"
-      ]
+      ],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 1,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000143&searchSyr=2027",
+      "ratioTextLength": 5187
     },
     "0000065": {
       "unvCd": "0000065",
@@ -2054,7 +2576,11 @@
       "missingReasons": {},
       "unexpectedRowCount": 0,
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000065&searchSyr=2027",
-      "targetSlugs": []
+      "targetSlugs": [],
+      "ratioStatus": "ratio_text_available",
+      "ratioTableCount": 0,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000065&searchSyr=2027",
+      "ratioTextLength": 807
     },
     "0000144": {
       "unvCd": "0000144",
@@ -2068,7 +2594,11 @@
       },
       "unexpectedRowCount": 0,
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000144&searchSyr=2027",
-      "targetSlugs": []
+      "targetSlugs": [],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 1,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000144&searchSyr=2027",
+      "ratioTextLength": 359
     },
     "0002712": {
       "unvCd": "0002712",
@@ -2080,7 +2610,11 @@
       "missingReasons": {},
       "unexpectedRowCount": 0,
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0002712&searchSyr=2027",
-      "targetSlugs": []
+      "targetSlugs": [],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 2,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0002712&searchSyr=2027",
+      "ratioTextLength": 758
     },
     "0002800": {
       "unvCd": "0002800",
@@ -2092,7 +2626,11 @@
       "missingReasons": {},
       "unexpectedRowCount": 0,
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0002800&searchSyr=2027",
-      "targetSlugs": []
+      "targetSlugs": [],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 3,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0002800&searchSyr=2027",
+      "ratioTextLength": 1313
     },
     "0000145": {
       "unvCd": "0000145",
@@ -2104,7 +2642,11 @@
       "missingReasons": {},
       "unexpectedRowCount": 0,
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000145&searchSyr=2027",
-      "targetSlugs": []
+      "targetSlugs": [],
+      "ratioStatus": "criteria_text_available",
+      "ratioTableCount": 0,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000145&searchSyr=2027",
+      "ratioTextLength": 47
     },
     "0000146": {
       "unvCd": "0000146",
@@ -2120,7 +2662,11 @@
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000146&searchSyr=2027",
       "targetSlugs": [
         "ajou"
-      ]
+      ],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 3,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000146&searchSyr=2027",
+      "ratioTextLength": 2336
     },
     "0000147": {
       "unvCd": "0000147",
@@ -2136,7 +2682,11 @@
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000147&searchSyr=2027",
       "targetSlugs": [
         "anyang"
-      ]
+      ],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 1,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000147&searchSyr=2027",
+      "ratioTextLength": 715
     },
     "0000148": {
       "unvCd": "0000148",
@@ -2150,7 +2700,11 @@
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000148&searchSyr=2027",
       "targetSlugs": [
         "anyang"
-      ]
+      ],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 1,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000148&searchSyr=2027",
+      "ratioTextLength": 722
     },
     "0000149": {
       "unvCd": "0000149",
@@ -2167,7 +2721,11 @@
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000149&searchSyr=2027",
       "targetSlugs": [
         "yonsei"
-      ]
+      ],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 2,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000149&searchSyr=2027",
+      "ratioTextLength": 4892
     },
     "0000150": {
       "unvCd": "0000150",
@@ -2183,7 +2741,11 @@
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000150&searchSyr=2027",
       "targetSlugs": [
         "yonsei_mirae"
-      ]
+      ],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 1,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000150&searchSyr=2027",
+      "ratioTextLength": 5017
     },
     "0000151": {
       "unvCd": "0000151",
@@ -2200,7 +2762,11 @@
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000151&searchSyr=2027",
       "targetSlugs": [
         "yu"
-      ]
+      ],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 3,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000151&searchSyr=2027",
+      "ratioTextLength": 3572
     },
     "0000153": {
       "unvCd": "0000153",
@@ -2212,7 +2778,11 @@
       "missingReasons": {},
       "unexpectedRowCount": 0,
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000153&searchSyr=2027",
-      "targetSlugs": []
+      "targetSlugs": [],
+      "ratioStatus": "no_selection_criteria",
+      "ratioTableCount": 0,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000153&searchSyr=2027",
+      "ratioTextLength": 0
     },
     "0003193": {
       "unvCd": "0003193",
@@ -2226,7 +2796,11 @@
       },
       "unexpectedRowCount": 0,
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0003193&searchSyr=2027",
-      "targetSlugs": []
+      "targetSlugs": [],
+      "ratioStatus": "no_selection_criteria",
+      "ratioTableCount": 0,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0003193&searchSyr=2027",
+      "ratioTextLength": 0
     },
     "0003194": {
       "unvCd": "0003194",
@@ -2240,7 +2814,11 @@
       },
       "unexpectedRowCount": 0,
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0003194&searchSyr=2027",
-      "targetSlugs": []
+      "targetSlugs": [],
+      "ratioStatus": "no_selection_criteria",
+      "ratioTableCount": 0,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0003194&searchSyr=2027",
+      "ratioTextLength": 0
     },
     "0000155": {
       "unvCd": "0000155",
@@ -2252,7 +2830,11 @@
       "missingReasons": {},
       "unexpectedRowCount": 0,
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000155&searchSyr=2027",
-      "targetSlugs": []
+      "targetSlugs": [],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 1,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000155&searchSyr=2027",
+      "ratioTextLength": 337
     },
     "0000228": {
       "unvCd": "0000228",
@@ -2266,7 +2848,11 @@
       },
       "unexpectedRowCount": 0,
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000228&searchSyr=2027",
-      "targetSlugs": []
+      "targetSlugs": [],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 3,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000228&searchSyr=2027",
+      "ratioTextLength": 1072
     },
     "0000218": {
       "unvCd": "0000218",
@@ -2278,7 +2864,11 @@
       "missingReasons": {},
       "unexpectedRowCount": 0,
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000218&searchSyr=2027",
-      "targetSlugs": []
+      "targetSlugs": [],
+      "ratioStatus": "no_selection_criteria",
+      "ratioTableCount": 0,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000218&searchSyr=2027",
+      "ratioTextLength": 0
     },
     "0000219": {
       "unvCd": "0000219",
@@ -2290,7 +2880,11 @@
       "missingReasons": {},
       "unexpectedRowCount": 0,
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000219&searchSyr=2027",
-      "targetSlugs": []
+      "targetSlugs": [],
+      "ratioStatus": "no_selection_criteria",
+      "ratioTableCount": 0,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000219&searchSyr=2027",
+      "ratioTextLength": 0
     },
     "0000156": {
       "unvCd": "0000156",
@@ -2306,7 +2900,11 @@
       },
       "unexpectedRowCount": 0,
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000156&searchSyr=2027",
-      "targetSlugs": []
+      "targetSlugs": [],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 4,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000156&searchSyr=2027",
+      "ratioTextLength": 2257
     },
     "0000157": {
       "unvCd": "0000157",
@@ -2323,7 +2921,11 @@
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000157&searchSyr=2027",
       "targetSlugs": [
         "woosuk"
-      ]
+      ],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 1,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000157&searchSyr=2027",
+      "ratioTextLength": 1713
     },
     "0000240": {
       "unvCd": "0000240",
@@ -2337,7 +2939,11 @@
       },
       "unexpectedRowCount": 0,
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000240&searchSyr=2027",
-      "targetSlugs": []
+      "targetSlugs": [],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 2,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000240&searchSyr=2027",
+      "ratioTextLength": 1349
     },
     "0000158": {
       "unvCd": "0000158",
@@ -2354,7 +2960,11 @@
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000158&searchSyr=2027",
       "targetSlugs": [
         "ulsan"
-      ]
+      ],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 2,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000158&searchSyr=2027",
+      "ratioTextLength": 1202
     },
     "0000159": {
       "unvCd": "0000159",
@@ -2371,7 +2981,11 @@
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000159&searchSyr=2027",
       "targetSlugs": [
         "wku"
-      ]
+      ],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 9,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000159&searchSyr=2027",
+      "ratioTextLength": 6257
     },
     "0000160": {
       "unvCd": "0000160",
@@ -2385,7 +2999,11 @@
       },
       "unexpectedRowCount": 0,
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000160&searchSyr=2027",
-      "targetSlugs": []
+      "targetSlugs": [],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 2,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000160&searchSyr=2027",
+      "ratioTextLength": 734
     },
     "0000154": {
       "unvCd": "0000154",
@@ -2401,7 +3019,11 @@
       },
       "unexpectedRowCount": 0,
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000154&searchSyr=2027",
-      "targetSlugs": []
+      "targetSlugs": [],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 1,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000154&searchSyr=2027",
+      "ratioTextLength": 1614
     },
     "0000161": {
       "unvCd": "0000161",
@@ -2418,7 +3040,11 @@
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000161&searchSyr=2027",
       "targetSlugs": [
         "eulji"
-      ]
+      ],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 3,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000161&searchSyr=2027",
+      "ratioTextLength": 1581
     },
     "0000162": {
       "unvCd": "0000162",
@@ -2435,7 +3061,11 @@
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000162&searchSyr=2027",
       "targetSlugs": [
         "eulji"
-      ]
+      ],
+      "ratioStatus": "no_selection_criteria",
+      "ratioTableCount": 0,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000162&searchSyr=2027",
+      "ratioTextLength": 0
     },
     "0002911": {
       "unvCd": "0002911",
@@ -2452,7 +3082,11 @@
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0002911&searchSyr=2027",
       "targetSlugs": [
         "eulji"
-      ]
+      ],
+      "ratioStatus": "no_selection_criteria",
+      "ratioTableCount": 0,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0002911&searchSyr=2027",
+      "ratioTextLength": 0
     },
     "0000163": {
       "unvCd": "0000163",
@@ -2468,7 +3102,11 @@
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000163&searchSyr=2027",
       "targetSlugs": [
         "ewha"
-      ]
+      ],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 1,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000163&searchSyr=2027",
+      "ratioTextLength": 1806
     },
     "0000164": {
       "unvCd": "0000164",
@@ -2485,7 +3123,11 @@
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000164&searchSyr=2027",
       "targetSlugs": [
         "inje"
-      ]
+      ],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 2,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000164&searchSyr=2027",
+      "ratioTextLength": 1026
     },
     "0000168": {
       "unvCd": "0000168",
@@ -2499,7 +3141,11 @@
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000168&searchSyr=2027",
       "targetSlugs": [
         "extra_02021_인천가톨릭"
-      ]
+      ],
+      "ratioStatus": "no_selection_criteria",
+      "ratioTableCount": 0,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000168&searchSyr=2027",
+      "ratioTextLength": 7
     },
     "0000167": {
       "unvCd": "0000167",
@@ -2515,7 +3161,11 @@
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000167&searchSyr=2027",
       "targetSlugs": [
         "extra_02021_인천가톨릭"
-      ]
+      ],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 3,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000167&searchSyr=2027",
+      "ratioTextLength": 1332
     },
     "0002660": {
       "unvCd": "0002660",
@@ -2531,7 +3181,11 @@
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0002660&searchSyr=2027",
       "targetSlugs": [
         "inu"
-      ]
+      ],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 3,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0002660&searchSyr=2027",
+      "ratioTextLength": 3189
     },
     "0000169": {
       "unvCd": "0000169",
@@ -2547,7 +3201,11 @@
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000169&searchSyr=2027",
       "targetSlugs": [
         "inha"
-      ]
+      ],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 1,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000169&searchSyr=2027",
+      "ratioTextLength": 2493
     },
     "0000170": {
       "unvCd": "0000170",
@@ -2562,7 +3220,11 @@
       },
       "unexpectedRowCount": 0,
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000170&searchSyr=2027",
-      "targetSlugs": []
+      "targetSlugs": [],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 1,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000170&searchSyr=2027",
+      "ratioTextLength": 747
     },
     "0000023": {
       "unvCd": "0000023",
@@ -2578,7 +3240,11 @@
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000023&searchSyr=2027",
       "targetSlugs": [
         "jnu"
-      ]
+      ],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 3,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000023&searchSyr=2027",
+      "ratioTextLength": 3853
     },
     "0000024": {
       "unvCd": "0000024",
@@ -2595,7 +3261,11 @@
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000024&searchSyr=2027",
       "targetSlugs": [
         "jnu"
-      ]
+      ],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 3,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000024&searchSyr=2027",
+      "ratioTextLength": 3853
     },
     "0000025": {
       "unvCd": "0000025",
@@ -2613,7 +3283,11 @@
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000025&searchSyr=2027",
       "targetSlugs": [
         "jbnu"
-      ]
+      ],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 4,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000025&searchSyr=2027",
+      "ratioTextLength": 3991
     },
     "0000258": {
       "unvCd": "0000258",
@@ -2629,7 +3303,11 @@
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000258&searchSyr=2027",
       "targetSlugs": [
         "jnue"
-      ]
+      ],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 1,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000258&searchSyr=2027",
+      "ratioTextLength": 1986
     },
     "0000171": {
       "unvCd": "0000171",
@@ -2643,7 +3321,11 @@
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000171&searchSyr=2027",
       "targetSlugs": [
         "extra_06009_전주"
-      ]
+      ],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 2,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000171&searchSyr=2027",
+      "ratioTextLength": 2198
     },
     "0000248": {
       "unvCd": "0000248",
@@ -2658,7 +3340,11 @@
       },
       "unexpectedRowCount": 0,
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000248&searchSyr=2027",
-      "targetSlugs": []
+      "targetSlugs": [],
+      "ratioStatus": "ratio_text_available",
+      "ratioTableCount": 0,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000248&searchSyr=2027",
+      "ratioTextLength": 686
     },
     "0000027": {
       "unvCd": "0000027",
@@ -2675,7 +3361,11 @@
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000027&searchSyr=2027",
       "targetSlugs": [
         "jejunu"
-      ]
+      ],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 3,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000027&searchSyr=2027",
+      "ratioTextLength": 1913
     },
     "0000172": {
       "unvCd": "0000172",
@@ -2693,7 +3383,11 @@
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000172&searchSyr=2027",
       "targetSlugs": [
         "chosun"
-      ]
+      ],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 2,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000172&searchSyr=2027",
+      "ratioTextLength": 6204
     },
     "0000173": {
       "unvCd": "0000173",
@@ -2708,7 +3402,11 @@
       },
       "unexpectedRowCount": 0,
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000173&searchSyr=2027",
-      "targetSlugs": []
+      "targetSlugs": [],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 1,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000173&searchSyr=2027",
+      "ratioTextLength": 1791
     },
     "0000175": {
       "unvCd": "0000175",
@@ -2724,7 +3422,11 @@
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000175&searchSyr=2027",
       "targetSlugs": [
         "cau"
-      ]
+      ],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 2,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000175&searchSyr=2027",
+      "ratioTextLength": 2579
     },
     "0000174": {
       "unvCd": "0000174",
@@ -2740,7 +3442,11 @@
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000174&searchSyr=2027",
       "targetSlugs": [
         "cau"
-      ]
+      ],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 2,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000174&searchSyr=2027",
+      "ratioTextLength": 2579
     },
     "0000177": {
       "unvCd": "0000177",
@@ -2752,7 +3458,11 @@
       "missingReasons": {},
       "unexpectedRowCount": 0,
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000177&searchSyr=2027",
-      "targetSlugs": []
+      "targetSlugs": [],
+      "ratioStatus": "no_selection_criteria",
+      "ratioTableCount": 0,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000177&searchSyr=2027",
+      "ratioTextLength": 0
     },
     "0000239": {
       "unvCd": "0000239",
@@ -2769,7 +3479,11 @@
       },
       "unexpectedRowCount": 0,
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000239&searchSyr=2027",
-      "targetSlugs": []
+      "targetSlugs": [],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 2,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000239&searchSyr=2027",
+      "ratioTextLength": 1408
     },
     "0000260": {
       "unvCd": "0000260",
@@ -2786,7 +3500,11 @@
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000260&searchSyr=2027",
       "targetSlugs": [
         "gnue_jinju"
-      ]
+      ],
+      "ratioStatus": "no_selection_criteria",
+      "ratioTableCount": 0,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000260&searchSyr=2027",
+      "ratioTextLength": 0
     },
     "0000187": {
       "unvCd": "0000187",
@@ -2802,7 +3520,11 @@
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000187&searchSyr=2027",
       "targetSlugs": [
         "cha"
-      ]
+      ],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 1,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000187&searchSyr=2027",
+      "ratioTextLength": 1577
     },
     "0000249": {
       "unvCd": "0000249",
@@ -2816,7 +3538,11 @@
       },
       "unexpectedRowCount": 0,
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000249&searchSyr=2027",
-      "targetSlugs": []
+      "targetSlugs": [],
+      "ratioStatus": "ratio_text_available",
+      "ratioTableCount": 0,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000249&searchSyr=2027",
+      "ratioTextLength": 862
     },
     "0000284": {
       "unvCd": "0000284",
@@ -2830,7 +3556,11 @@
       },
       "unexpectedRowCount": 0,
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000284&searchSyr=2027",
-      "targetSlugs": []
+      "targetSlugs": [],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 1,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000284&searchSyr=2027",
+      "ratioTextLength": 1335
     },
     "0000261": {
       "unvCd": "0000261",
@@ -2845,7 +3575,11 @@
       },
       "unexpectedRowCount": 0,
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000261&searchSyr=2027",
-      "targetSlugs": []
+      "targetSlugs": [],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 3,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000261&searchSyr=2027",
+      "ratioTextLength": 2055
     },
     "0000179": {
       "unvCd": "0000179",
@@ -2857,7 +3591,11 @@
       "missingReasons": {},
       "unexpectedRowCount": 0,
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000179&searchSyr=2027",
-      "targetSlugs": []
+      "targetSlugs": [],
+      "ratioStatus": "ratio_text_available",
+      "ratioTableCount": 0,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000179&searchSyr=2027",
+      "ratioTextLength": 1699
     },
     "0000246": {
       "unvCd": "0000246",
@@ -2869,7 +3607,11 @@
       "missingReasons": {},
       "unexpectedRowCount": 0,
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000246&searchSyr=2027",
-      "targetSlugs": []
+      "targetSlugs": [],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 2,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000246&searchSyr=2027",
+      "ratioTextLength": 841
     },
     "0000180": {
       "unvCd": "0000180",
@@ -2883,7 +3625,11 @@
       },
       "unexpectedRowCount": 0,
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000180&searchSyr=2027",
-      "targetSlugs": []
+      "targetSlugs": [],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 2,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000180&searchSyr=2027",
+      "ratioTextLength": 1294
     },
     "0000181": {
       "unvCd": "0000181",
@@ -2898,7 +3644,11 @@
       },
       "unexpectedRowCount": 0,
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000181&searchSyr=2027",
-      "targetSlugs": []
+      "targetSlugs": [],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 2,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000181&searchSyr=2027",
+      "ratioTextLength": 369
     },
     "0000262": {
       "unvCd": "0000262",
@@ -2913,7 +3663,11 @@
       },
       "unexpectedRowCount": 0,
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000262&searchSyr=2027",
-      "targetSlugs": []
+      "targetSlugs": [],
+      "ratioStatus": "no_selection_criteria",
+      "ratioTableCount": 0,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000262&searchSyr=2027",
+      "ratioTextLength": 0
     },
     "0000029": {
       "unvCd": "0000029",
@@ -2929,7 +3683,11 @@
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000029&searchSyr=2027",
       "targetSlugs": [
         "cnu"
-      ]
+      ],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 2,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000029&searchSyr=2027",
+      "ratioTextLength": 4928
     },
     "0000030": {
       "unvCd": "0000030",
@@ -2946,7 +3704,11 @@
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000030&searchSyr=2027",
       "targetSlugs": [
         "chungbuk"
-      ]
+      ],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 2,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000030&searchSyr=2027",
+      "ratioTextLength": 1382
     },
     "0000184": {
       "unvCd": "0000184",
@@ -2960,7 +3722,11 @@
       },
       "unexpectedRowCount": 0,
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000184&searchSyr=2027",
-      "targetSlugs": []
+      "targetSlugs": [],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 1,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000184&searchSyr=2027",
+      "ratioTextLength": 2296
     },
     "0000186": {
       "unvCd": "0000186",
@@ -2974,7 +3740,11 @@
       },
       "unexpectedRowCount": 0,
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000186&searchSyr=2027",
-      "targetSlugs": []
+      "targetSlugs": [],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 3,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000186&searchSyr=2027",
+      "ratioTextLength": 439
     },
     "0000188": {
       "unvCd": "0000188",
@@ -2986,7 +3756,11 @@
       "missingReasons": {},
       "unexpectedRowCount": 0,
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000188&searchSyr=2027",
-      "targetSlugs": []
+      "targetSlugs": [],
+      "ratioStatus": "no_selection_criteria",
+      "ratioTableCount": 0,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000188&searchSyr=2027",
+      "ratioTextLength": 0
     },
     "0000037": {
       "unvCd": "0000037",
@@ -3002,7 +3776,11 @@
       },
       "unexpectedRowCount": 0,
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000037&searchSyr=2027",
-      "targetSlugs": []
+      "targetSlugs": [],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 3,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000037&searchSyr=2027",
+      "ratioTextLength": 1969
     },
     "0000247": {
       "unvCd": "0000247",
@@ -3018,7 +3796,11 @@
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000247&searchSyr=2027",
       "targetSlugs": [
         "ktech"
-      ]
+      ],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 2,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000247&searchSyr=2027",
+      "ratioTextLength": 1987
     },
     "0000031": {
       "unvCd": "0000031",
@@ -3034,7 +3816,11 @@
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000031&searchSyr=2027",
       "targetSlugs": [
         "knue"
-      ]
+      ],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 1,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000031&searchSyr=2027",
+      "ratioTextLength": 3175
     },
     "0000189": {
       "unvCd": "0000189",
@@ -3046,7 +3832,11 @@
       "missingReasons": {},
       "unexpectedRowCount": 0,
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000189&searchSyr=2027",
-      "targetSlugs": []
+      "targetSlugs": [],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 1,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000189&searchSyr=2027",
+      "ratioTextLength": 436
     },
     "0000191": {
       "unvCd": "0000191",
@@ -3058,7 +3848,11 @@
       "missingReasons": {},
       "unexpectedRowCount": 0,
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000191&searchSyr=2027",
-      "targetSlugs": []
+      "targetSlugs": [],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 1,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000191&searchSyr=2027",
+      "ratioTextLength": 930
     },
     "0000192": {
       "unvCd": "0000192",
@@ -3076,7 +3870,11 @@
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000192&searchSyr=2027",
       "targetSlugs": [
         "hufs"
-      ]
+      ],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 4,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000192&searchSyr=2027",
+      "ratioTextLength": 1502
     },
     "0000032": {
       "unvCd": "0000032",
@@ -3091,7 +3889,11 @@
       },
       "unexpectedRowCount": 0,
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000032&searchSyr=2027",
-      "targetSlugs": []
+      "targetSlugs": [],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 1,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000032&searchSyr=2027",
+      "ratioTextLength": 2091
     },
     "0000182": {
       "unvCd": "0000182",
@@ -3103,7 +3905,11 @@
       "missingReasons": {},
       "unexpectedRowCount": 0,
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000182&searchSyr=2027",
-      "targetSlugs": []
+      "targetSlugs": [],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 1,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000182&searchSyr=2027",
+      "ratioTextLength": 185
     },
     "0000194": {
       "unvCd": "0000194",
@@ -3119,7 +3925,11 @@
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000194&searchSyr=2027",
       "targetSlugs": [
         "kau"
-      ]
+      ],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 1,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000194&searchSyr=2027",
+      "ratioTextLength": 1268
     },
     "0000195": {
       "unvCd": "0000195",
@@ -3134,7 +3944,11 @@
       },
       "unexpectedRowCount": 0,
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000195&searchSyr=2027",
-      "targetSlugs": []
+      "targetSlugs": [],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 1,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000195&searchSyr=2027",
+      "ratioTextLength": 1157
     },
     "0000196": {
       "unvCd": "0000196",
@@ -3150,7 +3964,11 @@
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000196&searchSyr=2027",
       "targetSlugs": [
         "handong"
-      ]
+      ],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 1,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000196&searchSyr=2027",
+      "ratioTextLength": 917
     },
     "0000197": {
       "unvCd": "0000197",
@@ -3164,7 +3982,11 @@
       },
       "unexpectedRowCount": 0,
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000197&searchSyr=2027",
-      "targetSlugs": []
+      "targetSlugs": [],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 1,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000197&searchSyr=2027",
+      "ratioTextLength": 516
     },
     "0000198": {
       "unvCd": "0000198",
@@ -3181,7 +4003,11 @@
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000198&searchSyr=2027",
       "targetSlugs": [
         "hallym"
-      ]
+      ],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 4,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000198&searchSyr=2027",
+      "ratioTextLength": 2436
     },
     "0000199": {
       "unvCd": "0000199",
@@ -3195,7 +4021,11 @@
       },
       "unexpectedRowCount": 0,
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000199&searchSyr=2027",
-      "targetSlugs": []
+      "targetSlugs": [],
+      "ratioStatus": "no_selection_criteria",
+      "ratioTableCount": 0,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000199&searchSyr=2027",
+      "ratioTextLength": 0
     },
     "0000200": {
       "unvCd": "0000200",
@@ -3212,7 +4042,11 @@
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000200&searchSyr=2027",
       "targetSlugs": [
         "hansung"
-      ]
+      ],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 1,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000200&searchSyr=2027",
+      "ratioTextLength": 829
     },
     "0000201": {
       "unvCd": "0000201",
@@ -3228,7 +4062,11 @@
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000201&searchSyr=2027",
       "targetSlugs": [
         "hansei"
-      ]
+      ],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 1,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000201&searchSyr=2027",
+      "ratioTextLength": 1949
     },
     "0000202": {
       "unvCd": "0000202",
@@ -3242,7 +4080,11 @@
       },
       "unexpectedRowCount": 0,
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000202&searchSyr=2027",
-      "targetSlugs": []
+      "targetSlugs": [],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 4,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000202&searchSyr=2027",
+      "ratioTextLength": 1546
     },
     "0000203": {
       "unvCd": "0000203",
@@ -3258,7 +4100,11 @@
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000203&searchSyr=2027",
       "targetSlugs": [
         "hanyang"
-      ]
+      ],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 5,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000203&searchSyr=2027",
+      "ratioTextLength": 3776
     },
     "0000204": {
       "unvCd": "0000204",
@@ -3274,7 +4120,11 @@
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000204&searchSyr=2027",
       "targetSlugs": [
         "hanyang_erica"
-      ]
+      ],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 4,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000204&searchSyr=2027",
+      "ratioTextLength": 4352
     },
     "0000206": {
       "unvCd": "0000206",
@@ -3286,7 +4136,11 @@
       "missingReasons": {},
       "unexpectedRowCount": 0,
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000206&searchSyr=2027",
-      "targetSlugs": []
+      "targetSlugs": [],
+      "ratioStatus": "no_selection_criteria",
+      "ratioTableCount": 0,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000206&searchSyr=2027",
+      "ratioTextLength": 0
     },
     "0000207": {
       "unvCd": "0000207",
@@ -3300,7 +4154,11 @@
       },
       "unexpectedRowCount": 0,
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000207&searchSyr=2027",
-      "targetSlugs": []
+      "targetSlugs": [],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 1,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000207&searchSyr=2027",
+      "ratioTextLength": 2373
     },
     "0000208": {
       "unvCd": "0000208",
@@ -3317,7 +4175,11 @@
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000208&searchSyr=2027",
       "targetSlugs": [
         "extra_07020_호남"
-      ]
+      ],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 1,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000208&searchSyr=2027",
+      "ratioTextLength": 746
     },
     "0000209": {
       "unvCd": "0000209",
@@ -3329,7 +4191,11 @@
       "missingReasons": {},
       "unexpectedRowCount": 0,
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000209&searchSyr=2027",
-      "targetSlugs": []
+      "targetSlugs": [],
+      "ratioStatus": "no_selection_criteria",
+      "ratioTableCount": 0,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000209&searchSyr=2027",
+      "ratioTextLength": 7
     },
     "0000211": {
       "unvCd": "0000211",
@@ -3347,7 +4213,11 @@
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000211&searchSyr=2027",
       "targetSlugs": [
         "hoseo"
-      ]
+      ],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 4,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000211&searchSyr=2027",
+      "ratioTextLength": 1483
     },
     "0000282": {
       "unvCd": "0000282",
@@ -3362,7 +4232,11 @@
       },
       "unexpectedRowCount": 0,
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000282&searchSyr=2027",
-      "targetSlugs": []
+      "targetSlugs": [],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 1,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000282&searchSyr=2027",
+      "ratioTextLength": 1237
     },
     "0000212": {
       "unvCd": "0000212",
@@ -3381,7 +4255,11 @@
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000212&searchSyr=2027",
       "targetSlugs": [
         "hongik"
-      ]
+      ],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 2,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000212&searchSyr=2027",
+      "ratioTextLength": 3026
     },
     "0002949": {
       "unvCd": "0002949",
@@ -3400,7 +4278,11 @@
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0002949&searchSyr=2027",
       "targetSlugs": [
         "hongik"
-      ]
+      ],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 2,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0002949&searchSyr=2027",
+      "ratioTextLength": 3026
     },
     "0000233": {
       "unvCd": "0000233",
@@ -3414,7 +4296,11 @@
       },
       "unexpectedRowCount": 0,
       "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000233&searchSyr=2027",
-      "targetSlugs": []
+      "targetSlugs": [],
+      "ratioStatus": "structured_ratio_available",
+      "ratioTableCount": 1,
+      "ratioSourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000233&searchSyr=2027",
+      "ratioTextLength": 993
     }
   },
   "schools": {

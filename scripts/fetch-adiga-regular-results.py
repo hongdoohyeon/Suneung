@@ -31,6 +31,7 @@ RATIOS_PATH = ROOT / "data/admissions/manual-ratios.json"
 RESULTS_PATH = ROOT / "data/admissions/manual-results.json"
 SOURCE_PATH = ROOT / "data/admissions/sources/adiga-regular-2026.json"
 COVERAGE_PATH = ROOT / "data/admissions/adiga-coverage-2026.json"
+RATIO_SOURCE_PATH = ROOT / "data/admissions/sources/adiga-regular-ratios-2027.json"
 
 BASE_URL = "https://m.adiga.kr"
 VIEW_URL = f"{BASE_URL}/mob/ucp/uvt/uni/univView.do?menuId=MOUVTINF1001"
@@ -191,6 +192,13 @@ class AdigaClient:
         self.token = csrf_token(page)
         return page
 
+    def get(self, url: str) -> str:
+        request = Request(
+            url,
+            headers={"User-Agent": "kicegg-data-audit/1.0 (+https://kicegg.com)"},
+        )
+        return self._request(request)
+
     def post(self, url: str, payload: dict[str, str | int]) -> str:
         if not self.token:
             raise RuntimeError("어디가 세션이 열리지 않았습니다")
@@ -270,6 +278,194 @@ class ResultTableParser(HTMLParser):
             self._in_row = False
         elif tag == "tbody":
             self._in_tbody = False
+
+
+class SelectionCriteriaParser(HTMLParser):
+    """대학 상세의 숨김 수능위주 탭에서 공식 텍스트와 표 구조를 보존한다."""
+
+    SKIP_TAGS = {"script", "style", "title"}
+
+    def __init__(self) -> None:
+        super().__init__(convert_charrefs=True)
+        self._target_div_depth = 0
+        self._skip_depth = 0
+        self._text: list[str] = []
+        self._table_stack: list[dict[str, object]] = []
+        self._tables: list[dict[str, object]] = []
+        self._table_order = 0
+
+    @property
+    def in_target(self) -> bool:
+        return self._target_div_depth > 0
+
+    def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
+        attrs_dict = dict(attrs)
+        if tag == "div":
+            if self.in_target:
+                self._target_div_depth += 1
+            elif attrs_dict.get("id") == "tab_40":
+                self._target_div_depth = 1
+        if not self.in_target:
+            return
+        if tag in self.SKIP_TAGS:
+            self._skip_depth += 1
+            return
+        if self._skip_depth:
+            return
+        if tag == "table":
+            if self._table_stack:
+                self._table_stack[-1]["childTableCount"] += 1
+            self._table_order += 1
+            self._table_stack.append(
+                {
+                    "order": self._table_order,
+                    "context": compact_text(" ".join(self._text[-80:])),
+                    "rows": [],
+                    "row": None,
+                    "cell": None,
+                    "childTableCount": 0,
+                }
+            )
+        elif tag == "tr" and self._table_stack:
+            self._table_stack[-1]["row"] = []
+        elif tag in {"td", "th"} and self._table_stack:
+            def span_value(name: str) -> int:
+                value = attrs_dict.get(name) or "1"
+                return int(value) if value.isdigit() and 1 <= int(value) <= 100 else 1
+
+            self._table_stack[-1]["cell"] = {
+                "textParts": [],
+                "rowspan": span_value("rowspan"),
+                "colspan": span_value("colspan"),
+                "header": tag == "th",
+            }
+        elif tag == "br":
+            self._append_text(" ")
+        elif tag in {"p", "li", "h1", "h2", "h3", "h4", "h5", "h6"}:
+            self._text.append("\n")
+
+    def handle_startendtag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
+        self.handle_starttag(tag, attrs)
+
+    def handle_data(self, data: str) -> None:
+        if self.in_target and not self._skip_depth:
+            self._append_text(data)
+
+    def handle_endtag(self, tag: str) -> None:
+        if not self.in_target:
+            return
+        if tag in self.SKIP_TAGS and self._skip_depth:
+            self._skip_depth -= 1
+        elif not self._skip_depth:
+            if tag in {"td", "th"} and self._table_stack:
+                table = self._table_stack[-1]
+                cell = table.get("cell")
+                row = table.get("row")
+                if isinstance(cell, dict) and isinstance(row, list):
+                    row.append(
+                        {
+                            "text": compact_text(" ".join(cell.pop("textParts"))),
+                            "rowspan": cell["rowspan"],
+                            "colspan": cell["colspan"],
+                            "header": cell["header"],
+                        }
+                    )
+                table["cell"] = None
+            elif tag == "tr" and self._table_stack:
+                table = self._table_stack[-1]
+                row = table.get("row")
+                if isinstance(row, list) and row:
+                    table["rows"].append(row)
+                table["row"] = None
+            elif tag == "table" and self._table_stack:
+                table = self._table_stack.pop()
+                rows = table.pop("rows")
+                table.pop("row", None)
+                table.pop("cell", None)
+                table_text = compact_text(
+                    " ".join(cell["text"] for row in rows for cell in row)
+                )
+                table["text"] = table_text
+                table["rows"] = rows
+                self._tables.append(table)
+            elif tag in {"p", "li", "h1", "h2", "h3", "h4", "h5", "h6"}:
+                self._text.append("\n")
+        if tag == "div":
+            self._target_div_depth -= 1
+
+    def _append_text(self, data: str) -> None:
+        self._text.append(data)
+        for table in self._table_stack:
+            cell = table.get("cell")
+            if isinstance(cell, dict):
+                cell["textParts"].append(data)
+
+    @property
+    def section_text(self) -> str:
+        return compact_text(" ".join(self._text))
+
+    @property
+    def tables(self) -> list[dict[str, object]]:
+        return sorted(self._tables, key=lambda table: table["order"])
+
+
+def is_ratio_table(table: dict[str, object]) -> bool:
+    text = compact_text(str(table.get("text", "")))
+    normalized = re.sub(r"\s+", "", text)
+    subject_count = sum(subject in text for subject in ("국어", "수학", "영어", "탐구"))
+    has_percent = bool(re.search(r"\d+(?:\.\d+)?\s*%", text))
+    has_ratio_term = bool(
+        re.search(r"반영\s*비율|영역별|성적\s*산출|가산점|활용\s*지표", text)
+    )
+    has_grade_table = "영어등급" in normalized or "한국사등급" in normalized
+    return has_grade_table or (has_ratio_term and (has_percent or subject_count >= 2)) or (
+        subject_count >= 3 and has_percent
+    )
+
+
+def parse_selection_page(page: str, university: dict[str, str]) -> dict[str, object]:
+    parser = SelectionCriteriaParser()
+    parser.feed(page)
+    section_text = parser.section_text
+    ratio_tables = [
+        {
+            "context": table["context"][-500:],
+            "rows": table["rows"],
+        }
+        for table in parser.tables
+        if table["childTableCount"] == 0 and is_ratio_table(table)
+    ]
+    subject_count = sum(subject in section_text for subject in ("국어", "수학", "영어", "탐구"))
+    has_ratio_text = subject_count >= 2 and bool(
+        re.search(r"반영\s*비율|영역별|성적\s*산출|\d+(?:\.\d+)?\s*%", section_text)
+    )
+    meaningful_text = section_text
+    for generic in (
+        "2027학년도 전형평가기준 및 결과공개 자료입니다.",
+        "2027학년도 전형별 주요사항",
+        "2026학년도 전형 결과",
+    ):
+        meaningful_text = meaningful_text.replace(generic, " ")
+    meaningful_text = compact_text(re.sub(r"\b[QA]\b", " ", meaningful_text))
+    if ratio_tables:
+        status = "structured_ratio_available"
+    elif has_ratio_text:
+        status = "ratio_text_available"
+    elif len(meaningful_text) >= 30:
+        status = "criteria_text_available"
+    else:
+        status = "no_selection_criteria"
+    return {
+        "unvCd": university["unvCd"],
+        "officialName": university["name"],
+        "campus": university["campus"],
+        "status": status,
+        "sectionText": section_text,
+        "criteriaTextLength": len(meaningful_text),
+        "ratioTableCount": len(ratio_tables),
+        "ratioTables": ratio_tables,
+        "sourceUrl": detail_url(university["unvCd"]),
+    }
 
 
 def fetch_universities(client: AdigaClient) -> list[dict[str, str]]:
@@ -455,8 +651,9 @@ def detail_url(unv_cd: str) -> str:
 def collect_official_results(
     client: AdigaClient,
     universities: list[dict[str, str]],
-) -> dict[str, object]:
+) -> tuple[dict[str, object], dict[str, object]]:
     results: dict[str, object] = {}
+    selections: dict[str, object] = {}
     for index, university in enumerate(universities, start=1):
         print(
             f"[{index:03d}/{len(universities)}] {university['unvCd']} "
@@ -476,8 +673,40 @@ def collect_official_results(
         parsed["sourceUrl"] = detail_url(university["unvCd"])
         parsed["targetSlugs"] = []
         results[university["unvCd"]] = parsed
+        selection_page = client.get(detail_url(university["unvCd"]))
+        selections[university["unvCd"]] = parse_selection_page(selection_page, university)
         time.sleep(0.1)
-    return results
+    return results, selections
+
+
+def build_selection_source_payload(
+    official_selections: dict[str, object],
+) -> dict[str, object]:
+    status_counts = Counter(
+        selection["status"] for selection in official_selections.values()
+    )
+    table_count = sum(
+        selection["ratioTableCount"] for selection in official_selections.values()
+    )
+    return {
+        "_meta": {
+            "description": "대입정보포털 어디가 2027학년도 수능위주전형 영역별 반영비율·가산점 공식 표 220개 대학·캠퍼스 전수 조회",
+            "source": "대입정보포털 어디가",
+            "sourceUrl": VIEW_URL,
+            "searchSyr": SEARCH_SYR,
+            "selectionYear": SEARCH_SYR,
+            "collectedAt": datetime.now(KST).date().isoformat(),
+            "officialUniversityCount": len(official_selections),
+            "auditedOfficialUniversityCount": len(official_selections),
+            "universitiesWithStructuredRatioTable": status_counts["structured_ratio_available"],
+            "universitiesWithRatioText": status_counts["ratio_text_available"],
+            "universitiesWithCriteriaTextOnly": status_counts["criteria_text_available"],
+            "universitiesWithoutSelectionCriteria": status_counts["no_selection_criteria"],
+            "structuredRatioTableCount": table_count,
+            "note": "영역별 반영비율을 임의 정규화하지 않고 공식 표의 셀·행열 병합 구조와 텍스트를 보존한다. 표가 없으면 공식 페이지의 텍스트 공개 상태를 기록한다.",
+        },
+        "universities": official_selections,
+    }
 
 
 def build_target_results(
@@ -588,15 +817,23 @@ def build_source_payload(
     }
 
 
-def build_coverage_payload(source_payload: dict[str, object]) -> dict[str, object]:
+def build_coverage_payload(
+    source_payload: dict[str, object], selection_payload: dict[str, object]
+) -> dict[str, object]:
     schools = {
         slug: {key: value for key, value in school.items() if key != "units"}
         for slug, school in source_payload["schools"].items()
     }
-    universities = {
-        code: {key: value for key, value in university.items() if key != "units"}
-        for code, university in source_payload["universities"].items()
-    }
+    universities = {}
+    for code, university in source_payload["universities"].items():
+        selection = selection_payload["universities"][code]
+        universities[code] = {
+            **{key: value for key, value in university.items() if key != "units"},
+            "ratioStatus": selection["status"],
+            "ratioTableCount": selection["ratioTableCount"],
+            "ratioSourceUrl": selection["sourceUrl"],
+            "ratioTextLength": selection["criteriaTextLength"],
+        }
     return {
         "_meta": copy.deepcopy(source_payload["_meta"]),
         "universities": universities,
@@ -697,7 +934,7 @@ def main() -> int:
     parser.add_argument(
         "--write",
         action="store_true",
-        help="어디가 220개 대학·캠퍼스 결과를 수집하고 출처 파일 및 manual-results.json을 갱신",
+        help="어디가 220개 대학·캠퍼스의 2026 입결과 2027 반영비율을 수집해 출처·사이트 데이터를 갱신",
     )
     args = parser.parse_args()
 
@@ -726,22 +963,37 @@ def main() -> int:
         print("\n매핑 점검 완료. 실제 수집·반영은 --write를 지정하세요.")
         return 0
 
-    official_universities = collect_official_results(client, universities)
+    official_universities, official_selections = collect_official_results(client, universities)
     for slug, candidates in mapping.items():
         for candidate in candidates:
             official_universities[candidate["unvCd"]]["targetSlugs"].append(slug)
     for university in official_universities.values():
         university["targetSlugs"].sort()
     schools = build_target_results(ratios, mapping, official_universities)
+    selection_payload = build_selection_source_payload(official_selections)
     source_payload = build_source_payload(schools, target_count, official_universities)
+    selection_meta = selection_payload["_meta"]
+    source_payload["_meta"].update(
+        {
+            "official2027SelectionSourceFile": "data/admissions/sources/adiga-regular-ratios-2027.json",
+            "official2027UniversitiesWithStructuredRatioTable": selection_meta["universitiesWithStructuredRatioTable"],
+            "official2027UniversitiesWithRatioText": selection_meta["universitiesWithRatioText"],
+            "official2027UniversitiesWithCriteriaTextOnly": selection_meta["universitiesWithCriteriaTextOnly"],
+            "official2027UniversitiesWithoutSelectionCriteria": selection_meta["universitiesWithoutSelectionCriteria"],
+            "official2027StructuredRatioTableCount": selection_meta["structuredRatioTableCount"],
+        }
+    )
     if source_payload["_meta"]["auditedOfficialUniversityCount"] != len(universities):
         raise RuntimeError("어디가 일반대학 전체가 수집되지 않아 파일을 쓰지 않습니다")
+    if selection_payload["_meta"]["auditedOfficialUniversityCount"] != len(universities):
+        raise RuntimeError("어디가 수능위주전형 전체가 수집되지 않아 파일을 쓰지 않습니다")
     if source_payload["_meta"]["auditedSchoolCount"] != target_count:
         raise RuntimeError("모든 대상 대학이 수집되지 않아 파일을 쓰지 않습니다")
     manual_results = json.loads(RESULTS_PATH.read_text(encoding="utf-8"))
     merged = merge_manual_results(manual_results, source_payload)
     write_json(SOURCE_PATH, source_payload)
-    write_json(COVERAGE_PATH, build_coverage_payload(source_payload))
+    write_json(RATIO_SOURCE_PATH, selection_payload)
+    write_json(COVERAGE_PATH, build_coverage_payload(source_payload, selection_payload))
     write_json(RESULTS_PATH, merged)
     meta = source_payload["_meta"]
     print(
@@ -753,7 +1005,14 @@ def main() -> int:
         f"반영비율 대상 결과: {meta['schoolsWithNumericCut']}/{target_count}개교, "
         f"숫자 {meta['numericCutCount']}건, 미공개 상태 {meta['schoolsWithoutNumericCut']}개교"
     )
+    print(
+        f"2027 공식 반영비율: 구조화 표 {selection_meta['universitiesWithStructuredRatioTable']}곳 "
+        f"{selection_meta['structuredRatioTableCount']}개, 텍스트만 {selection_meta['universitiesWithRatioText']}곳, "
+        f"기타 기준 {selection_meta['universitiesWithCriteriaTextOnly']}곳, "
+        f"미공개 {selection_meta['universitiesWithoutSelectionCriteria']}곳"
+    )
     print(f"출처 저장: {SOURCE_PATH.relative_to(ROOT)}")
+    print(f"반영비율 출처 저장: {RATIO_SOURCE_PATH.relative_to(ROOT)}")
     print(f"공개 상태 저장: {COVERAGE_PATH.relative_to(ROOT)}")
     print(f"사이트 데이터 갱신: {RESULTS_PATH.relative_to(ROOT)}")
     return 0

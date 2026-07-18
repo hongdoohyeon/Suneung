@@ -25,11 +25,12 @@ const expectMeta = (meta, key, actual, label) => {
   if (!matches) err(`${label} ${key}=${JSON.stringify(stored)}, 실제=${JSON.stringify(actual)}`);
 };
 
-const [manualRatios, lookupPayload, manualResults, officialSource, publicCoverage] = await Promise.all([
+const [manualRatios, lookupPayload, manualResults, officialSource, officialRatioSource, publicCoverage] = await Promise.all([
   readJson('data/admissions/manual-ratios.json'),
   readJson('data/admissions/ratios-lookup.json'),
   readJson('data/admissions/manual-results.json'),
   readJson('data/admissions/sources/adiga-regular-2026.json'),
+  readJson('data/admissions/sources/adiga-regular-ratios-2027.json'),
   readJson('data/admissions/adiga-coverage-2026.json'),
 ]);
 
@@ -42,6 +43,9 @@ const officialSlugs = Object.keys(officialSchools);
 const coverageSchools = publicCoverage.schools || {};
 const officialUniversities = officialSource.universities || {};
 const officialUniversityCodes = Object.keys(officialUniversities);
+const officialRatioMeta = officialRatioSource._meta || {};
+const officialRatioUniversities = officialRatioSource.universities || {};
+const officialRatioCodes = Object.keys(officialRatioUniversities);
 const coverageUniversities = publicCoverage.universities || {};
 
 expectMeta(manualRatios._meta, 'schoolCount', ratioSchools.length, 'manual-ratios');
@@ -126,6 +130,12 @@ const expectedCurrent = {
   schoolsWithNumericCut: 94,
   schoolsWithoutNumericCut: 9,
   numericCutCount: 3751,
+  official2027SelectionSourceFile: 'data/admissions/sources/adiga-regular-ratios-2027.json',
+  official2027UniversitiesWithStructuredRatioTable: 176,
+  official2027UniversitiesWithRatioText: 17,
+  official2027UniversitiesWithCriteriaTextOnly: 1,
+  official2027UniversitiesWithoutSelectionCriteria: 26,
+  official2027StructuredRatioTableCount: 391,
 };
 for (const [key, value] of Object.entries(expectedCurrent)) expectMeta(officialMeta, key, value, 'adiga-source');
 expectMeta(officialMeta, 'auditedSchoolCount', officialSlugs.length, 'adiga-source');
@@ -135,6 +145,92 @@ if (!sameJson(sorted(ratioSchools), sorted(officialSlugs))) err('반영비율 10
 if (!sameJson(sorted(officialSlugs), sorted(Object.keys(coverageSchools)))) err('공개 상태 파일의 학교 slug 불일치');
 expectMeta(officialMeta, 'auditedOfficialUniversityCount', officialUniversityCodes.length, 'adiga-source');
 if (!sameJson(sorted(officialUniversityCodes), sorted(Object.keys(coverageUniversities)))) err('공개 상태 파일의 대학코드 불일치');
+if (!sameJson(sorted(officialUniversityCodes), sorted(officialRatioCodes))) err('입결 원본과 반영비율 원본의 대학코드 불일치');
+
+const expectedRatioCurrent = {
+  searchSyr: 2027,
+  selectionYear: 2027,
+  officialUniversityCount: 220,
+  auditedOfficialUniversityCount: 220,
+  universitiesWithStructuredRatioTable: 176,
+  universitiesWithRatioText: 17,
+  universitiesWithCriteriaTextOnly: 1,
+  universitiesWithoutSelectionCriteria: 26,
+  structuredRatioTableCount: 391,
+};
+for (const [key, value] of Object.entries(expectedRatioCurrent)) expectMeta(officialRatioMeta, key, value, 'adiga-ratio-source');
+if (!/^\d{4}-\d{2}-\d{2}$/.test(officialRatioMeta.collectedAt || '')) err('adiga-ratio-source collectedAt 형식 오류');
+if (officialRatioMeta.source !== '대입정보포털 어디가') err('adiga-ratio-source 공식 출처명 오류');
+
+const allowedRatioStatuses = new Set([
+  'structured_ratio_available',
+  'ratio_text_available',
+  'criteria_text_available',
+  'no_selection_criteria',
+]);
+const ratioStatusCounts = new Map();
+let fullRatioTableCount = 0;
+
+for (const [code, selection] of Object.entries(officialRatioUniversities)) {
+  const label = `adiga-ratio-source universities.${code}`;
+  const resultUniversity = officialUniversities[code];
+  if (!resultUniversity || selection?.unvCd !== code
+    || selection.officialName !== resultUniversity.officialName
+    || selection.campus !== resultUniversity.campus) {
+    err(`${label}: 입결 원본과 대학코드/이름/캠퍼스 불일치`);
+  }
+  if (!allowedRatioStatuses.has(selection?.status)) err(`${label}: status 오류 ${JSON.stringify(selection?.status)}`);
+  if (typeof selection?.sectionText !== 'string' || !Number.isInteger(selection?.criteriaTextLength)
+    || selection.criteriaTextLength < 0 || selection.criteriaTextLength > selection.sectionText.length
+    || !Array.isArray(selection?.ratioTables)) {
+    err(`${label}: 텍스트/길이/표 배열 오류`);
+    continue;
+  }
+  if (selection.sourceUrl !== resultUniversity.sourceUrl) err(`${label}: 공식 상세 URL 불일치`);
+  if (selection.ratioTableCount !== selection.ratioTables.length) err(`${label}: ratioTableCount 불일치`);
+  if ((selection.status === 'structured_ratio_available') !== (selection.ratioTables.length > 0)) {
+    err(`${label}: 구조화 표 status 불일치`);
+  }
+  if (selection.status === 'criteria_text_available' && selection.criteriaTextLength < 30) {
+    err(`${label}: criteria_text_available인데 유효 텍스트 부족`);
+  }
+  if (selection.status === 'no_selection_criteria' && selection.criteriaTextLength >= 30) {
+    err(`${label}: no_selection_criteria인데 유효 텍스트 존재`);
+  }
+  ratioStatusCounts.set(selection.status, (ratioStatusCounts.get(selection.status) || 0) + 1);
+  fullRatioTableCount += selection.ratioTables.length;
+  for (const [tableIndex, table] of selection.ratioTables.entries()) {
+    const tableLabel = `${label}.ratioTables[${tableIndex}]`;
+    if (typeof table?.context !== 'string' || table.context.length > 500 || !Array.isArray(table?.rows) || !table.rows.length) {
+      err(`${tableLabel}: context/rows 오류`);
+      continue;
+    }
+    for (const [rowIndex, row] of table.rows.entries()) {
+      if (!Array.isArray(row) || !row.length) {
+        err(`${tableLabel}.rows[${rowIndex}]: 빈 행`);
+        continue;
+      }
+      for (const [cellIndex, cell] of row.entries()) {
+        if (typeof cell?.text !== 'string' || typeof cell?.header !== 'boolean'
+          || !Number.isInteger(cell?.rowspan) || cell.rowspan < 1 || cell.rowspan > 100
+          || !Number.isInteger(cell?.colspan) || cell.colspan < 1 || cell.colspan > 100) {
+          err(`${tableLabel}.rows[${rowIndex}][${cellIndex}]: 셀 구조 오류`);
+        }
+      }
+    }
+  }
+}
+
+expectMeta(officialRatioMeta, 'universitiesWithStructuredRatioTable', ratioStatusCounts.get('structured_ratio_available') || 0, 'adiga-ratio-source');
+expectMeta(officialRatioMeta, 'universitiesWithRatioText', ratioStatusCounts.get('ratio_text_available') || 0, 'adiga-ratio-source');
+expectMeta(officialRatioMeta, 'universitiesWithCriteriaTextOnly', ratioStatusCounts.get('criteria_text_available') || 0, 'adiga-ratio-source');
+expectMeta(officialRatioMeta, 'universitiesWithoutSelectionCriteria', ratioStatusCounts.get('no_selection_criteria') || 0, 'adiga-ratio-source');
+expectMeta(officialRatioMeta, 'structuredRatioTableCount', fullRatioTableCount, 'adiga-ratio-source');
+expectMeta(officialMeta, 'official2027UniversitiesWithStructuredRatioTable', ratioStatusCounts.get('structured_ratio_available') || 0, 'adiga-source');
+expectMeta(officialMeta, 'official2027UniversitiesWithRatioText', ratioStatusCounts.get('ratio_text_available') || 0, 'adiga-source');
+expectMeta(officialMeta, 'official2027UniversitiesWithCriteriaTextOnly', ratioStatusCounts.get('criteria_text_available') || 0, 'adiga-source');
+expectMeta(officialMeta, 'official2027UniversitiesWithoutSelectionCriteria', ratioStatusCounts.get('no_selection_criteria') || 0, 'adiga-source');
+expectMeta(officialMeta, 'official2027StructuredRatioTableCount', fullRatioTableCount, 'adiga-source');
 
 const allowedSchoolStatuses = new Set(['numeric_cut_available', 'no_numeric_cut', 'no_rows', 'not_listed_in_adiga']);
 const allowedSupplementStatuses = new Set([
@@ -346,13 +442,22 @@ const expectedCoverageSchools = Object.fromEntries(Object.entries(officialSchool
 ]));
 const expectedCoverageUniversities = Object.fromEntries(Object.entries(officialUniversities).map(([code, university]) => [
   code,
-  Object.fromEntries(Object.entries(university).filter(([key]) => key !== 'units')),
+  {
+    ...Object.fromEntries(Object.entries(university).filter(([key]) => key !== 'units')),
+    ratioStatus: officialRatioUniversities[code]?.status,
+    ratioTableCount: officialRatioUniversities[code]?.ratioTableCount,
+    ratioSourceUrl: officialRatioUniversities[code]?.sourceUrl,
+    ratioTextLength: officialRatioUniversities[code]?.criteriaTextLength,
+  },
 ]));
 if (!sameJson(publicCoverage._meta, officialMeta)) err('공개 상태 파일과 공식 원본의 _meta 불일치');
 if (!sameJson(coverageSchools, expectedCoverageSchools)) err('공개 상태 파일이 공식 원본의 경량 사본과 불일치');
 if (!sameJson(coverageUniversities, expectedCoverageUniversities)) err('공개 대학코드 상태가 공식 원본의 경량 사본과 불일치');
 if (Object.values(coverageSchools).some(school => Object.hasOwn(school, 'units'))) err('공개 상태 파일에 대용량 units 배열 포함');
 if (Object.values(coverageUniversities).some(university => Object.hasOwn(university, 'units'))) err('공개 대학코드 상태에 대용량 units 배열 포함');
+if (Object.values(coverageUniversities).some(university => Object.hasOwn(university, 'ratioTables') || Object.hasOwn(university, 'sectionText'))) {
+  err('공개 대학코드 상태에 대용량 반영비율 원문 포함');
+}
 
 expectMeta(manualResults._meta, 'scoreYear', officialMeta.resultYear, 'manual-results');
 expectMeta(manualResults._meta, 'official2026TargetSchoolCount', officialMeta.targetSchoolCount, 'manual-results');
@@ -368,6 +473,7 @@ expectMeta(manualResults._meta, 'official2026CoverageFile', 'data/admissions/adi
 
 console.log(`정시 반영비율: ${ratioSchools.length}개교 / ${manualTrackCount}개 전형`);
 console.log(`정시 70%컷: ${resultSchools.length}개교 / ${resultUnitCount}개 모집단위`);
+console.log(`2027 어디가 반영비율 감사: ${officialRatioCodes.length}/${officialRatioMeta.officialUniversityCount}개 대학·캠퍼스 · 공식 비율 ${((ratioStatusCounts.get('structured_ratio_available') || 0) + (ratioStatusCounts.get('ratio_text_available') || 0))}곳 · 구조화 표 ${fullRatioTableCount}개 · 미시행·기타·미공개 ${((ratioStatusCounts.get('criteria_text_available') || 0) + (ratioStatusCounts.get('no_selection_criteria') || 0))}곳`);
 console.log(`2026 어디가 전체 감사: ${officialUniversityCodes.length}/${officialMeta.officialUniversityCount}개 대학·캠퍼스 · 숫자 ${fullNumericUniversityCount}곳 ${fullOfficialUnitCount}건 · 미공개 ${officialUniversityCodes.length - fullNumericUniversityCount}곳`);
 console.log(`2026 어디가 공식 감사: ${officialSlugs.length}/${ratioSchools.length}개교 · 숫자 ${numericSchoolCount}개교 ${officialUnitCount}건 · 미공개 ${officialSlugs.length - numericSchoolCount}개교`);
 console.log(`연도별 입결 학교 수: ${Object.entries(resultYearSchools).sort().map(([year, count]) => `${year}=${count}`).join(', ')}`);
