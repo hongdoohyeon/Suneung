@@ -1,0 +1,568 @@
+{
+  "_meta": {
+    "description": "어디가 2027학년도 수능위주전형 화면에서 비율을 확인할 수 없던 27개 대학·캠퍼스의 대학 입학처·공식 자료 보강",
+    "selectionYear": 2027,
+    "collectedAt": "2026-07-19",
+    "supplementUniversityCount": 27,
+    "structuredRatioUniversityCount": 16,
+    "noCsatBasedRegularUniversityCount": 11,
+    "resolvedUniversityCount": 27,
+    "structuredRatioTableCount": 35,
+    "sourceKinds": [
+      "university_admissions",
+      "adiga_official"
+    ],
+    "note": "어디가 전수 감사 원본은 변경하지 않는다. 대학 통합 시행계획은 적용 캠퍼스와 조건부 이월 선발을 구분하고, 수능 미반영·수능위주 미시행도 확인된 공식 상태로 기록한다. 표의 선택 규칙은 임의로 100% 비율로 환산하지 않는다."
+  },
+  "universities": {
+    "0000001": {
+      "unvCd": "0000001",
+      "officialName": "국립강릉원주대학교",
+      "campus": "본교",
+      "status": "structured_ratio_available",
+      "sourceKind": "university_admissions",
+      "sourceName": "국립강릉원주대학교 입학처",
+      "sourceUrl": "https://pr.gwnu.ac.kr/bbs/iphak/1606/148641/download.do",
+      "checkedAt": "2026-07-19",
+      "sectionText": "2027학년도 시행계획의 정시 수능 성적 반영방법. 일반 모집단위는 국어·수학·영어·탐구(1과목) 중 성적이 높은 3개 영역을 각 100점으로 반영하며, 치의예과는 국어 20%·수학 35%·영어 20%·과탐 25%(2과목 평균)를 반영한다.",
+      "ratioTableCount": 2,
+      "ratioTables": [
+        {
+          "title": "수능 영역별 반영방법",
+          "headers": ["모집단위", "반영영역", "국어", "수학", "영어", "탐구", "비고"],
+          "rows": [
+            ["일반 모집단위", "4개 중 상위 3개", "선택 100점", "선택 100점", "선택 100점", "상위 1과목 선택 100점", "선택된 3개 영역 합계 300점"],
+            ["치의예과", "4개 모두", "20%", "35%", "20%", "과탐 25%", "과탐 2과목 평균"]
+          ],
+          "note": "일반 모집단위의 선택 영역을 임의로 33.3%씩 정규화하지 않고 공식 100점 배점을 보존했습니다."
+        },
+        {
+          "title": "영어 등급별 환산점수",
+          "headers": ["모집단위", "1등급", "2등급", "3등급", "4등급", "5등급", "6등급", "7등급", "8등급", "9등급"],
+          "rows": [
+            ["일반 모집단위", "100", "97", "94", "91", "81", "78", "75", "72", "0"],
+            ["치의예과", "100", "95", "90", "85", "77.5", "70", "62.5", "55", "40"]
+          ]
+        }
+      ]
+    },
+    "0000002": {
+      "unvCd": "0000002",
+      "officialName": "국립강릉원주대학교",
+      "campus": "제2캠퍼스",
+      "status": "structured_ratio_available",
+      "sourceKind": "university_admissions",
+      "sourceName": "국립강릉원주대학교 입학처",
+      "sourceUrl": "https://pr.gwnu.ac.kr/bbs/iphak/1606/148641/download.do",
+      "checkedAt": "2026-07-19",
+      "inheritFrom": "0000001",
+      "ratioTableCount": 2,
+      "note": "대학 통합 시행계획의 캠퍼스 공통 수능 반영방법을 적용합니다."
+    },
+    "0000048": {
+      "unvCd": "0000048",
+      "officialName": "가톨릭대학교",
+      "campus": "제2캠퍼스",
+      "status": "structured_ratio_available",
+      "sourceKind": "university_admissions",
+      "sourceName": "가톨릭대학교 입학처",
+      "sourceUrl": "https://ipsi.catholic.ac.kr/detail.do?board_seq=34931&categoryid=&menuurl=k%2BqZC0HTrql005wmLhNoXA%3D%3D&pageNo=1&userpwd=",
+      "checkedAt": "2026-07-19",
+      "sectionText": "2027학년도 성신교정 신학과 수능(성신특별전형)은 가군 3명을 수능 100%로 선발한다. 국어와 수학 중 우수한 영역 35%, 차순위 영역 25%, 영어 20%, 탐구 20%를 반영한다.",
+      "ratioTableCount": 2,
+      "ratioTables": [
+        {
+          "title": "성신특별전형 수능 영역별 반영비율",
+          "headers": ["전형", "모집단위", "활용지표", "국어", "수학", "영어", "탐구", "한국사"],
+          "rows": [
+            ["수능(성신특별전형)", "신학과", "백분위", "국어·수학 중 우수 영역 35%, 차순위 25%", "국어·수학 중 우수 영역 35%, 차순위 25%", "20%", "20%", "감점"]
+          ],
+          "note": "국어·수학의 35%/25%는 두 영역의 성적 순서에 따라 정해집니다."
+        },
+        {
+          "title": "영어 등급별 환산점수",
+          "headers": ["1등급", "2등급", "3등급", "4등급", "5등급", "6등급", "7등급", "8등급", "9등급"],
+          "rows": [
+            ["100", "98", "95", "85", "70", "50", "30", "10", "0"]
+          ]
+        }
+      ]
+    },
+    "0000073": {
+      "unvCd": "0000073",
+      "officialName": "광신대학교",
+      "campus": "본교",
+      "status": "structured_ratio_available",
+      "sourceKind": "university_admissions",
+      "sourceName": "광신대학교 입학처",
+      "sourceUrl": "https://www.kwangshin.ac.kr/front/boardView.do?menu_no=522&brd_no=42564&brd_mgrno=191&listurl=/front/boardList.do",
+      "checkedAt": "2026-07-19",
+      "sectionText": "2027학년도 정시 일반 모집단위는 학생부 50%·수능 20%·면접 30%, 음악학부는 수능 20%·면접 30%·실기 50%를 반영한다. 수능 20% 내부에서는 국어와 영어를 각각 50% 반영한다.",
+      "ratioTableCount": 2,
+      "ratioTables": [
+        {
+          "title": "정시 전형요소별 반영비율",
+          "headers": ["모집단위", "학생부", "수능", "면접", "실기"],
+          "rows": [
+            ["일반 모집단위", "50%", "20%", "30%", "-"],
+            ["음악학부", "-", "20%", "30%", "50%"]
+          ]
+        },
+        {
+          "title": "수능 성적 내부 반영비율",
+          "headers": ["국어", "영어", "비고"],
+          "rows": [
+            ["50%", "50%", "전형총점 중 수능 반영분은 20%"]
+          ]
+        }
+      ]
+    },
+    "0000075": {
+      "unvCd": "0000075",
+      "officialName": "광주가톨릭대학교",
+      "campus": "본교",
+      "status": "no_csats_based_regular",
+      "sourceKind": "adiga_official",
+      "sourceName": "대입정보포털 어디가",
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000075&searchSyr=2027",
+      "checkedAt": "2026-07-19",
+      "sectionText": "어디가 2027학년도 공식 전형평가기준에 수능위주전형을 시행하지 않아 해당없음으로 명시돼 있다.",
+      "ratioTableCount": 0,
+      "ratioTables": []
+    },
+    "0000087": {
+      "unvCd": "0000087",
+      "officialName": "대구예술대학교",
+      "campus": "본교",
+      "status": "structured_ratio_available",
+      "sourceKind": "university_admissions",
+      "sourceName": "대구예술대학교 입학처",
+      "sourceUrl": "https://ipsi.dgau.ac.kr/faq/10",
+      "checkedAt": "2026-07-19",
+      "sectionText": "2027학년도 정시는 국어를 필수 33.3% 반영하고, 수학과 영어 중 우수한 1개 영역 33.3%, 탐구(사·과·직)와 한국사 중 우수한 1개 과목 33.3%를 반영한다.",
+      "ratioTableCount": 1,
+      "ratioTables": [
+        {
+          "title": "수능 영역별 선택 반영비율",
+          "headers": ["구분", "반영 영역", "반영비율"],
+          "rows": [
+            ["필수", "국어", "33.3%"],
+            ["선택 1", "수학·영어 중 우수 영역", "33.3%"],
+            ["선택 2", "탐구(사·과·직)·한국사 중 우수 1과목", "33.3%"]
+          ]
+        }
+      ]
+    },
+    "0000093": {
+      "unvCd": "0000093",
+      "officialName": "대신대학교",
+      "campus": "본교",
+      "status": "no_csats_based_regular",
+      "sourceKind": "university_admissions",
+      "sourceName": "대신대학교 입학처",
+      "sourceUrl": "https://www.daeshin.ac.kr/admission/pages/main/popup_entr_2027plan.php",
+      "checkedAt": "2026-07-19",
+      "sectionText": "2027학년도 정시 다군은 모집단위에 따라 학생부 70%·면접 30%, 학생부 60%·면접 40% 또는 실기 100%로 선발하며 수능을 전형요소로 반영하지 않는다.",
+      "ratioTableCount": 0,
+      "ratioTables": []
+    },
+    "0000113": {
+      "unvCd": "0000113",
+      "officialName": "배재대학교",
+      "campus": "본교",
+      "status": "structured_ratio_available",
+      "sourceKind": "university_admissions",
+      "sourceName": "배재대학교 입학처",
+      "sourceUrl": "https://enter.pcu.ac.kr/enter/article/ATCL13b663a5b/102799619",
+      "checkedAt": "2026-07-19",
+      "sectionText": "2027학년도 정시는 국어·수학·영어·탐구 중 백분위가 높은 2개 영역을 각각 50% 반영한다. 탐구는 우수 1과목을 사용하고 한국사는 필수 응시 및 등급별 가산점을 적용한다.",
+      "ratioTableCount": 3,
+      "ratioTables": [
+        {
+          "title": "수능 성적 반영방법",
+          "headers": ["반영 대상", "선택 규칙", "반영비율", "탐구"],
+          "rows": [
+            ["국어·수학·영어·탐구", "백분위 상위 2개 영역", "각 50%", "우수 1과목"]
+          ],
+          "note": "공식 산식은 상위 두 영역의 백분위 합에 5를 곱해 1,000점으로 환산합니다."
+        },
+        {
+          "title": "영어 등급별 환산점수",
+          "headers": ["1등급", "2등급", "3등급", "4등급", "5등급", "6등급", "7등급", "8등급", "9등급"],
+          "rows": [
+            ["100", "90", "80", "65", "50", "30", "15", "10", "0"]
+          ]
+        },
+        {
+          "title": "한국사 등급별 가산점",
+          "headers": ["1등급", "2등급", "3등급", "4등급", "5등급", "6등급", "7등급", "8등급", "9등급"],
+          "rows": [
+            ["10", "10", "10", "10", "10", "9", "8", "7", "6"]
+          ]
+        }
+      ]
+    },
+    "0000145": {
+      "unvCd": "0000145",
+      "officialName": "아신대학교",
+      "campus": "본교",
+      "status": "no_csats_based_regular",
+      "sourceKind": "adiga_official",
+      "sourceName": "대입정보포털 어디가",
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000145&searchSyr=2027",
+      "checkedAt": "2026-07-19",
+      "sectionText": "어디가 2027학년도 공식 전형평가기준에 학생부교과전형으로만 선발하며 수능위주전형을 시행하지 않는다고 명시돼 있다.",
+      "ratioTableCount": 0,
+      "ratioTables": []
+    },
+    "0000153": {
+      "unvCd": "0000153",
+      "officialName": "영남신학대학교",
+      "campus": "본교",
+      "status": "no_csats_based_regular",
+      "sourceKind": "university_admissions",
+      "sourceName": "영남신학대학교 입학처",
+      "sourceUrl": "https://entra.ytus.ac.kr/board/view/admissions_notice/27",
+      "checkedAt": "2026-07-19",
+      "sectionText": "2027학년도 정시 가군은 학생부 60%(교과 48%·출석 12%)와 면접 40%로 선발하며 수능을 반영하지 않는다.",
+      "ratioTableCount": 0,
+      "ratioTables": []
+    },
+    "0000162": {
+      "unvCd": "0000162",
+      "officialName": "을지대학교",
+      "campus": "제2캠퍼스",
+      "status": "structured_ratio_available",
+      "sourceKind": "adiga_official",
+      "sourceName": "대입정보포털 어디가(을지대학교 통합 시행계획)",
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000161&searchSyr=2027",
+      "checkedAt": "2026-07-19",
+      "inheritFrom": "0000161",
+      "ratioTableCount": 3,
+      "note": "을지대학교 전체 모집단위가 함께 공개된 본교 코드의 공식 시행계획 표를 캠퍼스 코드에도 연결했습니다."
+    },
+    "0000168": {
+      "unvCd": "0000168",
+      "officialName": "인천가톨릭대학교",
+      "campus": "본교",
+      "status": "no_csats_based_regular",
+      "sourceKind": "adiga_official",
+      "sourceName": "대입정보포털 어디가",
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000168&searchSyr=2027",
+      "checkedAt": "2026-07-19",
+      "sectionText": "어디가 2027학년도 공식 전형평가기준의 수능위주전형 주요사항이 해당사항 없음으로 공개돼 있다.",
+      "ratioTableCount": 0,
+      "ratioTables": []
+    },
+    "0000177": {
+      "unvCd": "0000177",
+      "officialName": "중앙승가대학교",
+      "campus": "본교",
+      "status": "no_csats_based_regular",
+      "sourceKind": "university_admissions",
+      "sourceName": "중앙승가대학교 입학안내",
+      "sourceUrl": "https://admission.sangha.ac.kr/SANGHA/?ACT=BOARD_NOTICE&IDX=1193&MODE=VIEW",
+      "checkedAt": "2026-07-19",
+      "sectionText": "2027학년도 대학입학전형 시행계획은 수시 학생부 60%·구술면접 40% 선발만 두고 있으며 정시 수능위주 선발을 시행하지 않는다.",
+      "ratioTableCount": 0,
+      "ratioTables": []
+    },
+    "0000188": {
+      "unvCd": "0000188",
+      "officialName": "포항공과대학교",
+      "campus": "본교",
+      "status": "no_csats_based_regular",
+      "sourceKind": "university_admissions",
+      "sourceName": "POSTECH 입학팀",
+      "sourceUrl": "https://adm-u.postech.ac.kr/entrance-exam/guide/",
+      "checkedAt": "2026-07-19",
+      "sectionText": "POSTECH 공식 입학전형 안내는 대학수학능력시험 성적을 전형요소로 활용하지 않는다고 명시한다.",
+      "ratioTableCount": 0,
+      "ratioTables": []
+    },
+    "0000199": {
+      "unvCd": "0000199",
+      "officialName": "한서대학교",
+      "campus": "본교",
+      "status": "structured_ratio_available",
+      "sourceKind": "university_admissions",
+      "sourceName": "한서대학교 입학관리처",
+      "sourceUrl": "https://helper.hanseo.ac.kr/html/kr/sub6/sub6_060102.html",
+      "checkedAt": "2026-07-19",
+      "sectionText": "2027학년도 일반 모집단위는 국어·수학·영어 중 상위 2개 영역을 각 35%, 탐구 우수 1과목을 30% 반영한다. 항공운항학과와 실기 모집단위는 별도 비율을 적용한다.",
+      "ratioTableCount": 2,
+      "ratioTables": [
+        {
+          "title": "모집단위별 수능 반영비율",
+          "headers": ["모집단위", "국어", "수학", "영어", "탐구", "비고"],
+          "rows": [
+            ["일반 모집단위", "국어·수학·영어 중 상위 2개 각 35%", "국어·수학·영어 중 상위 2개 각 35%", "국어·수학·영어 중 상위 2개 각 35%", "우수 1과목 30%", "미적분·기하 선택 시 수학 10% 가산"],
+            ["항공운항학과", "20%", "30%", "30%", "20%", "탐구 우수 1과목"],
+            ["실기 모집단위", "국어·수학·영어 중 상위 1개 50%", "국어·수학·영어 중 상위 1개 50%", "국어·수학·영어 중 상위 1개 50%", "우수 1과목 50%", "선택 규칙 적용"]
+          ]
+        },
+        {
+          "title": "영어 등급별 환산점수",
+          "headers": ["1등급", "2등급", "3등급", "4등급", "5등급", "6등급", "7등급", "8등급", "9등급"],
+          "rows": [
+            ["100", "95", "90", "84", "78", "70", "62", "52", "40"]
+          ]
+        }
+      ]
+    },
+    "0000206": {
+      "unvCd": "0000206",
+      "officialName": "한일장신대학교",
+      "campus": "본교",
+      "status": "no_csats_based_regular",
+      "sourceKind": "university_admissions",
+      "sourceName": "한일장신대학교 입학안내",
+      "sourceUrl": "https://www.hanil.ac.kr/portal/ipsi/bbs/view.do?menuId=M0012000200000000&boardSeq=101555",
+      "checkedAt": "2026-07-19",
+      "sectionText": "2027학년도 정시는 일반 모집단위 학생부 100%, 실용음악학과 학생부 40%·실기 60%로 선발하며 시행계획에 전 모집시기 수능을 반영하지 않는다고 명시돼 있다.",
+      "ratioTableCount": 0,
+      "ratioTables": []
+    },
+    "0000209": {
+      "unvCd": "0000209",
+      "officialName": "호남신학대학교",
+      "campus": "본교",
+      "status": "no_csats_based_regular",
+      "sourceKind": "adiga_official",
+      "sourceName": "대입정보포털 어디가",
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000209&searchSyr=2027",
+      "checkedAt": "2026-07-19",
+      "sectionText": "어디가 2027학년도 공식 전형평가기준에 해당 수능위주전형이 없다고 명시돼 있다.",
+      "ratioTableCount": 0,
+      "ratioTables": []
+    },
+    "0000218": {
+      "unvCd": "0000218",
+      "officialName": "예원예술대학교",
+      "campus": "본교",
+      "status": "no_csats_based_regular",
+      "sourceKind": "university_admissions",
+      "sourceName": "예원예술대학교 입학안내",
+      "sourceUrl": "https://admission.yewon.ac.kr/main/?menu=328&mode=view&no=90",
+      "checkedAt": "2026-07-19",
+      "sectionText": "어디가 주소상 전북희망캠퍼스인 본교 코드는 2027학년도 정시에서 게임애니메이션 실기 100%, 스포츠융합복지 실기 70%·면접 30% 등으로 선발하며 수능을 반영하지 않는다.",
+      "ratioTableCount": 0,
+      "ratioTables": []
+    },
+    "0000219": {
+      "unvCd": "0000219",
+      "officialName": "예원예술대학교",
+      "campus": "제2캠퍼스",
+      "status": "structured_ratio_available",
+      "sourceKind": "university_admissions",
+      "sourceName": "예원예술대학교 입학안내",
+      "sourceUrl": "https://admission.yewon.ac.kr/main/?menu=328&mode=view&no=90",
+      "checkedAt": "2026-07-19",
+      "sectionText": "어디가 주소상 경기드림캠퍼스인 제2캠퍼스의 만화게임영상 정시 일반전형은 수능 20%·실기 80%를 반영한다. 수능 반영분은 국어 40%, 탐구 2과목 각 20%, 한국사 20%다.",
+      "ratioTableCount": 2,
+      "ratioTables": [
+        {
+          "title": "만화게임영상 정시 전형요소",
+          "headers": ["캠퍼스", "모집단위", "수능", "실기"],
+          "rows": [
+            ["경기드림캠퍼스", "만화게임영상", "20%", "80%"]
+          ]
+        },
+        {
+          "title": "수능 반영분의 영역별 비율",
+          "headers": ["국어", "탐구 1", "탐구 2", "한국사", "활용지표"],
+          "rows": [
+            ["40%", "20%", "20%", "20%", "등급"]
+          ]
+        }
+      ]
+    },
+    "0000222": {
+      "unvCd": "0000222",
+      "officialName": "부산장신대학교",
+      "campus": "본교",
+      "status": "no_csats_based_regular",
+      "sourceKind": "adiga_official",
+      "sourceName": "대입정보포털 어디가",
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000222&searchSyr=2027",
+      "checkedAt": "2026-07-19",
+      "sectionText": "어디가 2027학년도 공식 전형평가기준의 수능위주전형 주요사항이 해당사항 없음으로 공개돼 있다.",
+      "ratioTableCount": 0,
+      "ratioTables": []
+    },
+    "0000260": {
+      "unvCd": "0000260",
+      "officialName": "진주교육대학교",
+      "campus": "본교",
+      "status": "structured_ratio_available",
+      "sourceKind": "university_admissions",
+      "sourceName": "진주교육대학교 입학안내",
+      "sourceUrl": "https://www.cue.ac.kr/enter/CMS/Board/Board.do?mCode=MN103&mode=view&mgr_seq=268&board_seq=83201",
+      "checkedAt": "2026-07-19",
+      "sectionText": "2027학년도 정시는 수능 100%(800점)로 선발하고 국어·수학·영어·탐구를 각각 25% 반영한다. 탐구는 2과목 평균이며 한국사는 필수 응시하되 점수에 반영하지 않는다.",
+      "ratioTableCount": 1,
+      "ratioTables": [
+        {
+          "title": "수능 영역별 반영비율",
+          "headers": ["국어", "수학", "영어", "탐구", "한국사", "총점"],
+          "rows": [
+            ["25%", "25%", "25%", "25%(2과목 평균)", "필수 응시·점수 미반영", "800점"]
+          ]
+        }
+      ]
+    },
+    "0000262": {
+      "unvCd": "0000262",
+      "officialName": "춘천교육대학교",
+      "campus": "본교",
+      "status": "structured_ratio_available",
+      "sourceKind": "university_admissions",
+      "sourceName": "춘천교육대학교 입학안내",
+      "sourceUrl": "https://enter.cnue.ac.kr/enter/communication/plan.do?article.offset=0&articleLimit=10&articleNo=39837&mode=view",
+      "checkedAt": "2026-07-19",
+      "sectionText": "2027학년도 정시는 국어 33.3%(200점), 수학 33.3%(200점), 영어 16.7%(100점), 탐구 16.7%(100점)를 반영한다.",
+      "ratioTableCount": 2,
+      "ratioTables": [
+        {
+          "title": "수능 영역별 반영비율과 배점",
+          "headers": ["국어", "수학", "영어", "탐구(사·과)", "합계"],
+          "rows": [
+            ["33.3%(200점)", "33.3%(200점)", "16.7%(100점)", "16.7%(100점)", "600점"]
+          ]
+        },
+        {
+          "title": "영어 등급별 환산점수",
+          "headers": ["1등급", "2등급", "3등급", "4등급", "5등급", "6등급", "7등급", "8등급", "9등급"],
+          "rows": [
+            ["100", "95", "88", "76", "59", "39", "22", "10", "0"]
+          ]
+        }
+      ]
+    },
+    "0002911": {
+      "unvCd": "0002911",
+      "officialName": "을지대학교",
+      "campus": "제3캠퍼스",
+      "status": "structured_ratio_available",
+      "sourceKind": "adiga_official",
+      "sourceName": "대입정보포털 어디가(을지대학교 통합 시행계획)",
+      "sourceUrl": "https://m.adiga.kr/mob/ucp/uvt/uni/univDetailSelection.do?menuId=MOUVTINF1001&unvCd=0000161&searchSyr=2027",
+      "checkedAt": "2026-07-19",
+      "inheritFrom": "0000161",
+      "ratioTableCount": 3,
+      "note": "을지대학교 전체 모집단위가 함께 공개된 본교 코드의 공식 시행계획 표를 캠퍼스 코드에도 연결했습니다."
+    },
+    "0003193": {
+      "unvCd": "0003193",
+      "officialName": "영산대학교",
+      "campus": "본교",
+      "status": "structured_ratio_available",
+      "sourceKind": "university_admissions",
+      "sourceName": "영산대학교 입학처",
+      "sourceUrl": "https://www.ysu.ac.kr/ipsi/CMS/Board/Board.do?mCode=MN021&mode=view&mgr_seq=395&board_seq=641700",
+      "checkedAt": "2026-07-19",
+      "sectionText": "2027학년도 인문사회·자연공학 모집단위는 국어·수학·영어·탐구를 각 25% 반영하고, 예체능 모집단위는 네 영역 중 상위 3개를 각 33.3% 반영한다.",
+      "ratioTableCount": 3,
+      "ratioTables": [
+        {
+          "title": "계열별 수능 영역 반영비율",
+          "headers": ["계열", "국어", "수학", "영어", "탐구", "비고"],
+          "rows": [
+            ["인문사회·자연공학", "25%", "25%", "25%", "25%", "탐구 우수 1과목"],
+            ["예체능", "상위 3개 영역 각 33.3%", "상위 3개 영역 각 33.3%", "상위 3개 영역 각 33.3%", "상위 3개 영역 각 33.3%", "4개 영역 중 상위 3개 선택"]
+          ]
+        },
+        {
+          "title": "영어 등급별 환산점수",
+          "headers": ["1등급", "2등급", "3등급", "4등급", "5등급", "6등급", "7등급", "8등급", "9등급"],
+          "rows": [
+            ["135", "130", "123", "114", "103", "94", "87", "82", "79"]
+          ]
+        },
+        {
+          "title": "한국사 등급별 가산점",
+          "headers": ["1~2등급", "3~4등급", "5~6등급", "7~8등급", "9등급"],
+          "rows": [
+            ["2", "1.5", "1.0", "0.6", "0.2"]
+          ]
+        }
+      ]
+    },
+    "0003194": {
+      "unvCd": "0003194",
+      "officialName": "영산대학교",
+      "campus": "제2캠퍼스",
+      "status": "structured_ratio_available",
+      "sourceKind": "university_admissions",
+      "sourceName": "영산대학교 입학처",
+      "sourceUrl": "https://www.ysu.ac.kr/ipsi/CMS/Board/Board.do?mCode=MN021&mode=view&mgr_seq=395&board_seq=641700",
+      "checkedAt": "2026-07-19",
+      "inheritFrom": "0003193",
+      "ratioTableCount": 3,
+      "note": "대학 통합 시행계획의 캠퍼스 공통 계열별 수능 반영방법을 적용합니다."
+    },
+    "0003297": {
+      "unvCd": "0003297",
+      "officialName": "국립창원대학교",
+      "campus": "제2캠퍼스",
+      "status": "structured_ratio_available",
+      "sourceKind": "university_admissions",
+      "sourceName": "국립창원대학교 입학처(거창·남해캠퍼스 시행계획)",
+      "sourceUrl": "https://www.changwon.ac.kr/ipsi/na/ntt/selectNttInfo.do?mi=4306&nttSn=1368518",
+      "checkedAt": "2026-07-19",
+      "sectionText": "어디가 주소상 거창캠퍼스인 제2캠퍼스의 정시 수능전형은 수능 100%다. 인문사회는 국어 30%·수학 25%·영어 20%·탐구 25%, 자연은 국어 25%·수학 30%·영어 20%·탐구 25%를 반영한다.",
+      "ratioTableCount": 2,
+      "ratioTables": [
+        {
+          "title": "거창캠퍼스 수능 영역별 반영비율",
+          "headers": ["계열", "국어", "수학", "영어", "탐구", "비고"],
+          "rows": [
+            ["인문사회", "30%", "25%", "20%", "25%", "탐구 우수 1과목"],
+            ["자연", "25%", "30%", "20%", "25%", "탐구 우수 1과목"]
+          ]
+        },
+        {
+          "title": "영어 등급별 환산점수",
+          "headers": ["1등급", "2등급", "3등급", "4등급", "5등급", "6등급", "7등급", "8등급", "9등급"],
+          "rows": [
+            ["200", "189", "178", "167", "156", "145", "134", "123", "112"]
+          ],
+          "note": "영어 미응시자도 112점을 적용합니다."
+        }
+      ]
+    },
+    "0003298": {
+      "unvCd": "0003298",
+      "officialName": "국립창원대학교",
+      "campus": "제3캠퍼스",
+      "status": "structured_ratio_available",
+      "sourceKind": "university_admissions",
+      "sourceName": "국립창원대학교 입학처(거창·남해캠퍼스 시행계획)",
+      "sourceUrl": "https://www.changwon.ac.kr/ipsi/na/ntt/selectNttInfo.do?mi=4306&nttSn=1368518",
+      "checkedAt": "2026-07-19",
+      "inheritFrom": "0003297",
+      "ratioTableCount": 2,
+      "ratioTables": [
+        {
+          "title": "남해캠퍼스 조건부 수능 영역별 반영비율",
+          "headers": ["계열", "국어", "수학", "영어", "탐구", "적용 전형"],
+          "rows": [
+            ["인문사회", "30%", "25%", "20%", "25%", "수시 미충원 이월 시 정원외 전형"],
+            ["자연", "25%", "30%", "20%", "25%", "수시 미충원 이월 시 정원외 전형"]
+          ],
+          "note": "남해캠퍼스 정시 일반전형은 학생부를 반영하며, 이 표는 기회균형·특성화고교졸업자전형의 수시 미충원 이월이 생긴 경우에만 적용됩니다."
+        },
+        {
+          "title": "영어 등급별 환산점수",
+          "headers": ["1등급", "2등급", "3등급", "4등급", "5등급", "6등급", "7등급", "8등급", "9등급"],
+          "rows": [
+            ["200", "189", "178", "167", "156", "145", "134", "123", "112"]
+          ],
+          "note": "영어 미응시자도 112점을 적용합니다."
+        }
+      ],
+      "sectionText": "어디가 주소상 남해캠퍼스인 제3캠퍼스는 정시 일반전형을 학생부로 선발한다. 다만 수시 미충원 이월이 생기는 정원외 기회균형·특성화고교졸업자전형은 수능 100%로 선발할 수 있으며, 이 경우 통합 시행계획의 인문사회·자연계열 반영비율을 적용한다.",
+      "note": "남해캠퍼스의 수능 반영은 수시 미충원 이월이 발생한 일부 정원외 전형에만 조건부로 적용됩니다."
+    }
+  }
+}

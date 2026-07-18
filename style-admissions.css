@@ -1,4 +1,4 @@
-.adm-page { max-width: 920px; margin: 0 auto; padding: 24px 16px 80px; }
+.adm-page { width: 100%; min-width: 0; max-width: 920px; margin: 0 auto; padding: 24px 16px 80px; }
     .adm-page h1 { font-size: 22px; margin: 8px 0 16px; }
     .adm-page p.lead { color: #555; margin: 0 0 20px; line-height: 1.6; font-size: 14px; }
     .adm-controls { display: flex; gap: 8px; margin-bottom: 20px; flex-wrap: wrap; align-items: center; }

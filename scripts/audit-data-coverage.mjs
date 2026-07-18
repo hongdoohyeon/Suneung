@@ -11,6 +11,7 @@ const manualRatios = JSON.parse(await readFile(new URL('data/admissions/manual-r
 const manualResults = JSON.parse(await readFile(new URL('data/admissions/manual-results.json', ROOT), 'utf8'));
 const adigaCoverage = JSON.parse(await readFile(new URL('data/admissions/adiga-coverage-2026.json', ROOT), 'utf8'));
 const adigaRatios = JSON.parse(await readFile(new URL('data/admissions/sources/adiga-regular-ratios-2027.json', ROOT), 'utf8'));
+const ratioSupplements = JSON.parse(await readFile(new URL('data/admissions/sources/regular-ratio-supplements-2027.json', ROOT), 'utf8'));
 const errors = [];
 
 const education2013 = {};
@@ -120,6 +121,39 @@ const adigaRatioUnavailable = adigaRatioUniversities.filter(([, university]) => 
 const adigaRatioTableCount = adigaRatioUniversities.reduce((sum, [, university]) => sum + university.ratioTableCount, 0);
 const adigaAdditionalRatioUniversities = adigaRatioUniversities.filter(([code]) => !(adigaCoverage.universities?.[code]?.targetSlugs || []).length);
 const adigaAdditionalRatioAvailable = adigaAdditionalRatioUniversities.filter(([, university]) => university.status === 'structured_ratio_available' || university.status === 'ratio_text_available');
+const ratioSupplementUniversities = Object.entries(ratioSupplements.universities || {});
+const ratioSupplementStructured = ratioSupplementUniversities.filter(([, university]) => university.status === 'structured_ratio_available');
+const ratioSupplementNoCsat = ratioSupplementUniversities.filter(([, university]) => university.status === 'no_csats_based_regular');
+const resolvedRatioSupplements = {};
+
+function resolveRatioSupplement(code) {
+  if (resolvedRatioSupplements[code]) return resolvedRatioSupplements[code];
+  const supplement = ratioSupplements.universities?.[code];
+  if (!supplement) return adigaRatios.universities?.[code];
+  const inherited = supplement.inheritFrom ? resolveRatioSupplement(supplement.inheritFrom) : adigaRatios.universities?.[code];
+  const resolved = { ...(inherited || {}), ...supplement };
+  if (!Object.hasOwn(supplement, 'ratioTables')) resolved.ratioTables = inherited?.ratioTables || [];
+  if (!Object.hasOwn(supplement, 'sectionText')) resolved.sectionText = inherited?.sectionText || '';
+  delete resolved.inheritFrom;
+  resolvedRatioSupplements[code] = resolved;
+  return resolved;
+}
+
+for (const [code] of ratioSupplementUniversities) resolveRatioSupplement(code);
+const mergedRatioUniversities = {
+  ...(adigaRatios.universities || {}),
+  ...resolvedRatioSupplements,
+};
+const mergedRatioEntries = Object.entries(mergedRatioUniversities);
+const mergedRatioStructured = mergedRatioEntries.filter(([, university]) => university.status === 'structured_ratio_available');
+const mergedRatioText = mergedRatioEntries.filter(([, university]) => university.status === 'ratio_text_available');
+const mergedRatioNoCsat = mergedRatioEntries.filter(([, university]) => university.status === 'no_csats_based_regular');
+const mergedRatioUnresolved = mergedRatioEntries.filter(([, university]) => university.status === 'criteria_text_available' || university.status === 'no_selection_criteria');
+const mergedRatioTableCount = mergedRatioEntries.reduce((sum, [, university]) => sum + (university.ratioTables?.length || 0), 0);
+const mergedAdditionalRatioUniversities = mergedRatioEntries.filter(([code]) => !(adigaCoverage.universities?.[code]?.targetSlugs || []).length);
+const mergedAdditionalRatioAvailable = mergedAdditionalRatioUniversities.filter(([, university]) => university.status === 'structured_ratio_available' || university.status === 'ratio_text_available');
+const mergedAdditionalRatioNoCsat = mergedAdditionalRatioUniversities.filter(([, university]) => university.status === 'no_csats_based_regular');
+const ratioSupplementTableCount = Object.values(resolvedRatioSupplements).reduce((sum, university) => sum + (university.ratioTables?.length || 0), 0);
 
 if (ratioSlugs.length !== 103 || manualRatios._meta?.schoolCount !== ratioSlugs.length) {
   errors.push(`정시 반영비율 ${ratioSlugs.length}개교 (예상 103개교)`);
@@ -156,6 +190,24 @@ if (adigaRatioUniversities.length !== 220
 if (adigaAdditionalRatioUniversities.length !== 103 || adigaAdditionalRatioAvailable.length !== 83) {
   errors.push(`추가 대학 공식 반영비율 ${adigaAdditionalRatioAvailable.length}/${adigaAdditionalRatioUniversities.length}곳 (예상 83/103)`);
 }
+const rawUnresolvedRatioCodes = [...adigaRatioCriteriaOnly, ...adigaRatioUnavailable].map(([code]) => code).sort();
+const supplementedRatioCodes = ratioSupplementUniversities.map(([code]) => code).sort();
+if (rawUnresolvedRatioCodes.join(',') !== supplementedRatioCodes.join(',')) {
+  errors.push(`2027 정시 보강 코드 불일치: 원본 ${rawUnresolvedRatioCodes.length}곳 · 보강 ${supplementedRatioCodes.length}곳`);
+}
+if (ratioSupplementUniversities.length !== 27 || ratioSupplementStructured.length !== 16
+  || ratioSupplementNoCsat.length !== 11 || ratioSupplementTableCount !== 35
+  || ratioSupplements._meta?.resolvedUniversityCount !== 27) {
+  errors.push(`2027 정시 공식 보강 ${ratioSupplementUniversities.length}곳 · 구조화 ${ratioSupplementStructured.length} · 수능 미반영 ${ratioSupplementNoCsat.length} · 표 ${ratioSupplementTableCount}`);
+}
+if (mergedRatioEntries.length !== 220 || mergedRatioStructured.length !== 192 || mergedRatioText.length !== 17
+  || mergedRatioNoCsat.length !== 11 || mergedRatioUnresolved.length !== 0 || mergedRatioTableCount !== 426) {
+  errors.push(`2027 정시 최종 해소 ${mergedRatioEntries.length}/220 · 구조화 ${mergedRatioStructured.length} · 텍스트 ${mergedRatioText.length} · 수능 미반영 ${mergedRatioNoCsat.length} · 미해결 ${mergedRatioUnresolved.length} · 표 ${mergedRatioTableCount}`);
+}
+if (mergedAdditionalRatioUniversities.length !== 103 || mergedAdditionalRatioAvailable.length !== 93
+  || mergedAdditionalRatioNoCsat.length !== 10) {
+  errors.push(`추가 대학 최종 정시 상태: 비율 ${mergedAdditionalRatioAvailable.length} · 수능 미반영 ${mergedAdditionalRatioNoCsat.length} / ${mergedAdditionalRatioUniversities.length}`);
+}
 if (adigaNumeric.length !== 94 || adigaCoverage._meta?.schoolsWithNumericCut !== adigaNumeric.length
   || adigaCoverage._meta?.numericCutCount !== 3751) {
   errors.push(`2026 어디가 숫자 공개 ${adigaNumeric.length}개교 ${adigaCoverage._meta?.numericCutCount}건 (예상 94개교 3751건)`);
@@ -190,9 +242,9 @@ const supplementLines = directSupplements
 const allUnavailableLines = adigaUniversityNoNumeric
   .sort((a, b) => a[1].officialName.localeCompare(b[1].officialName, 'ko') || a[1].campus.localeCompare(b[1].campus, 'ko'))
   .map(([, university]) => `- ${university.officialName}${university.campus === '본교' ? '' : ` (${university.campus})`}: ${Object.entries(university.missingReasons || {}).map(([reason, count]) => `${reason} ${count}건`).join(' · ') || '수능위주전형 결과 표 없음'}`);
-const ratioUnavailableLines = [...adigaRatioCriteriaOnly, ...adigaRatioUnavailable]
+const ratioSupplementLines = ratioSupplementUniversities
   .sort((a, b) => a[1].officialName.localeCompare(b[1].officialName, 'ko') || a[1].campus.localeCompare(b[1].campus, 'ko'))
-  .map(([, university]) => `- ${university.officialName}${university.campus === '본교' ? '' : ` (${university.campus})`}: ${university.criteriaTextLength ? university.sectionText : '어디가 수능위주전형 기준 미공개'}`);
+  .map(([code, university]) => `- ${university.officialName}${university.campus === '본교' ? '' : ` (${university.campus})`}: ${university.status === 'structured_ratio_available' ? `반영비율 공식 표 ${resolvedRatioSupplements[code].ratioTables.length}개` : '수능 미반영·수능위주 미시행 공식 확인'} · ${university.sourceName}`);
 
 const today = new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Seoul' }).format(new Date());
 const report = `# 데이터 커버리지 현황
@@ -234,9 +286,12 @@ ${questionOnlySchools.map(([school, count]) => `- ${school}: ${count}회차`).jo
 
 - 표준화 반영비율: ${ratioSlugs.length}개교 / ${ratioTrackCount}개 전형
 - 2027학년도 어디가 수능위주전형 전체 감사: ${adigaRatioUniversities.length}/${adigaRatios._meta.officialUniversityCount}개 대학·캠퍼스
-- 공식 반영비율 공개: ${adigaRatioStructured.length + adigaRatioText.length}곳 (구조화 표 ${adigaRatioStructured.length}곳 ${adigaRatioTableCount}개 · 공식 텍스트 ${adigaRatioText.length}곳)
-- 수능위주 미시행·기타·공식 비율 미공개: ${adigaRatioCriteriaOnly.length + adigaRatioUnavailable.length}곳
-- 기존 103개교 밖 추가 공식 반영비율: ${adigaAdditionalRatioAvailable.length}/${adigaAdditionalRatioUniversities.length}개 대학코드
+- 어디가 원본 반영비율 공개: ${adigaRatioStructured.length + adigaRatioText.length}곳 (구조화 표 ${adigaRatioStructured.length}곳 ${adigaRatioTableCount}개 · 공식 텍스트 ${adigaRatioText.length}곳)
+- 어디가 원본 미시행·기타·비율 미공개: ${adigaRatioCriteriaOnly.length + adigaRatioUnavailable.length}곳
+- 대학 입학처·공식 자료 보강: ${ratioSupplementUniversities.length}/${adigaRatioUniversities.length - adigaRatioStructured.length - adigaRatioText.length}곳 (구조화 ${ratioSupplementStructured.length}곳 ${ratioSupplementTableCount}개 표 · 수능 미반영·미시행 ${ratioSupplementNoCsat.length}곳)
+- 최종 공식 상태 해소: ${mergedRatioEntries.length}/${adigaRatioUniversities.length}곳 (반영비율 ${mergedRatioStructured.length + mergedRatioText.length}곳 · 수능 미반영·미시행 ${mergedRatioNoCsat.length}곳 · 미해결 ${mergedRatioUnresolved.length}곳)
+- 최종 구조화 표: ${mergedRatioStructured.length}곳 / ${mergedRatioTableCount}개
+- 기존 103개교 밖 추가 공식 상태: 반영비율 ${mergedAdditionalRatioAvailable.length}/${mergedAdditionalRatioUniversities.length}개 대학코드 · 수능 미반영·미시행 ${mergedAdditionalRatioNoCsat.length}개 · 미해결 ${mergedAdditionalRatioUniversities.length - mergedAdditionalRatioAvailable.length - mergedAdditionalRatioNoCsat.length}개
 - 2026학년도 어디가 일반대학 전체 감사: ${adigaUniversities.length}/${adigaCoverage._meta.officialUniversityCount}개 대학·캠퍼스
 - 전체 공식 백분위 70% 평균 공개: ${adigaUniversityNumeric.length}곳 / ${adigaCoverage._meta.officialNumericCutCount}개 모집단위
 - 전체 공식 숫자 미공개: ${adigaUniversityNoNumeric.length}곳
@@ -258,15 +313,16 @@ ${supplementLines.join('\n')}
 
 ${allUnavailableLines.join('\n')}
 
-### 2027학년도 수능위주 미시행·기타·공식 반영비율 미공개
+### 2027학년도 어디가 누락 27곳 공식 보강
 
-${ratioUnavailableLines.join('\n')}
+${ratioSupplementLines.join('\n')}
 
 ## 해석 주의
 
 - 논술 본고사는 대학이 예시답안·해설을 공개하지 않는 경우가 많아, 문제만 있는 회차가 곧 수집 실패를 뜻하지는 않는다.
 - 2027학년도 모의논술은 대학별 공개 일정이 달라 수시로 갱신해야 한다.
-- 2027학년도 공식 반영비율은 220개 대학·캠퍼스를 모두 확인했으며, 27곳은 수능위주 미시행·해당 없음·어디가 미공개 상태다. 대학이 공개한 표는 임의 정규화하지 않고 원문 행열 구조를 보존한다.
+- 2027학년도 어디가 원본에서 비율이 없던 27개 대학·캠퍼스는 대학 입학처 시행계획과 공식 어디가 문구로 모두 보강했다. 반영비율 16곳과 수능 미반영·미시행 11곳으로 분리해 미해결 상태는 0곳이다.
+- 캠퍼스 통합 시행계획과 수시 미충원 이월 전형은 적용 범위를 별도 표기하며, 선택 영역을 임의로 동일 비율로 정규화하지 않는다.
 - 어디가 220개 대학·캠퍼스 중 38곳, 반영비율 대상 103개교 중 9개교는 공식 수치 미공개 또는 미등재 상태다. 대체 척도는 백분위로 변환하지 않는다.
 - 정시 데이터의 원본-사이트 동기화는 \`npm run validate-admissions\`에서 별도 검증한다.
 `;
@@ -274,7 +330,7 @@ ${ratioUnavailableLines.join('\n')}
 console.log(`고1 ${exams.filter(e => e.typeGroup === 'education' && e.studentGrade === 1).length}건 / 고2 ${exams.filter(e => e.typeGroup === 'education' && e.studentGrade === 2).length}건`);
 console.log(`논술 ${essays.length}건 / ${essaySchools.length}개교 / 문제만 ${questionOnly.length}회차 / 2027학년도 ${essays.filter(e => e.gradeYear === 2027).length}건`);
 console.log(`2027 시행대학 전체 이력 ${representedTargetSchools.size}/${essayTarget.expectedUniversityCount}개교 / 2026 기출 ${represented2026TargetSchools.size}/${essayTarget.expectedUniversityCount}개교`);
-console.log(`정시 반영비율 표준화 ${ratioSlugs.length}개교 ${ratioTrackCount}전형 / 2027 어디가 ${adigaRatioUniversities.length}곳 감사 · ${adigaRatioStructured.length + adigaRatioText.length}곳 공개 ${adigaRatioTableCount}표 / 2026 입결 ${adigaUniversityNumeric.length}곳 ${adigaCoverage._meta.officialNumericCutCount}컷`);
+console.log(`정시 반영비율 표준화 ${ratioSlugs.length}개교 ${ratioTrackCount}전형 / 2027 최종 ${mergedRatioEntries.length}곳 해소 · 비율 ${mergedRatioStructured.length + mergedRatioText.length}곳 · 수능 미반영 ${mergedRatioNoCsat.length}곳 · 미해결 ${mergedRatioUnresolved.length}곳 / 2026 입결 ${adigaUniversityNumeric.length}곳 ${adigaCoverage._meta.officialNumericCutCount}컷`);
 if (errors.length) {
   for (const message of errors) console.error(`- ${message}`);
   process.exit(1);

@@ -25,12 +25,13 @@ const expectMeta = (meta, key, actual, label) => {
   if (!matches) err(`${label} ${key}=${JSON.stringify(stored)}, 실제=${JSON.stringify(actual)}`);
 };
 
-const [manualRatios, lookupPayload, manualResults, officialSource, officialRatioSource, publicCoverage] = await Promise.all([
+const [manualRatios, lookupPayload, manualResults, officialSource, officialRatioSource, officialRatioSupplements, publicCoverage] = await Promise.all([
   readJson('data/admissions/manual-ratios.json'),
   readJson('data/admissions/ratios-lookup.json'),
   readJson('data/admissions/manual-results.json'),
   readJson('data/admissions/sources/adiga-regular-2026.json'),
   readJson('data/admissions/sources/adiga-regular-ratios-2027.json'),
+  readJson('data/admissions/sources/regular-ratio-supplements-2027.json'),
   readJson('data/admissions/adiga-coverage-2026.json'),
 ]);
 
@@ -46,6 +47,9 @@ const officialUniversityCodes = Object.keys(officialUniversities);
 const officialRatioMeta = officialRatioSource._meta || {};
 const officialRatioUniversities = officialRatioSource.universities || {};
 const officialRatioCodes = Object.keys(officialRatioUniversities);
+const officialRatioSupplementMeta = officialRatioSupplements._meta || {};
+const officialRatioSupplementUniversities = officialRatioSupplements.universities || {};
+const officialRatioSupplementCodes = Object.keys(officialRatioSupplementUniversities);
 const coverageUniversities = publicCoverage.universities || {};
 
 expectMeta(manualRatios._meta, 'schoolCount', ratioSchools.length, 'manual-ratios');
@@ -231,6 +235,152 @@ expectMeta(officialMeta, 'official2027UniversitiesWithRatioText', ratioStatusCou
 expectMeta(officialMeta, 'official2027UniversitiesWithCriteriaTextOnly', ratioStatusCounts.get('criteria_text_available') || 0, 'adiga-source');
 expectMeta(officialMeta, 'official2027UniversitiesWithoutSelectionCriteria', ratioStatusCounts.get('no_selection_criteria') || 0, 'adiga-source');
 expectMeta(officialMeta, 'official2027StructuredRatioTableCount', fullRatioTableCount, 'adiga-source');
+
+const expectedRatioSupplementCodes = officialRatioCodes
+  .filter(code => ['criteria_text_available', 'no_selection_criteria'].includes(officialRatioUniversities[code]?.status));
+if (!sameJson(sorted(expectedRatioSupplementCodes), sorted(officialRatioSupplementCodes))) {
+  err(`2027 정시 보강 대상 불일치: 원본 미해결 ${expectedRatioSupplementCodes.length}곳, 보강 ${officialRatioSupplementCodes.length}곳`);
+}
+
+const expectedRatioSupplementMeta = {
+  selectionYear: 2027,
+  supplementUniversityCount: 27,
+  structuredRatioUniversityCount: 16,
+  noCsatBasedRegularUniversityCount: 11,
+  resolvedUniversityCount: 27,
+  structuredRatioTableCount: 35,
+  sourceKinds: ['university_admissions', 'adiga_official'],
+};
+for (const [key, value] of Object.entries(expectedRatioSupplementMeta)) {
+  expectMeta(officialRatioSupplementMeta, key, value, 'ratio-supplement');
+}
+if (!/^\d{4}-\d{2}-\d{2}$/.test(officialRatioSupplementMeta.collectedAt || '')) {
+  err('ratio-supplement collectedAt 형식 오류');
+}
+
+const allowedRatioSupplementStatuses = new Set(['structured_ratio_available', 'no_csats_based_regular']);
+const allowedRatioSupplementSourceKinds = new Set(['university_admissions', 'adiga_official']);
+const resolvedRatioSupplements = {};
+const resolvingRatioSupplements = new Set();
+
+function resolveRatioSupplement(code) {
+  if (resolvedRatioSupplements[code]) return resolvedRatioSupplements[code];
+  const supplement = officialRatioSupplementUniversities[code];
+  if (!supplement) return officialRatioUniversities[code];
+  if (resolvingRatioSupplements.has(code)) {
+    err(`ratio-supplement ${code}: inheritFrom 순환`);
+    return null;
+  }
+  resolvingRatioSupplements.add(code);
+  const inherited = supplement.inheritFrom
+    ? (officialRatioSupplementUniversities[supplement.inheritFrom]
+      ? resolveRatioSupplement(supplement.inheritFrom)
+      : officialRatioUniversities[supplement.inheritFrom])
+    : officialRatioUniversities[code];
+  if (supplement.inheritFrom && !inherited) {
+    err(`ratio-supplement ${code}: inheritFrom ${supplement.inheritFrom} 누락`);
+  }
+  const resolved = { ...(inherited || {}), ...supplement };
+  if (!Object.prototype.hasOwnProperty.call(supplement, 'ratioTables')) {
+    resolved.ratioTables = inherited?.ratioTables || [];
+  }
+  if (!Object.prototype.hasOwnProperty.call(supplement, 'sectionText')) {
+    resolved.sectionText = inherited?.sectionText || '';
+  }
+  delete resolved.inheritFrom;
+  resolvingRatioSupplements.delete(code);
+  resolvedRatioSupplements[code] = resolved;
+  return resolved;
+}
+
+const ratioSupplementStatusCounts = new Map();
+let ratioSupplementTableCount = 0;
+for (const code of officialRatioSupplementCodes) {
+  const label = `ratio-supplement universities.${code}`;
+  const supplement = officialRatioSupplementUniversities[code];
+  const rawUniversity = officialRatioUniversities[code];
+  const resolved = resolveRatioSupplement(code);
+  if (!/^\d{7}$/.test(code) || supplement?.unvCd !== code
+    || supplement.officialName !== rawUniversity?.officialName
+    || supplement.campus !== rawUniversity?.campus) {
+    err(`${label}: 대학코드/이름/캠퍼스 불일치`);
+  }
+  if (!allowedRatioSupplementStatuses.has(supplement?.status)) {
+    err(`${label}: status 오류 ${JSON.stringify(supplement?.status)}`);
+  }
+  if (!allowedRatioSupplementSourceKinds.has(supplement?.sourceKind)
+    || typeof supplement?.sourceName !== 'string' || !supplement.sourceName.trim()
+    || typeof supplement?.sourceUrl !== 'string' || !supplement.sourceUrl.startsWith('https://')
+    || !/^\d{4}-\d{2}-\d{2}$/.test(supplement?.checkedAt || '')) {
+    err(`${label}: 공식 출처 또는 확인일 오류`);
+  }
+  if (supplement.inheritFrom && supplement.inheritFrom === code) err(`${label}: 자기 자신 상속`);
+  if (!resolved || typeof resolved.sectionText !== 'string' || !resolved.sectionText.trim()
+    || !Array.isArray(resolved.ratioTables)) {
+    err(`${label}: 해소된 텍스트/표 누락`);
+    continue;
+  }
+  if (supplement.ratioTableCount !== resolved.ratioTables.length) {
+    err(`${label}: ratioTableCount=${supplement.ratioTableCount}, 실제=${resolved.ratioTables.length}`);
+  }
+  if ((supplement.status === 'structured_ratio_available') !== (resolved.ratioTables.length > 0)) {
+    err(`${label}: 구조화 표 status 불일치`);
+  }
+  ratioSupplementStatusCounts.set(supplement.status, (ratioSupplementStatusCounts.get(supplement.status) || 0) + 1);
+  ratioSupplementTableCount += resolved.ratioTables.length;
+
+  for (const [tableIndex, table] of resolved.ratioTables.entries()) {
+    const tableLabel = `${label}.ratioTables[${tableIndex}]`;
+    if (!Array.isArray(table.rows) || !table.rows.length) {
+      err(`${tableLabel}: 빈 표`);
+      continue;
+    }
+    if (Array.isArray(table.headers)) {
+      if (!table.title || !table.headers.length || table.headers.some(header => typeof header !== 'string' || !header.trim())) {
+        err(`${tableLabel}: 보강 표 제목/헤더 오류`);
+      }
+      for (const [rowIndex, row] of table.rows.entries()) {
+        if (!Array.isArray(row) || row.length !== table.headers.length
+          || row.some(cell => typeof cell !== 'string')) {
+          err(`${tableLabel}.rows[${rowIndex}]: 헤더 수와 다른 행 또는 문자열 아닌 셀`);
+        }
+      }
+      if (table.note !== undefined && typeof table.note !== 'string') err(`${tableLabel}: note 오류`);
+    } else {
+      for (const [rowIndex, row] of table.rows.entries()) {
+        if (!Array.isArray(row) || !row.length) {
+          err(`${tableLabel}.rows[${rowIndex}]: 빈 행`);
+          continue;
+        }
+        for (const [cellIndex, cell] of row.entries()) {
+          if (typeof cell?.text !== 'string' || typeof cell?.header !== 'boolean'
+            || !Number.isInteger(cell?.rowspan) || cell.rowspan < 1 || cell.rowspan > 100
+            || !Number.isInteger(cell?.colspan) || cell.colspan < 1 || cell.colspan > 100) {
+            err(`${tableLabel}.rows[${rowIndex}][${cellIndex}]: 상속 표 셀 구조 오류`);
+          }
+        }
+      }
+    }
+  }
+}
+
+expectMeta(officialRatioSupplementMeta, 'supplementUniversityCount', officialRatioSupplementCodes.length, 'ratio-supplement');
+expectMeta(officialRatioSupplementMeta, 'structuredRatioUniversityCount', ratioSupplementStatusCounts.get('structured_ratio_available') || 0, 'ratio-supplement');
+expectMeta(officialRatioSupplementMeta, 'noCsatBasedRegularUniversityCount', ratioSupplementStatusCounts.get('no_csats_based_regular') || 0, 'ratio-supplement');
+expectMeta(officialRatioSupplementMeta, 'resolvedUniversityCount', Object.keys(resolvedRatioSupplements).length, 'ratio-supplement');
+expectMeta(officialRatioSupplementMeta, 'structuredRatioTableCount', ratioSupplementTableCount, 'ratio-supplement');
+
+const mergedRatioUniversities = { ...officialRatioUniversities, ...resolvedRatioSupplements };
+const mergedRatioEntries = Object.values(mergedRatioUniversities);
+const mergedRatioStructured = mergedRatioEntries.filter(university => university.status === 'structured_ratio_available');
+const mergedRatioText = mergedRatioEntries.filter(university => university.status === 'ratio_text_available');
+const mergedRatioNoCsat = mergedRatioEntries.filter(university => university.status === 'no_csats_based_regular');
+const mergedRatioUnresolved = mergedRatioEntries.filter(university => ['criteria_text_available', 'no_selection_criteria'].includes(university.status));
+const mergedRatioTableCount = mergedRatioEntries.reduce((sum, university) => sum + (university.ratioTables?.length || 0), 0);
+if (mergedRatioEntries.length !== 220 || mergedRatioStructured.length !== 192 || mergedRatioText.length !== 17
+  || mergedRatioNoCsat.length !== 11 || mergedRatioUnresolved.length !== 0 || mergedRatioTableCount !== 426) {
+  err(`2027 정시 최종 해소 상태: 전체 ${mergedRatioEntries.length} · 구조화 ${mergedRatioStructured.length} · 텍스트 ${mergedRatioText.length} · 수능 미반영 ${mergedRatioNoCsat.length} · 미해결 ${mergedRatioUnresolved.length} · 표 ${mergedRatioTableCount}`);
+}
 
 const allowedSchoolStatuses = new Set(['numeric_cut_available', 'no_numeric_cut', 'no_rows', 'not_listed_in_adiga']);
 const allowedSupplementStatuses = new Set([
@@ -474,6 +624,7 @@ expectMeta(manualResults._meta, 'official2026CoverageFile', 'data/admissions/adi
 console.log(`정시 반영비율: ${ratioSchools.length}개교 / ${manualTrackCount}개 전형`);
 console.log(`정시 70%컷: ${resultSchools.length}개교 / ${resultUnitCount}개 모집단위`);
 console.log(`2027 어디가 반영비율 감사: ${officialRatioCodes.length}/${officialRatioMeta.officialUniversityCount}개 대학·캠퍼스 · 공식 비율 ${((ratioStatusCounts.get('structured_ratio_available') || 0) + (ratioStatusCounts.get('ratio_text_available') || 0))}곳 · 구조화 표 ${fullRatioTableCount}개 · 미시행·기타·미공개 ${((ratioStatusCounts.get('criteria_text_available') || 0) + (ratioStatusCounts.get('no_selection_criteria') || 0))}곳`);
+console.log(`2027 공식 보강 후: 반영비율 ${mergedRatioStructured.length + mergedRatioText.length}곳 · 수능 미반영·미시행 ${mergedRatioNoCsat.length}곳 · 미해결 ${mergedRatioUnresolved.length}곳 · 구조화 표 ${mergedRatioTableCount}개`);
 console.log(`2026 어디가 전체 감사: ${officialUniversityCodes.length}/${officialMeta.officialUniversityCount}개 대학·캠퍼스 · 숫자 ${fullNumericUniversityCount}곳 ${fullOfficialUnitCount}건 · 미공개 ${officialUniversityCodes.length - fullNumericUniversityCount}곳`);
 console.log(`2026 어디가 공식 감사: ${officialSlugs.length}/${ratioSchools.length}개교 · 숫자 ${numericSchoolCount}개교 ${officialUnitCount}건 · 미공개 ${officialSlugs.length - numericSchoolCount}개교`);
 console.log(`연도별 입결 학교 수: ${Object.entries(resultYearSchools).sort().map(([year, count]) => `${year}=${count}`).join(', ')}`);
