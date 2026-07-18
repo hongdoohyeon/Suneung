@@ -50,7 +50,7 @@ const $ = id => document.getElementById(id);
 // 모든 필터 상태를 URL searchParams 에 반영해 뒤로가기·새로고침·링크 공유 시 복원.
 // 다중 선택은 쉼표로 직렬화. "all"·빈 상태는 URL에서 키 자체를 제거해 짧게 유지.
 
-const URL_KEYS = ['tab','typeGroup','type','gradeYear','subject','subSubject','q','page'];
+const URL_KEYS = ['tab','typeGroup','type','gradeYear','subject','subSubject','q','search','page'];
 
 function serializeMulti(v) {
   if (v === 'all' || v == null) return '';
@@ -335,6 +335,8 @@ $('curriculumTabs').addEventListener('click', async e => {
   state.tab = btn.dataset.tab;
   resetFilters();
   state.yearExpanded = false;
+  $('searchInput').value = '';
+  $('clearSearch').style.display = 'none';
 
   if (tabIsSingleType()) {
     state.typeGroup = tabAvailableTypeGroups()[0];
