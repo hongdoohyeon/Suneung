@@ -306,6 +306,7 @@ for (const r of jinhakGradecuts) {
     continue;
   }
   rec.rawCuts = r.rawCuts;
+  rec.rawCutsEstimated = true;
   if (r.fullScore != null) rec.fullScore = r.fullScore;
   if (r.source && !hasSourceTag(rec.source, r.source)) {
     rec.source = rec.source ? `${rec.source}+${r.source}` : r.source;
@@ -325,6 +326,7 @@ for (const r of kiceArchive) {
   }
   if (Array.isArray(r.rawCuts) && r.rawCuts.some(v => v != null) && isMonotonicCuts(r.rawCuts)) {
     rec.rawCuts = r.rawCuts;
+    delete rec.rawCutsEstimated;
     kiceArchiveRawApplied++;
   }
   rec.source = rec.source ? `${rec.source}+${r.source}` : r.source;
@@ -490,6 +492,9 @@ for (const rec of expanded) {
 //    ≤만점은 보지 않는다(직업탐구 등 fullScore 메타 오설정과 무관히 값은 유효할 수 있음).
 let rawDropped = 0;
 for (const rec of expanded) {
+  if (rec.rawCutsEstimated === true && !String(rec.source || '').includes('jinhak-7agency-avg')) {
+    delete rec.rawCutsEstimated;
+  }
   const c = rec.rawCuts;
   if (!Array.isArray(c)) continue;
   const nn = c.filter(v => v != null && Number.isFinite(v));

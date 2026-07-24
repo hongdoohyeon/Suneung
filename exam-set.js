@@ -3,6 +3,8 @@ import { CURRICULUM_CONFIG, getTypeConf, prettySub, legacyTabKey } from './confi
 import { $, escHtml, escAttr, safeUrl } from './lib/dom.js?v=20260713a';
 import { setMeta, setMetaProp, setCanonical, injectJsonLd as _injectJsonLd } from './lib/seo.js?v=20260713a';
 import { renderAllAdSlots } from './lib/ads.js?v=20260713a';
+import { enableForcedDownloads } from './lib/download.js?v=20260724a';
+enableForcedDownloads();
 const injectJsonLd = (p) => _injectJsonLd('jsonld-set', p);
 const SET_CURR_SLUG = {
   '2015':'kice','2009':'kice','예비':'kice','2007개정':'pre2009','7차':'pre2009','6차':'pre2009','pre2009':'pre2009',

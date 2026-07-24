@@ -3,7 +3,7 @@ import { CURRICULUM_CONFIG, EXAM_TYPE_CONFIG, getTypeConf, prettySub } from './c
 import { renderAllAdSlots } from './lib/ads.js?v=20260713a';
 import { mountLineup } from './lib/lineup-mount.js?v=20260713a';
 
-const DATA_URL = 'data/gradecuts.json?v=20260713a';
+const DATA_URL = 'data/gradecuts.json?v=20260725a';
 const $ = id => document.getElementById(id);
 
 // 모의지원에서 지원하는 커리큘럼 목록.
@@ -279,6 +279,7 @@ function slotHTML(subj, slotIdx, subjConf, isMulti) {
         <span class="subj-result__suffix">등급</span>
         ${pct != null ? `<span class="subj-result__sep">·</span>
         <span class="subj-result__pct">상위 ${pct.toFixed(1)}%</span>` : ''}
+        ${cut.rawCutsEstimated ? '<span class="subj-result__estimate">예상컷 평균</span>' : ''}
       </div>
       ${miniBarHTML(cut.rawCuts, slot.score, grade, fullScore)}
     `;
@@ -647,6 +648,7 @@ function refreshSlotResult(subj, idx) {
         <span class="subj-result__grade" style="color:${GRADE_COLORS[grade - 1]}">${grade}</span>
         <span class="subj-result__suffix">등급</span>
         ${pctHTML}
+        ${cut.rawCutsEstimated ? '<span class="subj-result__estimate">예상컷 평균</span>' : ''}
       </div>
       ${miniBarHTML(cut.rawCuts, slot.score, grade, fullScore)}
     `);

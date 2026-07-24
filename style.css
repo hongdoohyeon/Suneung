@@ -208,18 +208,20 @@ a { color: inherit; text-decoration: none; }
   gap: 10px;            /* 그룹 사이 간격 — 18px → 10px (sep 포함 약 21px) */
   padding-bottom: 8px;
   padding-top: 8px;
-  overflow-x: hidden;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: x proximity;
   min-width: 0;
 }
+.curriculum-nav__inner::-webkit-scrollbar { display: none; }
 
 .nav-group {
   display: flex;
   flex-direction: column;
   gap: 4px;
-  /* 그룹은 자신의 콘텐츠 폭만 차지 (자라지 않음).
-     폭이 부족하면 줄어들면서 안에서 가로 스와이프. */
-  flex: 0 1 auto;
-  min-width: 0;
+  flex: 0 0 auto;
 }
 .nav-group__label {
   font-size: 10px;
@@ -233,12 +235,7 @@ a { color: inherit; text-decoration: none; }
 .nav-group__tabs {
   display: flex;
   gap: 4px;
-  /* 그룹 단위 가로 스크롤 — 메인탭/분류탭 스와이프 분리 */
-  overflow-x: auto;
-  overflow-y: hidden;
-  scrollbar-width: none;
-  -webkit-overflow-scrolling: touch;
-  scroll-snap-type: x proximity;
+  overflow: visible;
 }
 .nav-group__tabs::-webkit-scrollbar { display: none; }
 .nav-group__tabs > .nav-tab { scroll-snap-align: start; }
@@ -1995,7 +1992,7 @@ body.is-sheet-open { overflow: hidden; touch-action: none; }
 
   /* 카테고리 탭: 두 줄(title+sub) → 한 줄(title만) + 가로 스크롤 fade 강화
      padding-top/bottom 0 → height(44px) + align-items: center 로 자동 중앙 */
-  .curriculum-nav__inner { gap: 8px; padding: 0 14px; align-items: center; }
+  .curriculum-nav__inner { gap: 8px; padding: 0 14px; align-items: center; scroll-padding-inline: 14px; }
   .nav-group         { flex-direction: row; align-items: center; gap: 2px; }
   .nav-group__label  { display: none; }
   .nav-group__tabs   { gap: 2px; }
@@ -2005,6 +2002,21 @@ body.is-sheet-open { overflow: hidden; touch-action: none; }
   .nav-sep           { margin: 0; height: 14px; align-self: center; }
   /* 가로 스크롤 끝 fade를 좀 더 두껍게 — 잘림이 아닌 스크롤임을 시각적으로 알림 */
   .curriculum-nav::after { width: 28px; }
+
+  /* 검색 첫 화면은 설명보다 검색·필터를 우선한다. */
+  .page-archive .page-header__inner {
+    min-height: 48px;
+    padding: 10px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+  }
+  .page-archive .page-header__title { margin: 0; font-size: 18px; flex: 0 0 auto; }
+  .page-archive .page-header__sub { display: none; }
+  .page-archive .page-header__meta { margin: 0; max-height: none; font-size: 11px; }
+  .page-archive .page-header__meta span:last-child { display: none; }
+  .page-archive .toolbar__right .count { display: none; }
 }
 
 /* 모바일 터치 타겟 44×44 보장 — Apple/Google HIG 권장 */
@@ -2303,6 +2315,16 @@ body.is-sheet-open { overflow: hidden; touch-action: none; }
 /* 다운로드 버튼들 — 사이드바 폭에 맞춰 가로로 균등 분배 */
 .exam__actions  { display: flex; flex-wrap: wrap; gap: 8px; }
 .exam__actions .btn { flex: 1 1 0; min-height: 38px; }
+.subj-result__estimate {
+  margin-left: 6px;
+  padding: 2px 6px;
+  border-radius: 999px;
+  background: #fff3cd;
+  color: #765400;
+  font-size: 10px;
+  font-weight: 700;
+  white-space: nowrap;
+}
 
 /* 영어 듣기 mp3 — 사이드바 inline player */
 .exam__listen {
@@ -2862,6 +2884,8 @@ body.is-sheet-open { overflow: hidden; touch-action: none; }
   .exam__side {
     position: static;
     gap: 10px;
+    width: 100%;
+    align-self: stretch;
     order: 1;        /* 메타·다운로드 버튼 먼저 */
   }
   .exam__main { order: 2; }   /* PDF 미리보기 그 아래 */
@@ -2887,11 +2911,15 @@ body.is-sheet-open { overflow: hidden; touch-action: none; }
   .preview__page   { width: 100%; max-width: 100%; }
   /* SEO 인트로 모바일에서 너무 길면 2줄 클램프 */
   .exam__seo-intro {
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
+    display: none;
   }
+  .exam__crumb {
+    overflow-x: auto;
+    white-space: nowrap;
+    scrollbar-width: none;
+  }
+  .exam__crumb::-webkit-scrollbar { display: none; }
+  .exam__back { flex: 0 0 auto; }
   /* 모바일에선 PDF가 viewport 세로 거의 다 차지하면 답답하니 cap 완화 */
   .preview__page { max-height: none; }
   /* 탭은 모바일에서 가로형 + 스크롤 시에도 보이도록 sticky */

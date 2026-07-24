@@ -268,6 +268,8 @@ async function validateGradecuts() {
   catch (e) { err(`gradecuts.json 파싱 실패: ${e.message}`); return; }
   if (!Array.isArray(cuts)) { err('gradecuts.json 은 배열이어야 함'); return; }
   let badRaw = 0;
+  let unlabeledEstimate = 0;
+  let invalidEstimateLabel = 0;
   const samples = [];
   for (const c of cuts) {
     const r = c.rawCuts;
@@ -280,12 +282,24 @@ async function validateGradecuts() {
       badRaw++;
       if (samples.length < 10) samples.push(`id=${c.id} ${c.subject}${c.subSubject ? '/' + c.subSubject : ''} ${c.gradeYear} ${c.type} [${r.join(',')}]`);
     }
+    if (r.some(v => Number.isFinite(v) && !Number.isInteger(v)) && c.rawCutsEstimated !== true) {
+      unlabeledEstimate++;
+    }
+    if (c.rawCutsEstimated === true && !String(c.source || '').includes('jinhak-7agency-avg')) {
+      invalidEstimateLabel++;
+    }
   }
   if (badRaw > 0) {
     warn(`gradecuts rawCuts 손상(비단조/결손) ${badRaw}건 — 손상 데이터 (build-gradecuts.mjs 위생가드로 제거되어야 함)`);
     for (const s of samples) warns.push('  ' + s);
   } else {
     console.log(`gradecuts rawCuts 위생: 손상 0건`);
+  }
+  if (unlabeledEstimate > 0) {
+    err(`gradecuts 소수 원점수 컷 ${unlabeledEstimate}건에 rawCutsEstimated=true 표시가 없음`);
+  }
+  if (invalidEstimateLabel > 0) {
+    err(`gradecuts 예상컷 표시 ${invalidEstimateLabel}건의 출처가 jinhak-7agency-avg가 아님`);
   }
 }
 

@@ -284,6 +284,7 @@
     ],
     "fullScore": 100,
     "source": "ebsi-scv-202606043+jinhak-7agency-avg-20260605",
+    "rawCutsEstimated": true,
     "id": 9,
     "rawCuts": [
       95,
@@ -317,6 +318,7 @@
     ],
     "fullScore": 100,
     "source": "ebsi-scv-202606043+jinhak-7agency-avg-20260605",
+    "rawCutsEstimated": true,
     "id": 10,
     "rawCuts": [
       96.5,
@@ -647,6 +649,7 @@
     ],
     "fullScore": 100,
     "source": "ebsi-scv-202606043+jinhak-7agency-avg-20260605",
+    "rawCutsEstimated": true,
     "id": 20,
     "rawCuts": [
       88.5,
@@ -680,6 +683,7 @@
     ],
     "fullScore": 100,
     "source": "ebsi-scv-202606043+jinhak-7agency-avg-20260605",
+    "rawCutsEstimated": true,
     "id": 21,
     "rawCuts": [
       87.5,
@@ -713,6 +717,7 @@
     ],
     "fullScore": 100,
     "source": "ebsi-scv-202606043+jinhak-7agency-avg-20260605",
+    "rawCutsEstimated": true,
     "id": 22,
     "rawCuts": [
       91.5,

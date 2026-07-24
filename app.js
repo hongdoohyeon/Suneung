@@ -1,4 +1,6 @@
 'use strict';
+import { enableForcedDownloads } from './lib/download.js?v=20260724a';
+enableForcedDownloads();
 import {
   CURRICULUM_CONFIG, EXAM_TYPE_CONFIG, TAB_CONFIG,
   getTypeConf, getGroupConf, getTabConf, legacyTabKey, prettySub,

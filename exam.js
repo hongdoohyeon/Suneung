@@ -4,9 +4,12 @@ import { escHtml as _escHtml, escAttr, safeUrl as _safeUrl, $ as _$ } from './li
 import { setMeta, setMetaProp, setCanonical, injectJsonLd as _injectJsonLd, applySeo } from './lib/seo.js?v=20260713a';
 import { renderAllAdSlots } from './lib/ads.js?v=20260713a';
 import { renderPdf, renderUnsupported, renderEmpty, urlExtension } from './lib/exam-pdf.js?v=20260713a';
-import { renderGradeDist } from './lib/exam-gradedist.js?v=20260713a';
+import { renderGradeDist } from './lib/exam-gradedist.js?v=20260725a';
 import { pushRecent } from './lib/recent.js?v=20260713a';
 import { shareLink } from './lib/share.js?v=20260713a';
+import { enableForcedDownloads } from './lib/download.js?v=20260724a';
+
+enableForcedDownloads();
 
 // 공통 헬퍼는 lib/dom.js, lib/seo.js 에서 import. 로컬 별칭만 유지 (호환성).
 const $ = _$;
@@ -334,9 +337,13 @@ async function main() {
 
   // 시험/등급컷 split은 서로 독립이므로 병렬 요청한다.
   let exam = null, gradecuts = [];
+  const isStaticExam = /\/exam-\d+\.html$/.test(location.pathname);
+  const shouldFetchGradecut = !isStaticExam || document.body.classList.contains('has-gradecut');
   const [examResult, cutResult] = await Promise.allSettled([
     fetch(`data/exam/${id}.json?v=20260713a`).then(async res => res.ok ? res.json() : null),
-    fetch(`data/gradecut/${id}.json?v=20260713a`).then(async res => res.ok ? res.json() : null),
+    shouldFetchGradecut
+      ? fetch(`data/gradecut/${id}.json?v=20260725a`).then(async res => res.ok ? res.json() : null)
+      : Promise.resolve(null),
   ]);
   if (examResult.status === 'fulfilled') exam = examResult.value;
   if (cutResult.status === 'fulfilled' && cutResult.value) gradecuts = [cutResult.value];

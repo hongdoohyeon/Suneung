@@ -25,7 +25,7 @@ const SECURITY_HEADERS = {
     "style-src 'self' 'unsafe-inline'",
     "font-src 'self' data:",
     "img-src 'self' data: https:",
-    "connect-src 'self' https://suneung-files.hdh061224.workers.dev https://cloudflareinsights.com https://www.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com https://www.google.com",
+    "connect-src 'self' https://suneung-files.hdh061224.workers.dev https://wdown.ebsi.co.kr https://cloudflareinsights.com https://www.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com https://www.google.com",
     "media-src 'self' https://suneung-files.hdh061224.workers.dev",
     "worker-src 'self' blob:",
     "object-src 'none'",
