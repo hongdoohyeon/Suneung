@@ -1070,14 +1070,14 @@ def build_static_exam_pages(items: list[dict], template_path: Path, out_root: Pa
         if _c.get('studentGrade') is None:
             _cut_idx_none.setdefault(_k, _c)
 
-    def _grade_table_html(raw: list, full, absolute: bool, estimated: bool = False) -> str:
+    def _grade_table_html(raw: list, full, absolute: bool, basis: str | None = None) -> str:
         th = ''.join(f'<th class="grade-table__h grade-table__h--g{g}" scope="col">{g}</th>' for g in _GRADES)
         td = ''.join(
             '<td class="grade-table__c grade-table__c--g{0}">{1}</td>'.format(
                 i + 1, '—' if (i >= len(raw) or raw[i] is None) else raw[i])
             for i in range(9))
         cap = ('등급별 원점수 컷 · 절대평가' if absolute else
-               '등급별 원점수 컷' + (' · 7개 기관 예상컷 평균' if estimated else '')) + (f' · 만점 {full}점' if full else '')
+               '등급별 원점수 컷' + (' · 입시기관 역산값' if basis == 'academy_reverse_calculated' else '')) + (f' · 만점 {full}점' if full else '')
         return (
             '<table class="grade-table" role="table" aria-label="등급별 원점수 컷">'
             '<thead><tr><th class="grade-table__corner" scope="col">등급</th>' + th + '</tr></thead>'
@@ -1356,14 +1356,14 @@ def build_static_exam_pages(items: list[dict], template_path: Path, out_root: Pa
             html = html.replace('<body class="page-exam">',
                                 '<body class="page-exam has-gradecut">', 1)
             _raw = _cut['rawCuts']
-            _estimated = bool(_cut.get('rawCutsEstimated'))
+            _basis = _cut.get('rawCutBasis')
             _tbl = _grade_table_html(_raw, _cut.get('fullScore') or 100,
-                                     bool(_cut.get('absolute')), _estimated)
+                                     bool(_cut.get('absolute')), _basis)
             html = html.replace(
                 '<div class="exam-card__body" id="gradeDistBody"></div>',
                 '<div class="exam-card__body" id="gradeDistBody">' + _tbl + '</div>', 1)
             if _raw and _raw[0] is not None:
-                _hint = f'1등급 {"예상컷 평균" if _estimated else "컷"} {_raw[0]}점' + (' · 절대평가' if _cut.get('absolute') else '')
+                _hint = f'1등급 {"역산값" if _basis == "academy_reverse_calculated" else "컷"} {_raw[0]}점' + (' · 절대평가' if _cut.get('absolute') else '')
                 html = html.replace(
                     '<span class="exam-card__hint" id="gradeDistHint"></span>',
                     '<span class="exam-card__hint" id="gradeDistHint">' + html_escape(_hint, quote=False) + '</span>', 1)
