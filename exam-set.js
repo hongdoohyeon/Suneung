@@ -63,7 +63,7 @@ function buildSubtitle(curriculum, type) {
 function cardHTML(exam) {
   const conf = CURRICULUM_CONFIG[exam.curriculum];
   const subjConf = conf?.subjects?.[exam.subject] ?? { color: '#9ca3af', bg: 'var(--surface-2)' };
-  const hasFile = Boolean(exam.questionUrl || exam.answerUrl);
+  const hasFile = Boolean(exam.questionUrl || exam.answerUrl || exam.solutionUrl);
 
   const title    = exam.subSubject ? prettySub(exam.subSubject) : exam.subject;
   const subtitle = exam.subSubject ? exam.subject : '';
@@ -78,7 +78,7 @@ function cardHTML(exam) {
     ? `<a class="btn btn--primary" href="${escAttr(qUrl)}" ${dl(exam.questionDownload)}>문제지</a>`
     : `<button class="btn btn--primary" disabled>문제지</button>`;
   const aBtn = aUrl
-    ? `<a class="btn" href="${escAttr(aUrl)}" ${dl(exam.answerDownload)}>정답</a>`
+    ? `<a class="btn" href="${escAttr(aUrl)}" ${dl(exam.answerDownload)}>${exam.answerIncludesSolution ? '정답·해설' : '정답'}</a>`
     : `<button class="btn" disabled>정답</button>`;
   const sBtn = sUrl
     ? `<a class="btn" href="${escAttr(sUrl)}" ${dl(exam.solutionDownload)}>해설</a>`
@@ -121,7 +121,12 @@ function renderHead(curriculum, gradeYear, type, items) {
   $('examsetSub').textContent   = sub;
   document.title = `${title} — 기출해체분석기`;
   // ── SEO 동적 메타 ──
-  const desc = `${title} 모든 영역(${items.length}개) 문제지·정답 PDF를 한 페이지에서.`;
+  const docLabels = [
+    items.some(it => it.questionUrl) && '문제지',
+    items.some(it => it.answerUrl && !it.answerIncludesSolution) && '정답',
+    items.some(it => it.answerIncludesSolution || it.solutionUrl) && '해설',
+  ].filter(Boolean);
+  const desc = `${title} 모든 영역(${items.length}개) ${docLabels.join('·')} PDF를 한 페이지에서.`;
   setMeta('description', desc);
   setMetaProp('og:title', `${title} — 기출해체분석기`);
   setMetaProp('og:description', desc);
@@ -195,7 +200,7 @@ async function main() {
   // 친화 URL은 빌드 시 완전한 카드가 SSG되어 있다. 네트워크·재렌더 없이 그대로 사용.
   if (friendlyMatch && $('examsetGrid')?.children.length) return;
   const stem = friendlyMatch?.[1] || splitStem(curriculum, yearRaw, type, studentGrade);
-  const sources = [`data/set/${stem}.json?v=20260713a`, 'data/exams.json?v=20260713a'];
+  const sources = [`data/set/${stem}.json?v=20260725c`, 'data/exams.json?v=20260725c'];
   for (const source of sources) {
     try {
       const res = await fetch(source);

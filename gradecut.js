@@ -1,9 +1,8 @@
 'use strict';
 import { CURRICULUM_CONFIG, EXAM_TYPE_CONFIG, getTypeConf, prettySub } from './config.js?v=20260713a';
 import { renderAllAdSlots } from './lib/ads.js?v=20260713a';
-import { mountLineup } from './lib/lineup-mount.js?v=20260713a';
 
-const DATA_URL = 'data/gradecuts.json?v=20260725a';
+const DATA_URL = 'data/gradecuts.json?v=20260725c';
 const $ = id => document.getElementById(id);
 
 // 모의지원에서 지원하는 커리큘럼 목록.
@@ -12,9 +11,6 @@ const $ = id => document.getElementById(id);
 const GC_CURRICULA = ['2015'];
 
 // ── 상수 ───────────────────────────────────────────────────
-// 9등급 누적 백분율 경계
-const PCT_BOUNDARIES = [0, 4, 11, 23, 40, 60, 77, 89, 96, 100];
-
 // 등급별 색상 (1=초록 → 9=적색)
 const GRADE_COLORS = [
   '#0c5e3f', '#15803d', '#65a30d', '#ca8a04',
@@ -240,8 +236,6 @@ function slotHTML(subj, slotIdx, subjConf, isMulti) {
   const cut      = findCut(subj, slot.subSubject);
   const fullScore= cut?.fullScore ?? defaultFullScore(subj);
   const grade    = (slot.score != null && cut) ? computeGrade(slot.score, cut.rawCuts) : null;
-  // 절대평가(영어/한국사)는 백분위 개념 자체가 없음 — UI에서 숨김.
-  const pct      = (grade != null && !cut?.absolute) ? computePercentile(slot.score, grade, cut.rawCuts, fullScore) : null;
 
   // 같은 영역 다른 슬롯에서 선택한 sub은 중복 방지로 비활성화
   const otherSlot = isMulti ? getSlot(subj, slotIdx === 0 ? 1 : 0) : null;
@@ -277,15 +271,13 @@ function slotHTML(subj, slotIdx, subjConf, isMulti) {
       <div class="subj-slot__result">
         <span class="subj-result__grade" style="color:${GRADE_COLORS[grade - 1]}">${grade}</span>
         <span class="subj-result__suffix">등급</span>
-        ${pct != null ? `<span class="subj-result__sep">·</span>
-        <span class="subj-result__pct">상위 ${pct.toFixed(1)}%</span>` : ''}
-        ${cut.rawCutsEstimated ? '<span class="subj-result__estimate">예상컷 평균</span>' : ''}
+        <span class="subj-result__estimate">${cutBasisLabel(cut)}</span>
       </div>
       ${miniBarHTML(cut.rawCuts, slot.score, grade, fullScore)}
     `;
   } else if (slot.subSubject || !hasSubs) {
     if (slot.score != null && !cut) {
-      resultHTML = `<div class="subj-slot__hint">해당 영역의 등급컷 데이터가 없습니다</div>`;
+      resultHTML = `<div class="subj-slot__hint">${unavailableCutMessage(subj, slot.subSubject)}</div>`;
     }
   }
 
@@ -347,11 +339,29 @@ function findCut(subject, subSubject) {
     if ((c.subSubject ?? null) !== (subSubject ?? null)) return false;
     // 모의지원 = 고3. 학평 cut 은 studentGrade=3 만 (없으면 평가원이라 무시).
     if (c.typeGroup === 'education' && (c.studentGrade ?? 3) !== 3) return false;
-    // rawCuts 8개 모두 유효해야 등급/백분위 계산 가능. 미완성 데이터 = NaN% 원인.
+    // rawCuts 8개 모두 유효해야 등급 계산 가능.
     if (!Array.isArray(c.rawCuts) || c.rawCuts.length < 8) return false;
     if (c.rawCuts.some(v => v == null || !Number.isFinite(v))) return false;
     return true;
   }) ?? null;
+}
+
+function findCutMeta(subject, subSubject) {
+  return state.cuts.find(c =>
+    c.curriculum === state.curriculum
+    && c.gradeYear === state.gradeYear
+    && c.type === state.type
+    && c.subject === subject
+    && (c.subSubject ?? null) === (subSubject ?? null)
+    && (c.typeGroup !== 'education' || (c.studentGrade ?? 3) === 3)
+  ) ?? null;
+}
+
+function unavailableCutMessage(subject, subSubject) {
+  const meta = findCutMeta(subject, subSubject);
+  return meta?.rawCutStatus === 'official_raw_unavailable'
+    ? '단일 공식 원점수 컷이 없어 추정값은 표시하지 않습니다'
+    : '해당 영역의 등급컷 데이터가 없습니다';
 }
 
 // ── 계산 ──────────────────────────────────────────────────
@@ -360,15 +370,13 @@ function computeGrade(score, cuts) {
   return 9;
 }
 
-function computePercentile(score, grade, cuts, fullScore) {
-  const lower = grade === 9 ? 0          : cuts[grade - 1];
-  const upper = grade === 1 ? fullScore  : cuts[grade - 2];
-  const lo    = PCT_BOUNDARIES[grade - 1];
-  const hi    = PCT_BOUNDARIES[grade];
-  const range = upper - lower;
-  if (range <= 0) return hi;
-  const ratio = (score - lower) / range;
-  return hi - ratio * (hi - lo);
+function cutBasisLabel(cut) {
+  if (cut.rawCutsEstimated) return '7개 기관 예상컷 평균';
+  if (cut.absolute) return '절대평가 고정 기준';
+  const source = String(cut.source || '');
+  if (source.includes('ebsi')) return 'EBSi 공개컷';
+  if (/(megastudy|etoos|crux|exammoa)/.test(source)) return '입시기관 공개컷';
+  return '공개 등급컷';
 }
 
 // ── 종합 분석 ─────────────────────────────────────────────
@@ -376,7 +384,7 @@ function renderTotal() { renderProgressMaybe(); _renderTotal(); }
 function renderProgressMaybe() { try { renderProgress(); } catch {} }
 function _renderTotal() {
   const conf = currConf();
-  const entries = [];   // { subject, slotIdx, subSubject, score, grade, pct, fullScore, color, cut }
+  const entries = [];
   for (const subj of Object.keys(conf.subjects)) {
     const slots = slotsFor(subj);
     for (let i = 0; i < slots; i++) {
@@ -386,10 +394,9 @@ function _renderTotal() {
       if (!cut) continue;
       const fullScore = cut.fullScore ?? defaultFullScore(subj);
       const grade = computeGrade(slot.score, cut.rawCuts);
-      const pct   = cut.absolute ? null : computePercentile(slot.score, grade, cut.rawCuts, fullScore);
       entries.push({
         subject: subj, slotIdx: i, subSubject: slot.subSubject, score: slot.score,
-        grade, pct, fullScore, color: GRADE_COLORS[grade - 1],
+        grade, fullScore, color: GRADE_COLORS[grade - 1], basis: cutBasisLabel(cut),
       });
     }
   }
@@ -397,22 +404,14 @@ function _renderTotal() {
   const card = $('gcTotalCard');
   if (entries.length === 0) {
     card.style.display = 'none';
-    mountLineup([]);
     return;
   }
   card.style.display = 'block';
-  mountLineup(entries);
 
   $('gcTotalHint').textContent = `${entries.length}개 영역 입력`;
 
   const avgGrade = entries.reduce((s, e) => s + e.grade, 0) / entries.length;
-  // 절대평가(영어·한국사)는 pct=null — 평균/표시에서 제외(null 전파로 NaN·TypeError 방지).
-  const pctEntries = entries.filter(e => e.pct != null);
-  const avgPct = pctEntries.length
-    ? pctEntries.reduce((s, e) => s + e.pct, 0) / pctEntries.length
-    : null;
   $('gcAvgGrade').textContent = avgGrade.toFixed(2);
-  $('gcAvgPct').textContent   = avgPct == null ? '—' : `${avgPct.toFixed(1)}%`;
 
   // 영역별 막대 (등급 시각화)
   $('gcTotalBars').innerHTML = entries.map(e => {
@@ -425,7 +424,7 @@ function _renderTotal() {
         </div>
         <div class="total-bar__meta">
           <span class="total-bar__grade" style="color:${e.color};">${e.grade}등급</span>
-          <span class="total-bar__pct">${e.pct == null ? '절대평가' : `상위 ${e.pct.toFixed(1)}%`}</span>
+          <span class="total-bar__pct">${e.basis}</span>
         </div>
       </div>
     `;
@@ -623,7 +622,7 @@ function refreshSlot(subj, idx) {
   }
 }
 
-// 점수 입력 시: input은 건드리지 않고 결과 영역(등급/백분위/그래프)만 갱신
+// 점수 입력 시: input은 건드리지 않고 결과 영역(등급/그래프)만 갱신
 function refreshSlotResult(subj, idx) {
   const slotEl = document.querySelector(`[data-slot-key="${slotKey(subj, idx)}"]`);
   if (!slotEl) return;
@@ -639,16 +638,11 @@ function refreshSlotResult(subj, idx) {
 
   if (cut && slot.score != null) {
     const grade = computeGrade(slot.score, cut.rawCuts);
-    const pct   = cut.absolute ? null : computePercentile(slot.score, grade, cut.rawCuts, fullScore);
-    const pctHTML = pct != null
-      ? `<span class="subj-result__sep">·</span><span class="subj-result__pct">상위 ${pct.toFixed(1)}%</span>`
-      : '';
     const frag  = document.createRange().createContextualFragment(`
       <div class="subj-slot__result">
         <span class="subj-result__grade" style="color:${GRADE_COLORS[grade - 1]}">${grade}</span>
         <span class="subj-result__suffix">등급</span>
-        ${pctHTML}
-        ${cut.rawCutsEstimated ? '<span class="subj-result__estimate">예상컷 평균</span>' : ''}
+        <span class="subj-result__estimate">${cutBasisLabel(cut)}</span>
       </div>
       ${miniBarHTML(cut.rawCuts, slot.score, grade, fullScore)}
     `);
@@ -656,7 +650,7 @@ function refreshSlotResult(subj, idx) {
   } else if (slot.score != null && !cut) {
     const hint = document.createElement('div');
     hint.className = 'subj-slot__hint';
-    hint.textContent = '해당 영역의 등급컷 데이터가 없습니다';
+    hint.textContent = unavailableCutMessage(subj, slot.subSubject);
     slotEl.appendChild(hint);
   }
 }

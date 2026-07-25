@@ -7,7 +7,7 @@
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://static.cloudflareinsights.com https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; font-src 'self' data:; img-src 'self' data: https:; connect-src 'self' https://suneung-files.hdh061224.workers.dev https://cloudflareinsights.com https://www.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com https://www.google.com; media-src 'self' https://suneung-files.hdh061224.workers.dev; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'self'" />
   <meta name="referrer" content="strict-origin-when-cross-origin" />
   <meta name="naver-site-verification" content="b3138c38039611bed2ce955aa7102ab33011cf14" />
-  <meta name="description" content="정시 모의지원 — 점수 입력 → 영역별 등급·백분위 → 86개교 학과별 라인 분석(안정·적정·소신). 수능·평가원·학평 지원." />
+  <meta name="description" content="수능·평가원·학평 원점수 등급 계산기. 시험별 공개 등급컷과 출처 성격을 구분해 확인하세요." />
 
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <link rel="apple-touch-icon" href="favicon.svg" />
@@ -15,18 +15,18 @@
   <link rel="canonical" href="https://kicegg.com/gradecut.html" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="기출해체분석기" />
-  <meta property="og:title" content="정시 모의지원 — 기출해체분석기" />
-  <meta property="og:description" content="점수 입력 → 등급·백분위 산출 → 학과별 안정·적정·소신 라인 비교." />
+  <meta property="og:title" content="수능 등급컷 계산기 — 기출해체분석기" />
+  <meta property="og:description" content="원점수 입력으로 시험별 등급을 확인하고, 공식 원점수 컷이 없는 선택과목 추정치는 표시하지 않습니다." />
   <meta property="og:url" content="https://kicegg.com/gradecut.html" />
   <meta property="og:image" content="https://kicegg.com/og-image.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:locale" content="ko_KR" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="정시 모의지원 — 기출해체분석기" />
-  <meta name="twitter:description" content="점수 입력 → 등급·백분위 + 학과별 안정·적정·소신 라인." />
+  <meta name="twitter:title" content="수능 등급컷 계산기 — 기출해체분석기" />
+  <meta name="twitter:description" content="원점수 입력으로 시험별 등급과 등급컷 출처를 확인하세요." />
   <meta name="twitter:image" content="https://kicegg.com/og-image.png" />
-  <meta name="twitter:image:alt" content="정시 모의지원 — 점수 입력으로 등급·백분위와 학과별 라인 산출" />
+  <meta name="twitter:image:alt" content="수능 등급컷 계산기" />
 
   <script type="application/ld+json">
   {
@@ -34,8 +34,8 @@
     "@type": "WebApplication",
     "@id": "https://kicegg.com/gradecut.html",
     "url": "https://kicegg.com/gradecut.html",
-    "name": "정시 모의지원",
-    "description": "원점수 입력 → 등급·백분위 산출 → 학과별 라인(안정·적정·소신) 비교. 수능·평가원·학평 지원.",
+    "name": "수능 등급컷 계산기",
+    "description": "원점수를 입력해 수능·평가원·학평 시험별 등급을 확인하는 교육용 계산기.",
     "inLanguage": "ko-KR",
     "applicationCategory": "EducationApplication",
     "operatingSystem": "All",
@@ -44,9 +44,9 @@
   }
   </script>
 
-  <title>정시 모의지원 — 기출해체분석기</title>
+  <title>수능 등급컷 계산기 — 기출해체분석기</title>
   <link rel="stylesheet" href="style.css?v=20260725a" />
-  <link rel="modulepreload" href="gradecut.js?v=20260725a" />
+  <link rel="modulepreload" href="gradecut.js?v=20260725c" />
   <link rel="modulepreload" href="config.js?v=20260713a" />
   <script src="lib/measure.js?v=20260713c" defer></script>
 </head>
@@ -68,7 +68,7 @@
       </a>
       <nav class="header-nav" aria-label="주요 메뉴">
         <a href="archive.html">기출검색</a>
-        <a href="gradecut.html" class="is-active">모의지원</a>
+        <a href="gradecut.html" class="is-active">등급컷</a>
       </nav>
       <button class="icon-btn" id="filterToggle" aria-label="시험 선택 열기" aria-controls="filterPanel" aria-expanded="false" type="button">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
@@ -83,12 +83,12 @@
   <section class="page-header" aria-labelledby="gradecut-title">
     <div class="page-header__inner">
       <h1 class="page-header__title" id="gradecut-title">
-        정시 모의지원 <span class="beta-badge" aria-label="베타 서비스">BETA</span>
+        수능 등급컷 계산기
       </h1>
-      <p class="page-header__sub">등급·백분위를 계산하고, 대학별 반영비율 기준으로 지원 가능성을 참고용으로 비교합니다. 베타 단계라 결과는 참고용입니다.</p>
+      <p class="page-header__sub">원점수로 시험별 등급을 확인합니다. 실제 성적표 통계 없이 백분위를 추정하지 않으며, 단일 공식 원점수 컷이 없는 선택과목 추정치는 표시하지 않습니다.</p>
       <div class="page-header__meta">
-        <span>2008~2026학년도 수능·평가원·학평</span>
-        <span>86개교 반영비율 · 1,000+ 학과 70%컷</span>
+        <span>역대 수능·평가원·학평</span>
+        <span>원점수 기준 · 출처 구분 표시</span>
       </div>
     </div>
   </section>
@@ -128,7 +128,7 @@
 
       <!-- 시험 미선택 안내 — 3단계 흐름 -->
       <div class="gc-empty" id="gcEmpty">
-        <ol class="gc-steps" aria-label="모의지원 흐름">
+        <ol class="gc-steps" aria-label="등급컷 계산 흐름">
           <li class="gc-step">
             <span class="gc-step__num">1</span>
             <span class="gc-step__body">
@@ -146,8 +146,8 @@
           <li class="gc-step">
             <span class="gc-step__num">3</span>
             <span class="gc-step__body">
-              <strong>등급·백분위 + 학과별 라인 확인</strong>
-              <em>안정 · 적정 · 소신 카드로 정렬되어 표시됩니다.</em>
+              <strong>등급과 컷 출처 확인</strong>
+              <em>실제 공개된 원점수 컷 기준과 자료 성격을 함께 표시합니다.</em>
             </span>
           </li>
         </ol>
@@ -188,11 +188,6 @@
               <span class="total-stat__num" id="gcAvgGrade">—</span>
               <span class="total-stat__label">평균 등급</span>
             </div>
-            <div class="total-stat__divider"></div>
-            <div class="total-stat">
-              <span class="total-stat__num" id="gcAvgPct">—</span>
-              <span class="total-stat__label">상위 백분율 평균</span>
-            </div>
           </div>
 
           <div class="total-bars" id="gcTotalBars"></div>
@@ -214,7 +209,7 @@
     </div>
   </footer>
 
-  <script type="module" src="gradecut.js?v=20260725a"></script>
+  <script type="module" src="gradecut.js?v=20260725c"></script>
   <script type="module" src="lib/dday-mount.js?v=20260617a"></script>
 </body>
 </html>

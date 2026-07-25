@@ -15,3 +15,6 @@ data/audit-report.json
 # admissions guide PDFs — Worker/Release 로 서빙, repo tracking 제외
 data/admissions/pdfs/
 data/admissions/pdfs-extra/
+
+# 릴리즈 업로드용 로컬 산출물
+output/

@@ -14,6 +14,27 @@ const adigaRatios = JSON.parse(await readFile(new URL('data/admissions/sources/a
 const ratioSupplements = JSON.parse(await readFile(new URL('data/admissions/sources/regular-ratio-supplements-2027.json', ROOT), 'utf8'));
 const errors = [];
 
+const recentEducation = exams.filter(e => e.typeGroup === 'education' && e.examYear >= 2025);
+if (recentEducation.some(e => !e.questionUrl || !e.answerUrl)) {
+  errors.push('2025년 이후 학평 문제지 또는 정답·해설 누락');
+}
+if (recentEducation.some(e => !e.answerIncludesSolution)) {
+  errors.push('2025년 이후 학평 정답·해설 문서 분류 누락');
+}
+
+const modernKice = exams.filter(e => e.typeGroup === 'suneung' && e.gradeYear >= 2022
+  && ['csat', 'june', 'sept'].includes(e.type));
+const consolidated2022Science = e => e.gradeYear === 2022 && e.type === 'csat'
+  && e.subject === '과학탐구' && !e.subSubject;
+const missingModernKiceSolutions = modernKice.filter(e => !e.solutionUrl && !consolidated2022Science(e));
+if (missingModernKiceSolutions.length) {
+  errors.push(`2022학년도 이후 평가원 정답·해설 누락 ${missingModernKiceSolutions.length}건`);
+}
+if (modernKice.some(e => e.solutionUrl && e.solutionSource === 'EBSi'
+  && !e.solutionUrl.startsWith('https://wdown.ebsi.co.kr/'))) {
+  errors.push('EBSi 평가원 해설 출처와 URL 호스트 불일치');
+}
+
 const education2013 = {};
 for (const grade of [1, 2]) {
   const rows = exams.filter(e => e.typeGroup === 'education' && e.examYear === 2013 && e.studentGrade === grade);
@@ -328,6 +349,8 @@ ${ratioSupplementLines.join('\n')}
 `;
 
 console.log(`고1 ${exams.filter(e => e.typeGroup === 'education' && e.studentGrade === 1).length}건 / 고2 ${exams.filter(e => e.typeGroup === 'education' && e.studentGrade === 2).length}건`);
+console.log(`2025년 이후 학평 ${recentEducation.length}건 문제지·정답·해설 분류 완전`);
+console.log(`2022학년도 이후 평가원 ${modernKice.length}건 중 정답·해설 ${modernKice.filter(e => e.solutionUrl).length}건 (2022 수능 과탐 합본 1건 제외 완전)`);
 console.log(`논술 ${essays.length}건 / ${essaySchools.length}개교 / 문제만 ${questionOnly.length}회차 / 2027학년도 ${essays.filter(e => e.gradeYear === 2027).length}건`);
 console.log(`2027 시행대학 전체 이력 ${representedTargetSchools.size}/${essayTarget.expectedUniversityCount}개교 / 2026 기출 ${represented2026TargetSchools.size}/${essayTarget.expectedUniversityCount}개교`);
 console.log(`정시 반영비율 표준화 ${ratioSlugs.length}개교 ${ratioTrackCount}전형 / 2027 최종 ${mergedRatioEntries.length}곳 해소 · 비율 ${mergedRatioStructured.length + mergedRatioText.length}곳 · 수능 미반영 ${mergedRatioNoCsat.length}곳 · 미해결 ${mergedRatioUnresolved.length}곳 / 2026 입결 ${adigaUniversityNumeric.length}곳 ${adigaCoverage._meta.officialNumericCutCount}컷`);

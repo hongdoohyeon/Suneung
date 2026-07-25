@@ -40,7 +40,7 @@ const tabIsSingleType = () => {
 
 // 검색 첫 진입에서 9MB 전체 목록을 받지 않고 현재 탭 split만 로드한다.
 // CI render-site.py가 data/archive/{tab}.json을 exams.json에서 생성한다.
-const DATA_VERSION = '20260718d';
+const DATA_VERSION = '20260725c';
 const FULL_DATA_URL = `data/exams.json?v=${DATA_VERSION}`;
 const tabDataCache = new Map();
 let fullDataCache = null;
@@ -822,7 +822,7 @@ function cardHTML(exam, idx = 0) {
   const conf    = tabSubjects()[exam.subject] ?? { color: '#9ca3af' };
   const tc      = getTypeConf(exam.type);
   const dy      = getDisplayYear(exam);
-  const hasFile = Boolean(exam.questionUrl || exam.answerUrl);
+  const hasFile = Boolean(exam.questionUrl || exam.answerUrl || exam.solutionUrl);
   const isPrelim = exam.gradeYear === 'preliminary';
 
   const isLegacySub = exam.subSubject && LEGACY_SUB_FORMS.has(exam.subSubject);
@@ -856,7 +856,7 @@ function cardHTML(exam, idx = 0) {
     ? `<a class="btn btn--primary" href="${escAttr(qUrl)}" ${dl(exam.questionDownload)}>문제지</a>`
     : `<button class="btn btn--primary" disabled>문제지</button>`;
   const aBtn = aUrl
-    ? `<a class="btn" href="${escAttr(aUrl)}" ${dl(exam.answerDownload)}>정답</a>`
+    ? `<a class="btn" href="${escAttr(aUrl)}" ${dl(exam.answerDownload)}>${exam.answerIncludesSolution ? '정답·해설' : '정답'}</a>`
     : `<button class="btn" disabled>정답</button>`;
   // 해설 PDF가 없으면 해설 button 자체 숨김 (disabled 회색 button 미표시)
   const sBtn = sUrl

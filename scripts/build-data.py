@@ -378,6 +378,9 @@ def from_edu(db: Path, items: list):
             'subject':      map_subject(subj, site_curr),
             'subSubject':   map_subtype(sub, site_curr),
             'solutionUrl':  None,
+            # EBSi H 버튼 원문은 단순 정답표가 아니라 문항별 풀이가 포함된
+            # '정답 및 해설' PDF다. 화면과 구조화 데이터가 이를 숨기지 않게 명시한다.
+            'answerIncludesSolution': bool(a),
         }
         item['questionUrl'] = file_url('education', q, item, 'q')
         item['answerUrl']   = file_url('education', a, item, 'a') if a else None
@@ -876,11 +879,20 @@ def build_exam_meta(it: dict) -> dict:
 
     is_reference = (tg == 'reference')
 
-    # title — 영어는 자료 타입(듣기·대본·정답·해설지)을 직접 노출, reference는 통계 안내
+    answer_label = '정답·해설' if it.get('answerIncludesSolution') else '정답'
+    assets = []
+    if it.get('questionUrl'): assets.append('문제지')
+    if it.get('answerUrl'): assets.append(answer_label)
+    if it.get('solutionUrl'): assets.append('해설지')
+    if it.get('listenUrl'): assets.append('영어 듣기 MP3')
+    if it.get('scriptUrl'): assets.append('듣기 대본 PDF')
+    assets_phrase = '·'.join(dict.fromkeys(assets))
+
+    # title — 영어는 실제 보유 자료만 노출, reference는 통계 안내
     if is_reference:
         title = f'{head} 통계 PDF — 기출해체분석기'
     elif is_english and has_listen:
-        title = f'{head} 듣기·대본·정답·해설지 — 기출해체분석기'
+        title = f'{head} 듣기·대본·{answer_label} — 기출해체분석기'
     else:
         title = f'{head} 기출 — 기출해체분석기'
 
@@ -892,7 +904,7 @@ def build_exam_meta(it: dict) -> dict:
         )
     elif is_english and has_listen:
         desc = (
-            f'{full_phrase} 문제지·정답·해설지와 영어 듣기 MP3·듣기 대본 PDF를 '
+            f'{full_phrase} {assets_phrase} 자료를 '
             f'한 페이지에서 확인하고 무료로 내려받으세요.'
         )
     elif tg == 'ged':
@@ -906,7 +918,7 @@ def build_exam_meta(it: dict) -> dict:
             )
     else:
         desc = (
-            f'{full_phrase} 기출 문제지·정답·해설지와 등급컷을 한 곳에서 확인하고 무료로 내려받으세요.'
+            f'{full_phrase} 기출 {assets_phrase} 자료와 등급컷을 한 곳에서 확인하고 무료로 내려받으세요.'
         )
 
     # description 160자 권장 (SERP/OG 절단 회피) — 단어 경계 보존하며 잘라냄
@@ -932,7 +944,7 @@ def build_exam_meta(it: dict) -> dict:
         # 자료 유형 조건부 노출 — 실제 보유한 url 만 문구에 포함
         assets = []
         if it.get('questionUrl'):  assets.append('문제지')
-        if it.get('answerUrl'):    assets.append('정답')
+        if it.get('answerUrl'):    assets.append(answer_label)
         if it.get('solutionUrl'):  assets.append('해설지')
         if it.get('listenUrl'):    assets.append('영어 듣기 MP3')
         if it.get('scriptUrl'):    assets.append('듣기 대본 PDF')
@@ -1131,7 +1143,7 @@ def build_static_exam_pages(items: list[dict], template_path: Path, out_root: Pa
                 parts.append({'@type': 'DigitalDocument', 'name': '문제지(짝수형)',
                               'url': it['questionUrlEven'], 'encodingFormat': _doc_mime(it['questionUrlEven'], it.get('questionDownloadEven'))})
             if it.get('answerUrl'):
-                parts.append({'@type': 'DigitalDocument', 'name': '정답',
+                parts.append({'@type': 'DigitalDocument', 'name': answer_label,
                               'url': it['answerUrl'], 'encodingFormat': _doc_mime(it['answerUrl'], it.get('answerDownload'))})
             if it.get('answerUrlEven'):
                 parts.append({'@type': 'DigitalDocument', 'name': '정답(짝수형)',
@@ -1238,7 +1250,7 @@ def build_static_exam_pages(items: list[dict], template_path: Path, out_root: Pa
         a_tag = _file_tag(a_url, it.get('answerDownload'))
         combined_document = bool(q_url and q_url == sol_url)
         q_label = f'문제·해설 {q_tag}' if combined_document else (f'문제지 {q_tag} (홀수형)' if qE_url else f'문제지 {q_tag}')
-        a_label = f'정답 {a_tag} (홀수형)'   if aE_url else f'정답 {a_tag}'
+        a_label = f'{answer_label} {a_tag} (홀수형)' if aE_url else f'{answer_label} {a_tag}'
         def _btn(cls, url, label, dl_name):
             if not url or not re.match(r'^https?://', str(url), flags=re.I): return ''
             dl_attr = f' download="{html_escape(dl_name, quote=True)}"' if dl_name else ' download'
@@ -1649,7 +1661,8 @@ def build_static_set_pages(items: list[dict], template_path: Path, out_root: Pat
 
             actions = ''.join(filter(None, [
                 _action('문제지', it2.get('questionUrl'), it2.get('questionDownload'), True),
-                _action('정답', it2.get('answerUrl'), it2.get('answerDownload')),
+                _action('정답·해설' if it2.get('answerIncludesSolution') else '정답',
+                        it2.get('answerUrl'), it2.get('answerDownload')),
                 _action('해설', it2.get('solutionUrl'), it2.get('solutionDownload')),
             ]))
             card_cls = 'card has-files' if has_files else 'card'
@@ -1732,7 +1745,8 @@ def main():
         merge_fields = ('questionUrl','answerUrl','solutionUrl','scriptUrl','listenUrl',
                         'questionUrlEven','answerUrlEven','questionDownload','answerDownload',
                         'solutionDownload','scriptDownload','listenDownload',
-                        'questionDownloadEven','answerDownloadEven')
+                        'questionDownloadEven','answerDownloadEven','answerIncludesSolution',
+                        'solutionSource','solutionSourcePage')
         for it in items:
             sg_norm = it.get('studentGrade') if it.get('typeGroup') == 'education' else None
             k = (it.get('gradeYear'), it.get('type'), it.get('subject'), it.get('subSubject'),

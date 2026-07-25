@@ -32,9 +32,15 @@ exams = json.load(open(exams_path, encoding='utf-8'))
 exams = [e for e in exams if e.get('typeGroup') != 'ged']
 next_id = max(e['id'] for e in exams) + 1
 
-# 회차별 정답 자산명 인덱스: (year, level, sess) -> answer asset
-ans_asset = {(r['year'], r['level'], r['sess']): r['asset']
-             for r in records if r['doc'] == 'a'}
+TAG_SPLIT = 'ged-v3'
+split_records = _load_src(
+    'ged_subject_splits.json',
+    os.path.join(WORK, 'ged_subject_splits.json'),
+)
+split_index = {
+    (r['year'], r['level'], r['sess'], r['subject']): r
+    for r in split_records
+}
 
 def kfn(examYear, sess, level, subject, doc):
     if doc == 'a':
@@ -51,7 +57,8 @@ for r in records:
     year, level, sess = r['year'], r['level'], r['sess']
     subject = r['subject']
     q_korean = kfn(year, sess, level, subject, 'q')
-    a_asset = ans_asset.get((year, level, sess))
+    split = split_index.get((year, level, sess, subject), {})
+    a_asset = split.get('answerAsset')
     a_korean = kfn(year, sess, level, subject, 'a') if a_asset else None
     entry = {
         'id': next_id,
@@ -66,7 +73,8 @@ for r in records:
         'subSubject': None,
         'solutionUrl': None,
         'questionUrl': wurl(r['asset'], q_korean),
-        'answerUrl': wurl(a_asset, a_korean) if a_asset else None,
+        'answerUrl': (f"{WORKER}/{TAG_SPLIT}/{a_asset}?name={quote(a_korean, safe='')}"
+                      if a_asset else None),
         'questionDownload': q_korean,
         'answerDownload': a_korean,
         'source': TAG,
@@ -75,48 +83,40 @@ for r in records:
     next_id += 1
     added += 1
 
-# ── 2013~2017 회차 합본 (신당야학 평가원 원본 재배포, ged-v2) ──────
-# 공식 온라인 보관(평가원·검정고시지원센터)이 2018부터라, 그 이전은 회차
-# 전과목 통합 문제지(합본)로만 존재. subject='전과목' 단일 카드로 등록.
-# 정답표는 전북교육청 2016 제2회(중·고졸)만 별도 확보 → 해당 카드에만 매칭.
-TAG2 = 'ged-v2'
-JBE_ANS = {
-    (2016, 2, '중졸'): '2016_2_mid_answer.pdf',
-    (2016, 2, '고졸'): '2016_2_high_answer.pdf',
-}
+# ── 2013~2017 회차 과목별 분리본 ─────────────────────────────
+# 신당야학에 남아 있던 전과목 합본을 페이지 경계대로 분리한 ged-v3 자산.
+# 2016년 제2회 중·고졸 정답 합본도 과목별 1쪽 PDF로 분리했다.
 added2 = 0
-_yahak_repo = os.path.join(SRC, 'ged_yahak_recs.json')
-_yahak_local = os.path.join(WORK, 'pre2018', 'yahak_recs.json')
-if os.path.exists(_yahak_repo) or os.path.exists(_yahak_local):
-    for r in _load_src('ged_yahak_recs.json', _yahak_local):
-        if not r.get('file'):
-            continue
-        year, sess, level = r['year'], r['sess'], r['level']
-        q_korean = f'{year}년 제{sess}회 {level} 검정고시 전과목 문제지(통합본).pdf'
-        a_asset = JBE_ANS.get((year, sess, level))
-        a_korean = f'{year}년 제{sess}회 {level} 검정고시 정답표.pdf' if a_asset else None
-        entry = {
-            'id': next_id,
-            'curriculum': level,
-            'gradeYear': year,
-            'examYear': year,
-            'month': 4 if sess == 1 else 8,
-            'typeGroup': 'ged',
-            'type': 'ged_1' if sess == 1 else 'ged_2',
-            'studentGrade': None,
-            'subject': '전과목',
-            'subSubject': None,
-            'solutionUrl': None,
-            'questionUrl': f"{WORKER}/{TAG2}/{r['asset']}?name={quote(q_korean, safe='')}",
-            'answerUrl': (f"{WORKER}/{TAG2}/{a_asset}?name={quote(a_korean, safe='')}"
-                          if a_asset else None),
-            'questionDownload': q_korean,
-            'answerDownload': a_korean,
-            'source': TAG2,
-        }
-        exams.append(entry)
-        next_id += 1
-        added2 += 1
+for r in split_records:
+    q_asset = r.get('questionAsset')
+    if not q_asset:
+        continue
+    year, sess, level, subject = r['year'], r['sess'], r['level'], r['subject']
+    q_korean = kfn(year, sess, level, subject, 'q')
+    a_asset = r.get('answerAsset')
+    a_korean = kfn(year, sess, level, subject, 'a') if a_asset else None
+    entry = {
+        'id': next_id,
+        'curriculum': level,
+        'gradeYear': year,
+        'examYear': year,
+        'month': 4 if sess == 1 else 8,
+        'typeGroup': 'ged',
+        'type': 'ged_1' if sess == 1 else 'ged_2',
+        'studentGrade': None,
+        'subject': subject,
+        'subSubject': None,
+        'solutionUrl': None,
+        'questionUrl': f"{WORKER}/{TAG_SPLIT}/{q_asset}?name={quote(q_korean, safe='')}",
+        'answerUrl': (f"{WORKER}/{TAG_SPLIT}/{a_asset}?name={quote(a_korean, safe='')}"
+                      if a_asset else None),
+        'questionDownload': q_korean,
+        'answerDownload': a_korean,
+        'source': TAG_SPLIT,
+    }
+    exams.append(entry)
+    next_id += 1
+    added2 += 1
 
-json.dump(exams, open(exams_path, 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
-print(f'검정고시 카드 {added}건(2018+) + {added2}건(2013~2017 합본) 추가 → exams.json 총 {len(exams)}건')
+json.dump(exams, open(exams_path, 'w', encoding='utf-8'), ensure_ascii=False, indent=2)
+print(f'검정고시 카드 {added}건(2018+) + {added2}건(2013~2017 과목별) 추가 → exams.json 총 {len(exams)}건')

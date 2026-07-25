@@ -170,7 +170,19 @@ function validateBusinessRules(data) {
 
   // 4. download 필드는 있을 경우 .pdf 끝나는지 (null 허용 — 논술 등)
   for (const ex of data) {
-    for (const k of ['questionDownload', 'answerDownload']) {
+    if (ex.answerIncludesSolution === true) {
+      if (ex.typeGroup !== 'education') {
+        err(`id=${ex.id} answerIncludesSolution은 교육청 학평 자료에만 허용`);
+      }
+      if (!ex.answerUrl) {
+        err(`id=${ex.id} answerIncludesSolution=true 이지만 answerUrl 없음`);
+      }
+    }
+  }
+
+  // 5. download 필드는 있을 경우 .pdf 끝나는지 (null 허용 — 논술 등)
+  for (const ex of data) {
+    for (const k of ['questionDownload', 'answerDownload', 'solutionDownload']) {
       if (k in ex && ex[k] !== null) {
         const v = String(ex[k]);
         // 옛 LEET/MEET (~2021학년도) 자료는 .hwp 원본만 존재 — 허용.
@@ -200,6 +212,19 @@ function validateBusinessRules(data) {
     const allowed = tgTypeMap[ex.typeGroup];
     if (allowed && !allowed.has(ex.type)) {
       err(`id=${ex.id} typeGroup="${ex.typeGroup}" 와 type="${ex.type}" 불일치`);
+    }
+  }
+
+  // 6. 검정고시는 문제·정답 카드를 과목 단위로만 제공한다.
+  for (const ex of data.filter(e => e.typeGroup === 'ged')) {
+    if (ex.subject === '전과목') {
+      err(`id=${ex.id} 검정고시 전과목 합본 카드가 남아 있음`);
+    }
+    if (ex.answerUrl && !ex.answerUrl.includes('/ged-v3/')) {
+      err(`id=${ex.id} 검정고시 정답이 과목별 분리 자산(ged-v3)이 아님`);
+    }
+    if (ex.source === 'ged-v3' && !ex.questionUrl?.includes('/ged-v3/')) {
+      err(`id=${ex.id} 구형 검정고시 문제가 과목별 분리 자산(ged-v3)이 아님`);
     }
   }
 }
@@ -268,25 +293,38 @@ async function validateGradecuts() {
   catch (e) { err(`gradecuts.json 파싱 실패: ${e.message}`); return; }
   if (!Array.isArray(cuts)) { err('gradecuts.json 은 배열이어야 함'); return; }
   let badRaw = 0;
-  let unlabeledEstimate = 0;
-  let invalidEstimateLabel = 0;
+  let fractionalRaw = 0;
+  let invalidUnavailableStatus = 0;
+  let leakedEstimate = 0;
+  let legacyEstimateFlag = 0;
   const samples = [];
   for (const c of cuts) {
     const r = c.rawCuts;
-    if (!Array.isArray(r)) continue;            // rawCuts 없음(준비중) = 정상
-    // non-null 값들의 부분수열이 단조감소가 아니면 손상(역전). 중간 null(부분결손)은
-    // '—'로 정상 표시되므로 손상으로 보지 않는다.
-    const nn = r.filter(v => v != null && Number.isFinite(v));
-    const nonmono = nn.some((v, i) => i > 0 && nn[i - 1] < v);
-    if (nonmono) {
-      badRaw++;
-      if (samples.length < 10) samples.push(`id=${c.id} ${c.subject}${c.subSubject ? '/' + c.subSubject : ''} ${c.gradeYear} ${c.type} [${r.join(',')}]`);
+    if (Array.isArray(r)) {
+      // non-null 값들의 부분수열이 단조감소가 아니면 손상(역전). 중간 null(부분결손)은
+      // '—'로 정상 표시되므로 손상으로 보지 않는다.
+      const nn = r.filter(v => v != null && Number.isFinite(v));
+      const nonmono = nn.some((v, i) => i > 0 && nn[i - 1] < v);
+      if (nonmono) {
+        badRaw++;
+        if (samples.length < 10) samples.push(`id=${c.id} ${c.subject}${c.subSubject ? '/' + c.subSubject : ''} ${c.gradeYear} ${c.type} [${r.join(',')}]`);
+      }
+      if (r.some(v => Number.isFinite(v) && !Number.isInteger(v))) {
+        fractionalRaw++;
+      }
     }
-    if (r.some(v => Number.isFinite(v) && !Number.isInteger(v)) && c.rawCutsEstimated !== true) {
-      unlabeledEstimate++;
+    if (c.rawCutsEstimated != null) {
+      legacyEstimateFlag++;
     }
-    if (c.rawCutsEstimated === true && !String(c.source || '').includes('jinhak-7agency-avg')) {
-      invalidEstimateLabel++;
+    if (c.estimatedRawCuts != null) {
+      leakedEstimate++;
+    }
+    if (c.rawCutStatus === 'official_raw_unavailable'
+        && (!String(c.source || '').includes('jinhak-7agency-avg')
+          || c.rawCuts != null
+          || c.rawCutReason !== 'selection-adjusted-no-single-official-raw-cut'
+          || !String(c.officialGradeBoundarySource || '').includes('moe.go.kr'))) {
+      invalidUnavailableStatus++;
     }
   }
   if (badRaw > 0) {
@@ -295,11 +333,17 @@ async function validateGradecuts() {
   } else {
     console.log(`gradecuts rawCuts 위생: 손상 0건`);
   }
-  if (unlabeledEstimate > 0) {
-    err(`gradecuts 소수 원점수 컷 ${unlabeledEstimate}건에 rawCutsEstimated=true 표시가 없음`);
+  if (fractionalRaw > 0) {
+    err(`gradecuts 확정 rawCuts에 소수 원점수 컷 ${fractionalRaw}건 존재`);
   }
-  if (invalidEstimateLabel > 0) {
-    err(`gradecuts 예상컷 표시 ${invalidEstimateLabel}건의 출처가 jinhak-7agency-avg가 아님`);
+  if (legacyEstimateFlag > 0) {
+    err(`gradecuts 폐기 필드 rawCutsEstimated ${legacyEstimateFlag}건 존재`);
+  }
+  if (leakedEstimate > 0) {
+    err(`gradecuts 배포 데이터에 estimatedRawCuts ${leakedEstimate}건 노출`);
+  }
+  if (invalidUnavailableStatus > 0) {
+    err(`gradecuts 공식 원점수 미공개 상태 형식/출처 오류 ${invalidUnavailableStatus}건`);
   }
 }
 

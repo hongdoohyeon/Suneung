@@ -4,7 +4,7 @@ import { escHtml as _escHtml, escAttr, safeUrl as _safeUrl, $ as _$ } from './li
 import { setMeta, setMetaProp, setCanonical, injectJsonLd as _injectJsonLd, applySeo } from './lib/seo.js?v=20260713a';
 import { renderAllAdSlots } from './lib/ads.js?v=20260713a';
 import { renderPdf, renderUnsupported, renderEmpty, urlExtension } from './lib/exam-pdf.js?v=20260713a';
-import { renderGradeDist } from './lib/exam-gradedist.js?v=20260725a';
+import { renderGradeDist } from './lib/exam-gradedist.js?v=20260725b';
 import { pushRecent } from './lib/recent.js?v=20260713a';
 import { shareLink } from './lib/share.js?v=20260713a';
 import { enableForcedDownloads } from './lib/download.js?v=20260724a';
@@ -61,7 +61,12 @@ function renderHead(exam) {
   document.title = `${title} — 기출해체분석기`;
   // ── SEO: 동적 meta description / OG title / canonical ──
   const sub = buildSubtitle(exam);
-  const desc = `${title} 문제지·정답·해설 PDF. ${sub}.`;
+  const availableDocs = [
+    exam.questionUrl && '문제지',
+    exam.answerUrl && (exam.answerIncludesSolution ? '정답·해설' : '정답'),
+    exam.solutionUrl && '해설지',
+  ].filter(Boolean);
+  const desc = `${title}${availableDocs.length ? ` ${availableDocs.join('·')} PDF.` : '.'} ${sub}.`;
   // canonical: 동적 ?id 페이지든 SSG /exam-N.html이든 항상 SSG URL을 표준으로 지정
   const canonicalUrl = `https://kicegg.com/exam-${exam.id}.html`;
   setMeta('description', desc);
@@ -83,7 +88,7 @@ function renderHead(exam) {
                 url: 'https://kicegg.com/' },
     ...(exam.questionUrl ? { hasPart: [
       { '@type': 'DigitalDocument', name: exam.questionUrl === exam.solutionUrl ? '문제·해설' : '문제지', url: exam.questionUrl, encodingFormat: docMime(exam.questionUrl, exam.questionDownload) },
-      ...(exam.answerUrl ? [{ '@type': 'DigitalDocument', name: '정답', url: exam.answerUrl, encodingFormat: docMime(exam.answerUrl, exam.answerDownload) }] : []),
+      ...(exam.answerUrl ? [{ '@type': 'DigitalDocument', name: exam.answerIncludesSolution ? '정답·해설' : '정답', url: exam.answerUrl, encodingFormat: docMime(exam.answerUrl, exam.answerDownload) }] : []),
       ...(exam.listenUrl ? [{ '@type': 'AudioObject', name: '영어 듣기 mp3', contentUrl: exam.listenUrl, encodingFormat: 'audio/mpeg' }] : []),
       ...(exam.scriptUrl ? [{ '@type': 'DigitalDocument', name: '듣기 스크립트', url: exam.scriptUrl, encodingFormat: docMime(exam.scriptUrl, exam.scriptDownload) }] : []),
       ...(exam.solutionUrl && exam.solutionUrl !== exam.questionUrl ? [{ '@type': 'DigitalDocument', name: '해설지', url: exam.solutionUrl, encodingFormat: docMime(exam.solutionUrl, exam.solutionDownload) }] : []),
@@ -139,7 +144,8 @@ function renderHead(exam) {
   const combinedDocument = questionUrl && questionUrl === solutionUrl;
   const qLabel = combinedDocument ? `문제·해설 ${qTag}` : (questionUrlEven ? `문제지 ${qTag} (홀수형)` : `문제지 ${qTag}`);
   const aTag = fileTag(answerUrl, exam.answerDownload);
-  const aLabel = answerUrlEven   ? `정답 ${aTag} (홀수형)`   : `정답 ${aTag}`;
+  const answerLabel = exam.answerIncludesSolution ? '정답·해설' : '정답';
+  const aLabel = answerUrlEven ? `${answerLabel} ${aTag} (홀수형)` : `${answerLabel} ${aTag}`;
   if (questionUrl) buttons.push(
     `<a class="btn btn--primary" href="${escHtml(questionUrl)}" ${dl(exam.questionDownload)}>${qLabel}</a>`
   );
@@ -301,7 +307,7 @@ function setupTabs(onActivate, hideInfo) {
   // 초기 탭:
   //   - URL ?tab=info → 정보
   //   - URL ?tab=paper → 문제
-  //   - 명시 없으면 데스크톱은 'paper' (PDF 우선), 모바일은 'info' (등급컷 우선)
+  //   - 명시 없으면 화면 크기와 무관하게 'paper' (시험지 미리보기 우선)
   const params = new URLSearchParams(location.search);
   const explicit = params.get('tab');
   let initial;
@@ -310,7 +316,7 @@ function setupTabs(onActivate, hideInfo) {
   } else if (explicit === 'info' || explicit === 'paper') {
     initial = explicit;
   } else {
-    initial = window.innerWidth <= 600 ? 'info' : 'paper';
+    initial = 'paper';
   }
   activate(initial);
   document.body.classList.add('is-hydrated');
@@ -340,9 +346,9 @@ async function main() {
   const isStaticExam = /\/exam-\d+\.html$/.test(location.pathname);
   const shouldFetchGradecut = !isStaticExam || document.body.classList.contains('has-gradecut');
   const [examResult, cutResult] = await Promise.allSettled([
-    fetch(`data/exam/${id}.json?v=20260713a`).then(async res => res.ok ? res.json() : null),
+    fetch(`data/exam/${id}.json?v=20260725c`).then(async res => res.ok ? res.json() : null),
     shouldFetchGradecut
-      ? fetch(`data/gradecut/${id}.json?v=20260725a`).then(async res => res.ok ? res.json() : null)
+      ? fetch(`data/gradecut/${id}.json?v=20260725c`).then(async res => res.ok ? res.json() : null)
       : Promise.resolve(null),
   ]);
   if (examResult.status === 'fulfilled') exam = examResult.value;
@@ -351,7 +357,7 @@ async function main() {
   // 단건 split 미배포 환경 폴백: 통합 exams.json
   if (!exam) {
     try {
-      const res = await fetch('data/exams.json?v=20260713a');
+      const res = await fetch('data/exams.json?v=20260725c');
       if (res.ok) {
         const exams = await res.json();
         exam = exams.find(e => e.id === id) ?? null;

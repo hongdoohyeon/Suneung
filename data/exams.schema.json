@@ -150,6 +150,26 @@
           ],
           "description": "해설 PDF URL."
         },
+        "solutionDownload": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "solutionSource": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "해설 문서 발행·제공 출처."
+        },
+        "solutionSourcePage": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "해설 문서를 확인한 공식 목록 페이지."
+        },
         "questionUrl": {
           "anyOf": [
             {
@@ -173,6 +193,10 @@
             }
           ],
           "description": "정답 PDF URL. 없을 수 있음(예: 논술)."
+        },
+        "answerIncludesSolution": {
+          "type": "boolean",
+          "description": "answerUrl 문서가 단순 정답표가 아니라 문항별 해설까지 포함하면 true."
         },
         "questionDownload": {
           "type": [

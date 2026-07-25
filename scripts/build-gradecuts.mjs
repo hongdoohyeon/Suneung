@@ -11,11 +11,11 @@
 //   6) data/raw/crux/suneungcalc-csat-rawcuts.json     - Crux Table 계산기 기반 최근 수능 국어/수학 raw
 //   7) data/raw/crux/suneungcalc-mock-rawcuts.json     - Crux Table 계산기 기반 최근 모의고사 국어/수학 raw
 //   8) data/raw/ebsi/gradecuts-normalized.json         - EBSi 풀서비스 등급컷 보강
-//   9) data/raw/jinhak/gradecuts-normalized.json       - 진학사 공개 가채점 평균 raw 보강
+//   9) data/raw/jinhak/gradecuts-normalized.json       - 진학사 공개 가채점 평균(참고용, 화면 미사용)
 //  10) data/raw/kice-archive/gradecuts-normalized.json - 평가원 공식 + 시도교육청 공식 (kice_archive ingest)
 //
 // 적용 순서 (뒤가 우선):
-//   hwpx → 평가원 recent → 메가스터디 → 이투스 → 수동 검증 → Crux → EBSi → 진학사 가채점 → kice-archive (최우선, std·raw 둘 다 공식) → 절대평가 자동
+//   hwpx → 평가원 recent → 메가스터디 → 이투스 → 수동 검증 → Crux → EBSi → 진학사 참고값 → kice-archive (최우선, std·raw 둘 다 공식) → 절대평가 자동
 // 표준점수/백분위/누적은 데이터로만 보존 (사이트 미표시).
 
 import { readFile, writeFile } from 'node:fs/promises';
@@ -26,6 +26,7 @@ const HERE = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(HERE, '..');
 const EXAMS_PATH = path.resolve(ROOT, 'data/exams.json');
 const OUT_PATH = path.resolve(ROOT, 'data/gradecuts.json');
+const OFFICIAL_2027_JUNE_RESULT_URL = 'https://www.moe.go.kr/boardCnts/viewRenew.do?boardID=294&boardSeq=106591&lev=0&m=020402&opType=N&page=1&s=moe&searchType=null&statusYN=W';
 
 const EXPECTED_FULL_SCORE = {
   '국어': 100,
@@ -287,9 +288,10 @@ for (const r of ebsiGradecuts) {
   ebsiApplied++;
 }
 
-// 5e. 진학사 공개 가채점 평균 원점수 컷 보강.
-//     공식 EBSi/KICE가 선택과목 원점수를 제공하지 않는 최신 국어·수학에 한해 준비중을 줄인다.
-//     kice-archive 공식 raw가 나중에 적용되면 그쪽이 덮어쓴다.
+// 5e. 진학사 공개 가채점 평균은 참고값으로만 보존한다.
+//     선택과목 조정이 있는 국어·수학은 단일 공식 원점수 컷이 없으므로 평균값을
+//     rawCuts로 승격하거나 반올림하지 않는다. kice-archive에 공식 raw가 있으면
+//     아래 단계에서 rawCuts로 별도 적재한다.
 let jinhakApplied = 0;
 let jinhakSkippedByExistingRawCuts = 0;
 let jinhakSkippedByNonMonotonicRawCuts = 0;
@@ -305,8 +307,12 @@ for (const r of jinhakGradecuts) {
     jinhakSkippedByExistingRawCuts++;
     continue;
   }
-  rec.rawCuts = r.rawCuts;
-  rec.rawCutsEstimated = true;
+  rec.rawCutStatus = 'official_raw_unavailable';
+  rec.rawCutReason = 'selection-adjusted-no-single-official-raw-cut';
+  rec.officialGradeBoundarySource = OFFICIAL_2027_JUNE_RESULT_URL;
+  delete rec.estimatedRawCuts;
+  if (sameJinhakSource) delete rec.rawCuts;
+  delete rec.rawCutsEstimated;
   if (r.fullScore != null) rec.fullScore = r.fullScore;
   if (r.source && !hasSourceTag(rec.source, r.source)) {
     rec.source = rec.source ? `${rec.source}+${r.source}` : r.source;
@@ -326,6 +332,9 @@ for (const r of kiceArchive) {
   }
   if (Array.isArray(r.rawCuts) && r.rawCuts.some(v => v != null) && isMonotonicCuts(r.rawCuts)) {
     rec.rawCuts = r.rawCuts;
+    delete rec.rawCutStatus;
+    delete rec.rawCutReason;
+    delete rec.officialGradeBoundarySource;
     delete rec.rawCutsEstimated;
     kiceArchiveRawApplied++;
   }
@@ -440,6 +449,21 @@ for (const r of out) {
     expanded.push({ ...r, studentGrade: g });
   }
 }
+
+// 현재 raw 입력 묶음만으로는 재생성할 수 없는 과거 학년별 레코드는 기존 출력에서 보존한다.
+// makeKey(5요소)가 studentGrade를 포함하지 않아 seed 단계에서 고1/고2/고3 중 일부가
+// 합쳐질 수 있으므로, 6요소 키로 누락분만 되살린다.
+const expandedKeys = new Set(expanded.map(r =>
+  `${makeKey(r.curriculum, r.gradeYear, r.type, r.subject, r.subSubject)}|${r.studentGrade ?? ''}`
+));
+let preservedExisting = 0;
+for (const r of existing) {
+  const key = `${makeKey(r.curriculum, r.gradeYear, r.type, r.subject, r.subSubject)}|${r.studentGrade ?? ''}`;
+  if (expandedKeys.has(key)) continue;
+  expanded.push({ ...r });
+  expandedKeys.add(key);
+  preservedExisting++;
+}
 // 7. 학년별 컷 교정 — makeKey가 5튜플이라 학년이 붕괴(한 학년 컷이 전 학년에 복제)된다.
 //    kice-archive(공식)의 학년별 원본으로 교정한다. 가드(오교정 방지): ① 현재값이 형제 학년의
 //    값과 일치(=붕괴 확정) ② 동일학년 kice값이 유일하고 검증(단조감소·≤만점·8개) 통과
@@ -492,10 +516,14 @@ for (const rec of expanded) {
 //    ≤만점은 보지 않는다(직업탐구 등 fullScore 메타 오설정과 무관히 값은 유효할 수 있음).
 let rawDropped = 0;
 for (const rec of expanded) {
-  if (rec.rawCutsEstimated === true && !String(rec.source || '').includes('jinhak-7agency-avg')) {
+  if (rec.rawCutsEstimated === true) {
+    if (String(rec.source || '').includes('jinhak-7agency-avg')) delete rec.rawCuts;
     delete rec.rawCutsEstimated;
   }
   const c = rec.rawCuts;
+  if (rec.source) {
+    rec.source = [...new Set(String(rec.source).split('+').filter(Boolean))].join('+');
+  }
   if (!Array.isArray(c)) continue;
   const nn = c.filter(v => v != null && Number.isFinite(v));
   const bad = nn.length >= 2 && nn.some((v, i) => i > 0 && nn[i - 1] < v);
@@ -507,6 +535,7 @@ expanded.forEach((r, i) => { r.id = i + 1; });
 
 await writeFile(OUT_PATH, JSON.stringify(expanded, null, 2) + '\n');
 console.log(`학년별 컷 교정: ${gradeCorrected}건 / 손상 rawCuts 제거: ${rawDropped}건`);
+console.log(`기존 학년별 레코드 보존: ${preservedExisting}건`);
 
 console.log(`기존 rawCuts: ${existing.length}건`);
 console.log(`hwpx 적재: ${hwpxApplied}건`);
@@ -516,16 +545,16 @@ console.log(`etoos archived rawCuts: ${etoosApplied}건 (표준점수 불일치 
 console.log(`manual verified rawCuts: ${manualApplied}건 (기존 rawCuts 유지 skip ${manualSkippedByExistingRawCuts}건, 표준점수 불일치 skip ${manualSkippedByStdMismatch}건, rawCuts 단조성 skip ${manualSkippedByNonMonotonicRawCuts}건)`);
 console.log(`crux rawCuts: ${cruxApplied}건 (기존 rawCuts 유지 skip ${cruxSkippedByExistingRawCuts}건, 표준점수 불일치 skip ${cruxSkippedByStdMismatch}건, rawCuts 단조성 skip ${cruxSkippedByNonMonotonicRawCuts}건)`);
 console.log(`EBSi gradecuts: ${ebsiApplied}건 (rawCuts 보강 ${ebsiRawApplied}건)`);
-console.log(`jinhak estimated rawCuts: ${jinhakApplied}건 (기존 rawCuts 유지 skip ${jinhakSkippedByExistingRawCuts}건, rawCuts 단조성 skip ${jinhakSkippedByNonMonotonicRawCuts}건)`);
+console.log(`jinhak 참고값 상태 분리: ${jinhakApplied}건 (기존 rawCuts 유지 skip ${jinhakSkippedByExistingRawCuts}건, rawCuts 단조성 skip ${jinhakSkippedByNonMonotonicRawCuts}건)`);
 console.log(`kice-archive 적재: ${kiceArchiveApplied}건 (rawCuts 보강 ${kiceArchiveRawApplied}건)`);
 console.log(`절대평가 자동 추가: ${absoluteApplied}건`);
-console.log(`최종: ${out.length}건`);
+console.log(`최종: ${expanded.length}건`);
 
-const withRaw = out.filter(r => Array.isArray(r.rawCuts) && r.rawCuts.length).length;
-const withStd = out.filter(r => Array.isArray(r.standardCuts) && r.standardCuts.length).length;
-const withPct = out.filter(r => Array.isArray(r.standardPercentile)).length;
-const matched = out.filter(r => examMetaIndex.has(makeKey(r.curriculum, r.gradeYear, r.type, r.subject, r.subSubject))).length;
+const withRaw = expanded.filter(r => Array.isArray(r.rawCuts) && r.rawCuts.length).length;
+const withStd = expanded.filter(r => Array.isArray(r.standardCuts) && r.standardCuts.length).length;
+const withPct = expanded.filter(r => Array.isArray(r.standardPercentile)).length;
+const matched = expanded.filter(r => examMetaIndex.has(makeKey(r.curriculum, r.gradeYear, r.type, r.subject, r.subSubject))).length;
 console.log(`  rawCuts: ${withRaw}`);
 console.log(`  standardCuts: ${withStd}`);
 console.log(`  standardPercentile: ${withPct}`);
-console.log(`  사이트 시험 매칭: ${matched}/${out.length}`);
+console.log(`  사이트 시험 매칭: ${matched}/${expanded.length}`);
