@@ -12,6 +12,7 @@ const manualResults = JSON.parse(await readFile(new URL('data/admissions/manual-
 const adigaCoverage = JSON.parse(await readFile(new URL('data/admissions/adiga-coverage-2026.json', ROOT), 'utf8'));
 const adigaRatios = JSON.parse(await readFile(new URL('data/admissions/sources/adiga-regular-ratios-2027.json', ROOT), 'utf8'));
 const ratioSupplements = JSON.parse(await readFile(new URL('data/admissions/sources/regular-ratio-supplements-2027.json', ROOT), 'utf8'));
+const historicalKiceSolutions = JSON.parse(await readFile(new URL('data/sources/ebsi-kice-solutions-2006-2020.json', ROOT), 'utf8'));
 const errors = [];
 
 const recentEducation = exams.filter(e => e.typeGroup === 'education' && e.examYear >= 2025);
@@ -33,6 +34,20 @@ if (missingModernKiceSolutions.length) {
 if (modernKice.some(e => e.solutionUrl && e.solutionSource === 'EBSi'
   && !e.solutionUrl.startsWith('https://wdown.ebsi.co.kr/'))) {
   errors.push('EBSi 평가원 해설 출처와 URL 호스트 불일치');
+}
+const historicalKiceSolutionIds = new Set(historicalKiceSolutions.records.map(record => record.id));
+if (historicalKiceSolutions.count !== 1588
+  || historicalKiceSolutions.records.length !== historicalKiceSolutions.count
+  || historicalKiceSolutionIds.size !== historicalKiceSolutions.count) {
+  errors.push(`2007~2021학년도 EBSi 평가원 해설 출처 ${historicalKiceSolutions.records.length}건 무결성 불일치`);
+}
+if (historicalKiceSolutions.records.some(record => {
+  const exam = exams.find(item => item.id === record.id);
+  return !exam || exam.solutionUrl !== record.solutionUrl || exam.solutionSource !== 'EBSi'
+    || exam.gradeYear !== record.gradeYear || exam.type !== record.type
+    || exam.subject !== record.subject || exam.subSubject !== record.subSubject;
+})) {
+  errors.push('2007~2021학년도 EBSi 평가원 해설과 exams.json 불일치');
 }
 
 const education2013 = {};

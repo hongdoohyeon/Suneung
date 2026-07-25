@@ -3,7 +3,7 @@ import { CURRICULUM_CONFIG, getTypeConf, prettySub, legacyTabKey } from './confi
 import { $, escHtml, escAttr, safeUrl } from './lib/dom.js?v=20260713a';
 import { setMeta, setMetaProp, setCanonical, injectJsonLd as _injectJsonLd } from './lib/seo.js?v=20260713a';
 import { renderAllAdSlots } from './lib/ads.js?v=20260713a';
-import { enableForcedDownloads } from './lib/download.js?v=20260724a';
+import { enableForcedDownloads } from './lib/download.js?v=20260725b';
 enableForcedDownloads();
 const injectJsonLd = (p) => _injectJsonLd('jsonld-set', p);
 const SET_CURR_SLUG = {

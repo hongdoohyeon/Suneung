@@ -7,7 +7,7 @@ import { renderPdf, renderUnsupported, renderEmpty, urlExtension } from './lib/e
 import { renderGradeDist } from './lib/exam-gradedist.js?v=20260725b';
 import { pushRecent } from './lib/recent.js?v=20260713a';
 import { shareLink } from './lib/share.js?v=20260713a';
-import { enableForcedDownloads } from './lib/download.js?v=20260724a';
+import { enableForcedDownloads } from './lib/download.js?v=20260725b';
 
 enableForcedDownloads();
 

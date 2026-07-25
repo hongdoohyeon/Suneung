@@ -1,5 +1,5 @@
 'use strict';
-import { enableForcedDownloads } from './lib/download.js?v=20260724a';
+import { enableForcedDownloads } from './lib/download.js?v=20260725b';
 enableForcedDownloads();
 import {
   CURRICULUM_CONFIG, EXAM_TYPE_CONFIG, TAB_CONFIG,
