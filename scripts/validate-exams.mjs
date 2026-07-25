@@ -167,6 +167,21 @@ function validateBusinessRules(data) {
       }
     }
   }
+  const questionOwners = new Map();
+  for (const ex of data) {
+    if (!ex.questionUrl) continue;
+    const assetUrl = ex.questionUrl.split(/[?#]/, 1)[0];
+    if (!questionOwners.has(assetUrl)) questionOwners.set(assetUrl, []);
+    questionOwners.get(assetUrl).push(ex);
+  }
+  for (const [assetUrl, exams] of questionOwners) {
+    const subjects = [...new Set(exams.map(ex => ex.subject))];
+    if (subjects.length > 1) {
+      err(
+        `서로 다른 과목이 같은 문제 PDF를 공유함: ${subjects.join(', ')} → ${assetUrl}`
+      );
+    }
+  }
 
   // 4. download 필드는 있을 경우 .pdf 끝나는지 (null 허용 — 논술 등)
   for (const ex of data) {
@@ -225,6 +240,16 @@ function validateBusinessRules(data) {
     }
     if (ex.source === 'ged-v3' && !ex.questionUrl?.includes('/ged-v3/')) {
       err(`id=${ex.id} 구형 검정고시 문제가 과목별 분리 자산(ged-v3)이 아님`);
+    }
+  }
+  for (const ex of data.filter(
+    e => e.type === 'csat' && e.gradeYear >= 1999 && e.gradeYear <= 2004
+  )) {
+    if (
+      ex.source !== 'legacy-csat-v2'
+      || !ex.questionUrl?.includes('/legacy-csat-v2/')
+    ) {
+      err(`id=${ex.id} 구형 수능 문제가 과목별 분리 자산(legacy-csat-v2)이 아님`);
     }
   }
 }

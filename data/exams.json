@@ -80291,7 +80291,7 @@
     "type": "csat",
     "subject": "국어",
     "subSubject": "예체능계",
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v1/2004_csat_k270460_k270460_q.pdf?name=2004%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EA%B5%AD%EC%96%B4%28%EC%98%88%EC%B2%B4%EB%8A%A5%EA%B3%84%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
+    "questionUrl": "https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2004_csat_kor_q.pdf?name=2004%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EA%B5%AD%EC%96%B4%28%EC%98%88%EC%B2%B4%EB%8A%A5%EA%B3%84%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
     "questionDownload": "2004학년도 수능 국어(예체능계) 문제지.pdf",
     "answerUrl": null,
     "answerDownload": null,
@@ -80300,7 +80300,7 @@
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
-    "source": "kice-archive"
+    "source": "legacy-csat-v2"
   },
   {
     "id": 4759,
@@ -80313,7 +80313,7 @@
     "type": "csat",
     "subject": "국어",
     "subSubject": "인문계",
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v1/2004_csat_k4da042_k4da042_q.pdf?name=2004%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EA%B5%AD%EC%96%B4%28%EC%9D%B8%EB%AC%B8%EA%B3%84%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
+    "questionUrl": "https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2004_csat_kor_q.pdf?name=2004%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EA%B5%AD%EC%96%B4%28%EC%9D%B8%EB%AC%B8%EA%B3%84%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
     "questionDownload": "2004학년도 수능 국어(인문계) 문제지.pdf",
     "answerUrl": null,
     "answerDownload": null,
@@ -80322,7 +80322,7 @@
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
-    "source": "kice-archive"
+    "source": "legacy-csat-v2"
   },
   {
     "id": 4761,
@@ -80335,7 +80335,7 @@
     "type": "csat",
     "subject": "국어",
     "subSubject": "자연계",
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v1/2004_csat_k78a7bd_k78a7bd_q.pdf?name=2004%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EA%B5%AD%EC%96%B4%28%EC%9E%90%EC%97%B0%EA%B3%84%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
+    "questionUrl": "https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2004_csat_kor_q.pdf?name=2004%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EA%B5%AD%EC%96%B4%28%EC%9E%90%EC%97%B0%EA%B3%84%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
     "questionDownload": "2004학년도 수능 국어(자연계) 문제지.pdf",
     "answerUrl": null,
     "answerDownload": null,
@@ -80344,7 +80344,7 @@
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
-    "source": "kice-archive"
+    "source": "legacy-csat-v2"
   },
   {
     "id": 4763,
@@ -80357,7 +80357,7 @@
     "type": "csat",
     "subject": "수학",
     "subSubject": "예체능계",
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v1/2004_csat_k270460_k270460_q.pdf?name=2004%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EC%88%98%ED%95%99%28%EC%98%88%EC%B2%B4%EB%8A%A5%EA%B3%84%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
+    "questionUrl": "https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2004_csat_math_art_q.pdf?name=2004%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EC%88%98%ED%95%99%28%EC%98%88%EC%B2%B4%EB%8A%A5%EA%B3%84%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
     "questionDownload": "2004학년도 수능 수학(예체능계) 문제지.pdf",
     "answerUrl": null,
     "answerDownload": null,
@@ -80366,7 +80366,7 @@
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
-    "source": "kice-archive"
+    "source": "legacy-csat-v2"
   },
   {
     "id": 4765,
@@ -80379,7 +80379,7 @@
     "type": "csat",
     "subject": "수학",
     "subSubject": "인문계",
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v1/2004_csat_k4da042_k4da042_q.pdf?name=2004%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EC%88%98%ED%95%99%28%EC%9D%B8%EB%AC%B8%EA%B3%84%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
+    "questionUrl": "https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2004_csat_math_hum_q.pdf?name=2004%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EC%88%98%ED%95%99%28%EC%9D%B8%EB%AC%B8%EA%B3%84%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
     "questionDownload": "2004학년도 수능 수학(인문계) 문제지.pdf",
     "answerUrl": null,
     "answerDownload": null,
@@ -80388,7 +80388,7 @@
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
-    "source": "kice-archive"
+    "source": "legacy-csat-v2"
   },
   {
     "id": 4767,
@@ -80401,7 +80401,7 @@
     "type": "csat",
     "subject": "수학",
     "subSubject": "자연계",
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v1/2004_csat_k78a7bd_k78a7bd_q.pdf?name=2004%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EC%88%98%ED%95%99%28%EC%9E%90%EC%97%B0%EA%B3%84%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
+    "questionUrl": "https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2004_csat_math_nat_q.pdf?name=2004%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EC%88%98%ED%95%99%28%EC%9E%90%EC%97%B0%EA%B3%84%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
     "questionDownload": "2004학년도 수능 수학(자연계) 문제지.pdf",
     "answerUrl": null,
     "answerDownload": null,
@@ -80410,7 +80410,7 @@
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
-    "source": "kice-archive"
+    "source": "legacy-csat-v2"
   },
   {
     "id": 4769,
@@ -80423,7 +80423,7 @@
     "type": "csat",
     "subject": "영어",
     "subSubject": "예체능계",
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v1/2004_csat_k270460_k270460_q.pdf?name=2004%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EC%98%81%EC%96%B4%28%EC%98%88%EC%B2%B4%EB%8A%A5%EA%B3%84%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
+    "questionUrl": "https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2004_csat_eng_q.pdf?name=2004%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EC%98%81%EC%96%B4%28%EC%98%88%EC%B2%B4%EB%8A%A5%EA%B3%84%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
     "questionDownload": "2004학년도 수능 영어(예체능계) 문제지.pdf",
     "answerUrl": null,
     "answerDownload": null,
@@ -80432,7 +80432,7 @@
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
-    "source": "kice-archive"
+    "source": "legacy-csat-v2"
   },
   {
     "id": 4771,
@@ -80445,7 +80445,7 @@
     "type": "csat",
     "subject": "영어",
     "subSubject": "인문계",
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v1/2004_csat_k4da042_k4da042_q.pdf?name=2004%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EC%98%81%EC%96%B4%28%EC%9D%B8%EB%AC%B8%EA%B3%84%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
+    "questionUrl": "https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2004_csat_eng_q.pdf?name=2004%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EC%98%81%EC%96%B4%28%EC%9D%B8%EB%AC%B8%EA%B3%84%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
     "questionDownload": "2004학년도 수능 영어(인문계) 문제지.pdf",
     "answerUrl": null,
     "answerDownload": null,
@@ -80454,7 +80454,7 @@
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
-    "source": "kice-archive"
+    "source": "legacy-csat-v2"
   },
   {
     "id": 4773,
@@ -80467,7 +80467,7 @@
     "type": "csat",
     "subject": "영어",
     "subSubject": "자연계",
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v1/2004_csat_k78a7bd_k78a7bd_q.pdf?name=2004%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EC%98%81%EC%96%B4%28%EC%9E%90%EC%97%B0%EA%B3%84%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
+    "questionUrl": "https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2004_csat_eng_q.pdf?name=2004%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EC%98%81%EC%96%B4%28%EC%9E%90%EC%97%B0%EA%B3%84%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
     "questionDownload": "2004학년도 수능 영어(자연계) 문제지.pdf",
     "answerUrl": null,
     "answerDownload": null,
@@ -80476,7 +80476,7 @@
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
-    "source": "kice-archive"
+    "source": "legacy-csat-v2"
   },
   {
     "id": 4775,
@@ -80489,7 +80489,7 @@
     "type": "csat",
     "subject": "과학탐구",
     "subSubject": "자연계",
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v1/2004_csat_k78a7bd_k78a7bd_q.pdf?name=2004%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EA%B3%BC%ED%95%99%ED%83%90%EA%B5%AC%28%EC%9E%90%EC%97%B0%EA%B3%84%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
+    "questionUrl": "https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2004_csat_sci_nat_q.pdf?name=2004%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EA%B3%BC%ED%95%99%ED%83%90%EA%B5%AC%28%EC%9E%90%EC%97%B0%EA%B3%84%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
     "questionDownload": "2004학년도 수능 과학탐구(자연계) 문제지.pdf",
     "answerUrl": null,
     "answerDownload": null,
@@ -80498,7 +80498,7 @@
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
-    "source": "kice-archive"
+    "source": "legacy-csat-v2"
   },
   {
     "id": 4777,
@@ -80511,7 +80511,7 @@
     "type": "csat",
     "subject": "사회탐구",
     "subSubject": "인문계",
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v1/2004_csat_k4da042_k4da042_q.pdf?name=2004%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EC%82%AC%ED%9A%8C%ED%83%90%EA%B5%AC%28%EC%9D%B8%EB%AC%B8%EA%B3%84%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
+    "questionUrl": "https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2004_csat_soc_hum_q.pdf?name=2004%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EC%82%AC%ED%9A%8C%ED%83%90%EA%B5%AC%28%EC%9D%B8%EB%AC%B8%EA%B3%84%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
     "questionDownload": "2004학년도 수능 사회탐구(인문계) 문제지.pdf",
     "answerUrl": null,
     "answerDownload": null,
@@ -80520,7 +80520,7 @@
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
-    "source": "kice-archive"
+    "source": "legacy-csat-v2"
   },
   {
     "id": 4779,
@@ -80665,7 +80665,7 @@
     "type": "csat",
     "subject": "국어",
     "subSubject": "예체능계",
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v1/2003_csat_k270460_k270460_q.pdf?name=2003%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EA%B5%AD%EC%96%B4%28%EC%98%88%EC%B2%B4%EB%8A%A5%EA%B3%84%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
+    "questionUrl": "https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2003_csat_kor_q.pdf?name=2003%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EA%B5%AD%EC%96%B4%28%EC%98%88%EC%B2%B4%EB%8A%A5%EA%B3%84%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
     "questionDownload": "2003학년도 수능 국어(예체능계) 문제지.pdf",
     "answerUrl": null,
     "answerDownload": null,
@@ -80674,7 +80674,7 @@
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
-    "source": "kice-archive"
+    "source": "legacy-csat-v2"
   },
   {
     "id": 4786,
@@ -80687,7 +80687,7 @@
     "type": "csat",
     "subject": "국어",
     "subSubject": "인문계",
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v1/2003_csat_k4da042_k4da042_q.pdf?name=2003%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EA%B5%AD%EC%96%B4%28%EC%9D%B8%EB%AC%B8%EA%B3%84%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
+    "questionUrl": "https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2003_csat_kor_q.pdf?name=2003%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EA%B5%AD%EC%96%B4%28%EC%9D%B8%EB%AC%B8%EA%B3%84%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
     "questionDownload": "2003학년도 수능 국어(인문계) 문제지.pdf",
     "answerUrl": null,
     "answerDownload": null,
@@ -80696,7 +80696,7 @@
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
-    "source": "kice-archive"
+    "source": "legacy-csat-v2"
   },
   {
     "id": 4787,
@@ -80709,7 +80709,7 @@
     "type": "csat",
     "subject": "국어",
     "subSubject": "자연계",
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v1/2003_csat_k78a7bd_k78a7bd_q.pdf?name=2003%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EA%B5%AD%EC%96%B4%28%EC%9E%90%EC%97%B0%EA%B3%84%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
+    "questionUrl": "https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2003_csat_kor_q.pdf?name=2003%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EA%B5%AD%EC%96%B4%28%EC%9E%90%EC%97%B0%EA%B3%84%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
     "questionDownload": "2003학년도 수능 국어(자연계) 문제지.pdf",
     "answerUrl": null,
     "answerDownload": null,
@@ -80718,7 +80718,7 @@
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
-    "source": "kice-archive"
+    "source": "legacy-csat-v2"
   },
   {
     "id": 4788,
@@ -80731,7 +80731,7 @@
     "type": "csat",
     "subject": "수학",
     "subSubject": "예체능계",
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v1/2003_csat_k270460_k270460_q.pdf?name=2003%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EC%88%98%ED%95%99%28%EC%98%88%EC%B2%B4%EB%8A%A5%EA%B3%84%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
+    "questionUrl": "https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2003_csat_math_art_q.pdf?name=2003%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EC%88%98%ED%95%99%28%EC%98%88%EC%B2%B4%EB%8A%A5%EA%B3%84%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
     "questionDownload": "2003학년도 수능 수학(예체능계) 문제지.pdf",
     "answerUrl": null,
     "answerDownload": null,
@@ -80740,7 +80740,7 @@
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
-    "source": "kice-archive"
+    "source": "legacy-csat-v2"
   },
   {
     "id": 4789,
@@ -80753,7 +80753,7 @@
     "type": "csat",
     "subject": "수학",
     "subSubject": "인문계",
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v1/2003_csat_k4da042_k4da042_q.pdf?name=2003%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EC%88%98%ED%95%99%28%EC%9D%B8%EB%AC%B8%EA%B3%84%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
+    "questionUrl": "https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2003_csat_math_hum_q.pdf?name=2003%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EC%88%98%ED%95%99%28%EC%9D%B8%EB%AC%B8%EA%B3%84%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
     "questionDownload": "2003학년도 수능 수학(인문계) 문제지.pdf",
     "answerUrl": null,
     "answerDownload": null,
@@ -80762,7 +80762,7 @@
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
-    "source": "kice-archive"
+    "source": "legacy-csat-v2"
   },
   {
     "id": 4790,
@@ -80775,7 +80775,7 @@
     "type": "csat",
     "subject": "수학",
     "subSubject": "자연계",
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v1/2003_csat_k78a7bd_k78a7bd_q.pdf?name=2003%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EC%88%98%ED%95%99%28%EC%9E%90%EC%97%B0%EA%B3%84%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
+    "questionUrl": "https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2003_csat_math_nat_q.pdf?name=2003%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EC%88%98%ED%95%99%28%EC%9E%90%EC%97%B0%EA%B3%84%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
     "questionDownload": "2003학년도 수능 수학(자연계) 문제지.pdf",
     "answerUrl": null,
     "answerDownload": null,
@@ -80784,7 +80784,7 @@
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
-    "source": "kice-archive"
+    "source": "legacy-csat-v2"
   },
   {
     "id": 4791,
@@ -80797,7 +80797,7 @@
     "type": "csat",
     "subject": "영어",
     "subSubject": "예체능계",
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v1/2003_csat_k270460_k270460_q.pdf?name=2003%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EC%98%81%EC%96%B4%28%EC%98%88%EC%B2%B4%EB%8A%A5%EA%B3%84%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
+    "questionUrl": "https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2003_csat_eng_q.pdf?name=2003%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EC%98%81%EC%96%B4%28%EC%98%88%EC%B2%B4%EB%8A%A5%EA%B3%84%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
     "questionDownload": "2003학년도 수능 영어(예체능계) 문제지.pdf",
     "answerUrl": null,
     "answerDownload": null,
@@ -80806,7 +80806,7 @@
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
-    "source": "kice-archive"
+    "source": "legacy-csat-v2"
   },
   {
     "id": 4792,
@@ -80819,7 +80819,7 @@
     "type": "csat",
     "subject": "영어",
     "subSubject": "인문계",
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v1/2003_csat_k4da042_k4da042_q.pdf?name=2003%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EC%98%81%EC%96%B4%28%EC%9D%B8%EB%AC%B8%EA%B3%84%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
+    "questionUrl": "https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2003_csat_eng_q.pdf?name=2003%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EC%98%81%EC%96%B4%28%EC%9D%B8%EB%AC%B8%EA%B3%84%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
     "questionDownload": "2003학년도 수능 영어(인문계) 문제지.pdf",
     "answerUrl": null,
     "answerDownload": null,
@@ -80828,7 +80828,7 @@
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
-    "source": "kice-archive"
+    "source": "legacy-csat-v2"
   },
   {
     "id": 4793,
@@ -80841,7 +80841,7 @@
     "type": "csat",
     "subject": "영어",
     "subSubject": "자연계",
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v1/2003_csat_k78a7bd_k78a7bd_q.pdf?name=2003%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EC%98%81%EC%96%B4%28%EC%9E%90%EC%97%B0%EA%B3%84%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
+    "questionUrl": "https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2003_csat_eng_q.pdf?name=2003%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EC%98%81%EC%96%B4%28%EC%9E%90%EC%97%B0%EA%B3%84%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
     "questionDownload": "2003학년도 수능 영어(자연계) 문제지.pdf",
     "answerUrl": null,
     "answerDownload": null,
@@ -80850,7 +80850,7 @@
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
-    "source": "kice-archive"
+    "source": "legacy-csat-v2"
   },
   {
     "id": 4794,
@@ -80863,7 +80863,7 @@
     "type": "csat",
     "subject": "과학탐구",
     "subSubject": "자연계",
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v1/2003_csat_k78a7bd_k78a7bd_q.pdf?name=2003%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EA%B3%BC%ED%95%99%ED%83%90%EA%B5%AC%28%EC%9E%90%EC%97%B0%EA%B3%84%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
+    "questionUrl": "https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2003_csat_sci_nat_q.pdf?name=2003%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EA%B3%BC%ED%95%99%ED%83%90%EA%B5%AC%28%EC%9E%90%EC%97%B0%EA%B3%84%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
     "questionDownload": "2003학년도 수능 과학탐구(자연계) 문제지.pdf",
     "answerUrl": null,
     "answerDownload": null,
@@ -80872,7 +80872,7 @@
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
-    "source": "kice-archive"
+    "source": "legacy-csat-v2"
   },
   {
     "id": 4795,
@@ -80885,7 +80885,7 @@
     "type": "csat",
     "subject": "사회탐구",
     "subSubject": "인문계",
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v1/2003_csat_k4da042_k4da042_q.pdf?name=2003%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EC%82%AC%ED%9A%8C%ED%83%90%EA%B5%AC%28%EC%9D%B8%EB%AC%B8%EA%B3%84%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
+    "questionUrl": "https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2003_csat_soc_hum_q.pdf?name=2003%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EC%82%AC%ED%9A%8C%ED%83%90%EA%B5%AC%28%EC%9D%B8%EB%AC%B8%EA%B3%84%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
     "questionDownload": "2003학년도 수능 사회탐구(인문계) 문제지.pdf",
     "answerUrl": null,
     "answerDownload": null,
@@ -80894,7 +80894,7 @@
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
-    "source": "kice-archive"
+    "source": "legacy-csat-v2"
   },
   {
     "id": 4796,
@@ -80929,7 +80929,7 @@
     "type": "csat",
     "subject": "국어",
     "subSubject": "예체능계",
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v1/2002_csat_k270460_k270460_q.pdf?name=2002%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EA%B5%AD%EC%96%B4%28%EC%98%88%EC%B2%B4%EB%8A%A5%EA%B3%84%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
+    "questionUrl": "https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2002_csat_kor_q.pdf?name=2002%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EA%B5%AD%EC%96%B4%28%EC%98%88%EC%B2%B4%EB%8A%A5%EA%B3%84%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
     "questionDownload": "2002학년도 수능 국어(예체능계) 문제지.pdf",
     "answerUrl": null,
     "answerDownload": null,
@@ -80938,7 +80938,7 @@
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
-    "source": "kice-archive"
+    "source": "legacy-csat-v2"
   },
   {
     "id": 4798,
@@ -80951,7 +80951,7 @@
     "type": "csat",
     "subject": "국어",
     "subSubject": "인문계",
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v1/2002_csat_k4da042_k4da042_q.pdf?name=2002%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EA%B5%AD%EC%96%B4%28%EC%9D%B8%EB%AC%B8%EA%B3%84%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
+    "questionUrl": "https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2002_csat_kor_q.pdf?name=2002%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EA%B5%AD%EC%96%B4%28%EC%9D%B8%EB%AC%B8%EA%B3%84%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
     "questionDownload": "2002학년도 수능 국어(인문계) 문제지.pdf",
     "answerUrl": null,
     "answerDownload": null,
@@ -80960,7 +80960,7 @@
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
-    "source": "kice-archive"
+    "source": "legacy-csat-v2"
   },
   {
     "id": 4799,
@@ -80973,7 +80973,7 @@
     "type": "csat",
     "subject": "국어",
     "subSubject": "자연계",
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v1/2002_csat_k78a7bd_k78a7bd_q.pdf?name=2002%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EA%B5%AD%EC%96%B4%28%EC%9E%90%EC%97%B0%EA%B3%84%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
+    "questionUrl": "https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2002_csat_kor_q.pdf?name=2002%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EA%B5%AD%EC%96%B4%28%EC%9E%90%EC%97%B0%EA%B3%84%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
     "questionDownload": "2002학년도 수능 국어(자연계) 문제지.pdf",
     "answerUrl": null,
     "answerDownload": null,
@@ -80982,7 +80982,7 @@
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
-    "source": "kice-archive"
+    "source": "legacy-csat-v2"
   },
   {
     "id": 4800,
@@ -80995,7 +80995,7 @@
     "type": "csat",
     "subject": "수학",
     "subSubject": "예체능계",
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v1/2002_csat_k270460_k270460_q.pdf?name=2002%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EC%88%98%ED%95%99%28%EC%98%88%EC%B2%B4%EB%8A%A5%EA%B3%84%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
+    "questionUrl": "https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2002_csat_math_art_q.pdf?name=2002%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EC%88%98%ED%95%99%28%EC%98%88%EC%B2%B4%EB%8A%A5%EA%B3%84%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
     "questionDownload": "2002학년도 수능 수학(예체능계) 문제지.pdf",
     "answerUrl": null,
     "answerDownload": null,
@@ -81004,7 +81004,7 @@
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
-    "source": "kice-archive"
+    "source": "legacy-csat-v2"
   },
   {
     "id": 4801,
@@ -81017,7 +81017,7 @@
     "type": "csat",
     "subject": "수학",
     "subSubject": "인문계",
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v1/2002_csat_k4da042_k4da042_q.pdf?name=2002%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EC%88%98%ED%95%99%28%EC%9D%B8%EB%AC%B8%EA%B3%84%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
+    "questionUrl": "https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2002_csat_math_hum_q.pdf?name=2002%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EC%88%98%ED%95%99%28%EC%9D%B8%EB%AC%B8%EA%B3%84%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
     "questionDownload": "2002학년도 수능 수학(인문계) 문제지.pdf",
     "answerUrl": null,
     "answerDownload": null,
@@ -81026,7 +81026,7 @@
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
-    "source": "kice-archive"
+    "source": "legacy-csat-v2"
   },
   {
     "id": 4802,
@@ -81039,7 +81039,7 @@
     "type": "csat",
     "subject": "수학",
     "subSubject": "자연계",
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v1/2002_csat_k78a7bd_k78a7bd_q.pdf?name=2002%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EC%88%98%ED%95%99%28%EC%9E%90%EC%97%B0%EA%B3%84%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
+    "questionUrl": "https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2002_csat_math_nat_q.pdf?name=2002%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EC%88%98%ED%95%99%28%EC%9E%90%EC%97%B0%EA%B3%84%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
     "questionDownload": "2002학년도 수능 수학(자연계) 문제지.pdf",
     "answerUrl": null,
     "answerDownload": null,
@@ -81048,7 +81048,7 @@
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
-    "source": "kice-archive"
+    "source": "legacy-csat-v2"
   },
   {
     "id": 4803,
@@ -81061,7 +81061,7 @@
     "type": "csat",
     "subject": "영어",
     "subSubject": "예체능계",
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v1/2002_csat_k270460_k270460_q.pdf?name=2002%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EC%98%81%EC%96%B4%28%EC%98%88%EC%B2%B4%EB%8A%A5%EA%B3%84%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
+    "questionUrl": "https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2002_csat_eng_q.pdf?name=2002%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EC%98%81%EC%96%B4%28%EC%98%88%EC%B2%B4%EB%8A%A5%EA%B3%84%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
     "questionDownload": "2002학년도 수능 영어(예체능계) 문제지.pdf",
     "answerUrl": null,
     "answerDownload": null,
@@ -81070,7 +81070,7 @@
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
-    "source": "kice-archive"
+    "source": "legacy-csat-v2"
   },
   {
     "id": 4804,
@@ -81083,7 +81083,7 @@
     "type": "csat",
     "subject": "영어",
     "subSubject": "인문계",
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v1/2002_csat_k4da042_k4da042_q.pdf?name=2002%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EC%98%81%EC%96%B4%28%EC%9D%B8%EB%AC%B8%EA%B3%84%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
+    "questionUrl": "https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2002_csat_eng_q.pdf?name=2002%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EC%98%81%EC%96%B4%28%EC%9D%B8%EB%AC%B8%EA%B3%84%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
     "questionDownload": "2002학년도 수능 영어(인문계) 문제지.pdf",
     "answerUrl": null,
     "answerDownload": null,
@@ -81092,7 +81092,7 @@
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
-    "source": "kice-archive"
+    "source": "legacy-csat-v2"
   },
   {
     "id": 4805,
@@ -81105,7 +81105,7 @@
     "type": "csat",
     "subject": "영어",
     "subSubject": "자연계",
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v1/2002_csat_k78a7bd_k78a7bd_q.pdf?name=2002%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EC%98%81%EC%96%B4%28%EC%9E%90%EC%97%B0%EA%B3%84%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
+    "questionUrl": "https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2002_csat_eng_q.pdf?name=2002%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EC%98%81%EC%96%B4%28%EC%9E%90%EC%97%B0%EA%B3%84%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
     "questionDownload": "2002학년도 수능 영어(자연계) 문제지.pdf",
     "answerUrl": null,
     "answerDownload": null,
@@ -81114,7 +81114,7 @@
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
-    "source": "kice-archive"
+    "source": "legacy-csat-v2"
   },
   {
     "id": 4806,
@@ -81127,7 +81127,7 @@
     "type": "csat",
     "subject": "과학탐구",
     "subSubject": "자연계",
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v1/2002_csat_k78a7bd_k78a7bd_q.pdf?name=2002%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EA%B3%BC%ED%95%99%ED%83%90%EA%B5%AC%28%EC%9E%90%EC%97%B0%EA%B3%84%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
+    "questionUrl": "https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2002_csat_sci_nat_q.pdf?name=2002%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EA%B3%BC%ED%95%99%ED%83%90%EA%B5%AC%28%EC%9E%90%EC%97%B0%EA%B3%84%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
     "questionDownload": "2002학년도 수능 과학탐구(자연계) 문제지.pdf",
     "answerUrl": null,
     "answerDownload": null,
@@ -81136,7 +81136,7 @@
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
-    "source": "kice-archive"
+    "source": "legacy-csat-v2"
   },
   {
     "id": 4807,
@@ -81149,7 +81149,7 @@
     "type": "csat",
     "subject": "사회탐구",
     "subSubject": "인문계",
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v1/2002_csat_k4da042_k4da042_q.pdf?name=2002%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EC%82%AC%ED%9A%8C%ED%83%90%EA%B5%AC%28%EC%9D%B8%EB%AC%B8%EA%B3%84%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
+    "questionUrl": "https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2002_csat_soc_hum_q.pdf?name=2002%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EC%82%AC%ED%9A%8C%ED%83%90%EA%B5%AC%28%EC%9D%B8%EB%AC%B8%EA%B3%84%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
     "questionDownload": "2002학년도 수능 사회탐구(인문계) 문제지.pdf",
     "answerUrl": null,
     "answerDownload": null,
@@ -81158,7 +81158,7 @@
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
-    "source": "kice-archive"
+    "source": "legacy-csat-v2"
   },
   {
     "id": 4808,
@@ -81171,7 +81171,7 @@
     "type": "csat",
     "subject": "국어",
     "subSubject": "예체능계",
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v1/2001_csat_k270460_k270460_q.pdf?name=2001%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EA%B5%AD%EC%96%B4%28%EC%98%88%EC%B2%B4%EB%8A%A5%EA%B3%84%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
+    "questionUrl": "https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2001_csat_kor_q.pdf?name=2001%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EA%B5%AD%EC%96%B4%28%EC%98%88%EC%B2%B4%EB%8A%A5%EA%B3%84%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
     "questionDownload": "2001학년도 수능 국어(예체능계) 문제지.pdf",
     "answerUrl": null,
     "answerDownload": null,
@@ -81180,7 +81180,7 @@
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
-    "source": "kice-archive"
+    "source": "legacy-csat-v2"
   },
   {
     "id": 4809,
@@ -81193,7 +81193,7 @@
     "type": "csat",
     "subject": "국어",
     "subSubject": "인문계",
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v1/2001_csat_k4da042_k4da042_q.pdf?name=2001%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EA%B5%AD%EC%96%B4%28%EC%9D%B8%EB%AC%B8%EA%B3%84%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
+    "questionUrl": "https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2001_csat_kor_q.pdf?name=2001%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EA%B5%AD%EC%96%B4%28%EC%9D%B8%EB%AC%B8%EA%B3%84%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
     "questionDownload": "2001학년도 수능 국어(인문계) 문제지.pdf",
     "answerUrl": null,
     "answerDownload": null,
@@ -81202,7 +81202,7 @@
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
-    "source": "kice-archive"
+    "source": "legacy-csat-v2"
   },
   {
     "id": 4810,
@@ -81215,7 +81215,7 @@
     "type": "csat",
     "subject": "국어",
     "subSubject": "자연계",
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v1/2001_csat_k78a7bd_k78a7bd_q.pdf?name=2001%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EA%B5%AD%EC%96%B4%28%EC%9E%90%EC%97%B0%EA%B3%84%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
+    "questionUrl": "https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2001_csat_kor_q.pdf?name=2001%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EA%B5%AD%EC%96%B4%28%EC%9E%90%EC%97%B0%EA%B3%84%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
     "questionDownload": "2001학년도 수능 국어(자연계) 문제지.pdf",
     "answerUrl": null,
     "answerDownload": null,
@@ -81224,7 +81224,7 @@
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
-    "source": "kice-archive"
+    "source": "legacy-csat-v2"
   },
   {
     "id": 4811,
@@ -81237,7 +81237,7 @@
     "type": "csat",
     "subject": "수학",
     "subSubject": "예체능계",
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v1/2001_csat_k270460_k270460_q.pdf?name=2001%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EC%88%98%ED%95%99%28%EC%98%88%EC%B2%B4%EB%8A%A5%EA%B3%84%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
+    "questionUrl": "https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2001_csat_math_art_q.pdf?name=2001%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EC%88%98%ED%95%99%28%EC%98%88%EC%B2%B4%EB%8A%A5%EA%B3%84%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
     "questionDownload": "2001학년도 수능 수학(예체능계) 문제지.pdf",
     "answerUrl": null,
     "answerDownload": null,
@@ -81246,7 +81246,7 @@
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
-    "source": "kice-archive"
+    "source": "legacy-csat-v2"
   },
   {
     "id": 4812,
@@ -81259,7 +81259,7 @@
     "type": "csat",
     "subject": "수학",
     "subSubject": "인문계",
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v1/2001_csat_k4da042_k4da042_q.pdf?name=2001%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EC%88%98%ED%95%99%28%EC%9D%B8%EB%AC%B8%EA%B3%84%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
+    "questionUrl": "https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2001_csat_math_hum_q.pdf?name=2001%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EC%88%98%ED%95%99%28%EC%9D%B8%EB%AC%B8%EA%B3%84%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
     "questionDownload": "2001학년도 수능 수학(인문계) 문제지.pdf",
     "answerUrl": null,
     "answerDownload": null,
@@ -81268,7 +81268,7 @@
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
-    "source": "kice-archive"
+    "source": "legacy-csat-v2"
   },
   {
     "id": 4813,
@@ -81281,7 +81281,7 @@
     "type": "csat",
     "subject": "수학",
     "subSubject": "자연계",
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v1/2001_csat_k78a7bd_k78a7bd_q.pdf?name=2001%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EC%88%98%ED%95%99%28%EC%9E%90%EC%97%B0%EA%B3%84%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
+    "questionUrl": "https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2001_csat_math_nat_q.pdf?name=2001%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EC%88%98%ED%95%99%28%EC%9E%90%EC%97%B0%EA%B3%84%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
     "questionDownload": "2001학년도 수능 수학(자연계) 문제지.pdf",
     "answerUrl": null,
     "answerDownload": null,
@@ -81290,7 +81290,7 @@
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
-    "source": "kice-archive"
+    "source": "legacy-csat-v2"
   },
   {
     "id": 4814,
@@ -81303,7 +81303,7 @@
     "type": "csat",
     "subject": "영어",
     "subSubject": "예체능계",
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v1/2001_csat_k270460_k270460_q.pdf?name=2001%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EC%98%81%EC%96%B4%28%EC%98%88%EC%B2%B4%EB%8A%A5%EA%B3%84%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
+    "questionUrl": "https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2001_csat_eng_q.pdf?name=2001%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EC%98%81%EC%96%B4%28%EC%98%88%EC%B2%B4%EB%8A%A5%EA%B3%84%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
     "questionDownload": "2001학년도 수능 영어(예체능계) 문제지.pdf",
     "answerUrl": null,
     "answerDownload": null,
@@ -81312,7 +81312,7 @@
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
-    "source": "kice-archive"
+    "source": "legacy-csat-v2"
   },
   {
     "id": 4815,
@@ -81325,7 +81325,7 @@
     "type": "csat",
     "subject": "영어",
     "subSubject": "인문계",
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v1/2001_csat_k4da042_k4da042_q.pdf?name=2001%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EC%98%81%EC%96%B4%28%EC%9D%B8%EB%AC%B8%EA%B3%84%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
+    "questionUrl": "https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2001_csat_eng_q.pdf?name=2001%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EC%98%81%EC%96%B4%28%EC%9D%B8%EB%AC%B8%EA%B3%84%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
     "questionDownload": "2001학년도 수능 영어(인문계) 문제지.pdf",
     "answerUrl": null,
     "answerDownload": null,
@@ -81334,7 +81334,7 @@
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
-    "source": "kice-archive"
+    "source": "legacy-csat-v2"
   },
   {
     "id": 4816,
@@ -81347,7 +81347,7 @@
     "type": "csat",
     "subject": "영어",
     "subSubject": "자연계",
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v1/2001_csat_k78a7bd_k78a7bd_q.pdf?name=2001%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EC%98%81%EC%96%B4%28%EC%9E%90%EC%97%B0%EA%B3%84%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
+    "questionUrl": "https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2001_csat_eng_q.pdf?name=2001%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EC%98%81%EC%96%B4%28%EC%9E%90%EC%97%B0%EA%B3%84%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
     "questionDownload": "2001학년도 수능 영어(자연계) 문제지.pdf",
     "answerUrl": null,
     "answerDownload": null,
@@ -81356,7 +81356,7 @@
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
-    "source": "kice-archive"
+    "source": "legacy-csat-v2"
   },
   {
     "id": 4817,
@@ -81369,7 +81369,7 @@
     "type": "csat",
     "subject": "과학탐구",
     "subSubject": "자연계",
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v1/2001_csat_k78a7bd_k78a7bd_q.pdf?name=2001%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EA%B3%BC%ED%95%99%ED%83%90%EA%B5%AC%28%EC%9E%90%EC%97%B0%EA%B3%84%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
+    "questionUrl": "https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2001_csat_sci_nat_q.pdf?name=2001%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EA%B3%BC%ED%95%99%ED%83%90%EA%B5%AC%28%EC%9E%90%EC%97%B0%EA%B3%84%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
     "questionDownload": "2001학년도 수능 과학탐구(자연계) 문제지.pdf",
     "answerUrl": null,
     "answerDownload": null,
@@ -81378,7 +81378,7 @@
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
-    "source": "kice-archive"
+    "source": "legacy-csat-v2"
   },
   {
     "id": 4818,
@@ -81391,7 +81391,7 @@
     "type": "csat",
     "subject": "사회탐구",
     "subSubject": "인문계",
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v1/2001_csat_k4da042_k4da042_q.pdf?name=2001%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EC%82%AC%ED%9A%8C%ED%83%90%EA%B5%AC%28%EC%9D%B8%EB%AC%B8%EA%B3%84%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
+    "questionUrl": "https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2001_csat_soc_hum_q.pdf?name=2001%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EC%82%AC%ED%9A%8C%ED%83%90%EA%B5%AC%28%EC%9D%B8%EB%AC%B8%EA%B3%84%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
     "questionDownload": "2001학년도 수능 사회탐구(인문계) 문제지.pdf",
     "answerUrl": null,
     "answerDownload": null,
@@ -81400,7 +81400,7 @@
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
-    "source": "kice-archive"
+    "source": "legacy-csat-v2"
   },
   {
     "id": 4819,
@@ -81413,7 +81413,7 @@
     "type": "csat",
     "subject": "국어",
     "subSubject": "예체능계",
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v1/2000_csat_k270460_k270460_q.pdf?name=2000%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EA%B5%AD%EC%96%B4%28%EC%98%88%EC%B2%B4%EB%8A%A5%EA%B3%84%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
+    "questionUrl": "https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2000_csat_kor_q.pdf?name=2000%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EA%B5%AD%EC%96%B4%28%EC%98%88%EC%B2%B4%EB%8A%A5%EA%B3%84%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
     "questionDownload": "2000학년도 수능 국어(예체능계) 문제지.pdf",
     "answerUrl": null,
     "answerDownload": null,
@@ -81422,7 +81422,7 @@
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
-    "source": "kice-archive"
+    "source": "legacy-csat-v2"
   },
   {
     "id": 4820,
@@ -81435,7 +81435,7 @@
     "type": "csat",
     "subject": "국어",
     "subSubject": "인문계",
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v1/2000_csat_k4da042_k4da042_q.pdf?name=2000%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EA%B5%AD%EC%96%B4%28%EC%9D%B8%EB%AC%B8%EA%B3%84%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
+    "questionUrl": "https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2000_csat_kor_q.pdf?name=2000%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EA%B5%AD%EC%96%B4%28%EC%9D%B8%EB%AC%B8%EA%B3%84%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
     "questionDownload": "2000학년도 수능 국어(인문계) 문제지.pdf",
     "answerUrl": null,
     "answerDownload": null,
@@ -81444,7 +81444,7 @@
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
-    "source": "kice-archive"
+    "source": "legacy-csat-v2"
   },
   {
     "id": 4822,
@@ -81457,7 +81457,7 @@
     "type": "csat",
     "subject": "국어",
     "subSubject": "자연계",
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v1/2000_csat_k78a7bd_k78a7bd_q.pdf?name=2000%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EA%B5%AD%EC%96%B4%28%EC%9E%90%EC%97%B0%EA%B3%84%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
+    "questionUrl": "https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2000_csat_kor_q.pdf?name=2000%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EA%B5%AD%EC%96%B4%28%EC%9E%90%EC%97%B0%EA%B3%84%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
     "questionDownload": "2000학년도 수능 국어(자연계) 문제지.pdf",
     "answerUrl": null,
     "answerDownload": null,
@@ -81466,7 +81466,7 @@
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
-    "source": "kice-archive"
+    "source": "legacy-csat-v2"
   },
   {
     "id": 4824,
@@ -81479,7 +81479,7 @@
     "type": "csat",
     "subject": "수학",
     "subSubject": "예체능계",
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v1/2000_csat_k270460_k270460_q.pdf?name=2000%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EC%88%98%ED%95%99%28%EC%98%88%EC%B2%B4%EB%8A%A5%EA%B3%84%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
+    "questionUrl": "https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2000_csat_math_art_q.pdf?name=2000%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EC%88%98%ED%95%99%28%EC%98%88%EC%B2%B4%EB%8A%A5%EA%B3%84%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
     "questionDownload": "2000학년도 수능 수학(예체능계) 문제지.pdf",
     "answerUrl": null,
     "answerDownload": null,
@@ -81488,7 +81488,7 @@
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
-    "source": "kice-archive"
+    "source": "legacy-csat-v2"
   },
   {
     "id": 4825,
@@ -81501,7 +81501,7 @@
     "type": "csat",
     "subject": "수학",
     "subSubject": "인문계",
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v1/2000_csat_k4da042_k4da042_q.pdf?name=2000%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EC%88%98%ED%95%99%28%EC%9D%B8%EB%AC%B8%EA%B3%84%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
+    "questionUrl": "https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2000_csat_math_hum_q.pdf?name=2000%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EC%88%98%ED%95%99%28%EC%9D%B8%EB%AC%B8%EA%B3%84%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
     "questionDownload": "2000학년도 수능 수학(인문계) 문제지.pdf",
     "answerUrl": null,
     "answerDownload": null,
@@ -81510,7 +81510,7 @@
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
-    "source": "kice-archive"
+    "source": "legacy-csat-v2"
   },
   {
     "id": 4827,
@@ -81523,7 +81523,7 @@
     "type": "csat",
     "subject": "수학",
     "subSubject": "자연계",
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v1/2000_csat_k78a7bd_k78a7bd_q.pdf?name=2000%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EC%88%98%ED%95%99%28%EC%9E%90%EC%97%B0%EA%B3%84%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
+    "questionUrl": "https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2000_csat_math_nat_q.pdf?name=2000%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EC%88%98%ED%95%99%28%EC%9E%90%EC%97%B0%EA%B3%84%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
     "questionDownload": "2000학년도 수능 수학(자연계) 문제지.pdf",
     "answerUrl": null,
     "answerDownload": null,
@@ -81532,7 +81532,7 @@
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
-    "source": "kice-archive"
+    "source": "legacy-csat-v2"
   },
   {
     "id": 4829,
@@ -81545,7 +81545,7 @@
     "type": "csat",
     "subject": "영어",
     "subSubject": "예체능계",
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v1/2000_csat_k270460_k270460_q.pdf?name=2000%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EC%98%81%EC%96%B4%28%EC%98%88%EC%B2%B4%EB%8A%A5%EA%B3%84%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
+    "questionUrl": "https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2000_csat_eng_q.pdf?name=2000%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EC%98%81%EC%96%B4%28%EC%98%88%EC%B2%B4%EB%8A%A5%EA%B3%84%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
     "questionDownload": "2000학년도 수능 영어(예체능계) 문제지.pdf",
     "answerUrl": null,
     "answerDownload": null,
@@ -81554,7 +81554,7 @@
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
-    "source": "kice-archive"
+    "source": "legacy-csat-v2"
   },
   {
     "id": 4830,
@@ -81567,7 +81567,7 @@
     "type": "csat",
     "subject": "영어",
     "subSubject": "인문계",
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v1/2000_csat_k4da042_k4da042_q.pdf?name=2000%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EC%98%81%EC%96%B4%28%EC%9D%B8%EB%AC%B8%EA%B3%84%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
+    "questionUrl": "https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2000_csat_eng_q.pdf?name=2000%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EC%98%81%EC%96%B4%28%EC%9D%B8%EB%AC%B8%EA%B3%84%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
     "questionDownload": "2000학년도 수능 영어(인문계) 문제지.pdf",
     "answerUrl": null,
     "answerDownload": null,
@@ -81576,7 +81576,7 @@
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
-    "source": "kice-archive"
+    "source": "legacy-csat-v2"
   },
   {
     "id": 4832,
@@ -81589,7 +81589,7 @@
     "type": "csat",
     "subject": "영어",
     "subSubject": "자연계",
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v1/2000_csat_k78a7bd_k78a7bd_q.pdf?name=2000%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EC%98%81%EC%96%B4%28%EC%9E%90%EC%97%B0%EA%B3%84%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
+    "questionUrl": "https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2000_csat_eng_q.pdf?name=2000%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EC%98%81%EC%96%B4%28%EC%9E%90%EC%97%B0%EA%B3%84%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
     "questionDownload": "2000학년도 수능 영어(자연계) 문제지.pdf",
     "answerUrl": null,
     "answerDownload": null,
@@ -81598,7 +81598,7 @@
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
-    "source": "kice-archive"
+    "source": "legacy-csat-v2"
   },
   {
     "id": 4834,
@@ -81611,7 +81611,7 @@
     "type": "csat",
     "subject": "과학탐구",
     "subSubject": "자연계",
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v1/2000_csat_k78a7bd_k78a7bd_q.pdf?name=2000%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EA%B3%BC%ED%95%99%ED%83%90%EA%B5%AC%28%EC%9E%90%EC%97%B0%EA%B3%84%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
+    "questionUrl": "https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2000_csat_sci_nat_q.pdf?name=2000%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EA%B3%BC%ED%95%99%ED%83%90%EA%B5%AC%28%EC%9E%90%EC%97%B0%EA%B3%84%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
     "questionDownload": "2000학년도 수능 과학탐구(자연계) 문제지.pdf",
     "answerUrl": null,
     "answerDownload": null,
@@ -81620,7 +81620,7 @@
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
-    "source": "kice-archive"
+    "source": "legacy-csat-v2"
   },
   {
     "id": 4836,
@@ -81633,7 +81633,7 @@
     "type": "csat",
     "subject": "사회탐구",
     "subSubject": "인문계",
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v1/2000_csat_k4da042_k4da042_q.pdf?name=2000%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EC%82%AC%ED%9A%8C%ED%83%90%EA%B5%AC%28%EC%9D%B8%EB%AC%B8%EA%B3%84%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
+    "questionUrl": "https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2000_csat_soc_hum_q.pdf?name=2000%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EC%82%AC%ED%9A%8C%ED%83%90%EA%B5%AC%28%EC%9D%B8%EB%AC%B8%EA%B3%84%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
     "questionDownload": "2000학년도 수능 사회탐구(인문계) 문제지.pdf",
     "answerUrl": null,
     "answerDownload": null,
@@ -81642,7 +81642,7 @@
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
-    "source": "kice-archive"
+    "source": "legacy-csat-v2"
   },
   {
     "id": 4838,
@@ -81655,7 +81655,7 @@
     "type": "csat",
     "subject": "국어",
     "subSubject": "예체능계",
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v1/1999_csat_k270460_k270460_q.pdf?name=1999%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EA%B5%AD%EC%96%B4%28%EC%98%88%EC%B2%B4%EB%8A%A5%EA%B3%84%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
+    "questionUrl": "https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/1999_csat_kor_q.pdf?name=1999%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EA%B5%AD%EC%96%B4%28%EC%98%88%EC%B2%B4%EB%8A%A5%EA%B3%84%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
     "questionDownload": "1999학년도 수능 국어(예체능계) 문제지.pdf",
     "answerUrl": null,
     "answerDownload": null,
@@ -81664,7 +81664,7 @@
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
-    "source": "kice-archive"
+    "source": "legacy-csat-v2"
   },
   {
     "id": 4839,
@@ -81677,7 +81677,7 @@
     "type": "csat",
     "subject": "국어",
     "subSubject": "인문계",
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v1/1999_csat_k4da042_k4da042_q.pdf?name=1999%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EA%B5%AD%EC%96%B4%28%EC%9D%B8%EB%AC%B8%EA%B3%84%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
+    "questionUrl": "https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/1999_csat_kor_q.pdf?name=1999%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EA%B5%AD%EC%96%B4%28%EC%9D%B8%EB%AC%B8%EA%B3%84%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
     "questionDownload": "1999학년도 수능 국어(인문계) 문제지.pdf",
     "answerUrl": null,
     "answerDownload": null,
@@ -81686,7 +81686,7 @@
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
-    "source": "kice-archive"
+    "source": "legacy-csat-v2"
   },
   {
     "id": 4841,
@@ -81699,7 +81699,7 @@
     "type": "csat",
     "subject": "국어",
     "subSubject": "자연계",
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v1/1999_csat_k78a7bd_k78a7bd_q.pdf?name=1999%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EA%B5%AD%EC%96%B4%28%EC%9E%90%EC%97%B0%EA%B3%84%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
+    "questionUrl": "https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/1999_csat_kor_q.pdf?name=1999%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EA%B5%AD%EC%96%B4%28%EC%9E%90%EC%97%B0%EA%B3%84%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
     "questionDownload": "1999학년도 수능 국어(자연계) 문제지.pdf",
     "answerUrl": null,
     "answerDownload": null,
@@ -81708,7 +81708,7 @@
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
-    "source": "kice-archive"
+    "source": "legacy-csat-v2"
   },
   {
     "id": 4842,
@@ -81721,7 +81721,7 @@
     "type": "csat",
     "subject": "수학",
     "subSubject": "예체능계",
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v1/1999_csat_k270460_k270460_q.pdf?name=1999%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EC%88%98%ED%95%99%28%EC%98%88%EC%B2%B4%EB%8A%A5%EA%B3%84%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
+    "questionUrl": "https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/1999_csat_math_art_q.pdf?name=1999%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EC%88%98%ED%95%99%28%EC%98%88%EC%B2%B4%EB%8A%A5%EA%B3%84%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
     "questionDownload": "1999학년도 수능 수학(예체능계) 문제지.pdf",
     "answerUrl": null,
     "answerDownload": null,
@@ -81730,7 +81730,7 @@
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
-    "source": "kice-archive"
+    "source": "legacy-csat-v2"
   },
   {
     "id": 4843,
@@ -81743,7 +81743,7 @@
     "type": "csat",
     "subject": "수학",
     "subSubject": "인문계",
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v1/1999_csat_k4da042_k4da042_q.pdf?name=1999%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EC%88%98%ED%95%99%28%EC%9D%B8%EB%AC%B8%EA%B3%84%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
+    "questionUrl": "https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/1999_csat_math_hum_q.pdf?name=1999%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EC%88%98%ED%95%99%28%EC%9D%B8%EB%AC%B8%EA%B3%84%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
     "questionDownload": "1999학년도 수능 수학(인문계) 문제지.pdf",
     "answerUrl": null,
     "answerDownload": null,
@@ -81752,7 +81752,7 @@
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
-    "source": "kice-archive"
+    "source": "legacy-csat-v2"
   },
   {
     "id": 4845,
@@ -81765,7 +81765,7 @@
     "type": "csat",
     "subject": "수학",
     "subSubject": "자연계",
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v1/1999_csat_k78a7bd_k78a7bd_q.pdf?name=1999%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EC%88%98%ED%95%99%28%EC%9E%90%EC%97%B0%EA%B3%84%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
+    "questionUrl": "https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/1999_csat_math_nat_q.pdf?name=1999%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EC%88%98%ED%95%99%28%EC%9E%90%EC%97%B0%EA%B3%84%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
     "questionDownload": "1999학년도 수능 수학(자연계) 문제지.pdf",
     "answerUrl": null,
     "answerDownload": null,
@@ -81774,7 +81774,7 @@
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
-    "source": "kice-archive"
+    "source": "legacy-csat-v2"
   },
   {
     "id": 4846,
@@ -81787,7 +81787,7 @@
     "type": "csat",
     "subject": "영어",
     "subSubject": "예체능계",
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v1/1999_csat_k270460_k270460_q.pdf?name=1999%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EC%98%81%EC%96%B4%28%EC%98%88%EC%B2%B4%EB%8A%A5%EA%B3%84%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
+    "questionUrl": "https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/1999_csat_eng_q.pdf?name=1999%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EC%98%81%EC%96%B4%28%EC%98%88%EC%B2%B4%EB%8A%A5%EA%B3%84%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
     "questionDownload": "1999학년도 수능 영어(예체능계) 문제지.pdf",
     "answerUrl": null,
     "answerDownload": null,
@@ -81796,7 +81796,7 @@
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
-    "source": "kice-archive"
+    "source": "legacy-csat-v2"
   },
   {
     "id": 4847,
@@ -81809,7 +81809,7 @@
     "type": "csat",
     "subject": "영어",
     "subSubject": "인문계",
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v1/1999_csat_k4da042_k4da042_q.pdf?name=1999%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EC%98%81%EC%96%B4%28%EC%9D%B8%EB%AC%B8%EA%B3%84%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
+    "questionUrl": "https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/1999_csat_eng_q.pdf?name=1999%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EC%98%81%EC%96%B4%28%EC%9D%B8%EB%AC%B8%EA%B3%84%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
     "questionDownload": "1999학년도 수능 영어(인문계) 문제지.pdf",
     "answerUrl": null,
     "answerDownload": null,
@@ -81818,7 +81818,7 @@
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
-    "source": "kice-archive"
+    "source": "legacy-csat-v2"
   },
   {
     "id": 4849,
@@ -81831,7 +81831,7 @@
     "type": "csat",
     "subject": "영어",
     "subSubject": "자연계",
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v1/1999_csat_k78a7bd_k78a7bd_q.pdf?name=1999%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EC%98%81%EC%96%B4%28%EC%9E%90%EC%97%B0%EA%B3%84%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
+    "questionUrl": "https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/1999_csat_eng_q.pdf?name=1999%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EC%98%81%EC%96%B4%28%EC%9E%90%EC%97%B0%EA%B3%84%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
     "questionDownload": "1999학년도 수능 영어(자연계) 문제지.pdf",
     "answerUrl": null,
     "answerDownload": null,
@@ -81840,7 +81840,7 @@
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
-    "source": "kice-archive"
+    "source": "legacy-csat-v2"
   },
   {
     "id": 4850,
@@ -81853,7 +81853,7 @@
     "type": "csat",
     "subject": "과학탐구",
     "subSubject": "자연계",
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v1/1999_csat_k78a7bd_k78a7bd_q.pdf?name=1999%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EA%B3%BC%ED%95%99%ED%83%90%EA%B5%AC%28%EC%9E%90%EC%97%B0%EA%B3%84%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
+    "questionUrl": "https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/1999_csat_sci_nat_q.pdf?name=1999%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EA%B3%BC%ED%95%99%ED%83%90%EA%B5%AC%28%EC%9E%90%EC%97%B0%EA%B3%84%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
     "questionDownload": "1999학년도 수능 과학탐구(자연계) 문제지.pdf",
     "answerUrl": null,
     "answerDownload": null,
@@ -81862,7 +81862,7 @@
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
-    "source": "kice-archive"
+    "source": "legacy-csat-v2"
   },
   {
     "id": 4851,
@@ -81875,7 +81875,7 @@
     "type": "csat",
     "subject": "사회탐구",
     "subSubject": "인문계",
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v1/1999_csat_k4da042_k4da042_q.pdf?name=1999%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EC%82%AC%ED%9A%8C%ED%83%90%EA%B5%AC%28%EC%9D%B8%EB%AC%B8%EA%B3%84%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
+    "questionUrl": "https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/1999_csat_soc_hum_q.pdf?name=1999%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EC%82%AC%ED%9A%8C%ED%83%90%EA%B5%AC%28%EC%9D%B8%EB%AC%B8%EA%B3%84%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
     "questionDownload": "1999학년도 수능 사회탐구(인문계) 문제지.pdf",
     "answerUrl": null,
     "answerDownload": null,
@@ -81884,7 +81884,7 @@
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
-    "source": "kice-archive"
+    "source": "legacy-csat-v2"
   },
   {
     "id": 4853,
