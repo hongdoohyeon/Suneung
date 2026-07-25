@@ -22,7 +22,8 @@ function siteType(typeRaw, month, year) {
   if (t === '수능') return 'csat';
   if (t === '모의평가') {
     if (month === 6) return 'june';
-    if (month === 9) return 'sept';
+    // 2023학년도 9월 모평은 2022-08-31 시행이라 원천 달력이 8월로 기록된다.
+    if (month === 8 || month === 9) return 'sept';
     return null;
   }
   if (t === '학력평가') {
@@ -99,6 +100,7 @@ for (const item of raw) {
   //   그 외 학평 (고3 학평 포함) → 'education' (시도교육청)
   const isSuneungTypeFor3 = sg === 3 && (type === 'csat' || type === 'june' || type === 'sept');
   const typeGroup = isSuneungTypeFor3 ? 'suneung' : 'education';
+  const month = type === 'sept' ? 9 : item.month;
   const map = SUBJ_MAP[item.subjectName];
   if (!map) { subjNull++; sampleSubj.add(item.subjectName); continue; }
   const [subject, subSubject] = map;
@@ -107,9 +109,13 @@ for (const item of raw) {
   //   5컬럼: [등급, 원점수, 표준점수, 백분위, 누적비율]   (사탐/과탐 + 일부 구 국·수)
   //   4컬럼: [등급, 표준점수, 백분위, 누적비율]           (현행 국어/수학)
   const sampleRow = item.rows.find(r => /^\d등급$/.test(r[0])) || item.rows[1] || [];
+  // 고1 통합사회·통합과학의 3열 표는 표준점수가 아니라 절대평가 원점수만 제공한다.
+  const absoluteRawOnly = sampleRow.length === 3
+    && subSubject == null
+    && (subject === '사회탐구' || subject === '과학탐구');
   const fiveCol = sampleRow.length >= 5;
-  const RAW_COL = fiveCol ? 1 : null;
-  const STD_COL = fiveCol ? 2 : 1;
+  const RAW_COL = (fiveCol || absoluteRawOnly) ? 1 : null;
+  const STD_COL = fiveCol ? 2 : (absoluteRawOnly ? null : 1);
   const PCT_COL = fiveCol ? 3 : 2;
   const CUM_COL = fiveCol ? 4 : 3;
 
@@ -122,7 +128,7 @@ for (const item of raw) {
     const label = row[0];
     if (label === '최고점' || label === '만점') {
       if (RAW_COL != null) highestRaw = parseInt((row[RAW_COL]||'').replace(/[^\d]/g,''), 10) || null;
-      highestStd = parseInt((row[STD_COL]||'').replace(/[^\d]/g,''), 10) || null;
+      if (STD_COL != null) highestStd = parseInt((row[STD_COL]||'').replace(/[^\d]/g,''), 10) || null;
       continue;
     }
     const m = label.match(/^(\d)등급$/);
@@ -130,10 +136,11 @@ for (const item of raw) {
     const g = Number(m[1]);
     if (RAW_COL != null) {
       const rawStr = (row[RAW_COL]||'').replace(/\s/g,'');
-      const rawNum = rawStr ? parseInt(rawStr.split('~')[0].replace(/[^\d]/g,''), 10) : NaN;
+      // 44.5 같은 추정 경계는 실제 정수 득점에서 등급이 시작되는 최소점(45)으로 환산한다.
+      const rawNum = rawStr ? Math.ceil(Number(rawStr.split('~')[0].replace(/[^\d.]/g,''))) : NaN;
       if (Number.isFinite(rawNum)) rawScores[g] = rawNum;
     }
-    const std = parseInt((row[STD_COL]||'').replace(/[^\d]/g,''), 10);
+    const std = STD_COL == null ? NaN : parseInt((row[STD_COL]||'').replace(/[^\d]/g,''), 10);
     const pct = parseInt((row[PCT_COL]||'').replace(/[^\d]/g,''), 10);
     const cum = parseFloat((row[CUM_COL]||'').replace(/[^\d.]/g,''));
     if (Number.isFinite(std)) stdScores[g] = std;
@@ -143,9 +150,9 @@ for (const item of raw) {
   // 1~8등급 컷
   const standardCuts = [1,2,3,4,5,6,7,8].map(g => stdScores[g] ?? null);
   const rawCuts = RAW_COL != null ? [1,2,3,4,5,6,7,8].map(g => rawScores[g] ?? null) : null;
-  if (standardCuts.filter(v => v!=null).length < 6) continue;
+  if (!absoluteRawOnly && standardCuts.filter(v => v!=null).length < 6) continue;
 
-  const key = `${typeGroup}|${gradeYear}|${item.examYear}|${item.month}|${type}|${subject}|${subSubject ?? ''}`;
+  const key = `${typeGroup}|${gradeYear}|${item.examYear}|${month}|${type}|${subject}|${subSubject ?? ''}`;
   if (seen.has(key)) continue;
   seen.add(key);
 
@@ -153,7 +160,7 @@ for (const item of raw) {
     curriculum: curriculumFor(gradeYear),
     gradeYear: gradeYear,
     examYear: item.examYear,
-    month: item.month,
+    month,
     typeGroup,
     type,
     subject,
@@ -165,6 +172,11 @@ for (const item of raw) {
     highestStandardScore: highestStd,
     fullScore: highestRaw,
     source: 'megastudy',
+    ...(absoluteRawOnly ? { absolute: true } : {}),
+    ...(!absoluteRawOnly && item.rows.some(row => {
+      const value = Number((row[RAW_COL] || '').replace(/[^\d.]/g, ''));
+      return Number.isFinite(value) && !Number.isInteger(value);
+    }) ? { rawCutBasis: 'academy_integerized_threshold' } : {}),
     examSeq: item.examSeq,
     studentGrade: sg,
   });

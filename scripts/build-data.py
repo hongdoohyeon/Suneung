@@ -1076,8 +1076,10 @@ def build_static_exam_pages(items: list[dict], template_path: Path, out_root: Pa
             '<td class="grade-table__c grade-table__c--g{0}">{1}</td>'.format(
                 i + 1, '—' if (i >= len(raw) or raw[i] is None) else raw[i])
             for i in range(9))
+        basis_label = (' · 입시기관 역산값' if basis == 'academy_reverse_calculated' else
+                       ' · 입시기관 추정 정수 경계' if basis == 'academy_integerized_threshold' else '')
         cap = ('등급별 원점수 컷 · 절대평가' if absolute else
-               '등급별 원점수 컷' + (' · 입시기관 역산값' if basis == 'academy_reverse_calculated' else '')) + (f' · 만점 {full}점' if full else '')
+               '등급별 원점수 컷' + basis_label) + (f' · 만점 {full}점' if full else '')
         return (
             '<table class="grade-table" role="table" aria-label="등급별 원점수 컷">'
             '<thead><tr><th class="grade-table__corner" scope="col">등급</th>' + th + '</tr></thead>'
@@ -1363,7 +1365,9 @@ def build_static_exam_pages(items: list[dict], template_path: Path, out_root: Pa
                 '<div class="exam-card__body" id="gradeDistBody"></div>',
                 '<div class="exam-card__body" id="gradeDistBody">' + _tbl + '</div>', 1)
             if _raw and _raw[0] is not None:
-                _hint = f'1등급 {"역산값" if _basis == "academy_reverse_calculated" else "컷"} {_raw[0]}점' + (' · 절대평가' if _cut.get('absolute') else '')
+                _kind = ('역산값' if _basis == 'academy_reverse_calculated' else
+                         '추정 경계' if _basis == 'academy_integerized_threshold' else '컷')
+                _hint = f'1등급 {_kind} {_raw[0]}점' + (' · 절대평가' if _cut.get('absolute') else '')
                 html = html.replace(
                     '<span class="exam-card__hint" id="gradeDistHint"></span>',
                     '<span class="exam-card__hint" id="gradeDistHint">' + html_escape(_hint, quote=False) + '</span>', 1)

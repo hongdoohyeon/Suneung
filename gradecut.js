@@ -372,6 +372,7 @@ function computeGrade(score, cuts) {
 
 function cutBasisLabel(cut) {
   if (cut.rawCutBasis === 'academy_reverse_calculated') return '입시기관 역산 원점수';
+  if (cut.rawCutBasis === 'academy_integerized_threshold') return '입시기관 추정 정수 경계';
   if (cut.absolute) return '절대평가 고정 기준';
   const source = String(cut.source || '');
   if (source.includes('ebsi')) return 'EBSi 공개컷';

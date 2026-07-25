@@ -161,6 +161,8 @@ for (const r of megastudy) {
     });
     rec.standardCuts = r.standardCuts;
     if (Array.isArray(r.rawCuts) && r.rawCuts.some(v => v != null)) rec.rawCuts = r.rawCuts;
+    if (r.rawCutBasis) rec.rawCutBasis = r.rawCutBasis;
+    if (r.absolute) rec.absolute = true;
     if (r.standardPercentile?.some(v => v != null)) rec.standardPercentile = r.standardPercentile;
     if (r.cumulativePercent?.some(v => v != null)) rec.cumulativePercent = r.cumulativePercent;
     if (r.highestStandardScore != null) rec.highestStandardScore = r.highestStandardScore;
@@ -372,6 +374,8 @@ for (const r of kiceArchive) {
   }
   if (Array.isArray(r.rawCuts) && r.rawCuts.some(v => v != null) && isMonotonicCuts(r.rawCuts)) {
     rec.rawCuts = r.rawCuts;
+    delete rec.rawCutBasis;
+    delete rec.rawCutSourceUrl;
     delete rec.rawCutStatus;
     delete rec.rawCutReason;
     delete rec.officialGradeBoundarySource;

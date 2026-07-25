@@ -321,6 +321,7 @@ async function validateGradecuts() {
   let fractionalRaw = 0;
   let invalidUnavailableStatus = 0;
   let invalidReverseCalculated = 0;
+  let invalidIntegerizedThreshold = 0;
   let duplicateLogicalKeys = 0;
   let leakedEstimate = 0;
   let legacyEstimateFlag = 0;
@@ -372,6 +373,13 @@ async function validateGradecuts() {
           || c.rawCuts.some(v => !Number.isInteger(v)))) {
       invalidReverseCalculated++;
     }
+    if (c.rawCutBasis === 'academy_integerized_threshold'
+        && (!String(c.source || '').includes('megastudy')
+          || !Array.isArray(c.rawCuts)
+          || c.rawCuts.length !== 8
+          || c.rawCuts.some(v => !Number.isInteger(v)))) {
+      invalidIntegerizedThreshold++;
+    }
   }
   if (badRaw > 0) {
     warn(`gradecuts rawCuts 손상(비단조/결손) ${badRaw}건 — 손상 데이터 (build-gradecuts.mjs 위생가드로 제거되어야 함)`);
@@ -393,6 +401,9 @@ async function validateGradecuts() {
   }
   if (invalidReverseCalculated > 0) {
     err(`gradecuts 입시기관 역산 원점수 형식/출처 오류 ${invalidReverseCalculated}건`);
+  }
+  if (invalidIntegerizedThreshold > 0) {
+    err(`gradecuts 입시기관 추정 정수 경계 형식/출처 오류 ${invalidIntegerizedThreshold}건`);
   }
   if (duplicateLogicalKeys > 0) {
     err(`gradecuts 공백 표기만 다른 논리 중복 ${duplicateLogicalKeys}건`);
