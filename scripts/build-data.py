@@ -1090,6 +1090,7 @@ def build_static_exam_pages(items: list[dict], template_path: Path, out_root: Pa
         meta = build_exam_meta(it)
         canonical = meta['canonical']
         head      = meta['head']
+        answer_label = '정답·해설' if it.get('answerIncludesSolution') else '정답'
 
         # reference(KICE 통계자료) → 기출이 아닌 DigitalDocument 로 분류
         is_reference = it.get('typeGroup') == 'reference'
