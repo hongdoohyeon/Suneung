@@ -371,7 +371,7 @@ function computeGrade(score, cuts) {
 }
 
 function cutBasisLabel(cut) {
-  if (cut.rawCutsEstimated) return '7개 기관 예상컷 평균';
+  if (cut.rawCutBasis === 'academy_reverse_calculated') return '입시기관 역산 원점수';
   if (cut.absolute) return '절대평가 고정 기준';
   const source = String(cut.source || '');
   if (source.includes('ebsi')) return 'EBSi 공개컷';

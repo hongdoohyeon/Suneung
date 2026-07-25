@@ -320,10 +320,23 @@ async function validateGradecuts() {
   let badRaw = 0;
   let fractionalRaw = 0;
   let invalidUnavailableStatus = 0;
+  let invalidReverseCalculated = 0;
+  let duplicateLogicalKeys = 0;
   let leakedEstimate = 0;
   let legacyEstimateFlag = 0;
   const samples = [];
+  const logicalKeys = new Set();
   for (const c of cuts) {
+    const logicalKey = [
+      c.curriculum,
+      c.gradeYear,
+      c.type,
+      c.studentGrade ?? '',
+      c.subject,
+      String(c.subSubject ?? '').replace(/\s+/g, ''),
+    ].join('|');
+    if (logicalKeys.has(logicalKey)) duplicateLogicalKeys++;
+    logicalKeys.add(logicalKey);
     const r = c.rawCuts;
     if (Array.isArray(r)) {
       // non-null 값들의 부분수열이 단조감소가 아니면 손상(역전). 중간 null(부분결손)은
@@ -351,6 +364,14 @@ async function validateGradecuts() {
           || !String(c.officialGradeBoundarySource || '').includes('moe.go.kr'))) {
       invalidUnavailableStatus++;
     }
+    if (c.rawCutBasis === 'academy_reverse_calculated'
+        && (!String(c.source || '').includes('jongro-confirmed-reverse')
+          || !String(c.rawCutSourceUrl || '').startsWith('https://www.jongro.co.kr/')
+          || !Array.isArray(c.rawCuts)
+          || c.rawCuts.length !== 8
+          || c.rawCuts.some(v => !Number.isInteger(v)))) {
+      invalidReverseCalculated++;
+    }
   }
   if (badRaw > 0) {
     warn(`gradecuts rawCuts 손상(비단조/결손) ${badRaw}건 — 손상 데이터 (build-gradecuts.mjs 위생가드로 제거되어야 함)`);
@@ -369,6 +390,12 @@ async function validateGradecuts() {
   }
   if (invalidUnavailableStatus > 0) {
     err(`gradecuts 공식 원점수 미공개 상태 형식/출처 오류 ${invalidUnavailableStatus}건`);
+  }
+  if (invalidReverseCalculated > 0) {
+    err(`gradecuts 입시기관 역산 원점수 형식/출처 오류 ${invalidReverseCalculated}건`);
+  }
+  if (duplicateLogicalKeys > 0) {
+    err(`gradecuts 공백 표기만 다른 논리 중복 ${duplicateLogicalKeys}건`);
   }
 }
 
