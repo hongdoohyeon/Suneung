@@ -53,9 +53,12 @@ jobs:
       - name: exams.json business rules
         run: node scripts/validate-exams.mjs
 
-      # data/exam/{id}.json 단건 split ↔ exams.json 동기화 (exam.js 가 split 우선 fetch)
-      - name: exam splits in sync
-        run: python3 scripts/regen-exam-splits.py --check
+      # split 산출물은 build 워크플로가 자동 커밋한다. validate에서는 현재 소스로
+      # 재생성 가능한지와 재생성 직후 완전히 동기화되는지를 검사한다.
+      - name: regenerate and verify exam splits
+        run: |
+          python3 scripts/regen-exam-splits.py
+          python3 scripts/regen-exam-splits.py --check
 
       # HTML 기본 정합성 (깨진 태그 감지) — 파일당 grep spawn(수천 회)은 느린 러너에서
       # 타임아웃 위험이라 단일 python3 프로세스로 일괄 검사.
