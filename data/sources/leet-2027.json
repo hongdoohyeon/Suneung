@@ -1,0 +1,42 @@
+{
+  "source": "법학적성시험 공식 기출문제 게시판",
+  "sourcePage": "https://leet.uwayapply.com/board/BoardList.htm?board_id=84",
+  "fetchedAt": "2026-07-26",
+  "gradeYear": 2027,
+  "examYear": 2026,
+  "records": [
+    {
+      "id": 12725,
+      "subject": "언어이해",
+      "sourcePost": "https://leet.uwayapply.com/board/BoardView.htm?board_id=84&board_seqnum=86672",
+      "questionAsset": "2027_main_verbal_q.pdf",
+      "questionSha256": "3bf63127d89645232e9f5372247eaff000c9afdc3f2507ca81902f91db556140",
+      "answerAsset": "2027_main_verbal_a.pdf",
+      "answerSourceAsset": "2027_언어이해_정답표.hwp",
+      "answerSourceSha256": "bb3bdc39447c965cdc0becc011363313089cee99acf31bdbc02b3924426d961e",
+      "answerSha256": "5add8ff94cc1d9c41d1fd0c35e6f5c4d79d2bc01acefd106e3dd9309e94e1268",
+      "answers": ["5", "4", "4", "3", "3", "4", "2", "1", "1", "2", "3", "2", "3", "3", "5", "2", "5", "3", "4", "2", "2", "1", "5", "4", "2", "3", "4", "3", "1", "4"]
+    },
+    {
+      "id": 12726,
+      "subject": "추리논증",
+      "sourcePost": "https://leet.uwayapply.com/board/BoardView.htm?board_id=84&board_seqnum=86673",
+      "questionAsset": "2027_main_reasoning_q.pdf",
+      "questionSha256": "6b77a96b185f6b442225195c64243171ab48b22595e637e741a3bd4a49400e15",
+      "answerAsset": "2027_main_reasoning_a.pdf",
+      "answerSourceAsset": "2027_추리논증_정답표.hwp",
+      "answerSourceSha256": "a24f45c699cd59ef8b08ea5d90e7ca200ebe9507b06302f9e2c24e8475d6c24e",
+      "answerSha256": "e113a79c2e85b601825e697ede957073ae6973b12fda2ad293336c04d5d149bb",
+      "answers": ["5", "3", "3", "4", "5", "1", "1", "3", "3", "1", "2", "4", "5", "5", "1", "2", "1", "2", "5", "4", "2", "1", "5", "1", "1", "1", "2", "3", "1", "4", "3", "3", "2", "4", "3", "3", "3", "1", "4", "1"]
+    },
+    {
+      "id": 12727,
+      "subject": "논술",
+      "sourcePost": "https://leet.uwayapply.com/board/BoardView.htm?board_id=84&board_seqnum=86674",
+      "questionAsset": "2027_main_essay_q.pdf",
+      "questionSha256": "64300d268bbac409a31bdb53fd7d90ca25aba26cb0ea925d76cc442321e6d83a",
+      "answerAsset": null,
+      "answers": null
+    }
+  ]
+}

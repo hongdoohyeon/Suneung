@@ -5,6 +5,7 @@ import { readFile, writeFile } from 'node:fs/promises';
 
 const ROOT = new URL('../', import.meta.url);
 const exams = JSON.parse(await readFile(new URL('data/exams.json', ROOT), 'utf8'));
+const answers = JSON.parse(await readFile(new URL('data/answers.json', ROOT), 'utf8'));
 const essayTarget = JSON.parse(await readFile(new URL('data/sources/essay-universities-2027.json', ROOT), 'utf8'));
 const essayReports2026 = JSON.parse(await readFile(new URL('data/sources/essay-reports-2026.json', ROOT), 'utf8'));
 const manualRatios = JSON.parse(await readFile(new URL('data/admissions/manual-ratios.json', ROOT), 'utf8'));
@@ -13,6 +14,7 @@ const adigaCoverage = JSON.parse(await readFile(new URL('data/admissions/adiga-c
 const adigaRatios = JSON.parse(await readFile(new URL('data/admissions/sources/adiga-regular-ratios-2027.json', ROOT), 'utf8'));
 const ratioSupplements = JSON.parse(await readFile(new URL('data/admissions/sources/regular-ratio-supplements-2027.json', ROOT), 'utf8'));
 const historicalKiceSolutions = JSON.parse(await readFile(new URL('data/sources/ebsi-kice-solutions-2006-2020.json', ROOT), 'utf8'));
+const leet2027 = JSON.parse(await readFile(new URL('data/sources/leet-2027.json', ROOT), 'utf8'));
 const errors = [];
 
 const recentEducation = exams.filter(e => e.typeGroup === 'education' && e.examYear >= 2025);
@@ -48,6 +50,32 @@ if (historicalKiceSolutions.records.some(record => {
     || exam.subject !== record.subject || exam.subSubject !== record.subSubject;
 })) {
   errors.push('2007~2021학년도 EBSi 평가원 해설과 exams.json 불일치');
+}
+
+const leet2027Ids = new Set(leet2027.records.map(record => record.id));
+if (leet2027.records.length !== 3 || leet2027Ids.size !== 3
+  || leet2027.records.map(record => record.subject).sort().join(',') !== '논술,언어이해,추리논증') {
+  errors.push('2027학년도 LEET 공식 자료 구성 불일치');
+}
+if (leet2027.records.some(record => {
+  const exam = exams.find(item => item.id === record.id);
+  const expectedAnswerUrl = record.answerAsset
+    ? `https://suneung-files.hdh061224.workers.dev/leet-v1/${record.answerAsset}`
+    : null;
+  return !exam || exam.gradeYear !== leet2027.gradeYear || exam.examYear !== leet2027.examYear
+    || exam.curriculum !== 'LEET' || exam.typeGroup !== 'leet' || exam.type !== 'leet_annual'
+    || exam.subject !== record.subject || exam.sourcePage !== record.sourcePost
+    || !exam.questionUrl.startsWith(`https://suneung-files.hdh061224.workers.dev/leet-v1/${record.questionAsset}`)
+    || (expectedAnswerUrl ? !exam.answerUrl?.startsWith(expectedAnswerUrl) : exam.answerUrl !== null)
+    || !/^[0-9a-f]{64}$/.test(record.questionSha256);
+})) {
+  errors.push('2027학년도 LEET 공식 출처와 exams.json 불일치');
+}
+if (leet2027.records.some(record => {
+  const stored = answers[String(record.id)];
+  return record.answers === null ? stored !== undefined : JSON.stringify(stored) !== JSON.stringify(record.answers);
+})) {
+  errors.push('2027학년도 LEET 공식 정답과 answers.json 불일치');
 }
 
 const education2013 = {};
@@ -366,6 +394,7 @@ ${ratioSupplementLines.join('\n')}
 console.log(`고1 ${exams.filter(e => e.typeGroup === 'education' && e.studentGrade === 1).length}건 / 고2 ${exams.filter(e => e.typeGroup === 'education' && e.studentGrade === 2).length}건`);
 console.log(`2025년 이후 학평 ${recentEducation.length}건 문제지·정답·해설 분류 완전`);
 console.log(`2022학년도 이후 평가원 ${modernKice.length}건 중 정답·해설 ${modernKice.filter(e => e.solutionUrl).length}건 (2022 수능 과탐 합본 1건 제외 완전)`);
+console.log(`2027학년도 LEET ${leet2027.records.length}과목 공식 문제지 · 객관식 정답 ${leet2027.records.filter(record => record.answers).length}과목`);
 console.log(`논술 ${essays.length}건 / ${essaySchools.length}개교 / 문제만 ${questionOnly.length}회차 / 2027학년도 ${essays.filter(e => e.gradeYear === 2027).length}건`);
 console.log(`2027 시행대학 전체 이력 ${representedTargetSchools.size}/${essayTarget.expectedUniversityCount}개교 / 2026 기출 ${represented2026TargetSchools.size}/${essayTarget.expectedUniversityCount}개교`);
 console.log(`정시 반영비율 표준화 ${ratioSlugs.length}개교 ${ratioTrackCount}전형 / 2027 최종 ${mergedRatioEntries.length}곳 해소 · 비율 ${mergedRatioStructured.length + mergedRatioText.length}곳 · 수능 미반영 ${mergedRatioNoCsat.length}곳 · 미해결 ${mergedRatioUnresolved.length}곳 / 2026 입결 ${adigaUniversityNumeric.length}곳 ${adigaCoverage._meta.officialNumericCutCount}컷`);
