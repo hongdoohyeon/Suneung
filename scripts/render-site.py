@@ -229,7 +229,7 @@ def _hub_page(fname: str, h1: str, title: str, desc: str, intro: str,
       </a>
       <nav class="header-nav" aria-label="주요 메뉴">
         <a href="archive.html">기출검색</a>
-        <a href="gradecut.html">모의지원</a>
+        <a href="gradecut.html">등급컷</a>
       </nav>
     </div>
   </header>
@@ -575,7 +575,7 @@ def render_sets_directory(items: list[dict], essay_hubs=None, subject_hubs=None)
       </a>
       <nav class="header-nav" aria-label="주요 메뉴">
         <a href="archive.html">기출검색</a>
-        <a href="gradecut.html">모의지원</a>
+        <a href="gradecut.html">등급컷</a>
       </nav>
     </div>
   </header>

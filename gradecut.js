@@ -5,7 +5,7 @@ import { renderAllAdSlots } from './lib/ads.js?v=20260713a';
 const DATA_URL = 'data/gradecuts.json?v=20260725c';
 const $ = id => document.getElementById(id);
 
-// 모의지원에서 지원하는 커리큘럼 목록.
+// 등급컷 계산기에서 지원하는 커리큘럼 목록.
 // 제외: 09개정(2014~2021, 옛 교육과정), LEET, 28예비, MEET·사관·경찰대.
 // 현재 입시(15개정) 만.
 const GC_CURRICULA = ['2015'];
@@ -103,7 +103,7 @@ function availableYears() {
   return years;
 }
 
-// 모의지원 = 고3 시험만. 평가원(suneung) + 교육청 학평(education) 중 고3 시험만.
+// 등급컷 계산기 = 고3 시험만. 평가원(suneung) + 교육청 학평(education) 중 고3 시험만.
 // 고1·고2 학평은 type 코드(jun/sep/nov)로 필터하여 제외.
 const GC_HIGH3_EDU_TYPES = new Set(['mar', 'apr', 'jul', 'oct']);  // 고3 학평 시행월
 
@@ -337,7 +337,7 @@ function findCut(subject, subSubject) {
     if (c.type       !== state.type)       return false;
     if (c.subject    !== subject)          return false;
     if ((c.subSubject ?? null) !== (subSubject ?? null)) return false;
-    // 모의지원 = 고3. 학평 cut 은 studentGrade=3 만 (없으면 평가원이라 무시).
+    // 등급컷 계산기 = 고3. 학평 cut 은 studentGrade=3 만 (없으면 평가원이라 무시).
     if (c.typeGroup === 'education' && (c.studentGrade ?? 3) !== 3) return false;
     // rawCuts 8개 모두 유효해야 등급 계산 가능.
     if (!Array.isArray(c.rawCuts) || c.rawCuts.length < 8) return false;
