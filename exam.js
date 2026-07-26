@@ -379,13 +379,18 @@ async function main() {
   renderGradeDist(exam, gradecuts);
   pushRecent(exam);  // localStorage 최근 본 시험 기록 (메인 페이지 chip 용)
 
-  // PDF 미리보기는 'paper' 탭이 처음 활성화될 때만 렌더 (lazy).
-  // 모바일 기본 탭이 'info'라 안 누르면 600KB pdfjs 로드 안 됨.
+  // PDF는 사용자가 미리보기를 요청할 때만 내려받는다.
+  // 큰 시험지는 수 MB라 진입 즉시 로드하면 본문 표시와 모바일 데이터 사용을 크게 악화시킨다.
   const qViewer = $('previewQViewer'), qMeta = $('previewQMeta');
+  const qLoad = $('previewQLoad');
   let pdfStarted = false;
   function ensurePdfStarted() {
     if (pdfStarted) return;
     pdfStarted = true;
+    if (qLoad) {
+      qLoad.disabled = true;
+      qLoad.textContent = '불러오는 중…';
+    }
     if (!exam.questionUrl) {
       renderEmpty(qViewer); qMeta.textContent = '없음';
       return;
@@ -394,9 +399,8 @@ async function main() {
     if (ext === 'pdf') renderPdf(exam.questionUrl, qViewer, qMeta);
     else renderUnsupported(qViewer, ext ?? '파일', exam.questionUrl, exam.questionDownload);
   }
-  setupTabs(key => {
-    if (key === 'paper') ensurePdfStarted();
-  }, exam.typeGroup === 'ged' || gradecuts.length === 0);
+  qLoad?.addEventListener('click', ensurePdfStarted);
+  setupTabs(null, exam.typeGroup === 'ged' || gradecuts.length === 0);
 }
 
 function showError() {

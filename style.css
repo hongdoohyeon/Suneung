@@ -2558,6 +2558,35 @@ body.is-sheet-open { overflow: hidden; touch-action: none; }
   border-radius: 8px;
   animation: previewShimmer 1.4s linear infinite;
 }
+.preview__gate {
+  min-height: 250px;
+  padding: 32px 20px;
+  background: var(--surface);
+  border: 1px dashed var(--line-strong);
+  border-radius: 10px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.preview__gate-title {
+  margin: 0;
+  color: var(--ink);
+  font-size: 15px;
+  font-weight: 700;
+}
+.preview__gate-sub {
+  margin: 0 0 8px;
+  color: var(--ink-4);
+  font-size: 12.5px;
+  line-height: 1.5;
+}
+.preview__load {
+  min-width: 168px;
+  min-height: var(--tap);
+}
 @keyframes previewShimmer {
   0%   { background-position: 200% 0; }
   100% { background-position: -200% 0; }
@@ -2974,6 +3003,7 @@ body.is-sheet-open { overflow: hidden; touch-action: none; }
   .preview { border-radius: 8px; }
   .preview__head    { padding: 10px 12px; }
   .preview__viewer  { padding: 0; min-height: 200px; gap: 8px; overflow-x: hidden; }
+  .preview__gate    { min-height: 220px; border-width: 0; border-radius: 0; }
   .preview__title   { font-size: 13.5px; }
   .preview__page    {
     border-radius: 0;

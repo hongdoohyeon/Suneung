@@ -1275,6 +1275,16 @@ def build_static_exam_pages(items: list[dict], template_path: Path, out_root: Pa
             if sol_url and not combined_document: btns.append(_btn('', sol_url, '해설지 PDF', it.get('solutionDownload')))
             if listen: btns.append(_btn('', listen, '듣기 MP3', it.get('listenDownload')))
             if script: btns.append(_btn('', script, '듣기 대본 PDF', it.get('scriptDownload')))
+        # JS가 뒤늦게 공유 버튼을 추가하면 모바일에서 미리보기 전체가 밀리므로 SSG 단계에서 자리까지 확정한다.
+        btns.append(
+            '<button type="button" class="btn btn--ghost" id="examShareBtn" aria-label="공유하기">'
+            '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" '
+            'stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" '
+            'style="margin-right:5px;vertical-align:-2px">'
+            '<circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/>'
+            '<line x1="8.6" y1="13.5" x2="15.4" y2="17.5"/><line x1="15.4" y1="6.5" x2="8.6" y2="10.5"/>'
+            '</svg>공유</button>'
+        )
         btns_html = ''.join(b for b in btns if b)
         # 빈 <div id=examActions></div> 에 채움 — JS 가 재렌더해도 동일 내용 덮어쓰니 노출 깜빡임 최소
         html = re.sub(

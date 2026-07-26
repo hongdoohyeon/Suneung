@@ -34,8 +34,8 @@
   <meta name="twitter:image:alt" content="기출 시험 상세 — 문제지·정답·해설지·등급컷·영어 듣기·대본" />
 
   <title>기출 시험 상세 — 기출해체분석기</title>
-  <link rel="stylesheet" href="style.css?v=20260726a" />
-  <link rel="modulepreload" href="exam.js?v=20260725d" />
+  <link rel="stylesheet" href="style.css?v=20260727a" />
+  <link rel="modulepreload" href="exam.js?v=20260727a" />
   <script src="lib/measure.js?v=20260713c" defer></script>
 </head>
 <body class="page-exam">
@@ -118,8 +118,13 @@
             <span class="preview__meta" id="previewQMeta"></span>
           </header>
           <div class="preview__viewer" id="previewQViewer">
-            <div class="preview__skeleton" aria-hidden="true"></div>
-            <p class="preview__hint" aria-hidden="true">'문제' 탭에서 PDF 미리보기</p>
+            <div class="preview__gate" id="previewQGate">
+              <p class="preview__gate-title">문제지를 바로 확인해 보세요</p>
+              <p class="preview__gate-sub">미리보기를 열 때만 PDF를 불러와 데이터 사용량을 줄입니다.</p>
+              <button class="btn btn--primary preview__load" id="previewQLoad" type="button">
+                문제지 미리보기
+              </button>
+            </div>
           </div>
         </article>
       </section>
@@ -157,7 +162,7 @@
     </div>
   </footer>
 
-  <script type="module" src="exam.js?v=20260725d"></script>
+  <script type="module" src="exam.js?v=20260727a"></script>
   <script type="module" src="lib/dday-mount.js?v=20260718a"></script>
 </body>
 </html>

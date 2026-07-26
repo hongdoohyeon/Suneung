@@ -140,7 +140,7 @@ function applyUrlState() {
   } else {
     state.query = '';
     const input = document.getElementById('searchInput');
-    if (input) input.value = '';
+    if (input && input.value) input.value = '';
     const clear = document.getElementById('clearSearch');
     if (clear) clear.style.display = 'none';
   }
