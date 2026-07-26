@@ -206,7 +206,7 @@ def _hub_page(fname: str, h1: str, title: str, desc: str, intro: str,
   <meta name="twitter:image" content="https://kicegg.com/og-image.png" />
   <script type="application/ld+json">{ld}</script>
   <title>{bd.html_escape(title, quote=True)}</title>
-  <link rel="stylesheet" href="style.css?v=20260725a" />
+  <link rel="stylesheet" href="style.css?v=20260726a" />
   <style>.setsdir__list{{columns:2;column-gap:24px;list-style:none;padding:0;margin:0}}
 .setsdir__list li{{margin:4px 0;break-inside:avoid}}
 .setsdir__list a{{display:inline-flex;align-items:center;min-height:44px}}
@@ -229,7 +229,7 @@ def _hub_page(fname: str, h1: str, title: str, desc: str, intro: str,
       </a>
       <nav class="header-nav" aria-label="주요 메뉴">
         <a href="archive.html">기출검색</a>
-        <a href="gradecut.html">등급컷</a>
+        <a href="gradecut.html">등급계산기</a>
       </nav>
     </div>
   </header>
@@ -551,7 +551,7 @@ def render_sets_directory(items: list[dict], essay_hubs=None, subject_hubs=None)
   <meta name="twitter:image" content="https://kicegg.com/og-image.png" />
   <script type="application/ld+json">{jsonld_block}</script>
   <title>전체 회차 목록 — 기출해체분석기</title>
-  <link rel="stylesheet" href="style.css?v=20260725a" />
+  <link rel="stylesheet" href="style.css?v=20260726a" />
   <style>.setsdir__list{{columns:3;column-gap:24px;list-style:none;padding:0;margin:0}}
 .setsdir__list li{{margin:4px 0;break-inside:avoid}}
 .setsdir__list a{{display:inline-flex;align-items:center;min-height:44px}}
@@ -575,7 +575,7 @@ def render_sets_directory(items: list[dict], essay_hubs=None, subject_hubs=None)
       </a>
       <nav class="header-nav" aria-label="주요 메뉴">
         <a href="archive.html">기출검색</a>
-        <a href="gradecut.html">등급컷</a>
+        <a href="gradecut.html">등급계산기</a>
       </nav>
     </div>
   </header>
