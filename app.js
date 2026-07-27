@@ -854,11 +854,11 @@ function cardHTML(exam, idx = 0) {
   const sUrl = safeUrl(exam.solutionUrl);
   const qBtn = qUrl
     ? `<a class="btn btn--primary" href="${escAttr(qUrl)}" ${dl(exam.questionDownload)}>문제지</a>`
-    : `<button class="btn btn--primary" disabled>문제지</button>`;
+    : '';
   const aBtn = aUrl
     ? `<a class="btn" href="${escAttr(aUrl)}" ${dl(exam.answerDownload)}>${exam.answerIncludesSolution ? '정답·해설' : '정답'}</a>`
-    : `<button class="btn" disabled>정답</button>`;
-  // 해설 PDF가 없으면 해설 button 자체 숨김 (disabled 회색 button 미표시)
+    : '';
+  // 제공되지 않는 자료는 비활성 버튼 대신 숨긴다.
   const sBtn = sUrl
     ? `<a class="btn" href="${escAttr(sUrl)}" ${dl(exam.solutionDownload)}>해설</a>`
     : '';

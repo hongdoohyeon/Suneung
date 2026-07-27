@@ -76,10 +76,10 @@ function cardHTML(exam) {
   const sUrl = safeUrl(exam.solutionUrl);
   const qBtn = qUrl
     ? `<a class="btn btn--primary" href="${escAttr(qUrl)}" ${dl(exam.questionDownload)}>문제지</a>`
-    : `<button class="btn btn--primary" disabled>문제지</button>`;
+    : '';
   const aBtn = aUrl
     ? `<a class="btn" href="${escAttr(aUrl)}" ${dl(exam.answerDownload)}>${exam.answerIncludesSolution ? '정답·해설' : '정답'}</a>`
-    : `<button class="btn" disabled>정답</button>`;
+    : '';
   const sBtn = sUrl
     ? `<a class="btn" href="${escAttr(sUrl)}" ${dl(exam.solutionDownload)}>해설</a>`
     : '';
