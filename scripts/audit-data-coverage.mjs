@@ -15,6 +15,7 @@ const adigaRatios = JSON.parse(await readFile(new URL('data/admissions/sources/a
 const ratioSupplements = JSON.parse(await readFile(new URL('data/admissions/sources/regular-ratio-supplements-2027.json', ROOT), 'utf8'));
 const historicalKiceSolutions = JSON.parse(await readFile(new URL('data/sources/ebsi-kice-solutions-2006-2020.json', ROOT), 'utf8'));
 const leet2027 = JSON.parse(await readFile(new URL('data/sources/leet-2027.json', ROOT), 'utf8'));
+const materialBackfills = JSON.parse(await readFile(new URL('data/sources/material-backfills.json', ROOT), 'utf8'));
 const errors = [];
 
 const recentEducation = exams.filter(e => e.typeGroup === 'education' && e.examYear >= 2025);
@@ -76,6 +77,17 @@ if (leet2027.records.some(record => {
   return record.answers === null ? stored !== undefined : JSON.stringify(stored) !== JSON.stringify(record.answers);
 })) {
   errors.push('2027학년도 LEET 공식 정답과 answers.json 불일치');
+}
+
+const materialBackfillIds = new Set(materialBackfills.records.map(record => record.id));
+if (materialBackfillIds.size !== materialBackfills.records.length) {
+  errors.push('자료 보강 목록 id 중복');
+}
+if (materialBackfills.records.some(record => {
+  const exam = exams.find(item => item.id === record.id);
+  return !exam || Object.entries(record.set).some(([field, value]) => exam[field] !== value);
+})) {
+  errors.push('자료 보강 목록과 exams.json 불일치');
 }
 
 const education2013 = {};

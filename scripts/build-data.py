@@ -1912,6 +1912,24 @@ def main():
                 attached += 1
         print(f'  + 짝수형 overrides {len(even_overrides)} → {attached}건 attach')
 
+    # ─ 검증된 수동 자료 보강 ─
+    # 릴리스 자산은 존재하지만 연결이 빠졌거나, 잘못 연결된 소수 항목만 재현 가능하게 적용한다.
+    backfill_path = ROOT / 'data' / 'sources' / 'material-backfills.json'
+    if backfill_path.exists():
+        backfills = json.loads(backfill_path.read_text(encoding='utf-8')).get('records', [])
+        by_id = {it.get('id'): it for it in items}
+        attached = 0
+        for record in backfills:
+            item = by_id.get(record['id'])
+            if not item:
+                raise RuntimeError(f"자료 보강 대상 id={record['id']}가 exams.json에 없습니다.")
+            replace_existing = record.get('replaceExisting', False)
+            for field, value in record.get('set', {}).items():
+                if replace_existing or not item.get(field):
+                    item[field] = value
+            attached += 1
+        print(f'  + 자료 보강 overrides: {attached}건 attach')
+
     # ─ 안전 가드: 기존 exams.json 대비 데이터 소실 차단 ─
     # exams.json 은 1회성 ingest(ebsi-archive, savetest-* 등)가 누적된 머지
     # 산출물이라 이 스크립트의 소스만으로는 전체를 재구성할 수 없다.
