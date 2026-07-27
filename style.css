@@ -2577,12 +2577,6 @@ body.is-sheet-open { overflow: hidden; touch-action: none; }
   font-size: 15px;
   font-weight: 700;
 }
-.preview__gate-sub {
-  margin: 0 0 8px;
-  color: var(--ink-4);
-  font-size: 12.5px;
-  line-height: 1.5;
-}
 .preview__load {
   min-width: 168px;
   min-height: var(--tap);
