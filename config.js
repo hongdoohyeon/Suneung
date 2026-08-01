@@ -199,7 +199,7 @@ export const CURRICULUM_CONFIG = {
     id: '사관',
     label: '사관학교',
     rangeLabel: '사관학교 1차 시험',
-    gradeYearRange: [2006, 2026],
+    gradeYearRange: [2006, 2027],
     availableTypeGroups: ['military'],
     singleType: true,
     subjects: {

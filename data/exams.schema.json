@@ -198,6 +198,20 @@
           "type": "boolean",
           "description": "answerUrl 문서가 단순 정답표가 아니라 문항별 해설까지 포함하면 true."
         },
+        "answerStatus": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "공식 답안의 공개 상태. official_objection_period는 이의신청 기간 중임을 뜻한다."
+        },
+        "answerStatusNote": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "정답 상태에 대한 출처 기반 안내 문구."
+        },
         "questionDownload": {
           "type": [
             "string",

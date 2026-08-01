@@ -805,6 +805,14 @@ def _exam_date(it: dict) -> str:
         return f'{gy or 2020}-01-01'
 
 
+def answer_label_for(it: dict) -> str:
+    if it.get('answerIncludesSolution'):
+        return '정답·해설'
+    if it.get('answerStatus') == 'official_objection_period':
+        return '정답 (이의신청 중)'
+    return '정답'
+
+
 def build_exam_meta(it: dict) -> dict:
     """SSG 페이지·sitemap에 쓰일 시험 단건 메타 빌드.
     학생 검색 키워드(9모/6모/학평/기출/답지/등급컷)를 자연스럽게 포함한다.
@@ -879,7 +887,7 @@ def build_exam_meta(it: dict) -> dict:
 
     is_reference = (tg == 'reference')
 
-    answer_label = '정답·해설' if it.get('answerIncludesSolution') else '정답'
+    answer_label = answer_label_for(it)
     assets = []
     if it.get('questionUrl'): assets.append('문제지')
     if it.get('answerUrl'): assets.append(answer_label)
@@ -1092,7 +1100,7 @@ def build_static_exam_pages(items: list[dict], template_path: Path, out_root: Pa
         meta = build_exam_meta(it)
         canonical = meta['canonical']
         head      = meta['head']
-        answer_label = '정답·해설' if it.get('answerIncludesSolution') else '정답'
+        answer_label = answer_label_for(it)
 
         # reference(KICE 통계자료) → 기출이 아닌 DigitalDocument 로 분류
         is_reference = it.get('typeGroup') == 'reference'
@@ -1676,7 +1684,7 @@ def build_static_set_pages(items: list[dict], template_path: Path, out_root: Pat
 
             actions = ''.join(filter(None, [
                 _action('문제지', it2.get('questionUrl'), it2.get('questionDownload'), True),
-                _action('정답·해설' if it2.get('answerIncludesSolution') else '정답',
+                _action(answer_label_for(it2),
                         it2.get('answerUrl'), it2.get('answerDownload')),
                 _action('해설', it2.get('solutionUrl'), it2.get('solutionDownload')),
             ]))

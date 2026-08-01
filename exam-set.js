@@ -1,5 +1,5 @@
 'use strict';
-import { CURRICULUM_CONFIG, getTypeConf, prettySub, legacyTabKey } from './config.js?v=20260713a';
+import { CURRICULUM_CONFIG, getTypeConf, prettySub, legacyTabKey } from './config.js?v=20260801a';
 import { $, escHtml, escAttr, safeUrl } from './lib/dom.js?v=20260713a';
 import { setMeta, setMetaProp, setCanonical, injectJsonLd as _injectJsonLd } from './lib/seo.js?v=20260713a';
 import { renderAllAdSlots } from './lib/ads.js?v=20260713a';
@@ -30,6 +30,11 @@ function displayYear(item) {
 function typeLabelNoMonth(tc) {
   if (!tc) return '';
   return tc.label.replace(/^\d+월\s*/, '');
+}
+
+function answerLabel(exam) {
+  if (exam.answerIncludesSolution) return '정답·해설';
+  return exam.answerStatus === 'official_objection_period' ? '정답 (이의신청 중)' : '정답';
 }
 
 function buildTitle(curriculum, gradeYear, sample) {
@@ -78,7 +83,7 @@ function cardHTML(exam) {
     ? `<a class="btn btn--primary" href="${escAttr(qUrl)}" ${dl(exam.questionDownload)}>문제지</a>`
     : '';
   const aBtn = aUrl
-    ? `<a class="btn" href="${escAttr(aUrl)}" ${dl(exam.answerDownload)}>${exam.answerIncludesSolution ? '정답·해설' : '정답'}</a>`
+    ? `<a class="btn" href="${escAttr(aUrl)}" ${dl(exam.answerDownload)}>${answerLabel(exam)}</a>`
     : '';
   const sBtn = sUrl
     ? `<a class="btn" href="${escAttr(sUrl)}" ${dl(exam.solutionDownload)}>해설</a>`
@@ -200,7 +205,7 @@ async function main() {
   // 친화 URL은 빌드 시 완전한 카드가 SSG되어 있다. 네트워크·재렌더 없이 그대로 사용.
   if (friendlyMatch && $('examsetGrid')?.children.length) return;
   const stem = friendlyMatch?.[1] || splitStem(curriculum, yearRaw, type, studentGrade);
-  const sources = [`data/set/${stem}.json?v=20260725c`, 'data/exams.json?v=20260725c'];
+  const sources = [`data/set/${stem}.json?v=20260801a`, 'data/exams.json?v=20260801a'];
   for (const source of sources) {
     try {
       const res = await fetch(source);

@@ -1,5 +1,5 @@
 'use strict';
-import { CURRICULUM_CONFIG, getTypeConf, prettySub } from './config.js?v=20260713a';
+import { CURRICULUM_CONFIG, getTypeConf, prettySub } from './config.js?v=20260801a';
 import { escHtml as _escHtml, escAttr, safeUrl as _safeUrl, $ as _$ } from './lib/dom.js?v=20260713a';
 import { setMeta, setMetaProp, setCanonical, injectJsonLd as _injectJsonLd, applySeo } from './lib/seo.js?v=20260713a';
 import { renderAllAdSlots } from './lib/ads.js?v=20260713a';
@@ -55,6 +55,11 @@ function docMime(url, name) {
     ? 'application/x-hwp' : 'application/pdf';
 }
 
+function answerLabel(exam) {
+  if (exam.answerIncludesSolution) return '정답·해설';
+  return exam.answerStatus === 'official_objection_period' ? '정답 (이의신청 중)' : '정답';
+}
+
 // ── 헤드 렌더 ──────────────────────────────────────────────
 function renderHead(exam) {
   const title = buildTitle(exam);
@@ -63,7 +68,7 @@ function renderHead(exam) {
   const sub = buildSubtitle(exam);
   const availableDocs = [
     exam.questionUrl && '문제지',
-    exam.answerUrl && (exam.answerIncludesSolution ? '정답·해설' : '정답'),
+    exam.answerUrl && answerLabel(exam),
     exam.solutionUrl && '해설지',
   ].filter(Boolean);
   const desc = `${title}${availableDocs.length ? ` ${availableDocs.join('·')} PDF.` : '.'} ${sub}.`;
@@ -144,8 +149,8 @@ function renderHead(exam) {
   const combinedDocument = questionUrl && questionUrl === solutionUrl;
   const qLabel = combinedDocument ? `문제·해설 ${qTag}` : (questionUrlEven ? `문제지 ${qTag} (홀수형)` : `문제지 ${qTag}`);
   const aTag = fileTag(answerUrl, exam.answerDownload);
-  const answerLabel = exam.answerIncludesSolution ? '정답·해설' : '정답';
-  const aLabel = answerUrlEven ? `${answerLabel} ${aTag} (홀수형)` : `${answerLabel} ${aTag}`;
+  const answerDocLabel = answerLabel(exam);
+  const aLabel = answerUrlEven ? `${answerDocLabel} ${aTag} (홀수형)` : `${answerDocLabel} ${aTag}`;
   if (questionUrl) buttons.push(
     `<a class="btn btn--primary" href="${escHtml(questionUrl)}" ${dl(exam.questionDownload)}>${qLabel}</a>`
   );
@@ -346,9 +351,9 @@ async function main() {
   const isStaticExam = /\/exam-\d+\.html$/.test(location.pathname);
   const shouldFetchGradecut = !isStaticExam || document.body.classList.contains('has-gradecut');
   const [examResult, cutResult] = await Promise.allSettled([
-    fetch(`data/exam/${id}.json?v=20260725c`).then(async res => res.ok ? res.json() : null),
+    fetch(`data/exam/${id}.json?v=20260801a`).then(async res => res.ok ? res.json() : null),
     shouldFetchGradecut
-      ? fetch(`data/gradecut/${id}.json?v=20260725c`).then(async res => res.ok ? res.json() : null)
+      ? fetch(`data/gradecut/${id}.json?v=20260801a`).then(async res => res.ok ? res.json() : null)
       : Promise.resolve(null),
   ]);
   if (examResult.status === 'fulfilled') exam = examResult.value;
@@ -357,7 +362,7 @@ async function main() {
   // 단건 split 미배포 환경 폴백: 통합 exams.json
   if (!exam) {
     try {
-      const res = await fetch('data/exams.json?v=20260725c');
+      const res = await fetch('data/exams.json?v=20260801a');
       if (res.ok) {
         const exams = await res.json();
         exam = exams.find(e => e.id === id) ?? null;

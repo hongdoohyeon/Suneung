@@ -15,6 +15,7 @@ const adigaRatios = JSON.parse(await readFile(new URL('data/admissions/sources/a
 const ratioSupplements = JSON.parse(await readFile(new URL('data/admissions/sources/regular-ratio-supplements-2027.json', ROOT), 'utf8'));
 const historicalKiceSolutions = JSON.parse(await readFile(new URL('data/sources/ebsi-kice-solutions-2006-2020.json', ROOT), 'utf8'));
 const leet2027 = JSON.parse(await readFile(new URL('data/sources/leet-2027.json', ROOT), 'utf8'));
+const military2027 = JSON.parse(await readFile(new URL('data/sources/military-2027.json', ROOT), 'utf8'));
 const materialBackfills = JSON.parse(await readFile(new URL('data/sources/material-backfills.json', ROOT), 'utf8'));
 const errors = [];
 
@@ -77,6 +78,40 @@ if (leet2027.records.some(record => {
   return record.answers === null ? stored !== undefined : JSON.stringify(stored) !== JSON.stringify(record.answers);
 })) {
   errors.push('2027학년도 LEET 공식 정답과 answers.json 불일치');
+}
+
+const military2027Keys = military2027.records.map(record => `${record.subject}|${record.subSubject ?? ''}`);
+if (military2027.gradeYear !== 2027 || military2027.examYear !== 2026
+  || military2027.releaseTag !== 'military-v1' || military2027.records.length !== 5
+  || new Set(military2027.records.map(record => record.id)).size !== 5
+  || new Set(military2027Keys).size !== 5
+  || military2027Keys.sort().join(',') !== '국어|,수학|기하,수학|미적분,수학|확률과통계,영어|') {
+  errors.push('2027학년도 사관학교 공식 자료 구성 불일치');
+}
+if (military2027.answerStatus !== 'official_objection_period'
+  || !military2027.answerStatusNote?.includes('2026-08-04 17:00(KST)')) {
+  errors.push('2027학년도 사관학교 공식 답안 상태 메타데이터 불일치');
+}
+if (Object.values(military2027.documents).some(document => !document.asset
+  || !document.sourceUrl?.startsWith('https://rokaf.airforce.mil.kr/')
+  || !/^[0-9a-f]{64}$/.test(document.sha256))) {
+  errors.push('2027학년도 사관학교 공식 원문 해시 또는 출처 누락');
+}
+if (military2027.records.some(record => {
+  const exam = exams.find(item => item.id === record.id);
+  const question = military2027.documents[record.questionDocument];
+  const answer = military2027.documents[record.answerDocument];
+  return !exam || !question || !answer || exam.curriculum !== '사관'
+    || exam.gradeYear !== military2027.gradeYear || exam.examYear !== military2027.examYear
+    || exam.typeGroup !== 'military' || exam.type !== 'military_annual'
+    || exam.subject !== record.subject || exam.subSubject !== record.subSubject
+    || exam.solutionUrl !== null || exam.answerStatus !== military2027.answerStatus
+    || exam.source !== military2027.officialPublisher || exam.sourcePage !== military2027.officialPage
+    || !exam.questionUrl?.startsWith(`https://suneung-files.hdh061224.workers.dev/${military2027.releaseTag}/${question.asset}`)
+    || !exam.answerUrl?.startsWith(`https://suneung-files.hdh061224.workers.dev/${military2027.releaseTag}/${answer.asset}`)
+    || JSON.stringify(answers[String(record.id)]) !== JSON.stringify(record.answers);
+})) {
+  errors.push('2027학년도 사관학교 공식 자료와 exams.json 또는 answers.json 불일치');
 }
 
 const materialBackfillIds = new Set(materialBackfills.records.map(record => record.id));
