@@ -29,9 +29,7 @@ if (recentEducation.some(e => !e.answerIncludesSolution)) {
 
 const modernKice = exams.filter(e => e.typeGroup === 'suneung' && e.gradeYear >= 2022
   && ['csat', 'june', 'sept'].includes(e.type));
-const consolidated2022Science = e => e.gradeYear === 2022 && e.type === 'csat'
-  && e.subject === '과학탐구' && !e.subSubject;
-const missingModernKiceSolutions = modernKice.filter(e => !e.solutionUrl && !consolidated2022Science(e));
+const missingModernKiceSolutions = modernKice.filter(e => !e.solutionUrl);
 if (missingModernKiceSolutions.length) {
   errors.push(`2022학년도 이후 평가원 정답·해설 누락 ${missingModernKiceSolutions.length}건`);
 }
