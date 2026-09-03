@@ -6643,5 +6643,261 @@
     "subject": "체육",
     "answerAsset": "2026_1_mid_pe_a.pdf",
     "sourceAsset": "2026_1_mid_answer.pdf"
+  },
+  {
+    "year": 2026,
+    "level": "초졸",
+    "sess": 2,
+    "subject": "과학",
+    "answerAsset": "2026_2_elem_sci_a.pdf",
+    "sourceAsset": "2026_2_elem_answer.pdf"
+  },
+  {
+    "year": 2026,
+    "level": "초졸",
+    "sess": 2,
+    "subject": "국어",
+    "answerAsset": "2026_2_elem_kor_a.pdf",
+    "sourceAsset": "2026_2_elem_answer.pdf"
+  },
+  {
+    "year": 2026,
+    "level": "초졸",
+    "sess": 2,
+    "subject": "도덕",
+    "answerAsset": "2026_2_elem_ethics_a.pdf",
+    "sourceAsset": "2026_2_elem_answer.pdf"
+  },
+  {
+    "year": 2026,
+    "level": "초졸",
+    "sess": 2,
+    "subject": "미술",
+    "answerAsset": "2026_2_elem_art_a.pdf",
+    "sourceAsset": "2026_2_elem_answer.pdf"
+  },
+  {
+    "year": 2026,
+    "level": "초졸",
+    "sess": 2,
+    "subject": "사회",
+    "answerAsset": "2026_2_elem_soc_a.pdf",
+    "sourceAsset": "2026_2_elem_answer.pdf"
+  },
+  {
+    "year": 2026,
+    "level": "초졸",
+    "sess": 2,
+    "subject": "수학",
+    "answerAsset": "2026_2_elem_math_a.pdf",
+    "sourceAsset": "2026_2_elem_answer.pdf"
+  },
+  {
+    "year": 2026,
+    "level": "초졸",
+    "sess": 2,
+    "subject": "실과",
+    "answerAsset": "2026_2_elem_practical_a.pdf",
+    "sourceAsset": "2026_2_elem_answer.pdf"
+  },
+  {
+    "year": 2026,
+    "level": "초졸",
+    "sess": 2,
+    "subject": "영어",
+    "answerAsset": "2026_2_elem_eng_a.pdf",
+    "sourceAsset": "2026_2_elem_answer.pdf"
+  },
+  {
+    "year": 2026,
+    "level": "초졸",
+    "sess": 2,
+    "subject": "음악",
+    "answerAsset": "2026_2_elem_music_a.pdf",
+    "sourceAsset": "2026_2_elem_answer.pdf"
+  },
+  {
+    "year": 2026,
+    "level": "초졸",
+    "sess": 2,
+    "subject": "체육",
+    "answerAsset": "2026_2_elem_pe_a.pdf",
+    "sourceAsset": "2026_2_elem_answer.pdf"
+  },
+  {
+    "year": 2026,
+    "level": "고졸",
+    "sess": 2,
+    "subject": "과학",
+    "answerAsset": "2026_2_high_sci_a.pdf",
+    "sourceAsset": "2026_2_high_answer.pdf"
+  },
+  {
+    "year": 2026,
+    "level": "고졸",
+    "sess": 2,
+    "subject": "국어",
+    "answerAsset": "2026_2_high_kor_a.pdf",
+    "sourceAsset": "2026_2_high_answer.pdf"
+  },
+  {
+    "year": 2026,
+    "level": "고졸",
+    "sess": 2,
+    "subject": "기술·가정",
+    "answerAsset": "2026_2_high_tech_home_a.pdf",
+    "sourceAsset": "2026_2_high_answer.pdf"
+  },
+  {
+    "year": 2026,
+    "level": "고졸",
+    "sess": 2,
+    "subject": "도덕",
+    "answerAsset": "2026_2_high_ethics_a.pdf",
+    "sourceAsset": "2026_2_high_answer.pdf"
+  },
+  {
+    "year": 2026,
+    "level": "고졸",
+    "sess": 2,
+    "subject": "미술",
+    "answerAsset": "2026_2_high_art_a.pdf",
+    "sourceAsset": "2026_2_high_answer.pdf"
+  },
+  {
+    "year": 2026,
+    "level": "고졸",
+    "sess": 2,
+    "subject": "사회",
+    "answerAsset": "2026_2_high_soc_a.pdf",
+    "sourceAsset": "2026_2_high_answer.pdf"
+  },
+  {
+    "year": 2026,
+    "level": "고졸",
+    "sess": 2,
+    "subject": "수학",
+    "answerAsset": "2026_2_high_math_a.pdf",
+    "sourceAsset": "2026_2_high_answer.pdf"
+  },
+  {
+    "year": 2026,
+    "level": "고졸",
+    "sess": 2,
+    "subject": "영어",
+    "answerAsset": "2026_2_high_eng_a.pdf",
+    "sourceAsset": "2026_2_high_answer.pdf"
+  },
+  {
+    "year": 2026,
+    "level": "고졸",
+    "sess": 2,
+    "subject": "음악",
+    "answerAsset": "2026_2_high_music_a.pdf",
+    "sourceAsset": "2026_2_high_answer.pdf"
+  },
+  {
+    "year": 2026,
+    "level": "고졸",
+    "sess": 2,
+    "subject": "체육",
+    "answerAsset": "2026_2_high_pe_a.pdf",
+    "sourceAsset": "2026_2_high_answer.pdf"
+  },
+  {
+    "year": 2026,
+    "level": "고졸",
+    "sess": 2,
+    "subject": "한국사",
+    "answerAsset": "2026_2_high_his_a.pdf",
+    "sourceAsset": "2026_2_high_answer.pdf"
+  },
+  {
+    "year": 2026,
+    "level": "중졸",
+    "sess": 2,
+    "subject": "과학",
+    "answerAsset": "2026_2_mid_sci_a.pdf",
+    "sourceAsset": "2026_2_mid_answer.pdf"
+  },
+  {
+    "year": 2026,
+    "level": "중졸",
+    "sess": 2,
+    "subject": "국어",
+    "answerAsset": "2026_2_mid_kor_a.pdf",
+    "sourceAsset": "2026_2_mid_answer.pdf"
+  },
+  {
+    "year": 2026,
+    "level": "중졸",
+    "sess": 2,
+    "subject": "기술·가정",
+    "answerAsset": "2026_2_mid_tech_home_a.pdf",
+    "sourceAsset": "2026_2_mid_answer.pdf"
+  },
+  {
+    "year": 2026,
+    "level": "중졸",
+    "sess": 2,
+    "subject": "도덕",
+    "answerAsset": "2026_2_mid_ethics_a.pdf",
+    "sourceAsset": "2026_2_mid_answer.pdf"
+  },
+  {
+    "year": 2026,
+    "level": "중졸",
+    "sess": 2,
+    "subject": "미술",
+    "answerAsset": "2026_2_mid_art_a.pdf",
+    "sourceAsset": "2026_2_mid_answer.pdf"
+  },
+  {
+    "year": 2026,
+    "level": "중졸",
+    "sess": 2,
+    "subject": "사회",
+    "answerAsset": "2026_2_mid_soc_a.pdf",
+    "sourceAsset": "2026_2_mid_answer.pdf"
+  },
+  {
+    "year": 2026,
+    "level": "중졸",
+    "sess": 2,
+    "subject": "수학",
+    "answerAsset": "2026_2_mid_math_a.pdf",
+    "sourceAsset": "2026_2_mid_answer.pdf"
+  },
+  {
+    "year": 2026,
+    "level": "중졸",
+    "sess": 2,
+    "subject": "영어",
+    "answerAsset": "2026_2_mid_eng_a.pdf",
+    "sourceAsset": "2026_2_mid_answer.pdf"
+  },
+  {
+    "year": 2026,
+    "level": "중졸",
+    "sess": 2,
+    "subject": "음악",
+    "answerAsset": "2026_2_mid_music_a.pdf",
+    "sourceAsset": "2026_2_mid_answer.pdf"
+  },
+  {
+    "year": 2026,
+    "level": "중졸",
+    "sess": 2,
+    "subject": "정보",
+    "answerAsset": "2026_2_mid_info_a.pdf",
+    "sourceAsset": "2026_2_mid_answer.pdf"
+  },
+  {
+    "year": 2026,
+    "level": "중졸",
+    "sess": 2,
+    "subject": "체육",
+    "answerAsset": "2026_2_mid_pe_a.pdf",
+    "sourceAsset": "2026_2_mid_answer.pdf"
   }
 ]
