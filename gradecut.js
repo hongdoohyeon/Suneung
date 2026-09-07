@@ -1,8 +1,8 @@
 'use strict';
-import { CURRICULUM_CONFIG, EXAM_TYPE_CONFIG, getTypeConf, prettySub } from './config.js?v=20260713a';
-import { renderAllAdSlots } from './lib/ads.js?v=20260713a';
+import { CURRICULUM_CONFIG, EXAM_TYPE_CONFIG, getTypeConf, prettySub } from './config.js?v=884ab5bc0bbc611d10d5';
+import { renderAllAdSlots } from './lib/ads.js?v=884ab5bc0bbc611d10d5';
 
-const DATA_URL = 'data/gradecuts.json?v=20260725c';
+const DATA_URL = 'data/gradecuts.json?v=884ab5bc0bbc611d10d5';
 const $ = id => document.getElementById(id);
 
 // 등급컷 계산기에서 지원하는 커리큘럼 목록.
