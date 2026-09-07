@@ -20,7 +20,8 @@ function fold(s) {
     .replace(/이\s*학년/g, '고2')
     .replace(/삼\s*학년/g, '고3');
 }
-const normQ = s => fold(s).replace(/\s+/g, '');
+const normQ = s => fold(s).replace(/\s+/g, '')
+  .replace(/([가-힣])(iii|ii|i)$/, (_, word, roman) => word + ({ i: '1', ii: '2', iii: '3' })[roman]);
 
 // 한글 자모 (NFD-style 분해 + 초성 추출 양쪽에 사용)
 const CHO  = ['ㄱ','ㄲ','ㄴ','ㄷ','ㄸ','ㄹ','ㅁ','ㅂ','ㅃ','ㅅ','ㅆ','ㅇ','ㅈ','ㅉ','ㅊ','ㅋ','ㅌ','ㅍ','ㅎ'];
@@ -121,6 +122,25 @@ function tokenize(query) {
 
 // hay 캐시 — exam 객체별로 한 번만 빌드.
 const _hayCache = new WeakMap();
+const SUBJECT_TERMS = new Set(Object.values(CURRICULUM_CONFIG)
+  .flatMap(c => Object.entries(c.subjects).flatMap(([subject, conf]) => [subject, ...conf.subs]))
+  .map(normQ));
+
+function scoreExamToken(e, hay, token) {
+  const term = normQ(token);
+  if (term === '논술' && e.typeGroup === 'essay') return 1;
+  if (/^고[123]$/.test(term)) {
+    const grade = e.studentGrade || (e.typeGroup === 'suneung' ? 3 : null);
+    return grade === Number(term.slice(1)) ? 1 : 0;
+  }
+  // 대학 논술의 과목·계열은 학교명이 아닌 세부 시험명 안에 들어 있다.
+  if (e.typeGroup === 'essay') return scoreToken(hay, token);
+  if (SUBJECT_TERMS.has(term)) {
+    return [e.subject, e.subSubject, prettySub(e.subSubject || '')]
+      .some(value => normQ(value) === term) ? 1 : 0;
+  }
+  return scoreToken(hay, token);
+}
 
 function buildHay(e) {
   const tc = getTypeConf(e.type);
@@ -190,7 +210,7 @@ function buildHay(e) {
 
   // 자료 타입 키워드 — 검색에 "듣기", "대본", "mp3", "스크립트" 직접 입력해도 잡히게
   items.push('문제지', '문제', '기출', '기출문제', '정답', '답지', '해설', '해설지', '풀이', '등급컷');
-  if (e.subject === '영어' && (e.listenUrl || e.scriptUrl)) {
+  if (e.subject === '영어' && (e.listenUrl || e.scriptUrl || e.hasListening)) {
     items.push('듣기', '듣기파일', '듣기mp3', 'mp3', '음원',
                '대본', '듣기대본', '스크립트', '영어스크립트', 'listening', 'script',
                '듣기평가', '딕테이션', 'dictation');
@@ -371,12 +391,13 @@ function parseQuery(query) {
 //   같은 점수 안에서 정확 단어/단어시작 매칭이 더 높은 점수.
 function scoreQuery(e, query) {
   const parsed = parseQuery(query);
-  if (parsed.include.length === 0 && parsed.phrases.length === 0) return 1;
+  if (parsed.include.length === 0 && parsed.phrases.length === 0 && parsed.exclude.length === 0) return 1;
   const hayObj = getHay(e);
 
   // 구문은 정확 substring 필수 — normQ는 공백 제거하므로 "수능 국어" → "수능국어"
   for (const ph of parsed.phrases) {
     const pn = normQ(ph);
+    if (SUBJECT_TERMS.has(pn) && scoreExamToken(e, hayObj, ph) === 0) return 0;
     if (pn && !hayObj.norm.includes(pn)) {
       // 공백 보존 매칭 fallback (joined hay가 공백 포함)
       const phLower = fold(ph).replace(/\s+/g, '');
@@ -385,12 +406,12 @@ function scoreQuery(e, query) {
   }
   // 제외 토큰은 score >= 0.6 이면 컷
   for (const ex of parsed.exclude) {
-    if (scoreToken(hayObj, ex) >= 0.6) return 0;
+    if (scoreExamToken(e, hayObj, ex) >= 0.6) return 0;
   }
   // 포함 토큰 모두 매칭
   let total = 0;
   for (const tok of parsed.include) {
-    const s = scoreToken(hayObj, tok);
+    const s = scoreExamToken(e, hayObj, tok);
     if (s === 0) return 0;  // AND
     total += s;
   }
@@ -619,7 +640,7 @@ export function filtered() {
     const seen = new Set();
     const out = [];
     for (const e of items) {
-      const u = e.questionUrl;
+      const u = e.questionUrl || e.questionKey;
       if (u && seen.has(u)) continue;
       if (u) seen.add(u);
       out.push(e);

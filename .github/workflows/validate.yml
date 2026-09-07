@@ -18,6 +18,10 @@ jobs:
         with:
           node-version: '20'
 
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.11'
+
       # vanilla JS — node --check 로 syntax 검사 (deps 설치 불요)
       - name: JS syntax check
         run: |
@@ -51,7 +55,13 @@ jobs:
 
       # exams.json 비즈니스 규칙 (validate-exams.mjs 가 schema + dup 검사)
       - name: exams.json business rules
-        run: node scripts/validate-exams.mjs
+        run: npm run validate
+
+      - name: Search regression tests
+        run: node --test scripts/test-search.mjs
+
+      - name: Build and cache regression tests
+        run: python3 scripts/test-site-build.py
 
       # split 산출물은 build 워크플로가 자동 커밋한다. validate에서는 현재 소스로
       # 재생성 가능한지와 재생성 직후 완전히 동기화되는지를 검사한다.

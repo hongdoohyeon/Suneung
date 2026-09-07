@@ -14,6 +14,8 @@ exams.json 을 수정했으면 이 스크립트 한 번으로 사이트 전체�
 import datetime
 import importlib.util
 import json
+import hashlib
+import subprocess
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -656,7 +658,23 @@ def render_archive_splits(items: list[dict]) -> None:
             f'(누락 sample={missing[:10]})'
         )
 
-    valid_names = {f'{tab}.json' for tab in ARCHIVE_TAB_RULES}
+    # 전체 검색은 긴 다운로드 URL과 상세 데이터를 받지 않고 검색용 필드만 읽는다.
+    search_fields = {'id', 'curriculum', 'gradeYear', 'examYear', 'month', 'typeGroup',
+                     'type', 'subject', 'subSubject', 'studentGrade'}
+    index = []
+    for item in items:
+        if item.get('typeGroup') == 'reference':
+            continue
+        entry = {k: v for k, v in item.items() if k in search_fields}
+        entry['searchOnly'] = True
+        entry['hasFiles'] = any(item.get(k) for k in ('questionUrl', 'answerUrl', 'solutionUrl'))
+        entry['hasListening'] = bool(item.get('listenUrl') or item.get('scriptUrl'))
+        if item.get('questionUrl'):
+            entry['questionKey'] = hashlib.sha256(item['questionUrl'].encode()).hexdigest()[:24]
+        index.append(entry)
+    (out_dir / 'all.json').write_text(json.dumps(index, ensure_ascii=False, separators=(',', ':')) + '\n', encoding='utf-8')
+
+    valid_names = {f'{tab}.json' for tab in ARCHIVE_TAB_RULES} | {'all.json'}
     pruned = 0
     for path in out_dir.glob('*.json'):
         if path.name not in valid_names:
@@ -803,12 +821,14 @@ def render_site_summary(items: list[dict]) -> None:
             'label': f'{sub} {title}'.strip() if sub else title,
         })
     archive_items = [e for e in items if e.get('typeGroup') != 'reference']
-    dated = [e for e in archive_items if e.get('examYear') and e.get('month')]
-    latest = max(dated, key=lambda e: (e['examYear'], e['month'])) if dated else None
+    updated_at = subprocess.check_output(
+        ['git', 'log', '-1', '--format=%cs', '--', 'data/exams.json'], cwd=ROOT, text=True).strip()
+    if not updated_at:
+        raise RuntimeError('exams.json 갱신일을 Git 기록에서 확인할 수 없습니다.')
     payload = {
         'count': len(items),
         'archiveCount': len(archive_items),
-        'updateDate': f"{latest['examYear']}-{str(latest['month']).zfill(2)}" if latest else None,
+        'updatedAt': updated_at,
         'updateLabel': _summary_update_label(items),
         'recentUpdates': recent,
     }

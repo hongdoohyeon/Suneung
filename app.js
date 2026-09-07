@@ -290,15 +290,11 @@ async function loadArchiveMeta() {
     const summary = await res.json();
     const count = summary.archiveCount ?? summary.count;
     if (totalEl && Number.isInteger(count)) totalEl.textContent = count.toLocaleString('ko-KR');
-    if (updateEl && summary.updateDate) updateEl.textContent = summary.updateDate;
+    if (updateEl && summary.updatedAt) updateEl.textContent = summary.updatedAt;
   } catch {
     const realExams = state.exams.filter(e => e.typeGroup !== 'reference');
     if (totalEl) totalEl.textContent = realExams.length.toLocaleString('ko-KR');
-    const dated = realExams.filter(e => e.examYear && e.month);
-    if (updateEl && dated.length) {
-      const latest = dated.reduce((a, b) => (b.examYear * 100 + b.month > a.examYear * 100 + a.month) ? b : a);
-      updateEl.textContent = `${latest.examYear}-${String(latest.month).padStart(2, '0')}`;
-    }
+    if (updateEl) updateEl.textContent = '확인 불가';
   }
 }
 
@@ -310,6 +306,7 @@ async function loadExams() {
   applyUrlTab();   // URL ?tab=... 가 있으면 해당 탭으로 진입
   renderFilterPanel();
   render();
+  persistArchiveState();
   loadArchiveMeta();
 }
 
@@ -326,6 +323,13 @@ function scrollActiveTabIntoView() {
   const active = document.querySelector('.curriculum-nav .nav-tab.is-active');
   active?.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
 }
+
+$('categorySelect').innerHTML = TAB_CONFIG.map(tab =>
+  `<option value="${escAttr(tab.key)}">${escHtml(tab.label)} · ${escHtml(tab.sub)}</option>`).join('');
+$('categorySelect').addEventListener('change', e => {
+  const button = document.querySelector(`.nav-tab[data-tab="${e.target.value}"]`);
+  button.click();
+});
 
 $('curriculumTabs').addEventListener('click', async e => {
   const btn = e.target.closest('.nav-tab');
@@ -364,6 +368,7 @@ addEventListener('DOMContentLoaded', () => {
 
 // ── 필터 패널 전체 재구성 ──────────────────────────────────
 function renderFilterPanel() {
+  $('categorySelect').value = state.tab;
   renderTypeGroupChips();
   renderSubtypeChips();
   // '시험' 섹션은 typeGroup 칩 또는 세부유형(월) 칩이 하나라도 있을 때만 노출.
@@ -581,7 +586,9 @@ function renderSubjectFilter() {
   const subjects  = tabSubjects();   // 탭의 모든 curriculum 영역 union
   const counts    = subjectCounts();
 
-  const inner = Object.entries(subjects).map(([key, conf]) => {
+  const inner = Object.entries(subjects)
+    .filter(([key]) => state.tab !== 'all' || !state.query || counts[key] > 0 || state.subject === key)
+    .map(([key, conf]) => {
     const hasSubs  = conf.subs.length > 0;
     const isActive = state.subject === key;
     const isOpen   = isActive && hasSubs;
@@ -771,6 +778,10 @@ function renderCards() {
   updateExamSetLink(data);
 
   if (isPlaceholder || data.length === 0) {
+    const allLink = $('searchAllLink');
+    allLink.hidden = state.tab === 'all' || !state.query;
+    allLink.style.display = allLink.hidden ? 'none' : '';
+    allLink.href = `archive.html?tab=all&q=${encodeURIComponent(state.query)}`;
     grid.style.display     = 'none';
     moreWrap.style.display = 'none';
     empty.style.display    = 'flex';
@@ -822,7 +833,7 @@ function cardHTML(exam, idx = 0) {
   const conf    = tabSubjects()[exam.subject] ?? { color: '#9ca3af' };
   const tc      = getTypeConf(exam.type);
   const dy      = getDisplayYear(exam);
-  const hasFile = Boolean(exam.questionUrl || exam.answerUrl || exam.solutionUrl);
+  const hasFile = Boolean(exam.questionUrl || exam.answerUrl || exam.solutionUrl || exam.hasFiles);
   const isPrelim = exam.gradeYear === 'preliminary';
 
   const isLegacySub = exam.subSubject && LEGACY_SUB_FORMS.has(exam.subSubject);
@@ -872,7 +883,7 @@ function cardHTML(exam, idx = 0) {
       <h4 class="card__title" title="${escAttr(title)}">${escHtml(title)}</h4>
       <p class="card__sub">${escHtml(subtitle)}</p>
       <div class="card__divider"></div>
-      <div class="card__actions">${qBtn}${aBtn}${sBtn}</div>
+      <div class="card__actions">${exam.searchOnly ? `<a class="btn btn--primary" href="exam-${exam.id}.html">자료 보기</a>` : `${qBtn}${aBtn}${sBtn}`}</div>
     </div>
   `;
 }

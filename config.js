@@ -10,6 +10,8 @@
 // ║  한 탭이 여러 curriculum을 묶을 수 있음.
 // ╚══════════════════════════════════════════════════════════
 export const TAB_CONFIG = [
+  { key: 'all', label: '전체', sub: '모든 시험',
+    curriculums: ['2015', '2009', '2007개정', '7차', '6차', '예비', '사관', '경찰대', 'LEET', 'MEET', '논술', '고졸', '중졸', '초졸'] },
   // ── 데이터 있는 탭 ──────────────────────────────────────
   // senior 탭: 평가원(전 학년) + 교육청 고3 학평만 표시 (educationGrades:[3]).
   // 첫 진입 시 평가원이 default — 학평을 보려면 사용자가 명시 클릭.
@@ -280,6 +282,12 @@ export const CURRICULUM_CONFIG = {
       '한신대학교':   { icon: '🌿', bg: '#ecf6ec', color: '#2e6b2e', subs: ['인문', '자연'] },
       '삼육대학교':   { icon: '🍃', bg: '#eef7ee', color: '#1e7a3c', subs: ['인문', '자연'] },
       '한양대학교(ERICA)': { icon: '🦁', bg: '#eaf3fb', color: '#11498a', subs: ['인문', '자연'] },
+      '한국기술교육대학교': { icon: '🏫', bg: '#eef2f7', color: '#2d4a6b', subs: ['인문', '자연'] },
+      '고려대학교(세종)': { icon: '🏫', bg: '#eef2f7', color: '#2d4a6b', subs: ['인문', '자연'] },
+      '국민대학교':   { icon: '🏫', bg: '#eef2f7', color: '#2d4a6b', subs: ['인문', '자연'] },
+      '서울과학기술대학교': { icon: '🏫', bg: '#eef2f7', color: '#2d4a6b', subs: ['인문', '자연'] },
+      '신한대학교':   { icon: '🏫', bg: '#eef2f7', color: '#2d4a6b', subs: ['인문', '자연'] },
+      '강남대학교':   { icon: '🏫', bg: '#eef2f7', color: '#2d4a6b', subs: ['인문', '자연'] },
     },
     subjectsByTypeGroup: {},
   },

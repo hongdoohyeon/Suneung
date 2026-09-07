@@ -88,17 +88,22 @@
       <p class="page-header__sub">문제지·정답·등급컷·해설지·영어 듣기 MP3·듣기 대본을 학년도, 월, 과목으로 필터.</p>
       <div class="page-header__meta">
         <span><strong id="archiveTotalCount">—</strong>건 수록</span>
-        <span>최근 업데이트 · <strong id="archiveUpdateDate">—</strong></span>
+        <span>자료 갱신일 · <strong id="archiveUpdateDate">—</strong></span>
       </div>
     </div>
   </section>
 
   <!-- ── Curriculum Nav ─────────────────────────────────── -->
   <nav class="curriculum-nav" id="curriculumTabs" aria-label="시험 선택">
+    <select id="categorySelect" class="curriculum-nav__select" aria-label="시험 종류 선택"></select>
     <div class="container curriculum-nav__inner">
 
       <div class="nav-group">
         <div class="nav-group__tabs">
+          <button class="nav-tab" data-tab="all">
+            <span class="nav-tab__title">전체</span>
+            <span class="nav-tab__sub">모든 시험</span>
+          </button>
           <button class="nav-tab is-active" data-tab="senior" aria-current="true">
             <span class="nav-tab__title">고3</span>
             <span class="nav-tab__sub">수능·평가원·학평</span>
@@ -290,6 +295,7 @@
         <p class="empty__title">검색 결과가 없습니다</p>
         <p class="empty__sub">필터 조건을 줄이거나 검색어를 변경해 보세요.</p>
         <button class="btn btn--ghost" id="emptyResetBtn" type="button">필터 초기화</button>
+        <a class="btn btn--ghost" id="searchAllLink" href="archive.html?tab=all" hidden>전체 시험에서 검색</a>
       </div>
 
     </section>

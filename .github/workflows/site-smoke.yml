@@ -1,0 +1,29 @@
+name: live site smoke
+
+on:
+  deployment_status:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  smoke:
+    if: github.event_name == 'workflow_dispatch' || (github.event.deployment_status.state == 'success' && github.event.deployment.environment == 'github-pages')
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: ${{ github.event.deployment.sha || github.sha }}
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '20'
+      - name: Verify deployed content and PDF responses
+        run: |
+          for attempt in 1 2 3; do
+            if node scripts/verify-live.mjs; then exit 0; fi
+            echo "Live verification failed (attempt $attempt/3); waiting for CDN propagation."
+            if [ "$attempt" -lt 3 ]; then sleep 30; fi
+          done
+          exit 1

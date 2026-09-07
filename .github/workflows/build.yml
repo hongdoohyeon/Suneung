@@ -14,6 +14,15 @@ on:
       - 'exam.html'
       - 'exam-set.html'
       - 'fonts/**'
+      - '*.js'
+      - '*.css'
+      - 'lib/*.js'
+      - 'index.html'
+      - 'archive.html'
+      - 'gradecut.html'
+      - 'admissions.html'
+      - 'data/**'
+      - 'scripts/version-assets.py'
   workflow_dispatch:
 
 permissions:
@@ -30,7 +39,7 @@ jobs:
     steps:
       - uses: actions/checkout@v7
         with:
-          fetch-depth: 2
+          fetch-depth: 0
 
       - uses: actions/setup-python@v6
         with:
@@ -41,6 +50,14 @@ jobs:
 
       - name: Render site
         run: PYTHONUTF8=1 python3 scripts/render-site.py
+
+      - name: Version assets and verify generated data
+        run: |
+          python3 scripts/version-assets.py
+          python3 scripts/version-assets.py --check
+          python3 scripts/regen-exam-splits.py --check
+          npm run validate
+          node --test scripts/test-search.mjs
 
       - name: Commit generated output
         run: |
