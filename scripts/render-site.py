@@ -17,6 +17,7 @@ import json
 import hashlib
 import subprocess
 from pathlib import Path
+from urllib.parse import parse_qsl, urlsplit
 
 ROOT = Path(__file__).resolve().parent.parent
 
@@ -630,6 +631,18 @@ def render_archive_splits(items: list[dict]) -> None:
     expected_ids = {it['id'] for it in items if it.get('typeGroup') != 'reference'}
     written = 0
 
+    def archive_item(it: dict) -> dict:
+        compact = dict(it)
+        for url_key, download_key in (
+            ('questionUrl', 'questionDownload'),
+            ('answerUrl', 'answerDownload'),
+            ('solutionUrl', 'solutionDownload'),
+        ):
+            url = compact.get(url_key)
+            if url and dict(parse_qsl(urlsplit(url).query)).get('name'):
+                compact.pop(download_key, None)
+        return compact
+
     for tab, rule in ARCHIVE_TAB_RULES.items():
         selected = []
         for it in items:
@@ -639,7 +652,7 @@ def render_archive_splits(items: list[dict]) -> None:
                 continue
             if it.get('typeGroup') == 'education' and it.get('studentGrade') != rule.get('education_grade'):
                 continue
-            selected.append(it)
+            selected.append(archive_item(it))
             previous = assigned.setdefault(it['id'], tab)
             if previous != tab:
                 raise RuntimeError(f'archive split 중복 id={it["id"]}: {previous}, {tab}')

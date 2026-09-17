@@ -1400,7 +1400,25 @@ def build_set_meta(curr: str, year: str, t: str, sg: int | None, exams_in_set: l
     gy   = int(year) if year != 'preliminary' else 0
     gy2  = str(gy)[-2:] if gy else ''
 
-    if curr in ('2015', '2009', '예비'):
+    if sg is not None:
+        month_map = {
+            'mar': 3, 'apr': 4, 'may': 5, 'jun': 6, 'jun_edu': 6,
+            'jul': 7, 'aug': 8, 'sep': 9, 'sep_edu': 9,
+            'oct': 10, 'nov': 11, 'nov_edu': 11, 'dec': 12,
+        }
+        if t not in month_map:
+            raise ValueError(f'알 수 없는 교육청 시험 유형: {t}')
+        month = month_map[t]
+        cy = gy - 1
+        head = f'{cy}년 {month}월 고{sg} 학력평가'
+        short = f'{month}모'
+        full = f'{cy}년 {month}월 고{sg} 학력평가(={gy}학년도 {month}월 학평)'
+        aliases = [
+            f'{gy2}학년도 {month}모', f'{gy}학년도 {month}모', f'{cy}년 {month}모',
+            f'고{sg} {month}모', f'{cy}년 고{sg} {month}월 학평',
+            f'{cy}년 {month}월 고{sg} 모의고사', f'{gy2}학년도 {month}월 학평',
+        ]
+    elif curr in ('2015', '2009', '예비', '2007개정', '7차', '6차', 'pre2009'):
         if t == 'csat':
             head = f'{gy}학년도 대학수학능력시험'
             short = '수능'
@@ -1421,19 +1439,6 @@ def build_set_meta(curr: str, year: str, t: str, sg: int | None, exams_in_set: l
             short = '예비'
             full = f'{gy}학년도 예비시험(예비)'
             aliases = [f'{gy2}학년도 예비', f'{gy} 예비시험', f'{gy2} 예비']
-        elif t in ('mar','apr','may','jun_edu','jul','aug','sep_edu','oct','nov_edu'):
-            month_map = {'mar':3,'apr':4,'may':5,'jun_edu':6,'jul':7,'aug':8,'sep_edu':9,'oct':10,'nov_edu':11}
-            month = month_map.get(t, 0)
-            sg_v = sg or 3
-            cy = gy - 1
-            head = f'{cy}년 {month}월 학력평가 (고{sg_v})'
-            short = f'{month}모'
-            full = f'{cy}년 {month}월 고{sg_v} 학력평가(학평)'
-            aliases = [
-                f'{gy2}학년도 {month}모', f'{gy}학년도 {month}모', f'{cy}년 {month}모',
-                f'고{sg_v} {month}모', f'{cy}년 고{sg_v} {month}월 학평',
-                f'{cy}년 {month}월 고{sg_v} 모의고사', f'{gy2}학년도 {month}월 학평',
-            ]
         else:
             head = f'{gy}학년도'
             short = ''
@@ -1450,15 +1455,21 @@ def build_set_meta(curr: str, year: str, t: str, sg: int | None, exams_in_set: l
         full = f'{gy}학년도 경찰대학 1차 시험'
         aliases = [f'{gy2}학년도 경찰대', f'{gy} 경찰대 1차']
     elif curr == 'LEET':
-        head = f'{gy}학년도 LEET'
-        short = 'LEET'
-        full = f'{gy}학년도 법학적성시험(LEET)'
+        is_prelim = t == 'prelim'
+        head = f'{gy}학년도 LEET' + (' 예비시험' if is_prelim else '')
+        short = 'LEET 예비' if is_prelim else 'LEET'
+        full = f'{gy}학년도 법학적성시험(LEET)' + (' 예비시험' if is_prelim else '')
         aliases = [f'{gy2}학년도 리트', f'{gy} LEET', f'{gy} 리트']
+        if is_prelim:
+            aliases.extend([f'{gy} LEET 예비', f'{gy} 리트 예비시험'])
     elif curr == 'MEET':
-        head = f'{gy}학년도 MEET'
-        short = 'MEET'
-        full = f'{gy}학년도 MEET(의·치학교육입문검사)'
+        is_prelim = t == 'prelim'
+        head = f'{gy}학년도 MEET' + (' 예비시험' if is_prelim else '')
+        short = 'MEET 예비' if is_prelim else 'MEET'
+        full = f'{gy}학년도 MEET(의·치학교육입문검사)' + (' 예비시험' if is_prelim else '')
         aliases = [f'{gy2}학년도 미트', f'{gy} MEET', f'{gy} 미트']
+        if is_prelim:
+            aliases.extend([f'{gy} MEET 예비', f'{gy} 미트 예비시험'])
     elif curr == '논술':
         lbl = '모의논술' if t == 'essay_mock' else '논술'
         head = f'{gy}학년도 대학별 {lbl}'
