@@ -1,13 +1,13 @@
 'use strict';
-import { CURRICULUM_CONFIG, getTypeConf, prettySub } from './config.js?v=884ab5bc0bbc611d10d5';
-import { escHtml as _escHtml, escAttr, safeUrl as _safeUrl, $ as _$ } from './lib/dom.js?v=884ab5bc0bbc611d10d5';
-import { setMeta, setMetaProp, setCanonical, injectJsonLd as _injectJsonLd, applySeo } from './lib/seo.js?v=884ab5bc0bbc611d10d5';
-import { renderAllAdSlots } from './lib/ads.js?v=884ab5bc0bbc611d10d5';
-import { renderPdf, renderUnsupported, renderEmpty, urlExtension } from './lib/exam-pdf.js?v=884ab5bc0bbc611d10d5';
-import { renderGradeDist } from './lib/exam-gradedist.js?v=884ab5bc0bbc611d10d5';
-import { pushRecent } from './lib/recent.js?v=884ab5bc0bbc611d10d5';
-import { shareLink } from './lib/share.js?v=884ab5bc0bbc611d10d5';
-import { enableForcedDownloads } from './lib/download.js?v=884ab5bc0bbc611d10d5';
+import { CURRICULUM_CONFIG, getTypeConf, prettySub } from './config.js?v=a6b6ab6506349e096537';
+import { escHtml as _escHtml, escAttr, safeUrl as _safeUrl, $ as _$ } from './lib/dom.js?v=a6b6ab6506349e096537';
+import { setMeta, setMetaProp, setCanonical, injectJsonLd as _injectJsonLd, applySeo } from './lib/seo.js?v=a6b6ab6506349e096537';
+import { renderAllAdSlots } from './lib/ads.js?v=a6b6ab6506349e096537';
+import { renderPdf, renderUnsupported, renderEmpty, urlExtension } from './lib/exam-pdf.js?v=a6b6ab6506349e096537';
+import { renderGradeDist } from './lib/exam-gradedist.js?v=a6b6ab6506349e096537';
+import { pushRecent } from './lib/recent.js?v=a6b6ab6506349e096537';
+import { shareLink } from './lib/share.js?v=a6b6ab6506349e096537';
+import { enableForcedDownloads } from './lib/download.js?v=a6b6ab6506349e096537';
 
 enableForcedDownloads();
 
@@ -362,7 +362,7 @@ async function main() {
   // 단건 split 미배포 환경 폴백: 통합 exams.json
   if (!exam) {
     try {
-      const res = await fetch('data/exams.json?v=884ab5bc0bbc611d10d5');
+      const res = await fetch('data/exams.json?v=a6b6ab6506349e096537');
       if (res.ok) {
         const exams = await res.json();
         exam = exams.find(e => e.id === id) ?? null;
