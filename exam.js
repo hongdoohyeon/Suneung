@@ -3,7 +3,8 @@ import { CURRICULUM_CONFIG, getTypeConf, prettySub } from './config.js?v=a6b6ab6
 import { escHtml as _escHtml, escAttr, safeUrl as _safeUrl, $ as _$ } from './lib/dom.js?v=a6b6ab6506349e096537';
 import { setMeta, setMetaProp, setCanonical, injectJsonLd as _injectJsonLd, applySeo } from './lib/seo.js?v=a6b6ab6506349e096537';
 import { renderAllAdSlots } from './lib/ads.js?v=a6b6ab6506349e096537';
-import { renderPdf, renderUnsupported, renderEmpty, urlExtension } from './lib/exam-pdf.js?v=a6b6ab6506349e096537';
+import { renderPdf, renderPreviewCover, renderUnsupported, renderEmpty, urlExtension } from './lib/exam-pdf.js?v=20260925b';
+import { LOADING_PREVIEWS } from './lib/loading-previews.js?v=20260925a';
 import { renderGradeDist } from './lib/exam-gradedist.js?v=a6b6ab6506349e096537';
 import { pushRecent } from './lib/recent.js?v=a6b6ab6506349e096537';
 import { shareLink } from './lib/share.js?v=a6b6ab6506349e096537';
@@ -387,24 +388,33 @@ async function main() {
   // PDF는 사용자가 미리보기를 요청할 때만 내려받는다.
   // 큰 시험지는 수 MB라 진입 즉시 로드하면 본문 표시와 모바일 데이터 사용을 크게 악화시킨다.
   const qViewer = $('previewQViewer'), qMeta = $('previewQMeta');
-  const qLoad = $('previewQLoad');
-  let pdfStarted = false;
-  function ensurePdfStarted() {
-    if (pdfStarted) return;
-    pdfStarted = true;
-    if (qLoad) {
-      qLoad.disabled = true;
-      qLoad.textContent = '불러오는 중…';
-    }
-    if (!exam.questionUrl) {
-      renderEmpty(qViewer); qMeta.textContent = '없음';
-      return;
-    }
+  if (!exam.questionUrl) {
+    renderEmpty(qViewer);
+    qMeta.textContent = '없음';
+  } else {
     const ext = urlExtension(exam.questionUrl);
-    if (ext === 'pdf') renderPdf(exam.questionUrl, qViewer, qMeta);
-    else renderUnsupported(qViewer, ext ?? '파일', exam.questionUrl, exam.questionDownload);
+    if (ext === 'pdf') {
+      let detail = '';
+      if (exam.typeGroup === 'education') detail = exam.studentGrade || '';
+      else if (exam.typeGroup === 'ged') detail = exam.curriculum;
+      else if (exam.typeGroup === 'essay') {
+        const subject = exam.subSubject || '';
+        const natural = /자연|수학|공학|의약|의예|약학|과학|물리|화학|생명/.test(subject);
+        const human = /인문|사회|상경|경영|경제|국어|언어|체육/.test(subject);
+        detail = natural && human ? '통합' : natural ? '자연' : human ? '인문' : '기타';
+      }
+      const key = `${exam.typeGroup}|${detail}|${exam.subject}`;
+      const button = renderPreviewCover(qViewer, LOADING_PREVIEWS[key]?.image);
+      button.addEventListener('click', () => {
+        button.disabled = true;
+        button.textContent = '불러오는 중…';
+        qViewer.querySelector('.preview__loading')?.classList.add('is-loading');
+        renderPdf(exam.questionUrl, qViewer, qMeta);
+      }, { once: true });
+    } else {
+      renderUnsupported(qViewer, ext ?? '파일', exam.questionUrl, exam.questionDownload);
+    }
   }
-  qLoad?.addEventListener('click', ensurePdfStarted);
   setupTabs(null, exam.typeGroup === 'ged' || gradecuts.length === 0);
 }
 
