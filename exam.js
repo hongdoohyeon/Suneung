@@ -1,14 +1,15 @@
 'use strict';
-import { CURRICULUM_CONFIG, getTypeConf, prettySub } from './config.js?v=d702670c83c512228b29';
-import { escHtml as _escHtml, escAttr, safeUrl as _safeUrl, $ as _$ } from './lib/dom.js?v=d702670c83c512228b29';
-import { setMeta, setMetaProp, setCanonical, injectJsonLd as _injectJsonLd, applySeo } from './lib/seo.js?v=d702670c83c512228b29';
-import { renderAllAdSlots } from './lib/ads.js?v=d702670c83c512228b29';
-import { renderPdf, renderPreviewCover, renderUnsupported, renderEmpty, urlExtension } from './lib/exam-pdf.js?v=d702670c83c512228b29';
-import { LOADING_PREVIEWS } from './lib/loading-previews.js?v=d702670c83c512228b29';
-import { renderGradeDist } from './lib/exam-gradedist.js?v=d702670c83c512228b29';
-import { pushRecent } from './lib/recent.js?v=d702670c83c512228b29';
-import { shareLink } from './lib/share.js?v=d702670c83c512228b29';
-import { enableForcedDownloads } from './lib/download.js?v=d702670c83c512228b29';
+import { CURRICULUM_CONFIG, getTypeConf, prettySub } from './config.js?v=c54690fa0c9d9640e800';
+import { escHtml as _escHtml, escAttr, safeUrl as _safeUrl, $ as _$ } from './lib/dom.js?v=c54690fa0c9d9640e800';
+import { setMeta, setMetaProp, setCanonical, injectJsonLd as _injectJsonLd, STATIC_PAGE, applySeo } from './lib/seo.js?v=c54690fa0c9d9640e800';
+import { renderAllAdSlots } from './lib/ads.js?v=c54690fa0c9d9640e800';
+import { renderPdf, renderPreviewCover, renderUnsupported, renderEmpty, urlExtension } from './lib/exam-pdf.js?v=c54690fa0c9d9640e800';
+import { LOADING_PREVIEWS } from './lib/loading-previews.js?v=c54690fa0c9d9640e800';
+import { renderGradeDist } from './lib/exam-gradedist.js?v=c54690fa0c9d9640e800';
+import { pushRecent } from './lib/recent.js?v=c54690fa0c9d9640e800';
+import './lib/report.js?v=c54690fa0c9d9640e800';
+import { shareLink } from './lib/share.js?v=c54690fa0c9d9640e800';
+import { enableForcedDownloads } from './lib/download.js?v=c54690fa0c9d9640e800';
 
 enableForcedDownloads();
 
@@ -64,7 +65,7 @@ function answerLabel(exam) {
 // ── 헤드 렌더 ──────────────────────────────────────────────
 function renderHead(exam) {
   const title = buildTitle(exam);
-  document.title = `${title} — 기출해체분석기`;
+  if (!STATIC_PAGE) document.title = `${title} — 기출해체분석기`;
   // ── SEO: 동적 meta description / OG title / canonical ──
   const sub = buildSubtitle(exam);
   const availableDocs = [
@@ -285,7 +286,7 @@ async function main() {
   // 단건 split 미배포 환경 폴백: 통합 exams.json
   if (!exam) {
     try {
-      const res = await fetch('data/exams.json?v=d702670c83c512228b29');
+      const res = await fetch('data/exams.json?v=c54690fa0c9d9640e800');
       if (res.ok) {
         const exams = await res.json();
         exam = exams.find(e => e.id === id) ?? null;

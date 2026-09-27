@@ -15,10 +15,10 @@
   <link rel="canonical" href="https://kicegg.com/privacy.html" />
 
   <title>개인정보처리방침 — 기출해체분석기</title>
-  <link rel="stylesheet" href="lib/vendor/pretendard/pretendardvariable-dynamic-subset.css?v=d702670c83c512228b29" />
-  <link rel="stylesheet" href="style.css?v=d702670c83c512228b29" />
-  <script src="lib/site-prefs.js?v=d702670c83c512228b29"></script>
-  <script src="lib/measure.js?v=d702670c83c512228b29" defer></script>
+  <link rel="stylesheet" href="lib/vendor/pretendard/pretendardvariable-dynamic-subset.css?v=c54690fa0c9d9640e800" />
+  <link rel="stylesheet" href="style.css?v=c54690fa0c9d9640e800" />
+  <script src="lib/site-prefs.js?v=c54690fa0c9d9640e800"></script>
+  <script src="lib/measure.js?v=c54690fa0c9d9640e800" defer></script>
 </head>
 <body class="page-legal">
   <a href="#main" class="skip-link">본문 건너뛰기</a>
@@ -42,11 +42,11 @@
         <a href="calendar.html">학사 일정</a>
       </nav>
       <div class="header-tools">
-        <a class="header-search" href="archive.html" aria-label="기출 검색">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
-          <span>기출 검색</span>
-        </a>
-        <a class="icon-btn header-search--icon" href="archive.html" aria-label="기출 검색">
+        <form class="header-search" action="./" method="get" role="search">
+          <button type="submit" class="header-search__btn" aria-label="기출 검색"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></button>
+          <input type="search" name="q" placeholder="기출 검색" aria-label="기출 검색어" autocomplete="off" enterkeyhint="search" />
+        </form>
+        <a class="icon-btn header-search--icon" href="./?focus=search" aria-label="기출 검색">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
         </a>
         <button type="button" class="icon-btn theme-toggle" aria-label="다크 모드로 전환">
@@ -109,6 +109,7 @@
         <li><strong>Google Analytics (GA4)</strong> — 익명 방문·이용 통계 분석. 쿠키(_ga·_ga_*) 사용. <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">정책</a></li>
         <li><strong>Google AdSense</strong> — 광고 송출 (활성화 시). 쿠키 기반 맞춤 광고. <a href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener">정책</a></li>
         <li><strong>Kakao AdFit</strong> — 광고 송출 (활성화 시). <a href="https://www.kakao.com/policy/privacy" target="_blank" rel="noopener">정책</a></li>
+        <li><strong>TypeSafe AI (JEV)</strong> — 기출검색에 입력한 문장형 검색어와 자료 오류 제보 내용을 자동 분류(필터 해석·제보 유형 판별)하는 데 쓰입니다. 검색어·제보 문장만 전달되며 IP 등 식별 정보는 전달하지 않습니다. <a href="https://typesafe.ai/" target="_blank" rel="noopener">사이트</a></li>
       </ul>
       <p>광고 맞춤화를 원하지 않을 경우 <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener">Google 광고 설정</a> 또는 브라우저 추적 차단 설정을 통해 거부할 수 있습니다.</p>
     </section>
@@ -116,6 +117,7 @@
     <section class="legal__section">
       <h2>5. 개인정보 보유 기간</h2>
       <p>서비스는 별도 개인정보를 저장하지 않으므로 보유 기간이 발생하지 않습니다. 제3자 서비스에서 수집한 정보의 보유 기간은 해당 사업자 정책을 따릅니다.</p>
+      <p><strong>자료 오류 제보</strong>: 이용자가 직접 입력한 제보 내용(오류 종류·자료 종류·설명)과 제보한 페이지 주소만 저장하며, 이름·연락처·IP 주소는 저장하지 않습니다. 제보는 자료 확인·수정에만 쓰이고 90일 뒤 자동 삭제됩니다. 설명란에 개인정보를 적지 말아 주세요.</p>
     </section>
 
     <section class="legal__section">
@@ -147,6 +149,6 @@
     </div>
   </footer>
 
-  <script type="module" src="lib/dday-mount.js?v=d702670c83c512228b29"></script>
+  <script type="module" src="lib/dday-mount.js?v=c54690fa0c9d9640e800"></script>
 </body>
 </html>

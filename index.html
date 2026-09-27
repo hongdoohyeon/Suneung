@@ -60,13 +60,13 @@
   </script>
 
   <title>수능·평가원·학평 기출 PDF·등급컷·영어 듣기 — 기출해체분석기</title>
-  <link rel="stylesheet" href="lib/vendor/pretendard/pretendardvariable-dynamic-subset.css?v=d702670c83c512228b29" />
-  <link rel="stylesheet" href="style.css?v=d702670c83c512228b29" />
-  <script src="lib/site-prefs.js?v=d702670c83c512228b29"></script>
-  <link rel="modulepreload" href="app.js?v=d702670c83c512228b29" />
-  <link rel="modulepreload" href="config.js?v=d702670c83c512228b29" />
-  <link rel="modulepreload" href="state.js?v=d702670c83c512228b29" />
-  <script src="lib/measure.js?v=d702670c83c512228b29" defer></script>
+  <link rel="stylesheet" href="lib/vendor/pretendard/pretendardvariable-dynamic-subset.css?v=c54690fa0c9d9640e800" />
+  <link rel="stylesheet" href="style.css?v=c54690fa0c9d9640e800" />
+  <script src="lib/site-prefs.js?v=c54690fa0c9d9640e800"></script>
+  <link rel="modulepreload" href="app.js?v=c54690fa0c9d9640e800" />
+  <link rel="modulepreload" href="config.js?v=c54690fa0c9d9640e800" />
+  <link rel="modulepreload" href="state.js?v=c54690fa0c9d9640e800" />
+  <script src="lib/measure.js?v=c54690fa0c9d9640e800" defer></script>
 </head>
 <body class="page-archive">
   <a href="#main" class="skip-link">본문 건너뛰기</a>
@@ -91,11 +91,11 @@
         <a href="calendar.html">학사 일정</a>
       </nav>
       <div class="header-tools">
-        <a class="header-search" href="archive.html" aria-label="기출 검색">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
-          <span>기출 검색</span>
-        </a>
-        <a class="icon-btn header-search--icon" href="archive.html" aria-label="기출 검색">
+        <form class="header-search" action="./" method="get" role="search">
+          <button type="submit" class="header-search__btn" aria-label="기출 검색"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></button>
+          <input type="search" name="q" placeholder="기출 검색" aria-label="기출 검색어" autocomplete="off" enterkeyhint="search" />
+        </form>
+        <a class="icon-btn header-search--icon" href="./?focus=search" aria-label="기출 검색">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
         </a>
         <button type="button" class="icon-btn theme-toggle" aria-label="다크 모드로 전환">
@@ -279,6 +279,12 @@
         </div>
       </div>
 
+      <div class="recent-row" id="recentRow" hidden>
+        <span class="recent-row__label">최근 본 시험</span>
+        <div class="recent-row__list hscroll" id="recentList"></div>
+        <button type="button" class="recent-row__clear" id="recentClear" aria-label="최근 본 시험 기록 지우기">지우기</button>
+      </div>
+
       <div class="subbar">
         <button type="button" class="switch switch--sm" role="switch" aria-checked="true" data-spoiler-toggle
                 title="등급컷·표준점수·난이도를 흐리게 가려요">스포일러 방지<span class="switch__knob" aria-hidden="true"></span></button>
@@ -417,7 +423,7 @@
     </div>
   </footer>
 
-  <script type="module" src="app.js?v=d702670c83c512228b29"></script>
-  <script type="module" src="lib/dday-mount.js?v=d702670c83c512228b29"></script>
+  <script type="module" src="app.js?v=c54690fa0c9d9640e800"></script>
+  <script type="module" src="lib/dday-mount.js?v=c54690fa0c9d9640e800"></script>
 </body>
 </html>

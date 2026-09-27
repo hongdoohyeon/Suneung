@@ -24,3 +24,14 @@ enabled = true
 head_sampling_rate = 0.05
 
 # 비밀값: npx wrangler secret put TYPESAFE_API_KEY  (코드·저장소에 두지 않는다)
+
+# 자료 오류 제보 저장소 (/api/report) — 읽기: node cloudflare/smart-search/reports.mjs
+[[kv_namespaces]]
+binding = "REPORTS"
+id = "bb6aff29c5214cdb97b006674cf201a1"
+
+# 제보 도배 방지: IP당 분당 4건
+[[ratelimits]]
+name = "REPORT_IP"
+namespace_id = "2703"
+simple = { limit = 4, period = 60 }

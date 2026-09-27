@@ -902,7 +902,8 @@ def build_exam_meta(it: dict) -> dict:
     elif is_english and has_listen:
         title = f'{head} 듣기·대본·{answer_label} — 기출해체분석기'
     else:
-        title = f'{head} 기출 — 기출해체분석기'
+        _docs = [x for x, k in (('문제지', 'questionUrl'), (answer_label, 'answerUrl'), ('해설', 'solutionUrl')) if it.get(k)]
+        title = f'{head} {"·".join(dict.fromkeys(_docs))} — 기출해체분석기' if _docs else f'{head} 기출 — 기출해체분석기'
 
     # description — 영어는 듣기 mp3·대본 PDF 키워드를 명시
     if is_reference:
@@ -1338,6 +1339,49 @@ _COMPARE_METRICS = (('raw', '1등급컷', '원점수'), ('top', '표점 최고',
 _RATIO_METRICS = (('ratio', '1등급 비율', '%'),)
 
 
+def exam_insight_html(it: dict, series: list[dict], scores: dict) -> str:
+    """이 시험 한눈에 — 공개 등급컷으로 만든 사실 문장(같은 과목 역대 회차 대비 순위·직전 대비 증감·난이도).
+    페이지마다 다른 실제 정보라 얇은 본문을 보강한다. 숫자는 스포일러 방지로 흐리게."""
+    sc = scores.get(it['id']) or {}
+    ratio_mode = sc.get('abs') and sc.get('ratio') is not None
+    val = sc.get('ratio') if ratio_mode else (None if sc.get('abs') else sc.get('raw'))
+    if val is None:
+        return ''
+    unit, what = ('%', '1등급 비율') if ratio_mode else ('점', '1등급컷(원점수)')
+    metric = lambda x: (scores.get(x['id']) or {}).get('ratio' if ratio_mode else 'raw')
+    pts = [x for x in series if metric(x) is not None]
+    cur_key = _exam_sort_key(it)
+    past = [x for x in pts if x['id'] != it['id'] and _exam_sort_key(x) < cur_key]
+    sv = lambda v: f'<span class="spoil-val">{html_escape(str(v), quote=False)}{unit}</span>'
+    fmt = lambda v: (f'{v:.2f}'.rstrip('0').rstrip('.') if isinstance(v, float) else v)
+    out = [f'이 시험의 {what}은 {sv(fmt(val))}입니다.']
+    vals = sorted({metric(x) for x in pts}, reverse=True)
+    if len(pts) >= 5:
+        higher = sum(1 for x in pts if metric(x) > val)
+        n = len(pts)
+        if higher < n / 2:
+            out.append(f'같은 과목 역대 {n}회 가운데 <span class="spoil-val">{"가장" if higher == 0 else f"{higher + 1}번째로"} 높습니다</span>.')
+        else:
+            lower = sum(1 for x in pts if metric(x) < val)
+            out.append(f'같은 과목 역대 {n}회 가운데 <span class="spoil-val">{"가장" if lower == 0 else f"{lower + 1}번째로"} 낮습니다</span>.')
+    if past:
+        prev = past[-1]; d = round(val - metric(prev), 2)
+        lab = (f"{prev.get('examYear')}년 {prev.get('month')}월" if prev.get('typeGroup') == 'education' and prev.get('examYear')
+               else f"{prev.get('gradeYear')}학년도 {KOREAN_TYPE_LABEL.get(prev.get('type'), '')}".strip())
+        if d:
+            out.append(f'직전 회차({html_escape(lab, quote=False)})보다 <span class="spoil-val">{fmt(abs(d))}{unit} {"높고" if d > 0 else "낮고"}</span>,'
+                       if sc.get('tier') else f'직전 회차({html_escape(lab, quote=False)})보다 <span class="spoil-val">{fmt(abs(d))}{unit} {"높습니다" if d > 0 else "낮습니다"}</span>.')
+        else:
+            out.append(f'직전 회차({html_escape(lab, quote=False)})와 같{"고," if sc.get("tier") else "습니다."}')
+    if sc.get('tier'):
+        _tl = TIER_LABELS[sc['tier']]
+        out.append(f'역대 대비 난이도는 <span class="spoil-val">{_tl}</span>{"으로" if _has_batchim(_tl) else "로"} 분류됩니다.')
+    if sc.get('top') and not ratio_mode:
+        out.append(f'표준점수 최고점은 <span class="spoil-val">{sc["top"]}점</span>입니다.')
+    # '…높고,' 로 끝난 문장 뒤에 난이도 문장이 이어지도록 공백으로 합친다
+    return '<p class="info-card__desc exam-insight" id="examInsight">' + ' '.join(out) + '</p>'
+
+
 def compare_html(it: dict, series: list[dict], scores: dict, with_toggle: bool = False) -> str:
     """최근 회차와 비교 — 같은 과목 묶음의 직전 회차들 + 이 시험을 막대그래프·비교표로.
     이 시험의 등급컷이 아직 없어도(발표 전) 지난 회차 비교는 보여 준다. 값은 스포일러 방지 대상."""
@@ -1655,7 +1699,8 @@ def build_static_exam_pages(items: list[dict], template_path: Path, out_root: Pa
         facts = ''.join(f'<dt>{k}</dt><dd>{v}</dd>' for k, v in exam_fact_rows(it))
         html = html.replace('<dl class="facts" id="examFacts"></dl>',
                             f'<dl class="facts" id="examFacts">{facts}</dl>\n          '
-                            f'<p class="info-card__desc" id="examSeoIntro">{html_escape(meta["intro"], quote=False)}</p>', 1)
+                            f'<p class="info-card__desc" id="examSeoIntro">{html_escape(meta["intro"], quote=False)}</p>'
+                            + (exam_insight_html(it, _trend.get(tier_series_key(it), []) if tier_series_key(it) else [], _scores)), 1)
 
         # 흐린 표지 = 이 시험지 1쪽 (scripts/material-audit/extract.mjs 가 만든 previews/{h}.jpg 가 있을 때만)
         _pv = preview_image_path(it.get('questionUrl'), out_root)
@@ -1941,15 +1986,15 @@ def build_set_meta(curr: str, year: str, t: str, sg: int | None, exams_in_set: l
     elif is_ged:
         title = f'{head} 과목별 문제·정답 — 기출해체분석기'
         desc = (f'{full} {subj_phrase} 기출 문제지와 정답(확정안)을 한 페이지에서 '
-                f'확인하고 무료로 내려받으세요. 검정고시 과목별 기출답.')
+                f'확인하고 무료로 내려받으세요.')
     elif has_english_listen:
         title = f'{head} {short} 영역별 문제·정답·영어 듣기·해설지 — 기출해체분석기'
         desc = (f'{full} {subj_phrase} 기출 문제지·정답·해설지·등급컷. '
-                f'영어 듣기 MP3와 듣기 대본 PDF도 함께. {short} 기출답 한 페이지.')
+                f'영어 듣기 MP3와 듣기 대본 PDF도 함께 받을 수 있습니다.')
     else:
         title = f'{head} 영역별 문제·정답·해설지 — 기출해체분석기'
-        desc = (f'{full} {subj_phrase} 기출 문제지·정답·해설지·등급컷 통계. '
-                f'{short} 기출답 한 페이지에서 해체. 다운로드 무료.')
+        desc = (f'{full} {subj_phrase} 기출 문제지·정답·해설지와 등급컷을 '
+                f'영역별로 한 페이지에서 확인하고 무료로 내려받으세요.')
 
     if is_reference:
         intro_parts = [f'{full} 자료입니다.',

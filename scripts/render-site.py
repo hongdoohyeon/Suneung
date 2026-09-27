@@ -31,6 +31,8 @@ spec.loader.exec_module(bd)
 # 바뀔 때만 갱신한다. 매 빌드 today 로 두면 8824건 lastmod 가 동시에 흔들려 변경
 # 신호가 희석되므로 고정값으로 둔다(데이터 추가만으로는 올리지 않음).
 CONTENT_VERSION = '2026-07-13'
+# 상세 페이지 틀(build-data SSG)이 바뀌어 모든 페이지 내용이 달라졌을 때 올린다 → 사이트맵 lastmod 가 전부 갱신
+TEMPLATE_REV = '2026-09-28'
 
 ARCHIVE_TAB_RULES = {
     'senior':     {'curriculums': {'2015', '2009', '2007개정', '7차', '6차', '예비'}, 'education_grade': 3},
@@ -81,19 +83,40 @@ def render_sitemaps(items: list[dict], hubs=None) -> None:
         if gy >= current_year - 3: return '0.6'
         return '0.5'
 
+    # 시험별 실제 수정일 — 항목 내용(+틀 버전) 해시가 바뀐 날을 data/sitemap-lastmod.json 에 기억
+    import hashlib
+    state_path = ROOT / 'data' / 'sitemap-lastmod.json'
+    try:
+        state = json.loads(state_path.read_text(encoding='utf-8'))
+    except Exception:
+        state = {}
+    lastmod = {}
+    raw = {e['id']: e for e in json.loads((ROOT / 'data' / 'exams.json').read_text(encoding='utf-8'))}   # 빌드 중 가공 전 원본으로 해시
+    for it in items:
+        h = hashlib.sha1((json.dumps(raw.get(it['id'], it), ensure_ascii=False, sort_keys=True) + TEMPLATE_REV).encode()).hexdigest()[:12]
+        prev = state.get(str(it['id']))
+        lastmod[it['id']] = prev[1] if prev and prev[0] == h else today
+        state[str(it['id'])] = [h, lastmod[it['id']]]
+    live = {str(it['id']) for it in items}
+    state = {k: v for k, v in sorted(state.items(), key=lambda kv: int(kv[0])) if k in live}
+    state_path.write_text(json.dumps(state, separators=(',', ':')) + '\n', encoding='utf-8')
+
     # sets — 파일명 dedupe
     sets: dict[str, tuple] = {}
+    set_mod: dict[str, str] = {}
     for it in items:
         if not (it.get('curriculum') and it.get('gradeYear') and it.get('type')):
             continue
         sg = it.get('studentGrade') if it.get('typeGroup') == 'education' else None
         curr, year, t = it['curriculum'], str(it['gradeYear']), it['type']
-        sets.setdefault(bd.set_friendly_filename(curr, year, t, sg), (curr, year, t))
+        fn = bd.set_friendly_filename(curr, year, t, sg)
+        sets.setdefault(fn, (curr, year, t))
+        set_mod[fn] = max(set_mod.get(fn, ''), lastmod[it['id']])
     parts = ['<?xml version="1.0" encoding="UTF-8"?>',
              '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
     for fname in sorted(sets):
         curr, year, t = sets[fname]
-        parts.append(f'  <url><loc>{base}/{fname}</loc><lastmod>{CONTENT_VERSION}</lastmod>'
+        parts.append(f'  <url><loc>{base}/{fname}</loc><lastmod>{set_mod[fname]}</lastmod>'
                      f'<changefreq>monthly</changefreq><priority>{set_priority(curr, year, t)}</priority></url>')
     parts.append('</urlset>')
     (ROOT / 'sitemap-sets.xml').write_text('\n'.join(parts) + '\n', encoding='utf-8')
@@ -102,7 +125,7 @@ def render_sitemaps(items: list[dict], hubs=None) -> None:
     parts = ['<?xml version="1.0" encoding="UTF-8"?>',
              '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
     for it in items:
-        parts.append(f'  <url><loc>{base}/exam-{it["id"]}.html</loc><lastmod>{CONTENT_VERSION}</lastmod>'
+        parts.append(f'  <url><loc>{base}/exam-{it["id"]}.html</loc><lastmod>{lastmod[it["id"]]}</lastmod>'
                      f'<changefreq>monthly</changefreq><priority>{exam_priority(it)}</priority></url>')
     parts.append('</urlset>')
     (ROOT / 'sitemap-exams.xml').write_text('\n'.join(parts) + '\n', encoding='utf-8')
@@ -120,7 +143,6 @@ def render_sitemaps(items: list[dict], hubs=None) -> None:
         '<?xml version="1.0" encoding="UTF-8"?>',
         '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
         f'  <url><loc>{base}/</loc><lastmod>{today}</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>',
-        f'  <url><loc>{base}/archive.html</loc><lastmod>{today}</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>',
         f'  <url><loc>{base}/sets.html</loc><lastmod>{today}</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>',
         f'  <url><loc>{base}/essay.html</loc><lastmod>{CONTENT_VERSION}</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>',
         f'  <url><loc>{base}/ged.html</loc><lastmod>{CONTENT_VERSION}</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>',
@@ -128,11 +150,12 @@ def render_sitemaps(items: list[dict], hubs=None) -> None:
         f'  <url><loc>{base}/calendar.html</loc><lastmod>{today}</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>',
     ]
     for h in (hubs or []):
-        static_rows.append(f'  <url><loc>{base}/{h["fname"]}</loc><lastmod>{CONTENT_VERSION}</lastmod>'
+        hub_mod = max((lastmod.get(e['id'], CONTENT_VERSION) for e in h.get('exams', [])), default=CONTENT_VERSION)
+        static_rows.append(f'  <url><loc>{base}/{h["fname"]}</loc><lastmod>{hub_mod}</lastmod>'
                            f'<changefreq>monthly</changefreq><priority>0.7</priority></url>')
     static_rows.append('</urlset>')
     (ROOT / 'sitemap-static.xml').write_text('\n'.join(static_rows) + '\n', encoding='utf-8')
-    print(f'  + sitemap (static {7 + len(hubs or [])} + sets {len(sets)} + exams {len(items)})')
+    print(f'  + sitemap (static {6 + len(hubs or [])} + sets {len(sets)} + exams {len(items)})')
 
 
 def _essay_label(it: dict) -> str:
@@ -233,11 +256,11 @@ def _hub_page(fname: str, h1: str, title: str, desc: str, intro: str,
         <a href="calendar.html">학사 일정</a>
       </nav>
       <div class="header-tools">
-        <a class="header-search" href="archive.html" aria-label="기출 검색">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
-          <span>기출 검색</span>
-        </a>
-        <a class="icon-btn header-search--icon" href="archive.html" aria-label="기출 검색">
+        <form class="header-search" action="./" method="get" role="search">
+          <button type="submit" class="header-search__btn" aria-label="기출 검색"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></button>
+          <input type="search" name="q" placeholder="기출 검색" aria-label="기출 검색어" autocomplete="off" enterkeyhint="search" />
+        </form>
+        <a class="icon-btn header-search--icon" href="./?focus=search" aria-label="기출 검색">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
         </a>
         <button type="button" class="icon-btn theme-toggle" aria-label="다크 모드로 전환">
@@ -261,7 +284,7 @@ def _hub_page(fname: str, h1: str, title: str, desc: str, intro: str,
     <h1>{bd.html_escape(h1, quote=False)}</h1>
     <p>{bd.html_escape(intro, quote=False)}</p>
     <p class="legal__sub">{bd.html_escape(stat, quote=False)}</p>
-    <p><a href="./">홈</a> · <a href="sets.html">전체 회차</a> · <a href="archive.html">기출 검색</a></p>
+    <p class="hub-crumb"><a href="./">기출검색</a> · <a href="sets.html">전체 회차</a></p>
     {''.join(sections)}
   </main>
   <footer class="site-footer">
@@ -278,6 +301,22 @@ def _hub_page(fname: str, h1: str, title: str, desc: str, intro: str,
 </html>
 '''
     (ROOT / fname).write_text(page, encoding='utf-8')
+
+
+def _dl_buttons(it: dict) -> str:
+    """허브 목록 행의 자료 버튼 — 실제 있는 것만."""
+    out = []
+    for field, label in (('questionUrl', '문제지'), ('answerUrl', bd.answer_label_for(it)), ('solutionUrl', '해설')):
+        u = it.get(field)
+        if not u or (field == 'solutionUrl' and u == it.get('questionUrl')):
+            continue
+        out.append(f'<a class="hub-dl" href="{bd.html_escape(u, quote=True)}" rel="nofollow">{bd.html_escape(label, quote=False)}</a>')
+    return f'<span class="hub-row__dl">{"".join(out)}</span>' if out else ''
+
+
+def _exam_row(it: dict, label: str) -> str:
+    return (f'<li class="hub-row"><a class="hub-row__title" href="exam-{it["id"]}.html">{bd.html_escape(label, quote=False)}</a>'
+            f'{_dl_buttons(it)}</li>')
 
 
 def _write_essay_hub(h: dict) -> None:
@@ -298,13 +337,13 @@ def _write_essay_hub(h: dict) -> None:
         for it in sorted(years[gy], key=lambda x: (0 if x.get('type') == 'essay_annual' else 1,
                                                    str(x.get('subSubject') or ''))):
             lab = _essay_label(it)
-            lis.append(f'<li><a href="exam-{it["id"]}.html">{bd.html_escape(lab, quote=False)}</a></li>')
+            lis.append(_exam_row(it, lab))
             item_list.append({'@type': 'ListItem', 'position': pos,
                               'url': f'{base}/exam-{it["id"]}.html', 'name': lab})
             pos += 1
         label = f'{gy}학년도' if gy else '기타'
         sections.append(f'<section class="legal__section"><h2>{label}</h2>'
-                        f'<ul class="setsdir__list">{"".join(lis)}</ul></section>')
+                        f'<ul class="hub-list">{"".join(lis)}</ul></section>')
 
     yr_sp = (yr + ' ') if yr else ''
     intro = (f'{school} 수시 논술전형 기출 {count}건을 한곳에 모았습니다. '
@@ -371,13 +410,13 @@ def _write_subject_hub(h: dict) -> None:
         lis = []
         for it in sorted(years[gy], key=lambda x: (str(x.get('type') or ''), bd._subject_sort_key(x))):
             lab = bd.build_exam_meta(it)['head']
-            lis.append(f'<li><a href="exam-{it["id"]}.html">{bd.html_escape(lab, quote=False)}</a></li>')
+            lis.append(_exam_row(it, lab))
             item_list.append({'@type': 'ListItem', 'position': pos,
                               'url': f'{base}/exam-{it["id"]}.html', 'name': lab})
             pos += 1
         label = f'{gy}학년도' if gy else '기타'
         sections.append(f'<section class="legal__section"><h2>{label}</h2>'
-                        f'<ul class="setsdir__list">{"".join(lis)}</ul></section>')
+                        f'<ul class="hub-list">{"".join(lis)}</ul></section>')
 
     yr_sp = (yr + ' ') if yr else ''
     intro = (f'{topic} 기출 {count}건을 한곳에 모았습니다. '
@@ -453,12 +492,12 @@ def render_category_landings(items: list[dict]) -> None:
             for y in sorted(years, key=lambda v: -(v or 0)):
                 for it in sorted(years[y], key=lambda x: (str(x.get('type') or ''), str(x.get('subject') or ''))):
                     lab = bd.build_exam_meta(it)['head']
-                    lis.append(f'<li><a href="exam-{it["id"]}.html">{bd.html_escape(lab, quote=False)}</a></li>')
+                    lis.append(_exam_row(it, lab))
                     item_list.append({'@type': 'ListItem', 'position': pos,
                                       'url': f'{base}/exam-{it["id"]}.html', 'name': lab})
                     pos += 1
             sections.append(f'<section class="legal__section"><h2>{lvl} 검정고시 ({len(lvl_items)}건)</h2>'
-                            f'<ul class="setsdir__list">{"".join(lis)}</ul></section>')
+                            f'<ul class="hub-list">{"".join(lis)}</ul></section>')
         yrs = [e.get('examYear') for e in geds if e.get('examYear')]
         span = f'{min(yrs)}~{max(yrs)}' if yrs else ''
         intro = (f'고졸·중졸·초졸 검정고시 기출 {len(geds)}건을 한곳에 모았습니다. '
@@ -599,11 +638,11 @@ def render_sets_directory(items: list[dict], essay_hubs=None, subject_hubs=None)
         <a href="calendar.html">학사 일정</a>
       </nav>
       <div class="header-tools">
-        <a class="header-search" href="archive.html" aria-label="기출 검색">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
-          <span>기출 검색</span>
-        </a>
-        <a class="icon-btn header-search--icon" href="archive.html" aria-label="기출 검색">
+        <form class="header-search" action="./" method="get" role="search">
+          <button type="submit" class="header-search__btn" aria-label="기출 검색"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></button>
+          <input type="search" name="q" placeholder="기출 검색" aria-label="기출 검색어" autocomplete="off" enterkeyhint="search" />
+        </form>
+        <a class="icon-btn header-search--icon" href="./?focus=search" aria-label="기출 검색">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
         </a>
         <button type="button" class="icon-btn theme-toggle" aria-label="다크 모드로 전환">
@@ -626,7 +665,7 @@ def render_sets_directory(items: list[dict], essay_hubs=None, subject_hubs=None)
   <main id="main" class="legal legal--wide">
     <h1>전체 회차 목록</h1>
     <p>수능·평가원·교육청·사관학교·경찰대·LEET·MEET 기출 회차를 학년도별로 모았습니다. 각 회차에서 영역별 문제지, 정답, 해설지, 등급컷 자료로 이동할 수 있습니다.</p>
-    <p><a href="./">홈</a> · <a href="archive.html">기출 검색</a></p>
+    <p class="hub-crumb"><a href="./">기출검색</a> · <a href="calendar.html">학사 일정</a></p>
     {''.join(sections)}
   </main>
   <footer class="site-footer">
