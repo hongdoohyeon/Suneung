@@ -30,3 +30,12 @@
 ## 캐시 토큰 함정
 - `archive.html`·`app.js`·`state.js`가 `config.js`·`state.js`·`data/exams.json`을 `?v=YYYYMMDDx` 토큰으로 로드(JS import도 토큰 달고 감). **데이터/탭 추가 후 토큰을 안 올리면 아카이브에 안 보인다**(CDN이 옛 버전 캐시). 세 파일의 토큰을 새 날짜로 범프.
 - 아카이브 탭은 `config.js` TAB_CONFIG가 아니라 **archive.html 정적 버튼**으로 하드코딩 → 새 탭은 양쪽 다 추가.
+
+## 프론트엔드 구조 (2026-09 개편)
+- **스타일은 `style.css` 하나**(라이트/다크 토큰 · 기관 배지 `tg-{typeGroup}` · 난이도 `tier--1~5`). 학사 일정만 `style-calendar.css` 추가. 색은 반드시 토큰(`var(--…)`)으로 — 다크 모드가 깨진다.
+- **`lib/site-prefs.js`** 는 모든 페이지 `<head>` 에서 동기 로드(CSP상 인라인 불가): 테마(`kicegg:theme`), 스포일러 방지(`kicegg:spoiler`, 기본 켜짐 → `html[data-spoiler="on"]` 이면 `.spoil-val` 흑백 블러), 모바일 메뉴, `.hscroll` 가장자리 흐림.
+- **헤더·푸터 마크업**은 원본 페이지(index/archive/exam/exam-set/calendar/about/privacy/terms/404)와 `render-site.py`(허브·sets) 두 곳에 있다. 메뉴를 바꾸면 양쪽 다.
+- **난이도 5단계** = `build-data.py compute_exam_scores()`: 같은 기관·교육과정·과목·학년 묶음의 역대 1등급 원점수 컷 안 백분위(표본 5회 미만·절대평가는 없음). 상세 SSG 와 `data/archive/cuts.json`(기출검색 표) 이 같은 값을 쓴다.
+- **홈 '최근 시험'·'시험 종류'** 는 `render-site.py render_home()` 이 `index.html` 의 `<!-- latest-sets:start -->` 등 마커 사이를 채운다.
+- **상세 본문(시험 총평)**: `data/exam-notes/{id}.html` 을 두면 SSG 가 '이 시험에 대해' 섹션에 넣는다(없으면 섹션 숨김).
+- 등급계산기·정시반영은 2026-09 종료 — `gradecut.html`·`admissions.html` 은 기출검색 리다이렉트 스텁(`data/admissions/` 데이터는 보존).

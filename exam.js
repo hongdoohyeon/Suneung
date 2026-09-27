@@ -1,14 +1,14 @@
 'use strict';
-import { CURRICULUM_CONFIG, getTypeConf, prettySub } from './config.js?v=a758c824dc29a7890187';
-import { escHtml as _escHtml, escAttr, safeUrl as _safeUrl, $ as _$ } from './lib/dom.js?v=a758c824dc29a7890187';
-import { setMeta, setMetaProp, setCanonical, injectJsonLd as _injectJsonLd, applySeo } from './lib/seo.js?v=a758c824dc29a7890187';
-import { renderAllAdSlots } from './lib/ads.js?v=a758c824dc29a7890187';
-import { renderPdf, renderPreviewCover, renderUnsupported, renderEmpty, urlExtension } from './lib/exam-pdf.js?v=a758c824dc29a7890187';
-import { LOADING_PREVIEWS } from './lib/loading-previews.js?v=a758c824dc29a7890187';
-import { renderGradeDist } from './lib/exam-gradedist.js?v=a758c824dc29a7890187';
-import { pushRecent } from './lib/recent.js?v=a758c824dc29a7890187';
-import { shareLink } from './lib/share.js?v=a758c824dc29a7890187';
-import { enableForcedDownloads } from './lib/download.js?v=a758c824dc29a7890187';
+import { CURRICULUM_CONFIG, getTypeConf, prettySub } from './config.js?v=5a5c338afcd808bec52e';
+import { escHtml as _escHtml, escAttr, safeUrl as _safeUrl, $ as _$ } from './lib/dom.js?v=5a5c338afcd808bec52e';
+import { setMeta, setMetaProp, setCanonical, injectJsonLd as _injectJsonLd, applySeo } from './lib/seo.js?v=5a5c338afcd808bec52e';
+import { renderAllAdSlots } from './lib/ads.js?v=5a5c338afcd808bec52e';
+import { renderPdf, renderPreviewCover, renderUnsupported, renderEmpty, urlExtension } from './lib/exam-pdf.js?v=5a5c338afcd808bec52e';
+import { LOADING_PREVIEWS } from './lib/loading-previews.js?v=5a5c338afcd808bec52e';
+import { renderGradeDist } from './lib/exam-gradedist.js?v=5a5c338afcd808bec52e';
+import { pushRecent } from './lib/recent.js?v=5a5c338afcd808bec52e';
+import { shareLink } from './lib/share.js?v=5a5c338afcd808bec52e';
+import { enableForcedDownloads } from './lib/download.js?v=5a5c338afcd808bec52e';
 
 enableForcedDownloads();
 
@@ -116,21 +116,20 @@ function renderHead(exam) {
     setLink.hidden = false;
   }
 
+  // SSG 가 칩·제목·부제를 채웠으면 그대로 둔다 (동적 exam.html?id= 폴백에서만 채움)
   const tc = getTypeConf(exam.type);
   const dy = displayYear(exam);
-  const yearChip = `<span class="chiplet chiplet--ink">${escHtml(dy.label)}${dy.suffix ? ' ' + dy.suffix : ''}</span>`;
-  // examYear 모드(학평): yearChip에 "N월"이 들어가므로 typeChip은 month prefix 제거.
-  const typeLbl = tc?.displayMode === 'examYear'
-    ? (tc?.label ?? '').replace(/^\d+월\s*/, '')
-    : (tc?.label ?? '');
-  const typeChip = tc
-    ? `<span class="chiplet chiplet--type" style="--chip-bg:${tc.badgeBg};--chip-color:${tc.badgeColor};">${escHtml(typeLbl)}</span>`
-    : '';
-  const subjChip = `<span class="chiplet chiplet--soft">${escHtml(exam.subject)}${exam.subSubject ? ` · ${escHtml(prettySub(exam.subSubject))}` : ''}</span>`;
-  $('examChips').innerHTML = yearChip + typeChip + subjChip;
-
-  $('examTitle').textContent = buildTitle(exam);
-  $('examSub').textContent   = buildSubtitle(exam);
+  if (!$('examChips').children.length) {
+    const typeLbl = tc?.displayMode === 'examYear'
+      ? (tc?.label ?? '').replace(/^\d+월\s*/, '')
+      : (tc?.label ?? '');
+    $('examChips').innerHTML =
+      (tc ? `<span class="type-badge type-badge--lg tg-${escAttr(exam.typeGroup)}">${escHtml(typeLbl)}</span>` : '') +
+      `<span class="chiplet chiplet--ink">${escHtml(dy.label)}${dy.suffix ? ' ' + dy.suffix : ''}</span>`;
+  }
+  if ($('examTitle').textContent.trim() === '자료 불러오는 중…') $('examTitle').textContent = buildTitle(exam);
+  if (!$('examSub').textContent.trim()) $('examSub').textContent = buildSubtitle(exam);
+  if (!$('examFacts')?.children.length) $('examInfo')?.setAttribute('hidden', '');
 
   // 다운로드 액션
   const dl = name => name ? `download="${escHtml(name)}"` : 'download';
@@ -175,15 +174,9 @@ function renderHead(exam) {
   );
   // 공유 버튼 — 모바일 카톡·문자, 데스크톱 클립보드
   buttons.push(
-    `<button type="button" class="btn btn--ghost" id="examShareBtn" aria-label="공유하기">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-           stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"
-           style="margin-right:5px;vertical-align:-2px">
-        <circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/>
-        <line x1="8.6" y1="13.5" x2="15.4" y2="17.5"/><line x1="15.4" y1="6.5" x2="8.6" y2="10.5"/>
-      </svg>공유
-    </button>`
+    `<button type="button" class="btn" id="examShareBtn" aria-label="공유하기"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 8l5-5 5 5M5 14v5a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-5"/></svg><span class="btn__label">공유</span></button>`
   );
+
   // SSG 가 이미 다운로드 버튼을 채웠으면 (정적 진입 = 1단계 작동) — 공유 버튼만 추가, 깜빡임 방지
   const _actionsEl = $('examActions');
   const _alreadySSG = _actionsEl && _actionsEl.querySelector('a.btn');
@@ -212,7 +205,7 @@ function renderHead(exam) {
   // 영어 듣기 mp3: 사이드바 actions 아래에 inline audio player 삽입.
   // 영어 시험인데 듣기가 없는 평가원/학평 회차는 "자료 없음" 표시.
   // 사관·경찰은 원본 시험에 듣기 자체가 없으므로 안내 생략.
-  const actionsEl = $('examActions');
+  const actionsEl = $('examListenMount') || $('examActions');
   const hasListening = exam.subject === '영어' &&
                        exam.typeGroup !== 'military' && exam.typeGroup !== 'police';
   if (actionsEl && hasListening) {
@@ -258,77 +251,6 @@ function renderHead(exam) {
   $('backLink').href = backHref;
 }
 
-// ── 탭 (문제 / 정보) — URL ?tab=info 동기화 ────────────────
-function setupTabs(onActivate, hideInfo) {
-  const tabs  = document.querySelectorAll('.exam-tab');
-  const panes = document.querySelectorAll('.exam-pane');
-  if (tabs.length === 0) return;
-  // 등급컷이 없는 시험(검정고시 등): 정보(등급컷) 탭 UI 숨기고 문제만 노출.
-  if (hideInfo) {
-    const nav = document.querySelector('.exam__tabs');
-    if (nav) nav.style.display = 'none';
-  }
-
-  function activate(key) {
-    tabs.forEach(t => {
-      const on = t.dataset.tab === key;
-      t.classList.toggle('is-active', on);
-      t.setAttribute('aria-selected', on ? 'true' : 'false');
-      t.tabIndex = on ? 0 : -1;
-    });
-    panes.forEach(p => {
-      const on = p.dataset.pane === key;
-      p.hidden = !on;
-      p.style.display = on ? '' : 'none';   // CSS specificity 충돌 회피용 강제
-    });
-    const url = new URL(location.href);
-    if (key === 'paper') url.searchParams.delete('tab');
-    else url.searchParams.set('tab', key);
-    history.replaceState({}, '', url);
-    if (typeof onActivate === 'function') onActivate(key);
-  }
-
-  tabs.forEach(t => t.addEventListener('click', () => activate(t.dataset.tab)));
-
-  // WAI-ARIA tab pattern: 방향키·Home·End 로 탭 전환
-  const tabArr = Array.from(tabs);
-  tabArr.forEach((t, i) => {
-    t.addEventListener('keydown', e => {
-      if (e.key === 'ArrowRight') {
-        e.preventDefault();
-        tabArr[(i + 1) % tabArr.length].focus();
-      } else if (e.key === 'ArrowLeft') {
-        e.preventDefault();
-        tabArr[(i - 1 + tabArr.length) % tabArr.length].focus();
-      } else if (e.key === 'Home') {
-        e.preventDefault();
-        tabArr[0].focus();
-      } else if (e.key === 'End') {
-        e.preventDefault();
-        tabArr[tabArr.length - 1].focus();
-      }
-    });
-  });
-
-  // 초기 탭:
-  //   - URL ?tab=info → 정보
-  //   - URL ?tab=paper → 문제
-  //   - 명시 없으면 화면 크기와 무관하게 'paper' (시험지 미리보기 우선)
-  const params = new URLSearchParams(location.search);
-  const explicit = params.get('tab');
-  let initial;
-  if (hideInfo) {
-    initial = 'paper';
-  } else if (explicit === 'info' || explicit === 'paper') {
-    initial = explicit;
-  } else {
-    initial = 'paper';
-  }
-  activate(initial);
-  document.body.classList.add('is-hydrated');
-}
-
-
 // ── 등급컷 표 ──
 // URL → 시험 ID 추출.
 // 정적 SSG 페이지(/exam-123.html)는 pathname에서, 레거시 동적(?id=N)은 query에서.
@@ -363,7 +285,7 @@ async function main() {
   // 단건 split 미배포 환경 폴백: 통합 exams.json
   if (!exam) {
     try {
-      const res = await fetch('data/exams.json?v=a758c824dc29a7890187');
+      const res = await fetch('data/exams.json?v=5a5c338afcd808bec52e');
       if (res.ok) {
         const exams = await res.json();
         exam = exams.find(e => e.id === id) ?? null;
@@ -382,7 +304,7 @@ async function main() {
   }
 
   renderHead(exam);
-  renderGradeDist(exam, gradecuts);
+  if (renderGradeDist(exam, gradecuts)) $('gradeDist')?.removeAttribute('hidden');
   pushRecent(exam);  // localStorage 최근 본 시험 기록 (메인 페이지 chip 용)
 
   // PDF는 사용자가 미리보기를 요청할 때만 내려받는다.
@@ -415,12 +337,22 @@ async function main() {
       renderUnsupported(qViewer, ext ?? '파일', exam.questionUrl, exam.questionDownload);
     }
   }
-  setupTabs(null, exam.typeGroup === 'ged' || gradecuts.length === 0);
+  document.body.classList.add('is-hydrated');
 }
+
+// 최근 회차 비교 — 지표(1등급컷·표점 최고·1등급 표점) 전환
+document.addEventListener('click', e => {
+  const btn = e.target.closest('#examCompare [data-metric]');
+  if (!btn || btn.tagName !== 'BUTTON') return;
+  const section = document.getElementById('examCompare');
+  section.dataset.metric = btn.dataset.metric;
+  section.querySelectorAll('button[data-metric]').forEach(b => b.setAttribute('aria-pressed', String(b === btn)));
+});
 
 function showError() {
   $('examSide').hidden = true;
   $('examMain').hidden = true;
+  $('examSubjects')?.setAttribute('hidden', '');
   $('examError').hidden = false;
   document.title = '자료를 찾을 수 없습니다 — 기출해체분석기';
 }

@@ -939,9 +939,8 @@ def build_exam_meta(it: dict) -> dict:
 
     canonical = f'https://kicegg.com/exam-{it["id"]}.html'
 
-    # SEO 본문 — H1 아래 첫 문단으로 들어갈 자연어 텍스트 (검색엔진이 본문에서 키워드 잡음)
+    # 소개 문장 — 시험 정보 카드에 들어가는 사실 기반 설명 (키워드 나열 금지: 저품질 신호)
     aliases = _exam_aliases(it)
-    alias_phrase = ', '.join(aliases[:6]) if aliases else ''
     if is_reference:
         intro = (
             f'{full_phrase}. 한국교육과정평가원이 공개한 공식 통계 자료로, '
@@ -956,23 +955,14 @@ def build_exam_meta(it: dict) -> dict:
         if it.get('solutionUrl'):  assets.append('해설지')
         if it.get('listenUrl'):    assets.append('영어 듣기 MP3')
         if it.get('scriptUrl'):    assets.append('듣기 대본 PDF')
-        _last = assets[-1] if assets else ''
-        _particle = '을' if _has_batchim(_last) else '를'
-        assets_phrase = ('·'.join(assets) + _particle + ' ') if assets else ''
-        alias_particle = '으로도' if _has_batchim(alias_phrase) else '로도'
-        if is_english and has_listen:
-            intro = (
-                f'{full_phrase} 기출 자료입니다. '
-                + (f'{assets_phrase}한 페이지에서 확인하세요. ' if assets_phrase else '')
-                + (f'{alias_phrase}{alias_particle} 검색되는 시험입니다. ' if alias_phrase else '')
-                + '듣기평가 음원과 영어 영역 기출답을 한 페이지에서 확인하세요.'
-            )
+        names = [a.replace(' PDF', '') for a in assets]
+        if names:
+            obj = '·'.join(names) + ('을' if _has_batchim(names[-1]) else '를')
+            intro = f'{full_phrase} 기출 {obj} 제공합니다.'
         else:
-            intro = (
-                f'{full_phrase} 기출 자료입니다. '
-                + (f'{assets_phrase}한 페이지에서 확인하세요. ' if assets_phrase else '')
-                + (f'{alias_phrase}{alias_particle} 검색되는 시험입니다.' if alias_phrase else '')
-            )
+            intro = f'{full_phrase} 기출 자료입니다.'
+        if tg not in ('ged', 'essay', 'reference'):
+            intro += ' 공개된 등급컷이 있으면 등급별 원점수·표준점수와 역대 대비 난이도를 함께 보여 줍니다.'
 
     # JSON-LD keywords 배열 — 핵심어만(스터핑 방지): 제목·과목·대표 별칭 3개 + 자료유형 키워드
     kw = list(dict.fromkeys(
@@ -986,6 +976,425 @@ def build_exam_meta(it: dict) -> dict:
         'is_english': is_english, 'has_listen': has_listen,
         'datePublished': _exam_date(it),
     }
+
+
+# ── 등급컷 매칭 · 난이도 5단계 ─────────────────────────────────
+# 상세 페이지(SSG)와 기출검색(data/archive/cuts.json)이 같은 값을 쓰도록 한 곳에서 계산한다.
+TIER_LABELS = {1: '매우 쉬움', 2: '쉬움', 3: '보통', 4: '어려움', 5: '매우 어려움'}
+_TIER_MIN_SAMPLES = 5
+
+
+def _load_gradecuts() -> list[dict]:
+    try:
+        return json.loads((ROOT / 'data' / 'gradecuts.json').read_text(encoding='utf-8'))
+    except Exception:
+        return []
+
+
+def clean_cut_series(vals, lo: float, hi: float):
+    """표준점수·백분위·누적 배열 검증 — 범위를 벗어난 값(0 채움, 인원수 오입력 등)이 하나라도 있으면
+    그 열 전체를 버린다. 원천 데이터 일부에 깨진 레코드가 있어 화면에 그대로 내보내지 않기 위함."""
+    if not isinstance(vals, list):
+        return []
+    nums = [v for v in vals if v is not None]
+    if not nums or any(not isinstance(v, (int, float)) or v < lo or v > hi for v in nums):
+        return []
+    return vals
+
+
+def build_cut_matcher(cuts: list[dict]):
+    """exam → 등급컷 레코드. lib/exam-gradedist.js 와 동일 조인키.
+    학평은 학년별 컷 우선, 없으면 학년무관(sg=null) 컷만 폴백. 검정고시는 없음."""
+    idx: dict = {}
+    idx6: dict = {}
+    idx_none: dict = {}
+    for c in cuts:
+        k = (c.get('curriculum'), str(c.get('gradeYear')), c.get('type'), c.get('subject'), c.get('subSubject'))
+        idx.setdefault(k, c)
+        idx6.setdefault(k + (c.get('studentGrade'),), c)
+        if c.get('studentGrade') is None:
+            idx_none.setdefault(k, c)
+
+    def match(it: dict):
+        k = (it.get('curriculum'), str(it.get('gradeYear')), it.get('type'), it.get('subject'), it.get('subSubject'))
+        tg = it.get('typeGroup')
+        if tg == 'ged':
+            return None
+        if tg == 'education':
+            return idx6.get(k + (it.get('studentGrade'),)) or idx_none.get(k)
+        return idx.get(k)
+    return match
+
+
+def is_absolute_cut(it: dict, cut: dict | None) -> bool:
+    if cut and cut.get('absolute'):
+        return True
+    subj, gy = it.get('subject'), it.get('gradeYear') or 0
+    if it.get('typeGroup') in ('suneung', 'education') and isinstance(gy, int):
+        return (subj == '영어' and gy >= 2018) or (subj == '한국사' and gy >= 2017)
+    return False
+
+
+def tier_series_key(it: dict):
+    """난이도 비교 묶음 — 같은 기관·교육과정·과목(선택과목)·학년끼리만 비교."""
+    tg = it.get('typeGroup')
+    if tg == 'suneung' and it.get('type') not in ('csat', 'june', 'sept'):
+        return None
+    if tg in ('ged', 'reference', 'essay'):
+        return None
+    sg = it.get('studentGrade') if tg == 'education' else None
+    return (tg, it.get('curriculum'), it.get('subject'), it.get('subSubject'), sg)
+
+
+def compute_exam_scores(items: list[dict], cuts: list[dict] | None = None) -> dict:
+    """{exam_id: {raw, std, top, cum, abs, basis, tier, cut}} — 1등급 원점수 컷 기준 난이도.
+
+    난이도는 같은 묶음(tier_series_key)의 역대 1등급 원점수 컷 안에서의 백분위(중간순위)로
+    5단계를 매긴다: 상위 20%(컷 높음) = 매우 쉬움 … 하위 20% = 매우 어려움.
+    표본이 5회 미만이거나 절대평가·값이 모두 같으면 매기지 않는다."""
+    match = build_cut_matcher(cuts if cuts is not None else _load_gradecuts())
+    out: dict = {}
+    series: dict = {}
+    for it in items:
+        cut = match(it)
+        if not cut:
+            continue
+        raw = cut.get('rawCuts') if isinstance(cut.get('rawCuts'), list) else []
+        std = clean_cut_series(cut.get('standardCuts'), 1, 200)
+        cum = clean_cut_series(cut.get('cumulativePercent'), 0, 100)
+        top = cut.get('highestStandardScore')
+        if not isinstance(top, (int, float)) or (std and std[0] is not None and top < std[0]):
+            top = None
+        r1 = raw[0] if raw and raw[0] is not None else None
+        absolute = is_absolute_cut(it, cut)
+        out[it['id']] = {
+            'raw': r1,
+            'std': std[0] if std and std[0] is not None else None,
+            'top': top,
+            'cum': cum[0] if cum and cum[0] is not None else None,
+            'abs': absolute,
+            'basis': cut.get('rawCutBasis'),
+            'tier': None,
+            'cut': cut,
+        }
+        key = tier_series_key(it)
+        if key and r1 is not None and not absolute:
+            series.setdefault(key, {})[(it.get('gradeYear'), it.get('type'), it.get('month'))] = r1
+    for it in items:
+        rec = out.get(it['id'])
+        key = tier_series_key(it)
+        if not rec or rec['raw'] is None or rec['abs'] or not key or key not in series:
+            continue
+        values = list(series[key].values())
+        if len(values) < _TIER_MIN_SAMPLES or len(set(values)) < 3:
+            continue
+        v = rec['raw']
+        below = sum(1 for x in values if x < v)
+        equal = sum(1 for x in values if x == v)
+        p = (below + 0.5 * equal) / len(values)
+        rec['tier'] = 1 if p >= 0.8 else 2 if p >= 0.6 else 3 if p >= 0.4 else 4 if p >= 0.2 else 5
+    return out
+
+
+# ── 상세 페이지 표시 조각 (SSG) ───────────────────────────────
+_ORG_LABEL = {
+    'suneung': '한국교육과정평가원', 'education': '시·도교육청', 'military': '육·해·공군사관학교',
+    'police': '경찰대학', 'leet': '법학전문대학원협의회', 'meet': '의·치학교육입문검사 관리위원회',
+    'essay': '각 대학교', 'ged': '한국교육과정평가원·시도교육청', 'reference': '한국교육과정평가원',
+}
+_CURR_LABEL = {'2015': '2015 개정', '2009': '2009 개정', '2007개정': '2007 개정', '7차': '7차 교육과정',
+               '6차': '6차 교육과정', '예비': '예비시행'}
+_SUBJECT_ORDER = ['국어', '수학', '영어', '한국사', '사회탐구', '과학탐구', '직업탐구', '제2외국어',
+                  '통합사회', '통합과학', '통합탐구']
+_SUNEUNG_MONTH = {'csat': 11, 'june': 6, 'sept': 9}
+# 화면 표시용 선택과목 이름 (config.js prettySub 와 동일) · 교육과정 순서
+_SUB_PRETTY = {'화법과작문': '화법과 작문', '언어와매체': '언어와 매체', '확률과통계': '확률과 통계',
+               '생활과윤리': '생활과 윤리', '윤리와사상': '윤리와 사상', '정치와법': '정치와 법', '법과정치': '법과 정치'}
+# 평가원 공식 선택과목 순서 (수능 시행기본계획·채점결과 표 기준). 교육과정별 과목명이 섞여 있어
+# 공백을 뺀 이름으로 비교하고, 과학탐구는 Ⅰ 과목 전부 → Ⅱ 과목 순.
+_SUB_ORDER = [
+    '화법과작문', '언어와매체', '확률과통계', '미적분', '기하', '가형', '나형', 'A형', 'B형',
+    '생활과윤리', '윤리와사상', '윤리', '국사', '한국사', '한국지리', '세계지리', '경제지리', '동아시아사',
+    '한국근현대사', '세계사', '법과사회', '법과정치', '정치', '경제', '정치와법', '사회·문화',
+    '성공적인직업생활', '농업이해', '농업기초기술', '농생명산업', '공업일반', '기초제도', '공업', '상업경제',
+    '회계원리', '상업정보', '수산·해운산업기초', '수산·해운', '해양의이해', '인간발달', '생활서비스산업의이해', '가사·실업',
+    '독일어', '프랑스어', '스페인어', '중국어', '일본어', '러시아어', '아랍어', '베트남어', '한문',
+]
+_SCIENCE_STEMS = ['물리학', '물리', '화학', '생명과학', '생물', '지구과학']
+
+
+def sub_order_key(sub) -> tuple:
+    s = str(sub or '').replace(' ', '')
+    for i, stem in enumerate(_SCIENCE_STEMS):
+        if s.startswith(stem):
+            level = 2 if s.endswith(('Ⅱ', 'II')) else 1
+            return (500 + level * 10 + i, s)
+    base = s.rstrip('ⅠI')
+    return (_SUB_ORDER.index(base) if base in _SUB_ORDER else 900, s)
+
+
+def pretty_sub(sub) -> str:
+    return _SUB_PRETTY.get(str(sub), str(sub)) if sub else ''
+
+
+def exam_badge_label(it: dict) -> str:
+    tg, t = it.get('typeGroup'), it.get('type')
+    if tg == 'suneung':
+        return KOREAN_TYPE_LABEL.get(t, t or '')
+    if tg == 'education':
+        return f'{it.get("month")}월 학평'
+    return {'military': '사관학교', 'police': '경찰대', 'leet': 'LEET', 'meet': 'MEET',
+            'essay': '모의논술' if t == 'essay_mock' else '논술', 'ged': '검정고시',
+            'reference': '통계'}.get(tg, t or '')
+
+
+def exam_year_label(it: dict) -> str:
+    tg = it.get('typeGroup')
+    if tg == 'education':
+        return f'{it.get("examYear")}년 고{it.get("studentGrade") or 3}'
+    if tg == 'ged':
+        return f'{it.get("examYear") or it.get("gradeYear")}년 제{2 if it.get("type") == "ged_2" else 1}회'
+    if tg == 'reference':
+        return str(it.get('examYear') or '')
+    return f'{it.get("gradeYear")}학년도'
+
+
+def _held_label(it: dict) -> str:
+    """시행 시기 — 날짜 데이터가 없어 '연·월' 까지만 표기."""
+    tg = it.get('typeGroup')
+    gy = it.get('gradeYear')
+    if tg == 'suneung' and it.get('type') in _SUNEUNG_MONTH and isinstance(gy, int):
+        return f'{gy - 1}년 {_SUNEUNG_MONTH[it["type"]]}월'
+    if tg == 'education' and it.get('examYear') and it.get('month'):
+        return f'{it["examYear"]}년 {it["month"]}월'
+    if tg == 'ged' and it.get('examYear'):
+        return f'{it["examYear"]}년 {8 if it.get("type") == "ged_2" else 4}월'
+    return ''
+
+
+def exam_set_title(it: dict) -> str:
+    tg, gy, t = it.get('typeGroup'), it.get('gradeYear'), it.get('type')
+    if tg == 'suneung':
+        return f'{gy}학년도 {FULL_TYPE_LABEL.get(t, KOREAN_TYPE_LABEL.get(t, t or ""))}'
+    if tg == 'education':
+        return f'{it.get("examYear")}년 {it.get("month")}월 고{it.get("studentGrade") or 3} 학력평가'
+    if tg == 'military':
+        return f'{gy}학년도 사관학교 1차'
+    if tg == 'police':
+        return f'{gy}학년도 경찰대학 1차'
+    if tg in ('leet', 'meet'):
+        return f'{gy}학년도 {tg.upper()}' + (' 예비시험' if t == 'prelim' else '')
+    if tg == 'essay':
+        return f'{gy}학년도 {"모의논술" if t == "essay_mock" else "논술"} 전체'
+    if tg == 'ged':
+        return f'{it.get("examYear") or gy}년 제{2 if t == "ged_2" else 1}회 {it.get("curriculum")} 검정고시'
+    return '이 회차 전체'
+
+
+def exam_sub_label(it: dict) -> str:
+    tg = it.get('typeGroup')
+    if tg == 'education':   # 제목에 이미 연·월·학년이 있어 주관 정보만
+        return '전국연합학력평가 · 시·도교육청 주관'
+    if tg == 'ged':
+        return f'{it.get("curriculum")} 학력 검정고시 · 시·도교육청 시행'
+    parts = [exam_set_title(it) if tg != 'essay' else f'{it.get("subject")} 수시 논술고사']
+    held = _held_label(it)
+    if held and it.get('typeGroup') not in ('education', 'ged'):   # 학평·검정고시는 제목에 이미 연·월
+        parts.append(f'{held} 시행')
+    return ' · '.join(parts)
+
+
+def exam_fact_rows(it: dict) -> list[tuple[str, str]]:
+    esc = lambda v: html_escape(str(v), quote=False)
+    subj = it.get('subject') or ''
+    if it.get('subSubject'):
+        subj += f' · {pretty_sub(it["subSubject"])}'
+    rows = [('시험', esc(exam_set_title(it) if it.get('typeGroup') != 'essay' else f'{it.get("gradeYear")}학년도 {it.get("subject")} 논술'))]
+    held = _held_label(it)
+    if held:
+        rows.append(('시행', esc(held)))
+    rows.append(('영역' if it.get('typeGroup') != 'essay' else '계열', esc(subj if it.get('typeGroup') != 'essay' else (it.get('subSubject') or '논술'))))
+    curr = _CURR_LABEL.get(str(it.get('curriculum')))
+    if curr:
+        rows.append(('교육과정', esc(curr)))
+    org = _ORG_LABEL.get(it.get('typeGroup'))
+    if org:
+        rows.append(('출제', esc(org)))
+    docs = [n for k, n in (('questionUrl', '문제지'), ('answerUrl', answer_label_for(it)), ('solutionUrl', '해설지'),
+                           ('listenUrl', '듣기 MP3'), ('scriptUrl', '듣기 대본')) if it.get(k)]
+    if docs:
+        rows.append(('자료', esc(' · '.join(dict.fromkeys(docs)))))
+    return rows
+
+
+def _exam_sort_key(it: dict):
+    tg = it.get('typeGroup')
+    gy = it.get('gradeYear') if isinstance(it.get('gradeYear'), int) else 0
+    if tg == 'suneung':
+        return ((gy - 1) * 100 + _SUNEUNG_MONTH.get(it.get('type'), 0), it['id'])
+    return ((it.get('examYear') or gy) * 100 + (it.get('month') or 0), it['id'])
+
+
+def _subject_sort_key(it: dict):
+    s = it.get('subject') or ''
+    return (_SUBJECT_ORDER.index(s) if s in _SUBJECT_ORDER else 99, s, sub_order_key(it.get('subSubject')), it['id'])
+
+
+def _subject_tab_label(it: dict) -> tuple[str, str]:
+    if it.get('typeGroup') == 'essay':
+        return (it.get('subSubject') or '논술', '')
+    return (it.get('subject') or '', pretty_sub(it.get('subSubject')))
+
+
+def _short_round(it: dict) -> str:
+    """추이 그래프·목록용 짧은 회차 표기 — 26수능 / 26 9모 / 25.10 학평."""
+    tg, gy = it.get('typeGroup'), it.get('gradeYear')
+    if tg == 'suneung':
+        lbl = KOREAN_TYPE_LABEL.get(it.get('type'), '')
+        return f'{str(gy)[-2:]}{lbl}' if lbl == '수능' else f'{str(gy)[-2:]} {lbl}'
+    if tg == 'education':
+        return f'{str(it.get("examYear"))[-2:]}.{int(it.get("month") or 0):02d}'
+    return f'{gy}'
+
+
+def score_stats_html(sc: dict) -> str:
+    esc = lambda v: html_escape(str(v), quote=False)
+    cells = []
+    basis = sc.get('basis')
+    kind = '역산값' if basis == 'academy_reverse_calculated' else '추정 경계' if basis == 'academy_integerized_threshold' else ''
+    if sc['abs']:
+        cells.append(('1등급 기준', f'{esc(sc["raw"])}<small>점 이상</small>'))
+        cells.append(('평가 방식', '절대평가'))
+    else:
+        cells.append(('1등급컷' + (f' ({kind})' if kind else ''), f'{esc(sc["raw"])}<small>원점수</small>'))
+        if sc.get('top') is not None:
+            cells.append(('표준점수 최고점', esc(sc['top'])))
+        elif sc.get('std') is not None:
+            cells.append(('1등급 표준점수', esc(sc['std'])))
+        if sc.get('cum') is not None:
+            cells.append(('1등급 누적 비율', f'{esc(sc["cum"])}<small>%</small>'))
+        if sc.get('tier'):
+            cells.append(('난이도 (역대 대비)', TIER_LABELS[sc['tier']]))
+    blur = '' if sc['abs'] else ' spoil-val'
+    return '<div class="stats">' + ''.join(
+        f'<div class="card-box stat"><span class="stat__label">{lbl}</span>'
+        f'<span class="stat__value{blur}">{val}</span></div>' for lbl, val in cells) + '</div>'
+
+
+def grade_table_html(cut: dict, absolute: bool) -> str:
+    """등급별 원점수·표준점수·백분위·누적 비율 표 (lib/exam-gradedist.js 와 동일 형식)."""
+    cols = [('원점수', cut.get('rawCuts') or [], '')]
+    for key, lbl, unit, lo, hi in (('standardCuts', '표준점수', '', 1, 200), ('standardPercentile', '백분위', '', 0, 100),
+                                   ('cumulativePercent', '누적', '%', 0, 100)):
+        vals = clean_cut_series(cut.get(key), lo, hi)
+        if isinstance(vals, list) and any(v is not None for v in vals) and not absolute:
+            cols.append((lbl, vals, unit))
+    n = max((len(v) for _, v, _ in cols), default=0)
+    rows = []
+    for i in range(min(n, 9)):
+        if all(i >= len(v) or v[i] is None for _, v, _ in cols):
+            continue
+        cells = []
+        for j, (_, v, u) in enumerate(cols):
+            if i >= len(v) or v[i] is None:
+                cells.append('<td>—</td>')
+            else:
+                cls = ' class="is-muted"' if j > 1 else ''
+                cells.append(f'<td{cls}>{v[i]}{u}</td>')
+        tds = ''.join(cells)
+        rows.append(f'<tr><td>{i + 1}</td>{tds}</tr>')
+    basis = cut.get('rawCutBasis')
+    note = ('입시기관 역산값' if basis == 'academy_reverse_calculated' else
+            '입시기관 추정 정수 경계' if basis == 'academy_integerized_threshold' else '')
+    legend = ' · '.join(x for x in ('등급별 컷', '절대평가' if absolute else '', note,
+                                    f'만점 {cut.get("fullScore")}점' if cut.get('fullScore') else '') if x)
+    head = ''.join(f'<th scope="col">{lbl}</th>' for lbl, _, _ in cols)
+    return ('<table class="grade-table"><thead><tr><th scope="col">등급</th>' + head + '</tr></thead>'
+            '<tbody' + ('' if absolute else ' class="spoil-val"') + '>' + ''.join(rows) + '</tbody></table>'
+            f'<p class="grade-table__legend">{legend}</p>')
+
+
+_COMPARE_METRICS = (('raw', '1등급컷', '원점수'), ('top', '표점 최고', '표준점수'), ('std', '1등급 표점', '표준점수'))
+
+
+def compare_html(it: dict, series: list[dict], scores: dict, with_toggle: bool = False) -> str:
+    """최근 회차와 비교 — 같은 과목 묶음의 직전 회차들 + 이 시험을 막대그래프·비교표로.
+    이 시험의 등급컷이 아직 없어도(발표 전) 지난 회차 비교는 보여 준다. 값은 스포일러 방지 대상."""
+    esc = lambda v: html_escape(str(v), quote=False)
+    cur_key = _exam_sort_key(it)
+    past = [x for x in series if x['id'] != it['id'] and _exam_sort_key(x) <= cur_key]
+    pts = past[-9:] + [it]
+    sc = lambda x, k: (scores.get(x['id']) or {}).get(k)
+    metrics = [m for m in _COMPARE_METRICS if sum(1 for x in pts if sc(x, m[0]) is not None) >= 2]
+    if not metrics:
+        return ''
+    charts = []
+    for key, label, unit in metrics:
+        vals = [sc(x, key) for x in pts if sc(x, key) is not None]
+        lo, hi = min(vals), max(vals)
+        pad = max(1, (hi - lo) * 0.25)
+        lo, hi = lo - pad, hi + pad
+        bars = []
+        for x in pts:
+            v = sc(x, key)
+            cur = ' is-current' if x['id'] == it['id'] else ''
+            tier = sc(x, 'tier') if key == 'raw' else None
+            tier_cls = f' bar--t{tier}' if tier else ''
+            h = 0 if v is None else round(12 + (v - lo) / (hi - lo) * 78)
+            val = esc(v) if v is not None else '발표 전'
+            bars.append(f'<a class="bar{cur}{tier_cls}" href="exam-{x["id"]}.html" style="--h:{h}%" '
+                        f'aria-label="{html_escape(_short_round(x), quote=True)} {label} {val}">'
+                        f'<span class="bar__v">{val}</span><span class="bar__fill"></span>'
+                        f'<span class="bar__l">{esc(_short_round(x))}</span></a>')
+        charts.append(f'<div class="bars spoil-val" data-metric="{key}" aria-label="{label} ({unit})">{"".join(bars)}</div>')
+    btns = ''.join(f'<button type="button" data-metric="{k}" aria-pressed="{str(i == 0).lower()}">{lbl}</button>'
+                   for i, (k, lbl, _) in enumerate(metrics))
+    rows = []
+    for x in reversed(pts):
+        cur = x['id'] == it['id']
+        t = sc(x, 'tier')
+        cells = ''.join(f'<td class="spoil-val">{esc(sc(x, k)) if sc(x, k) is not None else "—"}</td>' for k, _, _ in _COMPARE_METRICS)
+        tier_span = f'<span class="tier tier--{t}">{TIER_LABELS[t]}</span>' if t else '—'
+        tier_td = f'<td class="spoil-val">{tier_span}</td>'
+        name = f'<a href="exam-{x["id"]}.html"><span class="type-badge tg-{x.get("typeGroup")}">{esc(exam_badge_label(x))}</span>' \
+               f'<span>{esc(exam_year_label(x))}</span>{"<em>이 시험</em>" if cur else ""}</a>'
+        tr_cls = ' class="is-current"' if cur else ''
+        rows.append(f'<tr{tr_cls}><th scope="row">{name}</th>{cells}{tier_td}</tr>')
+    subj = pretty_sub(it.get('subSubject')) or it.get('subject') or ''
+    head = ''.join(f'<th scope="col">{lbl}</th>' for _, lbl, _ in _COMPARE_METRICS)
+    # 이 시험의 등급컷 섹션이 없으면(발표 전 등) 스포일러 스위치를 여기에 둔다 — 끌 곳이 없어지지 않게
+    toggle = note = ''
+    if with_toggle:
+        toggle = ('<button type="button" class="switch" role="switch" aria-checked="true" data-spoiler-toggle>'
+                  '스포일러 방지<span class="switch__knob" aria-hidden="true"></span></button>')
+        note = ('<p class="spoil-note"><span>지난 회차의 <b>등급컷 · 표준점수 · 난이도</b>를 흐리게 가려 뒀어요.</span>'
+                '<button type="button" class="btn btn--sm btn--primary" data-spoiler-off>결과 보기</button></p>')
+    return (
+        f'<section class="exam-section compare" id="examCompare" data-metric="{metrics[0][0]}" aria-labelledby="cmpTitle">'
+        f'<div class="exam-section__head"><h2 id="cmpTitle">최근 회차와 비교 · {esc(subj)}</h2>'
+        f'<div class="view-toggle compare__metric" role="group" aria-label="비교 지표">{btns}</div>{toggle}</div>{note}'
+        f'<div class="card-box compare__chart">{"".join(charts)}'
+        '<p class="compare__legend">막대 색은 역대 대비 난이도 · 진한 막대가 이 시험 · 막대를 누르면 그 회차로 이동</p></div>'
+        '<div class="card-box compare__table-wrap"><table class="compare__table">'
+        f'<thead><tr><th scope="col">회차</th>{head}<th scope="col">난이도</th></tr></thead>'
+        f'<tbody>{"".join(rows)}</tbody></table></div></section>')
+
+
+def related_cards_html(it: dict, rel: list[dict]) -> str:
+    """등급컷 비교가 없는 시험(논술·검정고시·절대평가 등) — 다른 회차 카드 목록."""
+    esc = lambda v: html_escape(str(v), quote=False)
+    subj = it.get('subject') or ''
+    name = f'{subj} · {pretty_sub(it["subSubject"])}' if it.get('subSubject') and it.get('typeGroup') != 'essay' else subj
+    cards = []
+    for r in rel:
+        r_name = (pretty_sub(r.get('subSubject')) if r.get('typeGroup') == 'essay' and r.get('subSubject')
+                  else (f'{r.get("subject")} · {pretty_sub(r["subSubject"])}' if r.get('subSubject') else r.get('subject') or ''))
+        cards.append(f'<a class="card-box rel-card" href="exam-{r["id"]}.html">'
+                     f'<span class="rel-card__top"><span class="type-badge tg-{r.get("typeGroup")}">{esc(exam_badge_label(r))}</span>'
+                     f'<span class="rel-card__year">{esc(exam_year_label(r))}</span></span>'
+                     f'<span class="rel-card__name">{esc(r_name)}</span></a>')
+    return (f'<section class="exam-section exam-related" aria-labelledby="relTitle"><div class="exam-section__head">'
+            f'<h2 id="relTitle">다른 회차 {esc(name)}</h2></div><div class="rel-grid">{"".join(cards)}</div></section>')
 
 
 def build_static_exam_pages(items: list[dict], template_path: Path, out_root: Path):
@@ -1037,62 +1446,33 @@ def build_static_exam_pages(items: list[dict], template_path: Path, out_root: Pa
     from collections import defaultdict as _dd
     _by_series: dict = _dd(list)
     _by_set: dict = _dd(list)
+    def _set_grade(d):
+        # 학년은 학평에서만 의미 — 수능·모평 일부 레코드(직탐·제2외)에 붙은 studentGrade 는 무시
+        return d.get('studentGrade') if d.get('typeGroup') == 'education' else None
+
     def _series_key(d):
         # 검정고시: 학력(curriculum)이 다르면 별개 시험 → 학력 포함, 회차(type)는
         # 무시해 같은 학력 전 회차(1·2회)·전 연도를 한 시리즈로 묶음.
         if d.get('typeGroup') == 'ged':
             return ('ged', d.get('curriculum'), d.get('subject'))
-        return (d.get('subject'), d.get('subSubject'), d.get('type'), d.get('studentGrade'))
+        return (d.get('subject'), d.get('subSubject'), d.get('type'), _set_grade(d))
     for _it in items:
         _by_series[_series_key(_it)].append(_it)
-        _by_set[(_it.get('curriculum'), _it.get('gradeYear'), _it.get('type'), _it.get('studentGrade'))].append(_it)
+        _by_set[(_it.get('curriculum'), _it.get('gradeYear'), _it.get('type'), _set_grade(_it))].append(_it)
     for _k in _by_series:
         _by_series[_k].sort(key=lambda x: x.get('gradeYear') or 0, reverse=True)
 
-    def _rel_label(r: dict) -> str:
-        if r.get('typeGroup') == 'ged':
-            ey = r.get('examYear') or r.get('gradeYear')
-            sess = '2' if r.get('type') == 'ged_2' else '1'
-            return f'{ey}년 제{sess}회 {r.get("subject") or ""}'.strip()
-        gy = r.get('gradeYear'); subj = r.get('subject') or ''; sub = r.get('subSubject')
-        p = [f'{gy}학년도' if gy else '', subj]
-        if sub and str(sub) not in subj:
-            p.append(str(sub))
-        return ' '.join(s for s in p if s)
-
-    # 등급컷 정적 렌더 인덱스 — lib/exam-gradedist.js 와 동일 조인키로 매칭해
-    # JS 없이도 등급별 원점수 컷 표가 본문에 보이게(페이지별 고유 정량 콘텐츠).
-    _GRADES = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-    try:
-        _cuts = json.loads((ROOT / 'data' / 'gradecuts.json').read_text(encoding='utf-8'))
-    except Exception:
-        _cuts = []
-    _cut_idx: dict = {}
-    _cut_idx6: dict = {}      # 학평 학년별(studentGrade) 정확 매칭용
-    _cut_idx_none: dict = {}  # 학년무관(studentGrade=null) 컷 — 학평 폴백 허용 대상
-    for _c in _cuts:
-        _k = (_c.get('curriculum'), str(_c.get('gradeYear')), _c.get('type'),
-              _c.get('subject'), _c.get('subSubject'))
-        _cut_idx.setdefault(_k, _c)   # first-wins (JS .find() 와 동일)
-        _cut_idx6.setdefault(_k + (_c.get('studentGrade'),), _c)
-        if _c.get('studentGrade') is None:
-            _cut_idx_none.setdefault(_k, _c)
-
-    def _grade_table_html(raw: list, full, absolute: bool, basis: str | None = None) -> str:
-        th = ''.join(f'<th class="grade-table__h grade-table__h--g{g}" scope="col">{g}</th>' for g in _GRADES)
-        td = ''.join(
-            '<td class="grade-table__c grade-table__c--g{0}">{1}</td>'.format(
-                i + 1, '—' if (i >= len(raw) or raw[i] is None) else raw[i])
-            for i in range(9))
-        basis_label = (' · 입시기관 역산값' if basis == 'academy_reverse_calculated' else
-                       ' · 입시기관 추정 정수 경계' if basis == 'academy_integerized_threshold' else '')
-        cap = ('등급별 원점수 컷 · 절대평가' if absolute else
-               '등급별 원점수 컷' + basis_label) + (f' · 만점 {full}점' if full else '')
-        return (
-            '<table class="grade-table" role="table" aria-label="등급별 원점수 컷">'
-            '<thead><tr><th class="grade-table__corner" scope="col">등급</th>' + th + '</tr></thead>'
-            '<tbody><tr><th class="grade-table__corner" scope="row">컷</th>' + td + '</tr></tbody>'
-            '</table><p class="grade-table__legend">' + cap + '</p>')
+    # 등급컷·난이도 — compute_exam_scores() 가 매칭(검색 cuts.json 과 동일 값).
+    _scores = compute_exam_scores(items)
+    # 1컷 추이 그래프용 묶음 (난이도 비교 묶음과 동일 키, 시행 순)
+    _trend: dict = _dd(list)
+    for _it in items:
+        _k = tier_series_key(_it)
+        _sc = _scores.get(_it['id'])
+        if _k and _sc and _sc['raw'] is not None and not _sc['abs']:
+            _trend[_k].append(_it)
+    for _k in _trend:
+        _trend[_k].sort(key=_exam_sort_key)
 
     TODAY_ISO = datetime.date.today().isoformat()
     written = 0
@@ -1224,27 +1604,32 @@ def build_static_exam_pages(items: list[dict], template_path: Path, out_root: Pa
             '<!-- 동적 fallback (?id=N). SSG exam-{id}.html 가 검색 노출 대상 — 이 페이지는 인덱싱 제외. -->',
             '<!-- SSG 사전렌더링 페이지 — 인덱싱 대상 (exam.html 템플릿에서 생성). -->')
 
-        # H1을 SSG 단계에서 미리 채워둠 — JS 로딩 전에도 검색엔진이 본문 키워드를 잡게.
+        # H1·칩·부제 — JS 로딩 전에도 검색엔진·사용자 모두 같은 내용을 보게 SSG 로 채운다.
         html = re.sub(
             r'(<h1 class="exam__title" id="examTitle">)[^<]*(</h1>)',
             lambda m: m.group(1) + html_escape(head, quote=True) + m.group(2),
             html, count=1)
+        sc = _scores.get(it['id'])
+        tier = sc['tier'] if sc else None
+        chips = (f'<span class="type-badge type-badge--lg tg-{it.get("typeGroup")}">{html_escape(exam_badge_label(it), quote=False)}</span>'
+                 f'<span class="chiplet chiplet--ink">{html_escape(exam_year_label(it), quote=False)}</span>')
+        if tier:
+            chips += f'<span class="tier tier--{tier} spoil-hide">{TIER_LABELS[tier]}</span>'
+        html = html.replace('<div class="exam__chips" id="examChips"></div>',
+                            f'<div class="exam__chips" id="examChips">{chips}</div>', 1)
+        html = html.replace('<p class="exam__sub" id="examSub"></p>',
+                            f'<p class="exam__sub" id="examSub">{html_escape(exam_sub_label(it), quote=False)}</p>', 1)
 
-        # SEO 인트로 본문 — H1 아래에 자연어 한 문단을 박아둠 (영어는 듣기·대본·MP3 키워드 포함)
-        intro_html = (
-            '<p class="exam__seo-intro" id="examSeoIntro">'
-            + html_escape(meta['intro'], quote=False)
-            + '</p>'
-        )
-        html = html.replace(
-            '<p  class="exam__sub"   id="examSub"></p>',
-            '<p  class="exam__sub"   id="examSub"></p>\n        ' + intro_html,
-            1)
+        # 시험 정보 카드 + 소개 문장(검색엔진용 고유 설명 — 키워드 나열 없이 사실만)
+        facts = ''.join(f'<dt>{k}</dt><dd>{v}</dd>' for k, v in exam_fact_rows(it))
+        html = html.replace('<dl class="facts" id="examFacts"></dl>',
+                            f'<dl class="facts" id="examFacts">{facts}</dl>\n          '
+                            f'<p class="info-card__desc" id="examSeoIntro">{html_escape(meta["intro"], quote=False)}</p>', 1)
 
         # JSON-LD: </head> 직전 한 번만 삽입
         html = html.replace('</head>', '  ' + ld_block + '</head>', 1)
 
-        # [#3] 다운로드 버튼을 SSG 단계에서 미리 채워둠 (JS 로딩 전에도 작동)
+        # 다운로드 버튼 — SSG 단계에서 채워 JS 없이도 작동
         btns = []
         q_url   = it.get('questionUrl')
         qE_url  = it.get('questionUrlEven')
@@ -1265,8 +1650,10 @@ def build_static_exam_pages(items: list[dict], template_path: Path, out_root: Pa
         def _btn(cls, url, label, dl_name):
             if not url or not re.match(r'^https?://', str(url), flags=re.I): return ''
             dl_attr = f' download="{html_escape(dl_name, quote=True)}"' if dl_name else ' download'
-            return f'<a class="btn {cls}" href="{html_escape(url, quote=True)}"{dl_attr}>{html_escape(label, quote=False)}</a>'
-        # 영어 듣기는 최상단(#8) — 모바일에서 자료 접근 우선
+            # 'PDF' 표기는 폰에서 숨겨 버튼을 두 줄 안에 모은다 (HWP 는 형식이 달라 항상 표시)
+            label_html = html_escape(label, quote=False).replace(' PDF', ' <span class="btn__tag">PDF</span>')
+            return f'<a class="btn {cls}" href="{html_escape(url, quote=True)}"{dl_attr}>{label_html}</a>'
+        # 영어 듣기는 최상단 — 모바일에서 자료 접근 우선
         if it.get('subject') == '영어' and listen:
             btns.append(_btn('btn--primary', listen, '듣기 MP3', it.get('listenDownload')))
             if script: btns.append(_btn('', script, '듣기 대본 PDF', it.get('scriptDownload')))
@@ -1283,112 +1670,101 @@ def build_static_exam_pages(items: list[dict], template_path: Path, out_root: Pa
             if sol_url and not combined_document: btns.append(_btn('', sol_url, '해설지 PDF', it.get('solutionDownload')))
             if listen: btns.append(_btn('', listen, '듣기 MP3', it.get('listenDownload')))
             if script: btns.append(_btn('', script, '듣기 대본 PDF', it.get('scriptDownload')))
-        # JS가 뒤늦게 공유 버튼을 추가하면 모바일에서 미리보기 전체가 밀리므로 SSG 단계에서 자리까지 확정한다.
+        # 공유 버튼 자리까지 SSG 에서 확정 (JS 가 뒤늦게 넣으면 레이아웃이 밀림)
         btns.append(
-            '<button type="button" class="btn btn--ghost" id="examShareBtn" aria-label="공유하기">'
-            '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" '
-            'stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" '
-            'style="margin-right:5px;vertical-align:-2px">'
-            '<circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/>'
-            '<line x1="8.6" y1="13.5" x2="15.4" y2="17.5"/><line x1="15.4" y1="6.5" x2="8.6" y2="10.5"/>'
-            '</svg>공유</button>'
-        )
+            '<button type="button" class="btn" id="examShareBtn" aria-label="공유하기">'
+            '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" '
+            'stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 8l5-5 5 5M5 14v5a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-5"/></svg>'
+            '<span class="btn__label">공유</span></button>')
         btns_html = ''.join(b for b in btns if b)
-        # 빈 <div id=examActions></div> 에 채움 — JS 가 재렌더해도 동일 내용 덮어쓰니 노출 깜빡임 최소
         html = re.sub(
             r'(<div class="exam__actions" id="examActions">)\s*(</div>)',
             lambda m: m.group(1) + btns_html + m.group(2),
             html, count=1)
 
-        # 대학별 논술 허브 링크 — 논술 페이지 사이드바에 "이 대학 논술 전체" 추가
-        # (학교 단위 집계 허브로 내부링크·크롤 경로 보강). 정적 전용, exam.js 무관.
-        if it.get('typeGroup') == 'essay':
-            _hub = essay_hub_filename(it.get('subject'))
-            if _hub:
-                _hub_anchor = (
-                    f'<a href="{_hub}" class="exam__back">'
-                    '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" '
-                    'stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'
-                    '<path d="M3 21h18"/><path d="M5 21V8l7-5 7 5v13"/><path d="M9 21v-6h6v6"/></svg>'
-                    '<span>이 대학 논술 전체</span></a>\n        ')
-                html = html.replace(
-                    '<a href="#" id="examSetSideLink" class="exam__back" hidden>',
-                    _hub_anchor + '<a href="#" id="examSetSideLink" class="exam__back" hidden>', 1)
-        elif it.get('typeGroup') in ('suneung', 'education'):
-            _shub = subject_hub_filename(it)
-            if _shub:
-                _shub_anchor = (
-                    f'<a href="{_shub}" class="exam__back">'
-                    '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" '
-                    'stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'
-                    '<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>'
-                    '<span>이 과목 전체 기출</span></a>\n        ')
-                html = html.replace(
-                    '<a href="#" id="examSetSideLink" class="exam__back" hidden>',
-                    _shub_anchor + '<a href="#" id="examSetSideLink" class="exam__back" hidden>', 1)
-
-        # 사이드바 회차 링크를 SSG 단계에서 정적으로 채움 — 크롤러가 JS 없이도
-        # exam → 회차 링크 그래프를 따라가게 (exam.js 가 로드되면 동일 값으로 재설정).
+        # 이동 경로: 기출검색 › 회차 전체 › 과목/대학 허브 (JS 없이 크롤러가 링크 그래프를 따라가게)
+        sep = '<span class="exam__crumb-sep" aria-hidden="true">›</span>'
         if it.get('curriculum') and it.get('gradeYear') and it.get('type'):
             _sg = it.get('studentGrade') if it.get('typeGroup') == 'education' else None
             _set_fname = set_friendly_filename(str(it['curriculum']), str(it['gradeYear']), it['type'], _sg)
             html = html.replace(
-                '<a href="#" id="examSetSideLink" class="exam__back" hidden>',
-                f'<a href="{_set_fname}" id="examSetSideLink" class="exam__back">', 1)
+                '<a href="#" id="examSetSideLink" hidden><span>이 회차 전체</span></a>',
+                f'{sep}<a href="{_set_fname}" id="examSetSideLink"><span>{html_escape(exam_set_title(it), quote=False)}</span></a>', 1)
+        _hub, _hub_label = '', ''
+        if it.get('typeGroup') == 'essay':
+            _hub, _hub_label = essay_hub_filename(it.get('subject')), f'{it.get("subject")} 논술 전체'
+        elif it.get('typeGroup') in ('suneung', 'education'):
+            _hub, _hub_label = subject_hub_filename(it), f'{it.get("subject")} 전체 기출'
+        if _hub:
+            html = html.replace('</nav>\n\n    <div class="exam__top"',
+                                f'{sep}<a href="{_hub}"><span>{html_escape(_hub_label, quote=False)}</span></a>\n    </nav>\n\n    <div class="exam__top"', 1)
 
-        # 관련 기출 내부링크 — 본문에 정적 주입(내부 링크 그래프 + 고유 콘텐츠로 색인 유도).
-        _rel = []
-        _seen = {it['id']}
-        for _sib in _by_series[_series_key(it)]:
-            if _sib['id'] in _seen: continue
-            _seen.add(_sib['id']); _rel.append(_sib)
-            if len(_rel) >= 8: break
-        for _sib in _by_set[(it.get('curriculum'), it.get('gradeYear'), it.get('type'), it.get('studentGrade'))]:
-            if _sib['id'] in _seen: continue
-            _seen.add(_sib['id']); _rel.append(_sib)
-            if len(_rel) >= 14: break
-        if _rel:
-            _lis = ''.join(
-                f'<li><a href="exam-{r["id"]}.html">{html_escape(_rel_label(r), quote=False)}</a></li>'
-                for r in _rel)
-            # 관련 기출은 .exam 그리드 '밖'(</main> 뒤)에 전체폭 섹션으로 배치.
-            # 그리드 안(col1·row2)에 두면 sticky 사이드바가 그 위로 흘러내려 겹침.
-            _rel_html = ('<section class="container exam-related">'
-                         '<nav class="exam__related" id="examRelated" aria-label="관련 기출문제">'
-                         '<h2>관련 기출문제</h2><ul>' + _lis + '</ul></nav></section>')
-            html = html.replace('</main>', '</main>\n  ' + _rel_html, 1)
+        # 같은 회차 다른 과목 탭 (내부 링크 + 과목 이동)
+        _sibs = sorted(_by_set[(it.get('curriculum'), it.get('gradeYear'), it.get('type'), _set_grade(it))],
+                       key=_subject_sort_key)
+        if it.get('typeGroup') == 'essay':
+            _sibs = [x for x in _sibs if x.get('subject') == it.get('subject')]
+        if len(_sibs) > 1:
+            # 두 단 — 윗줄 영역(국어·수학…, 선택과목 수 표시), 아랫줄 현재 영역의 선택과목.
+            # 한 줄에 과목이 몰려 옆으로 한참 밀어야 하던 문제를 줄인다. 논술은 계열 한 줄.
+            def _tab(x, label, count=0, current=False):
+                cur = ' aria-current="page"' if current else ''
+                cnt = f' <small>{count}</small>' if count > 1 else ''
+                return f'<a href="exam-{x["id"]}.html"{cur}>{html_escape(label, quote=False)}{cnt}</a>'
+            if it.get('typeGroup') == 'essay':
+                rows = [''.join(_tab(x, _subject_tab_label(x)[0], current=x['id'] == it['id']) for x in _sibs)]
+            else:
+                areas: dict = {}
+                for x in _sibs:
+                    areas.setdefault(x.get('subject') or '', []).append(x)
+                cur_area = it.get('subject') or ''
+                top = ''.join(
+                    _tab(xs[0] if area != cur_area else it, area, len(xs), area == cur_area)
+                    for area, xs in areas.items())
+                rows = [top]
+                if len(areas.get(cur_area, [])) > 1:
+                    rows.append(''.join(_tab(x, pretty_sub(x.get('subSubject')) or x.get('subject') or '',
+                                             current=x['id'] == it['id']) for x in areas[cur_area]))
+            inner = ''.join(f'<div class="exam__subjects-row{" exam__subjects-row--subs" if i else ""} hscroll">{r}</div>'
+                            for i, r in enumerate(rows))
+            html = html.replace('<nav class="exam__subjects hscroll" id="examSubjects" aria-label="같은 회차 다른 과목"></nav>',
+                                f'<nav class="exam__subjects" id="examSubjects" aria-label="같은 회차 다른 과목">{inner}</nav>', 1)
 
-        # 등급컷 표 정적 주입 — 매칭되는 등급컷이 있을 때만(미매칭은 JS가 '준비 중' 처리,
-        # 중복 보일러플레이트 추가 방지). exam.js 가 동일 데이터로 덮어써도 무해.
-        _ck = (it.get('curriculum'), str(it.get('gradeYear')), it.get('type'),
-               it.get('subject'), it.get('subSubject'))
-        # 학평(education)은 학년별 컷 정확매칭 우선, 없으면 학년무관(sg=null) 컷만 폴백 허용
-        # — 다른 학년 컷으로는 폴백하지 않는다(타학년 등급컷 오노출 방지). 수능 등은 5요소 매칭.
-        # 검정고시(ged)는 절대평가 pass/fail이라 등급컷 표를 주입하지 않는다.
-        _cut = None
-        _tg = it.get('typeGroup')
-        if _tg == 'education':
-            _cut = _cut_idx6.get(_ck + (it.get('studentGrade'),)) or _cut_idx_none.get(_ck)
-        elif _tg != 'ged':
-            _cut = _cut_idx.get(_ck)
+        # 본문(시험 총평 등) — data/exam-notes/{id}.html 이 있으면 주입. 없으면 섹션 숨김 유지.
+        _note = ROOT / 'data' / 'exam-notes' / f'{it["id"]}.html'
+        if _note.exists():
+            html = html.replace('<section class="card-box exam__body" id="examBody" hidden></section>',
+                                '<section class="card-box exam__body" id="examBody">'
+                                + _note.read_text(encoding='utf-8').strip() + '</section>', 1)
+
+        # 등급컷·난이도 — 매칭 컷이 있을 때만 섹션 공개 (검정고시 등은 숨김 유지)
+        _cut = sc['cut'] if sc else None
         if (_cut is not None and isinstance(_cut.get('rawCuts'), list)
                 and any(v is not None for v in _cut['rawCuts'])):
-            html = html.replace('<body class="page-exam">',
-                                '<body class="page-exam has-gradecut">', 1)
-            _raw = _cut['rawCuts']
-            _basis = _cut.get('rawCutBasis')
-            _tbl = _grade_table_html(_raw, _cut.get('fullScore') or 100,
-                                     bool(_cut.get('absolute')), _basis)
-            html = html.replace(
-                '<div class="exam-card__body" id="gradeDistBody"></div>',
-                '<div class="exam-card__body" id="gradeDistBody">' + _tbl + '</div>', 1)
-            if _raw and _raw[0] is not None:
-                _kind = ('역산값' if _basis == 'academy_reverse_calculated' else
-                         '추정 경계' if _basis == 'academy_integerized_threshold' else '컷')
-                _hint = f'1등급 {_kind} {_raw[0]}점' + (' · 절대평가' if _cut.get('absolute') else '')
-                html = html.replace(
-                    '<span class="exam-card__hint" id="gradeDistHint"></span>',
-                    '<span class="exam-card__hint" id="gradeDistHint">' + html_escape(_hint, quote=False) + '</span>', 1)
+            html = html.replace('<body class="page-exam">', '<body class="page-exam has-gradecut">', 1)
+            html = html.replace('<section class="exam-section" id="gradeDist" aria-labelledby="gradeDistTitle" hidden>',
+                                '<section class="exam-section' + (' exam-section--open' if sc['abs'] else '')
+                                + '" id="gradeDist" aria-labelledby="gradeDistTitle">', 1)
+            if sc['abs']:
+                html = html.replace('<h2 id="gradeDistTitle">등급컷 · 난이도</h2>', '<h2 id="gradeDistTitle">등급 기준 · 절대평가</h2>', 1)
+            html = html.replace('<div id="gradeDistStats"></div>',
+                                '<div id="gradeDistStats">' + score_stats_html(sc) + '</div>', 1)
+            html = html.replace('<div class="exam-card__body" id="gradeDistBody"></div>',
+                                '<div class="exam-card__body" id="gradeDistBody">'
+                                + grade_table_html(_cut, sc['abs']) + '</div>', 1)
+
+        # 최근 회차와 비교(그래프·비교표) — 등급컷 있는 지난 회차가 2개 이상일 때. 없으면 다른 회차 카드.
+        _k = tier_series_key(it)
+        _series = _trend.get(_k, []) if _k else []
+        _cmp = ''
+        if not (sc and sc['abs']) and sum(1 for x in _series if x['id'] != it['id']) >= 2:
+            _cmp = compare_html(it, _series, _scores, with_toggle='class="page-exam has-gradecut"' not in html)
+        if _cmp:
+            html = html.replace('<!-- exam-related -->', _cmp, 1)
+        else:
+            _rel = [r for r in _by_series[_series_key(it)] if r['id'] != it['id']][:8]
+            if _rel:
+                html = html.replace('<!-- exam-related -->', related_cards_html(it, _rel), 1)
 
         (out_root / f'exam-{it["id"]}.html').write_text(html, encoding='utf-8')
         written += 1
@@ -1529,10 +1905,6 @@ def build_set_meta(curr: str, year: str, t: str, sg: int | None, exams_in_set: l
                        f'국어·수학·영어·한국사·탐구 문제지와 정답, 해설지를 확인할 수 있습니다.']
     if has_english_listen:
         intro_parts.append('영어 영역은 듣기 MP3와 듣기 대본 PDF도 함께 제공합니다.')
-    if aliases:
-        alias_phrase = ', '.join(aliases[:5])
-        alias_particle = '으로도' if _has_batchim(alias_phrase) else '로도'
-        intro_parts.append(alias_phrase + alias_particle + ' 검색되는 시험입니다.')
     intro = ' '.join(intro_parts)
 
     keywords = list(dict.fromkeys(aliases + [head, full, short] + subjects + COMMON_ASSET_KEYWORDS
@@ -1681,7 +2053,7 @@ def build_static_set_pages(items: list[dict], template_path: Path, out_root: Pat
 
         # 완전한 정적 카드 — 친화 URL 페이지는 JS fetch·재렌더 없이 즉시 사용한다.
         def _static_card(it2):
-            title2 = it2.get('subSubject') or it2.get('subject') or ''
+            title2 = pretty_sub(it2.get('subSubject')) or it2.get('subject') or ''
             subject2 = it2.get('subject') or ''
             has_files = any(it2.get(k) for k in ('questionUrl', 'answerUrl', 'solutionUrl'))
 
@@ -1704,16 +2076,14 @@ def build_static_set_pages(items: list[dict], template_path: Path, out_root: Pat
                 f'<article class="{card_cls}">'
                 f'<a class="card__link" href="exam-{it2["id"]}.html"'
                 f' aria-label="{html_escape(title2, quote=True)} 상세 보기"></a>'
-                '<div class="card__meta"><span class="chiplet chiplet--ink">'
-                + html_escape(subject2, quote=False) + '</span></div>'
-                f'<h2 class="card__title">{html_escape(title2, quote=False)}</h2>'
-                f'<p class="card__sub">{html_escape(subject2, quote=False)}</p>'
+                + (f'<p class="card__sub">{html_escape(subject2, quote=False)}</p>' if title2 != subject2 else '')
+                + f'<h2 class="card__title">{html_escape(title2, quote=False)}</h2>'
                 '<div class="card__divider"></div>'
                 f'<div class="card__actions">{actions}</div>'
                 '</article>'
             )
         _sorted = sorted(merged_exams, key=lambda x: (
-            SUBJECT_ORDER.get(x.get('subject'), 99), x.get('subject') or '', x.get('subSubject') or ''))
+            SUBJECT_ORDER.get(x.get('subject'), 99), x.get('subject') or '', sub_order_key(x.get('subSubject'))))
         cards_html = ''.join(_static_card(x) for x in _sorted)
         html = re.sub(
             r'(<section class="examset__grid grid" id="examsetGrid">)\s*(</section>)',
@@ -2093,9 +2463,7 @@ def main():
         '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
         f'  <url><loc>{base}/</loc><lastmod>{today}</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>',
         f'  <url><loc>{base}/archive.html</loc><lastmod>{today}</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>',
-        f'  <url><loc>{base}/gradecut.html</loc><lastmod>{today}</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>',
         f'  <url><loc>{base}/sets.html</loc><lastmod>{today}</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>',
-        f'  <url><loc>{base}/admissions.html</loc><lastmod>{today}</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>',
         f'  <url><loc>{base}/calendar.html</loc><lastmod>{today}</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>',
         '</urlset>',
     ]

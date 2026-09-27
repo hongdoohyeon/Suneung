@@ -1,18 +1,18 @@
 'use strict';
-import { enableForcedDownloads } from './lib/download.js?v=a758c824dc29a7890187';
+import { enableForcedDownloads } from './lib/download.js?v=5a5c338afcd808bec52e';
 enableForcedDownloads();
 import {
   CURRICULUM_CONFIG, EXAM_TYPE_CONFIG, TAB_CONFIG,
   getTypeConf, getGroupConf, getTabConf, legacyTabKey, prettySub,
-} from './config.js?v=a758c824dc29a7890187';
+} from './config.js?v=5a5c338afcd808bec52e';
 import {
   state, PAGE_SIZE,
   resetFilters, toggleMulti,
   getDisplayYear, availableGradeYears,
   filtered, subjectCounts,
   tabCurriculums, tabCurriculumConfs, tabSubjects, curriculumOfGradeYear,
-} from './state.js?v=a758c824dc29a7890187';
-import { renderAllAdSlots } from './lib/ads.js?v=a758c824dc29a7890187';
+} from './state.js?v=5a5c338afcd808bec52e';
+import { renderAllAdSlots, renderAdSlot } from './lib/ads.js?v=5a5c338afcd808bec52e';
 
 const tabConf = () => getTabConf(state.tab);
 
@@ -40,7 +40,7 @@ const tabIsSingleType = () => {
 
 // 검색 첫 진입에서 9MB 전체 목록을 받지 않고 현재 탭 split만 로드한다.
 // CI render-site.py가 data/archive/{tab}.json을 exams.json에서 생성한다.
-const DATA_VERSION = 'a758c824dc29a7890187';
+const DATA_VERSION = '5a5c338afcd808bec52e';
 const FULL_DATA_URL = `data/exams.json?v=${DATA_VERSION}`;
 const tabDataCache = new Map();
 let fullDataCache = null;
@@ -48,11 +48,39 @@ let dataRequestId = 0;
 
 const $ = id => document.getElementById(id);
 
+// ── 보기 방식(표/카드) · 1등급컷 인덱스 ─────────────────────
+// cuts.json: { id: [원점수 1컷, 표점 1컷, 난이도 1~5|null, 절대평가 0/1] } — render-site.py 생성.
+const VIEW_KEY = 'kicegg:archive-view';
+let viewMode = (() => { try { return localStorage.getItem(VIEW_KEY) === 'cards' ? 'cards' : 'table'; } catch { return 'table'; } })();
+let cutsIndex = null;
+let cutsRequested = false;
+function loadCuts() {
+  if (cutsRequested) return;
+  cutsRequested = true;
+  fetch(`data/archive/cuts.json?v=${DATA_VERSION}`)
+    .then(res => res.ok ? res.json() : null)
+    .then(data => { if (data) { cutsIndex = data; state.cuts = data; if (!state.loading) render(); } })
+    .catch(() => {});
+}
+const TIER_LABEL = { 1: '매우 쉬움', 2: '쉬움', 3: '보통', 4: '어려움', 5: '매우 어려움' };
+// 탐구 등 접힌 영역의 펼침 상태 — 한 번 펼친 영역은 다른 회차·페이지에서도 펼쳐 둔다
+const FOLD_KEY = 'kicegg:open-folds';
+const openFolds = new Set((() => { try { return JSON.parse(localStorage.getItem(FOLD_KEY) || '[]'); } catch { return []; } })());
+document.addEventListener('toggle', e => {
+  const d = e.target;
+  if (!(d instanceof HTMLDetailsElement) || !d.dataset.fold) return;
+  const name = d.dataset.fold;
+  if (d.open === openFolds.has(name)) return;
+  if (d.open) openFolds.add(name); else openFolds.delete(name);
+  try { localStorage.setItem(FOLD_KEY, JSON.stringify([...openFolds])); } catch {}
+  document.querySelectorAll(`details.rfold[data-fold="${CSS.escape(name)}"]`).forEach(x => { if (x !== d) x.open = d.open; });
+}, true);
+
 // ── URL 파라미터 처리 ──────────────────────────────────────
 // 모든 필터 상태를 URL searchParams 에 반영해 뒤로가기·새로고침·링크 공유 시 복원.
 // 다중 선택은 쉼표로 직렬화. "all"·빈 상태는 URL에서 키 자체를 제거해 짧게 유지.
 
-const URL_KEYS = ['tab','typeGroup','type','gradeYear','subject','subSubject','q','search','page'];
+const URL_KEYS = ['tab','typeGroup','type','gradeYear','subject','subSubject','tier','q','search','page'];
 
 function serializeMulti(v) {
   if (v === 'all' || v == null) return '';
@@ -128,6 +156,11 @@ function applyUrlState() {
     state.subSubject = sub === 'all' || allSubs.has(sub) ? sub : 'all';
   }
 
+  if (params.has('tier')) {
+    state.tier = allowMulti(parseMulti(params.get('tier')), new Set(['1', '2', '3', '4', '5']));
+    loadCuts();
+  }
+
   const search = params.get('q') || params.get('search');
   if (search) {
     state.query = search.trim();
@@ -170,6 +203,8 @@ function buildUrlFromState() {
 
   if (state.subject    && state.subject    !== 'all') url.searchParams.set('subject', state.subject);
   if (state.subSubject && state.subSubject !== 'all') url.searchParams.set('subSubject', state.subSubject);
+  const tr = serializeMulti(state.tier);
+  if (tr) url.searchParams.set('tier', tr);
   if (state.query) url.searchParams.set('q', state.query);
   if (state.page > 1) url.searchParams.set('page', String(state.page));
 
@@ -379,7 +414,28 @@ function renderFilterPanel() {
 
   renderYearChips();
   renderSubjectFilter();
+  renderTierChips();
 }
+
+// ── 난이도 (역대 1등급컷 대비 5단계) ────────────────────────
+function renderTierChips() {
+  const el = $('tierFilter');
+  if (!el) return;
+  const active = v => state.tier === 'all' ? v === 'all'
+    : (Array.isArray(state.tier) ? state.tier.includes(v) : state.tier === v);
+  el.innerHTML = [pill('all', '전체', active('all')),
+    ...Object.entries(TIER_LABEL).map(([k, lbl]) => pill(k, lbl, active(k), `pill--tier pill--t${k}`))].join('');
+}
+$('tierFilter')?.addEventListener('click', e => {
+  const btn = e.target.closest('.pill');
+  if (!btn) return;
+  if (btn.dataset.value === 'all') state.tier = 'all';
+  else { toggleMulti('tier', btn.dataset.value); loadCuts(); }
+  state.page = 1;
+  renderTierChips();
+  render();
+  syncUrl();
+});
 
 // ── 시험 주최 (그룹 pill) ──────────────────────────────────
 function renderTypeGroupChips() {
@@ -468,13 +524,14 @@ $('typeFilter').addEventListener('click', e => {
 // ── 학년도 ─────────────────────────────────────────────────
 // 학년도 라벨: 일반은 "2027학년도" / 교육청은 "2026년" / 28예비처럼 예비 curriculum 은 "28예비".
 // LEET 의 'preliminary' sentinel (mock 데이터) 은 "예비".
-function yearChipLabel(y, isEdu) {
+function yearChipLabel(y, isEdu, short = false) {
   if (y === 'preliminary') return '예비';
   const conf = curriculumOfGradeYear(y);
   if (conf?.id === '예비' && typeof y === 'number') {
     return `${String(y).slice(-2)}예비`;
   }
   const disp = isEdu ? (getTabConf(state.tab)?.key === 'senior' ? y - 1 : y) : y;
+  if (short) return String(disp);   // 칩은 숫자만 — 섹션 제목이 '학년도/시행연도'를 알려줌
   return `${disp}${isEdu ? '년' : '학년도'}`;
 }
 // 탭의 curriculum 들이 학년도 범위에서 겹치는지 — 겹치면 header 그룹화가 잘못됨
@@ -527,17 +584,18 @@ function renderYearChips() {
   const expanded = state.yearExpanded;
   let visibleCount = 0;
   for (const y of years) {
+    const value = y === 'preliminary' ? 'preliminary' : String(y);
+    const hidden = collapseEnabled && !expanded && visibleCount >= SHOW_INITIAL ? ' year-pill--collapsed' : '';
     if (showHeaders) {
       const conf = curriculumOfGradeYear(y);
       const currId = conf?.id ?? null;
       if (currId && currId !== lastCurrId) {
-        out.push(`<div class="year-row__header" role="presentation">${escHtml(conf.label)}</div>`);
+        // 접힌 학년도만 있는 교육과정 제목도 함께 접는다 (빈 제목 방지)
+        out.push(`<div class="year-row__header${hidden}" role="presentation">${escHtml(conf.label)}</div>`);
         lastCurrId = currId;
       }
     }
-    const value = y === 'preliminary' ? 'preliminary' : String(y);
-    const hidden = collapseEnabled && !expanded && visibleCount >= SHOW_INITIAL ? ' year-pill--collapsed' : '';
-    out.push(pill(value, yearChipLabel(y, isEdu), isYearActive(value),
+    out.push(pill(value, yearChipLabel(y, isEdu, true), isYearActive(value),
                   hidden, `data-year="${value}"`));
     visibleCount++;
   }
@@ -796,7 +854,15 @@ function renderCards() {
   const totalPages = Math.max(1, Math.ceil(data.length / PAGE_SIZE));
   state.page = Math.min(Math.max(1, state.page), totalPages);
   const shown = data.slice((state.page - 1) * PAGE_SIZE, state.page * PAGE_SIZE);
-  grid.innerHTML = shown.map((e, i) => { try { return cardHTML(e, i); } catch(_) { return ''; } }).join('');
+  if (viewMode === 'table') {
+    grid.className = 'results results--table';
+    grid.innerHTML = tableHTML(shown);
+    const inline = grid.querySelector('[data-ad-position]');
+    if (inline) renderAdSlot(inline, inline.dataset.adPosition);
+  } else {
+    grid.className = 'grid';
+    grid.innerHTML = shown.map((e, i) => { try { return cardHTML(e, i); } catch(_) { return ''; } }).join('');
+  }
   renderPagination(state.page, totalPages, data.length);
 }
 
@@ -823,6 +889,147 @@ function renderPagination(current, total, totalItems) {
     </div>
     <span class="pg-info">${totalItems.toLocaleString()}건 · ${current} / ${total}페이지</span>
   `;
+}
+
+// ── 회차별 표 ────────────────────────────────────────────
+// 같은 회차(교육과정·학년도·시험·학년, 논술은 대학까지)끼리 묶고, 탐구·제2외국어처럼
+// 과목이 많은 영역은 한 줄로 접는다 (해당 영역을 필터로 고른 경우는 펼친 채 표시).
+const FOLD_SUBJECTS = new Set(['사회탐구', '과학탐구', '직업탐구', '제2외국어']);
+const SUNEUNG_TITLE = { csat: '대학수학능력시험', june: '6월 모의평가', sept: '9월 모의평가', prelim: '예비시험' };
+
+function setKey(e) {
+  return [e.curriculum, e.gradeYear, e.type, e.typeGroup === 'education' ? (e.studentGrade ?? '') : '',
+          e.typeGroup === 'essay' ? e.subject : ''].join('|');
+}
+
+function setTitle(e) {
+  const tc = getTypeConf(e.type);
+  switch (e.typeGroup) {
+    case 'suneung':   return e.gradeYear === 'preliminary' ? '예비시험' : `${e.gradeYear}학년도 ${SUNEUNG_TITLE[e.type] ?? tc?.label ?? ''}`;
+    case 'education': return `${e.examYear}년 ${e.month}월 고${e.studentGrade ?? ''} 학력평가`;
+    case 'military':  return `${e.gradeYear}학년도 사관학교 1차 시험`;
+    case 'police':    return `${e.gradeYear}학년도 경찰대학 1차 시험`;
+    case 'leet':      return `${e.gradeYear}학년도 LEET${e.type === 'prelim' ? ' 예비시험' : ''}`;
+    case 'meet':      return `${e.gradeYear}학년도 MEET${e.type === 'prelim' ? ' 예비시험' : ''}`;
+    case 'essay':     return `${e.gradeYear}학년도 ${String(e.subject).replace('학교', '')} ${e.type === 'essay_mock' ? '모의논술' : '논술'}`;
+    case 'ged':       return `${e.examYear ?? e.gradeYear}년 제${e.type === 'ged_2' ? 2 : 1}회 ${e.curriculum} 검정고시`;
+    default:          return `${e.gradeYear}학년도 ${e.subject}`;
+  }
+}
+
+function badgeLabel(e) {
+  const tc = getTypeConf(e.type);
+  if (e.gradeYear === 'preliminary') return '예비시험';
+  if (e.typeGroup === 'military') return '사관학교';
+  if (e.typeGroup === 'police') return '경찰대';
+  if (e.typeGroup === 'leet') return 'LEET';
+  if (e.typeGroup === 'meet') return 'MEET';
+  if (e.typeGroup === 'ged') return '검정고시';
+  return tc?.label ?? e.type;
+}
+
+function rowLabel(e) {
+  if (e.typeGroup === 'essay') return { main: e.subSubject ? prettySub(e.subSubject) : '논술', sub: '' };
+  const legacy = e.subSubject && LEGACY_SUB_FORMS.has(e.subSubject);
+  if (legacy) return { main: e.subject, sub: prettySub(e.subSubject) };
+  return { main: e.subject, sub: e.subSubject ? prettySub(e.subSubject) : '' };
+}
+
+// 1등급컷·난이도 셀 — 값은 .spoil-val (스포일러 방지 시 흐림)
+function scoreCells(e) {
+  const c = cutsIndex?.[e.id];
+  const loading = !cutsIndex && cutsRequested;
+  if (!c) {
+    const na = loading ? '' : '—';
+    return { has: false, cut: `<span class="rrow__na">${na}</span>`, tier: '', cutInline: '' };
+  }
+  const [raw, std, tier, abs] = c;
+  const cut = abs
+    ? `<span class="rrow__cut spoil-val">${raw}점<small>이상 1등급</small></span>`
+    : `<span class="rrow__cut spoil-val">${raw}${std != null ? `<small>표점 ${std}</small>` : ''}</span>`;
+  const tierHtml = abs
+    ? '<span class="tier tier--na">절대평가</span>'
+    : (tier ? `<span class="tier tier--${tier} spoil-val">${TIER_LABEL[tier]}</span>` : '');
+  return { has: true, cut, tier: tierHtml, cutInline: `<span class="card__sub spoil-val">1컷 ${raw}</span>` };
+}
+
+function actionsHTML(exam) {
+  if (exam.searchOnly) return `<a class="btn btn--primary" href="exam-${exam.id}.html">자료 보기</a>`;
+  const dl = name => name ? `download="${escAttr(name)}"` : 'download';
+  const out = [];
+  const q = safeUrl(exam.questionUrl), a = safeUrl(exam.answerUrl), s = safeUrl(exam.solutionUrl), l = safeUrl(exam.listenUrl);
+  if (q) out.push(`<a class="btn btn--primary" href="${escAttr(q)}" ${dl(exam.questionDownload)}>${q === s ? '문제·해설' : '문제지'}</a>`);
+  if (a) out.push(`<a class="btn" href="${escAttr(a)}" ${dl(exam.answerDownload)}>${exam.answerIncludesSolution ? '정답·해설' : '정답'}</a>`);
+  if (s && s !== q) out.push(`<a class="btn" href="${escAttr(s)}" ${dl(exam.solutionDownload)}>해설</a>`);
+  if (l) out.push(`<a class="btn" href="${escAttr(l)}" ${dl(exam.listenDownload)}>듣기</a>`);
+  return out.join('');
+}
+
+function tableHTML(list) {
+  loadCuts();
+  const groups = [];
+  for (const e of list) {
+    const k = setKey(e);
+    const last = groups[groups.length - 1];
+    if (last && last.key === k) last.items.push(e);
+    else groups.push({ key: k, items: [e] });
+  }
+  const arrow = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
+  const chev = '<svg class="rfold__chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>';
+  return groups.map((g, gi) => {
+    const first = g.items[0];
+    const title = setTitle(first);
+    const sg = first.typeGroup === 'education' ? (first.studentGrade ?? null) : null;
+    const setHref = first.typeGroup === 'essay' ? '' : setFriendlyURL(first.curriculum, String(first.gradeYear), first.type, sg);
+    const rows = [];
+    const folds = new Map();
+    for (const e of g.items) {
+      if (FOLD_SUBJECTS.has(e.subject) && state.subject !== e.subject && e.subSubject) {
+        if (!folds.has(e.subject)) { folds.set(e.subject, []); rows.push({ fold: e.subject }); }
+        folds.get(e.subject).push(e);
+      } else rows.push({ exam: e });
+    }
+    const body = rows.map(r => {
+      if (r.fold) {
+        const list = folds.get(r.fold);
+        if (list.length < 3) return list.map(rowHTML).join('');
+        // 접힌 줄에 난이도 분포 막대(스포일러 대상) — 펼치면 국어·수학과 같은 행(컷·난이도·다운로드)
+        const tiers = list.map(e => cutsIndex?.[e.id]?.[2]).filter(Boolean);
+        const dist = tiers.length
+          ? `<span class="rfold__dist spoil-val" aria-label="난이도 분포">${[1, 2, 3, 4, 5].map(t => {
+              const n = tiers.filter(x => x === t).length;
+              return n ? `<i class="rfold__seg rfold__seg--${t}" style="flex:${n}" title="${TIER_LABEL[t]} ${n}과목"></i>` : '';
+            }).join('')}</span>` : '';
+        const open = openFolds.has(r.fold) ? ' open' : '';
+        return `<details class="rfold" data-fold="${escAttr(r.fold)}"${open}><summary><span class="rfold__name">${escHtml(r.fold)}</span><span class="rfold__count">${list.length}과목</span>${dist}${chev}</summary>
+          <div class="rfold__rows">${list.map(e => rowHTML(e, true)).join('')}</div></details>`;
+      }
+      return rowHTML(r.exam);
+    }).join('');
+    const ad = gi === 1 && groups.length > 2 ? '<div class="ad-slot ad-slot--banner" data-ad-position="archiveGrid"></div>' : '';
+    return `<section class="rgroup" aria-label="${escAttr(title)}">
+      <header class="rgroup__head">
+        <span class="type-badge type-badge--lg tg-${escAttr(first.typeGroup)}">${escHtml(badgeLabel(first))}</span>
+        <h3 class="rgroup__title">${setHref ? `<a href="${escAttr(setHref)}">${escHtml(title)}</a>` : escHtml(title)}</h3>
+        ${setHref ? `<a class="rgroup__all" href="${escAttr(setHref)}" aria-label="${escAttr(title)} 전체 과목 보기"><span>회차 전체 보기</span>${arrow}</a>` : ''}
+      </header>
+      <div class="rrow rrow--head" aria-hidden="true"><span>과목</span><span>1등급컷</span><span>난이도</span><span>자료</span></div>
+      ${body}
+    </section>${ad}`;
+  }).join('');
+}
+
+function rowHTML(e, inFold = false) {
+  const { main, sub } = inFold && e.subSubject ? { main: prettySub(e.subSubject), sub: '' } : rowLabel(e);
+  const sc = scoreCells(e);
+  const label = `${setTitle(e)} ${main}${sub ? ' ' + sub : ''} 상세 보기`;
+  return `<div class="rrow">
+    <a class="rrow__link" href="exam-${e.id}.html" aria-label="${escAttr(label)}"></a>
+    <span class="rrow__subj">${escHtml(main)}${sub ? `<small>${escHtml(sub)}</small>` : ''}</span>
+    ${sc.cut}
+    <span class="rrow__tier">${sc.tier}</span>
+    <span class="rrow__acts">${actionsHTML(e)}</span>
+  </div>`;
 }
 
 // 영역명이 아니라 시험 형식·계열·자료유형을 나타내는 subSubject 들 — 카드 title 에 단독 노출하면
@@ -856,8 +1063,9 @@ function cardHTML(exam, idx = 0) {
 
   const yearChip = `<span class="chiplet chiplet--ink">${dy.label}${dy.suffix ? ' ' + dy.suffix : ''}</span>`;
   const typeChip = tc
-    ? `<span class="chiplet chiplet--type" style="--chip-bg:${tc.badgeBg};--chip-color:${tc.badgeColor};">${typeLabel}</span>`
+    ? `<span class="type-badge tg-${escAttr(exam.typeGroup)}">${escHtml(typeLabel)}</span>`
     : '';
+  const score = scoreCells(exam);
 
   const dl = name => name ? `download="${escAttr(name)}"` : 'download';
   const qUrl = safeUrl(exam.questionUrl);
@@ -877,11 +1085,12 @@ function cardHTML(exam, idx = 0) {
   const delay = `${Math.min(idx * 28, 220)}ms`;
   const ariaLabel = `${yearPart} ${title} 상세 보기`;
   return `
-    <div class="card${hasFile ? ' has-files' : ''}" role="listitem" style="--subject-color:${conf.color};animation-delay:${delay};">
+    <div class="card${hasFile ? ' has-files' : ''}" style="animation-delay:${delay};">
       <a class="card__link" href="exam-${exam.id}.html" aria-label="${escAttr(ariaLabel)}"></a>
       <div class="card__meta">${yearChip}${typeChip}</div>
       <h4 class="card__title" title="${escAttr(title)}">${escHtml(title)}</h4>
       <p class="card__sub">${escHtml(subtitle)}</p>
+      ${score.has ? `<div class="card__meta">${score.tier}${score.cutInline}</div>` : ''}
       <div class="card__divider"></div>
       <div class="card__actions">${exam.searchOnly ? `<a class="btn btn--primary" href="exam-${exam.id}.html">자료 보기</a>` : `${qBtn}${aBtn}${sBtn}`}</div>
     </div>
@@ -915,6 +1124,10 @@ function renderActiveTags() {
   }
   if (state.subject    !== 'all') tags.push({ label: state.subject,    key: 'subject' });
   if (state.subSubject !== 'all') tags.push({ label: prettySub(state.subSubject), key: 'subSubject' });
+  if (state.tier !== 'all') {
+    const tiers = Array.isArray(state.tier) ? state.tier : [state.tier];
+    if (tiers.length) tags.push({ label: tiers.map(t => TIER_LABEL[t]).join('·'), key: 'tier' });
+  }
   if (state.query) tags.push({ label: `"${state.query}"`, key: 'query' });
 
   container.innerHTML = tags.map(t => `
@@ -952,6 +1165,9 @@ $('activeTags').addEventListener('click', e => {
   } else if (key === 'subSubject') {
     state.subSubject = 'all';
     renderSubjectFilter();
+  } else if (key === 'tier') {
+    state.tier = 'all';
+    renderTierChips();
   }
 
   state.page = 1;
@@ -992,6 +1208,7 @@ const SET_CURR_SLUG = {
   // 7차 이전 분리 키는 모두 기존 exam-set-pre2009-*.html 정적 페이지로 매핑 (SEO·링크 호환)
   '2007개정': 'pre2009', '7차': 'pre2009', '6차': 'pre2009', 'pre2009': 'pre2009',
   '사관': 'mil', '경찰대': 'police', 'LEET': 'leet', 'MEET': 'meet',
+  '논술': 'essay', '초졸': 'gedelem', '중졸': 'gedmid', '고졸': 'gedhigh',
 };
 function setFriendlyURL(curr, year, type, grade) {
   const slug = SET_CURR_SLUG[curr] || String(curr).toLowerCase();
@@ -1063,6 +1280,21 @@ window.addEventListener('popstate', async () => {
   renderFilterPanel();
   render();
 });
+
+// ── 보기 방식 전환 ────────────────────────────────────────
+function syncViewToggle() {
+  document.querySelectorAll('.view-toggle [data-view]').forEach(b =>
+    b.setAttribute('aria-pressed', String(b.dataset.view === viewMode)));
+}
+document.querySelector('.view-toggle')?.addEventListener('click', e => {
+  const btn = e.target.closest('[data-view]');
+  if (!btn || btn.dataset.view === viewMode) return;
+  viewMode = btn.dataset.view;
+  try { localStorage.setItem(VIEW_KEY, viewMode); } catch {}
+  syncViewToggle();
+  renderCards();
+});
+syncViewToggle();
 
 // ── 시작 ──────────────────────────────────────────────────
 loadExams();
