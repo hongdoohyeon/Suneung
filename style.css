@@ -749,17 +749,11 @@ main { flex: 1 0 auto; width: 100%; }
 .pv-pen[aria-pressed="true"] i { transform: scale(1.15); box-shadow: 0 0 0 2px var(--surface), 0 0 0 3.5px var(--pen); }
 .pv-pct { min-width: 54px; font-size: 12px; font-variant-numeric: tabular-nums; }
 
-.pv-viewer { align-items: flex-start; touch-action: pan-x pan-y; overscroll-behavior-x: contain; }
-.pv-viewer.is-dragging { cursor: grabbing; user-select: none; }
-.pv-viewer[data-tool="hand"] { cursor: grab; }
-.pv-page { position: relative; flex: none; margin-inline: auto; background: #fff; border-radius: 6px; box-shadow: var(--sh-paper); overflow: hidden; }
-.pv-pdf, .pv-ink { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
-.pv-ink { touch-action: pan-x pan-y; }
-.pv-viewer[data-tool="pen"] .pv-ink { cursor: crosshair; }
-.pv-viewer[data-tool="eraser"] .pv-ink { cursor: cell; }
-.pv-viewer:not(.pen-seen)[data-tool="pen"] .pv-ink,
-.pv-viewer:not(.pen-seen)[data-tool="eraser"] .pv-ink { touch-action: none; }
-.pv-viewer .preview__more { align-self: center; width: min(100%, 520px); flex: none; }
+.pv-viewer { display: block; overscroll-behavior-x: contain; }
+.pv-sheet { display: flex; flex-direction: column; align-items: center; gap: 12px; width: max-content; min-width: 100%; }
+.pv-page { position: relative; flex: none; background: #fff; border-radius: 6px; box-shadow: var(--sh-paper); overflow: hidden; }
+.pv-pdf, .pv-ink { position: absolute; inset: 0; width: 100%; height: 100%; display: block; pointer-events: none; }
+.pv-viewer .preview__more { width: min(100%, 520px); flex: none; }
 .pv-hint {
   position: absolute; left: 50%; bottom: 18px; transform: translateX(-50%); z-index: 3; margin: 0;
   padding: 8px 14px; border-radius: 999px; background: var(--ink); color: var(--on-ink); font-size: 12.5px; font-weight: 600;
@@ -768,7 +762,15 @@ main { flex: 1 0 auto; width: 100%; }
 @keyframes pv-hint { from { opacity: 0; transform: translate(-50%, 6px); } }
 .preview { position: relative; }
 .preview.is-full { position: fixed; inset: 0; z-index: 200; border: 0; border-radius: 0; }
-.preview.is-full .pv-viewer { flex: 1; min-height: 0; overflow: auto; }
+.preview.is-full .pv-viewer {
+  /* 풀이 모드 — 브라우저 스크롤 대신 판을 직접 움직인다 */
+  position: relative; flex: 1; min-height: 0; padding: 0; overflow: hidden; touch-action: none;
+  user-select: none; -webkit-user-select: none; -webkit-touch-callout: none;
+}
+.preview.is-full .pv-sheet { position: absolute; left: 0; top: 0; min-width: 0; transform-origin: 0 0; will-change: transform; }
+.preview.is-full .pv-viewer[data-tool="hand"] { cursor: grab; }
+.preview.is-full .pv-viewer[data-tool="pen"] { cursor: crosshair; }
+.preview.is-full .pv-viewer[data-tool="eraser"] { cursor: cell; }
 body.pv-lock { overflow: hidden; }
 .preview__error, .preview__unsupported, .preview__empty {
   display: flex; flex-direction: column; align-items: center; gap: 6px; padding: 32px 20px; text-align: center;
