@@ -43,6 +43,6 @@
 - **흐린 시험지 표지**: 상세 '시험지 펼치기' 뒤 흐린 이미지 = 그 시험지 1쪽(`previews/{sha1(쿼리 뺀 questionUrl)[:12]}.jpg`, 폭 120px). SSG(`build-data.py preview_image_path`)가 파일이 있을 때만 `#previewQViewer[data-preview]` 로 넣고, 없으면 영역 대표 이미지. 새 시험 추가 후 로컬에서 `cd scripts/material-audit && npm i && node extract.mjs` (이어받기) → previews/ 커밋.
 - **자료 검수**: `scripts/material-audit/` — `extract.mjs`(PDF 1쪽 텍스트·미리보기, `--shard i/n` 병렬) → `judge.mjs`(코드: 깨진 링크·학년도·월 / JEV: 문서 종류·기관·영역·세부과목·학년) → `report.mjs`(tmp/material-audit/report.html). 로컬 전용, 산출물은 tmp/.
 - **자료 오류 제보**: 상세 페이지 '자료 오류 제보' 버튼(`lib/report.js`) → `kicegg.com/api/report`(smart-search Worker `src/report.js`) → KV `REPORTS`(90일 보관, 이름·연락처·IP 저장 안 함, JEV 로 유형·스팸 점수). 읽기: `node cloudflare/smart-search/reports.mjs [--all]`.
-- **사이트맵 lastmod**: `render_sitemaps` 가 항목 내용 해시를 `data/sitemap-lastmod.json` 에 기억해 바뀐 날만 갱신. 상세 페이지 틀(build-data SSG)을 바꿔 모든 페이지 내용이 달라지면 `render-site.py` 의 `TEMPLATE_REV` 를 올린다.
+- **사이트맵 lastmod**: `render_sitemaps` 가 만들어진 상세 페이지 내용(날짜·`?v=` 제외) 해시를 `data/sitemap-lastmod.json` 에 기억해 실제로 바뀐 날만 갱신하고, 페이지 안 `article:modified_time`·`dateModified` 도 그 날짜로 맞춘다(내용이 같으면 파일도 그대로).
 - **헤더 검색**은 실제 입력창(form, GET `./?q=`). 좁은 화면·빈 검색어·기출검색 화면에서는 본문 검색창으로 커서(`?focus=search`). 정적 상세·회차 페이지(`lib/seo.js STATIC_PAGE`)는 스크립트가 제목·설명·canonical 을 덮어쓰지 않는다.
 - **상세 페이지 '이 시험 한눈에'**(`build-data.py exam_insight_html`): 등급컷 데이터로 만든 사실 문장(역대 순위·직전 대비·난이도·표점 최고). 숫자는 스포일러 방지 대상.

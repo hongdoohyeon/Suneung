@@ -31,8 +31,6 @@ spec.loader.exec_module(bd)
 # 바뀔 때만 갱신한다. 매 빌드 today 로 두면 8824건 lastmod 가 동시에 흔들려 변경
 # 신호가 희석되므로 고정값으로 둔다(데이터 추가만으로는 올리지 않음).
 CONTENT_VERSION = '2026-07-13'
-# 상세 페이지 틀(build-data SSG)이 바뀌어 모든 페이지 내용이 달라졌을 때 올린다 → 사이트맵 lastmod 가 전부 갱신
-TEMPLATE_REV = '2026-09-28'
 
 ARCHIVE_TAB_RULES = {
     'senior':     {'curriculums': {'2015', '2009', '2007개정', '7차', '6차', '예비'}, 'education_grade': 3},
@@ -83,20 +81,33 @@ def render_sitemaps(items: list[dict], hubs=None) -> None:
         if gy >= current_year - 3: return '0.6'
         return '0.5'
 
-    # 시험별 실제 수정일 — 항목 내용(+틀 버전) 해시가 바뀐 날을 data/sitemap-lastmod.json 에 기억
-    import hashlib
+    # 시험별 실제 수정일 — 만들어진 페이지 내용(날짜·캐시 토큰 제외)의 해시가 바뀐 날을 data/sitemap-lastmod.json 에 기억.
+    # 등급컷·틀·데이터 어느 쪽이 바뀌어도 페이지가 달라지면 잡힌다. 페이지 안 수정일 메타도 이 날짜로 맞춰
+    # (빌드할 때마다 '오늘'로 바뀌던 것 — 내용이 같으면 파일도 그대로라 매일 전 페이지가 커밋되지 않는다).
+    import hashlib, re as _re
     state_path = ROOT / 'data' / 'sitemap-lastmod.json'
     try:
         state = json.loads(state_path.read_text(encoding='utf-8'))
     except Exception:
         state = {}
+    MOD_RE = (_re.compile(r'(<meta property="article:modified_time" content=")[^"]*(")'), _re.compile(r'("dateModified":\s*")[^"]*(")'))
+    def _norm(t):
+        t = _re.sub(r'\?v=[0-9a-f]+', '', t)
+        for r in MOD_RE: t = r.sub(r'\1\2', t)
+        return t
     lastmod = {}
-    raw = {e['id']: e for e in json.loads((ROOT / 'data' / 'exams.json').read_text(encoding='utf-8'))}   # 빌드 중 가공 전 원본으로 해시
     for it in items:
-        h = hashlib.sha1((json.dumps(raw.get(it['id'], it), ensure_ascii=False, sort_keys=True) + TEMPLATE_REV).encode()).hexdigest()[:12]
+        f = ROOT / f'exam-{it["id"]}.html'
+        page = f.read_text(encoding='utf-8') if f.exists() else json.dumps(it, ensure_ascii=False, sort_keys=True)
+        h = hashlib.sha1(_norm(page).encode()).hexdigest()[:12]
         prev = state.get(str(it['id']))
-        lastmod[it['id']] = prev[1] if prev and prev[0] == h else today
-        state[str(it['id'])] = [h, lastmod[it['id']]]
+        d = prev[1] if prev and prev[0] == h else today
+        lastmod[it['id']] = d
+        state[str(it['id'])] = [h, d]
+        if f.exists():
+            fixed = page
+            for r in MOD_RE: fixed = r.sub(lambda m: m.group(1) + d + m.group(2), fixed)
+            if fixed != page: f.write_text(fixed, encoding='utf-8')
     live = {str(it['id']) for it in items}
     state = {k: v for k, v in sorted(state.items(), key=lambda kv: int(kv[0])) if k in live}
     state_path.write_text(json.dumps(state, separators=(',', ':')) + '\n', encoding='utf-8')

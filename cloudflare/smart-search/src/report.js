@@ -20,7 +20,9 @@ export async function handleReport(request, env, ctx) {
   if (!Number.isInteger(examId) || examId <= 0 || examId > 1e6 || !kind) return json({ error: 'invalid' }, 400);
   const rec = { ts: new Date().toISOString(), examId, kind, field, text, page: String(b.page || '').slice(0, 120) };
   // JEV: 스팸·무의미 여부와 실제 유형 (텍스트가 있을 때만)
-  if (text && env.TYPESAFE_API_KEY) {
+  // IP 를 바꿔 가며 보내도 유료 API 호출이 무한정 늘지 않게 전체 상한 — 넘으면 분류 없이 저장만
+  const jevOk = text && env.TYPESAFE_API_KEY && (await env.REPORT_JEV.limit({ key: 'all' })).success;
+  if (jevOk) {
     try {
       const r = await fetch('https://api.typesafe.ai/v1/systemone', {
         method: 'POST', signal: AbortSignal.timeout(2500),

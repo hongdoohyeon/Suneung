@@ -35,3 +35,9 @@ id = "bb6aff29c5214cdb97b006674cf201a1"
 name = "REPORT_IP"
 namespace_id = "2703"
 simple = { limit = 4, period = 60 }
+
+# 제보 JEV 분류 전체 상한: 분당 10건 (넘으면 분류 없이 저장만)
+[[ratelimits]]
+name = "REPORT_JEV"
+namespace_id = "2704"
+simple = { limit = 10, period = 60 }
