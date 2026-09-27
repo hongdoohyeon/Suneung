@@ -1,18 +1,18 @@
 'use strict';
-import { enableForcedDownloads } from './lib/download.js?v=92c88708f9101751c10a';
+import { enableForcedDownloads } from './lib/download.js?v=514701674a67d616ae66';
 enableForcedDownloads();
 import {
   CURRICULUM_CONFIG, EXAM_TYPE_CONFIG, TAB_CONFIG,
   getTypeConf, getGroupConf, getTabConf, legacyTabKey, prettySub,
-} from './config.js?v=92c88708f9101751c10a';
+} from './config.js?v=514701674a67d616ae66';
 import {
   state, PAGE_SIZE,
   resetFilters, toggleMulti,
   getDisplayYear, availableGradeYears,
   filtered, subjectCounts,
   tabCurriculums, tabCurriculumConfs, tabSubjects, curriculumOfGradeYear,
-} from './state.js?v=92c88708f9101751c10a';
-import { renderAllAdSlots, renderAdSlot } from './lib/ads.js?v=92c88708f9101751c10a';
+} from './state.js?v=514701674a67d616ae66';
+import { renderAllAdSlots, renderAdSlot } from './lib/ads.js?v=514701674a67d616ae66';
 
 const tabConf = () => getTabConf(state.tab);
 
@@ -40,7 +40,7 @@ const tabIsSingleType = () => {
 
 // 검색 첫 진입에서 9MB 전체 목록을 받지 않고 현재 탭 split만 로드한다.
 // CI render-site.py가 data/archive/{tab}.json을 exams.json에서 생성한다.
-const DATA_VERSION = '92c88708f9101751c10a';
+const DATA_VERSION = '514701674a67d616ae66';
 const FULL_DATA_URL = `data/exams.json?v=${DATA_VERSION}`;
 const tabDataCache = new Map();
 let fullDataCache = null;
@@ -80,7 +80,9 @@ document.addEventListener('toggle', e => {
 // 모든 필터 상태를 URL searchParams 에 반영해 뒤로가기·새로고침·링크 공유 시 복원.
 // 다중 선택은 쉼표로 직렬화. "all"·빈 상태는 URL에서 키 자체를 제거해 짧게 유지.
 
-const URL_KEYS = ['tab','typeGroup','type','gradeYear','subject','subjects','subSubject','tier','q','search','page'];
+const URL_KEYS = ['tab','typeGroup','type','gradeYear','subject','subjects','subSubject','subSubjects','has','cut','sort','tier','q','search','page'];
+const HAS_LABEL = { listen: '듣기 있음', script: '대본 있음', solution: '해설 있음', even: '짝수형' };
+const SORT_LABEL = { hard: '어려운 순', easy: '쉬운 순', old: '오래된 순' };
 
 function serializeMulti(v) {
   if (v === 'all' || v == null) return '';
@@ -161,6 +163,14 @@ function applyUrlState() {
     state.subjects = (params.get('subjects') || '').split(',').filter(s => known[s]);
   }
 
+  if (params.has('has')) state.has = (params.get('has') || '').split(',').filter(k => HAS_LABEL[k]);
+  if (params.has('subSubjects')) state.subSubjects = (params.get('subSubjects') || '').split(',').filter(Boolean).slice(0, 12);
+  if (params.has('cut')) {
+    const [lo, hi] = (params.get('cut') || '').split('-').map(v => (v === '' ? null : Number(v)));
+    if ([lo, hi].some(v => v != null && Number.isFinite(v))) { state.cut = { min: lo ?? null, max: hi ?? null }; loadCuts(); }
+  }
+  if (SORT_LABEL[params.get('sort')]) { state.sort = params.get('sort'); if (state.sort !== 'old') loadCuts(); }
+
   if (params.has('tier')) {
     state.tier = allowMulti(parseMulti(params.get('tier')), new Set(['1', '2', '3', '4', '5']));
     loadCuts();
@@ -209,6 +219,10 @@ function buildUrlFromState() {
   if (state.subject    && state.subject    !== 'all') url.searchParams.set('subject', state.subject);
   if (state.subSubject && state.subSubject !== 'all') url.searchParams.set('subSubject', state.subSubject);
   if (state.subjects.length) url.searchParams.set('subjects', state.subjects.join(','));
+  if (state.has.length) url.searchParams.set('has', state.has.join(','));
+  if (state.subSubjects.length) url.searchParams.set('subSubjects', state.subSubjects.join(','));
+  if (state.cut) url.searchParams.set('cut', `${state.cut.min ?? ''}-${state.cut.max ?? ''}`);
+  if (state.sort) url.searchParams.set('sort', state.sort);
   const tr = serializeMulti(state.tier);
   if (tr) url.searchParams.set('tier', tr);
   if (state.query) url.searchParams.set('q', state.query);
@@ -1181,6 +1195,10 @@ function renderActiveTags() {
   }
   if (state.subject    !== 'all') tags.push({ label: state.subject,    key: 'subject' });
   if (state.subjects.length) tags.push({ label: state.subjects.join('·'), key: 'subjects' });
+  if (state.has.length) tags.push({ label: state.has.map(k => HAS_LABEL[k]).join('·'), key: 'has' });
+  if (state.subSubjects.length) tags.push({ label: [...new Set(state.subSubjects.map(prettySub))].slice(0, 3).join('·'), key: 'subSubjects' });
+  if (state.cut) tags.push({ label: `1등급컷 ${state.cut.min != null ? state.cut.min + '점 이상' : ''}${state.cut.min != null && state.cut.max != null ? ' ' : ''}${state.cut.max != null ? state.cut.max + '점 이하' : ''}`, key: 'cut' });
+  if (state.sort) tags.push({ label: SORT_LABEL[state.sort], key: 'sort' });
   if (state.subSubject !== 'all') tags.push({ label: prettySub(state.subSubject), key: 'subSubject' });
   if (state.tier !== 'all') {
     const tiers = Array.isArray(state.tier) ? state.tier : [state.tier];
@@ -1228,6 +1246,14 @@ $('activeTags').addEventListener('click', e => {
     renderSubjectFilter();
   } else if (key === 'subjects') {
     state.subjects = [];
+  } else if (key === 'has') {
+    state.has = [];
+  } else if (key === 'subSubjects') {
+    state.subSubjects = [];
+  } else if (key === 'cut') {
+    state.cut = null;
+  } else if (key === 'sort') {
+    state.sort = '';
   } else if (key === 'subSubject') {
     state.subSubject = 'all';
     renderSubjectFilter();
@@ -1369,7 +1395,7 @@ async function runSmartSearch(q) {
     f = (await r.json()).filters;
   } catch { return; }
   if (!f || state.query !== q) return;                       // 그새 검색어가 바뀜
-  const keys = ['tab', 'typeGroup', 'type', 'tier', 'subjects', 'years'].filter(k => f[k]);
+  const keys = ['tab', 'typeGroup', 'type', 'tier', 'subjects', 'subSubjects', 'subSubject', 'years', 'parity', 'has', 'cut', 'sort'].filter(k => f[k]);
   if (!keys.length) return;
 
   const tab = f.tab && getTabConf(f.tab) ? f.tab : state.tab;
@@ -1383,15 +1409,22 @@ async function runSmartSearch(q) {
     if (f.subjects.length === 1) url.searchParams.set('subject', f.subjects[0]);
     else url.searchParams.set('subjects', f.subjects.join(','));
   }
+  if (f.has) url.searchParams.set('has', f.has.join(','));
+  if (f.subSubjects) url.searchParams.set('subSubjects', f.subSubjects.join(','));
+  if (f.subSubject) url.searchParams.set('subSubject', f.subSubject);
+  if (f.cut) url.searchParams.set('cut', `${f.cut.min ?? ''}-${f.cut.max ?? ''}`);
+  if (f.sort) url.searchParams.set('sort', f.sort);
   if (f.text) url.searchParams.set('q', f.text);
   smartFrom = { q, href: location.href };
   history.pushState({ smart: q }, '', url);
   if (!await replaceExamsForTab(tab)) return;
   applyUrlState();
-  if (f.years) {                                              // 학년도 범위 → 이 탭에 있는 학년도만
-    const ys = availableGradeYears().filter(y => typeof y === 'number' && y >= f.years.from && y <= f.years.to).map(String);
+  if (f.years || f.parity) {                                  // 학년도 범위·짝홀 → 이 탭에 있는 학년도만
+    const from = f.years?.from ?? 0, to = f.years?.to ?? 9999;
+    const ys = availableGradeYears().filter(y => typeof y === 'number' && y >= from && y <= to
+      && (!f.parity || (y % 2 === (f.parity === 'even' ? 0 : 1) && curriculumOfGradeYear(y)?.id !== '예비'))).map(String);
     // 이 탭에 없는 학년도(예: 2030학년도)면 조건을 버리지 말고 '해당 없음'으로 — 전부 보여 주면 오해
-    state.gradeYear = ys.length === 1 ? ys[0] : ys.length ? ys : [String(f.years.from)];
+    state.gradeYear = ys.length === 1 ? ys[0] : ys.length ? ys : [String(from)];
   }
   document.querySelectorAll('.nav-tab').forEach(b => {
     const on = b.dataset.tab === state.tab;
