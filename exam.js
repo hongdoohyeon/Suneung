@@ -1,14 +1,14 @@
 'use strict';
-import { CURRICULUM_CONFIG, getTypeConf, prettySub } from './config.js?v=895fd1eba9cbb3f760cf';
-import { escHtml as _escHtml, escAttr, safeUrl as _safeUrl, $ as _$ } from './lib/dom.js?v=895fd1eba9cbb3f760cf';
-import { setMeta, setMetaProp, setCanonical, injectJsonLd as _injectJsonLd, applySeo } from './lib/seo.js?v=895fd1eba9cbb3f760cf';
-import { renderAllAdSlots } from './lib/ads.js?v=895fd1eba9cbb3f760cf';
-import { renderPdf, renderPreviewCover, renderUnsupported, renderEmpty, urlExtension } from './lib/exam-pdf.js?v=895fd1eba9cbb3f760cf';
-import { LOADING_PREVIEWS } from './lib/loading-previews.js?v=895fd1eba9cbb3f760cf';
-import { renderGradeDist } from './lib/exam-gradedist.js?v=895fd1eba9cbb3f760cf';
-import { pushRecent } from './lib/recent.js?v=895fd1eba9cbb3f760cf';
-import { shareLink } from './lib/share.js?v=895fd1eba9cbb3f760cf';
-import { enableForcedDownloads } from './lib/download.js?v=895fd1eba9cbb3f760cf';
+import { CURRICULUM_CONFIG, getTypeConf, prettySub } from './config.js?v=a9c89144771bf6640cda';
+import { escHtml as _escHtml, escAttr, safeUrl as _safeUrl, $ as _$ } from './lib/dom.js?v=a9c89144771bf6640cda';
+import { setMeta, setMetaProp, setCanonical, injectJsonLd as _injectJsonLd, applySeo } from './lib/seo.js?v=a9c89144771bf6640cda';
+import { renderAllAdSlots } from './lib/ads.js?v=a9c89144771bf6640cda';
+import { renderPdf, renderPreviewCover, renderUnsupported, renderEmpty, urlExtension } from './lib/exam-pdf.js?v=a9c89144771bf6640cda';
+import { LOADING_PREVIEWS } from './lib/loading-previews.js?v=a9c89144771bf6640cda';
+import { renderGradeDist } from './lib/exam-gradedist.js?v=a9c89144771bf6640cda';
+import { pushRecent } from './lib/recent.js?v=a9c89144771bf6640cda';
+import { shareLink } from './lib/share.js?v=a9c89144771bf6640cda';
+import { enableForcedDownloads } from './lib/download.js?v=a9c89144771bf6640cda';
 
 enableForcedDownloads();
 
@@ -285,7 +285,7 @@ async function main() {
   // 단건 split 미배포 환경 폴백: 통합 exams.json
   if (!exam) {
     try {
-      const res = await fetch('data/exams.json?v=895fd1eba9cbb3f760cf');
+      const res = await fetch('data/exams.json?v=a9c89144771bf6640cda');
       if (res.ok) {
         const exams = await res.json();
         exam = exams.find(e => e.id === id) ?? null;
