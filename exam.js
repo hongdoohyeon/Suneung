@@ -1,14 +1,14 @@
 'use strict';
-import { CURRICULUM_CONFIG, getTypeConf, prettySub } from './config.js?v=f049e870a901971b7100';
-import { escHtml as _escHtml, escAttr, safeUrl as _safeUrl, $ as _$ } from './lib/dom.js?v=f049e870a901971b7100';
-import { setMeta, setMetaProp, setCanonical, injectJsonLd as _injectJsonLd, applySeo } from './lib/seo.js?v=f049e870a901971b7100';
-import { renderAllAdSlots } from './lib/ads.js?v=f049e870a901971b7100';
-import { renderPdf, renderPreviewCover, renderUnsupported, renderEmpty, urlExtension } from './lib/exam-pdf.js?v=f049e870a901971b7100';
-import { LOADING_PREVIEWS } from './lib/loading-previews.js?v=f049e870a901971b7100';
-import { renderGradeDist } from './lib/exam-gradedist.js?v=f049e870a901971b7100';
-import { pushRecent } from './lib/recent.js?v=f049e870a901971b7100';
-import { shareLink } from './lib/share.js?v=f049e870a901971b7100';
-import { enableForcedDownloads } from './lib/download.js?v=f049e870a901971b7100';
+import { CURRICULUM_CONFIG, getTypeConf, prettySub } from './config.js?v=d84ebbf5287321c66742';
+import { escHtml as _escHtml, escAttr, safeUrl as _safeUrl, $ as _$ } from './lib/dom.js?v=d84ebbf5287321c66742';
+import { setMeta, setMetaProp, setCanonical, injectJsonLd as _injectJsonLd, applySeo } from './lib/seo.js?v=d84ebbf5287321c66742';
+import { renderAllAdSlots } from './lib/ads.js?v=d84ebbf5287321c66742';
+import { renderPdf, renderPreviewCover, renderUnsupported, renderEmpty, urlExtension } from './lib/exam-pdf.js?v=d84ebbf5287321c66742';
+import { LOADING_PREVIEWS } from './lib/loading-previews.js?v=d84ebbf5287321c66742';
+import { renderGradeDist } from './lib/exam-gradedist.js?v=d84ebbf5287321c66742';
+import { pushRecent } from './lib/recent.js?v=d84ebbf5287321c66742';
+import { shareLink } from './lib/share.js?v=d84ebbf5287321c66742';
+import { enableForcedDownloads } from './lib/download.js?v=d84ebbf5287321c66742';
 
 enableForcedDownloads();
 
@@ -285,7 +285,7 @@ async function main() {
   // 단건 split 미배포 환경 폴백: 통합 exams.json
   if (!exam) {
     try {
-      const res = await fetch('data/exams.json?v=f049e870a901971b7100');
+      const res = await fetch('data/exams.json?v=d84ebbf5287321c66742');
       if (res.ok) {
         const exams = await res.json();
         exam = exams.find(e => e.id === id) ?? null;
@@ -331,7 +331,7 @@ async function main() {
         button.disabled = true;
         button.textContent = '불러오는 중…';
         qViewer.querySelector('.preview__loading')?.classList.add('is-loading');
-        renderPdf(exam.questionUrl, qViewer, qMeta);
+        renderPdf(exam.questionUrl, qViewer, qMeta, { inkKey: `exam-${exam.id}` });
       }, { once: true });
     } else {
       renderUnsupported(qViewer, ext ?? '파일', exam.questionUrl, exam.questionDownload);
