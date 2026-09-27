@@ -851,19 +851,24 @@ function renderCards() {
   empty.style.display = 'none';
   grid.style.display  = '';
 
-  const totalPages = Math.max(1, Math.ceil(data.length / PAGE_SIZE));
-  state.page = Math.min(Math.max(1, state.page), totalPages);
-  const shown = data.slice((state.page - 1) * PAGE_SIZE, state.page * PAGE_SIZE);
+  loadCuts();   // 표·카드 어느 보기로 시작해도 1등급컷·난이도를 받는다
   if (viewMode === 'table') {
+    // 표 보기는 회차 단위로 페이지를 나눈다 — 한 회차가 두 페이지에 걸쳐 제목이 겹치지 않게
+    const pages = paginateGroups(groupBySet(data), PAGE_SIZE);
+    state.page = Math.min(Math.max(1, state.page), pages.length);
     grid.className = 'results results--table';
-    grid.innerHTML = tableHTML(shown);
+    grid.innerHTML = tableHTML(pages[state.page - 1]);
     const inline = grid.querySelector('[data-ad-position]');
     if (inline) renderAdSlot(inline, inline.dataset.adPosition);
+    renderPagination(state.page, pages.length, data.length);
   } else {
+    const totalPages = Math.max(1, Math.ceil(data.length / PAGE_SIZE));
+    state.page = Math.min(Math.max(1, state.page), totalPages);
+    const shown = data.slice((state.page - 1) * PAGE_SIZE, state.page * PAGE_SIZE);
     grid.className = 'grid';
     grid.innerHTML = shown.map((e, i) => { try { return cardHTML(e, i); } catch(_) { return ''; } }).join('');
+    renderPagination(state.page, totalPages, data.length);
   }
-  renderPagination(state.page, totalPages, data.length);
 }
 
 function renderPagination(current, total, totalItems) {
@@ -965,15 +970,44 @@ function actionsHTML(exam) {
   return out.join('');
 }
 
-function tableHTML(list) {
-  loadCuts();
-  const groups = [];
+// 같은 회차끼리 묶는다 — 정렬상 떨어져 있어도(예: 같은 해 사관·경찰 과목이 번갈아 나옴)
+// 처음 나온 순서를 유지한 채 한 묶음으로 모은다.
+function groupBySet(list) {
+  const map = new Map();
   for (const e of list) {
     const k = setKey(e);
-    const last = groups[groups.length - 1];
-    if (last && last.key === k) last.items.push(e);
-    else groups.push({ key: k, items: [e] });
+    if (!map.has(k)) map.set(k, { key: k, items: [] });
+    map.get(k).items.push(e);
   }
+  return [...map.values()];
+}
+
+// 화면에 보이는 줄 수 — 탐구 등 3과목 이상 영역은 한 줄로 접히므로 1줄로 센다 (tableHTML 과 같은 규칙)
+function visibleRows(g) {
+  const folds = new Map();
+  let n = 0;
+  for (const e of g.items) {
+    if (FOLD_SUBJECTS.has(e.subject) && state.subject !== e.subject && e.subSubject) folds.set(e.subject, (folds.get(e.subject) || 0) + 1);
+    else n++;
+  }
+  for (const c of folds.values()) n += c >= 3 ? 1 : c;
+  return n;
+}
+
+// 회차 묶음 단위 페이지 — 보이는 줄이 대략 size 가 되도록, 회차를 쪼개지 않는다
+function paginateGroups(groups, size) {
+  const pages = [];
+  let cur = [], n = 0;
+  for (const g of groups) {
+    const rows = visibleRows(g);
+    if (cur.length && n + rows > size) { pages.push(cur); cur = []; n = 0; }
+    cur.push(g); n += rows;
+  }
+  if (cur.length) pages.push(cur);
+  return pages.length ? pages : [[]];
+}
+
+function tableHTML(groups) {
   const arrow = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
   const chev = '<svg class="rfold__chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>';
   return groups.map((g, gi) => {
