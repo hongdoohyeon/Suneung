@@ -1158,7 +1158,12 @@ def exam_set_title(it: dict) -> str:
 
 
 def exam_sub_label(it: dict) -> str:
-    parts = [exam_set_title(it) if it.get('typeGroup') != 'essay' else f'{it.get("subject")} 수시 논술고사']
+    tg = it.get('typeGroup')
+    if tg == 'education':   # 제목에 이미 연·월·학년이 있어 주관 정보만
+        return '전국연합학력평가 · 시·도교육청 주관'
+    if tg == 'ged':
+        return f'{it.get("curriculum")} 학력 검정고시 · 시·도교육청 시행'
+    parts = [exam_set_title(it) if tg != 'essay' else f'{it.get("subject")} 수시 논술고사']
     held = _held_label(it)
     if held and it.get('typeGroup') not in ('education', 'ged'):   # 학평·검정고시는 제목에 이미 연·월
         parts.append(f'{held} 시행')
