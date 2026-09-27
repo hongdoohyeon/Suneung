@@ -309,6 +309,11 @@ main { flex: 1 0 auto; width: 100%; }
 :root[data-spoiler="on"] .rfold__dist { display: none; }
 :root[data-spoiler="on"] .stat__value.spoil-val { display: block; width: 88px; color: transparent !important; background: var(--surface-2); border-radius: 8px; filter: none; }
 :root[data-spoiler="on"] .stat__value.spoil-val small { color: transparent !important; }
+.smart-note { display: flex; align-items: center; gap: 10px; margin: 0 0 12px; padding: 10px 12px 10px 14px; border-radius: 12px; background: var(--tb-suneung-bg); color: var(--ink-2); font-size: 13.5px; }
+.smart-note[hidden] { display: none; }
+.smart-note svg { width: 18px; height: 18px; flex: none; color: var(--tb-suneung); }
+.smart-note span { flex: 1; min-width: 0; }
+.smart-note b { font-weight: 700; color: var(--ink); }
 :root:not([data-spoiler="on"]) .spoil-note { display: none !important; }
 .spoil-note {
   display: flex; align-items: center; gap: 10px; padding: 10px 10px 10px 14px; margin-bottom: 12px;

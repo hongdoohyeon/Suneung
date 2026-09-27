@@ -2,7 +2,7 @@
 import {
   CURRICULUM_CONFIG, EXAM_TYPE_CONFIG, TAB_CONFIG,
   getTypeConf, getTabConf, prettySub, searchAliasOf, ALIAS_KEYS_DESC,
-} from './config.js?v=a9c89144771bf6640cda';
+} from './config.js?v=80279a6bca06a456da77';
 
 // ── 검색 정규화 ─────────────────────────────────────────────
 // 로마자 숫자(Ⅰ/Ⅱ/Ⅲ) → 아라비아, 한자(一/二/三) → 아라비아, 소문자, 공백 제거.
@@ -437,6 +437,7 @@ export const state = {
 
   subject:    'all',
   subSubject: 'all',
+  subjects:   [],      // 여러 영역 동시(스마트 검색 "국어랑 수학") — subject 와 따로
 
   tier:       'all',   // 난이도(역대 대비) 1~5 — 다중 선택
   cuts:       null,    // data/archive/cuts.json (app.js 가 로드) — id → [원점수컷, 표점컷, 난이도, 절대평가]
@@ -456,6 +457,7 @@ export function resetFilters() {
   state.gradeYear  = 'all';
   state.subject    = 'all';
   state.subSubject = 'all';
+  state.subjects   = [];
   state.tier       = 'all';
   state.query      = '';
   state.page       = 1;
@@ -610,6 +612,7 @@ export function filtered() {
     if (!matchMulti(state.type, e.type)) return false;
     if (!matchMulti(state.gradeYear, String(e.gradeYear))) return false;
     if (state.subject    !== 'all' && e.subject    !== state.subject)          return false;
+    if (state.subjects.length && !state.subjects.includes(e.subject))          return false;
     if (state.subSubject !== 'all') {
       // 논술은 계열 버킷(인문/자연) 필터 — 세부 트랙명('자연1 수학' 등)을 키워드로 분류
       if (e.typeGroup === 'essay' && (state.subSubject === '인문' || state.subSubject === '자연')) {

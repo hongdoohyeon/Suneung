@@ -1,18 +1,18 @@
 'use strict';
-import { enableForcedDownloads } from './lib/download.js?v=a9c89144771bf6640cda';
+import { enableForcedDownloads } from './lib/download.js?v=80279a6bca06a456da77';
 enableForcedDownloads();
 import {
   CURRICULUM_CONFIG, EXAM_TYPE_CONFIG, TAB_CONFIG,
   getTypeConf, getGroupConf, getTabConf, legacyTabKey, prettySub,
-} from './config.js?v=a9c89144771bf6640cda';
+} from './config.js?v=80279a6bca06a456da77';
 import {
   state, PAGE_SIZE,
   resetFilters, toggleMulti,
   getDisplayYear, availableGradeYears,
   filtered, subjectCounts,
   tabCurriculums, tabCurriculumConfs, tabSubjects, curriculumOfGradeYear,
-} from './state.js?v=a9c89144771bf6640cda';
-import { renderAllAdSlots, renderAdSlot } from './lib/ads.js?v=a9c89144771bf6640cda';
+} from './state.js?v=80279a6bca06a456da77';
+import { renderAllAdSlots, renderAdSlot } from './lib/ads.js?v=80279a6bca06a456da77';
 
 const tabConf = () => getTabConf(state.tab);
 
@@ -40,7 +40,7 @@ const tabIsSingleType = () => {
 
 // 검색 첫 진입에서 9MB 전체 목록을 받지 않고 현재 탭 split만 로드한다.
 // CI render-site.py가 data/archive/{tab}.json을 exams.json에서 생성한다.
-const DATA_VERSION = 'a9c89144771bf6640cda';
+const DATA_VERSION = '80279a6bca06a456da77';
 const FULL_DATA_URL = `data/exams.json?v=${DATA_VERSION}`;
 const tabDataCache = new Map();
 let fullDataCache = null;
@@ -80,7 +80,7 @@ document.addEventListener('toggle', e => {
 // 모든 필터 상태를 URL searchParams 에 반영해 뒤로가기·새로고침·링크 공유 시 복원.
 // 다중 선택은 쉼표로 직렬화. "all"·빈 상태는 URL에서 키 자체를 제거해 짧게 유지.
 
-const URL_KEYS = ['tab','typeGroup','type','gradeYear','subject','subSubject','tier','q','search','page'];
+const URL_KEYS = ['tab','typeGroup','type','gradeYear','subject','subjects','subSubject','tier','q','search','page'];
 
 function serializeMulti(v) {
   if (v === 'all' || v == null) return '';
@@ -156,6 +156,11 @@ function applyUrlState() {
     state.subSubject = sub === 'all' || allSubs.has(sub) ? sub : 'all';
   }
 
+  if (params.has('subjects')) {
+    const known = tabSubjects();
+    state.subjects = (params.get('subjects') || '').split(',').filter(s => known[s]);
+  }
+
   if (params.has('tier')) {
     state.tier = allowMulti(parseMulti(params.get('tier')), new Set(['1', '2', '3', '4', '5']));
     loadCuts();
@@ -203,6 +208,7 @@ function buildUrlFromState() {
 
   if (state.subject    && state.subject    !== 'all') url.searchParams.set('subject', state.subject);
   if (state.subSubject && state.subSubject !== 'all') url.searchParams.set('subSubject', state.subSubject);
+  if (state.subjects.length) url.searchParams.set('subjects', state.subjects.join(','));
   const tr = serializeMulti(state.tier);
   if (tr) url.searchParams.set('tier', tr);
   if (state.query) url.searchParams.set('q', state.query);
@@ -222,7 +228,8 @@ function persistArchiveState() {
 
 // 필터 변경 — 현재 history entry 의 URL 만 교체 (history 깊이 보존)
 function syncUrl() {
-  history.replaceState({}, '', buildUrlFromState());
+  // 스마트 검색 결과를 다듬는 중이면 표시(원래 검색어로)를 유지
+  history.replaceState(history.state?.smart ? history.state : {}, '', buildUrlFromState());
   persistArchiveState();
 }
 
@@ -363,6 +370,7 @@ function render(skipSubjectFilter = false) {
   renderActiveTags();
   updateFilterBadge();
   if (!skipSubjectFilter) renderSubjectFilter();
+  renderSmartNote();
 }
 
 // ── 교육과정 탭 ─────────────────────────────────────────────
@@ -716,6 +724,7 @@ $('searchInput').addEventListener('input', e => {
     state.page = 1;
     render();
     syncUrl();
+    maybeSmartSearch(state.query);
   }, 180);
 });
 $('clearSearch').addEventListener('click', () => {
@@ -1170,6 +1179,7 @@ function renderActiveTags() {
     tags.push({ label: labels.join('·'), key: 'gradeYear' });
   }
   if (state.subject    !== 'all') tags.push({ label: state.subject,    key: 'subject' });
+  if (state.subjects.length) tags.push({ label: state.subjects.join('·'), key: 'subjects' });
   if (state.subSubject !== 'all') tags.push({ label: prettySub(state.subSubject), key: 'subSubject' });
   if (state.tier !== 'all') {
     const tiers = Array.isArray(state.tier) ? state.tier : [state.tier];
@@ -1215,6 +1225,8 @@ $('activeTags').addEventListener('click', e => {
   } else if (key === 'subject') {
     state.subject = state.subSubject = 'all';
     renderSubjectFilter();
+  } else if (key === 'subjects') {
+    state.subjects = [];
   } else if (key === 'subSubject') {
     state.subSubject = 'all';
     renderSubjectFilter();
@@ -1332,6 +1344,73 @@ window.addEventListener('popstate', async () => {
   applyUrlState();
   renderFilterPanel();
   render();
+  renderSmartNote();
+});
+
+// ── 스마트 검색 ─────────────────────────────────────────────
+// "15개정 이후 고난도 수학이랑 국어" 같은 말을 필터로 바꾼다 (kicegg.com/api/search — 규칙 + JEV).
+// 목록 검색을 먼저 보여 주고, 자연어처럼 보이거나 결과가 없을 때만 묻는다.
+const NATURAL = /이후|이전|부터|까지|최근|작년|올해|재작년|어려|쉬운|쉬웠|쉽게|고난도|킬러|불\s*수능|물\s*수능|개정|이랑|하고|그리고|위주|역대|평이|변별|[가-힣]랑\s/;
+let smartTimer = 0, smartCtl = null, smartFrom = null;
+function maybeSmartSearch(q) {
+  clearTimeout(smartTimer);
+  smartCtl?.abort();
+  if (q.length < 3 || q.length > 80) return;
+  if (!NATURAL.test(q) && filtered().length) return;
+  smartTimer = setTimeout(() => runSmartSearch(q), 350);
+}
+async function runSmartSearch(q) {
+  smartCtl = new AbortController();
+  let f;
+  try {
+    const r = await fetch(`api/search?q=${encodeURIComponent(q)}`, { signal: smartCtl.signal });
+    if (!r.ok) return;
+    f = (await r.json()).filters;
+  } catch { return; }
+  if (!f || state.query !== q) return;                       // 그새 검색어가 바뀜
+  const keys = ['tab', 'typeGroup', 'type', 'tier', 'subjects', 'years'].filter(k => f[k]);
+  if (!keys.length) return;
+
+  const tab = f.tab && getTabConf(f.tab) ? f.tab : state.tab;
+  const url = new URL(location.href);
+  for (const k of URL_KEYS) url.searchParams.delete(k);
+  url.searchParams.set('tab', tab);
+  if (f.typeGroup) url.searchParams.set('typeGroup', f.typeGroup);
+  if (f.type) url.searchParams.set('type', f.type.join(','));
+  if (f.tier) url.searchParams.set('tier', f.tier.join(','));
+  if (f.subjects) {
+    if (f.subjects.length === 1) url.searchParams.set('subject', f.subjects[0]);
+    else url.searchParams.set('subjects', f.subjects.join(','));
+  }
+  if (f.text) url.searchParams.set('q', f.text);
+  smartFrom = { q, href: location.href };
+  history.pushState({ smart: q }, '', url);
+  if (!await replaceExamsForTab(tab)) return;
+  applyUrlState();
+  if (f.years) {                                              // 학년도 범위 → 이 탭에 있는 학년도만
+    const ys = availableGradeYears().filter(y => typeof y === 'number' && y >= f.years.from && y <= f.years.to).map(String);
+    if (ys.length) state.gradeYear = ys.length === 1 ? ys[0] : ys;
+  }
+  document.querySelectorAll('.nav-tab').forEach(b => {
+    const on = b.dataset.tab === state.tab;
+    b.classList.toggle('is-active', on);
+    if (on) b.setAttribute('aria-current', 'true'); else b.removeAttribute('aria-current');
+  });
+  renderFilterPanel();
+  render();
+  history.replaceState({ smart: q }, '', buildUrlFromState());
+  persistArchiveState();
+  renderSmartNote();
+}
+function renderSmartNote() {
+  const el = $('smartNote');
+  if (!el) return;
+  const on = history.state?.smart && smartFrom && history.state.smart === smartFrom.q;
+  el.hidden = !on;
+  if (on) el.querySelector('b').textContent = `“${smartFrom.q}”`;
+}
+$('smartNote')?.addEventListener('click', e => {
+  if (e.target.closest('[data-smart-undo]')) history.back();
 });
 
 // ── 보기 방식 전환 ────────────────────────────────────────
