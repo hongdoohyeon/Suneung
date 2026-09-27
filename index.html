@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#f4f4f5" />
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://static.cloudflareinsights.com https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; font-src 'self' data:; img-src 'self' data: https:; connect-src 'self' https://suneung-files.hdh061224.workers.dev https://cloudflareinsights.com https://www.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com https://www.google.com; media-src 'self' https://suneung-files.hdh061224.workers.dev; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'self'" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://static.cloudflareinsights.com https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; font-src 'self' data:; img-src 'self' data: https:; connect-src 'self' https://suneung-files.hdh061224.workers.dev https://wdown.ebsi.co.kr https://cloudflareinsights.com https://www.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com https://www.google.com; media-src 'self' https://suneung-files.hdh061224.workers.dev; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'self'" />
   <meta name="referrer" content="strict-origin-when-cross-origin" />
   <meta name="naver-site-verification" content="b3138c38039611bed2ce955aa7102ab33011cf14" />
   <meta name="description" content="문제지·정답·해설지·등급컷·영어 듣기 MP3·듣기 대본까지 수능·평가원·교육청·사관·경찰대·LEET·MEET 기출을 한 곳에서." />
@@ -58,15 +58,20 @@
     ]
   }
   </script>
+
   <title>수능·평가원·학평 기출 PDF·등급컷·영어 듣기 — 기출해체분석기</title>
-  <link rel="stylesheet" href="lib/vendor/pretendard/pretendardvariable-dynamic-subset.css?v=8819085e3f8a2a6af68e" />
-  <link rel="stylesheet" href="style.css?v=8819085e3f8a2a6af68e" />
-  <script src="lib/site-prefs.js?v=8819085e3f8a2a6af68e"></script>
-  <script src="lib/measure.js?v=8819085e3f8a2a6af68e" async></script>
+  <link rel="stylesheet" href="lib/vendor/pretendard/pretendardvariable-dynamic-subset.css?v=895fd1eba9cbb3f760cf" />
+  <link rel="stylesheet" href="style.css?v=895fd1eba9cbb3f760cf" />
+  <script src="lib/site-prefs.js?v=895fd1eba9cbb3f760cf"></script>
+  <link rel="modulepreload" href="app.js?v=895fd1eba9cbb3f760cf" />
+  <link rel="modulepreload" href="config.js?v=895fd1eba9cbb3f760cf" />
+  <link rel="modulepreload" href="state.js?v=895fd1eba9cbb3f760cf" />
+  <script src="lib/measure.js?v=895fd1eba9cbb3f760cf" defer></script>
 </head>
-<body class="page-landing">
+<body class="page-archive">
   <a href="#main" class="skip-link">본문 건너뛰기</a>
 
+  <!-- ── Header ─────────────────────────────────────────── -->
   <header class="site-header">
     <div class="container site-header__inner">
       <a href="index.html" class="brand" aria-label="기출해체분석기 홈">
@@ -111,28 +116,247 @@
     </nav>
   </header>
 
-  <main id="main" class="home">
-    <section class="home-hero" aria-labelledby="homeTitle">
-      <h1 class="home-hero__title" id="homeTitle">기출 PDF·등급컷을 한 곳에서</h1>
-      <p class="home-hero__sub">수능·평가원·학평부터 논술·사관·검정고시까지 <span id="trustExamCount">9,600여 건</span></p>
-      <form class="home-search" action="archive.html" method="get" role="search">
-        <input type="hidden" name="tab" value="all" />
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
-        <input type="search" name="search" placeholder="26수능 영어 듣기, 25 9모 국어, 2403 미적"
-               data-placeholder-mobile="26수능 영어, 25 9모 국어" autocomplete="off" enterkeyhint="search" aria-label="기출 검색" />
-        <button type="submit">검색</button>
-      </form>
-      <p class="home-examples">예시
-        <a href="archive.html?tab=all&amp;q=26%EC%88%98%EB%8A%A5%20%EC%98%81%EC%96%B4%20%EB%93%A3%EA%B8%B0">26수능 영어 듣기</a>
-        <a href="archive.html?tab=all&amp;q=2403%20%EA%B5%AD%EC%96%B4">2403 국어</a>
-        <a href="archive.html?tab=all&amp;q=26%209%EB%AA%A8%20%EB%AF%B8%EC%A0%81">26 9모 미적</a>
-        <a href="archive.html?tab=essay">대학별 논술</a>
-      </p>
-      <div id="ddayBanner" class="dday-banner" aria-live="polite"></div>
-      <script type="module" src="lib/landing.js?v=8819085e3f8a2a6af68e"></script>
-    </section>
+  <section class="page-header" aria-labelledby="archive-title">
+    <div class="page-header__inner">
+      <h1 class="page-header__title" id="archive-title">기출검색</h1>
+      <p class="page-header__sub">문제지·정답·등급컷·해설지·영어 듣기 MP3·듣기 대본을 학년도, 월, 과목으로 필터.</p>
+      <div class="page-header__meta">
+        <span><strong id="archiveTotalCount">—</strong>건 수록</span>
+        <span>자료 갱신일 · <strong id="archiveUpdateDate">—</strong></span>
+      </div>
+    </div>
+  </section>
 
-    <section class="home-sec" aria-labelledby="latestTitle">
+  <!-- ── Curriculum Nav ─────────────────────────────────── -->
+  <nav class="curriculum-nav" id="curriculumTabs" aria-label="시험 선택">
+    <select id="categorySelect" class="curriculum-nav__select" aria-label="시험 종류 선택"></select>
+    <div class="curriculum-nav__inner hscroll">
+
+      <div class="nav-group">
+        <div class="nav-group__tabs">
+          <button class="nav-tab is-active" data-tab="senior" aria-current="true">
+            <span class="nav-tab__title">고3</span>
+            <span class="nav-tab__sub">수능·평가원·학평</span>
+          </button>
+          <button class="nav-tab" data-tab="mp">
+            <span class="nav-tab__title">사관·경찰</span>
+            <span class="nav-tab__sub">1차 시험</span>
+          </button>
+          <button class="nav-tab" data-tab="gradschool">
+            <span class="nav-tab__title">LEET·MEET</span>
+            <span class="nav-tab__sub">전문대학원</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="nav-sep" aria-hidden="true"></div>
+
+      <div class="nav-group">
+        <div class="nav-group__tabs">
+          <button class="nav-tab" data-tab="junior">
+            <span class="nav-tab__title">고2</span>
+            <span class="nav-tab__sub">학력평가</span>
+          </button>
+          <button class="nav-tab" data-tab="freshman">
+            <span class="nav-tab__title">고1</span>
+            <span class="nav-tab__sub">학력평가</span>
+          </button>
+          <button class="nav-tab" data-tab="essay">
+            <span class="nav-tab__title">논술</span>
+            <span class="nav-tab__sub">대학별 기출</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="nav-sep" aria-hidden="true"></div>
+
+      <div class="nav-group">
+        <div class="nav-group__tabs">
+          <button class="nav-tab" data-tab="gedhigh">
+            <span class="nav-tab__title">고졸</span>
+            <span class="nav-tab__sub">검정고시</span>
+          </button>
+          <button class="nav-tab" data-tab="gedmid">
+            <span class="nav-tab__title">중졸</span>
+            <span class="nav-tab__sub">검정고시</span>
+          </button>
+          <button class="nav-tab" data-tab="gedelem">
+            <span class="nav-tab__title">초졸</span>
+            <span class="nav-tab__sub">검정고시</span>
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </nav>
+
+  <!-- ── Main ───────────────────────────────────────────── -->
+  <main id="main" class="container main">
+
+    <!-- Sidebar / Mobile Bottom Sheet -->
+    <aside class="filter" id="filterPanel" aria-label="필터" role="region" aria-labelledby="filterSheetTitle">
+
+      <!-- 모바일 바텀시트 핸들 + 닫기 (데스크톱에서는 숨김) -->
+      <div class="filter__sheet-head" aria-hidden="false">
+        <span class="filter__sheet-handle" aria-hidden="true"></span>
+        <h2 class="filter__sheet-title" id="filterSheetTitle">필터</h2>
+        <button class="filter__sheet-close" id="filterSheetClose"
+                type="button" aria-label="필터 닫기">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+               stroke-width="2" stroke-linecap="round">
+            <line x1="18" y1="6"  x2="6"  y2="18"/>
+            <line x1="6"  y1="6"  x2="18" y2="18"/>
+          </svg>
+        </button>
+      </div>
+
+      <div class="filter__section" id="typeGroupBlock">
+        <h3 class="filter__title">시험</h3>
+        <div class="pill-row" id="typeGroupFilter"></div>
+        <div class="subtype-row" id="subtypeRow">
+          <div class="subtype-row__inner">
+            <div class="pill-row" id="typeFilter"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="filter__section">
+        <div class="filter__title-row">
+          <h3 class="filter__title" id="yearLabel">학년도</h3>
+          <span class="filter__hint" id="yearNote"></span>
+        </div>
+        <div class="year-row" id="yearFilter"></div>
+      </div>
+
+      <div class="filter__section">
+        <h3 class="filter__title">영역</h3>
+        <div id="subjectFilter"></div>
+      </div>
+
+      <div class="filter__section">
+        <div class="filter__title-row">
+          <h3 class="filter__title">난이도</h3>
+          <span class="filter__hint">역대 1등급컷 대비</span>
+        </div>
+        <div class="pill-row" id="tierFilter"></div>
+      </div>
+
+      <!-- 모바일 시트 하단 적용 버튼 — 결과 수 동적 표시 -->
+      <div class="filter__sheet-actions">
+        <button class="btn btn--ghost" id="filterSheetReset" type="button">초기화</button>
+        <button class="btn btn--primary" id="filterSheetApply" type="button">
+          결과 <span id="filterSheetCount">—</span>건 보기
+        </button>
+      </div>
+
+    </aside>
+
+    <!-- Backdrop (모바일 시트 전용) -->
+    <div class="filter-backdrop" id="filterBackdrop" hidden></div>
+
+    <!-- Content -->
+    <section class="content">
+
+      <!-- Toolbar -->
+      <div class="toolbar">
+        <div class="search">
+          <svg class="search__icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+          <input id="searchInput" type="text" aria-label="기출 검색" placeholder="26수능 영어 듣기, 25 9모 미적, 2403 국어" autocomplete="off" inputmode="search" enterkeyhint="search" />
+          <button id="clearSearch" class="search__clear" style="display:none" aria-label="검색 지우기">×</button>
+        </div>
+        <button class="btn filter-toggle-inline" id="filterToggleInline"
+                aria-controls="filterPanel" aria-expanded="false" type="button">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M7 12h10M10 18h4"/></svg>
+          <span class="filter-toggle-inline__label">필터</span>
+        </button>
+        <div class="view-toggle" role="group" aria-label="보기 방식">
+          <button type="button" data-view="table" aria-pressed="true" aria-label="표로 보기"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M9 6h11M9 12h11M9 18h11M4 6h.01M4 12h.01M4 18h.01"/></svg></button>
+          <button type="button" data-view="cards" aria-pressed="false" aria-label="카드로 보기"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg></button>
+        </div>
+        <div class="toolbar__right">
+          <span id="resultCount" class="count" aria-live="polite"></span>
+          <button class="btn-text" id="resetBtn">초기화</button>
+        </div>
+      </div>
+
+      <div class="subbar">
+        <button type="button" class="switch switch--sm" role="switch" aria-checked="true" data-spoiler-toggle
+                title="등급컷·표준점수·난이도를 흐리게 가려요">스포일러 방지<span class="switch__knob" aria-hidden="true"></span></button>
+        <div id="activeTags" class="active-tags"></div>
+      </div>
+
+      <p class="spoil-note spoil-note--archive">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></svg>
+        <span><b>1등급컷 · 표준점수 · 난이도</b>를 흐리게 가려 뒀어요</span>
+        <button type="button" class="btn btn--sm" data-spoiler-off>모두 보기</button>
+      </p>
+
+      <!-- 회차 단위 진입 (filter가 (curriculum, gradeYear, type) 까지 좁혀졌을 때 표시) -->
+      <a id="examSetLink" class="examset-link" hidden href="sets.html">
+        <span class="examset-link__icon" aria-hidden="true">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+               stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="7" height="7" rx="1.5"/>
+            <rect x="14" y="3" width="7" height="7" rx="1.5"/>
+            <rect x="3" y="14" width="7" height="7" rx="1.5"/>
+            <rect x="14" y="14" width="7" height="7" rx="1.5"/>
+          </svg>
+        </span>
+        <span class="examset-link__label">이 회차 모든 영역 한 페이지에서 보기</span>
+        <span class="examset-link__arrow" aria-hidden="true">→</span>
+      </a>
+
+      <!-- Skeleton -->
+      <div id="skeleton" class="results results--table skel-table" aria-hidden="true">
+        <div class="skel-head"><i class="skel skel--badge"></i><i class="skel skel--title"></i></div>
+        <div class="skel-row"><i class="skel skel--subj"></i><i class="skel skel--btns"></i></div>
+        <div class="skel-row"><i class="skel skel--subj"></i><i class="skel skel--btns"></i></div>
+        <div class="skel-row"><i class="skel skel--subj"></i><i class="skel skel--btns"></i></div>
+        <div class="skel-row"><i class="skel skel--subj"></i><i class="skel skel--btns"></i></div>
+        <div class="skel-row"><i class="skel skel--subj"></i><i class="skel skel--btns"></i></div>
+      </div>
+
+      <!-- Cards -->
+      <div id="cardsGrid" class="results results--table" style="display:none;"></div>
+
+      <!-- Pagination -->
+      <div id="paginationWrap" class="pagination-wrap" style="display:none;"></div>
+
+      <!-- 광고: 결과 그리드 하단 -->
+      <div class="ad-slot ad-slot--banner" data-ad-position="archiveBottom"></div>
+
+      <!-- Empty -->
+      <div id="emptyState" class="empty" style="display:none;" role="status" aria-live="polite">
+        <div class="empty__illu" aria-hidden="true">
+          <svg width="120" height="96" viewBox="0 0 120 96" fill="none">
+            <!-- 빈 문서 배경 -->
+            <rect x="22" y="14" width="58" height="72" rx="6"
+                  fill="var(--surface-2)" stroke="var(--line-strong)" stroke-width="1.4"/>
+            <line x1="32" y1="32" x2="68" y2="32" stroke="var(--ink-6)" stroke-width="1.6" stroke-linecap="round"/>
+            <line x1="32" y1="42" x2="62" y2="42" stroke="var(--ink-6)" stroke-width="1.6" stroke-linecap="round"/>
+            <line x1="32" y1="52" x2="58" y2="52" stroke="var(--ink-6)" stroke-width="1.6" stroke-linecap="round"/>
+            <!-- 돋보기 -->
+            <circle cx="78" cy="64" r="18"
+                    fill="var(--surface)" stroke="var(--ink-3)" stroke-width="2.2"/>
+            <line x1="91" y1="77" x2="104" y2="90"
+                  stroke="var(--ink-3)" stroke-width="3" stroke-linecap="round"/>
+            <!-- 돋보기 안 점 3개 -->
+            <circle cx="72" cy="64" r="1.6" fill="var(--ink-4)"/>
+            <circle cx="78" cy="64" r="1.6" fill="var(--ink-4)"/>
+            <circle cx="84" cy="64" r="1.6" fill="var(--ink-4)"/>
+          </svg>
+        </div>
+        <p class="empty__title">검색 결과가 없습니다</p>
+        <p class="empty__sub">필터 조건을 줄이거나 검색어를 변경해 보세요.</p>
+        <button class="btn btn--ghost" id="emptyResetBtn" type="button">필터 초기화</button>
+        <a class="btn btn--ghost" id="searchAllLink" href="archive.html?tab=all" hidden>전체 시험에서 검색</a>
+      </div>
+
+    </section>
+  </main>
+
+  <section class="container home-more" aria-label="최근 시험과 시험 종류">
+    <div class="home-sec">
       <div class="sec-head"><h2 id="latestTitle">최근 시험</h2><a class="sec-head__more" href="sets.html">전체 회차 →</a></div>
       <!-- latest-sets:start (render-site.py 가 채움) -->
       <div class="latest-rail">
@@ -162,11 +386,8 @@
         </article>
       </div>
       <!-- latest-sets:end -->
-    </section>
-
-    <div class="container"><div class="ad-slot ad-slot--banner" data-ad-position="homeMid"></div></div>
-
-    <section class="home-sec" aria-labelledby="catTitle">
+    </div>
+    <div class="home-sec">
       <div class="sec-head"><h2 id="catTitle">시험 종류</h2></div>
       <!-- categories:start (render-site.py 가 채움) -->
       <div class="cat-grid">
@@ -178,19 +399,8 @@
         <a class="card-box cat-card" href="archive.html?tab=gedhigh"><span class="cat-card__n">758</span><span><span class="cat-card__name">검정고시</span><span class="cat-card__sub">초졸 · 중졸 · 고졸</span></span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       </div>
       <!-- categories:end -->
-    </section>
-
-    <section class="home-sec home-two">
-      <div>
-        <div class="sec-head"><h2 id="recentTitle">최근 본 시험</h2><button type="button" class="sec-head__more" id="recentClear" hidden>지우기</button></div>
-        <div class="card-box list-card" id="recentMount" aria-labelledby="recentTitle"><p class="list-card__empty">아직 본 시험이 없어요. 기출검색에서 시험을 열면 여기에 모여요.</p></div>
-      </div>
-      <div>
-        <div class="sec-head"><h2 id="upcomingTitle">다가오는 시험</h2><a class="sec-head__more" href="calendar.html">학사 일정 →</a></div>
-        <div class="card-box list-card" id="upcomingMount" aria-labelledby="upcomingTitle"><p class="list-card__empty">일정을 불러오는 중…</p></div>
-      </div>
-    </section>
-  </main>
+    </div>
+  </section>
 
   <footer class="site-footer">
     <div class="container">
@@ -200,5 +410,8 @@
       <p class="site-footer__sub">출처 · 한국교육과정평가원 · 17개 시도교육청 · 각 대학 입학처 외. 저작권은 각 발행기관에 있으며 교육 목적으로만 이용할 수 있습니다.</p>
     </div>
   </footer>
+
+  <script type="module" src="app.js?v=895fd1eba9cbb3f760cf"></script>
+  <script type="module" src="lib/dday-mount.js?v=895fd1eba9cbb3f760cf"></script>
 </body>
 </html>
