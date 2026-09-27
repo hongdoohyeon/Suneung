@@ -368,7 +368,7 @@ def _write_subject_hub(h: dict) -> None:
     sections, item_list, pos = [], [], 1
     for gy in sorted(years, key=lambda y: (y is None, -(y or 0))):
         lis = []
-        for it in sorted(years[gy], key=lambda x: (str(x.get('type') or ''), str(x.get('subSubject') or ''))):
+        for it in sorted(years[gy], key=lambda x: (str(x.get('type') or ''), bd._subject_sort_key(x))):
             lab = bd.build_exam_meta(it)['head']
             lis.append(f'<li><a href="exam-{it["id"]}.html">{bd.html_escape(lab, quote=False)}</a></li>')
             item_list.append({'@type': 'ListItem', 'position': pos,

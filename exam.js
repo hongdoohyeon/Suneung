@@ -1,14 +1,14 @@
 'use strict';
-import { CURRICULUM_CONFIG, getTypeConf, prettySub } from './config.js?v=f1b07fb430c39bc6248e';
-import { escHtml as _escHtml, escAttr, safeUrl as _safeUrl, $ as _$ } from './lib/dom.js?v=f1b07fb430c39bc6248e';
-import { setMeta, setMetaProp, setCanonical, injectJsonLd as _injectJsonLd, applySeo } from './lib/seo.js?v=f1b07fb430c39bc6248e';
-import { renderAllAdSlots } from './lib/ads.js?v=f1b07fb430c39bc6248e';
-import { renderPdf, renderPreviewCover, renderUnsupported, renderEmpty, urlExtension } from './lib/exam-pdf.js?v=f1b07fb430c39bc6248e';
-import { LOADING_PREVIEWS } from './lib/loading-previews.js?v=f1b07fb430c39bc6248e';
-import { renderGradeDist } from './lib/exam-gradedist.js?v=f1b07fb430c39bc6248e';
-import { pushRecent } from './lib/recent.js?v=f1b07fb430c39bc6248e';
-import { shareLink } from './lib/share.js?v=f1b07fb430c39bc6248e';
-import { enableForcedDownloads } from './lib/download.js?v=f1b07fb430c39bc6248e';
+import { CURRICULUM_CONFIG, getTypeConf, prettySub } from './config.js?v=5a5c338afcd808bec52e';
+import { escHtml as _escHtml, escAttr, safeUrl as _safeUrl, $ as _$ } from './lib/dom.js?v=5a5c338afcd808bec52e';
+import { setMeta, setMetaProp, setCanonical, injectJsonLd as _injectJsonLd, applySeo } from './lib/seo.js?v=5a5c338afcd808bec52e';
+import { renderAllAdSlots } from './lib/ads.js?v=5a5c338afcd808bec52e';
+import { renderPdf, renderPreviewCover, renderUnsupported, renderEmpty, urlExtension } from './lib/exam-pdf.js?v=5a5c338afcd808bec52e';
+import { LOADING_PREVIEWS } from './lib/loading-previews.js?v=5a5c338afcd808bec52e';
+import { renderGradeDist } from './lib/exam-gradedist.js?v=5a5c338afcd808bec52e';
+import { pushRecent } from './lib/recent.js?v=5a5c338afcd808bec52e';
+import { shareLink } from './lib/share.js?v=5a5c338afcd808bec52e';
+import { enableForcedDownloads } from './lib/download.js?v=5a5c338afcd808bec52e';
 
 enableForcedDownloads();
 
@@ -174,7 +174,7 @@ function renderHead(exam) {
   );
   // 공유 버튼 — 모바일 카톡·문자, 데스크톱 클립보드
   buttons.push(
-    `<button type="button" class="btn" id="examShareBtn" aria-label="공유하기"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 8l5-5 5 5M5 14v5a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-5"/></svg>공유</button>`
+    `<button type="button" class="btn" id="examShareBtn" aria-label="공유하기"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 8l5-5 5 5M5 14v5a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-5"/></svg><span class="btn__label">공유</span></button>`
   );
 
   // SSG 가 이미 다운로드 버튼을 채웠으면 (정적 진입 = 1단계 작동) — 공유 버튼만 추가, 깜빡임 방지
@@ -285,7 +285,7 @@ async function main() {
   // 단건 split 미배포 환경 폴백: 통합 exams.json
   if (!exam) {
     try {
-      const res = await fetch('data/exams.json?v=f1b07fb430c39bc6248e');
+      const res = await fetch('data/exams.json?v=5a5c338afcd808bec52e');
       if (res.ok) {
         const exams = await res.json();
         exam = exams.find(e => e.id === id) ?? null;

@@ -1110,7 +1110,27 @@ _SUNEUNG_MONTH = {'csat': 11, 'june': 6, 'sept': 9}
 # 화면 표시용 선택과목 이름 (config.js prettySub 와 동일) · 교육과정 순서
 _SUB_PRETTY = {'화법과작문': '화법과 작문', '언어와매체': '언어와 매체', '확률과통계': '확률과 통계',
                '생활과윤리': '생활과 윤리', '윤리와사상': '윤리와 사상', '정치와법': '정치와 법', '법과정치': '법과 정치'}
-_SUB_ORDER = ['화법과작문', '언어와매체', '확률과통계', '미적분', '기하']
+# 평가원 공식 선택과목 순서 (수능 시행기본계획·채점결과 표 기준). 교육과정별 과목명이 섞여 있어
+# 공백을 뺀 이름으로 비교하고, 과학탐구는 Ⅰ 과목 전부 → Ⅱ 과목 순.
+_SUB_ORDER = [
+    '화법과작문', '언어와매체', '확률과통계', '미적분', '기하', '가형', '나형', 'A형', 'B형',
+    '생활과윤리', '윤리와사상', '윤리', '국사', '한국사', '한국지리', '세계지리', '경제지리', '동아시아사',
+    '한국근현대사', '세계사', '법과사회', '법과정치', '정치', '경제', '정치와법', '사회·문화',
+    '성공적인직업생활', '농업이해', '농업기초기술', '농생명산업', '공업일반', '기초제도', '공업', '상업경제',
+    '회계원리', '상업정보', '수산·해운산업기초', '수산·해운', '해양의이해', '인간발달', '생활서비스산업의이해', '가사·실업',
+    '독일어', '프랑스어', '스페인어', '중국어', '일본어', '러시아어', '아랍어', '베트남어', '한문',
+]
+_SCIENCE_STEMS = ['물리학', '물리', '화학', '생명과학', '생물', '지구과학']
+
+
+def sub_order_key(sub) -> tuple:
+    s = str(sub or '').replace(' ', '')
+    for i, stem in enumerate(_SCIENCE_STEMS):
+        if s.startswith(stem):
+            level = 2 if s.endswith(('Ⅱ', 'II')) else 1
+            return (500 + level * 10 + i, s)
+    base = s.rstrip('ⅠI')
+    return (_SUB_ORDER.index(base) if base in _SUB_ORDER else 900, s)
 
 
 def pretty_sub(sub) -> str:
@@ -1217,9 +1237,7 @@ def _exam_sort_key(it: dict):
 
 def _subject_sort_key(it: dict):
     s = it.get('subject') or ''
-    sub = str(it.get('subSubject') or '')
-    return (_SUBJECT_ORDER.index(s) if s in _SUBJECT_ORDER else 99, s,
-            _SUB_ORDER.index(sub) if sub in _SUB_ORDER else 99, sub, it['id'])
+    return (_SUBJECT_ORDER.index(s) if s in _SUBJECT_ORDER else 99, s, sub_order_key(it.get('subSubject')), it['id'])
 
 
 def _subject_tab_label(it: dict) -> tuple[str, str]:
@@ -1632,7 +1650,9 @@ def build_static_exam_pages(items: list[dict], template_path: Path, out_root: Pa
         def _btn(cls, url, label, dl_name):
             if not url or not re.match(r'^https?://', str(url), flags=re.I): return ''
             dl_attr = f' download="{html_escape(dl_name, quote=True)}"' if dl_name else ' download'
-            return f'<a class="btn {cls}" href="{html_escape(url, quote=True)}"{dl_attr}>{html_escape(label, quote=False)}</a>'
+            # 'PDF' 표기는 폰에서 숨겨 버튼을 두 줄 안에 모은다 (HWP 는 형식이 달라 항상 표시)
+            label_html = html_escape(label, quote=False).replace(' PDF', ' <span class="btn__tag">PDF</span>')
+            return f'<a class="btn {cls}" href="{html_escape(url, quote=True)}"{dl_attr}>{label_html}</a>'
         # 영어 듣기는 최상단 — 모바일에서 자료 접근 우선
         if it.get('subject') == '영어' and listen:
             btns.append(_btn('btn--primary', listen, '듣기 MP3', it.get('listenDownload')))
@@ -1655,7 +1675,7 @@ def build_static_exam_pages(items: list[dict], template_path: Path, out_root: Pa
             '<button type="button" class="btn" id="examShareBtn" aria-label="공유하기">'
             '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" '
             'stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 8l5-5 5 5M5 14v5a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-5"/></svg>'
-            '공유</button>')
+            '<span class="btn__label">공유</span></button>')
         btns_html = ''.join(b for b in btns if b)
         html = re.sub(
             r'(<div class="exam__actions" id="examActions">)\s*(</div>)',
@@ -2063,7 +2083,7 @@ def build_static_set_pages(items: list[dict], template_path: Path, out_root: Pat
                 '</article>'
             )
         _sorted = sorted(merged_exams, key=lambda x: (
-            SUBJECT_ORDER.get(x.get('subject'), 99), x.get('subject') or '', x.get('subSubject') or ''))
+            SUBJECT_ORDER.get(x.get('subject'), 99), x.get('subject') or '', sub_order_key(x.get('subSubject'))))
         cards_html = ''.join(_static_card(x) for x in _sorted)
         html = re.sub(
             r'(<section class="examset__grid grid" id="examsetGrid">)\s*(</section>)',

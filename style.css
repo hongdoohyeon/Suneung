@@ -907,9 +907,19 @@ main { flex: 1 0 auto; width: 100%; }
   .exam { padding-top: 12px; }
   .exam__title { font-size: 26px; }
   .exam__top { gap: 14px; padding-bottom: 14px; }
-  .exam__actions { justify-content: stretch; width: 100%; }
-  .exam__actions .btn { flex: 1 1 auto; min-height: 44px; }
-  .exam__actions .btn--primary { flex-basis: 100%; }
+  /* 시험지·다운로드가 첫 화면에 오도록 머리 영역을 압축 */
+  .exam__crumb { margin-bottom: 4px; }
+  .exam__crumb a:not(#backLink), .exam__crumb-sep { display: none; }
+  .exam__sub { display: none; }
+  .exam__head { gap: 6px; }
+  .exam__actions { justify-content: flex-start; gap: 6px; width: 100%; }
+  .exam__actions .btn { flex: none; min-height: 40px; padding: 0 12px; font-size: 13.5px; border-radius: 10px; }
+  #examShareBtn { padding: 0 12px; }
+  .exam__actions .btn__tag { display: none; }
+  #examShareBtn .btn__label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+  .exam__subjects-row a { min-height: 42px; padding: 0 12px; font-size: 13.5px; }
+  .exam__subjects .exam__subjects-row--subs { padding-top: 8px; }
+  .exam__subjects-row--subs a { min-height: 34px; padding: 0 11px; }
   .exam__subjects { margin-bottom: 16px; }
   .exam__subjects-row { margin: 0 -16px; padding-left: 16px; padding-right: 16px; }
   .exam__subjects-row--subs { padding-top: 10px; }
