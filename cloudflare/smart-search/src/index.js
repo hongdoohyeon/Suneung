@@ -23,7 +23,7 @@ export default {
     const rule = ruleParse(q);
     // 규칙이 다 알아들었으면 JEV 를 부르지 않는다(비용 0)
     if (!rule.unknown) return json({ q, source: 'rules', filters: toFilters(rule, null) }, 200, { 'cache-control': 'public, max-age=86400' });
-    const cacheKey = new Request(`https://kicegg.com/api/search?v=1&q=${encodeURIComponent(q.toLowerCase())}`);
+    const cacheKey = new Request(`https://kicegg.com/api/search?v=2&q=${encodeURIComponent(q.toLowerCase())}`);
     const cache = caches.default;
     const hit = await cache.match(cacheKey);
     if (hit) return new Response(hit.body, hit);

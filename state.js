@@ -2,7 +2,7 @@
 import {
   CURRICULUM_CONFIG, EXAM_TYPE_CONFIG, TAB_CONFIG,
   getTypeConf, getTabConf, prettySub, searchAliasOf, ALIAS_KEYS_DESC,
-} from './config.js?v=92c88708f9101751c10a';
+} from './config.js?v=6ced2f44053ac8ef05e7';
 
 // ── 검색 정규화 ─────────────────────────────────────────────
 // 로마자 숫자(Ⅰ/Ⅱ/Ⅲ) → 아라비아, 한자(一/二/三) → 아라비아, 소문자, 공백 제거.
@@ -438,6 +438,10 @@ export const state = {
   subject:    'all',
   subSubject: 'all',
   subjects:   [],      // 여러 영역 동시(스마트 검색 "국어랑 수학") — subject 와 따로
+  has:        [],      // 딸린 자료 조건 — listen(듣기) · script(대본) · solution(해설) · even(짝수형)
+  subSubjects: [],     // 세부 과목 여러 이름(교육과정마다 다른 옛 이름 포함) — 스마트 검색
+  cut:        null,    // 1등급 원점수 컷 조건 { min, max }
+  sort:       '',      // '' 기본(최신순) · hard · easy · old
 
   tier:       'all',   // 난이도(역대 대비) 1~5 — 다중 선택
   cuts:       null,    // data/archive/cuts.json (app.js 가 로드) — id → [원점수컷, 표점컷, 난이도, 절대평가]
@@ -458,6 +462,10 @@ export function resetFilters() {
   state.subject    = 'all';
   state.subSubject = 'all';
   state.subjects   = [];
+  state.has        = [];
+  state.subSubjects = [];
+  state.cut        = null;
+  state.sort       = '';
   state.tier       = 'all';
   state.query      = '';
   state.page       = 1;
@@ -613,6 +621,15 @@ export function filtered() {
     if (!matchMulti(state.gradeYear, String(e.gradeYear))) return false;
     if (state.subject    !== 'all' && e.subject    !== state.subject)          return false;
     if (state.subjects.length && !state.subjects.includes(e.subject))          return false;
+    if (state.has.includes('listen') && !e.listenUrl)                          return false;
+    if (state.has.includes('solution') && !e.solutionUrl)                      return false;
+    if (state.has.includes('script') && !e.scriptUrl)                          return false;
+    if (state.has.includes('even') && !e.questionUrlEven)                      return false;
+    if (state.subSubjects.length && !state.subSubjects.includes(e.subSubject)) return false;
+    if (state.cut) {
+      const raw = state.cuts?.[e.id]?.[0];
+      if (raw == null || (state.cut.min != null && raw < state.cut.min) || (state.cut.max != null && raw > state.cut.max)) return false;
+    }
     if (state.subSubject !== 'all') {
       // 논술은 계열 버킷(인문/자연) 필터 — 세부 트랙명('자연1 수학' 등)을 키워드로 분류
       if (e.typeGroup === 'essay' && (state.subSubject === '인문' || state.subSubject === '자연')) {
@@ -666,6 +683,22 @@ export function filtered() {
       const sb = scoreCache.get(b) ?? 0;
       // 0.05 이상 차이 시 점수 우선, 그 안쪽은 학년도/월 보조정렬
       if (Math.abs(sa - sb) > 0.05) return sb - sa;
+    }
+    // 1.5) 정렬 요청(스마트 검색: 어려운 순·쉬운 순·오래된 순)
+    if (state.sort) {
+      const ca = state.cuts?.[a.id], cb = state.cuts?.[b.id];
+      if (state.sort === 'old') {
+        if (a.gradeYear !== b.gradeYear) return gradeYearSortKey(a.gradeYear) - gradeYearSortKey(b.gradeYear);
+        if (a.month !== b.month) return a.month - b.month;                       // 같은 해는 이른 달부터
+      }
+      if (state.sort === 'hard' || state.sort === 'easy') {
+        const dir = state.sort === 'hard' ? 1 : -1;
+        const ta = ca?.[2] ?? null, tb = cb?.[2] ?? null;
+        if ((ta == null) !== (tb == null)) return ta == null ? 1 : -1;           // 난이도 없는 시험은 뒤로
+        if (ta !== tb) return dir * (tb - ta);
+        const ra = ca?.[0] ?? 0, rb = cb?.[0] ?? 0;                                // 같은 단계면 1등급컷으로
+        if (ra !== rb) return dir * (ra - rb);
+      }
     }
     // 2) 학년도(미래→과거)
     if (a.gradeYear !== b.gradeYear) {
