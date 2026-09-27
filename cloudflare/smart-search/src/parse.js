@@ -69,13 +69,25 @@ export function ruleParse(q) {
     out.decade = { 90: 'd1990', 0: 'd2000', 10: 'd2010', 20: 'd2020' }[d];
     s = s.replace(t0[0], ' ');
   }
+  // 정렬 표현 — "오래된 순"·"어려운 순" 은 기간·난이도 필터가 아니라 순서
+  let sm;
+  if ((sm = s.match(/(오래된|옛날|예전|과거)\s*(순|것\s*부터|거\s*부터)/))) { out.sort = 'old'; s = s.replace(sm[0], ' '); }
+  else if ((sm = s.match(/(최신|최근)\s*(순|것\s*부터|거\s*부터)/))) { out.sort = 'new'; s = s.replace(sm[0], ' '); }
+  else if ((sm = s.match(/(어려운|어려웠던|어렵던)\s*(순|것\s*부터|거\s*부터)/))) { out.sort = 'hard'; s = s.replace(sm[0], ' '); }
+  else if ((sm = s.match(/(쉬운|쉬웠던)\s*(순|것\s*부터|거\s*부터)/))) { out.sort = 'easy'; s = s.replace(sm[0], ' '); }
   if (/불\s*수능|물\s*수능/.test(s)) { out.typeGroup = 'suneung'; out.type = ['csat']; }
   if (take(HARD)) out.tier = ['4', '5'];
   else if (take(EASY)) out.tier = ['1', '2'];
   for (const [re, v] of TAB_RULES) if (take(re)) { out.tab = v; break; }
   // "3월 학평", "10월 모의고사" → 교육청 해당 월 (6월·9월 평가원 모평보다 먼저)
   let mm = s.match(/(\d{1,2})\s*월\s*(학평|학력\s*평가|모의\s*고사|교육청)/);
-  if (mm && MONTH_KEY[+mm[1]]) { out.typeGroup = 'education'; out.type = [MONTH_KEY[+mm[1]]]; s = s.replace(mm[0], ' '); }
+  if (mm && MONTH_KEY[+mm[1]]) {
+    // 고3 의 6월·9월 '모의고사'는 평가원 모평 (교육청 6·9월 학평은 고1·고2만 있음)
+    const kice = (+mm[1] === 6 || +mm[1] === 9) && /모의/.test(mm[2]) && !['junior', 'freshman'].includes(out.tab);
+    if (kice) { out.typeGroup = 'suneung'; out.type = [+mm[1] === 6 ? 'june' : 'sept']; }
+    else { out.typeGroup = 'education'; out.type = [MONTH_KEY[+mm[1]]]; }
+    s = s.replace(mm[0], ' ');
+  }
   if ((mm = s.match(/(짝수|홀수)\s*(해|년도?|학년도)/))) { out.parity = mm[1] === '짝수' ? 'even' : 'odd'; s = s.replace(mm[0], ' '); }
   if ((mm = s.match(/옛날|오래된|예전|옛\s*기출|고전/))) { out.age = 'old'; s = s.replace(mm[0], ' '); }
   else if ((mm = s.match(/최신|요즘|최근\s*(기출|시험)?(?!\s*\d)/))) { out.age = 'recent'; s = s.replace(mm[0], ' '); }
@@ -250,7 +262,7 @@ export function toFilters(rule, ans) {
   if (has.length) f.has = has;
   const track = rule.track || pick('track', 0.8);
   if (track && f.tab === 'essay') f.subSubject = track;
-  const sort = pick('sort', 0.8);
+  const sort = rule.sort || pick('sort', 0.8);
   if (sort && sort !== 'new') f.sort = sort;
 
   // 필터로 못 바꾼 말(물리·미적분·학교 이름 등)은 목록 검색어로. 학교 이름(○○대)은 JEV 가 답해도 남긴다

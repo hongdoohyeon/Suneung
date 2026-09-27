@@ -2,7 +2,7 @@
 import {
   CURRICULUM_CONFIG, EXAM_TYPE_CONFIG, TAB_CONFIG,
   getTypeConf, getTabConf, prettySub, searchAliasOf, ALIAS_KEYS_DESC,
-} from './config.js?v=514701674a67d616ae66';
+} from './config.js?v=6ced2f44053ac8ef05e7';
 
 // ── 검색 정규화 ─────────────────────────────────────────────
 // 로마자 숫자(Ⅰ/Ⅱ/Ⅲ) → 아라비아, 한자(一/二/三) → 아라비아, 소문자, 공백 제거.
@@ -687,7 +687,10 @@ export function filtered() {
     // 1.5) 정렬 요청(스마트 검색: 어려운 순·쉬운 순·오래된 순)
     if (state.sort) {
       const ca = state.cuts?.[a.id], cb = state.cuts?.[b.id];
-      if (state.sort === 'old' && a.gradeYear !== b.gradeYear) return gradeYearSortKey(a.gradeYear) - gradeYearSortKey(b.gradeYear);
+      if (state.sort === 'old') {
+        if (a.gradeYear !== b.gradeYear) return gradeYearSortKey(a.gradeYear) - gradeYearSortKey(b.gradeYear);
+        if (a.month !== b.month) return a.month - b.month;                       // 같은 해는 이른 달부터
+      }
       if (state.sort === 'hard' || state.sort === 'easy') {
         const dir = state.sort === 'hard' ? 1 : -1;
         const ta = ca?.[2] ?? null, tb = cb?.[2] ?? null;
