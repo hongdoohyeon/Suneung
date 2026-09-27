@@ -717,12 +717,11 @@ main { flex: 1 0 auto; width: 100%; }
 .exam__error-sub { color: var(--ink-4); }
 
 /* ═══ PDF 미리보기 ════════════════════════════════════════ */
-.preview { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); overflow: hidden; display: flex; flex-direction: column; min-width: 0; }
+.preview { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); overflow: clip; display: flex; flex-direction: column; min-width: 0; }
 .preview__head { display: flex; align-items: center; gap: 8px; min-height: 48px; padding: 0 12px 0 16px; border-bottom: 1px solid var(--line); }
 .preview__title { font-size: 14px; font-weight: 700; }
 .preview__meta { font-size: 12px; color: var(--ink-4); }
 .preview__viewer { padding: 14px; background: var(--surface-2); display: flex; flex-direction: column; gap: 12px; min-height: 280px; overflow-x: auto; }
-.preview__page { display: block; width: auto; height: auto; max-width: 100%; margin: 0 auto; background: #fff; border-radius: 8px; box-shadow: var(--sh-paper); }
 .preview__page--ready { animation: preview-focus 350ms ease-out both; }
 .preview__skeleton { height: min(62vh, 640px); border-radius: 8px; background: linear-gradient(110deg, var(--surface-2) 30%, var(--surface) 50%, var(--surface-2) 70%); background-size: 200% 100%; animation: shimmer 1.4s linear infinite; }
 .preview__loading { position: relative; width: 100%; max-width: 720px; height: min(62vh, 640px); margin: 0 auto; overflow: hidden; border-radius: 8px; background: #fff; box-shadow: var(--sh-paper); }
@@ -749,10 +748,49 @@ main { flex: 1 0 auto; width: 100%; }
 }
 .preview__more:hover { color: var(--ink); border-color: var(--ink-4); }
 .preview__more:disabled { opacity: .6; cursor: progress; }
-.preview__zoom { margin-left: auto; display: inline-flex; gap: 2px; padding: 3px; border-radius: 999px; background: var(--surface-2); }
-.preview__zoom-btn { min-width: 36px; min-height: 32px; padding: 0 8px; border-radius: 999px; font-size: 14px; font-weight: 700; color: var(--ink-3); }
-.preview__zoom-btn:hover { background: var(--surface); color: var(--ink); }
-.preview__zoom-pct { font-size: 12px; min-width: 52px; }
+/* 시험지 뷰어 — 도구 막대 · 쪽(시험지+필기 캔버스) · 전체화면 */
+.pv-bar {
+  display: flex; align-items: center; gap: 6px; padding: 6px 10px; border-bottom: 1px solid var(--line);
+  background: var(--surface); overflow-x: auto; scrollbar-width: none;
+  position: sticky; top: var(--header-h); z-index: 5;   /* 시험지를 내려 봐도 도구가 따라온다 */
+}
+.preview.is-full .pv-bar { top: 0; }
+.pv-bar::-webkit-scrollbar { display: none; }
+.pv-bar__group { display: inline-flex; align-items: center; gap: 2px; padding: 3px; border-radius: 12px; background: var(--surface-2); flex: none; }
+.pv-bar__zoom { margin-left: auto; }
+.pv-btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 5px; min-width: 38px; min-height: 36px; padding: 0 9px;
+  border-radius: 9px; font-size: 13px; font-weight: 600; color: var(--ink-3); transition: background var(--t), color var(--t);
+}
+.pv-btn svg { width: 18px; height: 18px; flex: none; }
+.pv-btn:hover:not(:disabled) { color: var(--ink); background: var(--surface); }
+.pv-btn[aria-pressed="true"] { background: var(--surface); color: var(--ink); box-shadow: 0 0 0 1px var(--line-strong), 0 1px 2px rgba(0,0,0,.08); }
+.pv-btn:disabled { opacity: .35; cursor: default; }
+.pv-pen i { width: 16px; height: 16px; border-radius: 50%; background: var(--pen); box-shadow: 0 0 0 1px color-mix(in srgb, var(--ink) 18%, transparent); transition: transform var(--t); }
+.pv-pen[aria-pressed="true"] i { transform: scale(1.15); box-shadow: 0 0 0 2px var(--surface), 0 0 0 3.5px var(--pen); }
+.pv-pct { min-width: 54px; font-size: 12px; font-variant-numeric: tabular-nums; }
+
+.pv-viewer { align-items: flex-start; touch-action: pan-x pan-y; overscroll-behavior-x: contain; }
+.pv-viewer.is-dragging { cursor: grabbing; user-select: none; }
+.pv-viewer[data-tool="hand"] { cursor: grab; }
+.pv-page { position: relative; flex: none; margin-inline: auto; background: #fff; border-radius: 6px; box-shadow: var(--sh-paper); overflow: hidden; }
+.pv-pdf, .pv-ink { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.pv-ink { touch-action: pan-x pan-y; }
+.pv-viewer[data-tool="pen"] .pv-ink { cursor: crosshair; }
+.pv-viewer[data-tool="eraser"] .pv-ink { cursor: cell; }
+.pv-viewer:not(.pen-seen)[data-tool="pen"] .pv-ink,
+.pv-viewer:not(.pen-seen)[data-tool="eraser"] .pv-ink { touch-action: none; }
+.pv-viewer .preview__more { align-self: center; width: min(100%, 520px); flex: none; }
+.pv-hint {
+  position: absolute; left: 50%; bottom: 18px; transform: translateX(-50%); z-index: 3; margin: 0;
+  padding: 8px 14px; border-radius: 999px; background: var(--ink); color: var(--on-ink); font-size: 12.5px; font-weight: 600;
+  white-space: nowrap; pointer-events: none; animation: pv-hint .2s ease-out both;
+}
+@keyframes pv-hint { from { opacity: 0; transform: translate(-50%, 6px); } }
+.preview { position: relative; }
+.preview.is-full { position: fixed; inset: 0; z-index: 200; border: 0; border-radius: 0; }
+.preview.is-full .pv-viewer { flex: 1; min-height: 0; overflow: auto; }
+body.pv-lock { overflow: hidden; }
 .preview__error, .preview__unsupported, .preview__empty {
   display: flex; flex-direction: column; align-items: center; gap: 6px; padding: 32px 20px; text-align: center;
   color: var(--ink-3); background: var(--surface); border: 1px dashed var(--line-strong); border-radius: 10px;
@@ -938,6 +976,11 @@ main { flex: 1 0 auto; width: 100%; }
   .exam__subjects-row--subs { padding-top: 10px; }
   .exam__aside { grid-template-columns: 1fr; }
   .preview__viewer { padding: 8px; }
+  .pv-bar { padding: 6px; gap: 4px; }
+  .pv-btn { min-width: 34px; padding: 0 5px; }
+  .pv-btn span:not(.sr-only) { display: none; }
+  .pv-bar__zoom [data-act="in"], .pv-bar__zoom [data-act="out"] { display: none; }   /* 폰은 두 손가락으로 확대 */
+  .pv-pct { min-width: 44px; }
   .preview__loading, .preview__skeleton { height: 52vh; }
   .preview__loading-action { min-width: 0; padding: 0 18px; }
   .stats { gap: 8px; }
