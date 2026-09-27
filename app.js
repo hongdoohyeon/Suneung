@@ -59,7 +59,7 @@ function loadCuts() {
   cutsRequested = true;
   fetch(`data/archive/cuts.json?v=${DATA_VERSION}`)
     .then(res => res.ok ? res.json() : null)
-    .then(data => { if (data) { cutsIndex = data; if (!state.loading) renderCards(); } })
+    .then(data => { if (data) { cutsIndex = data; state.cuts = data; if (!state.loading) render(); } })
     .catch(() => {});
 }
 const TIER_LABEL = { 1: '매우 쉬움', 2: '쉬움', 3: '보통', 4: '어려움', 5: '매우 어려움' };
@@ -68,7 +68,7 @@ const TIER_LABEL = { 1: '매우 쉬움', 2: '쉬움', 3: '보통', 4: '어려움
 // 모든 필터 상태를 URL searchParams 에 반영해 뒤로가기·새로고침·링크 공유 시 복원.
 // 다중 선택은 쉼표로 직렬화. "all"·빈 상태는 URL에서 키 자체를 제거해 짧게 유지.
 
-const URL_KEYS = ['tab','typeGroup','type','gradeYear','subject','subSubject','q','search','page'];
+const URL_KEYS = ['tab','typeGroup','type','gradeYear','subject','subSubject','tier','q','search','page'];
 
 function serializeMulti(v) {
   if (v === 'all' || v == null) return '';
@@ -144,6 +144,11 @@ function applyUrlState() {
     state.subSubject = sub === 'all' || allSubs.has(sub) ? sub : 'all';
   }
 
+  if (params.has('tier')) {
+    state.tier = allowMulti(parseMulti(params.get('tier')), new Set(['1', '2', '3', '4', '5']));
+    loadCuts();
+  }
+
   const search = params.get('q') || params.get('search');
   if (search) {
     state.query = search.trim();
@@ -186,6 +191,8 @@ function buildUrlFromState() {
 
   if (state.subject    && state.subject    !== 'all') url.searchParams.set('subject', state.subject);
   if (state.subSubject && state.subSubject !== 'all') url.searchParams.set('subSubject', state.subSubject);
+  const tr = serializeMulti(state.tier);
+  if (tr) url.searchParams.set('tier', tr);
   if (state.query) url.searchParams.set('q', state.query);
   if (state.page > 1) url.searchParams.set('page', String(state.page));
 
@@ -395,7 +402,28 @@ function renderFilterPanel() {
 
   renderYearChips();
   renderSubjectFilter();
+  renderTierChips();
 }
+
+// ── 난이도 (역대 1등급컷 대비 5단계) ────────────────────────
+function renderTierChips() {
+  const el = $('tierFilter');
+  if (!el) return;
+  const active = v => state.tier === 'all' ? v === 'all'
+    : (Array.isArray(state.tier) ? state.tier.includes(v) : state.tier === v);
+  el.innerHTML = [pill('all', '전체', active('all')),
+    ...Object.entries(TIER_LABEL).map(([k, lbl]) => pill(k, lbl, active(k), `pill--tier pill--t${k}`))].join('');
+}
+$('tierFilter')?.addEventListener('click', e => {
+  const btn = e.target.closest('.pill');
+  if (!btn) return;
+  if (btn.dataset.value === 'all') state.tier = 'all';
+  else { toggleMulti('tier', btn.dataset.value); loadCuts(); }
+  state.page = 1;
+  renderTierChips();
+  render();
+  syncUrl();
+});
 
 // ── 시험 주최 (그룹 pill) ──────────────────────────────────
 function renderTypeGroupChips() {
@@ -1079,6 +1107,10 @@ function renderActiveTags() {
   }
   if (state.subject    !== 'all') tags.push({ label: state.subject,    key: 'subject' });
   if (state.subSubject !== 'all') tags.push({ label: prettySub(state.subSubject), key: 'subSubject' });
+  if (state.tier !== 'all') {
+    const tiers = Array.isArray(state.tier) ? state.tier : [state.tier];
+    if (tiers.length) tags.push({ label: tiers.map(t => TIER_LABEL[t]).join('·'), key: 'tier' });
+  }
   if (state.query) tags.push({ label: `"${state.query}"`, key: 'query' });
 
   container.innerHTML = tags.map(t => `
@@ -1116,6 +1148,9 @@ $('activeTags').addEventListener('click', e => {
   } else if (key === 'subSubject') {
     state.subSubject = 'all';
     renderSubjectFilter();
+  } else if (key === 'tier') {
+    state.tier = 'all';
+    renderTierChips();
   }
 
   state.page = 1;

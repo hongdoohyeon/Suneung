@@ -438,6 +438,9 @@ export const state = {
   subject:    'all',
   subSubject: 'all',
 
+  tier:       'all',   // 난이도(역대 대비) 1~5 — 다중 선택
+  cuts:       null,    // data/archive/cuts.json (app.js 가 로드) — id → [원점수컷, 표점컷, 난이도, 절대평가]
+
   query: '',
   page:  1,
 
@@ -453,6 +456,7 @@ export function resetFilters() {
   state.gradeYear  = 'all';
   state.subject    = 'all';
   state.subSubject = 'all';
+  state.tier       = 'all';
   state.query      = '';
   state.page       = 1;
 }
@@ -611,6 +615,10 @@ export function filtered() {
       if (e.typeGroup === 'essay' && (state.subSubject === '인문' || state.subSubject === '자연')) {
         if (essayTrack(e.subSubject) !== state.subSubject)                     return false;
       } else if (e.subSubject !== state.subSubject)                            return false;
+    }
+    if (state.tier !== 'all' && !(Array.isArray(state.tier) && state.tier.length === 0)) {
+      const t = state.cuts?.[e.id]?.[2];
+      if (t == null || !matchMulti(state.tier, t)) return false;
     }
     if (hasQuery) {
       const s = scoreQuery(e, state.query);

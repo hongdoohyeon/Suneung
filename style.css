@@ -422,6 +422,9 @@ main { flex: 1 0 auto; width: 100%; }
 .pill:hover { border-color: var(--line-strong); color: var(--ink); }
 .pill:active { transform: scale(.96); }
 .pill.is-active { background: var(--ink); border-color: var(--ink); color: var(--on-ink); }
+.pill--tier::before { content: ""; display: inline-block; width: 8px; height: 8px; margin-right: 6px; border-radius: 50%; vertical-align: 0; background: currentColor; }
+.pill--t1 { color: var(--t1); } .pill--t2 { color: var(--t2); } .pill--t3 { color: var(--t3); } .pill--t4 { color: var(--t4); } .pill--t5 { color: var(--t5); }
+.pill--tier.is-active::before { background: var(--on-ink); }
 .year-row { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px; }
 .year-row .pill { padding: 0 4px; }
 .year-row__header { grid-column: 1 / -1; margin-top: 6px; font-size: 11.5px; font-weight: 650; color: var(--ink-4); }
