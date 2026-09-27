@@ -1,18 +1,18 @@
 'use strict';
-import { enableForcedDownloads } from './lib/download.js?v=80279a6bca06a456da77';
+import { enableForcedDownloads } from './lib/download.js?v=92c88708f9101751c10a';
 enableForcedDownloads();
 import {
   CURRICULUM_CONFIG, EXAM_TYPE_CONFIG, TAB_CONFIG,
   getTypeConf, getGroupConf, getTabConf, legacyTabKey, prettySub,
-} from './config.js?v=80279a6bca06a456da77';
+} from './config.js?v=92c88708f9101751c10a';
 import {
   state, PAGE_SIZE,
   resetFilters, toggleMulti,
   getDisplayYear, availableGradeYears,
   filtered, subjectCounts,
   tabCurriculums, tabCurriculumConfs, tabSubjects, curriculumOfGradeYear,
-} from './state.js?v=80279a6bca06a456da77';
-import { renderAllAdSlots, renderAdSlot } from './lib/ads.js?v=80279a6bca06a456da77';
+} from './state.js?v=92c88708f9101751c10a';
+import { renderAllAdSlots, renderAdSlot } from './lib/ads.js?v=92c88708f9101751c10a';
 
 const tabConf = () => getTabConf(state.tab);
 
@@ -40,7 +40,7 @@ const tabIsSingleType = () => {
 
 // 검색 첫 진입에서 9MB 전체 목록을 받지 않고 현재 탭 split만 로드한다.
 // CI render-site.py가 data/archive/{tab}.json을 exams.json에서 생성한다.
-const DATA_VERSION = '80279a6bca06a456da77';
+const DATA_VERSION = '92c88708f9101751c10a';
 const FULL_DATA_URL = `data/exams.json?v=${DATA_VERSION}`;
 const tabDataCache = new Map();
 let fullDataCache = null;
@@ -696,6 +696,7 @@ $('subjectFilter').addEventListener('click', e => {
     return;
   }
   if (subjBtn) {
+    state.subjects = [];   // 옆 목록에서 영역을 고르면 스마트 검색의 여러 영역 선택을 대체
     const key     = subjBtn.dataset.subject;
     const hasSubs = (tabSubjects()[key]?.subs.length ?? 0) > 0;
     if (state.subject === key) {
@@ -1389,7 +1390,8 @@ async function runSmartSearch(q) {
   applyUrlState();
   if (f.years) {                                              // 학년도 범위 → 이 탭에 있는 학년도만
     const ys = availableGradeYears().filter(y => typeof y === 'number' && y >= f.years.from && y <= f.years.to).map(String);
-    if (ys.length) state.gradeYear = ys.length === 1 ? ys[0] : ys;
+    // 이 탭에 없는 학년도(예: 2030학년도)면 조건을 버리지 말고 '해당 없음'으로 — 전부 보여 주면 오해
+    state.gradeYear = ys.length === 1 ? ys[0] : ys.length ? ys : [String(f.years.from)];
   }
   document.querySelectorAll('.nav-tab').forEach(b => {
     const on = b.dataset.tab === state.tab;
