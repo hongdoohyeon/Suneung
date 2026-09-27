@@ -1,18 +1,18 @@
 'use strict';
-import { enableForcedDownloads } from './lib/download.js?v=7708d551a38f837edc71';
+import { enableForcedDownloads } from './lib/download.js?v=dbc420119430b9f164bb';
 enableForcedDownloads();
 import {
   CURRICULUM_CONFIG, EXAM_TYPE_CONFIG, TAB_CONFIG,
   getTypeConf, getGroupConf, getTabConf, legacyTabKey, prettySub,
-} from './config.js?v=7708d551a38f837edc71';
+} from './config.js?v=dbc420119430b9f164bb';
 import {
   state, PAGE_SIZE,
   resetFilters, toggleMulti,
   getDisplayYear, availableGradeYears,
   filtered, subjectCounts,
   tabCurriculums, tabCurriculumConfs, tabSubjects, curriculumOfGradeYear,
-} from './state.js?v=7708d551a38f837edc71';
-import { renderAllAdSlots, renderAdSlot } from './lib/ads.js?v=7708d551a38f837edc71';
+} from './state.js?v=dbc420119430b9f164bb';
+import { renderAllAdSlots, renderAdSlot } from './lib/ads.js?v=dbc420119430b9f164bb';
 
 const tabConf = () => getTabConf(state.tab);
 
@@ -40,7 +40,7 @@ const tabIsSingleType = () => {
 
 // 검색 첫 진입에서 9MB 전체 목록을 받지 않고 현재 탭 split만 로드한다.
 // CI render-site.py가 data/archive/{tab}.json을 exams.json에서 생성한다.
-const DATA_VERSION = '7708d551a38f837edc71';
+const DATA_VERSION = 'dbc420119430b9f164bb';
 const FULL_DATA_URL = `data/exams.json?v=${DATA_VERSION}`;
 const tabDataCache = new Map();
 let fullDataCache = null;
@@ -63,6 +63,18 @@ function loadCuts() {
     .catch(() => {});
 }
 const TIER_LABEL = { 1: '매우 쉬움', 2: '쉬움', 3: '보통', 4: '어려움', 5: '매우 어려움' };
+// 탐구 등 접힌 영역의 펼침 상태 — 한 번 펼친 영역은 다른 회차·페이지에서도 펼쳐 둔다
+const FOLD_KEY = 'kicegg:open-folds';
+const openFolds = new Set((() => { try { return JSON.parse(localStorage.getItem(FOLD_KEY) || '[]'); } catch { return []; } })());
+document.addEventListener('toggle', e => {
+  const d = e.target;
+  if (!(d instanceof HTMLDetailsElement) || !d.dataset.fold) return;
+  const name = d.dataset.fold;
+  if (d.open === openFolds.has(name)) return;
+  if (d.open) openFolds.add(name); else openFolds.delete(name);
+  try { localStorage.setItem(FOLD_KEY, JSON.stringify([...openFolds])); } catch {}
+  document.querySelectorAll(`details.rfold[data-fold="${CSS.escape(name)}"]`).forEach(x => { if (x !== d) x.open = d.open; });
+}, true);
 
 // ── URL 파라미터 처리 ──────────────────────────────────────
 // 모든 필터 상태를 URL searchParams 에 반영해 뒤로가기·새로고침·링크 공유 시 복원.
@@ -981,11 +993,16 @@ function tableHTML(list) {
       if (r.fold) {
         const list = folds.get(r.fold);
         if (list.length < 3) return list.map(rowHTML).join('');
-        return `<details class="rfold"><summary><span class="rfold__name">${escHtml(r.fold)}</span><span class="rfold__count">${list.length}과목</span>${chev}</summary>
-          <div class="rfold__list">${list.map(e => {
-            const c = cutsIndex?.[e.id];
-            return `<a href="exam-${e.id}.html">${escHtml(prettySub(e.subSubject))}${c && !c[3] ? `<span class="spoil-val">${c[0]}</span>` : ''}</a>`;
-          }).join('')}</div></details>`;
+        // 접힌 줄에 난이도 분포 막대(스포일러 대상) — 펼치면 국어·수학과 같은 행(컷·난이도·다운로드)
+        const tiers = list.map(e => cutsIndex?.[e.id]?.[2]).filter(Boolean);
+        const dist = tiers.length
+          ? `<span class="rfold__dist spoil-val" aria-label="난이도 분포">${[1, 2, 3, 4, 5].map(t => {
+              const n = tiers.filter(x => x === t).length;
+              return n ? `<i class="rfold__seg rfold__seg--${t}" style="flex:${n}" title="${TIER_LABEL[t]} ${n}과목"></i>` : '';
+            }).join('')}</span>` : '';
+        const open = openFolds.has(r.fold) ? ' open' : '';
+        return `<details class="rfold" data-fold="${escAttr(r.fold)}"${open}><summary><span class="rfold__name">${escHtml(r.fold)}</span><span class="rfold__count">${list.length}과목</span>${dist}${chev}</summary>
+          <div class="rfold__rows">${list.map(e => rowHTML(e, true)).join('')}</div></details>`;
       }
       return rowHTML(r.exam);
     }).join('');
@@ -1002,8 +1019,8 @@ function tableHTML(list) {
   }).join('');
 }
 
-function rowHTML(e) {
-  const { main, sub } = rowLabel(e);
+function rowHTML(e, inFold = false) {
+  const { main, sub } = inFold && e.subSubject ? { main: prettySub(e.subSubject), sub: '' } : rowLabel(e);
   const sc = scoreCells(e);
   const label = `${setTitle(e)} ${main}${sub ? ' ' + sub : ''} 상세 보기`;
   return `<div class="rrow">

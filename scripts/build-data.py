@@ -1299,7 +1299,7 @@ def grade_table_html(cut: dict, absolute: bool) -> str:
 _COMPARE_METRICS = (('raw', '1등급컷', '원점수'), ('top', '표점 최고', '표준점수'), ('std', '1등급 표점', '표준점수'))
 
 
-def compare_html(it: dict, series: list[dict], scores: dict) -> str:
+def compare_html(it: dict, series: list[dict], scores: dict, with_toggle: bool = False) -> str:
     """최근 회차와 비교 — 같은 과목 묶음의 직전 회차들 + 이 시험을 막대그래프·비교표로.
     이 시험의 등급컷이 아직 없어도(발표 전) 지난 회차 비교는 보여 준다. 값은 스포일러 방지 대상."""
     esc = lambda v: html_escape(str(v), quote=False)
@@ -1344,10 +1344,17 @@ def compare_html(it: dict, series: list[dict], scores: dict) -> str:
         rows.append(f'<tr{tr_cls}><th scope="row">{name}</th>{cells}{tier_td}</tr>')
     subj = pretty_sub(it.get('subSubject')) or it.get('subject') or ''
     head = ''.join(f'<th scope="col">{lbl}</th>' for _, lbl, _ in _COMPARE_METRICS)
+    # 이 시험의 등급컷 섹션이 없으면(발표 전 등) 스포일러 스위치를 여기에 둔다 — 끌 곳이 없어지지 않게
+    toggle = note = ''
+    if with_toggle:
+        toggle = ('<button type="button" class="switch" role="switch" aria-checked="true" data-spoiler-toggle>'
+                  '스포일러 방지<span class="switch__knob" aria-hidden="true"></span></button>')
+        note = ('<p class="spoil-note"><span>지난 회차의 <b>등급컷 · 표준점수 · 난이도</b>를 흐리게 가려 뒀어요.</span>'
+                '<button type="button" class="btn btn--sm btn--primary" data-spoiler-off>결과 보기</button></p>')
     return (
         f'<section class="exam-section compare" id="examCompare" data-metric="{metrics[0][0]}" aria-labelledby="cmpTitle">'
         f'<div class="exam-section__head"><h2 id="cmpTitle">최근 회차와 비교 · {esc(subj)}</h2>'
-        f'<div class="view-toggle compare__metric" role="group" aria-label="비교 지표">{btns}</div></div>'
+        f'<div class="view-toggle compare__metric" role="group" aria-label="비교 지표">{btns}</div>{toggle}</div>{note}'
         f'<div class="card-box compare__chart">{"".join(charts)}'
         '<p class="compare__legend">막대 색은 역대 대비 난이도 · 진한 막대가 이 시험 · 막대를 누르면 그 회차로 이동</p></div>'
         '<div class="card-box compare__table-wrap"><table class="compare__table">'
@@ -1712,7 +1719,7 @@ def build_static_exam_pages(items: list[dict], template_path: Path, out_root: Pa
         _series = _trend.get(_k, []) if _k else []
         _cmp = ''
         if not (sc and sc['abs']) and sum(1 for x in _series if x['id'] != it['id']) >= 2:
-            _cmp = compare_html(it, _series, _scores)
+            _cmp = compare_html(it, _series, _scores, with_toggle='class="page-exam has-gradecut"' not in html)
         if _cmp:
             html = html.replace('<!-- exam-related -->', _cmp, 1)
         else:

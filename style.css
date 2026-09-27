@@ -522,10 +522,13 @@ main { flex: 1 0 auto; width: 100%; }
 .rfold__count { font-size: 13px; color: var(--ink-4); }
 .rfold__chev { margin-left: auto; color: var(--ink-4); transition: transform .2s; }
 .rfold[open] .rfold__chev { transform: rotate(180deg); }
-.rfold__list { display: flex; flex-wrap: wrap; gap: 6px; padding: 2px 18px 16px; }
-.rfold__list a { display: inline-flex; align-items: center; gap: 6px; min-height: 36px; padding: 0 12px; border-radius: 10px; border: 1px solid var(--line); background: var(--surface); font-size: 13.5px; font-weight: 600; color: var(--ink-2); }
-.rfold__list a:hover { border-color: var(--ink); color: var(--ink); }
-.rfold__list .spoil-val { font-size: 12px; font-weight: 600; color: var(--ink-4); }
+.rfold__dist { display: flex; width: 72px; height: 8px; border-radius: 4px; overflow: hidden; gap: 1px; margin-left: 6px; }
+.rfold__seg { display: block; height: 100%; }
+.rfold__seg--1 { background: var(--t1); } .rfold__seg--2 { background: var(--t2); } .rfold__seg--3 { background: var(--t3); } .rfold__seg--4 { background: var(--t4); } .rfold__seg--5 { background: var(--t5); }
+.rfold[open] summary { background: var(--sunken); }
+.rfold__rows .rrow { background: var(--sunken); }
+.rfold__rows .rrow:hover { background: var(--surface-2); }
+.rfold__rows .rrow__subj { padding-left: 14px; font-size: 14.5px; }
 .results > .ad-slot { margin: 0; border-radius: 0; border-width: 1px 0 0; }
 
 /* 결과 — 카드 보기 */
@@ -631,6 +634,7 @@ main { flex: 1 0 auto; width: 100%; }
 .grade-table__legend { margin-top: 10px; font-size: 12px; color: var(--ink-4); }
 
 .compare__metric { margin-left: auto; }
+.compare .exam-section__head .switch { margin-left: 0; }
 .compare__metric button { padding: 0 12px; font-size: 13px; font-weight: 600; white-space: nowrap; }
 .compare__chart { padding: 18px 18px 12px; }
 .bars { display: none; align-items: flex-end; gap: 8px; height: 220px; }
@@ -874,8 +878,7 @@ main { flex: 1 0 auto; width: 100%; }
   .rgroup__all span { display: none; }
   .rgroup__all { width: 36px; justify-content: center; margin-right: -6px; background: var(--surface-2); }
   .rfold summary { padding: 0 16px; }
-  .rfold__list { padding: 2px 16px 14px; }
-  .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+    .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
 
   .exam { padding-top: 12px; }
   .exam__title { font-size: 26px; }
