@@ -445,7 +445,7 @@ export const state = {
   yearExpanded: false,
 };
 
-export const PAGE_SIZE = 24;
+export const PAGE_SIZE = 40;
 
 export function resetFilters() {
   state.typeGroup  = 'all';

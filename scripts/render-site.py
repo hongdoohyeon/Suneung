@@ -736,7 +736,13 @@ def render_archive_splits(items: list[dict]) -> None:
         index.append(entry)
     (out_dir / 'all.json').write_text(json.dumps(index, ensure_ascii=False, separators=(',', ':')) + '\n', encoding='utf-8')
 
-    valid_names = {f'{tab}.json' for tab in ARCHIVE_TAB_RULES} | {'all.json'}
+    # 기출검색 표의 1등급컷·난이도 열 — id → [원점수 1컷, 표점 1컷, 난이도(1~5|null), 절대평가 0/1]
+    scores = bd.compute_exam_scores(items)
+    cuts_index = {str(i): [r['raw'], r['std'], r['tier'], 1 if r['abs'] else 0]
+                  for i, r in sorted(scores.items()) if r['raw'] is not None}
+    (out_dir / 'cuts.json').write_text(json.dumps(cuts_index, ensure_ascii=False, separators=(',', ':')) + '\n', encoding='utf-8')
+
+    valid_names = {f'{tab}.json' for tab in ARCHIVE_TAB_RULES} | {'all.json', 'cuts.json'}
     pruned = 0
     for path in out_dir.glob('*.json'):
         if path.name not in valid_names:

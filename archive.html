@@ -124,7 +124,7 @@
   <!-- ── Curriculum Nav ─────────────────────────────────── -->
   <nav class="curriculum-nav" id="curriculumTabs" aria-label="시험 선택">
     <select id="categorySelect" class="curriculum-nav__select" aria-label="시험 종류 선택"></select>
-    <div class="container curriculum-nav__inner">
+    <div class="curriculum-nav__inner hscroll">
 
       <div class="nav-group">
         <div class="nav-group__tabs">
@@ -250,23 +250,36 @@
       <!-- Toolbar -->
       <div class="toolbar">
         <div class="search">
-          <svg class="search__icon" width="16" height="16" viewBox="0 0 20 20" fill="none">
-            <circle cx="9" cy="9" r="6" stroke="currentColor" stroke-width="1.6"/>
-            <path d="M13.5 13.5L17 17" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
-          </svg>
-          <input id="searchInput" type="text" aria-label="기출 검색" placeholder="26수능 영어 듣기, 25 9월 미적, 2403 국어" autocomplete="off" inputmode="search" enterkeyhint="search" />
+          <svg class="search__icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+          <input id="searchInput" type="text" aria-label="기출 검색" placeholder="26수능 영어 듣기, 25 9모 미적, 2403 국어" autocomplete="off" inputmode="search" enterkeyhint="search" />
           <button id="clearSearch" class="search__clear" style="display:none" aria-label="검색 지우기">×</button>
         </div>
-        <button class="btn btn--ghost filter-toggle-inline" id="filterToggleInline"
-                aria-controls="filterPanel" aria-expanded="false" type="button">필터</button>
+        <button class="btn filter-toggle-inline" id="filterToggleInline"
+                aria-controls="filterPanel" aria-expanded="false" type="button">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M7 12h10M10 18h4"/></svg>
+          <span class="filter-toggle-inline__label">필터</span>
+        </button>
+        <div class="view-toggle" role="group" aria-label="보기 방식">
+          <button type="button" data-view="table" aria-pressed="true" aria-label="표로 보기"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M9 6h11M9 12h11M9 18h11M4 6h.01M4 12h.01M4 18h.01"/></svg></button>
+          <button type="button" data-view="cards" aria-pressed="false" aria-label="카드로 보기"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg></button>
+        </div>
         <div class="toolbar__right">
           <span id="resultCount" class="count" aria-live="polite"></span>
           <button class="btn-text" id="resetBtn">초기화</button>
         </div>
       </div>
 
-      <!-- Active Tags -->
-      <div id="activeTags" class="active-tags"></div>
+      <div class="subbar">
+        <button type="button" class="switch switch--sm" role="switch" aria-checked="true" data-spoiler-toggle
+                title="등급컷·표준점수·난이도를 흐리게 가려요">스포일러 방지<span class="switch__knob" aria-hidden="true"></span></button>
+        <div id="activeTags" class="active-tags"></div>
+      </div>
+
+      <p class="spoil-note spoil-note--archive">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></svg>
+        <span><b>1등급컷 · 표준점수 · 난이도</b>를 흐리게 가려 뒀어요</span>
+        <button type="button" class="btn btn--sm" data-spoiler-off>모두 보기</button>
+      </p>
 
       <!-- 회차 단위 진입 (filter가 (curriculum, gradeYear, type) 까지 좁혀졌을 때 표시) -->
       <a id="examSetLink" class="examset-link" hidden href="sets.html">
@@ -291,7 +304,7 @@
       </div>
 
       <!-- Cards -->
-      <div id="cardsGrid" class="grid" role="list" style="display:none;"></div>
+      <div id="cardsGrid" class="results results--table" style="display:none;"></div>
 
       <!-- Pagination -->
       <div id="paginationWrap" class="pagination-wrap" style="display:none;"></div>

@@ -988,6 +988,110 @@ def build_exam_meta(it: dict) -> dict:
     }
 
 
+# ── 등급컷 매칭 · 난이도 5단계 ─────────────────────────────────
+# 상세 페이지(SSG)와 기출검색(data/archive/cuts.json)이 같은 값을 쓰도록 한 곳에서 계산한다.
+TIER_LABELS = {1: '매우 쉬움', 2: '쉬움', 3: '보통', 4: '어려움', 5: '매우 어려움'}
+_TIER_MIN_SAMPLES = 5
+
+
+def _load_gradecuts() -> list[dict]:
+    try:
+        return json.loads((ROOT / 'data' / 'gradecuts.json').read_text(encoding='utf-8'))
+    except Exception:
+        return []
+
+
+def build_cut_matcher(cuts: list[dict]):
+    """exam → 등급컷 레코드. lib/exam-gradedist.js 와 동일 조인키.
+    학평은 학년별 컷 우선, 없으면 학년무관(sg=null) 컷만 폴백. 검정고시는 없음."""
+    idx: dict = {}
+    idx6: dict = {}
+    idx_none: dict = {}
+    for c in cuts:
+        k = (c.get('curriculum'), str(c.get('gradeYear')), c.get('type'), c.get('subject'), c.get('subSubject'))
+        idx.setdefault(k, c)
+        idx6.setdefault(k + (c.get('studentGrade'),), c)
+        if c.get('studentGrade') is None:
+            idx_none.setdefault(k, c)
+
+    def match(it: dict):
+        k = (it.get('curriculum'), str(it.get('gradeYear')), it.get('type'), it.get('subject'), it.get('subSubject'))
+        tg = it.get('typeGroup')
+        if tg == 'ged':
+            return None
+        if tg == 'education':
+            return idx6.get(k + (it.get('studentGrade'),)) or idx_none.get(k)
+        return idx.get(k)
+    return match
+
+
+def is_absolute_cut(it: dict, cut: dict | None) -> bool:
+    if cut and cut.get('absolute'):
+        return True
+    subj, gy = it.get('subject'), it.get('gradeYear') or 0
+    if it.get('typeGroup') in ('suneung', 'education') and isinstance(gy, int):
+        return (subj == '영어' and gy >= 2018) or (subj == '한국사' and gy >= 2017)
+    return False
+
+
+def tier_series_key(it: dict):
+    """난이도 비교 묶음 — 같은 기관·교육과정·과목(선택과목)·학년끼리만 비교."""
+    tg = it.get('typeGroup')
+    if tg == 'suneung' and it.get('type') not in ('csat', 'june', 'sept'):
+        return None
+    if tg in ('ged', 'reference', 'essay'):
+        return None
+    sg = it.get('studentGrade') if tg == 'education' else None
+    return (tg, it.get('curriculum'), it.get('subject'), it.get('subSubject'), sg)
+
+
+def compute_exam_scores(items: list[dict], cuts: list[dict] | None = None) -> dict:
+    """{exam_id: {raw, std, top, cum, abs, basis, tier, cut}} — 1등급 원점수 컷 기준 난이도.
+
+    난이도는 같은 묶음(tier_series_key)의 역대 1등급 원점수 컷 안에서의 백분위(중간순위)로
+    5단계를 매긴다: 상위 20%(컷 높음) = 매우 쉬움 … 하위 20% = 매우 어려움.
+    표본이 5회 미만이거나 절대평가·값이 모두 같으면 매기지 않는다."""
+    match = build_cut_matcher(cuts if cuts is not None else _load_gradecuts())
+    out: dict = {}
+    series: dict = {}
+    for it in items:
+        cut = match(it)
+        if not cut:
+            continue
+        raw = cut.get('rawCuts') if isinstance(cut.get('rawCuts'), list) else []
+        std = cut.get('standardCuts') if isinstance(cut.get('standardCuts'), list) else []
+        cum = cut.get('cumulativePercent') if isinstance(cut.get('cumulativePercent'), list) else []
+        r1 = raw[0] if raw and raw[0] is not None else None
+        absolute = is_absolute_cut(it, cut)
+        out[it['id']] = {
+            'raw': r1,
+            'std': std[0] if std and std[0] is not None else None,
+            'top': cut.get('highestStandardScore'),
+            'cum': cum[0] if cum and cum[0] is not None else None,
+            'abs': absolute,
+            'basis': cut.get('rawCutBasis'),
+            'tier': None,
+            'cut': cut,
+        }
+        key = tier_series_key(it)
+        if key and r1 is not None and not absolute:
+            series.setdefault(key, {})[(it.get('gradeYear'), it.get('type'), it.get('month'))] = r1
+    for it in items:
+        rec = out.get(it['id'])
+        key = tier_series_key(it)
+        if not rec or rec['raw'] is None or rec['abs'] or not key or key not in series:
+            continue
+        values = list(series[key].values())
+        if len(values) < _TIER_MIN_SAMPLES or len(set(values)) < 3:
+            continue
+        v = rec['raw']
+        below = sum(1 for x in values if x < v)
+        equal = sum(1 for x in values if x == v)
+        p = (below + 0.5 * equal) / len(values)
+        rec['tier'] = 1 if p >= 0.8 else 2 if p >= 0.6 else 3 if p >= 0.4 else 4 if p >= 0.2 else 5
+    return out
+
+
 def build_static_exam_pages(items: list[dict], template_path: Path, out_root: Path):
     """exam.html 템플릿을 시험별로 사전 렌더링해 검색엔진이 JS 없이도 인덱싱하게 한다.
     동시에 시험별 OG JPG (1200×630)도 생성 — 카톡·트위터·네이버 미리보기 카드."""
