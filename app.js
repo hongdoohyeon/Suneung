@@ -1,18 +1,18 @@
 'use strict';
-import { enableForcedDownloads } from './lib/download.js?v=d7514e1da1e7d779eddb';
+import { enableForcedDownloads } from './lib/download.js?v=9e85faba005b87d05048';
 enableForcedDownloads();
 import {
   CURRICULUM_CONFIG, EXAM_TYPE_CONFIG, TAB_CONFIG,
   getTypeConf, getGroupConf, getTabConf, legacyTabKey, prettySub,
-} from './config.js?v=d7514e1da1e7d779eddb';
+} from './config.js?v=9e85faba005b87d05048';
 import {
   state, PAGE_SIZE,
   resetFilters, toggleMulti,
   getDisplayYear, availableGradeYears,
   filtered, subjectCounts,
   tabCurriculums, tabCurriculumConfs, tabSubjects, curriculumOfGradeYear,
-} from './state.js?v=d7514e1da1e7d779eddb';
-import { renderAllAdSlots, renderAdSlot } from './lib/ads.js?v=d7514e1da1e7d779eddb';
+} from './state.js?v=9e85faba005b87d05048';
+import { renderAllAdSlots, renderAdSlot } from './lib/ads.js?v=9e85faba005b87d05048';
 
 const tabConf = () => getTabConf(state.tab);
 
@@ -40,7 +40,7 @@ const tabIsSingleType = () => {
 
 // 검색 첫 진입에서 9MB 전체 목록을 받지 않고 현재 탭 split만 로드한다.
 // CI render-site.py가 data/archive/{tab}.json을 exams.json에서 생성한다.
-const DATA_VERSION = 'd7514e1da1e7d779eddb';
+const DATA_VERSION = '9e85faba005b87d05048';
 const FULL_DATA_URL = `data/exams.json?v=${DATA_VERSION}`;
 const tabDataCache = new Map();
 let fullDataCache = null;
@@ -269,6 +269,13 @@ function tabFromLocation() {
 
 async function fetchTabData(tab) {
   if (tabDataCache.has(tab)) return tabDataCache.get(tab);
+  // lib/site-prefs.js 가 <head> 에서 미리 시작한 요청이 있으면 이어받는다 (같은 버전일 때만)
+  const pre = window.__kiceggArchive;
+  if (pre && pre.tab === tab) {
+    window.__kiceggArchive = null;
+    const early = await pre.data;
+    if (Array.isArray(early)) { tabDataCache.set(tab, early); return early; }
+  }
   const res = await fetch(`data/archive/${encodeURIComponent(tab)}.json?v=${DATA_VERSION}`);
   if (!res.ok) throw new Error(`archive split HTTP ${res.status}`);
   const data = await res.json();
@@ -336,6 +343,11 @@ async function loadArchiveMeta() {
 async function loadExams() {
   const initialTab = tabFromLocation();
   state.tab = initialTab;
+  // 데이터 도착 전에 기본 필터 칩·배지를 먼저 그려 늦게 튀어나오는 흔들림을 없앤다
+  if (tabIsSingleType()) state.typeGroup = tabAvailableTypeGroups()[0];
+  else if (tabConf()?.defaultTypeGroup) state.typeGroup = tabConf().defaultTypeGroup;
+  renderActiveTags();
+  updateFilterBadge();
   if (!await replaceExamsForTab(initialTab)) return;
 
   applyUrlTab();   // URL ?tab=... 가 있으면 해당 탭으로 진입
@@ -359,7 +371,7 @@ function scrollActiveTabIntoView() {
   active?.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
 }
 
-$('categorySelect').innerHTML = TAB_CONFIG.map(tab =>
+$('categorySelect').innerHTML = TAB_CONFIG.filter(tab => tab.key !== 'all').map(tab =>
   `<option value="${escAttr(tab.key)}">${escHtml(tab.label)} · ${escHtml(tab.sub)}</option>`).join('');
 $('categorySelect').addEventListener('change', e => {
   const button = document.querySelector(`.nav-tab[data-tab="${e.target.value}"]`);
@@ -1162,6 +1174,8 @@ function renderActiveTags() {
     const tiers = Array.isArray(state.tier) ? state.tier : [state.tier];
     if (tiers.length) tags.push({ label: tiers.map(t => TIER_LABEL[t]).join('·'), key: 'tier' });
   }
+  // '전체' 탭 버튼은 없앴지만 홈 검색은 모든 시험에서 찾는다 — 칩을 지우면 고3 탭으로
+  if (state.tab === 'all') tags.unshift({ label: '모든 시험', key: 'tab' });
   if (state.query) tags.push({ label: `"${state.query}"`, key: 'query' });
 
   container.innerHTML = tags.map(t => `
@@ -1175,6 +1189,10 @@ $('activeTags').addEventListener('click', e => {
   clearTimeout(searchTimer);
   const key = btn.dataset.clear;
 
+  if (key === 'tab') {
+    document.querySelector('.nav-tab[data-tab="senior"]')?.click();
+    return;
+  }
   if (key === 'query') {
     state.query = '';
     $('searchInput').value = '';

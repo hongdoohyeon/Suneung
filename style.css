@@ -112,6 +112,12 @@
 }
 
 /* ═══ Base ════════════════════════════════════════════════ */
+/* 같은 사이트 안 이동은 브라우저 뷰 전환으로 부드럽게 (지원 브라우저만 — 미지원은 평소처럼 이동) */
+@view-transition { navigation: auto; }
+.site-header { view-transition-name: site-header; }
+::view-transition-old(root), ::view-transition-new(root) { animation-duration: .18s; }
+@media (prefers-reduced-motion: reduce) { @view-transition { navigation: none; } }
+
 html { -webkit-text-size-adjust: 100%; overflow-x: clip; }
 body {
   font-family: 'Pretendard Variable', 'Pretendard', -apple-system, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif;
@@ -566,6 +572,12 @@ main { flex: 1 0 auto; width: 100%; }
 .card__actions .btn { flex: 1; min-height: 36px; padding: 0 10px; font-size: 13px; }
 .card__actions .btn--primary { flex: 1.4; }
 
+.skel-head { display: flex; align-items: center; gap: 10px; padding: 18px 18px 14px; }
+.skel-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 58px; padding: 9px 18px; border-top: 1px solid var(--line); }
+.skel { display: block; border-radius: 8px; background: linear-gradient(110deg, var(--surface-2) 30%, var(--sunken) 50%, var(--surface-2) 70%); background-size: 200% 100%; animation: shimmer 1.4s linear infinite; }
+.skel--badge { width: 44px; height: 28px; } .skel--title { width: 200px; height: 20px; }
+.skel--subj { width: 110px; height: 32px; } .skel--btns { width: 190px; height: 34px; }
+@media (max-width: 700px) { .skel-row { flex-direction: column; align-items: stretch; } .skel--btns { width: 100%; height: 40px; } }
 .skel-card { height: 150px; border-radius: var(--r); background: linear-gradient(110deg, var(--surface-2) 30%, var(--surface) 50%, var(--surface-2) 70%); background-size: 200% 100%; animation: shimmer 1.4s linear infinite; }
 @keyframes shimmer { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
 
