@@ -1160,7 +1160,7 @@ def exam_set_title(it: dict) -> str:
 def exam_sub_label(it: dict) -> str:
     parts = [exam_set_title(it) if it.get('typeGroup') != 'essay' else f'{it.get("subject")} 수시 논술고사']
     held = _held_label(it)
-    if held:
+    if held and it.get('typeGroup') not in ('education', 'ged'):   # 학평·검정고시는 제목에 이미 연·월
         parts.append(f'{held} 시행')
     return ' · '.join(parts)
 
@@ -1964,7 +1964,7 @@ def build_static_set_pages(items: list[dict], template_path: Path, out_root: Pat
 
         # 완전한 정적 카드 — 친화 URL 페이지는 JS fetch·재렌더 없이 즉시 사용한다.
         def _static_card(it2):
-            title2 = it2.get('subSubject') or it2.get('subject') or ''
+            title2 = pretty_sub(it2.get('subSubject')) or it2.get('subject') or ''
             subject2 = it2.get('subject') or ''
             has_files = any(it2.get(k) for k in ('questionUrl', 'answerUrl', 'solutionUrl'))
 
@@ -1987,10 +1987,8 @@ def build_static_set_pages(items: list[dict], template_path: Path, out_root: Pat
                 f'<article class="{card_cls}">'
                 f'<a class="card__link" href="exam-{it2["id"]}.html"'
                 f' aria-label="{html_escape(title2, quote=True)} 상세 보기"></a>'
-                '<div class="card__meta"><span class="chiplet chiplet--ink">'
-                + html_escape(subject2, quote=False) + '</span></div>'
-                f'<h2 class="card__title">{html_escape(title2, quote=False)}</h2>'
-                f'<p class="card__sub">{html_escape(subject2, quote=False)}</p>'
+                + (f'<p class="card__sub">{html_escape(subject2, quote=False)}</p>' if title2 != subject2 else '')
+                + f'<h2 class="card__title">{html_escape(title2, quote=False)}</h2>'
                 '<div class="card__divider"></div>'
                 f'<div class="card__actions">{actions}</div>'
                 '</article>'

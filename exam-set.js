@@ -66,14 +66,11 @@ function buildSubtitle(curriculum, type) {
 
 // ── 카드 (영역 단위) ──────────────────────────────────────
 function cardHTML(exam) {
-  const conf = CURRICULUM_CONFIG[exam.curriculum];
-  const subjConf = conf?.subjects?.[exam.subject] ?? { color: '#9ca3af', bg: 'var(--surface-2)' };
   const hasFile = Boolean(exam.questionUrl || exam.answerUrl || exam.solutionUrl);
 
   const title    = exam.subSubject ? prettySub(exam.subSubject) : exam.subject;
   const subtitle = exam.subSubject ? exam.subject : '';
 
-  const subjChip = `<span class="chiplet chiplet--type" style="--chip-bg:${subjConf.bg};--chip-color:${subjConf.color};">${escHtml(exam.subject)}</span>`;
 
   const dl = name => name ? `download="${escAttr(name)}"` : 'download';
   const qUrl = safeUrl(exam.questionUrl);
@@ -91,11 +88,10 @@ function cardHTML(exam) {
 
   const ariaLabel = `${exam.subject}${exam.subSubject ? ' ' + prettySub(exam.subSubject) : ''} 상세 보기`;
   return `
-    <article class="card${hasFile ? ' has-files' : ''}" style="--subject-color:${subjConf.color};">
+    <article class="card${hasFile ? ' has-files' : ''}">
       <a class="card__link" href="exam-${exam.id}.html" aria-label="${escAttr(ariaLabel)}"></a>
-      <div class="card__meta">${subjChip}</div>
+      ${subtitle ? `<p class="card__sub">${escHtml(subtitle)}</p>` : ''}
       <h2 class="card__title" title="${escAttr(title)}">${escHtml(title)}</h2>
-      <p class="card__sub">${escHtml(subtitle)}</p>
       <div class="card__divider"></div>
       <div class="card__actions">${qBtn}${aBtn}${sBtn}</div>
     </article>
@@ -113,7 +109,7 @@ function renderHead(curriculum, gradeYear, type, items) {
   // examYear 모드(학평): yearChip에 월이 들어가므로 typeChip은 월 prefix 제거.
   const typeLabel = tc?.displayMode === 'examYear' ? typeLabelNoMonth(tc) : (tc?.label ?? '');
   const typeChip = tc
-    ? `<span class="chiplet chiplet--type" style="--chip-bg:${tc.badgeBg};--chip-color:${tc.badgeColor};">${escHtml(typeLabel)}</span>`
+    ? `<span class="type-badge type-badge--lg tg-${escAttr(sample.typeGroup)}">${escHtml(typeLabel)}</span>`
     : '';
   const currChip = conf
     ? `<span class="chiplet chiplet--soft">${escHtml(conf.label)}</span>`
