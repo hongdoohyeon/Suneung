@@ -294,6 +294,15 @@ main { flex: 1 0 auto; width: 100%; }
 .spoil-val { transition: filter .3s, opacity .3s; }
 :root[data-spoiler="on"] .spoil-val { filter: blur(6px) grayscale(1); opacity: .55; user-select: none; pointer-events: none; }
 :root[data-spoiler="on"] .spoil-hide { display: none !important; }
+/* 모양으로 새는 정보까지 가림 — 막대 높이·색, 난이도 배지 길이, 분포 막대 */
+:root[data-spoiler="on"] .bars .bar__fill { height: 46% !important; background: var(--surface-2) !important; box-shadow: inset 0 0 0 1px var(--line) !important; }
+:root[data-spoiler="on"] .tier.spoil-val, :root[data-spoiler="on"] .spoil-val .tier {
+  width: 64px; min-width: 64px; padding: 0; color: transparent !important; background: var(--surface-2) !important; overflow: hidden;
+}
+:root[data-spoiler="on"] .tier.spoil-val::before, :root[data-spoiler="on"] .spoil-val .tier::before { background: transparent; box-shadow: none; }
+:root[data-spoiler="on"] .rfold__dist { display: none; }
+:root[data-spoiler="on"] .stat__value.spoil-val { display: block; width: 88px; color: transparent !important; background: var(--surface-2); border-radius: 8px; filter: none; }
+:root[data-spoiler="on"] .stat__value.spoil-val small { color: transparent !important; }
 :root:not([data-spoiler="on"]) .spoil-note { display: none !important; }
 .spoil-note {
   display: flex; align-items: center; gap: 10px; padding: 10px 10px 10px 14px; margin-bottom: 12px;
