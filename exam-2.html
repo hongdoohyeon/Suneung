@@ -34,11 +34,11 @@
   <meta name="twitter:image:alt" content="KICE 공식 — 연도별 접수현황 — 기출해체분석기" />
 
   <title>KICE 공식 — 연도별 접수현황 통계 PDF — 기출해체분석기</title>
-  <link rel="stylesheet" href="lib/vendor/pretendard/pretendardvariable-dynamic-subset.css?v=1dc72b74c18e989af628" />
-  <link rel="stylesheet" href="style.css?v=1dc72b74c18e989af628" />
-  <script src="lib/site-prefs.js?v=1dc72b74c18e989af628"></script>
-  <link rel="modulepreload" href="exam.js?v=1dc72b74c18e989af628" />
-  <script src="lib/measure.js?v=1dc72b74c18e989af628" defer></script>
+  <link rel="stylesheet" href="lib/vendor/pretendard/pretendardvariable-dynamic-subset.css?v=d3d915098dabf07008c8" />
+  <link rel="stylesheet" href="style.css?v=d3d915098dabf07008c8" />
+  <script src="lib/site-prefs.js?v=d3d915098dabf07008c8"></script>
+  <link rel="modulepreload" href="exam.js?v=d3d915098dabf07008c8" />
+  <script src="lib/measure.js?v=d3d915098dabf07008c8" defer></script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"DigitalDocument","@id":"https://kicegg.com/exam-2.html","url":"https://kicegg.com/exam-2.html","name":"KICE 공식 — 연도별 접수현황","description":"한국교육과정평가원(KICE) 공식 수능 통계 — 연도별 접수현황 (2025년 공개). 평가원이 공개한 수능 통계 PDF를 다운로드하세요. 수능 통계 연도별 접수현황 평가원 공식 자료, 응시·접수·채점 현황 데이터.","inLanguage":"ko-KR","encodingFormat":"application/pdf","dateModified":"2026-09-27","publisher":{"@type":"Organization","name":"한국교육과정평가원 (KICE)"},"isPartOf":{"@id":"https://kicegg.com/#website"},"keywords":["KICE 공식 — 연도별 접수현황","연도별 접수현황","문제지","기출문제","정답","답지","해설지","풀이","등급컷"],"contentUrl":"https://suneung-files.hdh061224.workers.dev/kice-archive-v2/kice_yearly_application.pdf?name=%EC%88%98%EB%8A%A5%20%EC%97%B0%EB%8F%84%EB%B3%84%20%EC%9D%91%EC%8B%9C%EC%9B%90%EC%84%9C%20%EC%A0%91%EC%88%98%ED%98%84%ED%99%A9%20%28KICE%20%EA%B3%B5%EC%8B%9D%29.pdf"}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"홈","item":"https://kicegg.com/"},{"@type":"ListItem","position":2,"name":"기출 검색","item":"https://kicegg.com/archive.html"},{"@type":"ListItem","position":3,"name":"KICE 공식 — 연도별 접수현황","item":"https://kicegg.com/exam-2.html"}]}</script>
 </head>
@@ -65,11 +65,11 @@
         <a href="calendar.html">학사 일정</a>
       </nav>
       <div class="header-tools">
-        <a class="header-search" href="archive.html" aria-label="기출 검색">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
-          <span>기출 검색</span>
-        </a>
-        <a class="icon-btn header-search--icon" href="archive.html" aria-label="기출 검색">
+        <form class="header-search" action="./" method="get" role="search">
+          <button type="submit" class="header-search__btn" aria-label="기출 검색"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></button>
+          <input type="search" name="q" placeholder="기출 검색" aria-label="기출 검색어" autocomplete="off" enterkeyhint="search" />
+        </form>
+        <a class="icon-btn header-search--icon" href="./?focus=search" aria-label="기출 검색">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
         </a>
         <button type="button" class="icon-btn theme-toggle" aria-label="다크 모드로 전환">
@@ -129,6 +129,10 @@
           <dl class="facts" id="examFacts"><dt>시험</dt><dd>이 회차 전체</dd><dt>영역</dt><dd>연도별 접수현황</dd><dt>출제</dt><dd>한국교육과정평가원</dd><dt>자료</dt><dd>문제지</dd></dl>
           <p class="info-card__desc" id="examSeoIntro">한국교육과정평가원(KICE) 공식 수능 통계 — 연도별 접수현황 (2025년 공개). 한국교육과정평가원이 공개한 공식 통계 자료로, 역대 수능의 응시 인원·접수 현황·과목별 채점 결과(평균·등급·계열별 분포)를 담고 있습니다. PDF 파일을 무료로 다운로드해 확인하세요.</p>
         </section>
+        <button type="button" class="report-btn" id="reportBtn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 21V4M5 4h11l-2 4 2 4H5"/></svg>
+          자료 오류 제보
+        </button>
         <div id="examListenMount"></div>
         <div class="ad-slot ad-slot--sidebar" data-ad-position="examSidebar"
              data-adfit-width="300" data-adfit-height="250"></div>
@@ -174,7 +178,7 @@
     </div>
   </footer>
 
-  <script type="module" src="exam.js?v=1dc72b74c18e989af628"></script>
-  <script type="module" src="lib/dday-mount.js?v=1dc72b74c18e989af628"></script>
+  <script type="module" src="exam.js?v=d3d915098dabf07008c8"></script>
+  <script type="module" src="lib/dday-mount.js?v=d3d915098dabf07008c8"></script>
 </body>
 </html>
