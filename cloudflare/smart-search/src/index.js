@@ -1,6 +1,7 @@
 // kicegg.com/api/search?q=… — 자연어 검색어를 기출검색 필터로 바꿔 준다.
 // 순서: 입력 검사 → 캐시 → 호출 상한 → JEV(TypeSafe) → 캐시 저장. JEV 가 막히면 규칙 결과만 돌려준다.
 import { ruleParse, toFilters, JEV_QUESTIONS } from './parse.js';
+import { handleReport } from './report.js';
 
 const JEV_URL = 'https://api.typesafe.ai/v1/systemone';
 const CACHE_TTL = 7 * 24 * 3600;
@@ -11,6 +12,7 @@ const json = (body, status = 200, extra = {}) => new Response(JSON.stringify(bod
 export default {
   async fetch(request, env, ctx) {
     const url = new URL(request.url);
+    if (url.pathname === '/api/report') return handleReport(request, env, ctx);
     if (url.pathname !== '/api/search') return json({ error: 'not_found' }, 404);
     if (request.method !== 'GET') return json({ error: 'method' }, 405);
     // 다른 사이트에서 가져다 쓰지 못하게 (브라우저가 붙이는 헤더)

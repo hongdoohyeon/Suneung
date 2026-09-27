@@ -1,18 +1,19 @@
 'use strict';
-import { enableForcedDownloads } from './lib/download.js?v=d702670c83c512228b29';
+import { enableForcedDownloads } from './lib/download.js?v=1dc72b74c18e989af628';
 enableForcedDownloads();
 import {
   CURRICULUM_CONFIG, EXAM_TYPE_CONFIG, TAB_CONFIG,
   getTypeConf, getGroupConf, getTabConf, legacyTabKey, prettySub,
-} from './config.js?v=d702670c83c512228b29';
+} from './config.js?v=1dc72b74c18e989af628';
 import {
   state, PAGE_SIZE,
   resetFilters, toggleMulti,
   getDisplayYear, availableGradeYears,
   filtered, subjectCounts,
   tabCurriculums, tabCurriculumConfs, tabSubjects, curriculumOfGradeYear,
-} from './state.js?v=d702670c83c512228b29';
-import { renderAllAdSlots, renderAdSlot } from './lib/ads.js?v=d702670c83c512228b29';
+} from './state.js?v=1dc72b74c18e989af628';
+import { renderAllAdSlots, renderAdSlot } from './lib/ads.js?v=1dc72b74c18e989af628';
+import { recentItems, clearRecent } from './lib/recent.js?v=1dc72b74c18e989af628';
 
 const tabConf = () => getTabConf(state.tab);
 
@@ -40,7 +41,7 @@ const tabIsSingleType = () => {
 
 // 검색 첫 진입에서 9MB 전체 목록을 받지 않고 현재 탭 split만 로드한다.
 // CI render-site.py가 data/archive/{tab}.json을 exams.json에서 생성한다.
-const DATA_VERSION = 'd702670c83c512228b29';
+const DATA_VERSION = '1dc72b74c18e989af628';
 const FULL_DATA_URL = `data/exams.json?v=${DATA_VERSION}`;
 const tabDataCache = new Map();
 let fullDataCache = null;
@@ -80,7 +81,7 @@ document.addEventListener('toggle', e => {
 // 모든 필터 상태를 URL searchParams 에 반영해 뒤로가기·새로고침·링크 공유 시 복원.
 // 다중 선택은 쉼표로 직렬화. "all"·빈 상태는 URL에서 키 자체를 제거해 짧게 유지.
 
-const URL_KEYS = ['tab','typeGroup','type','gradeYear','subject','subjects','subSubject','subSubjects','has','cut','sort','tier','q','search','page'];
+const URL_KEYS = ['focus', 'tab','typeGroup','type','gradeYear','subject','subjects','subSubject','subSubjects','has','cut','sort','tier','q','search','page'];
 const HAS_LABEL = { listen: '듣기 있음', script: '대본 있음', solution: '해설 있음', even: '짝수형' };
 const SORT_LABEL = { hard: '어려운 순', easy: '쉬운 순', old: '오래된 순' };
 
@@ -1081,7 +1082,7 @@ function tableHTML(groups) {
     return `<section class="rgroup" aria-label="${escAttr(title)}">
       <header class="rgroup__head">
         <span class="type-badge type-badge--lg tg-${escAttr(first.typeGroup)}">${escHtml(badgeLabel(first))}</span>
-        <h3 class="rgroup__title">${setHref ? `<a href="${escAttr(setHref)}">${escHtml(title)}</a>` : escHtml(title)}</h3>
+        <h2 class="rgroup__title">${setHref ? `<a href="${escAttr(setHref)}">${escHtml(title)}</a>` : escHtml(title)}</h2>
         ${setHref ? `<a class="rgroup__all" href="${escAttr(setHref)}" aria-label="${escAttr(title)} 전체 과목 보기"><span>회차 전체 보기</span>${arrow}</a>` : ''}
       </header>
       <div class="rrow rrow--head" aria-hidden="true"><span>과목</span><span>1등급컷</span><span>난이도</span><span>자료</span></div>
@@ -1467,8 +1468,25 @@ document.querySelector('.view-toggle')?.addEventListener('click', e => {
 });
 syncViewToggle();
 
+// ── 최근 본 시험 (이 기기에 저장된 것만) ─────────────────────
+function renderRecent() {
+  const row = $('recentRow');
+  if (!row) return;
+  const list = recentItems().slice(0, 8);
+  row.hidden = !list.length;
+  $('recentList').innerHTML = list.map(e =>
+    `<a class="recent-chip" href="exam-${e.id}.html"><span>${escHtml(e.sub || '')}</span> ${escHtml(e.title || '시험')}</a>`).join('');
+}
+$('recentClear')?.addEventListener('click', () => { clearRecent(); renderRecent(); });
+renderRecent();
+
 // ── 시작 ──────────────────────────────────────────────────
 loadExams();
+// 헤더 돋보기로 들어온 경우(?focus=search) 검색창에 바로 커서
+if (new URLSearchParams(location.search).get('focus') === 'search') {
+  $('searchInput').focus();
+  const u = new URL(location.href); u.searchParams.delete('focus'); history.replaceState(history.state, '', u);
+}
 
 // 광고 슬롯 자동 렌더 (lib/ads.js — Publisher ID 미설정 시 no-op)
 if (document.readyState !== 'loading') renderAllAdSlots();
