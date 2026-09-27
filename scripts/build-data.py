@@ -1053,6 +1053,10 @@ def compute_exam_scores(items: list[dict], cuts: list[dict] | None = None) -> di
     5단계를 매긴다: 상위 20%(컷 높음) = 매우 쉬움 … 하위 20% = 매우 어려움.
     표본이 5회 미만이거나 절대평가·값이 모두 같으면 매기지 않는다."""
     match = build_cut_matcher(cuts if cuts is not None else _load_gradecuts())
+    try:   # 영어(절대평가) 등급별 비율 — scripts/extract-english-ratios.py (평가원 채점결과)
+        en_ratios = json.loads((ROOT / 'data' / 'english-grade-ratios.json').read_text(encoding='utf-8'))
+    except Exception:
+        en_ratios = {}
     out: dict = {}
     series: dict = {}
     for it in items:
@@ -1076,19 +1080,28 @@ def compute_exam_scores(items: list[dict], cuts: list[dict] | None = None) -> di
             'basis': cut.get('rawCutBasis'),
             'tier': None,
             'cut': cut,
+            'ratio': None,
+            'ratios': None,
         }
+        er = en_ratios.get(f'{it.get("gradeYear")}|{it.get("type")}') if (
+            it.get('subject') == '영어' and it.get('typeGroup') == 'suneung') else None
+        if er:
+            out[it['id']]['ratios'] = er['ratios']
+            out[it['id']]['ratio'] = er['ratios'][0]
         key = tier_series_key(it)
-        if key and r1 is not None and not absolute:
-            series.setdefault(key, {})[(it.get('gradeYear'), it.get('type'), it.get('month'))] = r1
+        # 난이도 비교값: 상대평가는 1등급 원점수 컷, 영어(절대평가)는 1등급 비율 — 둘 다 높을수록 쉬움
+        metric = out[it['id']]['ratio'] if absolute else r1
+        if key and metric is not None:
+            series.setdefault(key, {})[(it.get('gradeYear'), it.get('type'), it.get('month'))] = metric
     for it in items:
         rec = out.get(it['id'])
         key = tier_series_key(it)
-        if not rec or rec['raw'] is None or rec['abs'] or not key or key not in series:
+        v = (rec['ratio'] if rec['abs'] else rec['raw']) if rec else None
+        if v is None or not key or key not in series:
             continue
         values = list(series[key].values())
         if len(values) < _TIER_MIN_SAMPLES or len(set(values)) < 3:
             continue
-        v = rec['raw']
         below = sum(1 for x in values if x < v)
         equal = sum(1 for x in values if x == v)
         p = (below + 0.5 * equal) / len(values)
@@ -1263,32 +1276,39 @@ def score_stats_html(sc: dict) -> str:
     basis = sc.get('basis')
     kind = '역산값' if basis == 'academy_reverse_calculated' else '추정 경계' if basis == 'academy_integerized_threshold' else ''
     if sc['abs']:
-        cells.append(('1등급 기준', f'{esc(sc["raw"])}<small>점 이상</small>'))
-        cells.append(('평가 방식', '절대평가'))
+        cells.append(('1등급 기준', f'{esc(sc["raw"])}<small>점 이상</small>', False))
+        if sc.get('ratio') is not None:
+            cells.append(('1등급 비율', f'{esc(sc["ratio"])}<small>%</small>', True))
+            if sc.get('tier'):
+                cells.append(('난이도 (역대 1등급 비율 대비)', TIER_LABELS[sc['tier']], True))
+        else:
+            cells.append(('평가 방식', '절대평가', False))
     else:
-        cells.append(('1등급컷' + (f' ({kind})' if kind else ''), f'{esc(sc["raw"])}<small>원점수</small>'))
+        cells.append(('1등급컷' + (f' ({kind})' if kind else ''), f'{esc(sc["raw"])}<small>원점수</small>', True))
         if sc.get('top') is not None:
-            cells.append(('표준점수 최고점', esc(sc['top'])))
+            cells.append(('표준점수 최고점', esc(sc['top']), True))
         elif sc.get('std') is not None:
-            cells.append(('1등급 표준점수', esc(sc['std'])))
+            cells.append(('1등급 표준점수', esc(sc['std']), True))
         if sc.get('cum') is not None:
-            cells.append(('1등급 누적 비율', f'{esc(sc["cum"])}<small>%</small>'))
+            cells.append(('1등급 누적 비율', f'{esc(sc["cum"])}<small>%</small>', True))
         if sc.get('tier'):
-            cells.append(('난이도 (역대 대비)', TIER_LABELS[sc['tier']]))
-    blur = '' if sc['abs'] else ' spoil-val'
+            cells.append(('난이도 (역대 대비)', TIER_LABELS[sc['tier']], True))
     return '<div class="stats">' + ''.join(
         f'<div class="card-box stat"><span class="stat__label">{lbl}</span>'
-        f'<span class="stat__value{blur}">{val}</span></div>' for lbl, val in cells) + '</div>'
+        f'<span class="stat__value{" spoil-val" if blur else ""}">{val}</span></div>' for lbl, val, blur in cells) + '</div>'
 
 
-def grade_table_html(cut: dict, absolute: bool) -> str:
-    """등급별 원점수·표준점수·백분위·누적 비율 표 (lib/exam-gradedist.js 와 동일 형식)."""
+def grade_table_html(cut: dict, absolute: bool, ratios: list | None = None) -> str:
+    """등급별 원점수·표준점수·백분위·누적 비율 표 (lib/exam-gradedist.js 와 동일 형식).
+    영어(절대평가)는 등급별 인원 비율(ratios)을 곁들이고 그 열만 스포일러 대상으로 흐린다."""
     cols = [('원점수', cut.get('rawCuts') or [], '')]
     for key, lbl, unit, lo, hi in (('standardCuts', '표준점수', '', 1, 200), ('standardPercentile', '백분위', '', 0, 100),
                                    ('cumulativePercent', '누적', '%', 0, 100)):
         vals = clean_cut_series(cut.get(key), lo, hi)
         if isinstance(vals, list) and any(v is not None for v in vals) and not absolute:
             cols.append((lbl, vals, unit))
+    if ratios:
+        cols.append(('비율', ratios, '%'))
     n = max((len(v) for _, v, _ in cols), default=0)
     rows = []
     for i in range(min(n, 9)):
@@ -1299,7 +1319,7 @@ def grade_table_html(cut: dict, absolute: bool) -> str:
             if i >= len(v) or v[i] is None:
                 cells.append('<td>—</td>')
             else:
-                cls = ' class="is-muted"' if j > 1 else ''
+                cls = ' class="spoil-val"' if (absolute and ratios and j == len(cols) - 1) else (' class="is-muted"' if j > 1 else '')
                 cells.append(f'<td{cls}>{v[i]}{u}</td>')
         tds = ''.join(cells)
         rows.append(f'<tr><td>{i + 1}</td>{tds}</tr>')
@@ -1315,6 +1335,7 @@ def grade_table_html(cut: dict, absolute: bool) -> str:
 
 
 _COMPARE_METRICS = (('raw', '1등급컷', '원점수'), ('top', '표점 최고', '표준점수'), ('std', '1등급 표점', '표준점수'))
+_RATIO_METRICS = (('ratio', '1등급 비율', '%'),)
 
 
 def compare_html(it: dict, series: list[dict], scores: dict, with_toggle: bool = False) -> str:
@@ -1325,7 +1346,8 @@ def compare_html(it: dict, series: list[dict], scores: dict, with_toggle: bool =
     past = [x for x in series if x['id'] != it['id'] and _exam_sort_key(x) <= cur_key]
     pts = past[-9:] + [it]
     sc = lambda x, k: (scores.get(x['id']) or {}).get(k)
-    metrics = [m for m in _COMPARE_METRICS if sum(1 for x in pts if sc(x, m[0]) is not None) >= 2]
+    base = _RATIO_METRICS if is_absolute_cut(it, None) else _COMPARE_METRICS   # 영어는 1등급 비율로 비교
+    metrics = [m for m in base if sum(1 for x in pts if sc(x, m[0]) is not None) >= 2]
     if not metrics:
         return ''
     charts = []
@@ -1338,7 +1360,7 @@ def compare_html(it: dict, series: list[dict], scores: dict, with_toggle: bool =
         for x in pts:
             v = sc(x, key)
             cur = ' is-current' if x['id'] == it['id'] else ''
-            tier = sc(x, 'tier') if key == 'raw' else None
+            tier = sc(x, 'tier') if key in ('raw', 'ratio') else None
             tier_cls = f' bar--t{tier}' if tier else ''
             h = 0 if v is None else round(12 + (v - lo) / (hi - lo) * 78)
             val = esc(v) if v is not None else '발표 전'
@@ -1353,7 +1375,7 @@ def compare_html(it: dict, series: list[dict], scores: dict, with_toggle: bool =
     for x in reversed(pts):
         cur = x['id'] == it['id']
         t = sc(x, 'tier')
-        cells = ''.join(f'<td class="spoil-val">{esc(sc(x, k)) if sc(x, k) is not None else "—"}</td>' for k, _, _ in _COMPARE_METRICS)
+        cells = ''.join(f'<td class="spoil-val{" cmp-opt" if k in ("top", "std") else ""}">{esc(sc(x, k)) if sc(x, k) is not None else "—"}{u if (sc(x, k) is not None and u == "%") else ""}</td>' for k, _, u in base)
         tier_span = f'<span class="tier tier--{t}">{TIER_LABELS[t]}</span>' if t else '—'
         tier_td = f'<td class="spoil-val">{tier_span}</td>'
         name = f'<a href="exam-{x["id"]}.html"><span class="type-badge tg-{x.get("typeGroup")}">{esc(exam_badge_label(x))}</span>' \
@@ -1361,7 +1383,7 @@ def compare_html(it: dict, series: list[dict], scores: dict, with_toggle: bool =
         tr_cls = ' class="is-current"' if cur else ''
         rows.append(f'<tr{tr_cls}><th scope="row">{name}</th>{cells}{tier_td}</tr>')
     subj = pretty_sub(it.get('subSubject')) or it.get('subject') or ''
-    head = ''.join(f'<th scope="col">{lbl}</th>' for _, lbl, _ in _COMPARE_METRICS)
+    head = ''.join(f'<th scope="col"{" class=cmp-opt" if k in ("top", "std") else ""}>{lbl}</th>' for k, lbl, _ in base)
     # 이 시험의 등급컷 섹션이 없으면(발표 전 등) 스포일러 스위치를 여기에 둔다 — 끌 곳이 없어지지 않게
     toggle = note = ''
     if with_toggle:
@@ -1469,7 +1491,7 @@ def build_static_exam_pages(items: list[dict], template_path: Path, out_root: Pa
     for _it in items:
         _k = tier_series_key(_it)
         _sc = _scores.get(_it['id'])
-        if _k and _sc and _sc['raw'] is not None and not _sc['abs']:
+        if _k and _sc and ((_sc['raw'] is not None and not _sc['abs']) or _sc.get('ratio') is not None):
             _trend[_k].append(_it)
     for _k in _trend:
         _trend[_k].sort(key=_exam_sort_key)
@@ -1743,21 +1765,22 @@ def build_static_exam_pages(items: list[dict], template_path: Path, out_root: Pa
                 and any(v is not None for v in _cut['rawCuts'])):
             html = html.replace('<body class="page-exam">', '<body class="page-exam has-gradecut">', 1)
             html = html.replace('<section class="exam-section" id="gradeDist" aria-labelledby="gradeDistTitle" hidden>',
-                                '<section class="exam-section' + (' exam-section--open' if sc['abs'] else '')
+                                '<section class="exam-section' + (' exam-section--open' if sc['abs'] and sc.get('ratio') is None else '')
                                 + '" id="gradeDist" aria-labelledby="gradeDistTitle">', 1)
             if sc['abs']:
-                html = html.replace('<h2 id="gradeDistTitle">등급컷 · 난이도</h2>', '<h2 id="gradeDistTitle">등급 기준 · 절대평가</h2>', 1)
+                _t = '등급 기준 · 1등급 비율' if sc.get('ratio') is not None else '등급 기준 · 절대평가'
+                html = html.replace('<h2 id="gradeDistTitle">등급컷 · 난이도</h2>', f'<h2 id="gradeDistTitle">{_t}</h2>', 1)
             html = html.replace('<div id="gradeDistStats"></div>',
                                 '<div id="gradeDistStats">' + score_stats_html(sc) + '</div>', 1)
             html = html.replace('<div class="exam-card__body" id="gradeDistBody"></div>',
                                 '<div class="exam-card__body" id="gradeDistBody">'
-                                + grade_table_html(_cut, sc['abs']) + '</div>', 1)
+                                + grade_table_html(_cut, sc['abs'], sc.get('ratios')) + '</div>', 1)
 
         # 최근 회차와 비교(그래프·비교표) — 등급컷 있는 지난 회차가 2개 이상일 때. 없으면 다른 회차 카드.
         _k = tier_series_key(it)
         _series = _trend.get(_k, []) if _k else []
         _cmp = ''
-        if not (sc and sc['abs']) and sum(1 for x in _series if x['id'] != it['id']) >= 2:
+        if (not (sc and sc['abs']) or (sc and sc.get('ratio') is not None)) and sum(1 for x in _series if x['id'] != it['id']) >= 2:
             _cmp = compare_html(it, _series, _scores, with_toggle='class="page-exam has-gradecut"' not in html)
         if _cmp:
             html = html.replace('<!-- exam-related -->', _cmp, 1)

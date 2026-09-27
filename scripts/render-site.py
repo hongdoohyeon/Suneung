@@ -266,7 +266,7 @@ def _hub_page(fname: str, h1: str, title: str, desc: str, intro: str,
   <footer class="site-footer">
     <div class="container">
       <nav class="site-footer__links" aria-label="사이트 정보">
-        <a href="about.html">소개</a><a href="privacy.html">개인정보처리방침</a><a href="terms.html">이용약관</a><a href="sets.html">전체 회차</a><a href="mailto:hdh061224@gmail.com">문의</a>
+        <a href="about.html">소개</a><a href="privacy.html">개인정보처리방침</a><a href="terms.html">이용약관</a><a href="sets.html">전체 회차</a><a href="about.html#contact">문의</a>
       </nav>
       <p class="site-footer__sub">출처 · 한국교육과정평가원 · 17개 시도교육청 · 각 대학 입학처 외. 저작권은 각 발행기관에 있으며 교육 목적으로만 이용할 수 있습니다.</p>
     </div>
@@ -631,7 +631,7 @@ def render_sets_directory(items: list[dict], essay_hubs=None, subject_hubs=None)
   <footer class="site-footer">
     <div class="container">
       <nav class="site-footer__links" aria-label="사이트 정보">
-        <a href="about.html">소개</a><a href="privacy.html">개인정보처리방침</a><a href="terms.html">이용약관</a><a href="sets.html">전체 회차</a><a href="mailto:hdh061224@gmail.com">문의</a>
+        <a href="about.html">소개</a><a href="privacy.html">개인정보처리방침</a><a href="terms.html">이용약관</a><a href="sets.html">전체 회차</a><a href="about.html#contact">문의</a>
       </nav>
       <p class="site-footer__sub">출처 · 한국교육과정평가원 · 17개 시도교육청 · 각 대학 입학처 외. 저작권은 각 발행기관에 있으며 교육 목적으로만 이용할 수 있습니다.</p>
     </div>
@@ -728,9 +728,9 @@ def render_archive_splits(items: list[dict]) -> None:
         index.append(entry)
     (out_dir / 'all.json').write_text(json.dumps(index, ensure_ascii=False, separators=(',', ':')) + '\n', encoding='utf-8')
 
-    # 기출검색 표의 1등급컷·난이도 열 — id → [원점수 1컷, 표점 1컷, 난이도(1~5|null), 절대평가 0/1]
+    # 기출검색 표의 1등급컷·난이도 열 — id → [원점수 1컷, 표점 1컷, 난이도(1~5|null), 절대평가 0/1, 영어 1등급 비율|null]
     scores = bd.compute_exam_scores(items)
-    cuts_index = {str(i): [r['raw'], r['std'], r['tier'], 1 if r['abs'] else 0]
+    cuts_index = {str(i): [r['raw'], r['std'], r['tier'], 1 if r['abs'] else 0, r.get('ratio')]
                   for i, r in sorted(scores.items()) if r['raw'] is not None}
     (out_dir / 'cuts.json').write_text(json.dumps(cuts_index, ensure_ascii=False, separators=(',', ':')) + '\n', encoding='utf-8')
 

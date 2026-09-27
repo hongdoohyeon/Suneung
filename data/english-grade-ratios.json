@@ -1,0 +1,128 @@
+{
+  "2023|june": {
+    "ratios": [
+      5.74,
+      13.83,
+      18.33,
+      17.84,
+      14.33,
+      11.04,
+      8.2,
+      7.39,
+      3.3
+    ],
+    "source": "kice-scoring-archive/june_mock_2023/table-017.csv"
+  },
+  "2024|csat": {
+    "ratios": [
+      4.71,
+      18.17,
+      23.96,
+      19.41,
+      12.26,
+      8.23,
+      6.32,
+      5.25,
+      1.69
+    ],
+    "source": "kice-scoring-archive/csat_2024/table-017.csv"
+  },
+  "2024|june": {
+    "ratios": [
+      7.62,
+      14.95,
+      21.81,
+      20.33,
+      11.59,
+      7.76,
+      6.1,
+      7.17,
+      2.67
+    ],
+    "source": "kice-scoring-archive/june_mock_2024/table-017.csv"
+  },
+  "2024|sept": {
+    "ratios": [
+      4.37,
+      13.34,
+      23.85,
+      23.17,
+      12.41,
+      7.36,
+      5.44,
+      7.25,
+      2.81
+    ],
+    "source": "kice-scoring-archive/september_mock_2024/table-017.csv"
+  },
+  "2025|csat": {
+    "ratios": [
+      6.22,
+      16.35,
+      21.37,
+      21.62,
+      15.22,
+      9.06,
+      5.44,
+      3.75,
+      0.98
+    ],
+    "source": "kice-scoring-archive/csat_2025/table-017.csv"
+  },
+  "2025|june": {
+    "ratios": [
+      1.47,
+      8.0,
+      19.35,
+      24.67,
+      16.94,
+      10.56,
+      7.56,
+      8.5,
+      2.95
+    ],
+    "source": "kice-scoring-archive/june_mock_2025/table-017.csv"
+  },
+  "2026|csat": {
+    "ratios": [
+      3.11,
+      14.35,
+      26.3,
+      24.53,
+      13.28,
+      8.02,
+      5.64,
+      3.65,
+      1.13
+    ],
+    "source": "kice-scoring-archive/csat_2026/table-004.csv"
+  },
+  "2026|june": {
+    "ratios": [
+      19.1,
+      16.43,
+      18.09,
+      15.19,
+      9.72,
+      6.73,
+      5.21,
+      6.92,
+      2.61
+    ],
+    "source": "kice-scoring-archive/june_mock_2026/table-017.csv"
+  },
+  "2027|june": {
+    "ratios": [
+      4.13,
+      13.4,
+      25.02,
+      21.68,
+      12.3,
+      7.75,
+      5.91,
+      6.09,
+      3.7
+    ],
+    "source": "kice-scoring-archive/june_mock_2027/table-017.csv"
+  }
+}

@@ -1,18 +1,18 @@
 'use strict';
-import { enableForcedDownloads } from './lib/download.js?v=9e85faba005b87d05048';
+import { enableForcedDownloads } from './lib/download.js?v=f049e870a901971b7100';
 enableForcedDownloads();
 import {
   CURRICULUM_CONFIG, EXAM_TYPE_CONFIG, TAB_CONFIG,
   getTypeConf, getGroupConf, getTabConf, legacyTabKey, prettySub,
-} from './config.js?v=9e85faba005b87d05048';
+} from './config.js?v=f049e870a901971b7100';
 import {
   state, PAGE_SIZE,
   resetFilters, toggleMulti,
   getDisplayYear, availableGradeYears,
   filtered, subjectCounts,
   tabCurriculums, tabCurriculumConfs, tabSubjects, curriculumOfGradeYear,
-} from './state.js?v=9e85faba005b87d05048';
-import { renderAllAdSlots, renderAdSlot } from './lib/ads.js?v=9e85faba005b87d05048';
+} from './state.js?v=f049e870a901971b7100';
+import { renderAllAdSlots, renderAdSlot } from './lib/ads.js?v=f049e870a901971b7100';
 
 const tabConf = () => getTabConf(state.tab);
 
@@ -40,7 +40,7 @@ const tabIsSingleType = () => {
 
 // 검색 첫 진입에서 9MB 전체 목록을 받지 않고 현재 탭 split만 로드한다.
 // CI render-site.py가 data/archive/{tab}.json을 exams.json에서 생성한다.
-const DATA_VERSION = '9e85faba005b87d05048';
+const DATA_VERSION = 'f049e870a901971b7100';
 const FULL_DATA_URL = `data/exams.json?v=${DATA_VERSION}`;
 const tabDataCache = new Map();
 let fullDataCache = null;
@@ -960,13 +960,14 @@ function scoreCells(e) {
     const na = loading ? '' : '—';
     return { has: false, cut: `<span class="rrow__na">${na}</span>`, tier: '', cutInline: '' };
   }
-  const [raw, std, tier, abs] = c;
+  const [raw, std, tier, abs, ratio] = c;
+  // 영어(절대평가)는 90점 기준은 공개 정보, 1등급 비율과 그에 따른 난이도만 스포일러
   const cut = abs
-    ? `<span class="rrow__cut spoil-val">${raw}점<small>이상 1등급</small></span>`
+    ? `<span class="rrow__cut">${raw}점${ratio != null ? `<small class="spoil-val">1등급 ${ratio}%</small>` : '<small>이상 1등급</small>'}</span>`
     : `<span class="rrow__cut spoil-val">${raw}${std != null ? `<small>표점 ${std}</small>` : ''}</span>`;
-  const tierHtml = abs
-    ? '<span class="tier tier--na">절대평가</span>'
-    : (tier ? `<span class="tier tier--${tier} spoil-val">${TIER_LABEL[tier]}</span>` : '');
+  const tierHtml = tier
+    ? `<span class="tier tier--${tier} spoil-val">${TIER_LABEL[tier]}</span>`
+    : (abs ? '<span class="tier tier--na">절대평가</span>' : '');
   return { has: true, cut, tier: tierHtml, cutInline: `<span class="card__sub spoil-val">1컷 ${raw}</span>` };
 }
 
