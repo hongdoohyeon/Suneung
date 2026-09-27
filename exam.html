@@ -94,53 +94,27 @@
 
   <main id="main" class="container exam">
 
-    <!-- 좌측 메타 사이드바: 뒤로가기 · 칩·제목·부제 · 다운로드 · 탭 -->
-    <aside class="exam__side" id="examSide">
-      <nav class="exam__crumb" aria-label="이동">
-        <a href="archive.html" id="backLink" class="exam__back">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-               stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <line x1="19" y1="12" x2="5" y2="12"/>
-            <polyline points="12 19 5 12 12 5"/>
-          </svg>
-          <span>기출 검색으로</span>
-        </a>
-        <a href="#" id="examSetSideLink" class="exam__back" hidden>
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-               stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <rect x="3" y="3" width="7" height="7" rx="1.5"/>
-            <rect x="14" y="3" width="7" height="7" rx="1.5"/>
-            <rect x="3" y="14" width="7" height="7" rx="1.5"/>
-            <rect x="14" y="14" width="7" height="7" rx="1.5"/>
-          </svg>
-          <span>이 회차 모든 영역</span>
-        </a>
-      </nav>
+    <nav class="exam__crumb" id="examCrumb" aria-label="이동">
+      <a href="archive.html" id="backLink">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        <span>기출검색</span>
+      </a>
+      <a href="#" id="examSetSideLink" hidden><span>이 회차 전체</span></a>
+    </nav>
 
+    <div class="exam__top" id="examSide">
       <header class="exam__head" id="examHead">
         <div class="exam__chips" id="examChips"></div>
         <h1 class="exam__title" id="examTitle">자료 불러오는 중…</h1>
-        <p  class="exam__sub"   id="examSub"></p>
+        <p class="exam__sub" id="examSub"></p>
       </header>
-
       <div class="exam__actions" id="examActions"></div>
+    </div>
 
-      <nav class="exam__tabs" role="tablist" aria-label="자료 영역 선택">
-        <button class="exam-tab is-active" id="tabPaper" role="tab" type="button"
-                data-tab="paper" aria-selected="true" aria-controls="paneP">문제</button>
-        <button class="exam-tab" id="tabInfo" role="tab" type="button"
-                data-tab="info" aria-selected="false" aria-controls="paneI">등급컷</button>
-      </nav>
+    <nav class="exam__subjects hscroll" id="examSubjects" aria-label="같은 회차 다른 과목"></nav>
 
-      <!-- 광고: 사이드바 하단 -->
-      <div class="ad-slot ad-slot--sidebar" data-ad-position="examSidebar"
-           data-adfit-width="300" data-adfit-height="250"></div>
-    </aside>
-
-    <!-- 우측 메인: 미리보기 / 정보·통계 -->
-    <div class="exam__main" id="examMain">
-
-      <section class="exam-pane" id="paneP" data-pane="paper" role="tabpanel" aria-labelledby="tabPaper">
+    <div class="exam__grid" id="examMain">
+      <section class="exam__paper" aria-label="문제지 미리보기">
         <article class="preview" id="previewQ">
           <header class="preview__head">
             <h2 class="preview__title">문제지</h2>
@@ -151,26 +125,51 @@
           </div>
         </article>
       </section>
-
-      <section class="exam-pane" id="paneI" data-pane="info" role="tabpanel" aria-labelledby="tabInfo">
-
-        <section class="exam-card" id="gradeDist">
-          <header class="exam-card__head">
-            <h2 class="exam-card__title">등급컷</h2>
-            <span class="exam-card__hint" id="gradeDistHint"></span>
-          </header>
-          <div class="exam-card__body" id="gradeDistBody"></div>
+      <aside class="exam__aside">
+        <section class="card-box info-card" id="examInfo" aria-labelledby="examInfoTitle">
+          <h2 id="examInfoTitle">시험 정보</h2>
+          <dl class="facts" id="examFacts"></dl>
         </section>
-
-      </section>
-
+        <div id="examListenMount"></div>
+        <div class="ad-slot ad-slot--sidebar" data-ad-position="examSidebar"
+             data-adfit-width="300" data-adfit-height="250"></div>
+      </aside>
     </div>
 
-    <!-- 에러/없음 — grid 양쪽 컬럼 차지 -->
+    <div class="ad-slot ad-slot--banner" data-ad-position="examAfterPreview"></div>
+
+    <section class="card-box exam__body" id="examBody" hidden></section>
+
+    <section class="exam-section" id="gradeDist" aria-labelledby="gradeDistTitle" hidden>
+      <div class="exam-section__head">
+        <h2 id="gradeDistTitle">등급컷 · 난이도</h2>
+        <span class="exam-card__hint" id="gradeDistHint"></span>
+        <button type="button" class="switch" role="switch" aria-checked="true" data-spoiler-toggle>스포일러 방지<span class="switch__knob" aria-hidden="true"></span></button>
+      </div>
+      <p class="spoil-note">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></svg>
+        <span>시험지를 먼저 풀어보세요. <b>등급컷 · 표준점수 · 난이도</b>를 흐리게 가려 뒀어요.</span>
+        <button type="button" class="btn btn--sm btn--primary" data-spoiler-off>결과 보기</button>
+      </p>
+      <div id="gradeDistStats"></div>
+      <div class="scores-grid">
+        <section class="exam-card">
+          <header class="exam-card__head"><h3 class="exam-card__title">등급컷</h3></header>
+          <div class="exam-card__body" id="gradeDistBody"></div>
+        </section>
+        <div id="gradeTrendMount"></div>
+      </div>
+    </section>
+
+    <div class="ad-slot ad-slot--banner" data-ad-position="examAfterScores"></div>
+
+    <!-- exam-related -->
+
+    <!-- 에러/없음 -->
     <div id="examError" class="exam__error" hidden>
       <p class="exam__error-title">자료를 찾을 수 없습니다</p>
       <p class="exam__error-sub">id가 잘못되었거나 데이터가 갱신되지 않은 상태일 수 있어요.</p>
-      <a href="archive.html" class="btn btn--ghost" style="margin-top:12px;">기출 검색으로 돌아가기</a>
+      <a href="archive.html" class="btn" style="margin-top:12px;">기출검색으로 돌아가기</a>
     </div>
 
   </main>
