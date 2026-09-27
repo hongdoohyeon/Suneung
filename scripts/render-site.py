@@ -229,8 +229,6 @@ def _hub_page(fname: str, h1: str, title: str, desc: str, intro: str,
       </a>
       <nav class="header-nav" aria-label="주요 메뉴">
         <a href="archive.html">기출검색</a>
-        <a href="essay.html">논술</a>
-        <a href="ged.html">검정고시</a>
         <a href="calendar.html">학사 일정</a>
       </nav>
       <div class="header-tools">
@@ -253,8 +251,6 @@ def _hub_page(fname: str, h1: str, title: str, desc: str, intro: str,
     <nav class="mobile-nav" id="mobileNav" aria-label="모바일 메뉴" hidden>
       <div class="container">
         <a href="archive.html">기출검색</a>
-        <a href="essay.html">논술</a>
-        <a href="ged.html">검정고시</a>
         <a href="calendar.html">학사 일정</a>
         <a href="about.html">소개</a>
       </div>
@@ -599,8 +595,6 @@ def render_sets_directory(items: list[dict], essay_hubs=None, subject_hubs=None)
       </a>
       <nav class="header-nav" aria-label="주요 메뉴">
         <a href="archive.html">기출검색</a>
-        <a href="essay.html">논술</a>
-        <a href="ged.html">검정고시</a>
         <a href="calendar.html">학사 일정</a>
       </nav>
       <div class="header-tools">
@@ -623,8 +617,6 @@ def render_sets_directory(items: list[dict], essay_hubs=None, subject_hubs=None)
     <nav class="mobile-nav" id="mobileNav" aria-label="모바일 메뉴" hidden>
       <div class="container">
         <a href="archive.html">기출검색</a>
-        <a href="essay.html">논술</a>
-        <a href="ged.html">검정고시</a>
         <a href="calendar.html">학사 일정</a>
         <a href="about.html">소개</a>
       </div>
@@ -985,10 +977,10 @@ def render_home(items: list[dict]) -> None:
     cats = [
         ('archive.html?tab=senior', count(lambda e: e.get('typeGroup') == 'suneung'), '수능·평가원', '수능 · 6모 · 9모 · 예비시험'),
         ('archive.html?tab=senior&amp;typeGroup=education', count(lambda e: e.get('typeGroup') == 'education'), '학력평가', '고1 · 고2 · 고3 교육청'),
-        ('essay.html', count(lambda e: e.get('typeGroup') == 'essay'), '대학별 논술', '대학별 본논술 · 모의논술'),
+        ('archive.html?tab=essay', count(lambda e: e.get('typeGroup') == 'essay'), '대학별 논술', '대학별 본논술 · 모의논술'),
         ('archive.html?tab=mp', count(lambda e: e.get('typeGroup') in ('military', 'police')), '사관·경찰대', '1차 시험'),
         ('archive.html?tab=gradschool', count(lambda e: e.get('typeGroup') in ('leet', 'meet')), 'LEET·MEET', '전문대학원 적성시험'),
-        ('ged.html', count(lambda e: e.get('typeGroup') == 'ged'), '검정고시', '초졸 · 중졸 · 고졸'),
+        ('archive.html?tab=gedhigh', count(lambda e: e.get('typeGroup') == 'ged'), '검정고시', '초졸 · 중졸 · 고졸'),
     ]
     arrow = ('<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" '
              'stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>')
