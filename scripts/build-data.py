@@ -1808,6 +1808,25 @@ def build_static_exam_pages(items: list[dict], template_path: Path, out_root: Pa
         written += 1
     print(f'  + exam-{{id}}.html SSG {written:,}건 (Naver/Bing 인덱싱)')
 
+    # 삭제된 중복 항목의 옛 주소 → 같은 내용의 남은 항목으로 이동 안내 (data/exam-redirects.json)
+    red_path = out_root / 'data' / 'exam-redirects.json'
+    if red_path.exists():
+        live = {it['id'] for it in items}
+        n_red = 0
+        for old_id, new_id in json.loads(red_path.read_text(encoding='utf-8'))['redirects'].items():
+            if int(old_id) in live or new_id not in live:
+                continue
+            (out_root / f'exam-{old_id}.html').write_text(
+                '<!DOCTYPE html>\n<html lang="ko">\n<head>\n  <meta charset="UTF-8" />\n'
+                '  <meta name="robots" content="noindex,follow" />\n'
+                f'  <link rel="canonical" href="https://kicegg.com/exam-{new_id}.html" />\n'
+                f'  <meta http-equiv="refresh" content="0;url=exam-{new_id}.html" />\n'
+                '  <title>같은 시험으로 이동 — 기출해체분석기</title>\n</head>\n<body>\n'
+                f'  <p>같은 자료가 다른 페이지로 합쳐졌습니다. <a href="exam-{new_id}.html">이동하기</a></p>\n</body>\n</html>\n',
+                encoding='utf-8')
+            n_red += 1
+        print(f'  + 이동 안내 페이지 {n_red}건 (삭제된 중복 항목)')
+
 
 def build_set_meta(curr: str, year: str, t: str, sg: int | None, exams_in_set: list[dict]) -> dict:
     """회차 페이지 메타. 학생 검색 키워드("5모", "27수능", "고3 5월 학평") 강화."""

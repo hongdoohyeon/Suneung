@@ -110,7 +110,9 @@ async function judgeOne(it) {
   if (fs.existsSync(cf)) ans = JSON.parse(fs.readFileSync(cf, 'utf8'));
   else {
     if (!useJev) return;
-    const state = { first_page: rec.page1.slice(0, 1500), second_page: rec.page2.slice(0, 500), page_count: rec.numPages };
+    // PDF 텍스트에 깨진 글자(짝 없는 서로게이트·제어문자)가 섞이면 API 가 거부 → 걸러 낸다
+    const clean = t => t.toWellFormed().replace(/[\u0000-\u0008\u000b-\u001f\ufffd]/g, ' ');
+    const state = { first_page: clean(rec.page1.slice(0, 1500)), second_page: clean(rec.page2.slice(0, 500)), page_count: rec.numPages };
     const res = await jev(state, qs);
     ans = res.answers; stats.tokens += res.usage?.input_tokens || 0;
     fs.writeFileSync(cf, JSON.stringify(ans));
@@ -134,13 +136,21 @@ async function judgeOne(it) {
   // 사이트 관례로 같은 영역: 통합과학·통합사회 = 과학·사회탐구(고1 학평·예비시험), 옛 한국사 = 사회탐구 영역 안
   const SAME = [['통합과학', '과학탐구'], ['통합사회', '사회탐구'], ['한국사', '사회탐구']];
   const same = (a, b) => a === b || SAME.some(([x, y]) => (a === x && b === y) || (a === y && b === x));
-  if (subj && !['multi', 'unknown'].includes(subj) && !same(subj, e.subject)) {
+  // 한문은 한자 지문이라 국어로 헷갈림 → 영역 판정에서 뺀다
+  if (subj && e.subSubject !== '한문' && !['multi', 'unknown'].includes(subj) && !same(subj, e.subject)) {
     add(it, 'subject', 'high', `영역이 ${subj}로 보임 (등록: ${e.subject})`, { conf: ans.subject.confidence });
   }
+  // 세부 과목: 같은 과목의 다른 이름은 같은 것으로, 그리고 본문에 그 과목명이 실제로 적혀 있을 때만(코드 확인)
   const ss = c('subsub', 0.9);
-  const norm = x => String(x).replace(/[\s·①-⑩]/g, '');
-  if (ss && !['multi', 'unknown'].includes(ss) && norm(ss) !== norm(e.subSubject)) {
-    add(it, 'subsub', 'mid', `세부 과목이 ${ss}로 보임 (등록: ${e.subSubject})`, { conf: ans.subsub.confidence });
+  const norm = x => String(x).replace(/[\s·①-⑩()（）]/g, '').replace(/[Ⅰ]/g, '1').replace(/[Ⅱ]/g, '2');
+  const SYN = [['정치와법', '법과정치', '법과사회'], ['생명과학1', '생물1'], ['생명과학2', '생물2'], ['물리학1', '물리1'], ['물리학2', '물리2']];
+  const canon = x => { const n = norm(x); const g = SYN.find(g => g.includes(n)); return g ? g[0] : n; };
+  const body = norm(`${rec.page1} ${rec.page2}`);
+  const mentions = x => { const n = norm(x); const g = SYN.find(g => g.includes(n)) || [n]; return g.some(v => body.includes(v)); };
+  const AB = { 가형: 'A형', 나형: 'B형' };
+  if (ss && e.typeGroup !== 'essay' && !['multi', 'unknown'].includes(ss) && canon(ss) !== canon(e.subSubject)) {
+    if (AB[e.subSubject] === ss) add(it, 'label', 'low', `문서는 ${ss}인데 ${e.subSubject}로 등록 (2014~2016 A/B형 시기 이름)`);
+    else if (mentions(ss) && !mentions(e.subSubject)) add(it, 'subsub', 'mid', `세부 과목이 ${ss}로 보임 (등록: ${e.subSubject})`, { conf: ans.subsub.confidence });
   }
   const gr = c('grade');
   if (gr && gr !== 'unknown' && e.studentGrade && gr !== `g${e.studentGrade}`) {
