@@ -1,18 +1,18 @@
 'use strict';
-import { enableForcedDownloads } from './lib/download.js?v=6ced2f44053ac8ef05e7';
+import { enableForcedDownloads } from './lib/download.js?v=0fd2a8750b418492b004';
 enableForcedDownloads();
 import {
   CURRICULUM_CONFIG, EXAM_TYPE_CONFIG, TAB_CONFIG,
   getTypeConf, getGroupConf, getTabConf, legacyTabKey, prettySub,
-} from './config.js?v=6ced2f44053ac8ef05e7';
+} from './config.js?v=0fd2a8750b418492b004';
 import {
   state, PAGE_SIZE,
   resetFilters, toggleMulti,
   getDisplayYear, availableGradeYears,
   filtered, subjectCounts,
   tabCurriculums, tabCurriculumConfs, tabSubjects, curriculumOfGradeYear,
-} from './state.js?v=6ced2f44053ac8ef05e7';
-import { renderAllAdSlots, renderAdSlot } from './lib/ads.js?v=6ced2f44053ac8ef05e7';
+} from './state.js?v=0fd2a8750b418492b004';
+import { renderAllAdSlots, renderAdSlot } from './lib/ads.js?v=0fd2a8750b418492b004';
 
 const tabConf = () => getTabConf(state.tab);
 
@@ -40,7 +40,7 @@ const tabIsSingleType = () => {
 
 // 검색 첫 진입에서 9MB 전체 목록을 받지 않고 현재 탭 split만 로드한다.
 // CI render-site.py가 data/archive/{tab}.json을 exams.json에서 생성한다.
-const DATA_VERSION = '6ced2f44053ac8ef05e7';
+const DATA_VERSION = '0fd2a8750b418492b004';
 const FULL_DATA_URL = `data/exams.json?v=${DATA_VERSION}`;
 const tabDataCache = new Map();
 let fullDataCache = null;
@@ -1187,11 +1187,15 @@ function renderActiveTags() {
   }
   if (state.gradeYear !== 'all') {
     const years = Array.isArray(state.gradeYear) ? state.gradeYear : [state.gradeYear];
-    const labels = years.map(y => {
-      const v = y === 'preliminary' ? 'preliminary' : Number(y);
-      return yearChipLabel(v, isEdu);
-    });
-    tags.push({ label: labels.join('·'), key: 'gradeYear' });
+    // 여러 해는 칩이 길어지지 않게 범위로 줄인다 (2022~2027학년도, 1994~2026 짝수 학년도)
+    const nums = years.map(Number).filter(Number.isFinite).sort((a, b) => a - b);
+    const step = nums.length >= 3 && nums.length === years.length
+      ? nums.slice(1).map((y, i) => y - nums[i]).reduce((s, d) => (s === d ? s : 0)) : 0;
+    const unit = isEdu ? '년' : '학년도';
+    const label = step === 1 ? `${nums[0]}~${nums.at(-1)}${unit}`
+      : step === 2 ? `${nums[0]}~${nums.at(-1)} ${nums[0] % 2 ? '홀수' : '짝수'} ${unit}`
+      : years.map(y => yearChipLabel(y === 'preliminary' ? 'preliminary' : Number(y), isEdu)).join('·');
+    tags.push({ label, key: 'gradeYear' });
   }
   if (state.subject    !== 'all') tags.push({ label: state.subject,    key: 'subject' });
   if (state.subjects.length) tags.push({ label: state.subjects.join('·'), key: 'subjects' });
@@ -1209,7 +1213,7 @@ function renderActiveTags() {
   if (state.query) tags.push({ label: `"${state.query}"`, key: 'query' });
 
   container.innerHTML = tags.map(t => `
-    <span class="tag">${escHtml(t.label)}<button data-clear="${t.key}" aria-label="제거">×</button></span>
+    <span class="tag"><span class="tag__t">${escHtml(t.label)}</span><button data-clear="${t.key}" aria-label="${escAttr(t.label)} 조건 빼기">×</button></span>
   `).join('');
 }
 
