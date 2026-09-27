@@ -340,6 +340,15 @@ async function main() {
   document.body.classList.add('is-hydrated');
 }
 
+// 최근 회차 비교 — 지표(1등급컷·표점 최고·1등급 표점) 전환
+document.addEventListener('click', e => {
+  const btn = e.target.closest('#examCompare [data-metric]');
+  if (!btn || btn.tagName !== 'BUTTON') return;
+  const section = document.getElementById('examCompare');
+  section.dataset.metric = btn.dataset.metric;
+  section.querySelectorAll('button[data-metric]').forEach(b => b.setAttribute('aria-pressed', String(b === btn)));
+});
+
 function showError() {
   $('examSide').hidden = true;
   $('examMain').hidden = true;

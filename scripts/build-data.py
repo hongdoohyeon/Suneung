@@ -991,6 +991,17 @@ def _load_gradecuts() -> list[dict]:
         return []
 
 
+def clean_cut_series(vals, lo: float, hi: float):
+    """표준점수·백분위·누적 배열 검증 — 범위를 벗어난 값(0 채움, 인원수 오입력 등)이 하나라도 있으면
+    그 열 전체를 버린다. 원천 데이터 일부에 깨진 레코드가 있어 화면에 그대로 내보내지 않기 위함."""
+    if not isinstance(vals, list):
+        return []
+    nums = [v for v in vals if v is not None]
+    if not nums or any(not isinstance(v, (int, float)) or v < lo or v > hi for v in nums):
+        return []
+    return vals
+
+
 def build_cut_matcher(cuts: list[dict]):
     """exam → 등급컷 레코드. lib/exam-gradedist.js 와 동일 조인키.
     학평은 학년별 컷 우선, 없으면 학년무관(sg=null) 컷만 폴백. 검정고시는 없음."""
@@ -1049,14 +1060,17 @@ def compute_exam_scores(items: list[dict], cuts: list[dict] | None = None) -> di
         if not cut:
             continue
         raw = cut.get('rawCuts') if isinstance(cut.get('rawCuts'), list) else []
-        std = cut.get('standardCuts') if isinstance(cut.get('standardCuts'), list) else []
-        cum = cut.get('cumulativePercent') if isinstance(cut.get('cumulativePercent'), list) else []
+        std = clean_cut_series(cut.get('standardCuts'), 1, 200)
+        cum = clean_cut_series(cut.get('cumulativePercent'), 0, 100)
+        top = cut.get('highestStandardScore')
+        if not isinstance(top, (int, float)) or (std and std[0] is not None and top < std[0]):
+            top = None
         r1 = raw[0] if raw and raw[0] is not None else None
         absolute = is_absolute_cut(it, cut)
         out[it['id']] = {
             'raw': r1,
             'std': std[0] if std and std[0] is not None else None,
-            'top': cut.get('highestStandardScore'),
+            'top': top,
             'cum': cum[0] if cum and cum[0] is not None else None,
             'abs': absolute,
             'basis': cut.get('rawCutBasis'),
@@ -1252,9 +1266,9 @@ def score_stats_html(sc: dict) -> str:
 def grade_table_html(cut: dict, absolute: bool) -> str:
     """등급별 원점수·표준점수·백분위·누적 비율 표 (lib/exam-gradedist.js 와 동일 형식)."""
     cols = [('원점수', cut.get('rawCuts') or [], '')]
-    for key, lbl, unit in (('standardCuts', '표준점수', ''), ('standardPercentile', '백분위', ''),
-                           ('cumulativePercent', '누적', '%')):
-        vals = cut.get(key) or []
+    for key, lbl, unit, lo, hi in (('standardCuts', '표준점수', '', 1, 200), ('standardPercentile', '백분위', '', 0, 100),
+                                   ('cumulativePercent', '누적', '%', 0, 100)):
+        vals = clean_cut_series(cut.get(key), lo, hi)
         if isinstance(vals, list) and any(v is not None for v in vals) and not absolute:
             cols.append((lbl, vals, unit))
     n = max((len(v) for _, v, _ in cols), default=0)
@@ -1282,60 +1296,80 @@ def grade_table_html(cut: dict, absolute: bool) -> str:
             f'<p class="grade-table__legend">{legend}</p>')
 
 
-def trend_card_html(series: list[dict], cur: dict, scores: dict) -> str:
-    """같은 과목 역대 1등급 원점수 컷 추이 (최근 16회, 점 색 = 난이도)."""
-    pts = series[-16:]
-    if cur not in pts:
-        pts = (series[:series.index(cur) + 1])[-16:] if cur in series else pts
-    vals = [scores[p['id']]['raw'] for p in pts]
-    lo, hi = min(vals), max(vals)
-    pad = max(2, (hi - lo) * 0.15)
-    lo, hi = lo - pad, hi + pad
-    W, H = 600, 110
-    x = lambda i: 0 if len(pts) == 1 else round(i * W / (len(pts) - 1), 1)
-    y = lambda v: round(H - (v - lo) / (hi - lo) * H, 1)
-    grid = ''
-    for g in sorted({round(lo + (hi - lo) * f) for f in (0.2, 0.5, 0.8)}):
-        grid += (f'<line class="trend__grid" x1="0" x2="{W}" y1="{y(g)}" y2="{y(g)}"/>'
-                 f'<text class="trend__axis" x="{W}" y="{y(g) - 4}" text-anchor="end">{g}</text>')
-    line = ' '.join(f'{x(i)},{y(v)}' for i, v in enumerate(vals))
-    dots = ''
-    for i, p in enumerate(pts):
-        t = scores[p['id']]['tier'] or 0
-        r = 6 if p['id'] == cur['id'] else 4
-        dots += (f'<circle class="trend__dot trend__dot--{t}" cx="{x(i)}" cy="{y(vals[i])}" r="{r}">'
-                 f'<title>{html_escape(_short_round(p), quote=False)} · {vals[i]}</title></circle>')
-    label = pretty_sub(cur.get('subSubject')) or cur.get('subject') or ''
+_COMPARE_METRICS = (('raw', '1등급컷', '원점수'), ('top', '표점 최고', '표준점수'), ('std', '1등급 표점', '표준점수'))
+
+
+def compare_html(it: dict, series: list[dict], scores: dict) -> str:
+    """최근 회차와 비교 — 같은 과목 묶음의 직전 회차들 + 이 시험을 막대그래프·비교표로.
+    이 시험의 등급컷이 아직 없어도(발표 전) 지난 회차 비교는 보여 준다. 값은 스포일러 방지 대상."""
+    esc = lambda v: html_escape(str(v), quote=False)
+    cur_key = _exam_sort_key(it)
+    past = [x for x in series if x['id'] != it['id'] and _exam_sort_key(x) <= cur_key]
+    pts = past[-9:] + [it]
+    sc = lambda x, k: (scores.get(x['id']) or {}).get(k)
+    metrics = [m for m in _COMPARE_METRICS if sum(1 for x in pts if sc(x, m[0]) is not None) >= 2]
+    if not metrics:
+        return ''
+    charts = []
+    for key, label, unit in metrics:
+        vals = [sc(x, key) for x in pts if sc(x, key) is not None]
+        lo, hi = min(vals), max(vals)
+        pad = max(1, (hi - lo) * 0.25)
+        lo, hi = lo - pad, hi + pad
+        bars = []
+        for x in pts:
+            v = sc(x, key)
+            cur = ' is-current' if x['id'] == it['id'] else ''
+            tier = sc(x, 'tier') if key == 'raw' else None
+            tier_cls = f' bar--t{tier}' if tier else ''
+            h = 0 if v is None else round(12 + (v - lo) / (hi - lo) * 78)
+            val = esc(v) if v is not None else '발표 전'
+            bars.append(f'<a class="bar{cur}{tier_cls}" href="exam-{x["id"]}.html" style="--h:{h}%" '
+                        f'aria-label="{html_escape(_short_round(x), quote=True)} {label} {val}">'
+                        f'<span class="bar__v">{val}</span><span class="bar__fill"></span>'
+                        f'<span class="bar__l">{esc(_short_round(x))}</span></a>')
+        charts.append(f'<div class="bars spoil-val" data-metric="{key}" aria-label="{label} ({unit})">{"".join(bars)}</div>')
+    btns = ''.join(f'<button type="button" data-metric="{k}" aria-pressed="{str(i == 0).lower()}">{lbl}</button>'
+                   for i, (k, lbl, _) in enumerate(metrics))
+    rows = []
+    for x in reversed(pts):
+        cur = x['id'] == it['id']
+        t = sc(x, 'tier')
+        cells = ''.join(f'<td class="spoil-val">{esc(sc(x, k)) if sc(x, k) is not None else "—"}</td>' for k, _, _ in _COMPARE_METRICS)
+        tier_span = f'<span class="tier tier--{t}">{TIER_LABELS[t]}</span>' if t else '—'
+        tier_td = f'<td class="spoil-val">{tier_span}</td>'
+        name = f'<a href="exam-{x["id"]}.html"><span class="type-badge tg-{x.get("typeGroup")}">{esc(exam_badge_label(x))}</span>' \
+               f'<span>{esc(exam_year_label(x))}</span>{"<em>이 시험</em>" if cur else ""}</a>'
+        tr_cls = ' class="is-current"' if cur else ''
+        rows.append(f'<tr{tr_cls}><th scope="row">{name}</th>{cells}{tier_td}</tr>')
+    subj = pretty_sub(it.get('subSubject')) or it.get('subject') or ''
+    head = ''.join(f'<th scope="col">{lbl}</th>' for _, lbl, _ in _COMPARE_METRICS)
     return (
-        '<section class="exam-card trend">'
-        f'<header class="exam-card__head"><h3 class="exam-card__title">{html_escape(label, quote=False)} 1등급컷 추이</h3>'
-        '<span class="exam-card__hint">원점수</span></header>'
-        f'<svg class="spoil-val" viewBox="0 -8 {W} {H + 30}" preserveAspectRatio="none" role="img" '
-        f'aria-label="{html_escape(label, quote=True)} 역대 1등급 원점수 컷 추이">'
-        f'{grid}<polyline class="trend__line" vector-effect="non-scaling-stroke" points="{line}"/>{dots}'
-        f'<text class="trend__axis" x="0" y="{H + 20}">{html_escape(_short_round(pts[0]), quote=False)}</text>'
-        f'<text class="trend__axis" x="{W}" y="{H + 20}" text-anchor="end">{html_escape(_short_round(pts[-1]), quote=False)}</text>'
-        '</svg><p class="trend__legend">점 색은 역대 대비 난이도 · 큰 점이 이 시험</p></section>')
+        f'<section class="exam-section compare" id="examCompare" data-metric="{metrics[0][0]}" aria-labelledby="cmpTitle">'
+        f'<div class="exam-section__head"><h2 id="cmpTitle">최근 회차와 비교 · {esc(subj)}</h2>'
+        f'<div class="view-toggle compare__metric" role="group" aria-label="비교 지표">{btns}</div></div>'
+        f'<div class="card-box compare__chart">{"".join(charts)}'
+        '<p class="compare__legend">막대 색은 역대 대비 난이도 · 진한 막대가 이 시험 · 막대를 누르면 그 회차로 이동</p></div>'
+        '<div class="card-box compare__table-wrap"><table class="compare__table">'
+        f'<thead><tr><th scope="col">회차</th>{head}<th scope="col">난이도</th></tr></thead>'
+        f'<tbody>{"".join(rows)}</tbody></table></div></section>')
 
 
-def related_html(it: dict, rel: list[dict], scores: dict) -> str:
+def related_cards_html(it: dict, rel: list[dict]) -> str:
+    """등급컷 비교가 없는 시험(논술·검정고시·절대평가 등) — 다른 회차 카드 목록."""
     esc = lambda v: html_escape(str(v), quote=False)
     subj = it.get('subject') or ''
     name = f'{subj} · {pretty_sub(it["subSubject"])}' if it.get('subSubject') and it.get('typeGroup') != 'essay' else subj
-    lis = []
+    cards = []
     for r in rel:
-        sc = scores.get(r['id'])
-        side = ''
-        if sc and sc['raw'] is not None and not sc['abs']:
-            tier = f'<span class="tier tier--{sc["tier"]}">{TIER_LABELS[sc["tier"]]}</span>' if sc['tier'] else ''
-            side = f'<span class="rel-list__side spoil-val">{tier}<span class="rel-list__cut">{sc["raw"]}</span></span>'
-        r_name = (f'{r.get("subject")} · {pretty_sub(r["subSubject"])}' if r.get('subSubject') and r.get('typeGroup') != 'essay'
-                  else (r.get('subSubject') or r.get('subject') or ''))
-        lis.append(f'<li><a href="exam-{r["id"]}.html"><span class="type-badge tg-{r.get("typeGroup")}">{esc(exam_badge_label(r))}</span>'
-                   f'<span class="chiplet chiplet--ink">{esc(exam_year_label(r))}</span>'
-                   f'<span class="rel-list__name">{esc(r_name)}</span>{side}</a></li>')
-    return (f'<section class="exam-related" aria-labelledby="relTitle"><h2 id="relTitle">다른 회차 {esc(name)}</h2>'
-            f'<ul class="rel-list">{"".join(lis)}</ul></section>')
+        r_name = (pretty_sub(r.get('subSubject')) if r.get('typeGroup') == 'essay' and r.get('subSubject')
+                  else (f'{r.get("subject")} · {pretty_sub(r["subSubject"])}' if r.get('subSubject') else r.get('subject') or ''))
+        cards.append(f'<a class="card-box rel-card" href="exam-{r["id"]}.html">'
+                     f'<span class="rel-card__top"><span class="type-badge tg-{r.get("typeGroup")}">{esc(exam_badge_label(r))}</span>'
+                     f'<span class="rel-card__year">{esc(exam_year_label(r))}</span></span>'
+                     f'<span class="rel-card__name">{esc(r_name)}</span></a>')
+    return (f'<section class="exam-section exam-related" aria-labelledby="relTitle"><div class="exam-section__head">'
+            f'<h2 id="relTitle">다른 회차 {esc(name)}</h2></div><div class="rel-grid">{"".join(cards)}</div></section>')
 
 
 def build_static_exam_pages(items: list[dict], template_path: Path, out_root: Path):
@@ -1672,15 +1706,19 @@ def build_static_exam_pages(items: list[dict], template_path: Path, out_root: Pa
             html = html.replace('<div class="exam-card__body" id="gradeDistBody"></div>',
                                 '<div class="exam-card__body" id="gradeDistBody">'
                                 + grade_table_html(_cut, sc['abs']) + '</div>', 1)
-            _k = tier_series_key(it)
-            if _k and len(_trend.get(_k, [])) >= 3 and not sc['abs']:
-                html = html.replace('<div id="gradeTrendMount"></div>',
-                                    trend_card_html(_trend[_k], it, _scores), 1)
 
-        # 다른 회차 같은 과목 — 내부 링크 + 역대 비교(값은 스포일러 방지 대상)
-        _rel = [r for r in _by_series[_series_key(it)] if r['id'] != it['id']][:8]
-        if _rel:
-            html = html.replace('<!-- exam-related -->', related_html(it, _rel, _scores), 1)
+        # 최근 회차와 비교(그래프·비교표) — 등급컷 있는 지난 회차가 2개 이상일 때. 없으면 다른 회차 카드.
+        _k = tier_series_key(it)
+        _series = _trend.get(_k, []) if _k else []
+        _cmp = ''
+        if not (sc and sc['abs']) and sum(1 for x in _series if x['id'] != it['id']) >= 2:
+            _cmp = compare_html(it, _series, _scores)
+        if _cmp:
+            html = html.replace('<!-- exam-related -->', _cmp, 1)
+        else:
+            _rel = [r for r in _by_series[_series_key(it)] if r['id'] != it['id']][:8]
+            if _rel:
+                html = html.replace('<!-- exam-related -->', related_cards_html(it, _rel), 1)
 
         (out_root / f'exam-{it["id"]}.html').write_text(html, encoding='utf-8')
         written += 1
