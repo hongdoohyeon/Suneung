@@ -36,6 +36,6 @@
 - **`lib/site-prefs.js`** 는 모든 페이지 `<head>` 에서 동기 로드(CSP상 인라인 불가): 테마(`kicegg:theme`), 스포일러 방지(`kicegg:spoiler`, 기본 켜짐 → `html[data-spoiler="on"]` 이면 `.spoil-val` 흑백 블러), 모바일 메뉴, `.hscroll` 가장자리 흐림.
 - **헤더·푸터 마크업**은 원본 페이지(index/archive/exam/exam-set/calendar/about/privacy/terms/404)와 `render-site.py`(허브·sets) 두 곳에 있다. 메뉴를 바꾸면 양쪽 다.
 - **난이도 5단계** = `build-data.py compute_exam_scores()`: 같은 기관·교육과정·과목·학년 묶음의 역대 1등급 원점수 컷 안 백분위(표본 5회 미만·절대평가는 없음). 상세 SSG 와 `data/archive/cuts.json`(기출검색 표) 이 같은 값을 쓴다.
-- **홈 '최근 시험'·'시험 종류'** 는 `render-site.py render_home()` 이 `index.html` 의 `<!-- latest-sets:start -->` 등 마커 사이를 채운다.
+- **첫 화면(/) = 기출검색.** `index.html` 은 빌드 산출물 — `render-site.py render_home()` 이 `archive.html` 을 복사해 index 의 검색엔진용 머리글(제목·설명·canonical·JSON-LD)을 유지하고, 결과 아래 '최근 시험'·'시험 종류' 정적 블록(`<!-- latest-sets:start -->` 등)을 채운다. **화면 수정은 archive.html 에서**(index.html 직접 수정 금지). archive.html canonical 도 `/`.
 - **상세 본문(시험 총평)**: `data/exam-notes/{id}.html` 을 두면 SSG 가 '이 시험에 대해' 섹션에 넣는다(없으면 섹션 숨김).
 - 등급계산기·정시반영은 2026-09 종료 — `gradecut.html`·`admissions.html` 은 기출검색 리다이렉트 스텁(`data/admissions/` 데이터는 보존).

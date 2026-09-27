@@ -351,22 +351,6 @@ main { flex: 1 0 auto; width: 100%; }
 .sec-head__more:hover { color: var(--ink); }
 
 /* ═══ Home ════════════════════════════════════════════════ */
-.home-hero { padding: 72px 28px 36px; text-align: center; }
-.home-hero__title { font-size: 44px; font-weight: 800; letter-spacing: -.045em; line-height: 1.2; margin-bottom: 10px; }
-.home-hero__sub { color: var(--ink-3); font-size: 16px; margin-bottom: 30px; }
-.home-search {
-  max-width: 720px; margin: 0 auto; display: flex; align-items: center; gap: 12px; height: 60px; padding: 0 8px 0 20px;
-  background: var(--surface); border: 1px solid var(--line); border-radius: 18px; box-shadow: var(--shadow);
-}
-.home-search:focus-within { border-color: var(--ink); }
-.home-search svg { color: var(--ink-4); flex: none; }
-.home-search input { flex: 1; min-width: 0; border: 0; outline: 0; background: none; font-size: 17px; font-weight: 500; color: var(--ink); }
-.home-search input::placeholder { color: var(--ink-4); }
-.home-search input::-webkit-search-cancel-button { display: none; }
-.home-search button { height: 44px; padding: 0 18px; border-radius: 12px; background: var(--ink); color: var(--on-ink); font-weight: 650; }
-.home-examples { display: flex; justify-content: center; flex-wrap: wrap; gap: 2px 4px; margin-top: 14px; font-size: 13px; color: var(--ink-4); align-items: center; }
-.home-examples a { display: inline-flex; align-items: center; min-height: 36px; padding: 0 6px; color: var(--ink-3); text-decoration: underline; text-decoration-color: var(--line-strong); text-underline-offset: 3px; }
-.home-examples a:hover { color: var(--ink); }
 .dday-banner { display: flex; justify-content: center; margin-top: 18px; }
 .dday-banner:empty { display: none; }
 .dday-line { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 4px 8px; font-size: 13.5px; color: var(--ink-3); }
@@ -378,6 +362,9 @@ main { flex: 1 0 auto; width: 100%; }
 .dday-line__next:hover { color: var(--ink); }
 
 .home-sec { padding: 36px 28px 8px; }
+/* 첫 화면(기출검색) 아래 — 최근 시험·시험 종류 */
+.home-more { margin-top: 24px; padding-bottom: 32px; border-top: 1px solid var(--line); }
+.home-more .home-sec { padding: 28px 0 4px; }
 .latest-rail { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
 .latest-card { display: flex; flex-direction: column; gap: 10px; padding: 12px; position: relative; transition: transform .2s, box-shadow .2s; }
 .latest-card:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
@@ -397,14 +384,6 @@ main { flex: 1 0 auto; width: 100%; }
 .cat-card__sub { display: block; margin-top: 2px; font-size: 13px; color: var(--ink-4); }
 .cat-card > svg { margin-left: auto; color: var(--ink-4); flex: none; }
 
-.home-two { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-.list-card { padding: 6px; }
-.list-card a, .list-card .list-card__row { display: flex; align-items: center; gap: 10px; min-height: 48px; padding: 0 12px; border-radius: 10px; font-size: 14px; }
-.list-card a:hover { background: var(--surface-2); }
-.list-card__t { font-weight: 600; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.list-card__s { margin-left: auto; color: var(--ink-4); font-size: 12.5px; white-space: nowrap; }
-.list-card__dd { min-width: 52px; font-weight: 750; }
-.list-card__empty { padding: 14px 12px; color: var(--ink-4); font-size: 13.5px; }
 
 /* ═══ Archive ═════════════════════════════════════════════ */
 .page-header { width: 100%; max-width: var(--max-w); margin: 0 auto; padding: 28px 28px 14px; }
@@ -866,12 +845,10 @@ body.pv-lock { overflow: hidden; }
 
 @media (max-width: 960px) {
   .container { padding: 0 20px; }
-  .home-hero, .home-sec { padding-left: 20px; padding-right: 20px; }
   .page-header, .curriculum-nav { padding-left: 20px; padding-right: 20px; }
   .brand__sub { display: none; }
   .header-nav a { padding: 0 9px; }
   .cat-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .home-two { grid-template-columns: 1fr; }
 
   .main { grid-template-columns: minmax(0, 1fr); }
   .filter-toggle-inline { display: inline-flex; }
@@ -908,13 +885,6 @@ body.pv-lock { overflow: hidden; }
   :root { --header-h: 56px; }
   .container { padding: 0 16px; }
   .site-header__inner { gap: 10px; }
-  .home-hero { padding: 36px 16px 16px; text-align: left; }
-  .home-hero__title { font-size: 30px; }
-  .home-hero__sub { font-size: 14.5px; margin-bottom: 18px; }
-  .home-search { height: 54px; border-radius: 15px; padding-left: 14px; }
-  .home-search input { font-size: 16px; }
-  .home-search button { display: none; }
-  .home-examples, .dday-banner, .dday-line { justify-content: flex-start; }
   .dday-line__next { flex-basis: 100%; padding-left: 0; margin-left: 0; border-left: 0; }
   .home-sec { padding: 28px 16px 4px; }
   .latest-rail { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; margin: 0 -16px; padding: 0 16px 6px; scroll-padding: 0 16px; gap: 12px; }

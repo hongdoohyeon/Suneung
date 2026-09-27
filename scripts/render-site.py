@@ -14,6 +14,7 @@ exams.json 을 수정했으면 이 스크립트 한 번으로 사이트 전체�
 import datetime
 import importlib.util
 import json
+import re
 import hashlib
 import subprocess
 from pathlib import Path
@@ -990,11 +991,46 @@ def render_home(items: list[dict]) -> None:
         for href, n, name, sub in cats) + '\n      </div>'
 
     path = ROOT / 'index.html'
-    html = path.read_text(encoding='utf-8')
+    html = _compose_index(path.read_text(encoding='utf-8'), (ROOT / 'archive.html').read_text(encoding='utf-8'))
     html = _replace_block(html, 'latest-sets', latest_html)
     html = _replace_block(html, 'categories', cat_html)
     path.write_text(html, encoding='utf-8')
-    print(f'  + index.html 최근 시험 {len(cards)}개 · 시험 종류 {len(cats)}개')
+    print(f'  + index.html (기출검색 + 최근 시험 {len(cards)}개 · 시험 종류 {len(cats)}개)')
+
+
+# 첫 화면(/) = 기출검색. index.html 은 archive.html 을 그대로 쓰되
+# 검색엔진용 머리글(제목·설명·canonical·구조화 데이터)은 index.html 에 있던 것을 유지하고,
+# 결과 아래에 정적 '최근 시험'·'시험 종류'(JS 없이도 크롤되는 링크)를 붙인다.
+_HOME_HEAD_TAGS = (
+    r'<meta name="description"[^>]*>', r'<link rel="canonical"[^>]*>',
+    r'<meta property="og:title"[^>]*>', r'<meta property="og:description"[^>]*>', r'<meta property="og:url"[^>]*>',
+    r'<meta name="twitter:title"[^>]*>', r'<meta name="twitter:description"[^>]*>', r'<meta name="twitter:image:alt"[^>]*>',
+    r'<script type="application/ld\+json">.*?</script>', r'<title>.*?</title>',
+)
+_HOME_MORE = """  <section class="container home-more" aria-label="최근 시험과 시험 종류">
+    <div class="home-sec">
+      <div class="sec-head"><h2 id="latestTitle">최근 시험</h2><a class="sec-head__more" href="sets.html">전체 회차 →</a></div>
+      <!-- latest-sets:start (render-site.py 가 채움) -->
+      <!-- latest-sets:end -->
+    </div>
+    <div class="home-sec">
+      <div class="sec-head"><h2 id="catTitle">시험 종류</h2></div>
+      <!-- categories:start (render-site.py 가 채움) -->
+      <!-- categories:end -->
+    </div>
+  </section>
+
+"""
+
+
+def _compose_index(home: str, archive: str) -> str:
+    html = archive
+    for pat in _HOME_HEAD_TAGS:
+        m = re.search(pat, home, re.S)
+        if m:
+            html = re.sub(pat, lambda _m, v=m.group(0): v, html, count=1, flags=re.S)
+    footer = html.index('  <footer class="site-footer">')
+    return html[:footer] + _HOME_MORE + html[footer:]
 
 
 def render_rss(items: list[dict]) -> None:
