@@ -120,12 +120,10 @@ def render_sitemaps(items: list[dict], hubs=None) -> None:
         '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
         f'  <url><loc>{base}/</loc><lastmod>{today}</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>',
         f'  <url><loc>{base}/archive.html</loc><lastmod>{today}</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>',
-        f'  <url><loc>{base}/gradecut.html</loc><lastmod>{today}</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>',
         f'  <url><loc>{base}/sets.html</loc><lastmod>{today}</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>',
         f'  <url><loc>{base}/essay.html</loc><lastmod>{CONTENT_VERSION}</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>',
         f'  <url><loc>{base}/ged.html</loc><lastmod>{CONTENT_VERSION}</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>',
         f'  <url><loc>{base}/about.html</loc><lastmod>{today}</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>',
-        f'  <url><loc>{base}/admissions.html</loc><lastmod>{today}</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>',
         f'  <url><loc>{base}/calendar.html</loc><lastmod>{today}</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>',
     ]
     for h in (hubs or []):
@@ -133,7 +131,7 @@ def render_sitemaps(items: list[dict], hubs=None) -> None:
                            f'<changefreq>monthly</changefreq><priority>0.7</priority></url>')
     static_rows.append('</urlset>')
     (ROOT / 'sitemap-static.xml').write_text('\n'.join(static_rows) + '\n', encoding='utf-8')
-    print(f'  + sitemap (static {9 + len(hubs or [])} + sets {len(sets)} + exams {len(items)})')
+    print(f'  + sitemap (static {7 + len(hubs or [])} + sets {len(sets)} + exams {len(items)})')
 
 
 def _essay_label(it: dict) -> str:
@@ -188,7 +186,7 @@ def _hub_page(fname: str, h1: str, title: str, desc: str, intro: str,
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#0a0a0a" />
+  <meta name="theme-color" content="#f4f4f5" />
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://static.cloudflareinsights.com https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; font-src 'self' data:; img-src 'self' data: https:; connect-src 'self' https://suneung-files.hdh061224.workers.dev https://wdown.ebsi.co.kr https://cloudflareinsights.com https://www.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com https://www.google.com; media-src 'self' https://suneung-files.hdh061224.workers.dev; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'self'" />
   <meta name="referrer" content="strict-origin-when-cross-origin" />
   <meta name="naver-site-verification" content="b3138c38039611bed2ce955aa7102ab33011cf14" />
@@ -209,11 +207,9 @@ def _hub_page(fname: str, h1: str, title: str, desc: str, intro: str,
   <meta name="twitter:image" content="https://kicegg.com/og-image.png" />
   <script type="application/ld+json">{ld}</script>
   <title>{bd.html_escape(title, quote=True)}</title>
+  <link rel="stylesheet" href="lib/vendor/pretendard/pretendardvariable-dynamic-subset.css" />
   <link rel="stylesheet" href="style.css?v=20260727a" />
-  <style>.setsdir__list{{columns:2;column-gap:24px;list-style:none;padding:0;margin:0}}
-.setsdir__list li{{margin:4px 0;break-inside:avoid}}
-.setsdir__list a{{display:inline-flex;align-items:center;min-height:44px}}
-@media (max-width:480px){{.setsdir__list{{columns:1}}}}</style>
+  <script src="lib/site-prefs.js"></script>
 </head>
 <body class="page-legal">
   <a href="#main" class="skip-link">본문 건너뛰기</a>
@@ -221,22 +217,50 @@ def _hub_page(fname: str, h1: str, title: str, desc: str, intro: str,
     <div class="container site-header__inner">
       <a href="index.html" class="brand" aria-label="기출해체분석기 홈">
         <span class="brand__mark" aria-hidden="true">
-          <svg viewBox="0 0 32 32" width="22" height="22" fill="none">
-            <rect width="32" height="32" rx="7" fill="currentColor"/>
-            <rect x="8"  y="14" width="3" height="11" rx="1" fill="#fff" opacity=".45"/>
-            <rect x="14" y="9"  width="3" height="16" rx="1" fill="#fff" opacity=".7"/>
-            <rect x="20" y="6"  width="3" height="19" rx="1" fill="#fff"/>
+          <svg viewBox="0 0 32 32" width="28" height="28" fill="none">
+            <rect width="32" height="32" rx="8" fill="currentColor"/>
+            <rect class="brand__bar" x="8"  y="15" width="3.2" height="10" rx="1" opacity=".55"/>
+            <rect class="brand__bar" x="14.4" y="10" width="3.2" height="15" rx="1" opacity=".8"/>
+            <rect class="brand__bar" x="20.8" y="6"  width="3.2" height="19" rx="1"/>
           </svg>
         </span>
         <span class="brand__name">기출해체분석기</span>
+        <span class="brand__sub">kicegg</span>
       </a>
       <nav class="header-nav" aria-label="주요 메뉴">
         <a href="archive.html">기출검색</a>
-        <a href="gradecut.html">등급계산기</a>
+        <a href="essay.html">논술</a>
+        <a href="ged.html">검정고시</a>
+        <a href="calendar.html">학사 일정</a>
       </nav>
+      <div class="header-tools">
+        <a class="header-search" href="archive.html" aria-label="기출 검색">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+          <span>기출 검색</span>
+        </a>
+        <a class="icon-btn header-search--icon" href="archive.html" aria-label="기출 검색">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        </a>
+        <button type="button" class="icon-btn theme-toggle" aria-label="다크 모드로 전환">
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z"/></svg>
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+        </button>
+        <button type="button" class="icon-btn menu-toggle" aria-label="메뉴" aria-expanded="false" aria-controls="mobileNav">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
+      </div>
     </div>
+    <nav class="mobile-nav" id="mobileNav" aria-label="모바일 메뉴" hidden>
+      <div class="container">
+        <a href="archive.html">기출검색</a>
+        <a href="essay.html">논술</a>
+        <a href="ged.html">검정고시</a>
+        <a href="calendar.html">학사 일정</a>
+        <a href="about.html">소개</a>
+      </div>
+    </nav>
   </header>
-  <main id="main" class="container legal" style="padding:32px 20px;max-width:1080px;margin:0 auto;">
+  <main id="main" class="legal legal--wide">
     <h1>{bd.html_escape(h1, quote=False)}</h1>
     <p>{bd.html_escape(intro, quote=False)}</p>
     <p class="legal__sub">{bd.html_escape(stat, quote=False)}</p>
@@ -245,11 +269,10 @@ def _hub_page(fname: str, h1: str, title: str, desc: str, intro: str,
   </main>
   <footer class="site-footer">
     <div class="container">
-      <p>출처 · 각 시험 발행기관 및 대학 입학처</p>
-      <p class="site-footer__sub">저작권은 각 발행기관에 있으며 교육 목적으로만 이용할 수 있습니다.</p>
-      <p class="site-footer__legal">
-        <a href="sets.html">전체 회차</a> · <a href="about.html">소개</a> · <a href="privacy.html">개인정보처리방침</a> · <a href="terms.html">이용약관</a>
-      </p>
+      <nav class="site-footer__links" aria-label="사이트 정보">
+        <a href="about.html">소개</a><a href="privacy.html">개인정보처리방침</a><a href="terms.html">이용약관</a><a href="sets.html">전체 회차</a><a href="mailto:hdh061224@gmail.com">문의</a>
+      </nav>
+      <p class="site-footer__sub">출처 · 한국교육과정평가원 · 17개 시도교육청 · 각 대학 입학처 외. 저작권은 각 발행기관에 있으며 교육 목적으로만 이용할 수 있습니다.</p>
     </div>
   </footer>
   <script type="module" src="lib/dday-mount.js?v=20260718a"></script>
@@ -536,7 +559,7 @@ def render_sets_directory(items: list[dict], essay_hubs=None, subject_hubs=None)
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="robots" content="index,follow" />
   <meta name="naver-site-verification" content="b3138c38039611bed2ce955aa7102ab33011cf14" />
-  <meta name="theme-color" content="#0a0a0a" />
+  <meta name="theme-color" content="#f4f4f5" />
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://static.cloudflareinsights.com https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; font-src 'self' data:; img-src 'self' data: https:; connect-src 'self' https://suneung-files.hdh061224.workers.dev https://wdown.ebsi.co.kr https://cloudflareinsights.com https://www.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com https://www.google.com; media-src 'self' https://suneung-files.hdh061224.workers.dev; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'self'" />
   <meta name="description" content="수능·모의평가·학력평가·사관학교·경찰대·LEET·MEET 전체 회차 목록. 학년도별 기출 문제지·정답·해설·등급컷 회차로 바로 이동하세요." />
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
@@ -554,12 +577,9 @@ def render_sets_directory(items: list[dict], essay_hubs=None, subject_hubs=None)
   <meta name="twitter:image" content="https://kicegg.com/og-image.png" />
   <script type="application/ld+json">{jsonld_block}</script>
   <title>전체 회차 목록 — 기출해체분석기</title>
+  <link rel="stylesheet" href="lib/vendor/pretendard/pretendardvariable-dynamic-subset.css" />
   <link rel="stylesheet" href="style.css?v=20260727a" />
-  <style>.setsdir__list{{columns:3;column-gap:24px;list-style:none;padding:0;margin:0}}
-.setsdir__list li{{margin:4px 0;break-inside:avoid}}
-.setsdir__list a{{display:inline-flex;align-items:center;min-height:44px}}
-@media (max-width:800px){{.setsdir__list{{columns:2}}}}
-@media (max-width:480px){{.setsdir__list{{columns:1}}}}</style>
+  <script src="lib/site-prefs.js"></script>
 </head>
 <body class="page-default">
   <a href="#main" class="skip-link">본문 건너뛰기</a>
@@ -567,22 +587,50 @@ def render_sets_directory(items: list[dict], essay_hubs=None, subject_hubs=None)
     <div class="container site-header__inner">
       <a href="index.html" class="brand" aria-label="기출해체분석기 홈">
         <span class="brand__mark" aria-hidden="true">
-          <svg viewBox="0 0 32 32" width="22" height="22" fill="none">
-            <rect width="32" height="32" rx="7" fill="currentColor"/>
-            <rect x="8" y="14" width="3" height="11" rx="1" fill="#fff" opacity=".45"/>
-            <rect x="14" y="9" width="3" height="16" rx="1" fill="#fff" opacity=".7"/>
-            <rect x="20" y="6" width="3" height="19" rx="1" fill="#fff"/>
+          <svg viewBox="0 0 32 32" width="28" height="28" fill="none">
+            <rect width="32" height="32" rx="8" fill="currentColor"/>
+            <rect class="brand__bar" x="8"  y="15" width="3.2" height="10" rx="1" opacity=".55"/>
+            <rect class="brand__bar" x="14.4" y="10" width="3.2" height="15" rx="1" opacity=".8"/>
+            <rect class="brand__bar" x="20.8" y="6"  width="3.2" height="19" rx="1"/>
           </svg>
         </span>
         <span class="brand__name">기출해체분석기</span>
+        <span class="brand__sub">kicegg</span>
       </a>
       <nav class="header-nav" aria-label="주요 메뉴">
         <a href="archive.html">기출검색</a>
-        <a href="gradecut.html">등급계산기</a>
+        <a href="essay.html">논술</a>
+        <a href="ged.html">검정고시</a>
+        <a href="calendar.html">학사 일정</a>
       </nav>
+      <div class="header-tools">
+        <a class="header-search" href="archive.html" aria-label="기출 검색">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+          <span>기출 검색</span>
+        </a>
+        <a class="icon-btn header-search--icon" href="archive.html" aria-label="기출 검색">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        </a>
+        <button type="button" class="icon-btn theme-toggle" aria-label="다크 모드로 전환">
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z"/></svg>
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+        </button>
+        <button type="button" class="icon-btn menu-toggle" aria-label="메뉴" aria-expanded="false" aria-controls="mobileNav">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
+      </div>
     </div>
+    <nav class="mobile-nav" id="mobileNav" aria-label="모바일 메뉴" hidden>
+      <div class="container">
+        <a href="archive.html">기출검색</a>
+        <a href="essay.html">논술</a>
+        <a href="ged.html">검정고시</a>
+        <a href="calendar.html">학사 일정</a>
+        <a href="about.html">소개</a>
+      </div>
+    </nav>
   </header>
-  <main id="main" class="container legal" style="padding:32px 20px;max-width:1080px;margin:0 auto;">
+  <main id="main" class="legal legal--wide">
     <h1>전체 회차 목록</h1>
     <p>수능·평가원·교육청·사관학교·경찰대·LEET·MEET 기출 회차를 학년도별로 모았습니다. 각 회차에서 영역별 문제지, 정답, 해설지, 등급컷 자료로 이동할 수 있습니다.</p>
     <p><a href="./">홈</a> · <a href="archive.html">기출 검색</a></p>
@@ -590,9 +638,10 @@ def render_sets_directory(items: list[dict], essay_hubs=None, subject_hubs=None)
   </main>
   <footer class="site-footer">
     <div class="container">
-      <p class="site-footer__legal">
-        <a href="sets.html">전체 회차</a> · <a href="about.html">소개</a> · <a href="privacy.html">개인정보처리방침</a> · <a href="terms.html">이용약관</a>
-      </p>
+      <nav class="site-footer__links" aria-label="사이트 정보">
+        <a href="about.html">소개</a><a href="privacy.html">개인정보처리방침</a><a href="terms.html">이용약관</a><a href="sets.html">전체 회차</a><a href="mailto:hdh061224@gmail.com">문의</a>
+      </nav>
+      <p class="site-footer__sub">출처 · 한국교육과정평가원 · 17개 시도교육청 · 각 대학 입학처 외. 저작권은 각 발행기관에 있으며 교육 목적으로만 이용할 수 있습니다.</p>
     </div>
   </footer>
   <script type="module" src="lib/dday-mount.js?v=20260718a"></script>
@@ -850,6 +899,106 @@ def render_site_summary(items: list[dict]) -> None:
     print(f'  + data/site-summary.json ({len(recent)}건 최신 요약)')
 
 
+def _loading_previews() -> dict:
+    """lib/loading-previews.js 의 과목별 흐림 대표 이미지 맵."""
+    src = (ROOT / 'lib' / 'loading-previews.js').read_text(encoding='utf-8')
+    return json.loads(src[src.index('{'):src.rindex('}') + 1])
+
+
+def _replace_block(html: str, name: str, body: str) -> str:
+    start, end = f'<!-- {name}:start', f'<!-- {name}:end -->'
+    a = html.index(start)
+    a = html.index('-->', a) + 3
+    b = html.index(end)
+    return html[:a] + '\n' + body + '\n      ' + html[b:]
+
+
+_HOME_SUBJECTS = ('국어', '수학', '영어', '한국사')
+
+
+def render_home(items: list[dict]) -> None:
+    """index.html 의 '최근 시험'·'시험 종류' 블록을 정적으로 채운다 (JS 없이도 크롤·표시)."""
+    esc = bd.html_escape
+    previews = _loading_previews()
+
+    # 최근 시험: 평가원 + 고3 학평 회차 중 시행 시점 최신 4개
+    sets: dict = {}
+    for it in items:
+        tg = it.get('typeGroup')
+        if tg == 'suneung' and it.get('type') in ('csat', 'june', 'sept'):
+            gy = it['gradeYear']
+            month = {'csat': 11, 'june': 6, 'sept': 9}[it['type']]
+            when = ((gy - 1) * 100 + month, 1)
+            key = ('suneung', it['curriculum'], gy, it['type'], None)
+        elif tg == 'education' and it.get('studentGrade') == 3 and it.get('examYear') and it.get('month'):
+            when = (it['examYear'] * 100 + it['month'], 0)
+            key = ('education', it['curriculum'], it['gradeYear'], it['type'], 3)
+        else:
+            continue
+        sets.setdefault(key, {'when': when, 'exams': []})['exams'].append(it)
+    latest = sorted((v for v in sets.values() if any(e['subject'] == '국어' for e in v['exams'])),
+                    key=lambda v: v['when'], reverse=True)[:4]
+
+    cards = []
+    for s in latest:
+        ex = s['exams']
+        first = ex[0]
+        tg, gy, t = first['typeGroup'], first['gradeYear'], first['type']
+        if tg == 'suneung':
+            badge = bd.KOREAN_TYPE_LABEL.get(t, t)
+            title = f'{gy}학년도 {bd.FULL_TYPE_LABEL.get(t, badge)}'
+            meta = f'평가원 · {gy - 1}년 {({"csat": 11, "june": 6, "sept": 9})[t]}월'
+            img = previews.get('suneung||국어', {}).get('image', '')
+            sg = None
+        else:
+            badge = f'{first["month"]}월 학평'
+            title = f'{first["examYear"]}년 {first["month"]}월 고3 학력평가'
+            meta = f'교육청 · {first["examYear"]}년 {first["month"]}월'
+            img = previews.get('education|3|국어', {}).get('image', '')
+            sg = 3
+        set_href = bd.set_friendly_filename(str(first['curriculum']), str(gy), t, sg)
+        links = []
+        for subj in _HOME_SUBJECTS:
+            hit = sorted((e for e in ex if e['subject'] == subj), key=lambda e: e['id'])
+            if hit:
+                links.append(f'<a href="exam-{hit[0]["id"]}.html">{subj}</a>')
+        if any(e['subject'] in ('사회탐구', '과학탐구', '직업탐구') for e in ex):
+            links.append(f'<a href="{set_href}">탐구</a>')
+        cover = (f'<img src="{esc(img, quote=True)}" alt="" loading="lazy" decoding="async" />' if img else '')
+        cards.append(
+            '        <article class="card-box latest-card">\n'
+            f'          <div class="cover">{cover}<span class="type-badge tg-{tg}">{esc(badge, quote=False)}</span></div>\n'
+            f'          <h3 class="latest-card__title"><a href="{set_href}">{esc(title, quote=False)}</a></h3>\n'
+            f'          <p class="latest-card__meta">{esc(meta, quote=False)}</p>\n'
+            f'          <nav class="subj-links" aria-label="{esc(title, quote=True)} 과목">{"".join(links)}</nav>\n'
+            '        </article>')
+    latest_html = '      <div class="latest-rail">\n' + '\n'.join(cards) + '\n      </div>'
+
+    def count(pred) -> str:
+        return f'{sum(1 for e in items if pred(e)):,}'
+    cats = [
+        ('archive.html?tab=senior', count(lambda e: e.get('typeGroup') == 'suneung'), '수능·평가원', '수능 · 6모 · 9모 · 예비시험'),
+        ('archive.html?tab=senior&amp;typeGroup=education', count(lambda e: e.get('typeGroup') == 'education'), '학력평가', '고1 · 고2 · 고3 교육청'),
+        ('essay.html', count(lambda e: e.get('typeGroup') == 'essay'), '대학별 논술', '대학별 본논술 · 모의논술'),
+        ('archive.html?tab=mp', count(lambda e: e.get('typeGroup') in ('military', 'police')), '사관·경찰대', '1차 시험'),
+        ('archive.html?tab=gradschool', count(lambda e: e.get('typeGroup') in ('leet', 'meet')), 'LEET·MEET', '전문대학원 적성시험'),
+        ('ged.html', count(lambda e: e.get('typeGroup') == 'ged'), '검정고시', '초졸 · 중졸 · 고졸'),
+    ]
+    arrow = ('<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" '
+             'stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>')
+    cat_html = '      <div class="cat-grid">\n' + '\n'.join(
+        f'        <a class="card-box cat-card" href="{href}"><span class="cat-card__n">{n}</span>'
+        f'<span><span class="cat-card__name">{name}</span><span class="cat-card__sub">{sub}</span></span>{arrow}</a>'
+        for href, n, name, sub in cats) + '\n      </div>'
+
+    path = ROOT / 'index.html'
+    html = path.read_text(encoding='utf-8')
+    html = _replace_block(html, 'latest-sets', latest_html)
+    html = _replace_block(html, 'categories', cat_html)
+    path.write_text(html, encoding='utf-8')
+    print(f'  + index.html 최근 시험 {len(cards)}개 · 시험 종류 {len(cats)}개')
+
+
 def render_rss(items: list[dict]) -> None:
     """최신 추가 자료 RSS 피드(feed.xml). 네이버는 RSS를 사이트맵과 별개의
     freshness(최신성) 신호로 취급 — 전수가 아니라 '최근 추가 N개'만 담는다.
@@ -898,6 +1047,7 @@ def main() -> None:
     render_sets_directory(items, essay_hubs, subject_hubs)
     render_sitemaps(items, essay_hubs + subject_hubs)
     render_site_summary(items)
+    render_home(items)
     render_rss(items)
     render_splits(items)
     render_archive_splits(items)
