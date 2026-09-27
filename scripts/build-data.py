@@ -1428,15 +1428,19 @@ def build_static_exam_pages(items: list[dict], template_path: Path, out_root: Pa
     from collections import defaultdict as _dd
     _by_series: dict = _dd(list)
     _by_set: dict = _dd(list)
+    def _set_grade(d):
+        # 학년은 학평에서만 의미 — 수능·모평 일부 레코드(직탐·제2외)에 붙은 studentGrade 는 무시
+        return d.get('studentGrade') if d.get('typeGroup') == 'education' else None
+
     def _series_key(d):
         # 검정고시: 학력(curriculum)이 다르면 별개 시험 → 학력 포함, 회차(type)는
         # 무시해 같은 학력 전 회차(1·2회)·전 연도를 한 시리즈로 묶음.
         if d.get('typeGroup') == 'ged':
             return ('ged', d.get('curriculum'), d.get('subject'))
-        return (d.get('subject'), d.get('subSubject'), d.get('type'), d.get('studentGrade'))
+        return (d.get('subject'), d.get('subSubject'), d.get('type'), _set_grade(d))
     for _it in items:
         _by_series[_series_key(_it)].append(_it)
-        _by_set[(_it.get('curriculum'), _it.get('gradeYear'), _it.get('type'), _it.get('studentGrade'))].append(_it)
+        _by_set[(_it.get('curriculum'), _it.get('gradeYear'), _it.get('type'), _set_grade(_it))].append(_it)
     for _k in _by_series:
         _by_series[_k].sort(key=lambda x: x.get('gradeYear') or 0, reverse=True)
 
@@ -1676,20 +1680,35 @@ def build_static_exam_pages(items: list[dict], template_path: Path, out_root: Pa
                                 f'{sep}<a href="{_hub}"><span>{html_escape(_hub_label, quote=False)}</span></a>\n    </nav>\n\n    <div class="exam__top"', 1)
 
         # 같은 회차 다른 과목 탭 (내부 링크 + 과목 이동)
-        _sibs = sorted(_by_set[(it.get('curriculum'), it.get('gradeYear'), it.get('type'), it.get('studentGrade'))],
+        _sibs = sorted(_by_set[(it.get('curriculum'), it.get('gradeYear'), it.get('type'), _set_grade(it))],
                        key=_subject_sort_key)
         if it.get('typeGroup') == 'essay':
             _sibs = [x for x in _sibs if x.get('subject') == it.get('subject')]
         if len(_sibs) > 1:
-            tabs = []
-            for s in _sibs:
-                main_lbl, sub_lbl = _subject_tab_label(s)
-                cur = ' aria-current="page"' if s['id'] == it['id'] else ''
-                tabs.append(f'<a href="exam-{s["id"]}.html"{cur}>{html_escape(main_lbl, quote=False)}'
-                            + (f' <small>{html_escape(sub_lbl, quote=False)}</small>' if sub_lbl else '') + '</a>')
+            # 두 단 — 윗줄 영역(국어·수학…, 선택과목 수 표시), 아랫줄 현재 영역의 선택과목.
+            # 한 줄에 과목이 몰려 옆으로 한참 밀어야 하던 문제를 줄인다. 논술은 계열 한 줄.
+            def _tab(x, label, count=0, current=False):
+                cur = ' aria-current="page"' if current else ''
+                cnt = f' <small>{count}</small>' if count > 1 else ''
+                return f'<a href="exam-{x["id"]}.html"{cur}>{html_escape(label, quote=False)}{cnt}</a>'
+            if it.get('typeGroup') == 'essay':
+                rows = [''.join(_tab(x, _subject_tab_label(x)[0], current=x['id'] == it['id']) for x in _sibs)]
+            else:
+                areas: dict = {}
+                for x in _sibs:
+                    areas.setdefault(x.get('subject') or '', []).append(x)
+                cur_area = it.get('subject') or ''
+                top = ''.join(
+                    _tab(xs[0] if area != cur_area else it, area, len(xs), area == cur_area)
+                    for area, xs in areas.items())
+                rows = [top]
+                if len(areas.get(cur_area, [])) > 1:
+                    rows.append(''.join(_tab(x, pretty_sub(x.get('subSubject')) or x.get('subject') or '',
+                                             current=x['id'] == it['id']) for x in areas[cur_area]))
+            inner = ''.join(f'<div class="exam__subjects-row{" exam__subjects-row--subs" if i else ""} hscroll">{r}</div>'
+                            for i, r in enumerate(rows))
             html = html.replace('<nav class="exam__subjects hscroll" id="examSubjects" aria-label="같은 회차 다른 과목"></nav>',
-                                '<nav class="exam__subjects hscroll" id="examSubjects" aria-label="같은 회차 다른 과목">'
-                                + ''.join(tabs) + '</nav>', 1)
+                                f'<nav class="exam__subjects" id="examSubjects" aria-label="같은 회차 다른 과목">{inner}</nav>', 1)
 
         # 본문(시험 총평 등) — data/exam-notes/{id}.html 이 있으면 주입. 없으면 섹션 숨김 유지.
         _note = ROOT / 'data' / 'exam-notes' / f'{it["id"]}.html'
