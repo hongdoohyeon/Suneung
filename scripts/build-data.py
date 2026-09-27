@@ -10,7 +10,7 @@ KICE archive (SQLite) → 정적 JSON 변환기.
 """
 
 from __future__ import annotations
-import datetime, json, os, re, sqlite3, sys
+import datetime, hashlib, json, os, re, sqlite3, sys
 from collections import Counter
 from html import escape as html_escape
 from pathlib import Path
@@ -1419,6 +1419,15 @@ def related_cards_html(it: dict, rel: list[dict]) -> str:
             f'<h2 id="relTitle">다른 회차 {esc(name)}</h2></div><div class="rel-grid">{"".join(cards)}</div></section>')
 
 
+def preview_image_path(url, root: Path):
+    """시험지 1쪽 흐린 미리보기 경로 (없으면 None) — 파일 이름 = sha1(쿼리 뺀 URL) 앞 12자."""
+    if not url or not str(url).startswith('https:'):
+        return None
+    h = hashlib.sha1(str(url).split('?')[0].encode()).hexdigest()[:12]
+    rel = f'previews/{h}.jpg'
+    return rel if (root / rel).exists() else None
+
+
 def build_static_exam_pages(items: list[dict], template_path: Path, out_root: Path):
     """exam.html 템플릿을 시험별로 사전 렌더링해 검색엔진이 JS 없이도 인덱싱하게 한다.
     동시에 시험별 OG JPG (1200×630)도 생성 — 카톡·트위터·네이버 미리보기 카드."""
@@ -1647,6 +1656,12 @@ def build_static_exam_pages(items: list[dict], template_path: Path, out_root: Pa
         html = html.replace('<dl class="facts" id="examFacts"></dl>',
                             f'<dl class="facts" id="examFacts">{facts}</dl>\n          '
                             f'<p class="info-card__desc" id="examSeoIntro">{html_escape(meta["intro"], quote=False)}</p>', 1)
+
+        # 흐린 표지 = 이 시험지 1쪽 (scripts/material-audit/extract.mjs 가 만든 previews/{h}.jpg 가 있을 때만)
+        _pv = preview_image_path(it.get('questionUrl'), out_root)
+        if _pv:
+            html = html.replace('<div class="preview__viewer" id="previewQViewer">',
+                                f'<div class="preview__viewer" id="previewQViewer" data-preview="{_pv}">', 1)
 
         # JSON-LD: </head> 직전 한 번만 삽입
         html = html.replace('</head>', '  ' + ld_block + '</head>', 1)

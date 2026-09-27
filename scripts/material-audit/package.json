@@ -1,0 +1,7 @@
+{
+  "name": "kicegg-material-audit",
+  "private": true,
+  "type": "module",
+  "description": "자료(PDF) 1쪽 추출 → 오류 검수(JEV) · 시험지 미리보기 이미지. 로컬 전용(CI 미사용).",
+  "dependencies": { "canvas": "^3", "pdfjs-dist": "4.10.38", "sharp": "^0.34" }
+}

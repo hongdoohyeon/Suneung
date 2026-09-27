@@ -23,6 +23,7 @@ on:
       - 'admissions.html'
       - 'data/**'
       - 'scripts/version-assets.py'
+      - 'previews/**'
   workflow_dispatch:
 
 permissions:
