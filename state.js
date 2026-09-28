@@ -291,6 +291,8 @@ function scoreToken(hayObj, tok) {
   if (parts && parts.length > 1 && parts.every(p => p.length >= 2)) {
     let total = 0; let ok = true;
     for (const p of parts) {
+      // 숫자 조각은 단어로만 — "24수능"의 24가 "2024년"(2025학년도 수능) 안에 걸리지 않게
+      if (/^\d+$/.test(p)) { if (wordsSet.has(p)) { total += 1; continue; } ok = false; break; }
       if (hay.includes(p)) { total += 1; continue; }
       const al = searchAliasOf(p);
       if (al && al.every(a => hay.includes(normQ(a)))) { total += 0.85; continue; }
@@ -330,6 +332,7 @@ function scoreToken(hayObj, tok) {
     if (segs.length >= 2) {
       let total = 0; let ok = true;
       for (const s of segs) {
+        if (/^\d+$/.test(s)) { if (wordsSet.has(s)) { total += 0.9; continue; } ok = false; break; }
         if (hay.includes(s)) { total += 0.9; continue; }
         const al = searchAliasOf(s);
         if (al && al.every(a => hay.includes(normQ(a)))) { total += 0.85; continue; }

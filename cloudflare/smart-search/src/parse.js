@@ -17,7 +17,7 @@ const y4 = n => (n < 100 ? (n <= 40 ? 2000 + n : 1900 + n) : n);
 // 확실한 단어는 규칙으로 — [정규식, 적용] 순서대로. 잡힌 부분은 검색어에서 지운다.
 const TAB_RULES = [
   [/고\s*1|(?<!\d)1\s*학년(?!도)/, 'freshman'], [/고\s*2|(?<!\d)2\s*학년(?!도)/, 'junior'], [/고\s*3|(?<!\d)3\s*학년(?!도)/, 'senior'],
-  [/경찰대|사관(학교)?/, 'mp'], [/leet|meet|리트|미트/i, 'gradschool'], [/논술/, 'essay'],
+  [/경찰(대학?(교)?)?|사관(학교)?/, 'mp'], [/leet|meet|리트|미트/i, 'gradschool'], [/논술/, 'essay'],
   [/초졸|초등(학교)?\s*(졸업\s*)?(학력\s*)?검정/, 'gedelem'], [/중졸|중학교\s*(졸업\s*)?(학력\s*)?검정/, 'gedmid'],
   [/고졸|검정\s*고시|검고/, 'gedhigh'],
 ];
@@ -32,6 +32,7 @@ const SUBJECT_RULES = [
   [/과탐|과학\s*탐구|물리|화학|생명|생물|지구\s*과학|지과|물[12Ⅰ]|화[12Ⅰ]|생[12Ⅰ]|지[12Ⅰ]/, '과학탐구'],
   [/제2외국어|제\s*2\s*외|한문|일본어|중국어|독일어|프랑스어|스페인어|러시아어|아랍어|베트남어/, '제2외국어'],
   [/직탐|직업\s*탐구/, '직업탐구'],
+  [/언어\s*이해/, '언어이해'], [/추리\s*논증/, '추리논증'], [/언어\s*추론/, '언어추론'],
 ];
 // 과목 안의 세부 이름(물리·미적분 등)은 검색어로 남겨 목록 검색이 좁히게 한다
 const KEEP = /화작|언매|화법과\s*작문|언어와\s*매체|미적분?|확통|확률과\s*통계|기하|생윤|윤사|사문|한지|세지|동사|세사|정법|경제|물리(학)?\s*[12Ⅰ]?|화학\s*[12Ⅰ]?|생명(과학)?\s*[12Ⅰ]?|지구\s*과학\s*[12Ⅰ]?|일본어|중국어|독일어|프랑스어|스페인어|러시아어|아랍어|베트남어|한문/g;
@@ -61,7 +62,7 @@ export function ruleParse(q) {
   for (const [re, k] of ABBR) if (re.test(s)) { subsub.push(k); s = s.replace(re, ' '); }
   if (subsub.length) out.subsub = subsub;
   for (const w of s.match(KEEP) || []) out.text.push(w.replace(/\s+/g, ''));
-  let t0;
+  let t0, mm0;
   if ((t0 = s.match(/(인문|자연)\s*(계열|계)?/))) { out.track = t0[1]; s = s.replace(t0[0], ' '); }
   if ((t0 = s.match(/킬러\s*(문항\s*)?(없|배제|금지|빠진|사라진)[가-힣]*(\s*(뒤|후|이후|다음))?/))) { out.era = 'killer_ban'; s = s.replace(t0[0], ' '); }
   if ((t0 = s.match(/(\d{2,4})\s*년대/))) {
@@ -79,6 +80,12 @@ export function ruleParse(q) {
   if (take(HARD)) out.tier = ['4', '5'];
   else if (take(EASY)) out.tier = ['1', '2'];
   for (const [re, v] of TAB_RULES) if (take(re)) { out.tab = v; break; }
+  // 사관·경찰 탭은 둘이 섞여 있다 — 한쪽만 말했으면 그 시험만
+  if (out.tab === 'mp' && /경찰/.test(q) !== /사관/.test(q)) out.typeGroup = /경찰/.test(q) ? 'police' : 'military';
+  if (out.tab === 'mp') s = s.replace(/경찰(대학?(교)?)?|사관(학교)?/g, ' ');
+  if (out.tab?.startsWith('ged')) s = s.replace(/고졸|중졸|초졸|검정\s*고시|검고/g, ' ');
+  // 검정고시 "1회·2회" → 제1회(4월)·제2회(8월)
+  if (out.tab?.startsWith('ged') && (mm0 = s.match(/(제\s*)?([12])\s*회(차)?/))) { out.typeGroup = 'ged'; out.type = [`ged_${mm0[2]}`]; s = s.replace(mm0[0], ' '); }
   // "3월 학평", "10월 모의고사" → 교육청 해당 월 (6월·9월 평가원 모평보다 먼저)
   let mm = s.match(/(\d{1,2})\s*월\s*(학평|학력\s*평가|모의\s*고사|교육청)/);
   if (mm && MONTH_KEY[+mm[1]]) {
@@ -132,12 +139,19 @@ export function ruleParse(q) {
   else if ((m = take(/(\d{2,4})\s*(학년도|년)?\s*[~\-–]\s*(\d{2,4})\s*(학년도|년)?/))) {
     const k = m[2] === '년' || m[4] === '년' ? 1 : 0;
     out.years = { from: y4(+m[1]) + k, to: y4(+m[3]) + k };
-  } else if ((m = take(/(\d{2,4})\s*(학년도|년)?\s*(이후|부터|이상|이전|까지|이하)?/)) && (m[2] || m[3] || m[1].length === 4 || /^\d{2}$/.test(m[1]))) {
-    const gy = y4(+m[1]) + (m[2] === '년' ? 1 : 0);
+  } else if ((m = s.match(/(\d{2,4})\s*(학년도|년)?\s*(이후|부터|이상|이전|까지|이하)?/)) && (m[2] || m[3] || m[1].length === 4 || /^\d{2}$/.test(m[1]))
+    // 수능이 없던 해("미적 88" 의 88 → 1988)는 연도로 보지 않는다
+    && (m[1].length !== 2 || m[2] || (y4(+m[1]) >= 1994 && y4(+m[1]) <= now + 1))) {
+    s = s.replace(m[0], ' ');
+    // 검정고시는 시행 연도 = 목록의 연도 ("2026년" 그대로)
+    const gy = y4(+m[1]) + (m[2] === '년' && !out.tab?.startsWith('ged') ? 1 : 0);
     if (!m[3]) out.years = { from: gy, to: gy };
     else if (after.test(m[3])) out.years = { from: gy, to: now };
     else out.years = { from: 1994, to: gy };
   }
+
+  // 연도로도 컷으로도 못 쓴 맨 숫자("미적 88")는 버린다 — JEV 는 숫자에 약하다
+  s = s.replace(/(^|\s)\d{1,3}(?=\s)/g, ' ');
 
   // 남은 말: 뜻 없는 말을 빼고도 남으면 규칙이 모르는 표현 → JEV 에 묻는다
   const rest = s.replace(FILLER, ' ').replace(/\s+/g, ' ').trim();
