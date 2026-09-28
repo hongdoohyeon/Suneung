@@ -29304,10 +29304,13 @@
     "type": "sept",
     "subject": "과학탐구",
     "subSubject": "물리Ⅱ",
-    "solutionUrl": null,
+    "solutionUrl": "https://wdown.ebsi.co.kr/W61001/01exam/20200916/go3/g_phy2_hsj_HAS489ZJ_1.pdf",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-v3/2021_mock09_science_physics2_q.pdf?name=2021%ED%95%99%EB%85%84%EB%8F%84%209%EB%AA%A8%20%EA%B3%BC%ED%95%99%ED%83%90%EA%B5%AC%28%EB%AC%BC%EB%A6%AC%E2%85%A1%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
     "answerUrl": null,
-    "questionDownload": "2021학년도 9모 과학탐구(물리Ⅱ) 문제지.pdf"
+    "questionDownload": "2021학년도 9모 과학탐구(물리Ⅱ) 문제지.pdf",
+    "solutionSource": "EBSi",
+    "solutionSourcePage": "https://www.ebsi.co.kr/ebs/xip/xipc/previousPaperList.ebs?targetCd=D300",
+    "solutionDownload": "2021학년도 9월 모평 과학탐구(물리Ⅱ) 정답·해설.pdf"
   },
   {
     "id": 1771,
@@ -29469,10 +29472,13 @@
     "type": "sept",
     "subject": "사회탐구",
     "subSubject": "법과정치",
-    "solutionUrl": null,
+    "solutionUrl": "https://wdown.ebsi.co.kr/W61001/01exam/20200916/go3/s_bnj_hsj_3C1E43NR_1.pdf",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-v3/2021_mock09_social_jungchi_q.pdf?name=2021%ED%95%99%EB%85%84%EB%8F%84%209%EB%AA%A8%20%EC%82%AC%ED%9A%8C%ED%83%90%EA%B5%AC%28%EB%B2%95%EA%B3%BC%EC%A0%95%EC%B9%98%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
     "answerUrl": null,
-    "questionDownload": "2021학년도 9모 사회탐구(법과정치) 문제지.pdf"
+    "questionDownload": "2021학년도 9모 사회탐구(법과정치) 문제지.pdf",
+    "solutionSource": "EBSi",
+    "solutionSourcePage": "https://www.ebsi.co.kr/ebs/xip/xipc/previousPaperList.ebs?targetCd=D300",
+    "solutionDownload": "2021학년도 9월 모평 사회탐구(법과정치) 정답·해설.pdf"
   },
   {
     "id": 1780,
@@ -30623,10 +30629,13 @@
     "type": "june",
     "subject": "과학탐구",
     "subSubject": "물리Ⅱ",
-    "solutionUrl": null,
+    "solutionUrl": "https://wdown.ebsi.co.kr/W61001/01exam/20200618/go3/g_phy2_hsj_76117629.pdf",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-fix-v1/2021_mock06_x1842_q.pdf?name=2021%ED%95%99%EB%85%84%EB%8F%84%206%EB%AA%A8%20%EA%B3%BC%ED%95%99%ED%83%90%EA%B5%AC%28%EB%AC%BC%EB%A6%AC%E2%85%A1%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
     "answerUrl": null,
-    "questionDownload": "2021학년도 6모 과학탐구(물리Ⅱ) 문제지.pdf"
+    "questionDownload": "2021학년도 6모 과학탐구(물리Ⅱ) 문제지.pdf",
+    "solutionSource": "EBSi",
+    "solutionSourcePage": "https://www.ebsi.co.kr/ebs/xip/xipc/previousPaperList.ebs?targetCd=D300",
+    "solutionDownload": "2021학년도 6월 모평 과학탐구(물리Ⅱ) 정답·해설.pdf"
   },
   {
     "id": 1843,
@@ -67054,13 +67063,16 @@
     "subSubject": "한국사",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v5/2014_csat_kcaf14c49_k3294535b_q.pdf?name=2014%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EC%82%AC%ED%9A%8C%ED%83%90%EA%B5%AC%28%ED%95%9C%EA%B5%AD%EC%82%AC%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
     "answerUrl": null,
-    "solutionUrl": null,
+    "solutionUrl": "https://wdown.ebsi.co.kr/W61001/01exam/201311073/s_his_hsj.pdf",
     "questionDownload": "2014학년도 수능 사회탐구(한국사) 문제지.pdf",
     "answerDownload": null,
     "listenUrl": null,
     "scriptUrl": null,
     "source": "kice-archive",
-    "id": 3964
+    "id": 3964,
+    "solutionSource": "EBSi",
+    "solutionSourcePage": "https://www.ebsi.co.kr/ebs/xip/xipc/previousPaperList.ebs?targetCd=D300",
+    "solutionDownload": "2014학년도 수능 사회탐구(한국사) 정답·해설.pdf"
   },
   {
     "id": 3965,
@@ -69906,12 +69918,15 @@
     "questionDownload": "2013학년도 수능 국어 문제지.pdf",
     "answerUrl": null,
     "answerDownload": null,
-    "solutionUrl": null,
+    "solutionUrl": "https://wdown.ebsi.co.kr/W61001/01exam/201211083/kor1_hsj.pdf",
     "listenUrl": null,
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
-    "source": "kice-archive"
+    "source": "kice-archive",
+    "solutionSource": "EBSi",
+    "solutionSourcePage": "https://www.ebsi.co.kr/ebs/xip/xipc/previousPaperList.ebs?targetCd=D300",
+    "solutionDownload": "2013학년도 수능 국어 정답·해설.pdf"
   },
   {
     "id": 4119,
@@ -71688,12 +71703,15 @@
     "questionDownload": "2012학년도 수능 국어 문제지.pdf",
     "answerUrl": null,
     "answerDownload": null,
-    "solutionUrl": null,
+    "solutionUrl": "https://wdown.ebsi.co.kr/W61001/01exam/201111103/kor1_hsj.pdf",
     "listenUrl": null,
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
-    "source": "kice-archive"
+    "source": "kice-archive",
+    "solutionSource": "EBSi",
+    "solutionSourcePage": "https://www.ebsi.co.kr/ebs/xip/xipc/previousPaperList.ebs?targetCd=D300",
+    "solutionDownload": "2012학년도 수능 국어 정답·해설.pdf"
   },
   {
     "id": 4196,
@@ -71710,12 +71728,15 @@
     "questionDownload": "2012학년도 수능 영어 문제지.pdf",
     "answerUrl": null,
     "answerDownload": null,
-    "solutionUrl": null,
+    "solutionUrl": "https://wdown.ebsi.co.kr/W61001/01exam/201111103/eng1_hsj.pdf",
     "listenUrl": null,
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
-    "source": "kice-archive"
+    "source": "kice-archive",
+    "solutionSource": "EBSi",
+    "solutionSourcePage": "https://www.ebsi.co.kr/ebs/xip/xipc/previousPaperList.ebs?targetCd=D300",
+    "solutionDownload": "2012학년도 수능 영어 정답·해설.pdf"
   },
   {
     "id": 4197,
@@ -73312,12 +73333,15 @@
     "questionDownload": "2011학년도 수능 국어 문제지.pdf",
     "answerUrl": null,
     "answerDownload": null,
-    "solutionUrl": null,
+    "solutionUrl": "https://wdown.ebsi.co.kr/W61001/01exam/20101118/kor1_hsj.pdf",
     "listenUrl": null,
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
-    "source": "kice-archive"
+    "source": "kice-archive",
+    "solutionSource": "EBSi",
+    "solutionSourcePage": "https://www.ebsi.co.kr/ebs/xip/xipc/previousPaperList.ebs?targetCd=D300",
+    "solutionDownload": "2011학년도 수능 국어 정답·해설.pdf"
   },
   {
     "id": 4270,
@@ -73381,12 +73405,15 @@
     "questionDownload": "2011학년도 수능 영어 문제지.pdf",
     "answerUrl": null,
     "answerDownload": null,
-    "solutionUrl": null,
+    "solutionUrl": "https://wdown.ebsi.co.kr/W61001/01exam/20101118/eng1_hsj.pdf",
     "listenUrl": null,
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
-    "source": "kice-archive"
+    "source": "kice-archive",
+    "solutionSource": "EBSi",
+    "solutionSourcePage": "https://www.ebsi.co.kr/ebs/xip/xipc/previousPaperList.ebs?targetCd=D300",
+    "solutionDownload": "2011학년도 수능 영어 정답·해설.pdf"
   },
   {
     "id": 4273,
@@ -75980,12 +76007,15 @@
     "questionDownload": "2010학년도 수능 국어 문제지.pdf",
     "answerUrl": null,
     "answerDownload": null,
-    "solutionUrl": null,
+    "solutionUrl": "https://wdown.ebsi.co.kr/W61001/01exam/20091112/kor1_hsj.pdf",
     "listenUrl": null,
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
-    "source": "kice-archive"
+    "source": "kice-archive",
+    "solutionSource": "EBSi",
+    "solutionSourcePage": "https://www.ebsi.co.kr/ebs/xip/xipc/previousPaperList.ebs?targetCd=D300",
+    "solutionDownload": "2010학년도 수능 국어 정답·해설.pdf"
   },
   {
     "id": 4391,
@@ -76024,12 +76054,15 @@
     "questionDownload": "2010학년도 수능 영어 문제지.pdf",
     "answerUrl": null,
     "answerDownload": null,
-    "solutionUrl": null,
+    "solutionUrl": "https://wdown.ebsi.co.kr/W61001/01exam/20091112/eng1_hsj.pdf",
     "listenUrl": null,
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
-    "source": "kice-archive"
+    "source": "kice-archive",
+    "solutionSource": "EBSi",
+    "solutionSourcePage": "https://www.ebsi.co.kr/ebs/xip/xipc/previousPaperList.ebs?targetCd=D300",
+    "solutionDownload": "2010학년도 수능 영어 정답·해설.pdf"
   },
   {
     "curriculum": "7차",
@@ -77286,12 +77319,15 @@
     "questionDownload": "2009학년도 수능 국어 문제지.pdf",
     "answerUrl": null,
     "answerDownload": null,
-    "solutionUrl": null,
+    "solutionUrl": "https://wdown.ebsi.co.kr/W61001/01exam/20081113/kor1_hsj.pdf",
     "listenUrl": null,
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
-    "source": "kice-archive"
+    "source": "kice-archive",
+    "solutionSource": "EBSi",
+    "solutionSourcePage": "https://www.ebsi.co.kr/ebs/xip/xipc/previousPaperList.ebs?targetCd=D300",
+    "solutionDownload": "2009학년도 수능 국어 정답·해설.pdf"
   },
   {
     "id": 4454,
@@ -77330,12 +77366,15 @@
     "questionDownload": "2009학년도 수능 영어 문제지.pdf",
     "answerUrl": null,
     "answerDownload": null,
-    "solutionUrl": null,
+    "solutionUrl": "https://wdown.ebsi.co.kr/W61001/01exam/20081113/eng1_hsj.pdf",
     "listenUrl": null,
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
-    "source": "kice-archive"
+    "source": "kice-archive",
+    "solutionSource": "EBSi",
+    "solutionSourcePage": "https://www.ebsi.co.kr/ebs/xip/xipc/previousPaperList.ebs?targetCd=D300",
+    "solutionDownload": "2009학년도 수능 영어 정답·해설.pdf"
   },
   {
     "id": 4456,
@@ -77802,12 +77841,15 @@
     "questionDownload": "2008학년도 수능 국어 문제지.pdf",
     "answerUrl": null,
     "answerDownload": null,
-    "solutionUrl": null,
+    "solutionUrl": "https://wdown.ebsi.co.kr/W61001/01exam/20071115/kor1_hsj.pdf",
     "listenUrl": null,
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
-    "source": "kice-archive"
+    "source": "kice-archive",
+    "solutionSource": "EBSi",
+    "solutionSourcePage": "https://www.ebsi.co.kr/ebs/xip/xipc/previousPaperList.ebs?targetCd=D300",
+    "solutionDownload": "2008학년도 수능 국어 정답·해설.pdf"
   },
   {
     "id": 4482,
@@ -77846,12 +77888,15 @@
     "questionDownload": "2008학년도 수능 수학(가형) 문제지.pdf",
     "answerUrl": null,
     "answerDownload": null,
-    "solutionUrl": null,
+    "solutionUrl": "https://wdown.ebsi.co.kr/W61001/01exam/20071115/mathga1_hsj.pdf",
     "listenUrl": null,
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
-    "source": "kice-archive"
+    "source": "kice-archive",
+    "solutionSource": "EBSi",
+    "solutionSourcePage": "https://www.ebsi.co.kr/ebs/xip/xipc/previousPaperList.ebs?targetCd=D300",
+    "solutionDownload": "2008학년도 수능 수학(가형) 정답·해설.pdf"
   },
   {
     "id": 4484,
@@ -77868,12 +77913,15 @@
     "questionDownload": "2008학년도 수능 영어 문제지.pdf",
     "answerUrl": null,
     "answerDownload": null,
-    "solutionUrl": null,
+    "solutionUrl": "https://wdown.ebsi.co.kr/W61001/01exam/20071115/eng1_hsj.pdf",
     "listenUrl": null,
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
-    "source": "kice-archive"
+    "source": "kice-archive",
+    "solutionSource": "EBSi",
+    "solutionSourcePage": "https://www.ebsi.co.kr/ebs/xip/xipc/previousPaperList.ebs?targetCd=D300",
+    "solutionDownload": "2008학년도 수능 영어 정답·해설.pdf"
   },
   {
     "id": 4485,
@@ -79987,12 +80035,15 @@
     "questionDownload": "2007학년도 9모 사회탐구(국사) 문제지.pdf",
     "answerUrl": null,
     "answerDownload": null,
-    "solutionUrl": null,
+    "solutionUrl": "https://wdown.ebsi.co.kr/W61001/01exam/20060906/s_his_hsj.pdf",
     "listenUrl": null,
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
-    "source": "kice-archive"
+    "source": "kice-archive",
+    "solutionSource": "EBSi",
+    "solutionSourcePage": "https://www.ebsi.co.kr/ebs/xip/xipc/previousPaperList.ebs?targetCd=D300",
+    "solutionDownload": "2007학년도 9월 모평 사회탐구(국사) 정답·해설.pdf"
   },
   {
     "id": 4580,
@@ -80752,12 +80803,15 @@
     "questionDownload": "2007학년도 6모 사회탐구(국사) 문제지.pdf",
     "answerUrl": null,
     "answerDownload": null,
-    "solutionUrl": null,
+    "solutionUrl": "https://wdown.ebsi.co.kr/W61001/01exam/20060603/s_his_hsj.pdf",
     "listenUrl": null,
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
-    "source": "kice-archive"
+    "source": "kice-archive",
+    "solutionSource": "EBSi",
+    "solutionSourcePage": "https://www.ebsi.co.kr/ebs/xip/xipc/previousPaperList.ebs?targetCd=D300",
+    "solutionDownload": "2007학년도 6월 모평 사회탐구(국사) 정답·해설.pdf"
   },
   {
     "id": 4616,
@@ -117297,14 +117351,17 @@
     "questionDownload": "2010년 6월 고3 모의평가 생물1.pdf",
     "answerUrl": null,
     "answerDownload": null,
-    "solutionUrl": null,
+    "solutionUrl": "https://wdown.ebsi.co.kr/W61001/01exam/20100610/g_bio1_hsj.pdf",
     "listenUrl": null,
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
     "source": "savetest-mock",
     "id": 6650,
-    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/1422021A4CE62A831D"
+    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/1422021A4CE62A831D",
+    "solutionSource": "EBSi",
+    "solutionSourcePage": "https://www.ebsi.co.kr/ebs/xip/xipc/previousPaperList.ebs?targetCd=D300",
+    "solutionDownload": "2011학년도 6월 모평 과학탐구(생물Ⅰ) 정답·해설.pdf"
   },
   {
     "curriculum": "2007개정",
@@ -117320,14 +117377,17 @@
     "questionDownload": "2010년 6월 고3 모의평가 생물2.pdf",
     "answerUrl": null,
     "answerDownload": null,
-    "solutionUrl": null,
+    "solutionUrl": "https://wdown.ebsi.co.kr/W61001/01exam/20100610/g_bio2_hsj.pdf",
     "listenUrl": null,
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
     "source": "savetest-mock",
     "id": 6651,
-    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/1721F91A4CE62A852F"
+    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/1721F91A4CE62A852F",
+    "solutionSource": "EBSi",
+    "solutionSourcePage": "https://www.ebsi.co.kr/ebs/xip/xipc/previousPaperList.ebs?targetCd=D300",
+    "solutionDownload": "2011학년도 6월 모평 과학탐구(생물Ⅱ) 정답·해설.pdf"
   },
   {
     "curriculum": "2007개정",
@@ -117421,7 +117481,7 @@
     "questionDownload": "2010년 6월 고3 모의평가 수산해운정보처리.pdf",
     "answerUrl": null,
     "answerDownload": null,
-    "solutionUrl": null,
+    "solutionUrl": "https://wdown.ebsi.co.kr/W61001/01exam/20100610/J_ssnw_hsj.pdf",
     "listenUrl": null,
     "listenDownload": null,
     "scriptUrl": null,
@@ -117429,7 +117489,7 @@
     "source": "savetest-mock",
     "id": 6656,
     "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/1918561A4CE62A9923",
-    "solutionDownload": null,
+    "solutionDownload": "2011학년도 6월 모평 직업탐구(수산해운정보처리) 정답·해설.pdf",
     "solutionSource": "EBSi",
     "solutionSourcePage": "https://www.ebsi.co.kr/ebs/xip/xipc/previousPaperList.ebs?targetCd=D300"
   },
@@ -117473,14 +117533,17 @@
     "questionDownload": "2010년 6월 고3 모의평가 컴퓨터일반.pdf",
     "answerUrl": null,
     "answerDownload": null,
-    "solutionUrl": null,
+    "solutionUrl": "https://wdown.ebsi.co.kr/W61001/01exam/20100610/j_jic08_hsj.pdf",
     "listenUrl": null,
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
     "source": "savetest-mock",
     "id": 6658,
-    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/1521361A4CE62B2239"
+    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/1521361A4CE62B2239",
+    "solutionSource": "EBSi",
+    "solutionSourcePage": "https://www.ebsi.co.kr/ebs/xip/xipc/previousPaperList.ebs?targetCd=D300",
+    "solutionDownload": "2011학년도 6월 모평 직업탐구(컴퓨터일반) 정답·해설.pdf"
   },
   {
     "curriculum": "2007개정",
@@ -117496,14 +117559,17 @@
     "questionDownload": "2010년 6월 고3 모의평가 기초제도.pdf",
     "answerUrl": null,
     "answerDownload": null,
-    "solutionUrl": null,
+    "solutionUrl": "https://wdown.ebsi.co.kr/W61001/01exam/20100610/j_jic11_hsj.pdf",
     "listenUrl": null,
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
     "source": "savetest-mock",
     "id": 6659,
-    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/151DEE1A4CE62A671F"
+    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/151DEE1A4CE62A671F",
+    "solutionSource": "EBSi",
+    "solutionSourcePage": "https://www.ebsi.co.kr/ebs/xip/xipc/previousPaperList.ebs?targetCd=D300",
+    "solutionDownload": "2011학년도 6월 모평 직업탐구(기초제도) 정답·해설.pdf"
   },
   {
     "curriculum": "2007개정",
@@ -117519,14 +117585,17 @@
     "questionDownload": "2010년 6월 고3 모의평가 농업기초기술.pdf",
     "answerUrl": null,
     "answerDownload": null,
-    "solutionUrl": null,
+    "solutionUrl": "https://wdown.ebsi.co.kr/W61001/01exam/20100610/j_jic10_hsj.pdf",
     "listenUrl": null,
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
     "source": "savetest-mock",
     "id": 6660,
-    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/1526401A4CE62A6920"
+    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/1526401A4CE62A6920",
+    "solutionSource": "EBSi",
+    "solutionSourcePage": "https://www.ebsi.co.kr/ebs/xip/xipc/previousPaperList.ebs?targetCd=D300",
+    "solutionDownload": "2011학년도 6월 모평 직업탐구(농업기초기술) 정답·해설.pdf"
   },
   {
     "curriculum": "2007개정",
@@ -117542,14 +117611,17 @@
     "questionDownload": "2010년 6월 고3 모의평가 농업이해.pdf",
     "answerUrl": null,
     "answerDownload": null,
-    "solutionUrl": null,
+    "solutionUrl": "https://wdown.ebsi.co.kr/W61001/01exam/20100610/J_nsmsup_hsj.pdf",
     "listenUrl": null,
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
     "source": "savetest-mock",
     "id": 6661,
-    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/1527E11A4CE62A6B13"
+    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/1527E11A4CE62A6B13",
+    "solutionSource": "EBSi",
+    "solutionSourcePage": "https://www.ebsi.co.kr/ebs/xip/xipc/previousPaperList.ebs?targetCd=D300",
+    "solutionDownload": "2011학년도 6월 모평 직업탐구(농업이해) 정답·해설.pdf"
   },
   {
     "curriculum": "2007개정",
@@ -117617,14 +117689,17 @@
     "questionDownload": "2010년 6월 고3 모의평가 인간발달.pdf",
     "answerUrl": null,
     "answerDownload": null,
-    "solutionUrl": null,
+    "solutionUrl": "https://wdown.ebsi.co.kr/W61001/01exam/20100610/J_gsnsup_hsj.pdf",
     "listenUrl": null,
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
     "source": "savetest-mock",
     "id": 6664,
-    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/1326711A4CE62B1423"
+    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/1326711A4CE62B1423",
+    "solutionSource": "EBSi",
+    "solutionSourcePage": "https://www.ebsi.co.kr/ebs/xip/xipc/previousPaperList.ebs?targetCd=D300",
+    "solutionDownload": "2011학년도 6월 모평 직업탐구(인간발달) 정답·해설.pdf"
   },
   {
     "curriculum": "2007개정",
@@ -123564,14 +123639,17 @@
     "questionDownload": "2008년 6월 고3 모의평가 생물1.pdf",
     "answerUrl": null,
     "answerDownload": null,
-    "solutionUrl": null,
+    "solutionUrl": "https://wdown.ebsi.co.kr/W61001/01exam/20080604/g_bio1_hsj.pdf",
     "listenUrl": null,
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
     "source": "savetest-mock",
     "id": 6980,
-    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/1501BA334CE78E5207"
+    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/1501BA334CE78E5207",
+    "solutionSource": "EBSi",
+    "solutionSourcePage": "https://www.ebsi.co.kr/ebs/xip/xipc/previousPaperList.ebs?targetCd=D300",
+    "solutionDownload": "2009학년도 6월 모평 과학탐구(생물Ⅰ) 정답·해설.pdf"
   },
   {
     "curriculum": "7차",
@@ -123587,14 +123665,17 @@
     "questionDownload": "2008년 6월 고3 모의평가 생물2.pdf",
     "answerUrl": null,
     "answerDownload": null,
-    "solutionUrl": null,
+    "solutionUrl": "https://wdown.ebsi.co.kr/W61001/01exam/20080604/g_bio2_hsj.pdf",
     "listenUrl": null,
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
     "source": "savetest-mock",
     "id": 6981,
-    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/137141334CE78E6018"
+    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/137141334CE78E6018",
+    "solutionSource": "EBSi",
+    "solutionSourcePage": "https://www.ebsi.co.kr/ebs/xip/xipc/previousPaperList.ebs?targetCd=D300",
+    "solutionDownload": "2009학년도 6월 모평 과학탐구(생물Ⅱ) 정답·해설.pdf"
   },
   {
     "curriculum": "2007개정",
@@ -125534,7 +125615,7 @@
     "questionDownload": "2010년 9월 고3 모의평가 수산해운정보처리.pdf",
     "answerUrl": null,
     "answerDownload": null,
-    "solutionUrl": null,
+    "solutionUrl": "https://wdown.ebsi.co.kr/W61001/01exam/20100902/J_ssnw_hsj.pdf",
     "listenUrl": null,
     "listenDownload": null,
     "scriptUrl": null,
@@ -125542,7 +125623,7 @@
     "source": "savetest-mock",
     "id": 7058,
     "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/17602F1E4CE654D81B",
-    "solutionDownload": null,
+    "solutionDownload": "2011학년도 9월 모평 직업탐구(수산해운정보처리) 정답·해설.pdf",
     "solutionSource": "EBSi",
     "solutionSourcePage": "https://www.ebsi.co.kr/ebs/xip/xipc/previousPaperList.ebs?targetCd=D300"
   },
@@ -126839,7 +126920,7 @@
     "questionDownload": "2006년 6월 고3 모의평가 농업정보관리.pdf",
     "answerUrl": null,
     "answerDownload": null,
-    "solutionUrl": null,
+    "solutionUrl": "https://wdown.ebsi.co.kr/W61001/01exam/20060603/j_jic01_hsj.pdf",
     "listenUrl": null,
     "listenDownload": null,
     "scriptUrl": null,
@@ -126847,7 +126928,7 @@
     "source": "savetest-mock",
     "id": 7124,
     "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/152A8E044CE8ED0029",
-    "solutionDownload": null,
+    "solutionDownload": "2007학년도 6월 모평 직업탐구(농업정보관리) 정답·해설.pdf",
     "solutionSource": "EBSi",
     "solutionSourcePage": "https://www.ebsi.co.kr/ebs/xip/xipc/previousPaperList.ebs?targetCd=D300"
   },
@@ -126917,7 +126998,7 @@
     "questionDownload": "2006년 6월 고3 모의평가 수산해운정보처리.pdf",
     "answerUrl": null,
     "answerDownload": null,
-    "solutionUrl": null,
+    "solutionUrl": "https://wdown.ebsi.co.kr/W61001/01exam/20060603/J_ssnw_hsj.pdf",
     "listenUrl": null,
     "listenDownload": null,
     "scriptUrl": null,
@@ -126925,7 +127006,7 @@
     "source": "savetest-mock",
     "id": 7127,
     "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/12308C044CE8ED2617",
-    "solutionDownload": null,
+    "solutionDownload": "2007학년도 6월 모평 직업탐구(수산해운정보처리) 정답·해설.pdf",
     "solutionSource": "EBSi",
     "solutionSourcePage": "https://www.ebsi.co.kr/ebs/xip/xipc/previousPaperList.ebs?targetCd=D300"
   },
@@ -131767,14 +131848,17 @@
     "questionDownload": "2011년 9월 고3 모의평가  생물1.pdf",
     "answerUrl": null,
     "answerDownload": null,
-    "solutionUrl": null,
+    "solutionUrl": "https://wdown.ebsi.co.kr/W61001/01exam/201109013/g_bio1_hsj.pdf",
     "listenUrl": null,
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
     "source": "savetest-mock",
     "id": 7392,
-    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/1825353C4E6D4F8430"
+    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/1825353C4E6D4F8430",
+    "solutionSource": "EBSi",
+    "solutionSourcePage": "https://www.ebsi.co.kr/ebs/xip/xipc/previousPaperList.ebs?targetCd=D300",
+    "solutionDownload": "2012학년도 9월 모평 과학탐구(생물Ⅰ) 정답·해설.pdf"
   },
   {
     "curriculum": "2007개정",
@@ -131790,14 +131874,17 @@
     "questionDownload": "2011년 9월 고3 모의평가  생물2.pdf",
     "answerUrl": null,
     "answerDownload": null,
-    "solutionUrl": null,
+    "solutionUrl": "https://wdown.ebsi.co.kr/W61001/01exam/201109013/g_bio2_hsj.pdf",
     "listenUrl": null,
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
     "source": "savetest-mock",
     "id": 7393,
-    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/1326913C4E6D4F8531"
+    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/1326913C4E6D4F8531",
+    "solutionSource": "EBSi",
+    "solutionSourcePage": "https://www.ebsi.co.kr/ebs/xip/xipc/previousPaperList.ebs?targetCd=D300",
+    "solutionDownload": "2012학년도 9월 모평 과학탐구(생물Ⅱ) 정답·해설.pdf"
   },
   {
     "curriculum": "2007개정",
@@ -132939,7 +133026,7 @@
     "questionDownload": "2009년 6월 고3 모의고사 수산해운정보처리 문제.pdf",
     "answerUrl": null,
     "answerDownload": null,
-    "solutionUrl": null,
+    "solutionUrl": "https://wdown.ebsi.co.kr/W61001/01exam/20090604/J_ssnw_hsj.pdf",
     "listenUrl": null,
     "listenDownload": null,
     "scriptUrl": null,
@@ -132947,7 +133034,7 @@
     "source": "savetest-mock",
     "id": 7454,
     "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/211C694C55EA2FB528",
-    "solutionDownload": null,
+    "solutionDownload": "2010학년도 6월 모평 직업탐구(수산해운정보처리) 정답·해설.pdf",
     "solutionSource": "EBSi",
     "solutionSourcePage": "https://www.ebsi.co.kr/ebs/xip/xipc/previousPaperList.ebs?targetCd=D300"
   },
@@ -134275,7 +134362,7 @@
     "questionDownload": "2008년 9월 고3 모의평가 수산해운정보처리.pdf",
     "answerUrl": null,
     "answerDownload": null,
-    "solutionUrl": null,
+    "solutionUrl": "https://wdown.ebsi.co.kr/W61001/01exam/20080904/J_ssnw_hsj.pdf",
     "listenUrl": null,
     "listenDownload": null,
     "scriptUrl": null,
@@ -134283,7 +134370,7 @@
     "source": "savetest-mock",
     "id": 7524,
     "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/15376D0F4CE7B52C1F",
-    "solutionDownload": null,
+    "solutionDownload": "2009학년도 9월 모평 직업탐구(수산해운정보처리) 정답·해설.pdf",
     "solutionSource": "EBSi",
     "solutionSourcePage": "https://www.ebsi.co.kr/ebs/xip/xipc/previousPaperList.ebs?targetCd=D300"
   },
