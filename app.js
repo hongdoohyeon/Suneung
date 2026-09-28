@@ -377,6 +377,8 @@ async function loadExams() {
   render();
   persistArchiveState();
   loadArchiveMeta();
+  // 헤더 검색창(/?q=…)으로 들어와도 입력창에 친 것과 똑같이 스마트 검색을 건다
+  if (state.query) maybeSmartSearch(state.query);
 }
 
 // ── 렌더링 조율 ────────────────────────────────────────────

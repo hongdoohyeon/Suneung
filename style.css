@@ -774,7 +774,10 @@ main { flex: 1 0 auto; width: 100%; }
 .pv-sheet { display: flex; flex-direction: column; align-items: center; gap: 12px; width: max-content; min-width: 100%; }
 .pv-page { position: relative; flex: none; background: #fff; border-radius: 6px; box-shadow: var(--sh-paper); overflow: hidden; }
 .pv-pdf, .pv-ink { position: absolute; inset: 0; width: 100%; height: 100%; display: block; pointer-events: none; }
-.pv-viewer .preview__more { width: min(100%, 520px); flex: none; }
+.pv-viewer .preview__more { width: min(100%, 520px); flex: none; align-self: center; }
+.pv-sheet.is-folded .pv-page:not([data-page="1"]) { display: none; }
+/* 풀이 모드는 늘 전부 펼친 채 */
+.preview.is-full .preview__more, .preview.is-full .pv-btn[data-act="fold"] { display: none; }
 .pv-hint {
   position: absolute; left: 50%; bottom: 18px; transform: translateX(-50%); z-index: 3; margin: 0;
   padding: 8px 14px; border-radius: 999px; background: var(--ink); color: var(--on-ink); font-size: 12.5px; font-weight: 600;
@@ -878,6 +881,8 @@ body.pv-lock { overflow: hidden; }
   .latest-rail { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .exam__grid { grid-template-columns: minmax(0, 1fr) 280px; }
   .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  /* 필터 사이드바가 남아 있는 961~1100px — 기본 열 폭(최소 714px)이면 오른쪽 버튼이 잘린다 */
+  .rrow { grid-template-columns: minmax(96px, 1fr) 104px 92px minmax(220px, 1.6fr); gap: 10px; padding-left: 14px; padding-right: 14px; }
 }
 
 @media (max-width: 960px) {
