@@ -47,7 +47,7 @@ class BuildTests(unittest.TestCase):
                     render.render_site_summary(items)
                 summary = json.loads((render.ROOT / 'data/site-summary.json').read_text())
                 self.assertEqual(summary['updatedAt'], '2026-09-03')
-                self.assertEqual(summary['archiveCount'], 9602)
+                self.assertEqual(summary['archiveCount'], sum(1 for it in items if it.get('typeGroup') != 'reference'))  # 자료가 늘어도 깨지지 않게
                 self.assertNotIn('updateDate', summary)
             finally:
                 render.ROOT = source
