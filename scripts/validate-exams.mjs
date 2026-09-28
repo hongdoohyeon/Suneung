@@ -373,6 +373,16 @@ async function validateGradecuts() {
           || c.rawCuts.some(v => !Number.isInteger(v)))) {
       invalidReverseCalculated++;
     }
+    // 공식 표준점수 컷(평가원) + 입시기관 원점수↔표점 추정 곡선 여러 곳의 중앙값 (2027 9모~)
+    if (c.rawCutBasis === 'academy_consensus_estimate'
+        && (!String(c.source || '').includes('kice-official')
+          || !String(c.officialGradeBoundarySource || '').includes('moe.go.kr')
+          || !Array.isArray(c.standardCuts) || c.standardCuts.length !== 8
+          || !Array.isArray(c.rawCuts)
+          || c.rawCuts.length !== 8
+          || c.rawCuts.some(v => !Number.isInteger(v)))) {
+      invalidReverseCalculated++;
+    }
     if (c.rawCutBasis === 'academy_integerized_threshold'
         && (!String(c.source || '').includes('megastudy')
           || !Array.isArray(c.rawCuts)
