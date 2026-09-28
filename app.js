@@ -1,19 +1,19 @@
 'use strict';
-import { enableForcedDownloads } from './lib/download.js?v=d3d915098dabf07008c8';
+import { enableForcedDownloads } from './lib/download.js?v=340ff5f6b518f0ca1824';
 enableForcedDownloads();
 import {
   CURRICULUM_CONFIG, EXAM_TYPE_CONFIG, TAB_CONFIG,
   getTypeConf, getGroupConf, getTabConf, legacyTabKey, prettySub,
-} from './config.js?v=d3d915098dabf07008c8';
+} from './config.js?v=340ff5f6b518f0ca1824';
 import {
   state, PAGE_SIZE,
   resetFilters, toggleMulti,
   getDisplayYear, availableGradeYears,
   filtered, subjectCounts,
   tabCurriculums, tabCurriculumConfs, tabSubjects, curriculumOfGradeYear,
-} from './state.js?v=d3d915098dabf07008c8';
-import { renderAllAdSlots, renderAdSlot } from './lib/ads.js?v=d3d915098dabf07008c8';
-import { recentItems, clearRecent } from './lib/recent.js?v=d3d915098dabf07008c8';
+} from './state.js?v=340ff5f6b518f0ca1824';
+import { renderAllAdSlots, renderAdSlot } from './lib/ads.js?v=340ff5f6b518f0ca1824';
+import { recentItems, clearRecent } from './lib/recent.js?v=340ff5f6b518f0ca1824';
 
 const tabConf = () => getTabConf(state.tab);
 
@@ -41,7 +41,7 @@ const tabIsSingleType = () => {
 
 // 검색 첫 진입에서 9MB 전체 목록을 받지 않고 현재 탭 split만 로드한다.
 // CI render-site.py가 data/archive/{tab}.json을 exams.json에서 생성한다.
-const DATA_VERSION = 'd3d915098dabf07008c8';
+const DATA_VERSION = '340ff5f6b518f0ca1824';
 const FULL_DATA_URL = `data/exams.json?v=${DATA_VERSION}`;
 const tabDataCache = new Map();
 let fullDataCache = null;
@@ -1098,8 +1098,7 @@ function rowHTML(e, inFold = false) {
   return `<div class="rrow">
     <a class="rrow__link" href="exam-${e.id}.html" aria-label="${escAttr(label)}"></a>
     <span class="rrow__subj">${escHtml(main)}${sub ? `<small>${escHtml(sub)}</small>` : ''}</span>
-    ${sc.cut}
-    <span class="rrow__tier">${sc.tier}</span>
+    <span class="rrow__meta">${sc.cut}<span class="rrow__tier">${sc.tier}</span></span>
     <span class="rrow__acts">${actionsHTML(e)}</span>
   </div>`;
 }
@@ -1467,6 +1466,13 @@ document.querySelector('.view-toggle')?.addEventListener('click', e => {
   renderCards();
 });
 syncViewToggle();
+
+// 아주 좁은 화면(360px 미만)에선 검색 안내 문구가 잘리므로 짧게
+{
+  const mq = matchMedia('(max-width: 359px)'), full = $('searchInput').placeholder;
+  const apply = () => { $('searchInput').placeholder = mq.matches ? '검색' : full; };
+  mq.addEventListener?.('change', apply); apply();
+}
 
 // ── 최근 본 시험 (이 기기에 저장된 것만) ─────────────────────
 function renderRecent() {

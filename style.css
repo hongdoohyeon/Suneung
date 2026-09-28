@@ -475,7 +475,7 @@ main { flex: 1 0 auto; width: 100%; }
 .content { min-width: 0; }
 .toolbar { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 12px; }
 .search {
-  position: relative; flex: 1 1 280px; display: flex; align-items: center; gap: 10px; height: 46px; padding: 0 12px 0 14px;
+  position: relative; flex: 1 1 280px; min-width: 0;   /* 사파리: 입력칸 기본 너비 때문에 옆 버튼이 밀려나지 않게 */ display: flex; align-items: center; gap: 10px; height: 46px; padding: 0 12px 0 14px;
   background: var(--surface); border: 1px solid var(--line); border-radius: 13px; color: var(--ink-4);
 }
 .search:focus-within { border-color: var(--ink); }
@@ -537,6 +537,7 @@ main { flex: 1 0 auto; width: 100%; }
 .rrow__cut { font-size: 14px; font-weight: 650; white-space: nowrap; }
 .rrow__cut small { margin-left: 4px; font-size: 12px; font-weight: 500; color: var(--ink-4); }
 .rrow__na { font-size: 13px; font-weight: 500; color: var(--ink-4); }
+.rrow__meta { display: contents; }   /* 데스크톱: 등급컷·난이도가 각자 표 칸 — 폰에서는 과목 아래 한 줄로 묶음 */
 .rrow__acts { position: relative; z-index: 1; display: flex; justify-content: flex-end; flex-wrap: wrap; gap: 6px; }
 .rrow__acts .btn { min-height: 34px; padding: 0 11px; font-size: 13px; border-radius: 9px; }
 .rfold { border-top: 1px solid var(--line); }
@@ -939,11 +940,14 @@ body.pv-lock { overflow: hidden; }
   .curriculum-nav { margin: 6px 0 12px; padding: 0; }
   .curriculum-nav__inner { padding: 0 16px; }
   .nav-tab { padding: 8px 12px 10px; }
-  .toolbar { flex-wrap: nowrap; gap: 8px; margin-bottom: 8px; }
-  .search { flex: 1 1 0; height: 44px; }
+  /* 한 줄: [검색 ····][필터][표|카드] — 어떤 폭에서도 잘리지 않게 검색창만 줄어든다 */
+  .toolbar { flex-wrap: nowrap; gap: 6px; margin-bottom: 8px; }
+  .search { flex: 1 1 0; height: 44px; padding: 0 8px 0 12px; gap: 8px; }
   .search input { font-size: 16px; }
-  .toolbar__right, .view-toggle { display: none; }
-  .filter-toggle-inline { padding: 0 12px; gap: 6px; }
+  .toolbar__right { display: none; }
+  .filter-toggle-inline { flex: none; min-height: 44px; padding: 0 11px; gap: 5px; }
+  .view-toggle { flex: none; padding: 3px; }
+  .view-toggle button { min-width: 36px; min-height: 36px; }
   /* 조건 칩은 줄바꿈 — 가로 스크롤이면 화살표가 칩·× 버튼을 덮는다 */
   .subbar { flex-wrap: wrap; margin-bottom: 10px; }
   .spoil-note--archive { display: none !important; }
@@ -951,12 +955,19 @@ body.pv-lock { overflow: hidden; }
 
   .results--table { border-radius: var(--r); }
   .rrow--head { display: none; }
-  .rrow { grid-template-columns: minmax(0, 1fr) auto auto; grid-template-areas: "s c t" "a a a"; row-gap: 10px; column-gap: 10px; padding: 12px 16px; }
-  .rrow__subj { grid-area: s; } .rrow__cut { grid-area: c; } .rrow__tier { grid-area: t; }
-  .rrow__acts { grid-area: a; justify-content: stretch; }
-  .rrow__na { display: none; }
-  .rrow__acts .btn { flex: 1; min-height: 40px; }
-  .rrow__acts .btn--primary { flex: 2; }
+  /* 한 행 = 과목(위)·등급컷·난이도(아래 작게) | 자료 버튼(오른쪽) — 버튼이 한 줄을 통째로 차지하던 것을 압축 */
+  .rrow { grid-template-columns: minmax(0, 1fr) auto; grid-template-areas: "s a" "m a";
+    row-gap: 3px; column-gap: 10px; min-height: 0; padding: 10px 12px 10px 16px; }
+  .rrow__subj { grid-area: s; font-size: 14.5px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .rrow__subj small { display: inline; margin: 0 0 0 5px; font-size: 12px; }
+  .rrow__meta { grid-area: m; display: flex; flex-wrap: wrap; align-items: center; gap: 2px 6px; min-width: 0; }
+  .rrow__meta:not(:has(.rrow__cut)):not(:has(.tier)) { display: none; }
+  .rrow__cut { font-size: 12px; white-space: nowrap; } .rrow__cut small { font-size: 11px; }
+  .rrow__cut.spoil-val::before { content: '1컷 '; font-weight: 500; color: var(--ink-4); }
+  .rrow__tier .tier { transform: scale(.88); transform-origin: left center; }
+  .rrow__tier:empty, .rrow__na { display: none; }
+  .rrow__acts { grid-area: a; flex-wrap: wrap; justify-content: flex-end; gap: 5px; max-width: 64vw; align-self: center; }
+  .rrow__acts .btn { min-height: 36px; height: 36px; padding: 0 9px; font-size: 12.5px; border-radius: 9px; }
   .rgroup__head { padding: 14px 16px 10px; flex-wrap: nowrap; }
   .rgroup__title { font-size: 15.5px; }
   .rgroup__all span { display: none; }
