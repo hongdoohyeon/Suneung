@@ -1,5 +1,7 @@
 // kicegg.com/api/report — 자료 오류 제보 접수. KV(REPORTS)에 90일 보관, JEV 로 유형·스팸 여부를 미리 분류해 둔다.
 // 개인정보는 받지 않는다(이름·연락처 없음). IP 는 도배 방지 상한에만 쓰고 저장하지 않는다.
+// 접수되면 운영자에게 메일 알림(비밀값 REPORT_TO, 스팸 판정·상한 초과는 생략).
+import { EmailMessage } from 'cloudflare:email';
 const KINDS = { broken: '파일이 안 열려요', wrong: '다른 시험·과목 파일이에요', answer: '정답·해설이 틀려요', cut: '등급컷·난이도가 이상해요', other: '기타' };
 const FIELDS = ['questionUrl', 'answerUrl', 'solutionUrl', 'listenUrl', 'scriptUrl', ''];
 const json = (body, status = 200) => new Response(JSON.stringify(body), { status, headers: { 'content-type': 'application/json; charset=utf-8', 'cache-control': 'no-store' } });
@@ -37,5 +39,34 @@ export async function handleReport(request, env, ctx) {
   }
   const key = `r:${rec.ts}:${crypto.randomUUID().slice(0, 8)}`;
   await env.REPORTS.put(key, JSON.stringify(rec), { expirationTtl: 90 * 24 * 3600, metadata: { examId, kind, spam: rec.jev?.spam ?? null } });
+  if (env.REPORT_TO && !(rec.jev?.spam > 0.8)) ctx.waitUntil(notify(env, rec).catch(e => console.log('mail', e.message)));
   return json({ ok: true });
+}
+
+// ── 메일 알림 ──
+const b64 = str => { const u = new TextEncoder().encode(str); let bin = ''; for (const c of u) bin += String.fromCharCode(c); return btoa(bin); };
+const FIELD_KO = { questionUrl: '문제지', answerUrl: '정답', solutionUrl: '해설', listenUrl: '듣기 파일', scriptUrl: '듣기 대본', '': '모름' };
+async function notify(env, rec) {
+  if (!(await env.REPORT_MAIL.limit({ key: 'all' })).success) return;
+  const from = 'report@kicegg.com', to = env.REPORT_TO;
+  const url = `https://kicegg.com/exam-${rec.examId}.html`;
+  const subject = `[kicegg 제보] ${KINDS[rec.kind]} · exam-${rec.examId}`;
+  const body = [
+    `새 자료 오류 제보가 들어왔어요.`, ``,
+    `페이지: ${url}`,
+    `종류: ${KINDS[rec.kind]}`,
+    `자료: ${FIELD_KO[rec.field] ?? rec.field}`,
+    `내용: ${rec.text || '(없음)'}`,
+    rec.jev ? `자동 분류(JEV): ${KINDS[rec.jev.kind] || rec.jev.kind || '-'} (확신 ${Math.round((rec.jev.conf || 0) * 100)}%) · 스팸 점수 ${Math.round((rec.jev.spam || 0) * 100)}%` : '',
+    `시각: ${rec.ts}`, ``,
+    `전체 목록: node cloudflare/smart-search/reports.mjs`,
+  ].filter(x => x !== null).join('\n');
+  const raw = [
+    `From: =?UTF-8?B?${b64('kicegg 제보')}?= <${from}>`, `To: <${to}>`,
+    `Subject: =?UTF-8?B?${b64(subject)}?=`,
+    `Message-ID: <${crypto.randomUUID()}@kicegg.com>`, `Date: ${new Date().toUTCString()}`,
+    'MIME-Version: 1.0', 'Content-Type: text/plain; charset=UTF-8', 'Content-Transfer-Encoding: base64', '',
+    b64(body).replace(/.{76}/g, '$&\r\n'),
+  ].join('\r\n');
+  await env.MAILER.send(new EmailMessage(from, to, raw));
 }

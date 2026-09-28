@@ -41,3 +41,13 @@ simple = { limit = 4, period = 60 }
 name = "REPORT_JEV"
 namespace_id = "2704"
 simple = { limit = 10, period = 60 }
+
+# 제보 메일 알림 — 받는 주소는 비밀값 REPORT_TO (Cloudflare 이메일 라우팅에서 확인된 주소만 가능)
+[[send_email]]
+name = "MAILER"
+
+# 메일 알림 전체 상한: 분당 10통 (도배 시 메일함 보호)
+[[ratelimits]]
+name = "REPORT_MAIL"
+namespace_id = "2705"
+simple = { limit = 10, period = 60 }
