@@ -419,7 +419,8 @@ def _write_subject_hub(h: dict) -> None:
     sections, item_list, pos = [], [], 1
     for gy in sorted(years, key=lambda y: (y is None, -(y or 0))):
         lis = []
-        for it in sorted(years[gy], key=lambda x: (str(x.get('type') or ''), bd._subject_sort_key(x))):
+        # 학년도 안에서도 최근 시험부터 (수능 → 9모 → 6모, 학평은 월 역순) — 연도 역순 정렬과 같은 방향
+        for it in sorted(years[gy], key=lambda x: (-(x.get('month') or 0), str(x.get('type') or ''), bd._subject_sort_key(x))):
             lab = bd.build_exam_meta(it)['head']
             lis.append(_exam_row(it, lab))
             item_list.append({'@type': 'ListItem', 'position': pos,

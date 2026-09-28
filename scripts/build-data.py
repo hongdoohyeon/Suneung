@@ -1628,18 +1628,18 @@ def build_static_exam_pages(items: list[dict], template_path: Path, out_root: Pa
             if parts:
                 jsonld['hasPart'] = parts
 
-        # BreadcrumbList — SERP rich snippet (홈 › 기출 검색 › 시험명)
+        # BreadcrumbList — 화면의 이동 경로와 같게 (기출검색 › 회차 › 시험명). 첫 화면(/) = 기출검색
+        _crumbs = [('기출검색', 'https://kicegg.com/')]
+        if it.get('curriculum') and it.get('gradeYear') and it.get('type'):
+            _sg0 = it.get('studentGrade') if it.get('typeGroup') == 'education' else None
+            _crumbs.append((exam_set_title(it), 'https://kicegg.com/' + set_friendly_filename(
+                str(it['curriculum']), str(it['gradeYear']), it['type'], _sg0)))
+        _crumbs.append((head, canonical))
         breadcrumb = {
           '@context': 'https://schema.org',
           '@type': 'BreadcrumbList',
-          'itemListElement': [
-            {'@type': 'ListItem', 'position': 1, 'name': '홈',
-             'item': 'https://kicegg.com/'},
-            {'@type': 'ListItem', 'position': 2, 'name': '기출 검색',
-             'item': 'https://kicegg.com/archive.html'},
-            {'@type': 'ListItem', 'position': 3, 'name': head,
-             'item': canonical},
-          ],
+          'itemListElement': [{'@type': 'ListItem', 'position': i + 1, 'name': n, 'item': u}
+                              for i, (n, u) in enumerate(_crumbs)],
         }
         ld_block = (
           '<script type="application/ld+json">'
@@ -2097,9 +2097,8 @@ def build_static_set_pages(items: list[dict], template_path: Path, out_root: Pat
             '@context': 'https://schema.org',
             '@type': 'BreadcrumbList',
             'itemListElement': [
-                {'@type':'ListItem','position':1,'name':'홈','item':'https://kicegg.com/'},
-                {'@type':'ListItem','position':2,'name':'기출 검색','item':'https://kicegg.com/archive.html'},
-                {'@type':'ListItem','position':3,'name':meta['head'],'item':canonical},
+                {'@type':'ListItem','position':1,'name':'기출검색','item':'https://kicegg.com/'},
+                {'@type':'ListItem','position':2,'name':meta['head'],'item':canonical},
             ],
         }
         ld_block = (
