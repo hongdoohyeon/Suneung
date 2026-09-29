@@ -1498,19 +1498,19 @@ def _obj_match(it: dict, rec: dict) -> bool:
     return a == b or a in b or b in a
 
 
-def objection_html(it: dict) -> str:
-    """상세 페이지 '이의신청 기록' — 공식(평가원) · 언론 보도 · 커뮤니티(비공식)를 분리해서 보여준다."""
-    if it.get('typeGroup') != 'suneung' or it.get('type') not in ('csat', 'june', 'sept'):
-        return ''
-    rec = _load_objections().get(f'{it.get("gradeYear")}|{it.get("type")}')
-    if not rec:
-        return ''
+def objection_anchor(key: str) -> str:
+    """이의신청 기록 페이지(objections.html) 안 회차 앵커 — '2026|csat' → 'y2026-csat'."""
+    gy, t = key.split('|')
+    return f'y{gy}-{t}'
+
+
+def objection_record_html(rec: dict) -> str:
+    """이의신청 기록 페이지의 회차 하나 — 공식 발표(평가원·공공기관)와 언론 보도를 나눠 보여준다."""
     esc = lambda v: html_escape(str(v), quote=False)
     attr = lambda v: html_escape(str(v), quote=True)
     ext = lambda url, text: f'<a href="{attr(url)}" target="_blank" rel="noopener nofollow">{esc(text)}</a>'
+    label = lambda subject, sub: subject + (f' {pretty_sub(sub)}' if sub else '')
     off = rec.get('official') or {}
-    subj = it.get('subject') or ''
-    name = f'{subj} {pretty_sub(it["subSubject"])}' if it.get('subSubject') else subj
     parts = []
     # ── 공식
     body = []
@@ -1527,37 +1527,36 @@ def objection_html(it: dict) -> str:
     if ch:
         lis = []
         for c in ch:
-            label = f'{c["subject"]}' + (f' {pretty_sub(c["sub"])}' if c.get('sub') else '') + f' {c["no"]}번'
-            mine = ' obj-change--mine' if _obj_match(it, c) else ''
-            tag = ''
-            if c.get('after'):
-                tag = '<span class="obj-tag">사후 정정</span>'
+            tag = '<span class="obj-tag">사후 정정</span>' if c.get('after') else ''
             src = ''
             if c.get('via') == 'news':
                 src = '<span class="obj-note">평가원 게시판 원문 없음 · 언론 보도로 확인</span>'
             elif c.get('url'):
                 src = ext(c['url'], '평가원 공지')
-            lis.append(f'<li class="obj-change{mine}"><b>{esc(label)}</b> <span class="obj-decision">{esc(c["decision"])}</span>{tag}'
-                       f'<span class="obj-detail spoil-val">{esc(c["detail"])}</span>{src}</li>')
+            lis.append(f'<li class="obj-change"><b>{esc(label(c["subject"], c.get("sub")))} {c["no"]}번</b> '
+                       f'<span class="obj-decision">{esc(c["decision"])}</span>{tag}'
+                       f'<span class="obj-detail">{esc(c["detail"])}</span>{src}</li>')
         body.append(f'<ul class="obj-changes">{"".join(lis)}</ul>')
-    qs = [q for q in (off.get('questions') or []) if _obj_match(it, q)]
-    dets = {d['no']: d for d in (off.get('details') or []) if d.get('subject') and _obj_match(it, d)}
-    if qs or dets:
+    qs = off.get('questions') or []
+    dets = {(d['subject'], d.get('sub'), d['no']): d for d in (off.get('details') or []) if d.get('subject')}
+    keys = list(dict.fromkeys([(q['subject'], q.get('sub'), q['no']) for q in qs] + list(dets)))
+    if keys:
+        keys.sort(key=lambda k: (_SUBJECT_ORDER.index(k[0]) if k[0] in _SUBJECT_ORDER else 99, sub_order_key(k[1]), k[2]))
+        byq = {(q['subject'], q.get('sub'), q['no']): q for q in qs}
         rows = []
-        nos = sorted({q['no'] for q in qs} | set(dets))
-        for no in nos:
-            q = next((x for x in qs if x['no'] == no), None)
-            head = f'<b>{no}번</b> ' + (esc(f'{q["kind"]} → {q["result"]}') if q else '상세 답변 공개')
-            d = dets.get(no)
+        for k in keys:
+            q = byq.get(k)
+            head = f'<b>{esc(label(k[0], k[1]))} {k[2]}번</b> ' + (esc(f'{q["kind"]} → {q["result"]}') if q else '상세 답변 공개')
+            d = dets.get(k)
             if d:
                 inner = f'<p><span class="obj-k">이의 요지</span> {esc(d["claim"])}</p>'
                 if d.get('conclusion'):
                     inner += f'<p><span class="obj-k">평가원 답변</span> {esc(d["conclusion"])}</p>'
-                rows.append(f'<li><details><summary>{head}</summary><div class="obj-detail-box spoil-val">{inner}</div></details></li>')
+                rows.append(f'<li><details><summary>{head}</summary><div class="obj-detail-box">{inner}</div></details></li>')
             else:
                 rows.append(f'<li>{head}</li>')
         note = '' if off.get('questionsComplete') else '<p class="obj-note">원문 표에서 읽어낸 문항만 적었어요. 전체 내역은 답변자료 원문을 확인하세요.</p>'
-        body.append(f'<h4 class="obj-sub">{esc(name)} 이의신청 문항</h4><ul class="obj-qs">{"".join(rows)}</ul>{note}')
+        body.append(f'<h4 class="obj-sub">이의신청 문항</h4><ul class="obj-qs">{"".join(rows)}</ul>{note}')
     links = [ext(p['url'], '평가원 게시글' + (f' ({p["date"]})' if p.get('date') else '')) for p in (off.get('posts') or [])[-1:]]
     def _doc_label(n: str) -> str:
         base = n.rsplit('.', 1)[0]
@@ -1566,6 +1565,10 @@ def objection_html(it: dict) -> str:
     links += [ext(d['url'], _doc_label(d['name'])) for d in (off.get('docs') or [])]
     if links:
         body.append(f'<p class="obj-links">원문 · {" · ".join(links)}</p>')
+    extra = off.get('extra') or []
+    if extra:
+        body.append('<p class="obj-links">관련 공식 발표 · ' + ' · '.join(
+            f'{ext(x["url"], x["title"])} <span class="obj-meta">{esc(x.get("org") or "")}</span>' for x in extra) + '</p>')
     parts.append('<section class="exam-card obj-card"><header class="exam-card__head"><h3 class="exam-card__title">공식 발표</h3>'
                  f'<span class="exam-card__hint">{esc(off.get("org") or "한국교육과정평가원")}</span></header>'
                  f'<div class="exam-card__body">{"".join(body)}</div></section>')
@@ -1578,18 +1581,36 @@ def objection_html(it: dict) -> str:
         parts.append('<section class="exam-card obj-card"><header class="exam-card__head"><h3 class="exam-card__title">언론 보도</h3>'
                      '<span class="exam-card__hint">요약은 기사 내용을 정리한 것</span></header>'
                      f'<div class="exam-card__body">{summ}<ul class="obj-list">{lis}</ul></div></section>')
-    # ── 커뮤니티 (비공식)
-    com = rec.get('community')
-    if com and com.get('items'):
-        lis = ''.join(f'<li>{ext(c["url"], c["title"])} <span class="obj-meta">{esc(c.get("site") or "")}'
-                      f'{" · " + esc(c["date"]) if c.get("date") else ""}</span></li>' for c in com['items'])
-        summ = f'<p class="obj-summary">{esc(com["summary"])}</p>' if com.get('summary') else ''
-        parts.append('<section class="exam-card obj-card obj-card--community"><header class="exam-card__head"><h3 class="exam-card__title">커뮤니티 반응</h3>'
-                     '<span class="obj-tag obj-tag--unofficial">비공식</span><span class="exam-card__hint">이용자 글·위키 요약, 사실 확인되지 않은 의견 포함</span></header>'
-                     f'<div class="exam-card__body">{summ}<ul class="obj-list">{lis}</ul></div></section>')
-    return ('<section class="exam-section objections" id="objections" aria-labelledby="objTitle"><div class="exam-section__head">'
-            '<h2 id="objTitle">이의신청 기록</h2><span class="exam-card__hint">정답이 드러나는 내용은 스포일러 방지로 가려져요</span></div>'
-            f'<div class="obj-grid">{"".join(parts)}</div></section>')
+    return f'<div class="obj-grid">{"".join(parts)}</div>'
+
+
+def objection_html(it: dict) -> str:
+    """상세 페이지 '이의신청' 한 줄 — 이 과목 기준 요약 + 이의신청 기록 페이지의 해당 회차로 가는 링크."""
+    if it.get('typeGroup') != 'suneung' or it.get('type') not in ('csat', 'june', 'sept'):
+        return ''
+    key = f'{it.get("gradeYear")}|{it.get("type")}'
+    rec = _load_objections().get(key)
+    if not rec:
+        return ''
+    off = rec.get('official') or {}
+    ch = off.get('changes') or []
+    mine = [c for c in ch if _obj_match(it, c)]
+    bits = []
+    if off.get('received'):
+        bits.append(f'접수 {off["received"]:,}건')
+    nq = len({q['no'] for q in (off.get('questions') or []) if _obj_match(it, q)})
+    if nq:
+        bits.append(f'이 과목 이의 문항 {nq}개')
+    if mine:
+        bits.append(', '.join(f'{c["no"]}번 {c["decision"]}' + (' (사후 정정)' if c.get('after') else '') for c in mine))
+    elif ch:
+        bits.append('이 과목 정답 변경 없음')
+    elif off.get('verdict'):
+        bits.append('정답 변경 없음')
+    return ('<section class="exam-section objections" id="objections" aria-label="이의신청">'
+            f'<a class="card-box obj-line{" obj-line--changed" if mine else ""}" href="objections.html#{objection_anchor(key)}">'
+            f'<span class="obj-line__k">이의신청</span><span class="obj-line__v">{html_escape(" · ".join(bits), quote=False)}</span>'
+            '<span class="obj-line__go">기록 보기 →</span></a></section>')
 
 
 def preview_image_path(url, root: Path):

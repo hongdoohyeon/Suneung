@@ -4,8 +4,18 @@ O = os.path.dirname(os.path.abspath(__file__))
 OFF = json.load(open(O + '/official.json'))
 P = json.load(open(O + '/kice_posts.json'))
 AM = json.load(open(O + '/assetmap.json'))
-NEWS = {**json.load(open(O + '/news_a.json')), **json.load(open(O + '/news_b.json'))}
-COMM = json.load(open(O + '/community.json'))
+NEWS = {}
+for f in ('news_a', 'news_b', 'news_c', 'news_d'):
+    for k, v in json.load(open(O + f'/{f}.json')).items():
+        if k.startswith('_'): continue
+        base = k.replace('_extra', '')
+        if base in NEWS:
+            NEWS[base]['items'] += [i for i in v['items'] if i['url'] not in {x['url'] for x in NEWS[base]['items']}]
+            if v.get('summary') and not NEWS[base].get('summary'): NEWS[base]['summary'] = v['summary']
+        else:
+            NEWS[base] = {**v, 'items': list(v['items'])}
+# 평가원 발표를 옮겨 실은 정부·공공기관 게시물
+EXTRA = json.load(open(O + '/official_extra.json'))
 W = 'https://suneung-files.hdh061224.workers.dev/objection-v1/'
 G = 'https://github.com/hongdoohyeon/Suneung/releases/download/objection-v1/'
 BOARD = {'1500229': '0301', '1500230': '0302'}
@@ -18,6 +28,8 @@ OVR = {  # 원문 확인 후 보정(자동 추출 누락분)
     '2022|sept': {'received': 53, 'items': 32, 'cases': 42},
     '2023|csat': {'received': 663, 'items': 67, 'cases': 214},
     '2027|sept': {'received': 154},
+    # 평가원 원문(HWP) 판독 불가 → 당시 보도(한국일보 2004-11-29) 수치
+    '2005|csat': {'received': 609, 'items': 120, 'verdict': "모두 '문제 및 정답에 이상 없음' (당시 보도 기준)"},
 }
 # 정답이 바뀐 문항 — 평가원 심사 결과 원문 문장 근거. via=news 는 이의심사 이후 뒤집힌 사례(평가원 게시판 원문 없음)
 CHANGES = {
@@ -84,13 +96,13 @@ for k, v in OFF.items():
         'verdict': verdict, 'changes': ch, 'questions': items,
         'questionsComplete': bool(items) and bool(s.get('items')) and len({(i['subject'], i['sub'], i['no']) for i in items}) >= s['items'],
         'details': det}}
+    if k in EXTRA: rec['official']['extra'] = EXTRA[k]
     if k in NEWS: rec['news'] = NEWS[k]
-    if k in COMM: rec['community'] = COMM[k]
     out[k] = rec
 res = {'_meta': {
-    'description': '평가원 수능·모의평가 문제 및 정답 이의신청 기록. official=평가원 심사 결과 원문(자동 추출·원문 링크), news=언론 보도, community=커뮤니티·위키(비공식).',
+    'description': '평가원 수능·모의평가 문제 및 정답 이의신청 기록. official=평가원 심사 결과 원문(자동 추출·원문 링크), official.extra=평가원 발표를 옮겨 실은 교육부·정책브리핑 등 공공기관 게시물, news=언론 보도.',
     'sources': 'suneung.re.kr 공지사항·보도자료 게시판 (원문은 GitHub 릴리스 objection-v1 에 보관)',
     'updated': '2026-09-29'}, 'exams': out}
 open(os.path.expanduser('~/Workspace/suneung-site-fix/data/objections.json'), 'w').write(json.dumps(res, ensure_ascii=False, indent=1) + '\n')
 print(len(out), 'exams;', sum(1 for r in out.values() if r['official']['questions']), 'with question tables;',
-      sum(len(r['official']['changes']) for r in out.values()), 'changes;', len(NEWS), 'news;', len(COMM), 'community')
+      sum(len(r['official']['changes']) for r in out.values()), 'changes;', len(NEWS), 'news;', len(EXTRA), 'extra')

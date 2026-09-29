@@ -159,6 +159,7 @@ def render_sitemaps(items: list[dict], hubs=None) -> None:
         f'  <url><loc>{base}/ged.html</loc><lastmod>{CONTENT_VERSION}</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>',
         f'  <url><loc>{base}/about.html</loc><lastmod>{today}</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>',
         f'  <url><loc>{base}/calendar.html</loc><lastmod>{today}</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>',
+        f'  <url><loc>{base}/objections.html</loc><lastmod>{CONTENT_VERSION}</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>',
     ]
     for h in (hubs or []):
         hub_mod = max((lastmod.get(e['id'], CONTENT_VERSION) for e in h.get('exams', [])), default=CONTENT_VERSION)
@@ -166,7 +167,7 @@ def render_sitemaps(items: list[dict], hubs=None) -> None:
                            f'<changefreq>monthly</changefreq><priority>0.7</priority></url>')
     static_rows.append('</urlset>')
     (ROOT / 'sitemap-static.xml').write_text('\n'.join(static_rows) + '\n', encoding='utf-8')
-    print(f'  + sitemap (static {6 + len(hubs or [])} + sets {len(sets)} + exams {len(items)})')
+    print(f'  + sitemap (static {7 + len(hubs or [])} + sets {len(sets)} + exams {len(items)})')
 
 
 def _essay_label(it: dict) -> str:
@@ -199,7 +200,7 @@ def essay_hub_list(items: list[dict]) -> list[dict]:
 
 
 def _hub_page(fname: str, h1: str, title: str, desc: str, intro: str,
-              stat: str, sections: list, breadcrumb_name: str, item_list: list) -> None:
+              stat: str, sections: list, breadcrumb_name: str, item_list: list, tail: str = '') -> None:
     """허브 페이지(논술·과목 공용) HTML 생성·기록. legal 페이지 골격 재사용."""
     base = 'https://kicegg.com'
     canonical = f'{base}/{fname}'
@@ -264,6 +265,7 @@ def _hub_page(fname: str, h1: str, title: str, desc: str, intro: str,
       </a>
       <nav class="header-nav" aria-label="주요 메뉴">
         <a href="archive.html">기출검색</a>
+        <a href="objections.html">이의신청 기록</a>
         <a href="calendar.html">학사 일정</a>
       </nav>
       <div class="header-tools">
@@ -286,6 +288,7 @@ def _hub_page(fname: str, h1: str, title: str, desc: str, intro: str,
     <nav class="mobile-nav" id="mobileNav" aria-label="모바일 메뉴" hidden>
       <div class="container">
         <a href="archive.html">기출검색</a>
+        <a href="objections.html">이의신청 기록</a>
         <a href="calendar.html">학사 일정</a>
         <a href="about.html">소개</a>
       </div>
@@ -308,10 +311,53 @@ def _hub_page(fname: str, h1: str, title: str, desc: str, intro: str,
   </footer>
   <script type="module" src="lib/dday-mount.js?v=20260718a"></script>
   <script src="lib/measure.js?v=20260713c" defer></script>
-</body>
+{tail}</body>
 </html>
 '''
     (ROOT / fname).write_text(page, encoding='utf-8')
+
+
+def render_objections_page() -> None:
+    """objections.html — 평가원 수능·모평 이의신청 기록. 학년도별로 묶고 회차는 접어 둔다(상세 페이지는 한 줄 요약만)."""
+    recs = bd._load_objections()
+    if not recs:
+        return
+    esc = lambda v: bd.html_escape(str(v), quote=False)
+    order = {'csat': 0, 'sept': 1, 'june': 2}
+    years: dict = {}
+    for key in recs:
+        gy, t = key.split('|')
+        years.setdefault(int(gy), []).append((order.get(t, 9), t, key))
+    sections, item_list, pos = [], [], 1
+    n_changed = 0
+    for gy in sorted(years, reverse=True):
+        blocks = []
+        for _, t, key in sorted(years[gy]):
+            rec = recs[key]
+            off = rec.get('official') or {}
+            ch = off.get('changes') or []
+            n_changed += bool(ch)
+            name = f'{gy}학년도 {bd.FULL_TYPE_LABEL.get(t, t)}'
+            meta = ' · '.join(x for x in (f'접수 {off["received"]:,}건' if off.get('received') else '',
+                                          f'정답 변경 {len(ch)}문항' if ch else ('정답 변경 없음' if off.get('verdict') else '')) if x)
+            anchor = bd.objection_anchor(key)
+            blocks.append(f'<details class="card-box obj-exam{" obj-exam--changed" if ch else ""}" id="{anchor}">'
+                          f'<summary><span class="obj-exam__name">{esc(name)}</span><span class="obj-exam__meta">{esc(meta)}</span></summary>'
+                          f'{bd.objection_record_html(rec)}</details>')
+            item_list.append({'@type': 'ListItem', 'position': pos,
+                              'url': f'https://kicegg.com/objections.html#{anchor}', 'name': f'{name} 이의신청 기록'})
+            pos += 1
+        sections.append(f'<section class="legal__section"><h2>{gy}학년도</h2><div class="obj-exams">{"".join(blocks)}</div></section>')
+    ymin, ymax = min(years), max(years)
+    intro = (f'{ymin}~{ymax}학년도 수능과 6월·9월 모의평가의 문제 및 정답 이의신청 결과를 모았습니다. '
+             '회차를 누르면 평가원 공식 발표(접수 건수·심사 결과·문항별 답변 요지·원문)와 관련 언론 보도를 나눠 볼 수 있습니다.')
+    stat = f'{len(recs)}개 회차 · 정답이 바뀐 회차 {n_changed}개'
+    title = f'수능·모의평가 이의신청 기록 ({ymin}~{ymax}학년도) — 기출해체분석기'
+    desc = (f'{ymin}~{ymax}학년도 수능·6월·9월 모의평가 문제 및 정답 이의신청 결과 — 접수 건수, 복수 정답·전원 정답 처리 문항, '
+            '평가원 답변 요지와 원문, 관련 보도를 회차별로 정리.')
+    _hub_page('objections.html', '수능·모의평가 이의신청 기록', title, desc, intro, stat, sections,
+              '이의신청 기록', item_list, tail='  <script src="lib/objections.js" defer></script>\n')
+    print(f'  + 이의신청 기록 objections.html ({len(recs)}개 회차)')
 
 
 def _dl_buttons(it: dict) -> str:
@@ -647,6 +693,7 @@ def render_sets_directory(items: list[dict], essay_hubs=None, subject_hubs=None)
       </a>
       <nav class="header-nav" aria-label="주요 메뉴">
         <a href="archive.html">기출검색</a>
+        <a href="objections.html">이의신청 기록</a>
         <a href="calendar.html">학사 일정</a>
       </nav>
       <div class="header-tools">
@@ -669,6 +716,7 @@ def render_sets_directory(items: list[dict], essay_hubs=None, subject_hubs=None)
     <nav class="mobile-nav" id="mobileNav" aria-label="모바일 메뉴" hidden>
       <div class="container">
         <a href="archive.html">기출검색</a>
+        <a href="objections.html">이의신청 기록</a>
         <a href="calendar.html">학사 일정</a>
         <a href="about.html">소개</a>
       </div>
@@ -1129,6 +1177,7 @@ def main() -> None:
     essay_hubs = render_essay_school_hubs(items)
     subject_hubs = render_subject_hubs(items)
     render_category_landings(items)
+    render_objections_page()
     render_sets_directory(items, essay_hubs, subject_hubs)
     render_sitemaps(items, essay_hubs + subject_hubs)
     render_site_summary(items)

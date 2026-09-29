@@ -1,6 +1,6 @@
 {
  "_meta": {
-  "description": "평가원 수능·모의평가 문제 및 정답 이의신청 기록. official=평가원 심사 결과 원문(자동 추출·원문 링크), news=언론 보도, community=커뮤니티·위키(비공식).",
+  "description": "평가원 수능·모의평가 문제 및 정답 이의신청 기록. official=평가원 심사 결과 원문(자동 추출·원문 링크), official.extra=평가원 발표를 옮겨 실은 교육부·정책브리핑 등 공공기관 게시물, news=언론 보도.",
   "sources": "suneung.re.kr 공지사항·보도자료 게시판 (원문은 GitHub 릴리스 objection-v1 에 보관)",
   "updated": "2026-09-29"
  },
@@ -21,14 +21,25 @@
       "url": "https://github.com/hongdoohyeon/Suneung/releases/download/objection-v1/obj_2005_csat_3000804_0.hwp"
      }
     ],
-    "received": null,
+    "received": 609,
     "cases": null,
-    "items": null,
-    "verdict": null,
+    "items": 120,
+    "verdict": "모두 '문제 및 정답에 이상 없음' (당시 보도 기준)",
     "changes": [],
     "questions": [],
     "questionsComplete": false,
     "details": []
+   },
+   "news": {
+    "summary": "이의신청 609건(120개 문항)을 심사한 결과 복수정답이나 정답 없음으로 인정할 문항이 없어, 시험 당일 발표한 정답이 그대로 확정됐다.",
+    "items": [
+     {
+      "title": "\"수능 정답 오류없다\"/ 이의신청 심사서 이상없어",
+      "outlet": "한국일보",
+      "date": "2004-11-29",
+      "url": "https://www.hankookilbo.com/news/article/200411290028102397"
+     }
+    ]
    }
   },
   "2005|june": {
@@ -171,6 +182,17 @@
       "no": 15,
       "claim": "이의제기 내용은 성단의 진화를 나타낸 H-R도에서 별을 표시한 점들의 개수가 서로 같지 않다는 것입니다",
       "conclusion": "그러므로 성단의 나이에 따라 성단에서 발견되는 별의 개수가 일정하지 않을 수 있습니다"
+     }
+    ]
+   },
+   "news": {
+    "summary": "이의신청 402건(106개 문항)을 심사한 결과 모두 시험 당일 발표한 정답에 영향이 없는 '단순 사안'으로 분류됐다.",
+    "items": [
+     {
+      "title": "뉴스 브리핑/ 수능 이의신청 심사결과 정답오류 없어",
+      "outlet": "한국일보",
+      "date": "2005-12-05",
+      "url": "https://www.hankookilbo.com/news/article/200512050095208739"
      }
     ]
    }
@@ -551,17 +573,12 @@
       "outlet": "경향신문",
       "date": "2014-11-04",
       "url": "https://www.khan.co.kr/article/201411040600035"
-     }
-    ]
-   },
-   "community": {
-    "summary": null,
-    "items": [
+     },
      {
-      "title": "2008학년도 수능 물리Ⅱ 복수정답 사태 (위키 정리)",
-      "site": "나무위키",
-      "date": null,
-      "url": "https://namu.wiki/w/2008%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EB%AC%BC%EB%A6%AC%E2%85%A1%20%EB%B3%B5%EC%88%98%EC%A0%95%EB%8B%B5%20%EC%82%AC%ED%83%9C"
+      "title": "\"수능 이의신청 모두 이상없다\"/ 교육과정평가원 최종 판정",
+      "outlet": "한국일보",
+      "date": "2007-12-03",
+      "url": "https://www.hankookilbo.com/news/article/200712030096289907"
      }
     ]
    }
@@ -977,17 +994,6 @@
       "url": "https://www.khan.co.kr/article/200911240048355"
      }
     ]
-   },
-   "community": {
-    "summary": null,
-    "items": [
-     {
-      "title": "2010학년도 수능 지구과학Ⅰ 복수정답 사태 (위키 정리)",
-      "site": "나무위키",
-      "date": null,
-      "url": "https://namu.wiki/w/2010%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EC%A7%80%EA%B5%AC%EA%B3%BC%ED%95%99%E2%85%A0%20%EB%B3%B5%EC%88%98%EC%A0%95%EB%8B%B5%20%EC%82%AC%ED%83%9C"
-     }
-    ]
    }
   },
   "2010|june": {
@@ -1229,6 +1235,23 @@
       "no": 15,
       "claim": "이의 신청 내용을 요약하면 지질도 해석에 있어서 '지충의 역전이 없었다는 조건이 주어져야만 지충의 생성 순서를 정확히 알 수 있으므로 현재의 조건으로는 답을 판단할 수 없다는 주장입니다",
       "conclusion": "20° X AMS 주향과 경사 따라서 이 문항은 오류가 없습니다"
+     }
+    ]
+   },
+   "news": {
+    "summary": "이의신청이 1,655건으로 당시 역대 최다였다. '정답이 없다'는 주장이 나온 언어 46번도 심사 결과 문제·정답에 이상이 없다고 결론났다.",
+    "items": [
+     {
+      "title": "오류 논란 수능 언어 46번 '이상없음' 결론",
+      "outlet": "서울신문",
+      "date": "2010-11-29",
+      "url": "https://www.seoul.co.kr/news/society/2010/11/29/20101129800101"
+     },
+     {
+      "title": "\"수능 언어영역 46번 정답 이상 없다\"",
+      "outlet": "이투데이",
+      "date": "2010-11-29",
+      "url": "https://www.etoday.co.kr/news/view/381930"
      }
     ]
    }
@@ -2531,17 +2554,6 @@
       "url": "https://www.seoul.co.kr/news/society/2014/12/16/20141216800151"
      }
     ]
-   },
-   "community": {
-    "summary": "위키 정리에 따르면 평가원은 '교과서대로 출제했다'며 오류를 부인했고, 1심 기각 뒤 2심에서 오류가 인정돼 전원 정답 처리됐다. 피해 구제를 위한 추가 합격이 이뤄졌으나, 이후 손해배상 소송에서는 국가배상 책임이 인정되지 않았다고 정리돼 있다.",
-    "items": [
-     {
-      "title": "2014학년도 수능 세계지리 출제 오류 사태 (위키 정리)",
-      "site": "나무위키",
-      "date": null,
-      "url": "https://namu.wiki/w/2014%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EC%84%B8%EA%B3%84%EC%A7%80%EB%A6%AC%20%EC%B6%9C%EC%A0%9C%20%EC%98%A4%EB%A5%98%20%EC%82%AC%ED%83%9C"
-     }
-    ]
    }
   },
   "2014|june": {
@@ -2744,6 +2756,13 @@
       "claim": "이의 제기에서는 ‘召されました’만을 사용해야 옳다고 의견을 제시하고 있습니다만, 위의 설명과 같이 ‘飲まれました’도 옳은 표현입니다",
       "conclusion": "따라서 이 문항에는 이상이 없습니다."
      }
+    ],
+    "extra": [
+     {
+      "title": "수능 생명과학Ⅱ 8번·영어 25번 복수정답 처리",
+      "org": "대한민국 정책브리핑",
+      "url": "https://www.korea.kr/news/policyNewsView.do?newsId=148787539"
+     }
     ]
    },
    "news": {
@@ -2772,17 +2791,6 @@
       "outlet": "한국경제",
       "date": "2014-11-24",
       "url": "https://www.hankyung.com/society/article/201411245580g"
-     }
-    ]
-   },
-   "community": {
-    "summary": null,
-    "items": [
-     {
-      "title": "2015학년도 수능 영어 영역 복수정답 사태 (위키 정리)",
-      "site": "나무위키",
-      "date": null,
-      "url": "https://namu.wiki/w/2015%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EC%98%81%EC%96%B4%20%EC%98%81%EC%97%AD%20%EB%B3%B5%EC%88%98%EC%A0%95%EB%8B%B5%20%EC%82%AC%ED%83%9C"
      }
     ]
    }
@@ -4146,6 +4154,13 @@
       "no": 20,
       "claim": "이의 신청자는 ㉡ ‘驅’를 ‘몰아간다’로 풀이해야 하는데, ‘유도한다’라고 풀이할 수 없다고 주장 하였는데, 국내에서 간행된 사전에는 다음과 같이 설명되어 있습니다",
       "conclusion": "따라서 이 문항은 오류가 없습니다"
+     }
+    ],
+    "extra": [
+     {
+      "title": "2016학년도 대학수학능력시험 이의 신청 심사 결과 발표",
+      "org": "대한민국 정책브리핑(보도자료)",
+      "url": "https://www.korea.kr/news/pressReleaseView.do?newsId=156086459"
      }
     ]
    },
@@ -6183,17 +6198,6 @@
       "outlet": "한국일보",
       "date": "2016-11-25",
       "url": "https://www.hankookilbo.com/news/article/201611251547031159"
-     }
-    ]
-   },
-   "community": {
-    "summary": "시험 닷새 뒤 물리Ⅱ 9번이 '자기장이 xy평면에 수직'이라는 조건을 빠뜨려 ㄱ의 식이 성립하지 않는다는 글이 올라왔고, 댓글 대부분이 전원 정답 처리에 동의했다. 응시 인원이 적은 과목이라 공론화가 늦었다는 지적도 있었으며, 글에는 이후 오류가 인정됐다는 댓글이 달렸다.",
-    "items": [
-     {
-      "title": "2017학년도 수능 물리2 9번은 오류입니다.",
-      "site": "오르비",
-      "date": "2016-11-21",
-      "url": "https://orbi.kr/0009711947"
      }
     ]
    }
@@ -10377,23 +10381,6 @@
       "url": "https://edaily.co.kr/News/Read?mediaCodeNo=257&newsId=04155766619409656"
      }
     ]
-   },
-   "community": {
-    "summary": "국어 31번(만유인력)을 두고 '물리 배경지식이 있으면 지문을 읽지 않아도 풀린다'는 비판과 '국어는 모든 종류의 글을 이해하는 능력을 평가한다'는 옹호가 맞섰고, 댓글에서는 배경지식 유불리 비판이 우세했다. 국어 42번은 ③도 정답이라는 복수정답 주장이 나왔으나 논리 관계(모순·반대)를 짚는 반박이 이어졌다.",
-    "items": [
-     {
-      "title": "수능 국어 31번 문제에 대한 교수님들의 생각",
-      "site": "오르비",
-      "date": "2018-11-20",
-      "url": "https://orbi.kr/00019299162"
-     },
-     {
-      "title": "2019학년도 수능 국어 42번 - 출제오류 이의제기 '복수정답' (보충)",
-      "site": "오르비",
-      "date": "2018-11-17",
-      "url": "https://orbi.kr/00019209042"
-     }
-    ]
    }
   },
   "2019|june": {
@@ -12569,6 +12556,17 @@
     ],
     "questionsComplete": true,
     "details": []
+   },
+   "news": {
+    "summary": "이의신청 142건, 심사 대상 64개 문항 112건으로 모두 '이상 없음'.",
+    "items": [
+     {
+      "title": "수능 6월 모의평가 이의신청 112건 모두 '이상 없음' 판정",
+      "outlet": "뉴스1",
+      "date": "2019-06-17",
+      "url": "http://news1.kr/articles/?3647933="
+     }
+    ]
    }
   },
   "2020|sept": {
@@ -13013,6 +13011,17 @@
     ],
     "questionsComplete": true,
     "details": []
+   },
+   "news": {
+    "summary": "이의신청 106건, 심사 대상 51개 문항 74건으로 모두 '이상 없음'.",
+    "items": [
+     {
+      "title": "`9월 모의평가` 이의신청 51개 문항 모두 이상없어",
+      "outlet": "이데일리",
+      "date": "2019-09-17",
+      "url": "https://edaily.co.kr/News/Read?mediaCodeNo=257&newsId=03496486622621104"
+     }
+    ]
    }
   },
   "2021|csat": {
@@ -14107,7 +14116,14 @@
      }
     ],
     "questionsComplete": true,
-    "details": []
+    "details": [],
+    "extra": [
+     {
+      "title": "2021학년도 대학수학능력시험 6월 모의평가 문제 및 정답 이의신청 심사 결과",
+      "org": "교육정책네트워크(한국교육개발원) 전재",
+      "url": "https://edpolicy.kedi.re.kr/frt/boardView.do?nTbBoardArticleSeq=826754&nTbBoardSeq=&nTbCategorySeq=&pageCondition=10&pageIndex=1&searchCondition_D=36&searchKe=&searchObject=&searchTopic=&strCurMenuId=51"
+     }
+    ]
    }
   },
   "2021|sept": {
@@ -14733,23 +14749,6 @@
       "url": "https://sgsg.hankyung.com/article/202112034458m"
      }
     ]
-   },
-   "community": {
-    "summary": "시험 직후 생명과학 강사가 '조건을 만족하는 집단이 존재하지 않는다'며 공식 이의제기를 알리고 수험생 참여를 독려했다. 댓글에서는 응원과 함께, 문항을 풀어 맞힌 수험생과 그렇지 못한 수험생의 이해관계가 엇갈려 논쟁이 벌어졌고 전원 정답 처리 시 표준점수 변동을 걱정하는 목소리도 나왔다.",
-    "items": [
-     {
-      "title": "2022 수능 생2 20번 공식 이의제기",
-      "site": "오르비",
-      "date": "2021-11-21",
-      "url": "https://orbi.kr/00040766611"
-     },
-     {
-      "title": "2022학년도 수능 생명과학Ⅱ 출제 오류 사태 (위키 정리)",
-      "site": "나무위키",
-      "date": null,
-      "url": "https://namu.wiki/w/2022%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EC%83%9D%EB%AA%85%EA%B3%BC%ED%95%99%E2%85%A1%20%EC%B6%9C%EC%A0%9C%20%EC%98%A4%EB%A5%98%20%EC%82%AC%ED%83%9C"
-     }
-    ]
    }
   },
   "2022|june": {
@@ -14780,6 +14779,17 @@
     "questions": [],
     "questionsComplete": false,
     "details": []
+   },
+   "news": {
+    "summary": "이의신청 82건, 심사 대상 55개 문항 70건으로 모두 '이상 없음'.",
+    "items": [
+     {
+      "title": "\"6월 모의평가 이의신청 55개 문항 모두 이상 없음\"",
+      "outlet": "아주경제",
+      "date": "2021-06-14",
+      "url": "https://www.ajunews.com/view/20210614173219024"
+     }
+    ]
    }
   },
   "2022|sept": {
@@ -14903,6 +14913,17 @@
     "questions": [],
     "questionsComplete": false,
     "details": []
+   },
+   "news": {
+    "summary": "심사 대상 28개 문항 37건으로 모두 '이상 없음'.",
+    "items": [
+     {
+      "title": "평가원 수능 9월 모평 이의신청 문항 28개...\"모두 이상 없음\"",
+      "outlet": "대학저널",
+      "date": "2022-09",
+      "url": "http://www.dhnews.co.kr/news/articleView.html?idxno=207188"
+     }
+    ]
    }
   },
   "2024|csat": {
@@ -15740,6 +15761,17 @@
     ],
     "questionsComplete": false,
     "details": []
+   },
+   "news": {
+    "summary": "이의신청 68건, 심사 대상 22개 문항 50건으로 모두 '이상 없음'.",
+    "items": [
+     {
+      "title": "'6모' 이의신청 문항 22개…평가원 \"모두 이상 없음\"",
+      "outlet": "데일리굿뉴스",
+      "date": "2023-06",
+      "url": "https://www.goodnews1.com/news/articleView.html?idxno=422510"
+     }
+    ]
    }
   },
   "2024|sept": {
@@ -16009,6 +16041,17 @@
       "no": 3,
       "claim": "이의신청의 내용은 도시 (가)를 지칭하는 상징물의 사진이 뉴욕이 아니라 도쿄라는 것입니 다",
       "conclusion": "따라서 이 문항의 정답을 ③번으로 유지합니다."
+     }
+    ]
+   },
+   "news": {
+    "summary": "이의신청 83건, 심사 대상 36개 문항 55건으로 모두 '이상 없음'.",
+    "items": [
+     {
+      "title": "2024학년도 수능 9월 모의평가 정답 최종 확정, 모든 문제 '이상 없음'",
+      "outlet": "교육정책뉴스",
+      "date": "2023-09-19",
+      "url": "https://www.edupolnews.com/news/articleView.html?idxno=82575"
      }
     ]
    }
@@ -16439,6 +16482,17 @@
     ],
     "questionsComplete": false,
     "details": []
+   },
+   "news": {
+    "summary": "이의신청 79건, 심사 대상 43개 문항 57건으로 모두 '이상 없음'.",
+    "items": [
+     {
+      "title": "[2025 6월모평] 이의신청 43개 문항 '이상없음'",
+      "outlet": "베리타스알파",
+      "date": "2024-06",
+      "url": "http://www.veritas-a.com/news/articleView.html?idxno=509440"
+     }
+    ]
    }
   },
   "2025|sept": {
@@ -17082,23 +17136,6 @@
       "url": "https://www.kmib.co.kr/article/view.asp?arcid=1764060527"
      }
     ]
-   },
-   "community": {
-    "summary": "영어 24번 이의신청 기사가 공유된 글에서는 '출제 원칙이 지문에 있는 단어를 쓰는 것이라면 영어는 눈알 굴리기인가' 같은 비판 댓글이 많은 공감을 얻는 등 부정적 분위기가 강했다. 반면 '제목 문제는 지문에 없는 함축적 표현도 가능하다'며 이의에 반대하되, 37번까지 논란이 되는 만큼 평가원이 일관된 기준을 설명해야 한다는 글도 있었다.",
-    "items": [
-     {
-      "title": "\"수능 영어 24번 출제 원칙 어겼다\"…수험생 이의신청 빗발 (기사 공유·댓글)",
-      "site": "오르비",
-      "date": "2025-11-20",
-      "url": "https://orbi.kr/00075704523"
-     },
-     {
-      "title": "2026학년도 수능영어 논란의 24번과 37번에 관하여...",
-      "site": "오르비",
-      "date": "2025-11-22",
-      "url": "https://orbi.kr/00075741996"
-     }
-    ]
    }
   },
   "2026|june": {
@@ -17354,6 +17391,23 @@
     ],
     "questionsComplete": false,
     "details": []
+   },
+   "news": {
+    "summary": "이의신청 39건, 심사 대상 28개 문항 33건으로 모두 '이상 없음'.",
+    "items": [
+     {
+      "title": "평가원, 6월 모평 이의신청 문항… 모두 \"이상 없음\"",
+      "outlet": "경기일보",
+      "date": "2025-06-17",
+      "url": "https://www.kyeonggi.com/article/20250617580332"
+     },
+     {
+      "title": "6월 모평, 28개 문항 이의신청… 평가원 모두 \"이상 없음\"",
+      "outlet": "한국대학신문",
+      "date": "2025-06-17",
+      "url": "https://news.unn.net/news/articleView.html?idxno=580163"
+     }
+    ]
    }
   },
   "2026|sept": {
@@ -17769,6 +17823,17 @@
     ],
     "questionsComplete": false,
     "details": []
+   },
+   "news": {
+    "summary": "이의신청 112건, 심사 대상 48개 문항 86건으로 모두 '이상 없음'.",
+    "items": [
+     {
+      "title": "2026 수능 9월 모평, 이의신청 폭주... 결과 보니",
+      "outlet": "아주경제",
+      "date": "2025-09-16",
+      "url": "https://www.ajunews.com/view/20250916170349943"
+     }
+    ]
    }
   },
   "2027|june": {
