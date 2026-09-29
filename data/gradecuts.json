@@ -8501,7 +8501,8 @@
     ],
     "source": "kice-archive-2015",
     "id": 217,
-    "fullScore": 100
+    "fullScore": 100,
+    "highestStandardScore": 143
   },
   {
     "curriculum": "2015",
@@ -9118,7 +9119,8 @@
     ],
     "source": "kice-archive-2015",
     "id": 229,
-    "fullScore": 100
+    "fullScore": 100,
+    "highestStandardScore": 140
   },
   {
     "curriculum": "2015",
@@ -24611,7 +24613,8 @@
     ],
     "source": "kice-archive-2015",
     "id": 626,
-    "fullScore": 100
+    "fullScore": 100,
+    "highestStandardScore": 148
   },
   {
     "curriculum": "2015",
@@ -25228,7 +25231,8 @@
     ],
     "source": "kice-archive-2015",
     "id": 638,
-    "fullScore": 100
+    "fullScore": 100,
+    "highestStandardScore": 152
   },
   {
     "curriculum": "2015",
@@ -39052,7 +39056,8 @@
     ],
     "source": "kice-archive-2015",
     "id": 971,
-    "fullScore": 100
+    "fullScore": 100,
+    "highestStandardScore": 142
   },
   {
     "curriculum": "2015",
@@ -39669,7 +39674,8 @@
     ],
     "source": "kice-archive-2015",
     "id": 983,
-    "fullScore": 100
+    "fullScore": 100,
+    "highestStandardScore": 144
   },
   {
     "curriculum": "2015",
@@ -53323,7 +53329,8 @@
     ],
     "source": "kice-archive-2015",
     "id": 1316,
-    "fullScore": 100
+    "fullScore": 100,
+    "highestStandardScore": 134
   },
   {
     "curriculum": "2015",
@@ -53940,7 +53947,8 @@
     ],
     "source": "kice-archive-2015",
     "id": 1328,
-    "fullScore": 100
+    "fullScore": 100,
+    "highestStandardScore": 145
   },
   {
     "curriculum": "2015",
@@ -68066,30 +68074,6 @@
     "id": 1679
   },
   {
-    "curriculum": "2009",
-    "gradeYear": 2022,
-    "examYear": 2021,
-    "month": 11,
-    "typeGroup": "suneung",
-    "type": "csat",
-    "subject": "과학탐구",
-    "subSubject": "물리학Ⅰ",
-    "standardCuts": [
-      66,
-      63,
-      59,
-      54,
-      46,
-      41,
-      37,
-      34
-    ],
-    "source": "kice-archive-2015",
-    "id": 1680,
-    "fullScore": 50,
-    "highestStandardScore": 72
-  },
-  {
     "curriculum": "2015",
     "gradeYear": 2022,
     "examYear": 2021,
@@ -68142,30 +68126,6 @@
     "fullScore": 50,
     "source": "megastudy+kice-archive-2015",
     "id": 1681
-  },
-  {
-    "curriculum": "2009",
-    "gradeYear": 2022,
-    "examYear": 2021,
-    "month": 11,
-    "typeGroup": "suneung",
-    "type": "csat",
-    "subject": "과학탐구",
-    "subSubject": "물리학Ⅱ",
-    "standardCuts": [
-      66,
-      63,
-      60,
-      54,
-      45,
-      41,
-      38,
-      35
-    ],
-    "source": "kice-archive-2015",
-    "id": 1682,
-    "fullScore": 50,
-    "highestStandardScore": 68
   },
   {
     "curriculum": "2015",
@@ -68222,30 +68182,6 @@
     "id": 1683
   },
   {
-    "curriculum": "2009",
-    "gradeYear": 2022,
-    "examYear": 2021,
-    "month": 11,
-    "typeGroup": "suneung",
-    "type": "csat",
-    "subject": "과학탐구",
-    "subSubject": "생명과학Ⅰ",
-    "standardCuts": [
-      65,
-      62,
-      59,
-      54,
-      47,
-      40,
-      37,
-      33
-    ],
-    "source": "kice-archive-2015",
-    "id": 1684,
-    "fullScore": 50,
-    "highestStandardScore": 72
-  },
-  {
     "curriculum": "2015",
     "gradeYear": 2022,
     "examYear": 2021,
@@ -68298,30 +68234,6 @@
     "fullScore": 50,
     "source": "megastudy+kice-archive-2015",
     "id": 1685
-  },
-  {
-    "curriculum": "2009",
-    "gradeYear": 2022,
-    "examYear": 2021,
-    "month": 11,
-    "typeGroup": "suneung",
-    "type": "csat",
-    "subject": "과학탐구",
-    "subSubject": "생명과학Ⅱ",
-    "standardCuts": [
-      65,
-      63,
-      60,
-      55,
-      46,
-      40,
-      37,
-      35
-    ],
-    "source": "kice-archive-2015",
-    "id": 1686,
-    "fullScore": 50,
-    "highestStandardScore": 69
   },
   {
     "curriculum": "2015",
@@ -68378,30 +68290,6 @@
     "id": 1687
   },
   {
-    "curriculum": "2009",
-    "gradeYear": 2022,
-    "examYear": 2021,
-    "month": 11,
-    "typeGroup": "suneung",
-    "type": "csat",
-    "subject": "과학탐구",
-    "subSubject": "지구과학Ⅰ",
-    "standardCuts": [
-      68,
-      63,
-      59,
-      53,
-      46,
-      41,
-      38,
-      35
-    ],
-    "source": "kice-archive-2015",
-    "id": 1688,
-    "fullScore": 50,
-    "highestStandardScore": 74
-  },
-  {
     "curriculum": "2015",
     "gradeYear": 2022,
     "examYear": 2021,
@@ -68454,30 +68342,6 @@
     "fullScore": 50,
     "source": "megastudy+kice-archive-2015",
     "id": 1689
-  },
-  {
-    "curriculum": "2009",
-    "gradeYear": 2022,
-    "examYear": 2021,
-    "month": 11,
-    "typeGroup": "suneung",
-    "type": "csat",
-    "subject": "과학탐구",
-    "subSubject": "지구과학Ⅱ",
-    "standardCuts": [
-      67,
-      63,
-      59,
-      53,
-      46,
-      40,
-      37,
-      35
-    ],
-    "source": "kice-archive-2015",
-    "id": 1690,
-    "fullScore": 50,
-    "highestStandardScore": 77
   },
   {
     "curriculum": "2015",
@@ -68534,30 +68398,6 @@
     "id": 1691
   },
   {
-    "curriculum": "2009",
-    "gradeYear": 2022,
-    "examYear": 2021,
-    "month": 11,
-    "typeGroup": "suneung",
-    "type": "csat",
-    "subject": "과학탐구",
-    "subSubject": "화학Ⅰ",
-    "standardCuts": [
-      63,
-      61,
-      59,
-      55,
-      49,
-      41,
-      36,
-      31
-    ],
-    "source": "kice-archive-2015",
-    "id": 1692,
-    "fullScore": 50,
-    "highestStandardScore": 68
-  },
-  {
     "curriculum": "2015",
     "gradeYear": 2022,
     "examYear": 2021,
@@ -68612,30 +68452,6 @@
     "id": 1693
   },
   {
-    "curriculum": "2009",
-    "gradeYear": 2022,
-    "examYear": 2021,
-    "month": 11,
-    "typeGroup": "suneung",
-    "type": "csat",
-    "subject": "과학탐구",
-    "subSubject": "화학Ⅱ",
-    "standardCuts": [
-      67,
-      64,
-      59,
-      53,
-      46,
-      41,
-      38,
-      35
-    ],
-    "source": "kice-archive-2015",
-    "id": 1694,
-    "fullScore": 50,
-    "highestStandardScore": 69
-  },
-  {
     "curriculum": "2015",
     "gradeYear": 2022,
     "examYear": 2021,
@@ -68656,30 +68472,6 @@
     ],
     "source": "kice-archive-2015",
     "id": 1695,
-    "fullScore": 100,
-    "highestStandardScore": 149
-  },
-  {
-    "curriculum": "2009",
-    "gradeYear": 2022,
-    "examYear": 2021,
-    "month": 11,
-    "typeGroup": "suneung",
-    "type": "csat",
-    "subject": "국어",
-    "subSubject": null,
-    "standardCuts": [
-      131,
-      124,
-      116,
-      108,
-      97,
-      84,
-      72,
-      62
-    ],
-    "source": "kice-archive-2015",
-    "id": 1696,
     "fullScore": 100,
     "highestStandardScore": 149
   },
@@ -69248,30 +69040,6 @@
     ],
     "source": "kice-archive-2015",
     "id": 1708,
-    "fullScore": 100,
-    "highestStandardScore": 147
-  },
-  {
-    "curriculum": "2009",
-    "gradeYear": 2022,
-    "examYear": 2021,
-    "month": 11,
-    "typeGroup": "suneung",
-    "type": "csat",
-    "subject": "수학",
-    "subSubject": null,
-    "standardCuts": [
-      137,
-      127,
-      117,
-      106,
-      92,
-      81,
-      75,
-      71
-    ],
-    "source": "kice-archive-2015",
-    "id": 1709,
     "fullScore": 100,
     "highestStandardScore": 147
   },
@@ -69917,29 +69685,6 @@
     "fullScore": 50
   },
   {
-    "curriculum": "2009",
-    "gradeYear": 2022,
-    "examYear": 2021,
-    "month": 11,
-    "typeGroup": "suneung",
-    "type": "csat",
-    "subject": "직업탐구",
-    "subSubject": null,
-    "standardCuts": [
-      66,
-      64,
-      61,
-      52,
-      45,
-      41,
-      38,
-      35
-    ],
-    "source": "kice-archive-2015",
-    "id": 1733,
-    "fullScore": 50
-  },
-  {
     "curriculum": "2015",
     "gradeYear": 2022,
     "examYear": 2021,
@@ -70008,30 +69753,6 @@
     ],
     "source": "kice-archive-2015",
     "id": 1736,
-    "fullScore": 50,
-    "highestStandardScore": 67
-  },
-  {
-    "curriculum": "2009",
-    "gradeYear": 2022,
-    "examYear": 2021,
-    "month": 11,
-    "typeGroup": "suneung",
-    "type": "csat",
-    "subject": "직업탐구",
-    "subSubject": "수산·해운",
-    "standardCuts": [
-      66,
-      65,
-      58,
-      54,
-      46,
-      43,
-      37,
-      37
-    ],
-    "source": "kice-archive-2015",
-    "id": 1737,
     "fullScore": 50,
     "highestStandardScore": 67
   },
@@ -70536,30 +70257,8 @@
     ],
     "source": "kice-archive-2015",
     "id": 1748,
-    "fullScore": 100
-  },
-  {
-    "curriculum": "2009",
-    "gradeYear": 2022,
-    "examYear": 2021,
-    "month": 9,
-    "typeGroup": "suneung",
-    "type": "sept",
-    "subject": "국어",
-    "subSubject": null,
-    "standardCuts": [
-      127,
-      121,
-      116,
-      110,
-      101,
-      87,
-      66,
-      57
-    ],
-    "source": "kice-archive-2015",
-    "id": 1749,
-    "fullScore": 100
+    "fullScore": 100,
+    "highestStandardScore": 127
   },
   {
     "curriculum": "2015",
@@ -71176,30 +70875,8 @@
     ],
     "source": "kice-archive-2015",
     "id": 1761,
-    "fullScore": 100
-  },
-  {
-    "curriculum": "2009",
-    "gradeYear": 2022,
-    "examYear": 2021,
-    "month": 9,
-    "typeGroup": "suneung",
-    "type": "sept",
-    "subject": "수학",
-    "subSubject": null,
-    "standardCuts": [
-      133,
-      126,
-      118,
-      108,
-      92,
-      79,
-      75,
-      72
-    ],
-    "source": "kice-archive-2015",
-    "id": 1762,
-    "fullScore": 100
+    "fullScore": 100,
+    "highestStandardScore": 145
   },
   {
     "curriculum": "2015",
@@ -71853,39 +71530,6 @@
     "fullScore": 50
   },
   {
-    "curriculum": "2009",
-    "gradeYear": 2022,
-    "examYear": 2021,
-    "month": 9,
-    "typeGroup": "suneung",
-    "type": "sept",
-    "subject": "직업탐구",
-    "subSubject": null,
-    "standardCuts": [
-      69,
-      66,
-      60,
-      49,
-      44,
-      42,
-      40,
-      38
-    ],
-    "rawCuts": [
-      47,
-      43,
-      35,
-      20,
-      14,
-      11,
-      8,
-      5
-    ],
-    "source": "kice-archive-2015",
-    "id": 1786,
-    "fullScore": 50
-  },
-  {
     "curriculum": "2015",
     "gradeYear": 2022,
     "examYear": 2021,
@@ -71984,40 +71628,6 @@
     ],
     "source": "kice-archive-2015",
     "id": 1789,
-    "fullScore": 50,
-    "highestStandardScore": 81
-  },
-  {
-    "curriculum": "2009",
-    "gradeYear": 2022,
-    "examYear": 2021,
-    "month": 9,
-    "typeGroup": "suneung",
-    "type": "sept",
-    "subject": "직업탐구",
-    "subSubject": "수산·해운",
-    "standardCuts": [
-      73,
-      64,
-      55,
-      51,
-      47,
-      44,
-      39,
-      36
-    ],
-    "rawCuts": [
-      42,
-      33,
-      23,
-      19,
-      15,
-      12,
-      7,
-      4
-    ],
-    "source": "kice-archive-2015",
-    "id": 1790,
     "fullScore": 50,
     "highestStandardScore": 81
   },
@@ -72532,30 +72142,8 @@
     ],
     "source": "kice-archive-2015",
     "id": 1801,
-    "fullScore": 100
-  },
-  {
-    "curriculum": "2009",
-    "gradeYear": 2022,
-    "examYear": 2021,
-    "month": 6,
-    "typeGroup": "suneung",
-    "type": "june",
-    "subject": "국어",
-    "subSubject": null,
-    "standardCuts": [
-      132,
-      125,
-      117,
-      108,
-      96,
-      83,
-      71,
-      66
-    ],
-    "source": "kice-archive-2015",
-    "id": 1802,
-    "fullScore": 100
+    "fullScore": 100,
+    "highestStandardScore": 146
   },
   {
     "curriculum": "2015",
@@ -73172,30 +72760,8 @@
     ],
     "source": "kice-archive-2015",
     "id": 1814,
-    "fullScore": 100
-  },
-  {
-    "curriculum": "2009",
-    "gradeYear": 2022,
-    "examYear": 2021,
-    "month": 6,
-    "typeGroup": "suneung",
-    "type": "june",
-    "subject": "수학",
-    "subSubject": null,
-    "standardCuts": [
-      134,
-      126,
-      118,
-      108,
-      91,
-      79,
-      75,
-      72
-    ],
-    "source": "kice-archive-2015",
-    "id": 1815,
-    "fullScore": 100
+    "fullScore": 100,
+    "highestStandardScore": 146
   },
   {
     "curriculum": "2015",
@@ -73408,30 +72974,6 @@
     "absolute": true
   },
   {
-    "curriculum": "2009",
-    "gradeYear": 2022,
-    "examYear": 2021,
-    "month": 6,
-    "typeGroup": "suneung",
-    "type": "june",
-    "subject": "제2외국어",
-    "subSubject": "독일어",
-    "rawCuts": [
-      45,
-      40,
-      35,
-      30,
-      25,
-      20,
-      15,
-      10
-    ],
-    "source": "kice-archive-2015",
-    "id": 1821,
-    "fullScore": 50,
-    "absolute": true
-  },
-  {
     "curriculum": "2015",
     "gradeYear": 2022,
     "examYear": 2021,
@@ -73476,30 +73018,6 @@
     ],
     "source": "kice-archive-2015",
     "id": 1823,
-    "fullScore": 50,
-    "absolute": true
-  },
-  {
-    "curriculum": "2009",
-    "gradeYear": 2022,
-    "examYear": 2021,
-    "month": 6,
-    "typeGroup": "suneung",
-    "type": "june",
-    "subject": "제2외국어",
-    "subSubject": "러시아어",
-    "rawCuts": [
-      45,
-      40,
-      35,
-      30,
-      25,
-      20,
-      15,
-      10
-    ],
-    "source": "kice-archive-2015",
-    "id": 1824,
     "fullScore": 50,
     "absolute": true
   },
@@ -73552,30 +73070,6 @@
     "absolute": true
   },
   {
-    "curriculum": "2009",
-    "gradeYear": 2022,
-    "examYear": 2021,
-    "month": 6,
-    "typeGroup": "suneung",
-    "type": "june",
-    "subject": "제2외국어",
-    "subSubject": "베트남어",
-    "rawCuts": [
-      45,
-      40,
-      35,
-      30,
-      25,
-      20,
-      15,
-      10
-    ],
-    "source": "kice-archive-2015",
-    "id": 1827,
-    "fullScore": 50,
-    "absolute": true
-  },
-  {
     "curriculum": "2015",
     "gradeYear": 2022,
     "examYear": 2021,
@@ -73620,30 +73114,6 @@
     ],
     "source": "kice-archive-2015",
     "id": 1829,
-    "fullScore": 50,
-    "absolute": true
-  },
-  {
-    "curriculum": "2009",
-    "gradeYear": 2022,
-    "examYear": 2021,
-    "month": 6,
-    "typeGroup": "suneung",
-    "type": "june",
-    "subject": "제2외국어",
-    "subSubject": "스페인어",
-    "rawCuts": [
-      45,
-      40,
-      35,
-      30,
-      25,
-      20,
-      15,
-      10
-    ],
-    "source": "kice-archive-2015",
-    "id": 1830,
     "fullScore": 50,
     "absolute": true
   },
@@ -73696,30 +73166,6 @@
     "absolute": true
   },
   {
-    "curriculum": "2009",
-    "gradeYear": 2022,
-    "examYear": 2021,
-    "month": 6,
-    "typeGroup": "suneung",
-    "type": "june",
-    "subject": "제2외국어",
-    "subSubject": "아랍어",
-    "rawCuts": [
-      45,
-      40,
-      35,
-      30,
-      25,
-      20,
-      15,
-      10
-    ],
-    "source": "kice-archive-2015",
-    "id": 1833,
-    "fullScore": 50,
-    "absolute": true
-  },
-  {
     "curriculum": "2015",
     "gradeYear": 2022,
     "examYear": 2021,
@@ -73764,30 +73210,6 @@
     ],
     "source": "kice-archive-2015",
     "id": 1835,
-    "fullScore": 50,
-    "absolute": true
-  },
-  {
-    "curriculum": "2009",
-    "gradeYear": 2022,
-    "examYear": 2021,
-    "month": 6,
-    "typeGroup": "suneung",
-    "type": "june",
-    "subject": "제2외국어",
-    "subSubject": "일본어",
-    "rawCuts": [
-      45,
-      40,
-      35,
-      30,
-      25,
-      20,
-      15,
-      10
-    ],
-    "source": "kice-archive-2015",
-    "id": 1836,
     "fullScore": 50,
     "absolute": true
   },
@@ -73840,30 +73262,6 @@
     "absolute": true
   },
   {
-    "curriculum": "2009",
-    "gradeYear": 2022,
-    "examYear": 2021,
-    "month": 6,
-    "typeGroup": "suneung",
-    "type": "june",
-    "subject": "제2외국어",
-    "subSubject": "중국어",
-    "rawCuts": [
-      45,
-      40,
-      35,
-      30,
-      25,
-      20,
-      15,
-      10
-    ],
-    "source": "kice-archive-2015",
-    "id": 1839,
-    "fullScore": 50,
-    "absolute": true
-  },
-  {
     "curriculum": "2015",
     "gradeYear": 2022,
     "examYear": 2021,
@@ -73912,30 +73310,6 @@
     "absolute": true
   },
   {
-    "curriculum": "2009",
-    "gradeYear": 2022,
-    "examYear": 2021,
-    "month": 6,
-    "typeGroup": "suneung",
-    "type": "june",
-    "subject": "제2외국어",
-    "subSubject": "프랑스어",
-    "rawCuts": [
-      45,
-      40,
-      35,
-      30,
-      25,
-      20,
-      15,
-      10
-    ],
-    "source": "kice-archive-2015",
-    "id": 1842,
-    "fullScore": 50,
-    "absolute": true
-  },
-  {
     "curriculum": "2015",
     "gradeYear": 2022,
     "examYear": 2021,
@@ -73980,30 +73354,6 @@
     ],
     "source": "kice-archive-2015",
     "id": 1844,
-    "fullScore": 50,
-    "absolute": true
-  },
-  {
-    "curriculum": "2009",
-    "gradeYear": 2022,
-    "examYear": 2021,
-    "month": 6,
-    "typeGroup": "suneung",
-    "type": "june",
-    "subject": "제2외국어",
-    "subSubject": "한문",
-    "rawCuts": [
-      45,
-      40,
-      35,
-      30,
-      25,
-      20,
-      15,
-      10
-    ],
-    "source": "kice-archive-2015",
-    "id": 1845,
     "fullScore": 50,
     "absolute": true
   },
@@ -74065,39 +73415,6 @@
     "fullScore": 50
   },
   {
-    "curriculum": "2009",
-    "gradeYear": 2022,
-    "examYear": 2021,
-    "month": 6,
-    "typeGroup": "suneung",
-    "type": "june",
-    "subject": "직업탐구",
-    "subSubject": null,
-    "standardCuts": [
-      71,
-      65,
-      58,
-      51,
-      45,
-      41,
-      40,
-      38
-    ],
-    "rawCuts": [
-      47,
-      40,
-      31,
-      22,
-      14,
-      9,
-      8,
-      5
-    ],
-    "source": "kice-archive-2015",
-    "id": 1848,
-    "fullScore": 50
-  },
-  {
     "curriculum": "2015",
     "gradeYear": 2022,
     "examYear": 2021,
@@ -74128,40 +73445,6 @@
     ],
     "source": "kice-archive-2015",
     "id": 1849,
-    "fullScore": 50,
-    "highestStandardScore": 83
-  },
-  {
-    "curriculum": "2009",
-    "gradeYear": 2022,
-    "examYear": 2021,
-    "month": 6,
-    "typeGroup": "suneung",
-    "type": "june",
-    "subject": "직업탐구",
-    "subSubject": "상업 경제",
-    "standardCuts": [
-      72,
-      64,
-      57,
-      51,
-      44,
-      42,
-      40,
-      37
-    ],
-    "rawCuts": [
-      39,
-      31,
-      24,
-      18,
-      12,
-      10,
-      8,
-      5
-    ],
-    "source": "kice-archive-2015",
-    "id": 1850,
     "fullScore": 50,
     "highestStandardScore": 83
   },
@@ -74200,40 +73483,6 @@
     "highestStandardScore": 71
   },
   {
-    "curriculum": "2009",
-    "gradeYear": 2022,
-    "examYear": 2021,
-    "month": 6,
-    "typeGroup": "suneung",
-    "type": "june",
-    "subject": "직업탐구",
-    "subSubject": "성공적인 직업생활",
-    "standardCuts": [
-      67,
-      63,
-      59,
-      55,
-      45,
-      39,
-      38,
-      35
-    ],
-    "rawCuts": [
-      45,
-      40,
-      35,
-      29,
-      17,
-      9,
-      8,
-      4
-    ],
-    "source": "kice-archive-2015",
-    "id": 1852,
-    "fullScore": 50,
-    "highestStandardScore": 71
-  },
-  {
     "curriculum": "2015",
     "gradeYear": 2022,
     "examYear": 2021,
@@ -74268,40 +73517,6 @@
     "highestStandardScore": 86
   },
   {
-    "curriculum": "2009",
-    "gradeYear": 2022,
-    "examYear": 2021,
-    "month": 6,
-    "typeGroup": "suneung",
-    "type": "june",
-    "subject": "직업탐구",
-    "subSubject": "수산·해운",
-    "standardCuts": [
-      74,
-      63,
-      53,
-      51,
-      48,
-      44,
-      36,
-      34
-    ],
-    "rawCuts": [
-      39,
-      29,
-      20,
-      18,
-      15,
-      12,
-      5,
-      3
-    ],
-    "source": "kice-archive-2015",
-    "id": 1854,
-    "fullScore": 50,
-    "highestStandardScore": 86
-  },
-  {
     "curriculum": "2015",
     "gradeYear": 2022,
     "examYear": 2021,
@@ -74332,40 +73547,6 @@
     ],
     "source": "kice-archive-2015",
     "id": 1855,
-    "fullScore": 50,
-    "highestStandardScore": 100
-  },
-  {
-    "curriculum": "2009",
-    "gradeYear": 2022,
-    "examYear": 2021,
-    "month": 6,
-    "typeGroup": "suneung",
-    "type": "june",
-    "subject": "직업탐구",
-    "subSubject": "인간 발달",
-    "standardCuts": [
-      70,
-      62,
-      56,
-      50,
-      47,
-      43,
-      39,
-      34
-    ],
-    "rawCuts": [
-      29,
-      23,
-      19,
-      15,
-      13,
-      10,
-      7,
-      4
-    ],
-    "source": "kice-archive-2015",
-    "id": 1856,
     "fullScore": 50,
     "highestStandardScore": 100
   },
@@ -86097,40 +85278,6 @@
     "highestStandardScore": 64
   },
   {
-    "curriculum": "2015",
-    "gradeYear": 2021,
-    "examYear": 2020,
-    "month": 11,
-    "typeGroup": "suneung",
-    "type": "csat",
-    "subject": "과학탐구",
-    "subSubject": "물리Ⅰ",
-    "standardCuts": [
-      64,
-      62,
-      59,
-      55,
-      48,
-      41,
-      35,
-      33
-    ],
-    "rawCuts": [
-      50,
-      47,
-      43,
-      38,
-      29,
-      20,
-      12,
-      10
-    ],
-    "source": "kice-archive-2009",
-    "id": 2143,
-    "fullScore": 50,
-    "highestStandardScore": 64
-  },
-  {
     "curriculum": "2009",
     "gradeYear": 2021,
     "examYear": 2020,
@@ -86162,40 +85309,6 @@
       10,
       7
     ],
-    "highestStandardScore": 62
-  },
-  {
-    "curriculum": "2015",
-    "gradeYear": 2021,
-    "examYear": 2020,
-    "month": 11,
-    "typeGroup": "suneung",
-    "type": "csat",
-    "subject": "과학탐구",
-    "subSubject": "물리Ⅱ",
-    "standardCuts": [
-      62,
-      null,
-      59,
-      56,
-      48,
-      40,
-      35,
-      33
-    ],
-    "rawCuts": [
-      50,
-      null,
-      45,
-      41,
-      29,
-      18,
-      10,
-      7
-    ],
-    "source": "kice-archive-2009",
-    "id": 2145,
-    "fullScore": 50,
     "highestStandardScore": 62
   },
   {
@@ -86361,40 +85474,6 @@
     "id": 2148
   },
   {
-    "curriculum": "2015",
-    "gradeYear": 2021,
-    "examYear": 2020,
-    "month": 11,
-    "typeGroup": "suneung",
-    "type": "csat",
-    "subject": "과학탐구",
-    "subSubject": "생명과학Ⅰ",
-    "standardCuts": [
-      67,
-      63,
-      58,
-      53,
-      47,
-      41,
-      37,
-      32
-    ],
-    "rawCuts": [
-      45,
-      41,
-      36,
-      30,
-      24,
-      18,
-      13,
-      8
-    ],
-    "source": "kice-archive-2009",
-    "id": 2149,
-    "fullScore": 50,
-    "highestStandardScore": 71
-  },
-  {
     "curriculum": "2009",
     "gradeYear": 2021,
     "examYear": 2020,
@@ -86447,40 +85526,6 @@
     "fullScore": 50,
     "source": "megastudy+kice-archive-2009",
     "id": 2150
-  },
-  {
-    "curriculum": "2015",
-    "gradeYear": 2021,
-    "examYear": 2020,
-    "month": 11,
-    "typeGroup": "suneung",
-    "type": "csat",
-    "subject": "과학탐구",
-    "subSubject": "생명과학Ⅱ",
-    "standardCuts": [
-      67,
-      63,
-      60,
-      54,
-      46,
-      40,
-      37,
-      35
-    ],
-    "rawCuts": [
-      47,
-      42,
-      38,
-      31,
-      21,
-      13,
-      10,
-      7
-    ],
-    "source": "kice-archive-2009",
-    "id": 2151,
-    "fullScore": 50,
-    "highestStandardScore": 69
   },
   {
     "curriculum": "2009",
@@ -86537,40 +85582,6 @@
     "id": 2152
   },
   {
-    "curriculum": "2015",
-    "gradeYear": 2021,
-    "examYear": 2020,
-    "month": 11,
-    "typeGroup": "suneung",
-    "type": "csat",
-    "subject": "과학탐구",
-    "subSubject": "지구과학Ⅰ",
-    "standardCuts": [
-      68,
-      64,
-      58,
-      52,
-      46,
-      41,
-      37,
-      35
-    ],
-    "rawCuts": [
-      45,
-      40,
-      34,
-      27,
-      20,
-      14,
-      9,
-      7
-    ],
-    "source": "kice-archive-2009",
-    "id": 2153,
-    "fullScore": 50,
-    "highestStandardScore": 72
-  },
-  {
     "curriculum": "2009",
     "gradeYear": 2021,
     "examYear": 2020,
@@ -86623,40 +85634,6 @@
     "fullScore": 50,
     "source": "megastudy+kice-archive-2009",
     "id": 2154
-  },
-  {
-    "curriculum": "2015",
-    "gradeYear": 2021,
-    "examYear": 2020,
-    "month": 11,
-    "typeGroup": "suneung",
-    "type": "csat",
-    "subject": "과학탐구",
-    "subSubject": "지구과학Ⅱ",
-    "standardCuts": [
-      65,
-      62,
-      59,
-      55,
-      46,
-      40,
-      37,
-      35
-    ],
-    "rawCuts": [
-      45,
-      41,
-      38,
-      32,
-      21,
-      14,
-      10,
-      7
-    ],
-    "source": "kice-archive-2009",
-    "id": 2155,
-    "fullScore": 50,
-    "highestStandardScore": 69
   },
   {
     "curriculum": "2009",
@@ -86713,40 +85690,6 @@
     "id": 2156
   },
   {
-    "curriculum": "2015",
-    "gradeYear": 2021,
-    "examYear": 2020,
-    "month": 11,
-    "typeGroup": "suneung",
-    "type": "csat",
-    "subject": "과학탐구",
-    "subSubject": "화학Ⅰ",
-    "standardCuts": [
-      65,
-      63,
-      59,
-      54,
-      47,
-      41,
-      37,
-      32
-    ],
-    "rawCuts": [
-      47,
-      44,
-      40,
-      34,
-      26,
-      19,
-      14,
-      9
-    ],
-    "source": "kice-archive-2009",
-    "id": 2157,
-    "fullScore": 50,
-    "highestStandardScore": 68
-  },
-  {
     "curriculum": "2009",
     "gradeYear": 2021,
     "examYear": 2020,
@@ -86799,40 +85742,6 @@
     "fullScore": 50,
     "source": "megastudy+kice-archive-2009",
     "id": 2158
-  },
-  {
-    "curriculum": "2015",
-    "gradeYear": 2021,
-    "examYear": 2020,
-    "month": 11,
-    "typeGroup": "suneung",
-    "type": "csat",
-    "subject": "과학탐구",
-    "subSubject": "화학Ⅱ",
-    "standardCuts": [
-      66,
-      62,
-      59,
-      54,
-      47,
-      40,
-      37,
-      34
-    ],
-    "rawCuts": [
-      45,
-      40,
-      37,
-      30,
-      22,
-      13,
-      9,
-      5
-    ],
-    "source": "kice-archive-2009",
-    "id": 2159,
-    "fullScore": 50,
-    "highestStandardScore": 70
   },
   {
     "curriculum": "2009",
@@ -87998,39 +86907,6 @@
     "fullScore": 50
   },
   {
-    "curriculum": "2015",
-    "gradeYear": 2021,
-    "examYear": 2020,
-    "month": 11,
-    "typeGroup": "suneung",
-    "type": "csat",
-    "subject": "직업탐구",
-    "subSubject": null,
-    "standardCuts": [
-      65,
-      63,
-      60,
-      53,
-      46,
-      40,
-      38,
-      35
-    ],
-    "rawCuts": [
-      47,
-      45,
-      41,
-      32,
-      22,
-      14,
-      12,
-      8
-    ],
-    "source": "kice-archive-2009",
-    "id": 2193,
-    "fullScore": 50
-  },
-  {
     "curriculum": "2009",
     "gradeYear": 2021,
     "examYear": 2020,
@@ -88163,40 +87039,6 @@
     ],
     "source": "kice-archive-2009",
     "id": 2197,
-    "fullScore": 50,
-    "highestStandardScore": 67
-  },
-  {
-    "curriculum": "2015",
-    "gradeYear": 2021,
-    "examYear": 2020,
-    "month": 11,
-    "typeGroup": "suneung",
-    "type": "csat",
-    "subject": "직업탐구",
-    "subSubject": "수산·해운",
-    "standardCuts": [
-      67,
-      64,
-      57,
-      51,
-      49,
-      43,
-      38,
-      33
-    ],
-    "rawCuts": [
-      50,
-      46,
-      35,
-      26,
-      24,
-      15,
-      7,
-      0
-    ],
-    "source": "kice-archive-2009",
-    "id": 2198,
     "fullScore": 50,
     "highestStandardScore": 67
   },
@@ -88895,7 +87737,7 @@
       89.02,
       96.17
     ],
-    "highestStandardScore": 138,
+    "highestStandardScore": 136,
     "fullScore": 100,
     "source": "megastudy+etoos-raw+kice-archive-2009",
     "id": 2213
@@ -89375,40 +88217,6 @@
     "fullScore": 50,
     "source": "megastudy+kice-archive-2009",
     "id": 2222
-  },
-  {
-    "curriculum": "2015",
-    "gradeYear": 2021,
-    "examYear": 2020,
-    "month": 9,
-    "typeGroup": "suneung",
-    "type": "sept",
-    "subject": "사회탐구",
-    "subSubject": "정치와법",
-    "standardCuts": [
-      67,
-      65,
-      59,
-      52,
-      45,
-      41,
-      38,
-      36
-    ],
-    "rawCuts": [
-      47,
-      44,
-      36,
-      27,
-      18,
-      13,
-      9,
-      7
-    ],
-    "source": "kice-archive-2009",
-    "id": 2223,
-    "fullScore": 50,
-    "highestStandardScore": 69
   },
   {
     "curriculum": "2009",
@@ -90044,39 +88852,6 @@
     "fullScore": 50
   },
   {
-    "curriculum": "2015",
-    "gradeYear": 2021,
-    "examYear": 2020,
-    "month": 9,
-    "typeGroup": "suneung",
-    "type": "sept",
-    "subject": "직업탐구",
-    "subSubject": null,
-    "standardCuts": [
-      68,
-      66,
-      60,
-      51,
-      44,
-      41,
-      40,
-      37
-    ],
-    "rawCuts": [
-      48,
-      46,
-      38,
-      25,
-      15,
-      11,
-      10,
-      6
-    ],
-    "source": "kice-archive-2009",
-    "id": 2247,
-    "fullScore": 50
-  },
-  {
     "curriculum": "2009",
     "gradeYear": 2021,
     "examYear": 2020,
@@ -90107,40 +88882,6 @@
     ],
     "source": "kice-archive-2009",
     "id": 2248,
-    "fullScore": 50,
-    "highestStandardScore": 75
-  },
-  {
-    "curriculum": "2015",
-    "gradeYear": 2021,
-    "examYear": 2020,
-    "month": 9,
-    "typeGroup": "suneung",
-    "type": "sept",
-    "subject": "직업탐구",
-    "subSubject": "기초 제도",
-    "standardCuts": [
-      71,
-      67,
-      58,
-      48,
-      44,
-      43,
-      41,
-      39
-    ],
-    "rawCuts": [
-      45,
-      40,
-      29,
-      16,
-      11,
-      10,
-      8,
-      5
-    ],
-    "source": "kice-archive-2009",
-    "id": 2249,
     "fullScore": 50,
     "highestStandardScore": 75
   },
@@ -90179,40 +88920,6 @@
     "highestStandardScore": 81
   },
   {
-    "curriculum": "2015",
-    "gradeYear": 2021,
-    "examYear": 2020,
-    "month": 9,
-    "typeGroup": "suneung",
-    "type": "sept",
-    "subject": "직업탐구",
-    "subSubject": "상업 경제",
-    "standardCuts": [
-      72,
-      65,
-      56,
-      49,
-      46,
-      42,
-      39,
-      38
-    ],
-    "rawCuts": [
-      41,
-      33,
-      24,
-      17,
-      14,
-      9,
-      6,
-      5
-    ],
-    "source": "kice-archive-2009",
-    "id": 2251,
-    "fullScore": 50,
-    "highestStandardScore": 81
-  },
-  {
     "curriculum": "2009",
     "gradeYear": 2021,
     "examYear": 2020,
@@ -90243,40 +88950,6 @@
     ],
     "source": "kice-archive-2009",
     "id": 2252,
-    "fullScore": 50,
-    "highestStandardScore": 82
-  },
-  {
-    "curriculum": "2015",
-    "gradeYear": 2021,
-    "examYear": 2020,
-    "month": 9,
-    "typeGroup": "suneung",
-    "type": "sept",
-    "subject": "직업탐구",
-    "subSubject": "생활 서비스 산업의 이해",
-    "standardCuts": [
-      70,
-      64,
-      59,
-      51,
-      45,
-      41,
-      39,
-      37
-    ],
-    "rawCuts": [
-      38,
-      32,
-      27,
-      20,
-      14,
-      10,
-      8,
-      6
-    ],
-    "source": "kice-archive-2009",
-    "id": 2253,
     "fullScore": 50,
     "highestStandardScore": 82
   },
@@ -90315,40 +88988,6 @@
     "highestStandardScore": 91
   },
   {
-    "curriculum": "2015",
-    "gradeYear": 2021,
-    "examYear": 2020,
-    "month": 9,
-    "typeGroup": "suneung",
-    "type": "sept",
-    "subject": "직업탐구",
-    "subSubject": "수산·해운",
-    "standardCuts": [
-      77,
-      58,
-      52,
-      49,
-      47,
-      44,
-      41,
-      40
-    ],
-    "rawCuts": [
-      37,
-      20,
-      15,
-      12,
-      10,
-      7,
-      5,
-      4
-    ],
-    "source": "kice-archive-2009",
-    "id": 2255,
-    "fullScore": 50,
-    "highestStandardScore": 91
-  },
-  {
     "curriculum": "2009",
     "gradeYear": 2021,
     "examYear": 2020,
@@ -90379,40 +89018,6 @@
     ],
     "source": "kice-archive-2009",
     "id": 2256,
-    "fullScore": 50,
-    "highestStandardScore": 87
-  },
-  {
-    "curriculum": "2015",
-    "gradeYear": 2021,
-    "examYear": 2020,
-    "month": 9,
-    "typeGroup": "suneung",
-    "type": "sept",
-    "subject": "직업탐구",
-    "subSubject": "인간 발달",
-    "standardCuts": [
-      75,
-      61,
-      54,
-      49,
-      45,
-      43,
-      41,
-      39
-    ],
-    "rawCuts": [
-      39,
-      26,
-      19,
-      15,
-      11,
-      9,
-      7,
-      5
-    ],
-    "source": "kice-archive-2009",
-    "id": 2257,
     "fullScore": 50,
     "highestStandardScore": 87
   },
@@ -90451,40 +89056,6 @@
     "highestStandardScore": 97
   },
   {
-    "curriculum": "2015",
-    "gradeYear": 2021,
-    "examYear": 2020,
-    "month": 9,
-    "typeGroup": "suneung",
-    "type": "sept",
-    "subject": "직업탐구",
-    "subSubject": "해양의 이해",
-    "standardCuts": [
-      75,
-      60,
-      54,
-      49,
-      44,
-      43,
-      null,
-      40
-    ],
-    "rawCuts": [
-      32,
-      19,
-      14,
-      10,
-      6,
-      5,
-      null,
-      3
-    ],
-    "source": "kice-archive-2009",
-    "id": 2259,
-    "fullScore": 50,
-    "highestStandardScore": 97
-  },
-  {
     "curriculum": "2009",
     "gradeYear": 2021,
     "examYear": 2020,
@@ -90515,40 +89086,6 @@
     ],
     "source": "kice-archive-2009",
     "id": 2260,
-    "fullScore": 50,
-    "highestStandardScore": 82
-  },
-  {
-    "curriculum": "2015",
-    "gradeYear": 2021,
-    "examYear": 2020,
-    "month": 9,
-    "typeGroup": "suneung",
-    "type": "sept",
-    "subject": "직업탐구",
-    "subSubject": "회계 원리",
-    "standardCuts": [
-      73,
-      64,
-      56,
-      50,
-      46,
-      42,
-      40,
-      37
-    ],
-    "rawCuts": [
-      41,
-      32,
-      24,
-      18,
-      14,
-      10,
-      8,
-      5
-    ],
-    "source": "kice-archive-2009",
-    "id": 2261,
     "fullScore": 50,
     "highestStandardScore": 82
   },
@@ -91627,40 +90164,6 @@
     "id": 2282
   },
   {
-    "curriculum": "2015",
-    "gradeYear": 2021,
-    "examYear": 2020,
-    "month": 6,
-    "typeGroup": "suneung",
-    "type": "june",
-    "subject": "사회탐구",
-    "subSubject": "정치와법",
-    "standardCuts": [
-      68,
-      64,
-      58,
-      53,
-      46,
-      42,
-      37,
-      35
-    ],
-    "rawCuts": [
-      47,
-      42,
-      35,
-      28,
-      20,
-      14,
-      8,
-      6
-    ],
-    "source": "kice-archive-2009",
-    "id": 2283,
-    "fullScore": 50,
-    "highestStandardScore": 70
-  },
-  {
     "curriculum": "2009",
     "gradeYear": 2021,
     "examYear": 2020,
@@ -92294,39 +90797,6 @@
     "fullScore": 50
   },
   {
-    "curriculum": "2015",
-    "gradeYear": 2021,
-    "examYear": 2020,
-    "month": 6,
-    "typeGroup": "suneung",
-    "type": "june",
-    "subject": "직업탐구",
-    "subSubject": null,
-    "standardCuts": [
-      69,
-      66,
-      59,
-      50,
-      44,
-      41,
-      40,
-      39
-    ],
-    "rawCuts": [
-      47,
-      43,
-      33,
-      21,
-      13,
-      8,
-      7,
-      6
-    ],
-    "source": "kice-archive-2009",
-    "id": 2307,
-    "fullScore": 50
-  },
-  {
     "curriculum": "2009",
     "gradeYear": 2021,
     "examYear": 2020,
@@ -92357,40 +90827,6 @@
     ],
     "source": "kice-archive-2009",
     "id": 2308,
-    "fullScore": 50,
-    "highestStandardScore": 77
-  },
-  {
-    "curriculum": "2015",
-    "gradeYear": 2021,
-    "examYear": 2020,
-    "month": 6,
-    "typeGroup": "suneung",
-    "type": "june",
-    "subject": "직업탐구",
-    "subSubject": "기초 제도",
-    "standardCuts": [
-      73,
-      66,
-      57,
-      49,
-      44,
-      42,
-      41,
-      39
-    ],
-    "rawCuts": [
-      45,
-      37,
-      26,
-      17,
-      11,
-      8,
-      7,
-      5
-    ],
-    "source": "kice-archive-2009",
-    "id": 2309,
     "fullScore": 50,
     "highestStandardScore": 77
   },
@@ -92429,40 +90865,6 @@
     "highestStandardScore": 84
   },
   {
-    "curriculum": "2015",
-    "gradeYear": 2021,
-    "examYear": 2020,
-    "month": 6,
-    "typeGroup": "suneung",
-    "type": "june",
-    "subject": "직업탐구",
-    "subSubject": "상업 경제",
-    "standardCuts": [
-      71,
-      64,
-      57,
-      51,
-      45,
-      41,
-      40,
-      37
-    ],
-    "rawCuts": [
-      38,
-      31,
-      24,
-      18,
-      13,
-      9,
-      8,
-      5
-    ],
-    "source": "kice-archive-2009",
-    "id": 2311,
-    "fullScore": 50,
-    "highestStandardScore": 84
-  },
-  {
     "curriculum": "2009",
     "gradeYear": 2021,
     "examYear": 2020,
@@ -92493,40 +90895,6 @@
     ],
     "source": "kice-archive-2009",
     "id": 2312,
-    "fullScore": 50,
-    "highestStandardScore": 79
-  },
-  {
-    "curriculum": "2015",
-    "gradeYear": 2021,
-    "examYear": 2020,
-    "month": 6,
-    "typeGroup": "suneung",
-    "type": "june",
-    "subject": "직업탐구",
-    "subSubject": "생활 서비스 산업의 이해",
-    "standardCuts": [
-      67,
-      64,
-      58,
-      53,
-      46,
-      41,
-      37,
-      36
-    ],
-    "rawCuts": [
-      38,
-      34,
-      28,
-      23,
-      16,
-      10,
-      6,
-      5
-    ],
-    "source": "kice-archive-2009",
-    "id": 2313,
     "fullScore": 50,
     "highestStandardScore": 79
   },
@@ -92565,40 +90933,6 @@
     "highestStandardScore": 90
   },
   {
-    "curriculum": "2015",
-    "gradeYear": 2021,
-    "examYear": 2020,
-    "month": 6,
-    "typeGroup": "suneung",
-    "type": "june",
-    "subject": "직업탐구",
-    "subSubject": "수산·해운",
-    "standardCuts": [
-      70,
-      61,
-      56,
-      51,
-      43,
-      null,
-      41,
-      37
-    ],
-    "rawCuts": [
-      33,
-      25,
-      21,
-      17,
-      10,
-      null,
-      8,
-      5
-    ],
-    "source": "kice-archive-2009",
-    "id": 2315,
-    "fullScore": 50,
-    "highestStandardScore": 90
-  },
-  {
     "curriculum": "2009",
     "gradeYear": 2021,
     "examYear": 2020,
@@ -92629,40 +90963,6 @@
     ],
     "source": "kice-archive-2009",
     "id": 2316,
-    "fullScore": 50,
-    "highestStandardScore": 94
-  },
-  {
-    "curriculum": "2015",
-    "gradeYear": 2021,
-    "examYear": 2020,
-    "month": 6,
-    "typeGroup": "suneung",
-    "type": "june",
-    "subject": "직업탐구",
-    "subSubject": "인간 발달",
-    "standardCuts": [
-      70,
-      62,
-      57,
-      52,
-      46,
-      42,
-      40,
-      37
-    ],
-    "rawCuts": [
-      31,
-      25,
-      21,
-      17,
-      13,
-      10,
-      8,
-      5
-    ],
-    "source": "kice-archive-2009",
-    "id": 2317,
     "fullScore": 50,
     "highestStandardScore": 94
   },
@@ -92701,40 +91001,6 @@
     "highestStandardScore": 100
   },
   {
-    "curriculum": "2015",
-    "gradeYear": 2021,
-    "examYear": 2020,
-    "month": 6,
-    "typeGroup": "suneung",
-    "type": "june",
-    "subject": "직업탐구",
-    "subSubject": "해양의 이해",
-    "standardCuts": [
-      69,
-      63,
-      56,
-      50,
-      45,
-      43,
-      40,
-      39
-    ],
-    "rawCuts": [
-      28,
-      23,
-      18,
-      14,
-      10,
-      9,
-      7,
-      6
-    ],
-    "source": "kice-archive-2009",
-    "id": 2319,
-    "fullScore": 50,
-    "highestStandardScore": 100
-  },
-  {
     "curriculum": "2009",
     "gradeYear": 2021,
     "examYear": 2020,
@@ -92765,40 +91031,6 @@
     ],
     "source": "kice-archive-2009",
     "id": 2320,
-    "fullScore": 50,
-    "highestStandardScore": 88
-  },
-  {
-    "curriculum": "2015",
-    "gradeYear": 2021,
-    "examYear": 2020,
-    "month": 6,
-    "typeGroup": "suneung",
-    "type": "june",
-    "subject": "직업탐구",
-    "subSubject": "회계 원리",
-    "standardCuts": [
-      69,
-      63,
-      58,
-      52,
-      46,
-      42,
-      39,
-      35
-    ],
-    "rawCuts": [
-      34,
-      29,
-      25,
-      20,
-      15,
-      12,
-      9,
-      6
-    ],
-    "source": "kice-archive-2009",
-    "id": 2321,
     "fullScore": 50,
     "highestStandardScore": 88
   },
