@@ -1,15 +1,15 @@
 'use strict';
-import { CURRICULUM_CONFIG, getTypeConf, prettySub } from './config.js?v=d7d4f0573de48f650c92';
-import { escHtml as _escHtml, escAttr, safeUrl as _safeUrl, $ as _$ } from './lib/dom.js?v=d7d4f0573de48f650c92';
-import { setMeta, setMetaProp, setCanonical, injectJsonLd as _injectJsonLd, STATIC_PAGE, applySeo } from './lib/seo.js?v=d7d4f0573de48f650c92';
-import { renderAllAdSlots } from './lib/ads.js?v=d7d4f0573de48f650c92';
-import { renderPdf, renderPreviewCover, renderUnsupported, renderEmpty, urlExtension } from './lib/exam-pdf.js?v=d7d4f0573de48f650c92';
-import { LOADING_PREVIEWS } from './lib/loading-previews.js?v=d7d4f0573de48f650c92';
-import { renderGradeDist } from './lib/exam-gradedist.js?v=d7d4f0573de48f650c92';
-import { pushRecent } from './lib/recent.js?v=d7d4f0573de48f650c92';
-import './lib/report.js?v=d7d4f0573de48f650c92';
-import { shareLink } from './lib/share.js?v=d7d4f0573de48f650c92';
-import { enableForcedDownloads } from './lib/download.js?v=d7d4f0573de48f650c92';
+import { CURRICULUM_CONFIG, getTypeConf, prettySub } from './config.js?v=5c958608517448ba7096';
+import { escHtml as _escHtml, escAttr, safeUrl as _safeUrl, $ as _$ } from './lib/dom.js?v=5c958608517448ba7096';
+import { setMeta, setMetaProp, setCanonical, injectJsonLd as _injectJsonLd, STATIC_PAGE, applySeo } from './lib/seo.js?v=5c958608517448ba7096';
+import { renderAllAdSlots } from './lib/ads.js?v=5c958608517448ba7096';
+import { renderPdf, renderPreviewCover, renderUnsupported, renderEmpty, urlExtension } from './lib/exam-pdf.js?v=5c958608517448ba7096';
+import { LOADING_PREVIEWS } from './lib/loading-previews.js?v=5c958608517448ba7096';
+import { renderGradeDist } from './lib/exam-gradedist.js?v=5c958608517448ba7096';
+import { pushRecent } from './lib/recent.js?v=5c958608517448ba7096';
+import './lib/report.js?v=5c958608517448ba7096';
+import { shareLink } from './lib/share.js?v=5c958608517448ba7096';
+import { enableForcedDownloads } from './lib/download.js?v=5c958608517448ba7096';
 
 enableForcedDownloads();
 
@@ -286,7 +286,7 @@ async function main() {
   // 단건 split 미배포 환경 폴백: 통합 exams.json
   if (!exam) {
     try {
-      const res = await fetch('data/exams.json?v=d7d4f0573de48f650c92');
+      const res = await fetch('data/exams.json?v=5c958608517448ba7096');
       if (res.ok) {
         const exams = await res.json();
         exam = exams.find(e => e.id === id) ?? null;
