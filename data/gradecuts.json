@@ -30,7 +30,8 @@
     ],
     "fullScore": 50,
     "source": "ebsi-scv-202606043",
-    "id": 1
+    "id": 1,
+    "highestStandardScore": 71
   },
   {
     "curriculum": "2015",
@@ -63,7 +64,8 @@
     ],
     "fullScore": 50,
     "source": "ebsi-scv-202606043",
-    "id": 2
+    "id": 2,
+    "highestStandardScore": 72
   },
   {
     "curriculum": "2015",
@@ -96,7 +98,8 @@
     ],
     "fullScore": 50,
     "source": "ebsi-scv-202606043",
-    "id": 3
+    "id": 3,
+    "highestStandardScore": 72
   },
   {
     "curriculum": "2015",
@@ -129,7 +132,8 @@
     ],
     "fullScore": 50,
     "source": "ebsi-scv-202606043",
-    "id": 4
+    "id": 4,
+    "highestStandardScore": 75
   },
   {
     "curriculum": "2015",
@@ -162,7 +166,8 @@
     ],
     "fullScore": 50,
     "source": "ebsi-scv-202606043",
-    "id": 5
+    "id": 5,
+    "highestStandardScore": 70
   },
   {
     "curriculum": "2015",
@@ -195,7 +200,8 @@
     ],
     "fullScore": 50,
     "source": "ebsi-scv-202606043",
-    "id": 6
+    "id": 6,
+    "highestStandardScore": 73
   },
   {
     "curriculum": "2015",
@@ -228,7 +234,8 @@
     ],
     "fullScore": 50,
     "source": "ebsi-scv-202606043",
-    "id": 7
+    "id": 7,
+    "highestStandardScore": 70
   },
   {
     "curriculum": "2015",
@@ -261,7 +268,8 @@
     ],
     "fullScore": 50,
     "source": "ebsi-scv-202606043",
-    "id": 8
+    "id": 8,
+    "highestStandardScore": 75
   },
   {
     "curriculum": "2015",
@@ -296,7 +304,8 @@
       42,
       27,
       19
-    ]
+    ],
+    "highestStandardScore": 132
   },
   {
     "curriculum": "2015",
@@ -331,7 +340,8 @@
       42,
       28,
       19
-    ]
+    ],
+    "highestStandardScore": 132
   },
   {
     "curriculum": "2015",
@@ -364,7 +374,8 @@
     ],
     "fullScore": 50,
     "source": "ebsi-scv-202606043",
-    "id": 11
+    "id": 11,
+    "highestStandardScore": 74
   },
   {
     "curriculum": "2015",
@@ -397,7 +408,8 @@
     ],
     "fullScore": 50,
     "source": "ebsi-scv-202606043",
-    "id": 12
+    "id": 12,
+    "highestStandardScore": 68
   },
   {
     "curriculum": "2015",
@@ -430,7 +442,8 @@
     ],
     "fullScore": 50,
     "source": "ebsi-scv-202606043",
-    "id": 13
+    "id": 13,
+    "highestStandardScore": 68
   },
   {
     "curriculum": "2015",
@@ -463,7 +476,8 @@
     ],
     "fullScore": 50,
     "source": "ebsi-scv-202606043",
-    "id": 14
+    "id": 14,
+    "highestStandardScore": 70
   },
   {
     "curriculum": "2015",
@@ -496,7 +510,8 @@
     ],
     "fullScore": 50,
     "source": "ebsi-scv-202606043",
-    "id": 15
+    "id": 15,
+    "highestStandardScore": 70
   },
   {
     "curriculum": "2015",
@@ -529,7 +544,8 @@
     ],
     "fullScore": 50,
     "source": "ebsi-scv-202606043",
-    "id": 16
+    "id": 16,
+    "highestStandardScore": 70
   },
   {
     "curriculum": "2015",
@@ -562,7 +578,8 @@
     ],
     "fullScore": 50,
     "source": "ebsi-scv-202606043",
-    "id": 17
+    "id": 17,
+    "highestStandardScore": 76
   },
   {
     "curriculum": "2015",
@@ -595,7 +612,8 @@
     ],
     "fullScore": 50,
     "source": "ebsi-scv-202606043",
-    "id": 18
+    "id": 18,
+    "highestStandardScore": 71
   },
   {
     "curriculum": "2015",
@@ -628,7 +646,8 @@
     ],
     "fullScore": 50,
     "source": "ebsi-scv-202606043",
-    "id": 19
+    "id": 19,
+    "highestStandardScore": 72
   },
   {
     "curriculum": "2015",
@@ -663,7 +682,8 @@
       22,
       15,
       10
-    ]
+    ],
+    "highestStandardScore": 138
   },
   {
     "curriculum": "2015",
@@ -698,7 +718,8 @@
       18,
       11,
       6
-    ]
+    ],
+    "highestStandardScore": 138
   },
   {
     "curriculum": "2015",
@@ -733,7 +754,8 @@
       22,
       15,
       10
-    ]
+    ],
+    "highestStandardScore": 138
   },
   {
     "curriculum": "2015",
@@ -6644,7 +6666,8 @@
     ],
     "source": "kice-archive-2015",
     "id": 168,
-    "fullScore": 100
+    "fullScore": 100,
+    "highestStandardScore": 147
   },
   {
     "curriculum": "2015",
@@ -7261,7 +7284,8 @@
     ],
     "source": "kice-archive-2015",
     "id": 180,
-    "fullScore": 100
+    "fullScore": 100,
+    "highestStandardScore": 139
   },
   {
     "curriculum": "2015",
@@ -7925,7 +7949,8 @@
     ],
     "source": "kice-archive-2015",
     "id": 204,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 67
   },
   {
     "curriculum": "2015",
@@ -7948,7 +7973,8 @@
     ],
     "source": "kice-archive-2015",
     "id": 205,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 70
   },
   {
     "curriculum": "2015",
@@ -7971,7 +7997,8 @@
     ],
     "source": "kice-archive-2015",
     "id": 206,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 63
   },
   {
     "curriculum": "2015",
@@ -7994,7 +8021,8 @@
     ],
     "source": "kice-archive-2015",
     "id": 207,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 68
   },
   {
     "curriculum": "2015",
@@ -9774,7 +9802,8 @@
     ],
     "source": "kice-archive-2015",
     "id": 253,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 71
   },
   {
     "curriculum": "2015",
@@ -9807,7 +9836,8 @@
     ],
     "source": "kice-archive-2015",
     "id": 254,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 82
   },
   {
     "curriculum": "2015",
@@ -9840,7 +9870,8 @@
     ],
     "source": "kice-archive-2015",
     "id": 255,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 82
   },
   {
     "curriculum": "2015",
@@ -9873,7 +9904,8 @@
     ],
     "source": "kice-archive-2015",
     "id": 256,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 74
   },
   {
     "curriculum": "2015",
@@ -10352,7 +10384,8 @@
     ],
     "source": "kice-archive-2015",
     "id": 266,
-    "fullScore": 100
+    "fullScore": 100,
+    "highestStandardScore": 137
   },
   {
     "curriculum": "2015",
@@ -10969,7 +11002,8 @@
     ],
     "source": "kice-archive-2015",
     "id": 278,
-    "fullScore": 100
+    "fullScore": 100,
+    "highestStandardScore": 143
   },
   {
     "curriculum": "2015",
@@ -11633,7 +11667,8 @@
     ],
     "source": "kice-archive-2015",
     "id": 302,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 88
   },
   {
     "curriculum": "2015",
@@ -11656,7 +11691,8 @@
     ],
     "source": "kice-archive-2015",
     "id": 303,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 84
   },
   {
     "curriculum": "2015",
@@ -11679,7 +11715,8 @@
     ],
     "source": "kice-archive-2015",
     "id": 304,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 89
   },
   {
     "curriculum": "2015",
@@ -11702,7 +11739,8 @@
     ],
     "source": "kice-archive-2015",
     "id": 305,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 79
   },
   {
     "curriculum": "2015",
@@ -20903,7 +20941,8 @@
     ],
     "source": "kice-archive-2015",
     "id": 528,
-    "fullScore": 100
+    "fullScore": 100,
+    "highestStandardScore": 139
   },
   {
     "curriculum": "2015",
@@ -21520,7 +21559,8 @@
     ],
     "source": "kice-archive-2015",
     "id": 540,
-    "fullScore": 100
+    "fullScore": 100,
+    "highestStandardScore": 140
   },
   {
     "curriculum": "2015",
@@ -22184,7 +22224,8 @@
     ],
     "source": "kice-archive-2015",
     "id": 564,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 72
   },
   {
     "curriculum": "2015",
@@ -22207,7 +22248,8 @@
     ],
     "source": "kice-archive-2015",
     "id": 565,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 72
   },
   {
     "curriculum": "2015",
@@ -22230,7 +22272,8 @@
     ],
     "source": "kice-archive-2015",
     "id": 566,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 66
   },
   {
     "curriculum": "2015",
@@ -22253,7 +22296,8 @@
     ],
     "source": "kice-archive-2015",
     "id": 567,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 66
   },
   {
     "curriculum": "2015",
@@ -22732,7 +22776,8 @@
     ],
     "source": "kice-archive-2015",
     "id": 577,
-    "fullScore": 100
+    "fullScore": 100,
+    "highestStandardScore": 129
   },
   {
     "curriculum": "2015",
@@ -23349,7 +23394,8 @@
     ],
     "source": "kice-archive-2015",
     "id": 589,
-    "fullScore": 100
+    "fullScore": 100,
+    "highestStandardScore": 136
   },
   {
     "curriculum": "2015",
@@ -24013,7 +24059,8 @@
     ],
     "source": "kice-archive-2015",
     "id": 613,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 78
   },
   {
     "curriculum": "2015",
@@ -24036,7 +24083,8 @@
     ],
     "source": "kice-archive-2015",
     "id": 614,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 81
   },
   {
     "curriculum": "2015",
@@ -24059,7 +24107,8 @@
     ],
     "source": "kice-archive-2015",
     "id": 615,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 85
   },
   {
     "curriculum": "2015",
@@ -24082,7 +24131,8 @@
     ],
     "source": "kice-archive-2015",
     "id": 616,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 74
   },
   {
     "curriculum": "2015",
@@ -25862,7 +25912,8 @@
     ],
     "source": "kice-archive-2015",
     "id": 662,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 89
   },
   {
     "curriculum": "2015",
@@ -25895,7 +25946,8 @@
     ],
     "source": "kice-archive-2015",
     "id": 663,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 79
   },
   {
     "curriculum": "2015",
@@ -25928,7 +25980,8 @@
     ],
     "source": "kice-archive-2015",
     "id": 664,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 80
   },
   {
     "curriculum": "2015",
@@ -25961,7 +26014,8 @@
     ],
     "source": "kice-archive-2015",
     "id": 665,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 92
   },
   {
     "curriculum": "2015",
@@ -37163,7 +37217,8 @@
     ],
     "source": "kice-archive-2015",
     "id": 922,
-    "fullScore": 100
+    "fullScore": 100,
+    "highestStandardScore": 150
   },
   {
     "curriculum": "2015",
@@ -37780,7 +37835,8 @@
     ],
     "source": "kice-archive-2015",
     "id": 934,
-    "fullScore": 100
+    "fullScore": 100,
+    "highestStandardScore": 148
   },
   {
     "curriculum": "2015",
@@ -38444,7 +38500,8 @@
     ],
     "source": "kice-archive-2015",
     "id": 958,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 70
   },
   {
     "curriculum": "2015",
@@ -38467,7 +38524,8 @@
     ],
     "source": "kice-archive-2015",
     "id": 959,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 68
   },
   {
     "curriculum": "2015",
@@ -38490,7 +38548,8 @@
     ],
     "source": "kice-archive-2015",
     "id": 960,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 65
   },
   {
     "curriculum": "2015",
@@ -38513,7 +38572,8 @@
     ],
     "source": "kice-archive-2015",
     "id": 961,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 66
   },
   {
     "curriculum": "2015",
@@ -40293,7 +40353,8 @@
     ],
     "source": "kice-archive-2015",
     "id": 1007,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 77
   },
   {
     "curriculum": "2015",
@@ -40326,7 +40387,8 @@
     ],
     "source": "kice-archive-2015",
     "id": 1008,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 71
   },
   {
     "curriculum": "2015",
@@ -40359,7 +40421,8 @@
     ],
     "source": "kice-archive-2015",
     "id": 1009,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 78
   },
   {
     "curriculum": "2015",
@@ -40392,7 +40455,8 @@
     ],
     "source": "kice-archive-2015",
     "id": 1010,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 77
   },
   {
     "curriculum": "2015",
@@ -40871,7 +40935,8 @@
     ],
     "source": "kice-archive-2015",
     "id": 1020,
-    "fullScore": 100
+    "fullScore": 100,
+    "highestStandardScore": 136
   },
   {
     "curriculum": "2015",
@@ -41488,7 +41553,8 @@
     ],
     "source": "kice-archive-2015",
     "id": 1032,
-    "fullScore": 100
+    "fullScore": 100,
+    "highestStandardScore": 151
   },
   {
     "curriculum": "2015",
@@ -42152,7 +42218,8 @@
     ],
     "source": "kice-archive-2015",
     "id": 1056,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 87
   },
   {
     "curriculum": "2015",
@@ -42175,7 +42242,8 @@
     ],
     "source": "kice-archive-2015",
     "id": 1057,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 81
   },
   {
     "curriculum": "2015",
@@ -42198,7 +42266,8 @@
     ],
     "source": "kice-archive-2015",
     "id": 1058,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 85
   },
   {
     "curriculum": "2015",
@@ -42221,7 +42290,8 @@
     ],
     "source": "kice-archive-2015",
     "id": 1059,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 88
   },
   {
     "curriculum": "2015",
@@ -54506,7 +54576,8 @@
     ],
     "source": "kice-archive-2015",
     "id": 1350,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 75
   },
   {
     "curriculum": "2015",
@@ -54539,7 +54610,8 @@
     ],
     "source": "kice-archive-2015",
     "id": 1351,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 71
   },
   {
     "curriculum": "2015",
@@ -54572,7 +54644,8 @@
     ],
     "source": "kice-archive-2015",
     "id": 1352,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 74
   },
   {
     "curriculum": "2015",
@@ -54605,7 +54678,8 @@
     ],
     "source": "kice-archive-2015",
     "id": 1353,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 69
   },
   {
     "curriculum": "2015",
@@ -55084,7 +55158,8 @@
     ],
     "source": "kice-archive-2015",
     "id": 1363,
-    "fullScore": 100
+    "fullScore": 100,
+    "highestStandardScore": 140
   },
   {
     "curriculum": "2015",
@@ -55701,7 +55776,8 @@
     ],
     "source": "kice-archive-2015",
     "id": 1375,
-    "fullScore": 100
+    "fullScore": 100,
+    "highestStandardScore": 145
   },
   {
     "curriculum": "2015",
@@ -56365,7 +56441,8 @@
     ],
     "source": "kice-archive-2015",
     "id": 1399,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 85
   },
   {
     "curriculum": "2015",
@@ -56388,7 +56465,8 @@
     ],
     "source": "kice-archive-2015",
     "id": 1400,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 78
   },
   {
     "curriculum": "2015",
@@ -56411,7 +56489,8 @@
     ],
     "source": "kice-archive-2015",
     "id": 1401,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 94
   },
   {
     "curriculum": "2015",
@@ -56434,7 +56513,8 @@
     ],
     "source": "kice-archive-2015",
     "id": 1402,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 82
   },
   {
     "curriculum": "2015",
@@ -56913,7 +56993,8 @@
     ],
     "source": "kice-archive-2015",
     "id": 1412,
-    "fullScore": 100
+    "fullScore": 100,
+    "highestStandardScore": 149
   },
   {
     "curriculum": "2015",
@@ -57530,7 +57611,8 @@
     ],
     "source": "kice-archive-2015",
     "id": 1424,
-    "fullScore": 100
+    "fullScore": 100,
+    "highestStandardScore": 147
   },
   {
     "curriculum": "2015",
@@ -58194,7 +58276,8 @@
     ],
     "source": "kice-archive-2015",
     "id": 1448,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 91
   },
   {
     "curriculum": "2015",
@@ -58217,7 +58300,8 @@
     ],
     "source": "kice-archive-2015",
     "id": 1449,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 76
   },
   {
     "curriculum": "2015",
@@ -58240,7 +58324,8 @@
     ],
     "source": "kice-archive-2015",
     "id": 1450,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 88
   },
   {
     "curriculum": "2015",
@@ -58263,7 +58348,8 @@
     ],
     "source": "kice-archive-2015",
     "id": 1451,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 99
   },
   {
     "curriculum": "2015",
@@ -68000,7 +68086,8 @@
     ],
     "source": "kice-archive-2015",
     "id": 1680,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 72
   },
   {
     "curriculum": "2015",
@@ -68077,7 +68164,8 @@
     ],
     "source": "kice-archive-2015",
     "id": 1682,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 68
   },
   {
     "curriculum": "2015",
@@ -68154,7 +68242,8 @@
     ],
     "source": "kice-archive-2015",
     "id": 1684,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 72
   },
   {
     "curriculum": "2015",
@@ -68231,7 +68320,8 @@
     ],
     "source": "kice-archive-2015",
     "id": 1686,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 69
   },
   {
     "curriculum": "2015",
@@ -68308,7 +68398,8 @@
     ],
     "source": "kice-archive-2015",
     "id": 1688,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 74
   },
   {
     "curriculum": "2015",
@@ -68385,7 +68476,8 @@
     ],
     "source": "kice-archive-2015",
     "id": 1690,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 77
   },
   {
     "curriculum": "2015",
@@ -68462,7 +68554,8 @@
     ],
     "source": "kice-archive-2015",
     "id": 1692,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 68
   },
   {
     "curriculum": "2015",
@@ -68539,7 +68632,8 @@
     ],
     "source": "kice-archive-2015",
     "id": 1694,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 69
   },
   {
     "curriculum": "2015",
@@ -68562,7 +68656,8 @@
     ],
     "source": "kice-archive-2015",
     "id": 1695,
-    "fullScore": 100
+    "fullScore": 100,
+    "highestStandardScore": 149
   },
   {
     "curriculum": "2009",
@@ -68585,7 +68680,8 @@
     ],
     "source": "kice-archive-2015",
     "id": 1696,
-    "fullScore": 100
+    "fullScore": 100,
+    "highestStandardScore": 149
   },
   {
     "curriculum": "2015",
@@ -69152,7 +69248,8 @@
     ],
     "source": "kice-archive-2015",
     "id": 1708,
-    "fullScore": 100
+    "fullScore": 100,
+    "highestStandardScore": 147
   },
   {
     "curriculum": "2009",
@@ -69175,7 +69272,8 @@
     ],
     "source": "kice-archive-2015",
     "id": 1709,
-    "fullScore": 100
+    "fullScore": 100,
+    "highestStandardScore": 147
   },
   {
     "curriculum": "2015",
@@ -69862,7 +69960,8 @@
     ],
     "source": "kice-archive-2015",
     "id": 1734,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 77
   },
   {
     "curriculum": "2015",
@@ -69885,7 +69984,8 @@
     ],
     "source": "kice-archive-2015",
     "id": 1735,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 71
   },
   {
     "curriculum": "2015",
@@ -69908,7 +70008,8 @@
     ],
     "source": "kice-archive-2015",
     "id": 1736,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 67
   },
   {
     "curriculum": "2009",
@@ -69931,7 +70032,8 @@
     ],
     "source": "kice-archive-2015",
     "id": 1737,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 67
   },
   {
     "curriculum": "2015",
@@ -69954,7 +70056,8 @@
     ],
     "source": "kice-archive-2015",
     "id": 1738,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 70
   },
   {
     "curriculum": "2015",
@@ -71813,7 +71916,8 @@
     ],
     "source": "kice-archive-2015",
     "id": 1787,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 86
   },
   {
     "curriculum": "2015",
@@ -71846,7 +71950,8 @@
     ],
     "source": "kice-archive-2015",
     "id": 1788,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 72
   },
   {
     "curriculum": "2015",
@@ -71879,7 +71984,8 @@
     ],
     "source": "kice-archive-2015",
     "id": 1789,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 81
   },
   {
     "curriculum": "2009",
@@ -71912,7 +72018,8 @@
     ],
     "source": "kice-archive-2015",
     "id": 1790,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 81
   },
   {
     "curriculum": "2015",
@@ -71945,7 +72052,8 @@
     ],
     "source": "kice-archive-2015",
     "id": 1791,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 81
   },
   {
     "curriculum": "2015",
@@ -74020,7 +74128,8 @@
     ],
     "source": "kice-archive-2015",
     "id": 1849,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 83
   },
   {
     "curriculum": "2009",
@@ -74053,7 +74162,8 @@
     ],
     "source": "kice-archive-2015",
     "id": 1850,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 83
   },
   {
     "curriculum": "2015",
@@ -74086,7 +74196,8 @@
     ],
     "source": "kice-archive-2015",
     "id": 1851,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 71
   },
   {
     "curriculum": "2009",
@@ -74119,7 +74230,8 @@
     ],
     "source": "kice-archive-2015",
     "id": 1852,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 71
   },
   {
     "curriculum": "2015",
@@ -74152,7 +74264,8 @@
     ],
     "source": "kice-archive-2015",
     "id": 1853,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 86
   },
   {
     "curriculum": "2009",
@@ -74185,7 +74298,8 @@
     ],
     "source": "kice-archive-2015",
     "id": 1854,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 86
   },
   {
     "curriculum": "2015",
@@ -74218,7 +74332,8 @@
     ],
     "source": "kice-archive-2015",
     "id": 1855,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 100
   },
   {
     "curriculum": "2009",
@@ -74251,7 +74366,8 @@
     ],
     "source": "kice-archive-2015",
     "id": 1856,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 100
   },
   {
     "curriculum": "2015",
@@ -85977,7 +86093,8 @@
       20,
       12,
       10
-    ]
+    ],
+    "highestStandardScore": 64
   },
   {
     "curriculum": "2015",
@@ -86010,7 +86127,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 2143,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 64
   },
   {
     "curriculum": "2009",
@@ -86043,7 +86161,8 @@
       18,
       10,
       7
-    ]
+    ],
+    "highestStandardScore": 62
   },
   {
     "curriculum": "2015",
@@ -86076,7 +86195,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 2145,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 62
   },
   {
     "curriculum": "2009",
@@ -86271,7 +86391,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 2149,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 71
   },
   {
     "curriculum": "2009",
@@ -86358,7 +86479,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 2151,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 69
   },
   {
     "curriculum": "2009",
@@ -86445,7 +86567,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 2153,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 72
   },
   {
     "curriculum": "2009",
@@ -86532,7 +86655,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 2155,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 69
   },
   {
     "curriculum": "2009",
@@ -86619,7 +86743,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 2157,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 68
   },
   {
     "curriculum": "2009",
@@ -86706,7 +86831,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 2159,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 70
   },
   {
     "curriculum": "2009",
@@ -87935,7 +88061,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 2194,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 67
   },
   {
     "curriculum": "2009",
@@ -87968,7 +88095,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 2195,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 72
   },
   {
     "curriculum": "2009",
@@ -88001,7 +88129,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 2196,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 68
   },
   {
     "curriculum": "2009",
@@ -88034,7 +88163,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 2197,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 67
   },
   {
     "curriculum": "2015",
@@ -88067,7 +88197,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 2198,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 67
   },
   {
     "curriculum": "2009",
@@ -88100,7 +88231,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 2199,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 70
   },
   {
     "curriculum": "2009",
@@ -88133,7 +88265,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 2200,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 69
   },
   {
     "curriculum": "2009",
@@ -88166,7 +88299,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 2201,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 75
   },
   {
     "curriculum": "2009",
@@ -89273,7 +89407,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 2223,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 69
   },
   {
     "curriculum": "2009",
@@ -89972,7 +90107,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 2248,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 75
   },
   {
     "curriculum": "2015",
@@ -90005,7 +90141,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 2249,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 75
   },
   {
     "curriculum": "2009",
@@ -90038,7 +90175,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 2250,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 81
   },
   {
     "curriculum": "2015",
@@ -90071,7 +90209,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 2251,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 81
   },
   {
     "curriculum": "2009",
@@ -90104,7 +90243,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 2252,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 82
   },
   {
     "curriculum": "2015",
@@ -90137,7 +90277,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 2253,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 82
   },
   {
     "curriculum": "2009",
@@ -90170,7 +90311,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 2254,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 91
   },
   {
     "curriculum": "2015",
@@ -90203,7 +90345,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 2255,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 91
   },
   {
     "curriculum": "2009",
@@ -90236,7 +90379,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 2256,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 87
   },
   {
     "curriculum": "2015",
@@ -90269,7 +90413,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 2257,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 87
   },
   {
     "curriculum": "2009",
@@ -90302,7 +90447,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 2258,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 97
   },
   {
     "curriculum": "2015",
@@ -90335,7 +90481,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 2259,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 97
   },
   {
     "curriculum": "2009",
@@ -90368,7 +90515,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 2260,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 82
   },
   {
     "curriculum": "2015",
@@ -90401,7 +90549,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 2261,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 82
   },
   {
     "curriculum": "2009",
@@ -91508,7 +91657,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 2283,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 70
   },
   {
     "curriculum": "2009",
@@ -92207,7 +92357,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 2308,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 77
   },
   {
     "curriculum": "2015",
@@ -92240,7 +92391,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 2309,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 77
   },
   {
     "curriculum": "2009",
@@ -92273,7 +92425,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 2310,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 84
   },
   {
     "curriculum": "2015",
@@ -92306,7 +92459,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 2311,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 84
   },
   {
     "curriculum": "2009",
@@ -92339,7 +92493,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 2312,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 79
   },
   {
     "curriculum": "2015",
@@ -92372,7 +92527,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 2313,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 79
   },
   {
     "curriculum": "2009",
@@ -92405,7 +92561,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 2314,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 90
   },
   {
     "curriculum": "2015",
@@ -92438,7 +92595,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 2315,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 90
   },
   {
     "curriculum": "2009",
@@ -92471,7 +92629,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 2316,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 94
   },
   {
     "curriculum": "2015",
@@ -92504,7 +92663,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 2317,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 94
   },
   {
     "curriculum": "2009",
@@ -92537,7 +92697,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 2318,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 100
   },
   {
     "curriculum": "2015",
@@ -92570,7 +92731,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 2319,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 100
   },
   {
     "curriculum": "2009",
@@ -92603,7 +92765,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 2320,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 88
   },
   {
     "curriculum": "2015",
@@ -92636,7 +92799,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 2321,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 88
   },
   {
     "curriculum": "2009",
@@ -110030,7 +110194,8 @@
       13,
       9,
       5
-    ]
+    ],
+    "highestStandardScore": 67
   },
   {
     "curriculum": "2009",
@@ -110775,7 +110940,8 @@
       37
     ],
     "id": 2772,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 65
   },
   {
     "curriculum": "2009",
@@ -110808,7 +110974,8 @@
       10,
       8
     ],
-    "source": "kice-archive-2009"
+    "source": "kice-archive-2009",
+    "highestStandardScore": 70
   },
   {
     "curriculum": "2009",
@@ -110830,7 +110997,8 @@
       32
     ],
     "id": 2774,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 69
   },
   {
     "curriculum": "2009",
@@ -110852,7 +111020,8 @@
       31
     ],
     "id": 2775,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 72
   },
   {
     "curriculum": "2009",
@@ -110885,7 +111054,8 @@
       12,
       10
     ],
-    "source": "kice-archive-2009"
+    "source": "kice-archive-2009",
+    "highestStandardScore": 72
   },
   {
     "curriculum": "2009",
@@ -110918,7 +111088,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 2777,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 70
   },
   {
     "curriculum": "2009",
@@ -110951,7 +111122,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 2778,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 71
   },
   {
     "curriculum": "2009",
@@ -110984,7 +111156,8 @@
       11,
       7
     ],
-    "source": "kice-archive-2009"
+    "source": "kice-archive-2009",
+    "highestStandardScore": 73
   },
   {
     "curriculum": "2009",
@@ -111017,7 +111190,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 2780,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 80
   },
   {
     "curriculum": "2009",
@@ -111050,7 +111224,8 @@
       12,
       9
     ],
-    "source": "kice-archive-2009"
+    "source": "kice-archive-2009",
+    "highestStandardScore": 74
   },
   {
     "curriculum": "2009",
@@ -112025,7 +112200,8 @@
       11,
       8,
       5
-    ]
+    ],
+    "highestStandardScore": 76
   },
   {
     "curriculum": "2009",
@@ -112691,7 +112867,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 2824,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 72
   },
   {
     "curriculum": "2009",
@@ -112724,7 +112901,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 2825,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 87
   },
   {
     "curriculum": "2009",
@@ -112757,7 +112935,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 2826,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 78
   },
   {
     "curriculum": "2009",
@@ -112790,7 +112969,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 2827,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 95
   },
   {
     "curriculum": "2009",
@@ -112823,7 +113003,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 2828,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 87
   },
   {
     "curriculum": "2009",
@@ -112856,7 +113037,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 2829,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 100
   },
   {
     "curriculum": "2009",
@@ -112889,7 +113071,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 2830,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 91
   },
   {
     "curriculum": "2009",
@@ -113864,7 +114047,8 @@
       11,
       9,
       5
-    ]
+    ],
+    "highestStandardScore": 70
   },
   {
     "curriculum": "2009",
@@ -114530,7 +114714,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 2873,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 84
   },
   {
     "curriculum": "2009",
@@ -114563,7 +114748,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 2874,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 82
   },
   {
     "curriculum": "2009",
@@ -114596,7 +114782,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 2875,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 83
   },
   {
     "curriculum": "2009",
@@ -114629,7 +114816,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 2876,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 84
   },
   {
     "curriculum": "2009",
@@ -114662,7 +114850,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 2877,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 88
   },
   {
     "curriculum": "2009",
@@ -114695,7 +114884,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 2878,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 100
   },
   {
     "curriculum": "2009",
@@ -114728,7 +114918,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 2879,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 90
   },
   {
     "curriculum": "2009",
@@ -126261,7 +126452,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 3137,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 67
   },
   {
     "curriculum": "2009",
@@ -126470,7 +126662,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 3142,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 65
   },
   {
     "curriculum": "2009",
@@ -126493,7 +126686,8 @@
     ],
     "id": 3143,
     "fullScore": 50,
-    "source": "kice-archive-2009"
+    "source": "kice-archive-2009",
+    "highestStandardScore": 65
   },
   {
     "curriculum": "2009",
@@ -126516,7 +126710,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 3144,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 71
   },
   {
     "curriculum": "2009",
@@ -126539,7 +126734,8 @@
     ],
     "id": 3145,
     "fullScore": 50,
-    "source": "kice-archive-2009"
+    "source": "kice-archive-2009",
+    "highestStandardScore": 71
   },
   {
     "curriculum": "2009",
@@ -126562,7 +126758,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 3146,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 81
   },
   {
     "curriculum": "2009",
@@ -126585,7 +126782,8 @@
     ],
     "id": 3147,
     "fullScore": 50,
-    "source": "kice-archive-2009"
+    "source": "kice-archive-2009",
+    "highestStandardScore": 81
   },
   {
     "curriculum": "2009",
@@ -126608,7 +126806,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 3148,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 70
   },
   {
     "curriculum": "2009",
@@ -126631,7 +126830,8 @@
     ],
     "id": 3149,
     "fullScore": 50,
-    "source": "kice-archive-2009"
+    "source": "kice-archive-2009",
+    "highestStandardScore": 70
   },
   {
     "curriculum": "2009",
@@ -126654,7 +126854,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 3150,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 91
   },
   {
     "curriculum": "2009",
@@ -126677,7 +126878,8 @@
     ],
     "id": 3151,
     "fullScore": 50,
-    "source": "kice-archive-2009"
+    "source": "kice-archive-2009",
+    "highestStandardScore": 91
   },
   {
     "curriculum": "2009",
@@ -126700,7 +126902,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 3152,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 72
   },
   {
     "curriculum": "2009",
@@ -126723,7 +126926,8 @@
     ],
     "id": 3153,
     "fullScore": 50,
-    "source": "kice-archive-2009"
+    "source": "kice-archive-2009",
+    "highestStandardScore": 72
   },
   {
     "curriculum": "2009",
@@ -126746,7 +126950,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 3154,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 69
   },
   {
     "curriculum": "2009",
@@ -126769,7 +126974,8 @@
     ],
     "id": 3155,
     "fullScore": 50,
-    "source": "kice-archive-2009"
+    "source": "kice-archive-2009",
+    "highestStandardScore": 69
   },
   {
     "curriculum": "2009",
@@ -126792,7 +126998,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 3156,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 69
   },
   {
     "curriculum": "2009",
@@ -126815,7 +127022,8 @@
     ],
     "id": 3157,
     "fullScore": 50,
-    "source": "kice-archive-2009"
+    "source": "kice-archive-2009",
+    "highestStandardScore": 69
   },
   {
     "curriculum": "2009",
@@ -126838,7 +127046,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 3158,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 69
   },
   {
     "curriculum": "2009",
@@ -126861,7 +127070,8 @@
     ],
     "id": 3159,
     "fullScore": 50,
-    "source": "kice-archive-2009"
+    "source": "kice-archive-2009",
+    "highestStandardScore": 69
   },
   {
     "curriculum": "2009",
@@ -126906,7 +127116,8 @@
       37
     ],
     "id": 3161,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 67
   },
   {
     "curriculum": "2009",
@@ -126929,7 +127140,8 @@
     ],
     "id": 3162,
     "fullScore": 50,
-    "source": "kice-archive-2009"
+    "source": "kice-archive-2009",
+    "highestStandardScore": 71
   },
   {
     "curriculum": "2009",
@@ -126951,7 +127163,8 @@
       34
     ],
     "id": 3163,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 75
   },
   {
     "curriculum": "2009",
@@ -126973,7 +127186,8 @@
       32
     ],
     "id": 3164,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 68
   },
   {
     "curriculum": "2009",
@@ -126996,7 +127210,8 @@
     ],
     "id": 3165,
     "fullScore": 50,
-    "source": "kice-archive-2009"
+    "source": "kice-archive-2009",
+    "highestStandardScore": 73
   },
   {
     "curriculum": "2009",
@@ -127019,7 +127234,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 3166,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 74
   },
   {
     "curriculum": "2009",
@@ -127042,7 +127258,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 3167,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 63
   },
   {
     "curriculum": "2009",
@@ -127065,7 +127282,8 @@
     ],
     "id": 3168,
     "fullScore": 50,
-    "source": "kice-archive-2009"
+    "source": "kice-archive-2009",
+    "highestStandardScore": 67
   },
   {
     "curriculum": "2009",
@@ -127088,7 +127306,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 3169,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 73
   },
   {
     "curriculum": "2009",
@@ -127111,7 +127330,8 @@
     ],
     "id": 3170,
     "fullScore": 50,
-    "source": "kice-archive-2009"
+    "source": "kice-archive-2009",
+    "highestStandardScore": 73
   },
   {
     "curriculum": "2009",
@@ -128086,7 +128306,8 @@
       12,
       8,
       4
-    ]
+    ],
+    "highestStandardScore": 68
   },
   {
     "curriculum": "2009",
@@ -128752,7 +128973,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 3213,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 80
   },
   {
     "curriculum": "2009",
@@ -128785,7 +129007,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 3214,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 91
   },
   {
     "curriculum": "2009",
@@ -128818,7 +129041,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 3215,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 77
   },
   {
     "curriculum": "2009",
@@ -128851,7 +129075,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 3216,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 88
   },
   {
     "curriculum": "2009",
@@ -128884,7 +129109,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 3217,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 84
   },
   {
     "curriculum": "2009",
@@ -128917,7 +129143,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 3218,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 87
   },
   {
     "curriculum": "2009",
@@ -128950,7 +129177,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 3219,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 94
   },
   {
     "curriculum": "2009",
@@ -129925,7 +130153,8 @@
       12,
       9,
       6
-    ]
+    ],
+    "highestStandardScore": 74
   },
   {
     "curriculum": "2009",
@@ -130571,7 +130800,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 3262,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 83
   },
   {
     "curriculum": "2009",
@@ -130604,7 +130834,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 3263,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 96
   },
   {
     "curriculum": "2009",
@@ -130637,7 +130868,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 3264,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 91
   },
   {
     "curriculum": "2009",
@@ -130670,7 +130902,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 3265,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 93
   },
   {
     "curriculum": "2009",
@@ -130703,7 +130936,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 3266,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 88
   },
   {
     "curriculum": "2009",
@@ -130736,7 +130970,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 3267,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 83
   },
   {
     "curriculum": "2009",
@@ -130769,7 +131004,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 3268,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 86
   },
   {
     "curriculum": "2009",
@@ -142380,7 +142616,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 3524,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 65
   },
   {
     "curriculum": "2009",
@@ -142589,7 +142826,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 3529,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 67
   },
   {
     "curriculum": "2009",
@@ -142612,7 +142850,8 @@
     ],
     "id": 3530,
     "fullScore": 50,
-    "source": "kice-archive-2009"
+    "source": "kice-archive-2009",
+    "highestStandardScore": 67
   },
   {
     "curriculum": "2009",
@@ -142635,7 +142874,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 3531,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 75
   },
   {
     "curriculum": "2009",
@@ -142658,7 +142898,8 @@
     ],
     "id": 3532,
     "fullScore": 50,
-    "source": "kice-archive-2009"
+    "source": "kice-archive-2009",
+    "highestStandardScore": 75
   },
   {
     "curriculum": "2009",
@@ -142681,7 +142922,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 3533,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 79
   },
   {
     "curriculum": "2009",
@@ -142704,7 +142946,8 @@
     ],
     "id": 3534,
     "fullScore": 50,
-    "source": "kice-archive-2009"
+    "source": "kice-archive-2009",
+    "highestStandardScore": 79
   },
   {
     "curriculum": "2009",
@@ -142727,7 +142970,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 3535,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 69
   },
   {
     "curriculum": "2009",
@@ -142750,7 +142994,8 @@
     ],
     "id": 3536,
     "fullScore": 50,
-    "source": "kice-archive-2009"
+    "source": "kice-archive-2009",
+    "highestStandardScore": 69
   },
   {
     "curriculum": "2009",
@@ -142773,7 +143018,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 3537,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 90
   },
   {
     "curriculum": "2009",
@@ -142796,7 +143042,8 @@
     ],
     "id": 3538,
     "fullScore": 50,
-    "source": "kice-archive-2009"
+    "source": "kice-archive-2009",
+    "highestStandardScore": 90
   },
   {
     "curriculum": "2009",
@@ -142819,7 +143066,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 3539,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 68
   },
   {
     "curriculum": "2009",
@@ -142842,7 +143090,8 @@
     ],
     "id": 3540,
     "fullScore": 50,
-    "source": "kice-archive-2009"
+    "source": "kice-archive-2009",
+    "highestStandardScore": 68
   },
   {
     "curriculum": "2009",
@@ -142865,7 +143114,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 3541,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 69
   },
   {
     "curriculum": "2009",
@@ -142888,7 +143138,8 @@
     ],
     "id": 3542,
     "fullScore": 50,
-    "source": "kice-archive-2009"
+    "source": "kice-archive-2009",
+    "highestStandardScore": 69
   },
   {
     "curriculum": "2009",
@@ -142911,7 +143162,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 3543,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 67
   },
   {
     "curriculum": "2009",
@@ -142934,7 +143186,8 @@
     ],
     "id": 3544,
     "fullScore": 50,
-    "source": "kice-archive-2009"
+    "source": "kice-archive-2009",
+    "highestStandardScore": 67
   },
   {
     "curriculum": "2009",
@@ -142957,7 +143210,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 3545,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 76
   },
   {
     "curriculum": "2009",
@@ -142980,7 +143234,8 @@
     ],
     "id": 3546,
     "fullScore": 50,
-    "source": "kice-archive-2009"
+    "source": "kice-archive-2009",
+    "highestStandardScore": 76
   },
   {
     "curriculum": "2009",
@@ -143025,7 +143280,8 @@
       33
     ],
     "id": 3548,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 65
   },
   {
     "curriculum": "2009",
@@ -143048,7 +143304,8 @@
     ],
     "id": 3549,
     "fullScore": 50,
-    "source": "kice-archive-2009"
+    "source": "kice-archive-2009",
+    "highestStandardScore": 69
   },
   {
     "curriculum": "2009",
@@ -143070,7 +143327,8 @@
       33
     ],
     "id": 3550,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 76
   },
   {
     "curriculum": "2009",
@@ -143092,7 +143350,8 @@
       30
     ],
     "id": 3551,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 70
   },
   {
     "curriculum": "2009",
@@ -143115,7 +143374,8 @@
     ],
     "id": 3552,
     "fullScore": 50,
-    "source": "kice-archive-2009"
+    "source": "kice-archive-2009",
+    "highestStandardScore": 71
   },
   {
     "curriculum": "2009",
@@ -143138,7 +143398,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 3553,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 65
   },
   {
     "curriculum": "2009",
@@ -143161,7 +143422,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 3554,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 66
   },
   {
     "curriculum": "2009",
@@ -143184,7 +143446,8 @@
     ],
     "id": 3555,
     "fullScore": 50,
-    "source": "kice-archive-2009"
+    "source": "kice-archive-2009",
+    "highestStandardScore": 68
   },
   {
     "curriculum": "2009",
@@ -143207,7 +143470,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 3556,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 77
   },
   {
     "curriculum": "2009",
@@ -143230,7 +143494,8 @@
     ],
     "id": 3557,
     "fullScore": 50,
-    "source": "kice-archive-2009"
+    "source": "kice-archive-2009",
+    "highestStandardScore": 70
   },
   {
     "curriculum": "2009",
@@ -144195,7 +144460,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 3576,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 65
   },
   {
     "curriculum": "2009",
@@ -144404,7 +144670,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 3581,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 68
   },
   {
     "curriculum": "2009",
@@ -144427,7 +144694,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 3582,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 68
   },
   {
     "curriculum": "2009",
@@ -144450,7 +144718,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 3583,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 65
   },
   {
     "curriculum": "2009",
@@ -144473,7 +144742,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 3584,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 65
   },
   {
     "curriculum": "2009",
@@ -144496,7 +144766,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 3585,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 74
   },
   {
     "curriculum": "2009",
@@ -144519,7 +144790,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 3586,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 74
   },
   {
     "curriculum": "2009",
@@ -144542,7 +144814,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 3587,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 66
   },
   {
     "curriculum": "2009",
@@ -144565,7 +144838,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 3588,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 66
   },
   {
     "curriculum": "2009",
@@ -144588,7 +144862,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 3589,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 92
   },
   {
     "curriculum": "2009",
@@ -144611,7 +144886,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 3590,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 92
   },
   {
     "curriculum": "2009",
@@ -144634,7 +144910,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 3591,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 66
   },
   {
     "curriculum": "2009",
@@ -144657,7 +144934,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 3592,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 66
   },
   {
     "curriculum": "2009",
@@ -144680,7 +144958,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 3593,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 69
   },
   {
     "curriculum": "2009",
@@ -144703,7 +144982,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 3594,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 69
   },
   {
     "curriculum": "2009",
@@ -144726,7 +145006,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 3595,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 71
   },
   {
     "curriculum": "2009",
@@ -144749,7 +145030,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 3596,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 71
   },
   {
     "curriculum": "2009",
@@ -144772,7 +145054,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 3597,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 71
   },
   {
     "curriculum": "2009",
@@ -144795,7 +145078,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 3598,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 71
   },
   {
     "curriculum": "2009",
@@ -144841,7 +145125,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 3600,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 74
   },
   {
     "curriculum": "2009",
@@ -144864,7 +145149,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 3601,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 88
   },
   {
     "curriculum": "2009",
@@ -144887,7 +145173,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 3602,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 74
   },
   {
     "curriculum": "2009",
@@ -144910,7 +145197,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 3603,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 87
   },
   {
     "curriculum": "2009",
@@ -144933,7 +145221,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 3604,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 80
   },
   {
     "curriculum": "2009",
@@ -144956,7 +145245,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 3605,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 91
   },
   {
     "curriculum": "2009",
@@ -144979,7 +145269,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 3606,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 86
   },
   {
     "curriculum": "2009",
@@ -145834,7 +146125,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 3625,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 74
   },
   {
     "curriculum": "2009",
@@ -146033,7 +146325,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 3630,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 65
   },
   {
     "curriculum": "2009",
@@ -146056,7 +146349,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 3631,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 65
   },
   {
     "curriculum": "2009",
@@ -146079,7 +146373,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 3632,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 69
   },
   {
     "curriculum": "2009",
@@ -146102,7 +146397,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 3633,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 69
   },
   {
     "curriculum": "2009",
@@ -146125,7 +146421,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 3634,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 83
   },
   {
     "curriculum": "2009",
@@ -146148,7 +146445,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 3635,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 83
   },
   {
     "curriculum": "2009",
@@ -146171,7 +146469,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 3636,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 66
   },
   {
     "curriculum": "2009",
@@ -146194,7 +146493,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 3637,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 66
   },
   {
     "curriculum": "2009",
@@ -146217,7 +146517,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 3638,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 100
   },
   {
     "curriculum": "2009",
@@ -146240,7 +146541,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 3639,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 100
   },
   {
     "curriculum": "2009",
@@ -146263,7 +146565,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 3640,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 68
   },
   {
     "curriculum": "2009",
@@ -146286,7 +146589,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 3641,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 68
   },
   {
     "curriculum": "2009",
@@ -146309,7 +146613,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 3642,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 69
   },
   {
     "curriculum": "2009",
@@ -146332,7 +146637,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 3643,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 69
   },
   {
     "curriculum": "2009",
@@ -146355,7 +146661,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 3644,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 63
   },
   {
     "curriculum": "2009",
@@ -146378,7 +146685,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 3645,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 63
   },
   {
     "curriculum": "2009",
@@ -146401,7 +146709,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 3646,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 79
   },
   {
     "curriculum": "2009",
@@ -146424,7 +146733,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 3647,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 79
   },
   {
     "curriculum": "2009",
@@ -146470,7 +146780,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 3649,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 83
   },
   {
     "curriculum": "2009",
@@ -146493,7 +146804,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 3650,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 100
   },
   {
     "curriculum": "2009",
@@ -146516,7 +146828,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 3651,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 74
   },
   {
     "curriculum": "2009",
@@ -146539,7 +146852,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 3652,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 100
   },
   {
     "curriculum": "2009",
@@ -146562,7 +146876,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 3653,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 96
   },
   {
     "curriculum": "2009",
@@ -146585,7 +146900,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 3654,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 90
   },
   {
     "curriculum": "2009",
@@ -146608,7 +146924,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 3655,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 92
   },
   {
     "curriculum": "2009",
@@ -157916,7 +158233,8 @@
       12,
       8,
       4
-    ]
+    ],
+    "highestStandardScore": 68
   },
   {
     "curriculum": "2009",
@@ -158691,7 +159009,8 @@
       33
     ],
     "id": 3931,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 67
   },
   {
     "curriculum": "2009",
@@ -158724,7 +159043,8 @@
       9,
       6
     ],
-    "source": "kice-archive-2009"
+    "source": "kice-archive-2009",
+    "highestStandardScore": 72
   },
   {
     "curriculum": "2009",
@@ -158746,7 +159066,8 @@
       33
     ],
     "id": 3933,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 71
   },
   {
     "curriculum": "2009",
@@ -158768,7 +159089,8 @@
       33
     ],
     "id": 3934,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 70
   },
   {
     "curriculum": "2009",
@@ -158801,7 +159123,8 @@
       13,
       8
     ],
-    "source": "kice-archive-2009"
+    "source": "kice-archive-2009",
+    "highestStandardScore": 71
   },
   {
     "curriculum": "2009",
@@ -158834,7 +159157,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 3936,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 79
   },
   {
     "curriculum": "2009",
@@ -158867,7 +159191,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 3937,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 68
   },
   {
     "curriculum": "2009",
@@ -158900,7 +159225,8 @@
       12,
       9
     ],
-    "source": "kice-archive-2009"
+    "source": "kice-archive-2009",
+    "highestStandardScore": 70
   },
   {
     "curriculum": "2009",
@@ -158933,7 +159259,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 3939,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 73
   },
   {
     "curriculum": "2009",
@@ -158966,7 +159293,8 @@
       11,
       9
     ],
-    "source": "kice-archive-2009"
+    "source": "kice-archive-2009",
+    "highestStandardScore": 72
   },
   {
     "curriculum": "2009",
@@ -159941,7 +160269,8 @@
       13,
       8,
       6
-    ]
+    ],
+    "highestStandardScore": 68
   },
   {
     "curriculum": "2009",
@@ -160637,7 +160966,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 3983,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 77
   },
   {
     "curriculum": "2009",
@@ -160670,7 +161000,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 3984,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 83
   },
   {
     "curriculum": "2009",
@@ -160703,7 +161034,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 3985,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 72
   },
   {
     "curriculum": "2009",
@@ -160736,7 +161068,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 3986,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 86
   },
   {
     "curriculum": "2009",
@@ -160769,7 +161102,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 3987,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 79
   },
   {
     "curriculum": "2009",
@@ -160802,7 +161136,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 3988,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 83
   },
   {
     "curriculum": "2009",
@@ -160835,7 +161170,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 3989,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 86
   },
   {
     "curriculum": "2009",
@@ -161810,7 +162146,8 @@
       13,
       10,
       7
-    ]
+    ],
+    "highestStandardScore": 67
   },
   {
     "curriculum": "2009",
@@ -162506,7 +162843,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4032,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 82
   },
   {
     "curriculum": "2009",
@@ -162539,7 +162877,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4033,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 98
   },
   {
     "curriculum": "2009",
@@ -162572,7 +162911,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4034,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 72
   },
   {
     "curriculum": "2009",
@@ -162605,7 +162945,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4035,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 86
   },
   {
     "curriculum": "2009",
@@ -162638,7 +162979,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4036,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 86
   },
   {
     "curriculum": "2009",
@@ -162671,7 +163013,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4037,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 82
   },
   {
     "curriculum": "2009",
@@ -162704,7 +163047,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4038,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 80
   },
   {
     "curriculum": "2009",
@@ -173976,7 +174320,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4292,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 72
   },
   {
     "curriculum": "2009",
@@ -173999,7 +174344,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4293,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 63
   },
   {
     "curriculum": "2009",
@@ -174022,7 +174368,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4294,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 76
   },
   {
     "curriculum": "2009",
@@ -174045,7 +174392,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4295,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 65
   },
   {
     "curriculum": "2009",
@@ -174068,7 +174416,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4296,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 72
   },
   {
     "curriculum": "2009",
@@ -174091,7 +174440,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4297,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 64
   },
   {
     "curriculum": "2009",
@@ -174114,7 +174464,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4298,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 67
   },
   {
     "curriculum": "2009",
@@ -174137,7 +174488,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4299,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 68
   },
   {
     "curriculum": "2009",
@@ -174160,7 +174512,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4300,
-    "fullScore": 100
+    "fullScore": 100,
+    "highestStandardScore": 134
   },
   {
     "curriculum": "2009",
@@ -174183,7 +174536,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4301,
-    "fullScore": 100
+    "fullScore": 100,
+    "highestStandardScore": 136
   },
   {
     "curriculum": "2009",
@@ -174216,7 +174570,8 @@
       9,
       5
     ],
-    "source": "exammoa-megastudy-archive+kice-archive-2009"
+    "source": "exammoa-megastudy-archive+kice-archive-2009",
+    "highestStandardScore": 69
   },
   {
     "curriculum": "2009",
@@ -174249,7 +174604,8 @@
       11,
       7
     ],
-    "source": "exammoa-megastudy-archive+kice-archive-2009"
+    "source": "exammoa-megastudy-archive+kice-archive-2009",
+    "highestStandardScore": 68
   },
   {
     "curriculum": "2009",
@@ -174282,7 +174638,8 @@
       11,
       7
     ],
-    "source": "exammoa-megastudy-archive+kice-archive-2009"
+    "source": "exammoa-megastudy-archive+kice-archive-2009",
+    "highestStandardScore": 66
   },
   {
     "curriculum": "2009",
@@ -174315,7 +174672,8 @@
       13,
       9
     ],
-    "source": "exammoa-megastudy-archive+kice-archive-2009"
+    "source": "exammoa-megastudy-archive+kice-archive-2009",
+    "highestStandardScore": 67
   },
   {
     "curriculum": "2009",
@@ -174348,7 +174706,8 @@
       14,
       8
     ],
-    "source": "exammoa-megastudy-archive+kice-archive-2009"
+    "source": "exammoa-megastudy-archive+kice-archive-2009",
+    "highestStandardScore": 64
   },
   {
     "curriculum": "2009",
@@ -174381,7 +174740,8 @@
       10,
       8
     ],
-    "source": "exammoa-megastudy-archive+kice-archive-2009"
+    "source": "exammoa-megastudy-archive+kice-archive-2009",
+    "highestStandardScore": 64
   },
   {
     "curriculum": "2009",
@@ -174414,7 +174774,8 @@
       14,
       9
     ],
-    "source": "exammoa-megastudy-archive+kice-archive-2009"
+    "source": "exammoa-megastudy-archive+kice-archive-2009",
+    "highestStandardScore": 63
   },
   {
     "curriculum": "2009",
@@ -174447,7 +174808,8 @@
       9,
       7
     ],
-    "source": "exammoa-megastudy-archive+kice-archive-2009"
+    "source": "exammoa-megastudy-archive+kice-archive-2009",
+    "highestStandardScore": 67
   },
   {
     "curriculum": "2009",
@@ -174470,7 +174832,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4310,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 66
   },
   {
     "curriculum": "2009",
@@ -174503,7 +174866,8 @@
       12,
       8
     ],
-    "source": "exammoa-megastudy-archive+kice-archive-2009"
+    "source": "exammoa-megastudy-archive+kice-archive-2009",
+    "highestStandardScore": 64
   },
   {
     "curriculum": "2009",
@@ -174526,7 +174890,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4312,
-    "fullScore": 100
+    "fullScore": 100,
+    "highestStandardScore": 139
   },
   {
     "curriculum": "2009",
@@ -174549,7 +174914,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4313,
-    "fullScore": 100
+    "fullScore": 100,
+    "highestStandardScore": 127
   },
   {
     "curriculum": "2009",
@@ -174572,7 +174938,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4314,
-    "fullScore": 100
+    "fullScore": 100,
+    "highestStandardScore": 136
   },
   {
     "curriculum": "2009",
@@ -174595,7 +174962,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4315,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 66
   },
   {
     "curriculum": "2009",
@@ -174618,7 +174986,8 @@
     ],
     "id": 4316,
     "fullScore": 50,
-    "source": "kice-archive-2009"
+    "source": "kice-archive-2009",
+    "highestStandardScore": 66
   },
   {
     "curriculum": "2009",
@@ -174641,7 +175010,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4317,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 71
   },
   {
     "curriculum": "2009",
@@ -174664,7 +175034,8 @@
     ],
     "id": 4318,
     "fullScore": 50,
-    "source": "kice-archive-2009"
+    "source": "kice-archive-2009",
+    "highestStandardScore": 71
   },
   {
     "curriculum": "2009",
@@ -174687,7 +175058,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4319,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 66
   },
   {
     "curriculum": "2009",
@@ -174710,7 +175082,8 @@
     ],
     "id": 4320,
     "fullScore": 50,
-    "source": "kice-archive-2009"
+    "source": "kice-archive-2009",
+    "highestStandardScore": 66
   },
   {
     "curriculum": "2009",
@@ -174733,7 +175106,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4321,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 100
   },
   {
     "curriculum": "2009",
@@ -174756,7 +175130,8 @@
     ],
     "id": 4322,
     "fullScore": 50,
-    "source": "kice-archive-2009"
+    "source": "kice-archive-2009",
+    "highestStandardScore": 100
   },
   {
     "curriculum": "2009",
@@ -174779,7 +175154,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4323,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 67
   },
   {
     "curriculum": "2009",
@@ -174802,7 +175178,8 @@
     ],
     "id": 4324,
     "fullScore": 50,
-    "source": "kice-archive-2009"
+    "source": "kice-archive-2009",
+    "highestStandardScore": 67
   },
   {
     "curriculum": "2009",
@@ -174825,7 +175202,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4325,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 67
   },
   {
     "curriculum": "2009",
@@ -174848,7 +175226,8 @@
     ],
     "id": 4326,
     "fullScore": 50,
-    "source": "kice-archive-2009"
+    "source": "kice-archive-2009",
+    "highestStandardScore": 67
   },
   {
     "curriculum": "2009",
@@ -174871,7 +175250,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4327,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 65
   },
   {
     "curriculum": "2009",
@@ -174894,7 +175274,8 @@
     ],
     "id": 4328,
     "fullScore": 50,
-    "source": "kice-archive-2009"
+    "source": "kice-archive-2009",
+    "highestStandardScore": 65
   },
   {
     "curriculum": "2009",
@@ -174917,7 +175298,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4329,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 69
   },
   {
     "curriculum": "2009",
@@ -174940,7 +175322,8 @@
     ],
     "id": 4330,
     "fullScore": 50,
-    "source": "kice-archive-2009"
+    "source": "kice-archive-2009",
+    "highestStandardScore": 69
   },
   {
     "curriculum": "2009",
@@ -175039,7 +175422,8 @@
       12,
       8
     ],
-    "source": "exammoa-megastudy-archive+kice-archive-2009"
+    "source": "exammoa-megastudy-archive+kice-archive-2009",
+    "highestStandardScore": 63
   },
   {
     "curriculum": "2009",
@@ -175062,7 +175446,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4335,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 68
   },
   {
     "curriculum": "2009",
@@ -175085,7 +175470,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4336,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 73
   },
   {
     "curriculum": "2009",
@@ -175108,7 +175494,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4337,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 73
   },
   {
     "curriculum": "2009",
@@ -175131,7 +175518,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4338,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 67
   },
   {
     "curriculum": "2009",
@@ -175154,7 +175542,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4339,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 72
   },
   {
     "curriculum": "2009",
@@ -175177,7 +175566,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4340,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 68
   },
   {
     "curriculum": "2009",
@@ -175200,7 +175590,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4341,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 68
   },
   {
     "curriculum": "2009",
@@ -175223,7 +175614,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4342,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 68
   },
   {
     "curriculum": "2009",
@@ -175246,7 +175638,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4343,
-    "fullScore": 100
+    "fullScore": 100,
+    "highestStandardScore": 122
   },
   {
     "curriculum": "2009",
@@ -175269,7 +175662,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4344,
-    "fullScore": 100
+    "fullScore": 100,
+    "highestStandardScore": 128
   },
   {
     "curriculum": "2009",
@@ -175292,7 +175686,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4345,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 71
   },
   {
     "curriculum": "2009",
@@ -175315,7 +175710,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4346,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 70
   },
   {
     "curriculum": "2009",
@@ -175338,7 +175734,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4347,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 68
   },
   {
     "curriculum": "2009",
@@ -175361,7 +175758,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4348,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 70
   },
   {
     "curriculum": "2009",
@@ -175384,7 +175782,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4349,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 74
   },
   {
     "curriculum": "2009",
@@ -175407,7 +175806,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4350,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 72
   },
   {
     "curriculum": "2009",
@@ -175430,7 +175830,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4351,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 72
   },
   {
     "curriculum": "2009",
@@ -175453,7 +175854,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4352,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 71
   },
   {
     "curriculum": "2009",
@@ -175476,7 +175878,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4353,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 68
   },
   {
     "curriculum": "2009",
@@ -175499,7 +175902,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4354,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 70
   },
   {
     "curriculum": "2009",
@@ -175522,7 +175926,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4355,
-    "fullScore": 100
+    "fullScore": 100,
+    "highestStandardScore": 138
   },
   {
     "curriculum": "2009",
@@ -175545,7 +175950,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4356,
-    "fullScore": 100
+    "fullScore": 100,
+    "highestStandardScore": 129
   },
   {
     "curriculum": "2009",
@@ -175568,7 +175974,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4357,
-    "fullScore": 100
+    "fullScore": 100,
+    "highestStandardScore": 126
   },
   {
     "curriculum": "2009",
@@ -175591,7 +175998,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4358,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 65
   },
   {
     "curriculum": "2009",
@@ -175614,7 +176022,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4359,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 65
   },
   {
     "curriculum": "2009",
@@ -175637,7 +176046,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4360,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 67
   },
   {
     "curriculum": "2009",
@@ -175660,7 +176070,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4361,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 67
   },
   {
     "curriculum": "2009",
@@ -175683,7 +176094,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4362,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 65
   },
   {
     "curriculum": "2009",
@@ -175706,7 +176118,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4363,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 65
   },
   {
     "curriculum": "2009",
@@ -175729,7 +176142,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4364,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 100
   },
   {
     "curriculum": "2009",
@@ -175752,7 +176166,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4365,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 100
   },
   {
     "curriculum": "2009",
@@ -175775,7 +176190,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4366,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 65
   },
   {
     "curriculum": "2009",
@@ -175798,7 +176214,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4367,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 65
   },
   {
     "curriculum": "2009",
@@ -175821,7 +176238,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4368,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 68
   },
   {
     "curriculum": "2009",
@@ -175844,7 +176262,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4369,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 68
   },
   {
     "curriculum": "2009",
@@ -175867,7 +176286,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4370,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 63
   },
   {
     "curriculum": "2009",
@@ -175890,7 +176310,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4371,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 63
   },
   {
     "curriculum": "2009",
@@ -175913,7 +176334,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4372,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 67
   },
   {
     "curriculum": "2009",
@@ -175936,7 +176358,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4373,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 67
   },
   {
     "curriculum": "2009",
@@ -175959,7 +176382,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4374,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 64
   },
   {
     "curriculum": "2009",
@@ -175982,7 +176406,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4375,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 67
   },
   {
     "curriculum": "2009",
@@ -176005,7 +176430,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4376,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 77
   },
   {
     "curriculum": "2009",
@@ -176028,7 +176454,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4377,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 74
   },
   {
     "curriculum": "2009",
@@ -176051,7 +176478,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4378,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 68
   },
   {
     "curriculum": "2009",
@@ -176074,7 +176502,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4379,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 74
   },
   {
     "curriculum": "2009",
@@ -176097,7 +176526,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4380,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 75
   },
   {
     "curriculum": "2009",
@@ -176120,7 +176550,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4381,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 75
   },
   {
     "curriculum": "2009",
@@ -176143,7 +176574,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4382,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 77
   },
   {
     "curriculum": "2009",
@@ -176166,7 +176598,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4383,
-    "fullScore": 100
+    "fullScore": 100,
+    "highestStandardScore": 126
   },
   {
     "curriculum": "2009",
@@ -176189,7 +176622,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4384,
-    "fullScore": 100
+    "fullScore": 100,
+    "highestStandardScore": 124
   },
   {
     "curriculum": "2009",
@@ -176212,7 +176646,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4385,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 70
   },
   {
     "curriculum": "2009",
@@ -176235,7 +176670,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4386,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 70
   },
   {
     "curriculum": "2009",
@@ -176258,7 +176694,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4387,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 71
   },
   {
     "curriculum": "2009",
@@ -176281,7 +176718,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4388,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 71
   },
   {
     "curriculum": "2009",
@@ -176304,7 +176742,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4389,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 67
   },
   {
     "curriculum": "2009",
@@ -176327,7 +176766,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4390,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 71
   },
   {
     "curriculum": "2009",
@@ -176350,7 +176790,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4391,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 71
   },
   {
     "curriculum": "2009",
@@ -176373,7 +176814,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4392,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 69
   },
   {
     "curriculum": "2009",
@@ -176396,7 +176838,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4393,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 71
   },
   {
     "curriculum": "2009",
@@ -176419,7 +176862,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4394,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 68
   },
   {
     "curriculum": "2009",
@@ -176442,7 +176886,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4395,
-    "fullScore": 100
+    "fullScore": 100,
+    "highestStandardScore": 137
   },
   {
     "curriculum": "2009",
@@ -176465,7 +176910,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4396,
-    "fullScore": 100
+    "fullScore": 100,
+    "highestStandardScore": 131
   },
   {
     "curriculum": "2009",
@@ -176488,7 +176934,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4397,
-    "fullScore": 100
+    "fullScore": 100,
+    "highestStandardScore": 128
   },
   {
     "curriculum": "2009",
@@ -176511,7 +176958,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4398,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 67
   },
   {
     "curriculum": "2009",
@@ -176534,7 +176982,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4399,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 67
   },
   {
     "curriculum": "2009",
@@ -176557,7 +177006,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4400,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 70
   },
   {
     "curriculum": "2009",
@@ -176580,7 +177030,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4401,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 70
   },
   {
     "curriculum": "2009",
@@ -176603,7 +177054,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4402,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 67
   },
   {
     "curriculum": "2009",
@@ -176626,7 +177078,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4403,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 67
   },
   {
     "curriculum": "2009",
@@ -176649,7 +177102,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4404,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 100
   },
   {
     "curriculum": "2009",
@@ -176672,7 +177126,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4405,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 100
   },
   {
     "curriculum": "2009",
@@ -176695,7 +177150,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4406,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 67
   },
   {
     "curriculum": "2009",
@@ -176718,7 +177174,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4407,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 67
   },
   {
     "curriculum": "2009",
@@ -176741,7 +177198,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4408,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 70
   },
   {
     "curriculum": "2009",
@@ -176764,7 +177222,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4409,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 70
   },
   {
     "curriculum": "2009",
@@ -176787,7 +177246,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4410,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 68
   },
   {
     "curriculum": "2009",
@@ -176810,7 +177270,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4411,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 68
   },
   {
     "curriculum": "2009",
@@ -176833,7 +177294,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4412,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 71
   },
   {
     "curriculum": "2009",
@@ -176856,7 +177318,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4413,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 71
   },
   {
     "curriculum": "2009",
@@ -176879,7 +177342,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4414,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 70
   },
   {
     "curriculum": "2009",
@@ -187818,7 +188282,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4666,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 72
   },
   {
     "curriculum": "2009",
@@ -187841,7 +188306,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4667,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 67
   },
   {
     "curriculum": "2009",
@@ -187864,7 +188330,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4668,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 71
   },
   {
     "curriculum": "2009",
@@ -187887,7 +188354,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4669,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 73
   },
   {
     "curriculum": "2009",
@@ -187910,7 +188378,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4670,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 69
   },
   {
     "curriculum": "2009",
@@ -187933,7 +188402,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4671,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 71
   },
   {
     "curriculum": "2009",
@@ -187956,7 +188426,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4672,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 71
   },
   {
     "curriculum": "2009",
@@ -187979,7 +188450,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4673,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 68
   },
   {
     "curriculum": "2009",
@@ -188002,7 +188474,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4674,
-    "fullScore": 100
+    "fullScore": 100,
+    "highestStandardScore": 132
   },
   {
     "curriculum": "2009",
@@ -188025,7 +188498,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4675,
-    "fullScore": 100
+    "fullScore": 100,
+    "highestStandardScore": 139
   },
   {
     "curriculum": "2009",
@@ -188400,7 +188874,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4684,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 67
   },
   {
     "curriculum": "2009",
@@ -188467,7 +188942,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4686,
-    "fullScore": 100
+    "fullScore": 100,
+    "highestStandardScore": 131
   },
   {
     "curriculum": "2009",
@@ -188490,7 +188966,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4687,
-    "fullScore": 100
+    "fullScore": 100,
+    "highestStandardScore": 125
   },
   {
     "curriculum": "2009",
@@ -188513,7 +188990,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4688,
-    "fullScore": 100
+    "fullScore": 100,
+    "highestStandardScore": 132
   },
   {
     "curriculum": "2009",
@@ -188536,7 +189014,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4689,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 68
   },
   {
     "curriculum": "2009",
@@ -188559,7 +189038,8 @@
     ],
     "id": 4690,
     "fullScore": 50,
-    "source": "kice-archive-2009"
+    "source": "kice-archive-2009",
+    "highestStandardScore": 68
   },
   {
     "curriculum": "2009",
@@ -188582,7 +189062,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4691,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 73
   },
   {
     "curriculum": "2009",
@@ -188605,7 +189086,8 @@
     ],
     "id": 4692,
     "fullScore": 50,
-    "source": "kice-archive-2009"
+    "source": "kice-archive-2009",
+    "highestStandardScore": 73
   },
   {
     "curriculum": "2009",
@@ -188628,7 +189110,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4693,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 68
   },
   {
     "curriculum": "2009",
@@ -188651,7 +189134,8 @@
     ],
     "id": 4694,
     "fullScore": 50,
-    "source": "kice-archive-2009"
+    "source": "kice-archive-2009",
+    "highestStandardScore": 68
   },
   {
     "curriculum": "2009",
@@ -188674,7 +189158,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4695,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 100
   },
   {
     "curriculum": "2009",
@@ -188697,7 +189182,8 @@
     ],
     "id": 4696,
     "fullScore": 50,
-    "source": "kice-archive-2009"
+    "source": "kice-archive-2009",
+    "highestStandardScore": 100
   },
   {
     "curriculum": "2009",
@@ -188720,7 +189206,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4697,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 66
   },
   {
     "curriculum": "2009",
@@ -188743,7 +189230,8 @@
     ],
     "id": 4698,
     "fullScore": 50,
-    "source": "kice-archive-2009"
+    "source": "kice-archive-2009",
+    "highestStandardScore": 66
   },
   {
     "curriculum": "2009",
@@ -188766,7 +189254,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4699,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 68
   },
   {
     "curriculum": "2009",
@@ -188789,7 +189278,8 @@
     ],
     "id": 4700,
     "fullScore": 50,
-    "source": "kice-archive-2009"
+    "source": "kice-archive-2009",
+    "highestStandardScore": 68
   },
   {
     "curriculum": "2009",
@@ -188812,7 +189302,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4701,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 66
   },
   {
     "curriculum": "2009",
@@ -188835,7 +189326,8 @@
     ],
     "id": 4702,
     "fullScore": 50,
-    "source": "kice-archive-2009"
+    "source": "kice-archive-2009",
+    "highestStandardScore": 66
   },
   {
     "curriculum": "2009",
@@ -188858,7 +189350,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4703,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 70
   },
   {
     "curriculum": "2009",
@@ -188881,7 +189374,8 @@
     ],
     "id": 4704,
     "fullScore": 50,
-    "source": "kice-archive-2009"
+    "source": "kice-archive-2009",
+    "highestStandardScore": 70
   },
   {
     "curriculum": "2009",
@@ -189014,7 +189508,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4709,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 69
   },
   {
     "curriculum": "2009",
@@ -189037,7 +189532,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4710,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 67
   },
   {
     "curriculum": "2009",
@@ -189060,7 +189556,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4711,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 79
   },
   {
     "curriculum": "2009",
@@ -189083,7 +189580,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4712,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 71
   },
   {
     "curriculum": "2009",
@@ -189106,7 +189604,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4713,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 75
   },
   {
     "curriculum": "2009",
@@ -189129,7 +189628,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4714,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 74
   },
   {
     "curriculum": "2009",
@@ -189152,7 +189652,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4715,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 72
   },
   {
     "curriculum": "2009",
@@ -189175,7 +189676,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4716,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 66
   },
   {
     "curriculum": "2009",
@@ -189198,7 +189700,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4717,
-    "fullScore": 100
+    "fullScore": 100,
+    "highestStandardScore": 124
   },
   {
     "curriculum": "2009",
@@ -189221,7 +189724,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4718,
-    "fullScore": 100
+    "fullScore": 100,
+    "highestStandardScore": 122
   },
   {
     "curriculum": "2009",
@@ -189244,7 +189748,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4719,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 69
   },
   {
     "curriculum": "2009",
@@ -189267,7 +189772,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4720,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 67
   },
   {
     "curriculum": "2009",
@@ -189290,7 +189796,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4721,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 70
   },
   {
     "curriculum": "2009",
@@ -189313,7 +189820,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4722,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 68
   },
   {
     "curriculum": "2009",
@@ -189336,7 +189844,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4723,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 67
   },
   {
     "curriculum": "2009",
@@ -189359,7 +189868,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4724,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 70
   },
   {
     "curriculum": "2009",
@@ -189382,7 +189892,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4725,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 67
   },
   {
     "curriculum": "2009",
@@ -189405,7 +189916,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4726,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 68
   },
   {
     "curriculum": "2009",
@@ -189428,7 +189940,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4727,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 70
   },
   {
     "curriculum": "2009",
@@ -189451,7 +189964,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4728,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 65
   },
   {
     "curriculum": "2009",
@@ -189474,7 +189988,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4729,
-    "fullScore": 100
+    "fullScore": 100,
+    "highestStandardScore": 146
   },
   {
     "curriculum": "2009",
@@ -189497,7 +190012,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4730,
-    "fullScore": 100
+    "fullScore": 100,
+    "highestStandardScore": 137
   },
   {
     "curriculum": "2009",
@@ -189520,7 +190036,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4731,
-    "fullScore": 100
+    "fullScore": 100,
+    "highestStandardScore": 128
   },
   {
     "curriculum": "2009",
@@ -189543,7 +190060,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4732,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 65
   },
   {
     "curriculum": "2009",
@@ -189566,7 +190084,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4733,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 65
   },
   {
     "curriculum": "2009",
@@ -189589,7 +190108,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4734,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 66
   },
   {
     "curriculum": "2009",
@@ -189612,7 +190132,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4735,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 66
   },
   {
     "curriculum": "2009",
@@ -189635,7 +190156,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4736,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 64
   },
   {
     "curriculum": "2009",
@@ -189658,7 +190180,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4737,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 64
   },
   {
     "curriculum": "2009",
@@ -189681,7 +190204,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4738,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 98
   },
   {
     "curriculum": "2009",
@@ -189704,7 +190228,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4739,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 98
   },
   {
     "curriculum": "2009",
@@ -189727,7 +190252,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4740,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 65
   },
   {
     "curriculum": "2009",
@@ -189750,7 +190276,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4741,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 65
   },
   {
     "curriculum": "2009",
@@ -189773,7 +190300,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4742,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 68
   },
   {
     "curriculum": "2009",
@@ -189796,7 +190324,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4743,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 68
   },
   {
     "curriculum": "2009",
@@ -189819,7 +190348,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4744,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 65
   },
   {
     "curriculum": "2009",
@@ -189842,7 +190372,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4745,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 65
   },
   {
     "curriculum": "2009",
@@ -189865,7 +190396,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4746,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 66
   },
   {
     "curriculum": "2009",
@@ -189888,7 +190420,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4747,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 66
   },
   {
     "curriculum": "2009",
@@ -189911,7 +190444,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4748,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 64
   },
   {
     "curriculum": "2009",
@@ -189934,7 +190468,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4749,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 77
   },
   {
     "curriculum": "2009",
@@ -189957,7 +190492,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4750,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 72
   },
   {
     "curriculum": "2009",
@@ -189980,7 +190516,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4751,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 72
   },
   {
     "curriculum": "2009",
@@ -190003,7 +190540,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4752,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 67
   },
   {
     "curriculum": "2009",
@@ -190026,7 +190564,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4753,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 73
   },
   {
     "curriculum": "2009",
@@ -190049,7 +190588,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4754,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 78
   },
   {
     "curriculum": "2009",
@@ -190072,7 +190612,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4755,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 73
   },
   {
     "curriculum": "2009",
@@ -190095,7 +190636,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4756,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 74
   },
   {
     "curriculum": "2009",
@@ -190118,7 +190660,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4757,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 69
   },
   {
     "curriculum": "2009",
@@ -190141,7 +190684,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4758,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 71
   },
   {
     "curriculum": "2009",
@@ -190164,7 +190708,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4759,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 70
   },
   {
     "curriculum": "2009",
@@ -190187,7 +190732,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4760,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 66
   },
   {
     "curriculum": "2009",
@@ -190210,7 +190756,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4761,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 74
   },
   {
     "curriculum": "2009",
@@ -190233,7 +190780,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4762,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 73
   },
   {
     "curriculum": "2009",
@@ -190256,7 +190804,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4763,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 67
   },
   {
     "curriculum": "2009",
@@ -190279,7 +190828,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4764,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 70
   },
   {
     "curriculum": "2009",
@@ -190302,7 +190852,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4765,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 70
   },
   {
     "curriculum": "2009",
@@ -190325,7 +190876,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4766,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 69
   },
   {
     "curriculum": "2009",
@@ -190348,7 +190900,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4767,
-    "fullScore": 100
+    "fullScore": 100,
+    "highestStandardScore": 126
   },
   {
     "curriculum": "2009",
@@ -190371,7 +190924,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4768,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 69
   },
   {
     "curriculum": "2009",
@@ -190394,7 +190948,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4769,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 69
   },
   {
     "curriculum": "2009",
@@ -190417,7 +190972,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4770,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 68
   },
   {
     "curriculum": "2009",
@@ -190440,7 +190996,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4771,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 68
   },
   {
     "curriculum": "2009",
@@ -190463,7 +191020,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4772,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 65
   },
   {
     "curriculum": "2009",
@@ -190486,7 +191044,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4773,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 65
   },
   {
     "curriculum": "2009",
@@ -190509,7 +191068,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4774,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 100
   },
   {
     "curriculum": "2009",
@@ -190532,7 +191092,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4775,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 100
   },
   {
     "curriculum": "2009",
@@ -190555,7 +191116,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4776,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 67
   },
   {
     "curriculum": "2009",
@@ -190578,7 +191140,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4777,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 67
   },
   {
     "curriculum": "2009",
@@ -190601,7 +191164,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4778,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 68
   },
   {
     "curriculum": "2009",
@@ -190624,7 +191188,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4779,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 68
   },
   {
     "curriculum": "2009",
@@ -190647,7 +191212,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4780,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 66
   },
   {
     "curriculum": "2009",
@@ -190670,7 +191236,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4781,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 66
   },
   {
     "curriculum": "2009",
@@ -190693,7 +191260,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4782,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 70
   },
   {
     "curriculum": "2009",
@@ -190716,7 +191284,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4783,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 70
   },
   {
     "curriculum": "2009",
@@ -190739,7 +191308,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 4784,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 70
   },
   {
     "curriculum": "2009",
@@ -201023,7 +201593,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 5038,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 66
   },
   {
     "curriculum": "2009",
@@ -201090,7 +201661,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 5040,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 67
   },
   {
     "curriculum": "2009",
@@ -201157,7 +201729,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 5042,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 68
   },
   {
     "curriculum": "2009",
@@ -201224,7 +201797,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 5044,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 72
   },
   {
     "curriculum": "2009",
@@ -201247,7 +201821,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 5045,
-    "fullScore": 100
+    "fullScore": 100,
+    "highestStandardScore": 132
   },
   {
     "curriculum": "2009",
@@ -201270,7 +201845,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 5046,
-    "fullScore": 100
+    "fullScore": 100,
+    "highestStandardScore": 131
   },
   {
     "curriculum": "2009",
@@ -201645,7 +202221,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 5055,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 67
   },
   {
     "curriculum": "2009",
@@ -201712,7 +202289,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 5057,
-    "fullScore": 100
+    "fullScore": 100,
+    "highestStandardScore": 143
   },
   {
     "curriculum": "2009",
@@ -201735,7 +202313,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 5058,
-    "fullScore": 100
+    "fullScore": 100,
+    "highestStandardScore": 138
   },
   {
     "curriculum": "2009",
@@ -201758,7 +202337,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 5059,
-    "fullScore": 100
+    "fullScore": 100,
+    "highestStandardScore": 133
   },
   {
     "curriculum": "2009",
@@ -201781,7 +202361,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 5060,
-    "fullScore": 100
+    "fullScore": 100,
+    "highestStandardScore": 136
   },
   {
     "curriculum": "2009",
@@ -201804,7 +202385,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 5061,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 65
   },
   {
     "curriculum": "2009",
@@ -201827,7 +202409,8 @@
     ],
     "id": 5062,
     "fullScore": 50,
-    "source": "kice-archive-2009"
+    "source": "kice-archive-2009",
+    "highestStandardScore": 65
   },
   {
     "curriculum": "2009",
@@ -201850,7 +202433,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 5063,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 77
   },
   {
     "curriculum": "2009",
@@ -201873,7 +202457,8 @@
     ],
     "id": 5064,
     "fullScore": 50,
-    "source": "kice-archive-2009"
+    "source": "kice-archive-2009",
+    "highestStandardScore": 77
   },
   {
     "curriculum": "2009",
@@ -201896,7 +202481,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 5065,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 66
   },
   {
     "curriculum": "2009",
@@ -201919,7 +202505,8 @@
     ],
     "id": 5066,
     "fullScore": 50,
-    "source": "kice-archive-2009"
+    "source": "kice-archive-2009",
+    "highestStandardScore": 66
   },
   {
     "curriculum": "2009",
@@ -201942,7 +202529,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 5067,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 87
   },
   {
     "curriculum": "2009",
@@ -201965,7 +202553,8 @@
     ],
     "id": 5068,
     "fullScore": 50,
-    "source": "kice-archive-2009"
+    "source": "kice-archive-2009",
+    "highestStandardScore": 87
   },
   {
     "curriculum": "2009",
@@ -201988,7 +202577,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 5069,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 66
   },
   {
     "curriculum": "2009",
@@ -202011,7 +202601,8 @@
     ],
     "id": 5070,
     "fullScore": 50,
-    "source": "kice-archive-2009"
+    "source": "kice-archive-2009",
+    "highestStandardScore": 66
   },
   {
     "curriculum": "2009",
@@ -202034,7 +202625,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 5071,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 71
   },
   {
     "curriculum": "2009",
@@ -202057,7 +202649,8 @@
     ],
     "id": 5072,
     "fullScore": 50,
-    "source": "kice-archive-2009"
+    "source": "kice-archive-2009",
+    "highestStandardScore": 71
   },
   {
     "curriculum": "2009",
@@ -202080,7 +202673,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 5073,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 68
   },
   {
     "curriculum": "2009",
@@ -202103,7 +202697,8 @@
     ],
     "id": 5074,
     "fullScore": 50,
-    "source": "kice-archive-2009"
+    "source": "kice-archive-2009",
+    "highestStandardScore": 68
   },
   {
     "curriculum": "2009",
@@ -202126,7 +202721,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 5075,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 71
   },
   {
     "curriculum": "2009",
@@ -202149,7 +202745,8 @@
     ],
     "id": 5076,
     "fullScore": 50,
-    "source": "kice-archive-2009"
+    "source": "kice-archive-2009",
+    "highestStandardScore": 71
   },
   {
     "curriculum": "2009",
@@ -202282,7 +202879,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 5081,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 67
   },
   {
     "curriculum": "2009",
@@ -202305,7 +202903,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 5082,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 65
   },
   {
     "curriculum": "2009",
@@ -202328,7 +202927,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 5083,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 76
   },
   {
     "curriculum": "2009",
@@ -202351,7 +202951,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 5084,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 72
   },
   {
     "curriculum": "2009",
@@ -202374,7 +202975,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 5085,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 77
   },
   {
     "curriculum": "2009",
@@ -202397,7 +202999,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 5086,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 74
   },
   {
     "curriculum": "2009",
@@ -202420,7 +203023,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 5087,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 68
   },
   {
     "curriculum": "2009",
@@ -202443,7 +203047,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 5088,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 68
   },
   {
     "curriculum": "2009",
@@ -202466,7 +203071,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 5089,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 67
   },
   {
     "curriculum": "2009",
@@ -202489,7 +203095,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 5090,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 72
   },
   {
     "curriculum": "2009",
@@ -202512,7 +203119,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 5091,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 65
   },
   {
     "curriculum": "2009",
@@ -202535,7 +203143,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 5092,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 71
   },
   {
     "curriculum": "2009",
@@ -202558,7 +203167,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 5093,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 71
   },
   {
     "curriculum": "2009",
@@ -202581,7 +203191,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 5094,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 72
   },
   {
     "curriculum": "2009",
@@ -202604,7 +203215,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 5095,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 67
   },
   {
     "curriculum": "2009",
@@ -202627,7 +203239,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 5096,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 69
   },
   {
     "curriculum": "2009",
@@ -202650,7 +203263,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 5097,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 65
   },
   {
     "curriculum": "2009",
@@ -202673,7 +203287,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 5098,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 66
   },
   {
     "curriculum": "2009",
@@ -202696,7 +203311,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 5099,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 65
   },
   {
     "curriculum": "2007개정",
@@ -202719,7 +203335,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 5100,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 65
   },
   {
     "curriculum": "2009",
@@ -202742,7 +203359,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 5101,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 65
   },
   {
     "curriculum": "2009",
@@ -202765,7 +203383,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 5102,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 69
   },
   {
     "curriculum": "2007개정",
@@ -202788,7 +203407,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 5103,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 69
   },
   {
     "curriculum": "2009",
@@ -202811,7 +203431,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 5104,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 69
   },
   {
     "curriculum": "2009",
@@ -202834,7 +203455,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 5105,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 65
   },
   {
     "curriculum": "2007개정",
@@ -202857,7 +203479,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 5106,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 65
   },
   {
     "curriculum": "2009",
@@ -202880,7 +203503,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 5107,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 65
   },
   {
     "curriculum": "2009",
@@ -202903,7 +203527,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 5108,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 77
   },
   {
     "curriculum": "2007개정",
@@ -202926,7 +203551,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 5109,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 77
   },
   {
     "curriculum": "2009",
@@ -202949,7 +203575,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 5110,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 77
   },
   {
     "curriculum": "2009",
@@ -202972,7 +203599,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 5111,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 64
   },
   {
     "curriculum": "2007개정",
@@ -202995,7 +203623,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 5112,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 64
   },
   {
     "curriculum": "2009",
@@ -203018,7 +203647,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 5113,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 64
   },
   {
     "curriculum": "2009",
@@ -203041,7 +203671,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 5114,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 68
   },
   {
     "curriculum": "2009",
@@ -203064,7 +203695,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 5115,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 68
   },
   {
     "curriculum": "2009",
@@ -203087,7 +203719,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 5116,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 65
   },
   {
     "curriculum": "2007개정",
@@ -203110,7 +203743,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 5117,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 65
   },
   {
     "curriculum": "2009",
@@ -203133,7 +203767,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 5118,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 65
   },
   {
     "curriculum": "2009",
@@ -203156,7 +203791,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 5119,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 66
   },
   {
     "curriculum": "2007개정",
@@ -203179,7 +203815,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 5120,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 66
   },
   {
     "curriculum": "2009",
@@ -203202,7 +203839,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 5121,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 66
   },
   {
     "curriculum": "2009",
@@ -203225,7 +203863,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 5122,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 68
   },
   {
     "curriculum": "2009",
@@ -203248,7 +203887,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 5123,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 76
   },
   {
     "curriculum": "2009",
@@ -203271,7 +203911,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 5124,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 71
   },
   {
     "curriculum": "2009",
@@ -203294,7 +203935,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 5125,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 76
   },
   {
     "curriculum": "2009",
@@ -203317,7 +203959,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 5126,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 68
   },
   {
     "curriculum": "2009",
@@ -203340,7 +203983,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 5127,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 80
   },
   {
     "curriculum": "2009",
@@ -203363,7 +204007,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 5128,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 79
   },
   {
     "curriculum": "2009",
@@ -203386,7 +204031,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 5129,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 66
   },
   {
     "curriculum": "2009",
@@ -203409,7 +204055,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 5130,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 68
   },
   {
     "curriculum": "2009",
@@ -203432,7 +204079,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 5131,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 72
   },
   {
     "curriculum": "2009",
@@ -203455,7 +204103,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 5132,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 81
   },
   {
     "curriculum": "2009",
@@ -203478,7 +204127,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 5133,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 75
   },
   {
     "curriculum": "2009",
@@ -203501,7 +204151,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 5134,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 68
   },
   {
     "curriculum": "2009",
@@ -203524,7 +204175,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 5135,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 71
   },
   {
     "curriculum": "2009",
@@ -203547,7 +204199,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 5136,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 77
   },
   {
     "curriculum": "2009",
@@ -203570,7 +204223,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 5137,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 70
   },
   {
     "curriculum": "2009",
@@ -203593,7 +204247,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 5138,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 73
   },
   {
     "curriculum": "2009",
@@ -203616,7 +204271,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 5139,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 75
   },
   {
     "curriculum": "2009",
@@ -203639,7 +204295,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 5140,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 76
   },
   {
     "curriculum": "2009",
@@ -203662,7 +204319,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 5141,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 65
   },
   {
     "curriculum": "2007개정",
@@ -203685,7 +204343,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 5142,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 65
   },
   {
     "curriculum": "2009",
@@ -203708,7 +204367,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 5143,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 65
   },
   {
     "curriculum": "2009",
@@ -203731,7 +204391,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 5144,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 67
   },
   {
     "curriculum": "2007개정",
@@ -203754,7 +204415,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 5145,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 67
   },
   {
     "curriculum": "2009",
@@ -203777,7 +204439,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 5146,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 67
   },
   {
     "curriculum": "2009",
@@ -203800,7 +204463,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 5147,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 63
   },
   {
     "curriculum": "2007개정",
@@ -203823,7 +204487,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 5148,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 63
   },
   {
     "curriculum": "2009",
@@ -203846,7 +204511,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 5149,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 63
   },
   {
     "curriculum": "2009",
@@ -203869,7 +204535,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 5150,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 93
   },
   {
     "curriculum": "2007개정",
@@ -203892,7 +204559,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 5151,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 93
   },
   {
     "curriculum": "2009",
@@ -203915,7 +204583,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 5152,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 93
   },
   {
     "curriculum": "2009",
@@ -203938,7 +204607,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 5153,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 70
   },
   {
     "curriculum": "2007개정",
@@ -203961,7 +204631,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 5154,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 70
   },
   {
     "curriculum": "2009",
@@ -203984,7 +204655,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 5155,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 70
   },
   {
     "curriculum": "2009",
@@ -204007,7 +204679,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 5156,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 67
   },
   {
     "curriculum": "2009",
@@ -204030,7 +204703,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 5157,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 67
   },
   {
     "curriculum": "2009",
@@ -204053,7 +204727,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 5158,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 66
   },
   {
     "curriculum": "2007개정",
@@ -204076,7 +204751,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 5159,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 66
   },
   {
     "curriculum": "2009",
@@ -204099,7 +204775,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 5160,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 66
   },
   {
     "curriculum": "2009",
@@ -204122,7 +204799,8 @@
     ],
     "source": "kice-archive-2009",
     "id": 5161,
-    "fullScore": 50
+    "fullScore": 50,
+    "highestStandardScore": 74
   },
   {
     "curriculum": "2009",

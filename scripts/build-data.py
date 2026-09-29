@@ -1048,11 +1048,14 @@ def tier_series_key(it: dict):
 
 
 def compute_exam_scores(items: list[dict], cuts: list[dict] | None = None) -> dict:
-    """{exam_id: {raw, std, top, cum, abs, basis, tier, cut}} — 1등급 원점수 컷 기준 난이도.
+    """{exam_id: {raw, std, top, cum, abs, basis, tier, tierBasis, cut}} — 표준점수 최고점 기준 난이도.
 
-    난이도는 같은 묶음(tier_series_key)의 역대 1등급 원점수 컷 안에서의 백분위(중간순위)로
-    5단계를 매긴다: 상위 20%(컷 높음) = 매우 쉬움 … 하위 20% = 매우 어려움.
-    표본이 5회 미만이거나 절대평가·값이 모두 같으면 매기지 않는다."""
+    난이도는 같은 묶음(tier_series_key)의 역대 값 안에서의 백분위(중간순위)로 5단계를 매긴다.
+    기준은 묶음 단위로 하나만 쓴다(섞으면 순위가 어긋남):
+      · 표준점수 최고점이 5회 이상이고 묶음 회차의 80% 이상에 있는 묶음 → 표점 최고점 (높을수록 어려움). 표점 최고점이 없는 회차는 매기지 않음.
+      · 그렇지 않은 상대평가 묶음 → 1등급 원점수 컷 (높을수록 쉬움)
+      · 영어(절대평가) → 1등급 비율 (높을수록 쉬움)
+    표본이 5회 미만이거나 값이 모두 같으면 매기지 않는다."""
     match = build_cut_matcher(cuts if cuts is not None else _load_gradecuts())
     try:   # 영어(절대평가) 등급별 비율 — scripts/extract-english-ratios.py (평가원 채점결과)
         en_ratios = json.loads((ROOT / 'data' / 'english-grade-ratios.json').read_text(encoding='utf-8'))
@@ -1080,6 +1083,7 @@ def compute_exam_scores(items: list[dict], cuts: list[dict] | None = None) -> di
             'abs': absolute,
             'basis': cut.get('rawCutBasis'),
             'tier': None,
+            'tierBasis': None,
             'cut': cut,
             'ratio': None,
             'ratios': None,
@@ -1090,19 +1094,34 @@ def compute_exam_scores(items: list[dict], cuts: list[dict] | None = None) -> di
             out[it['id']]['ratios'] = er['ratios']
             out[it['id']]['ratio'] = er['ratios'][0]
         key = tier_series_key(it)
-        # 난이도 비교값: 상대평가는 1등급 원점수 컷, 영어(절대평가)는 1등급 비율 — 둘 다 높을수록 쉬움
-        metric = out[it['id']]['ratio'] if absolute else r1
-        if key and metric is not None:
-            series.setdefault(key, {})[(it.get('gradeYear'), it.get('type'), it.get('month'))] = metric
+        # 난이도 비교값 — 모두 '높을수록 쉬움' 방향으로 맞춘다(표점 최고점은 부호를 뒤집음)
+        if key:
+            when = (it.get('gradeYear'), it.get('type'), it.get('month'))
+            s = series.setdefault(key, {'ratio': {}, 'top': {}, 'raw': {}})
+            if absolute:
+                if out[it['id']]['ratio'] is not None:
+                    s['ratio'][when] = out[it['id']]['ratio']
+            else:
+                if top is not None:
+                    s['top'][when] = -top
+                if r1 is not None:
+                    s['raw'][when] = r1
+    enough = lambda d: len(d) >= _TIER_MIN_SAMPLES and len(set(d.values())) >= 3
+    # 표점 최고점은 묶음의 80% 이상 회차에 있을 때만 — 일부만 있으면 나머지 회차의 난이도가 사라지므로 1등급컷 유지
+    covered = lambda d: enough(d['top']) and len(d['top']) >= 0.8 * len(set(d['top']) | set(d['raw']))
+    basis_of = {k: 'ratio' if enough(d['ratio']) else 'top' if covered(d) else 'raw' if enough(d['raw']) else None
+                for k, d in series.items()}
     for it in items:
         rec = out.get(it['id'])
         key = tier_series_key(it)
-        v = (rec['ratio'] if rec['abs'] else rec['raw']) if rec else None
-        if v is None or not key or key not in series:
+        basis = basis_of.get(key) if rec and key else None
+        if not basis:
             continue
-        values = list(series[key].values())
-        if len(values) < _TIER_MIN_SAMPLES or len(set(values)) < 3:
+        v = {'ratio': rec['ratio'], 'top': -rec['top'] if rec['top'] is not None else None, 'raw': rec['raw']}[basis]
+        if v is None:
             continue
+        values = list(series[key][basis].values())
+        rec['tierBasis'] = basis
         below = sum(1 for x in values if x < v)
         equal = sum(1 for x in values if x == v)
         p = (below + 0.5 * equal) / len(values)
@@ -1287,7 +1306,7 @@ def score_stats_html(sc: dict) -> str:
         if sc.get('ratio') is not None:
             cells.append(('1등급 비율', f'{esc(sc["ratio"])}<small>%</small>', True))
             if sc.get('tier'):
-                cells.append(('난이도 (역대 1등급 비율 대비)', TIER_LABELS[sc['tier']], True))
+                cells.append(('난이도 (역대 1등급 비율 기준)', TIER_LABELS[sc['tier']], True))
         else:
             cells.append(('평가 방식', '절대평가', False))
     else:
@@ -1299,7 +1318,7 @@ def score_stats_html(sc: dict) -> str:
         if sc.get('cum') is not None:
             cells.append(('1등급 누적 비율', f'{esc(sc["cum"])}<small>%</small>', True))
         if sc.get('tier'):
-            cells.append(('난이도 (역대 대비)', TIER_LABELS[sc['tier']], True))
+            cells.append(('난이도 (역대 ' + ('표점 최고점' if sc.get('tierBasis') == 'top' else '1등급컷') + ' 기준)', TIER_LABELS[sc['tier']], True))
     return '<div class="stats">' + ''.join(
         f'<div class="card-box stat"><span class="stat__label">{lbl}</span>'
         f'<span class="stat__value{" spoil-val" if blur else ""}">{val}</span></div>' for lbl, val, blur in cells) + '</div>'
