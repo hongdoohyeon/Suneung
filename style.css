@@ -670,6 +670,32 @@ main { flex: 1 0 auto; width: 100%; }
 .grade-table td.is-muted { color: var(--ink-4); font-weight: 500; }
 .grade-table__legend { margin-top: 10px; font-size: 12px; color: var(--ink-4); }
 
+/* 이의신청 기록 — 공식 / 언론 / 커뮤니티(비공식) 카드 분리 */
+.obj-grid { display: grid; gap: 12px; }
+.obj-card .exam-card__body { font-size: 14px; line-height: 1.6; }
+.obj-card .exam-card__body > * + * { margin-top: 10px; }
+.obj-verdict { font-weight: 700; }
+.obj-stats, .obj-meta, .obj-note, .obj-links { font-size: 12.5px; color: var(--ink-4); }
+.obj-links a, .obj-list a, .obj-change a { color: var(--pop); }
+.obj-changes, .obj-qs, .obj-list { list-style: none; padding: 0; display: grid; gap: 8px; }
+.obj-change { padding: 10px 12px; border: 1px solid var(--line); border-radius: 10px; background: var(--sunken); display: flex; flex-wrap: wrap; gap: 4px 8px; align-items: baseline; }
+.obj-change--mine { border-color: var(--t4); background: var(--t4-bg); }
+.obj-decision { font-weight: 700; color: var(--t5); }
+.obj-detail { flex-basis: 100%; color: var(--ink-3); }
+.obj-tag { display: inline-block; padding: 1px 8px; border-radius: 999px; font-size: 11.5px; font-weight: 700; background: var(--surface-2); color: var(--ink-3); }
+.obj-tag--unofficial { background: var(--t4-bg); color: var(--t4); }
+.obj-sub { font-size: 13.5px; font-weight: 700; margin-top: 14px; }
+.obj-qs li { padding-top: 8px; border-top: 1px solid var(--line-soft); }
+.obj-qs summary { cursor: pointer; }
+.obj-detail-box { margin-top: 6px; padding: 10px 12px; border-radius: 10px; background: var(--sunken); font-size: 13.5px; color: var(--ink-2); }
+.obj-detail-box p + p { margin-top: 6px; }
+.obj-k { display: inline-block; margin-right: 6px; font-size: 12px; font-weight: 700; color: var(--ink-4); }
+.obj-summary { color: var(--ink-2); }
+.obj-card--community { border-style: dashed; }
+.obj-card--community .exam-card__head { flex-wrap: wrap; }
+.obj-card--community .exam-card__title, .obj-tag { white-space: nowrap; }
+.obj-card--community .exam-card__head .exam-card__hint { margin-left: 0; flex-basis: 100%; }
+
 .compare__metric { margin-left: auto; }
 .compare .exam-section__head .switch { margin-left: 0; }
 .compare__metric button { padding: 0 12px; font-size: 13px; font-weight: 600; white-space: nowrap; }
