@@ -2,7 +2,7 @@
   "source": "EBSi 공개 기출문제 아카이브",
   "sourcePage": "https://www.ebsi.co.kr/ebs/xip/xipc/previousPaperList.ebs?targetCd=D300",
   "fetchedAt": "2026-07-25T10:28:34.841Z",
-  "count": 1587,
+  "count": 1585,
   "records": [
     {
       "id": 4539,
@@ -336,17 +336,6 @@
     },
     {
       "id": 4586,
-      "gradeYear": 2007,
-      "type": "sept",
-      "subject": "사회탐구",
-      "subSubject": "한국사",
-      "solutionUrl": "https://wdown.ebsi.co.kr/W61001/01exam/20060906/s_his_hsj.pdf",
-      "solutionDownload": "2007학년도 9월 모평 사회탐구(한국사) 정답·해설.pdf",
-      "solutionSource": "EBSi",
-      "solutionSourcePage": "https://www.ebsi.co.kr/ebs/xip/xipc/previousPaperList.ebs?targetCd=D300"
-    },
-    {
-      "id": 6885,
       "gradeYear": 2007,
       "type": "sept",
       "subject": "사회탐구",
@@ -853,17 +842,6 @@
     },
     {
       "id": 4622,
-      "gradeYear": 2007,
-      "type": "june",
-      "subject": "사회탐구",
-      "subSubject": "한국사",
-      "solutionUrl": "https://wdown.ebsi.co.kr/W61001/01exam/20060603/s_his_hsj.pdf",
-      "solutionDownload": "2007학년도 6월 모평 사회탐구(한국사) 정답·해설.pdf",
-      "solutionSource": "EBSi",
-      "solutionSourcePage": "https://www.ebsi.co.kr/ebs/xip/xipc/previousPaperList.ebs?targetCd=D300"
-    },
-    {
-      "id": 7117,
       "gradeYear": 2007,
       "type": "june",
       "subject": "사회탐구",
