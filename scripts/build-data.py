@@ -815,7 +815,7 @@ def answer_label_for(it: dict) -> str:
     return '정답'
 
 
-def build_exam_meta(it: dict) -> dict:
+def build_exam_meta(it: dict, has_cut: bool = True) -> dict:
     """SSG 페이지·sitemap에 쓰일 시험 단건 메타 빌드.
     학생 검색 키워드(9모/6모/학평/기출/답지/등급컷)를 자연스럽게 포함한다.
     영어 시험은 듣기·대본·스크립트·MP3 키워드를 추가로 노출한다."""
@@ -929,7 +929,8 @@ def build_exam_meta(it: dict) -> dict:
             )
     else:
         desc = (
-            f'{full_phrase} 기출 {assets_phrase} 자료와 등급컷을 한 곳에서 확인하고 무료로 내려받으세요.'
+            f'{full_phrase} 기출 {assets_phrase} 자료' + ('와 등급컷을' if has_cut else '를')
+            + ' 한 곳에서 확인하고 무료로 내려받으세요.'
         )
 
     # description 160자 권장 (SERP/OG 절단 회피) — 단어 경계 보존하며 잘라냄
@@ -1863,7 +1864,8 @@ def build_static_exam_pages(items: list[dict], template_path: Path, out_root: Pa
     TODAY_ISO = datetime.date.today().isoformat()
     written = 0
     for it in items:
-        meta = build_exam_meta(it)
+        _has_cut = _scores.get(it['id']) is not None
+        meta = build_exam_meta(it, has_cut=_has_cut)
         canonical = meta['canonical']
         head      = meta['head']
         answer_label = answer_label_for(it)
@@ -2130,6 +2132,9 @@ def build_static_exam_pages(items: list[dict], template_path: Path, out_root: Pa
                                 '<section class="card-box exam__body" id="examBody">'
                                 + _note.read_text(encoding='utf-8').strip() + '</section>', 1)
 
+        if sc is None:   # 등급컷 등 고유 정보가 없는 얇은 페이지 — 광고 슬롯을 렌더하지 않는다(lib/ads.js)
+            html = html.replace('<body class="page-exam">', '<body class="page-exam" data-no-ads>', 1)
+
         # 등급컷·난이도 — 매칭 컷이 있을 때만 섹션 공개 (검정고시 등은 숨김 유지)
         _cut = sc['cut'] if sc else None
         if (_cut is not None and isinstance(_cut.get('rawCuts'), list)
@@ -2190,7 +2195,7 @@ def build_static_exam_pages(items: list[dict], template_path: Path, out_root: Pa
         print(f'  + 이동 안내 페이지 {n_red}건 (삭제된 중복 항목)')
 
 
-def build_set_meta(curr: str, year: str, t: str, sg: int | None, exams_in_set: list[dict]) -> dict:
+def build_set_meta(curr: str, year: str, t: str, sg: int | None, exams_in_set: list[dict], has_cuts: bool = True) -> dict:
     """회차 페이지 메타. 학생 검색 키워드("5모", "27수능", "고3 5월 학평") 강화."""
     gy   = int(year) if year != 'preliminary' else 0
     gy2  = str(gy)[-2:] if gy else ''
@@ -2308,13 +2313,14 @@ def build_set_meta(curr: str, year: str, t: str, sg: int | None, exams_in_set: l
         # 학생들이 실제로 검색하는 말(3모·6모, 모의고사, 답지)을 제목·설명에 넣는다. 공식 명칭은 그대로 둔다.
         base = f'{head}({short})' if short and short not in head else head
         mock = '모의고사 ' if sg is not None else ''
-        title = f'{base} {mock}문제·정답·해설·등급컷 — 기출해체분석기'
+        cut_t = '·등급컷' if has_cuts else ''
+        title = f'{base} {mock}문제·정답·해설{cut_t} — 기출해체분석기'
         if has_english_listen:
-            desc = (f'{full} {subj_phrase} 기출 문제지·정답(답지)·해설지·등급컷. '
+            desc = (f'{full} {subj_phrase} 기출 문제지·정답(답지)·해설지{cut_t}. '
                     f'영어 듣기 MP3와 듣기 대본 PDF도 함께 받을 수 있습니다.')
         else:
-            desc = (f'{full} {subj_phrase} 기출 문제지·정답(답지)·해설지와 등급컷을 '
-                    f'영역별로 한 페이지에서 확인하고 무료로 내려받으세요.')
+            desc = (f'{full} {subj_phrase} 기출 문제지·정답(답지)·해설지' + ('와 등급컷을 ' if has_cuts else '를 ')
+                    + '영역별로 한 페이지에서 확인하고 무료로 내려받으세요.')
 
     if is_reference:
         intro_parts = [f'{full} 자료입니다.',
@@ -2505,6 +2511,9 @@ def build_static_set_pages(items: list[dict], template_path: Path, out_root: Pat
         (curr, year, t, sg), exams_in_set = max(group_list, key=lambda g: len(g[1]))
         merged_exams = [e for _, es in group_list for e in es]
         meta = build_set_meta(curr, year, t, sg, exams_in_set)
+        facts_html = set_facts_html(meta['head'], merged_exams, _scores, _by_key)
+        if not facts_html:   # 등급컷 표가 없는 회차는 제목·설명에서 등급컷을 빼고 광고도 제외
+            meta = build_set_meta(curr, year, t, sg, exams_in_set, has_cuts=False)
         canonical = f'https://kicegg.com/{fname}'
 
         jsonld = {
@@ -2618,13 +2627,16 @@ def build_static_set_pages(items: list[dict], template_path: Path, out_root: Pat
             lambda m: m.group(1) + cards_html + m.group(2),
             html, count=1)
 
-        extra = set_facts_html(meta['head'], merged_exams, _scores, _by_key)
+        extra = facts_html
         me = next((o for o in catalog if o['fname'] == fname), None)
         if me:
             extra += set_related_html(me, catalog, sorted({e['subject'] for e in merged_exams if e.get('subject')}, key=lambda x: SUBJECT_ORDER.get(x, 99)))
         if extra:
             html = re.sub(r'(<div class="ad-slot ad-slot--banner" data-ad-position="examsetBottom"></div>)',
                           lambda m: m.group(1) + '\n\n    ' + extra, html, count=1)
+
+        if not facts_html:
+            html = re.sub(r'(<body[^>]*?)(>)', r'\1 data-no-ads\2', html, count=1)
 
         (out_root / fname).write_text(html, encoding='utf-8')
         written += 1
