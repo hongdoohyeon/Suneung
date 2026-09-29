@@ -56,9 +56,16 @@ AREA = {'언어': '국어', '국어': '국어', '수리': '수학', '수학': '�
 
 def clean_sub(s):
     if not s: return None
-    s = re.sub(r"[‘’'\"]", '', s).strip()
+    s = re.sub(r"^\(?과목\)?\s*", '', s)
+    s = re.sub(r"[‘’'\"“”`、,:()|)]", ' ', s)
+    s = re.sub(r'^FAAS\s*', '', s.strip())
+    s = re.sub(r'\s*(Ⅰ|I|1|Ｌ|\|)\s*(형)?$', 'Ⅰ', s) if re.search(r'(물리|화학|생물|생명\s*과학|지구\s*과학|일본어|프랑스어|스페인어|독일어|중국어|한문)\s*(Ⅰ|I|1|Ｌ|\|)?\s*(형)?$', s) and not re.search(r'(Ⅱ|II|끄)\s*$', s) and re.search(r'(Ⅰ|I|1|Ｌ|\|)\s*(형)?$', s) else s
+    s = re.sub(r'\s*(Ⅱ|II|끄)\s*$', 'Ⅱ', s)
+    s = s.replace('․', '·').replace('ㆍ', '·').replace('지구 과학', '지구과학').replace('생명 과학', '생명과학')
+    s = re.sub(r'\s+', ' ', s).strip()
+    s = re.sub(r'^(가|나)\s+형', r'\1형', s)
+    if re.fullmatch(r'가\s*나형', s): s = '가·나형'
     return s or None
-
 out = {}
 for k, v in OFF.items():
     s = {**v['summary'], **OVR.get(k, {})}
@@ -83,13 +90,21 @@ for k, v in OFF.items():
     if v['items']:
         for i in v['items']:
             items.append({'subject': AREA.get(i['area'], i['area']), 'sub': clean_sub(i['sub']), 'no': i['no'],
-                          'kind': i['kind'], 'result': i['result'], 'explained': i['explained']})
+                          'kind': re.sub(r'(정답|문제|\))이의\s*신청', r'\1 이의신청', i['kind']), 'result': i['result'], 'explained': i['explained']})
     det = []
     for d in v['details']:
+        paras = [x for x in d.get('answer') or [] if x]
+        if d.get('chars', 0) < 80 or not paras: continue
         claim = d['claim'].strip()
-        if not claim or len(claim) < 15: continue
+        concl = d['conclusion'].strip()
+        if re.search(r'영역|이의\s*신청\s*정답에|이상이\s*없음\s*[-◎]', concl): concl = ''
+        answer = [x for x in paras if x != claim]
+        body, n = [], 0
+        for x in answer:   # 원문 문단 그대로 — 너무 긴 답변은 앞부분만 (원문 링크로 이어 보기)
+            if n + len(x) > 2400: body.append('…'); break
+            body.append(x); n += len(x)
         det.append({'subject': AREA.get(d['area'], d['area']) if d['area'] else None, 'sub': clean_sub(d['sub']), 'no': d['no'],
-                    'claim': claim[:300], 'conclusion': (d['conclusion'].strip()[:220] if not re.search(r'영역|이의\s*신청\s*정답에|이상이\s*없음\s*[-◎]', d['conclusion']) else '')})
+                    'claim': claim[:700], 'conclusion': concl[:400], 'answer': body, **({'ocr': True} if d.get('ocr') else {})})
     rec = {'official': {
         'org': '한국교육과정평가원', 'posts': posts, 'docs': docs,
         'received': s.get('received'), 'cases': s.get('cases'), 'items': s.get('items'),

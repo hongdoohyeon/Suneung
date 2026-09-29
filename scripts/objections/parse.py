@@ -36,28 +36,75 @@ def parse_items(text):
                           'result': re.sub(r'\s+', ' ', m.group(3)).strip(), 'explained': m.group(4) in ('◎', '○')})
     return items
 
+def _paragraphs(raw):
+    """PDF/HWP 줄바꿈 복원 — 들여쓴 줄에서 새 문단, 나머지는 이어 붙임(줄 끝 공백이 없으면 낱말 중간 줄바꿈)."""
+    paras, cur = [], ''
+    for line in raw.split('\n'):
+        if re.fullmatch(r'\s*-\s*\d+\s*-\s*', line) or not line.strip():
+            continue
+        if re.match(r'\s{2,}\S|\s*[○◦·※]\s', line) and cur:
+            paras.append(cur.strip()); cur = ''
+        cur += (line.strip() if cur.endswith(' ') or not cur else line.lstrip()) if not cur.endswith(' ') else line.strip()
+        cur += ' ' if line.endswith(' ') else ''
+    if cur.strip(): paras.append(cur.strip())
+    return [re.sub(r'\s+', ' ', re.sub(r'[-]', '', x)).strip() for x in paras if x.strip()]
+
+_AREA_RE = re.compile(r'(언어|국어|수리|수학|외국어\s*\(\s*영어\s*\)|외국어|영어|한국사|사회\s*탐구|과학\s*탐구|직업\s*탐구|제\s*2\s*외국어\s*[/·]\s*한문|제\s*2\s*외국어)\s*영역')
+_SUB_RE = re.compile(r'(?:유형\s*\(\s*과목\s*\)|과목)\s*:\s*(.+)|영역\s*:\s*(?!\s*(?:유형|과목))(.+)')
+
+def _heads(t):
+    """답변 블록 앞 머리줄 → [(pos, area, sub)] — '사회탐구 영역 : 과목 : 윤리', '유형(과목) : 지구과학Ⅰ'(영역은 앞 머리 이어받기) 등."""
+    out, area, pos = [], None, 0
+    for line in t.split('\n'):
+        L = line.strip()
+        if L and len(L) < 60 and '문항 번호' not in L:
+            a = _AREA_RE.search(L)
+            m = _SUB_RE.search(L)
+            if a or (m and not re.search(r'[다요]\.?$', L)):
+                sub = (m.group(1) or m.group(2)).strip() if m else None
+                if sub and '영역' in sub:   # '유형(과목) : 과학탐구 영역, 물리학Ⅱ'
+                    a2 = _AREA_RE.search(sub); a = a or a2; sub = sub.split(',')[-1].strip()
+                if a:
+                    area = re.sub(r'\s+', '', a.group(1)); area = {'제2외국어·한문': '제2외국어/한문'}.get(area, area)
+                if sub:
+                    sub = re.sub(r"[‘’'\"]", '', sub).strip(' ,:')
+                out.append((pos, area, sub or None))
+        pos += len(line) + 1
+    return out
+
 def parse_details(text):
-    """'문항 번호 : N 답변 내용 : ...' 블록 → {(area, sub, no): {claim, conclusion}}"""
-    t = norm(text)
+    """'문항 번호 : (과목) N(번) 답변 내용 : ...' 블록 → [{area, sub, no, claim, conclusion, answer}]"""
+    t = text.replace('\r', '')
     out = []
-    # 영역 표시(가장 가까운 앞쪽 머리)를 기억하며 블록 순회
-    marks = [(m.start(), m.group(1), (m.group(3) or '').strip() or None) for m in re.finditer(
-        AREA + r'\s*영역\s*(,\s*유형\s*\(\s*과목\s*\)\s*:\s*([^\n]{1,30}?))?(?=\s*\n|\s*문항)', t)]
-    blocks = list(re.finditer(r'문항\s*번호\s*:\s*(\d{1,2})\s*\n?\s*답변\s*내용\s*:?', t))
+    marks = _heads(t)
+    blocks = list(re.finditer(r'문항\s*번호\s*:\s*(?:([^\d\n:]{1,20}?)\s*)?(\d{1,2})\s*번?\s*(?:문항)?\s*\n?\s*답변\s*내용\s*:?[ \t]*', t))
     for i, b in enumerate(blocks):
         end = blocks[i + 1].start() if i + 1 < len(blocks) else len(t)
         body = t[b.end():end]
-        cut = re.search(r'INSID|\d{4}\s*학년도\s*대학수학능력시험|【\s*문항별|-\s*\d+\s*-\s*\d{4}', body)
+        cut = re.search(r'INSID|\n\s*\d{4}\s*학년도\s*대학수학능력시험|【\s*문항별|\n\s*번호\s*\n\s*이의\s*신청\s*내역|\n\s*붙임\s*\d', body)
         if cut: body = body[:cut.start()]
-        body = re.sub(r'[\uf000-\uf8ff]', '', re.sub(r'\s+', ' ', body)).strip()
+        paras = _paragraphs(body)
+        flat = ' '.join(paras)
         prev = [m for m in marks if m[0] < b.start()]
         area, sub = (prev[-1][1], prev[-1][2]) if prev else (None, None)
-        sents = re.split(r'(?<=[다요])\.\s+', body)
-        claim = next((s for s in sents if re.search(r'이의\s*(제기|신청)', s)), None)
-        concl = next((s for s in reversed(sents) if re.search(r'그러므로|따라서|이상이\s*없|정답(은|입니다)', s)), None)
-        out.append({'area': area, 'sub': sub, 'no': int(b.group(1)),
-                    'claim': (claim or '')[:400], 'conclusion': (concl or '')[:300], 'chars': len(body)})
+        if b.group(1) and b.group(1).strip():
+            sub = re.sub(r'\s+', ' ', b.group(1)).strip()
+        sents = re.split(r'(?<=[다요])\.\s*', flat)
+        claim_p = next((x for x in paras if re.search(r'이의\s*신청의?\s*(주요\s*)?내용|이의\s*(제기|신청)[^.]{0,30}(주장|요지)', x)), None)
+        claim = claim_p or next((x for x in sents if re.search(r'이의\s*(제기|신청)', x)), None)
+        concl = next((x for x in reversed(sents) if re.search(r'그러므로|따라서|이상이\s*없|정답(은|입니다)', x)), None)
+        out.append({'area': area, 'sub': sub, 'no': int(b.group(2)),
+                    'claim': (claim or '')[:700], 'conclusion': (concl or '')[:400],
+                    'answer': paras, 'chars': len(flat)})
     return out
+
+def garble_text(x):
+    """OCR 깨짐 정도 — 한글 문장 속 로마자 비율(영어 지문 인용이 아닌 경우)."""
+    lat = len(re.findall(r'[A-Za-z]', x)); han = len(re.findall(r'[가-힣]', x))
+    return lat / max(1, lat + han)
+
+def garble(ds):
+    return sum(garble_text(' '.join(d['answer'])) for d in ds) / max(1, len(ds))
 
 def parse_summary(text):
     t = re.sub(r'\s+', ' ', text)
@@ -87,22 +134,26 @@ for seq, p in P.items():
     if not ex: continue
     E = exams[ex]
     E['posts'].append({'seq': seq, 'board': p['board'], 'title': p['title'], 'date': p['date']})
-    texts = [p.get('body') or '']
+    texts = [(p.get('body') or '', False)]
     import glob
     for f in p['files']:
         t = open(O + '/' + f['txt']).read() if os.path.exists(O + '/' + f['txt']) else ''
         ocr = sorted(glob.glob(O + '/ocr/' + os.path.basename(f['path']) + '.*.txt'))
         if ocr:
-            texts.append(' '.join(open(x).read() for x in ocr))
+            texts.append((' '.join(open(x).read() for x in ocr), True))
+        ocr2 = sorted(glob.glob(O + '/ocr2/' + os.path.basename(f['path']) + '.*.txt'))   # 답변 본문용 고해상 재판독
+        if ocr2:
+            texts.append(('\n'.join(open(x).read() for x in ocr2), True))
         E['docs'].append({'name': f['name'], 'path': f['path'], 'fileSeq': f['seq'], 'chars': len(t)})
-        texts.append(t)
-    for t in texts:
+        texts.append((t, False))
+    for t, is_ocr in texts:
         s = parse_summary(t)
         for k, v in s.items(): E['summary'].setdefault(k, v)
         its = parse_items(t)
         if its and not E['items']: E['items'] = its
         ds = parse_details(t)
-        if ds and not E['details']: E['details'] = ds
+        for d in ds: d['ocr'] = is_ocr
+        if ds and (not E['details'] or (len(ds) >= 0.8 * len(E['details']) and garble(ds) < garble(E['details']) - 0.01)): E['details'] = ds
 out = {f'{g}|{t}': v for (g, t), v in sorted(exams.items())}
 json.dump(out, open(O + '/official.json', 'w'), ensure_ascii=False, indent=1)
 for k, v in out.items():
