@@ -1229,6 +1229,11 @@ def exam_fact_rows(it: dict) -> list[tuple[str, str]]:
         rows.append(('시행', esc(held)))
     rows.append(('영역' if it.get('typeGroup') != 'essay' else '계열', esc(subj if it.get('typeGroup') != 'essay' else (it.get('subSubject') or '논술'))))
     curr = _CURR_LABEL.get(str(it.get('curriculum')))
+    # 2022 개정은 고1 2025년·고2 2026년 학평부터 (데이터 키는 필터·등급컷 매칭 때문에 '2015' 유지)
+    if it.get('typeGroup') == 'education' and (
+            (it.get('studentGrade') == 1 and (it.get('examYear') or 0) >= 2025)
+            or (it.get('studentGrade') == 2 and (it.get('examYear') or 0) >= 2026)):
+        curr = '2022 개정'
     if curr:
         rows.append(('교육과정', esc(curr)))
     org = _ORG_LABEL.get(it.get('typeGroup'))
