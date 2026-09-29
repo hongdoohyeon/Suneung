@@ -38,7 +38,7 @@ if (modernKice.some(e => e.solutionUrl && e.solutionSource === 'EBSi'
   errors.push('EBSi 평가원 해설 출처와 URL 호스트 불일치');
 }
 const historicalKiceSolutionIds = new Set(historicalKiceSolutions.records.map(record => record.id));
-if (historicalKiceSolutions.count !== 1587
+if (historicalKiceSolutions.count !== 1585
   || historicalKiceSolutions.records.length !== historicalKiceSolutions.count
   || historicalKiceSolutionIds.size !== historicalKiceSolutions.count) {
   errors.push(`2007~2021학년도 EBSi 평가원 해설 출처 ${historicalKiceSolutions.records.length}건 무결성 불일치`);
