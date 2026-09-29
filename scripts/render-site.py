@@ -158,6 +158,7 @@ def render_sitemaps(items: list[dict], hubs=None) -> None:
         f'  <url><loc>{base}/essay.html</loc><lastmod>{CONTENT_VERSION}</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>',
         f'  <url><loc>{base}/ged.html</loc><lastmod>{CONTENT_VERSION}</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>',
         f'  <url><loc>{base}/about.html</loc><lastmod>{today}</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>',
+        f'  <url><loc>{base}/blog.html</loc><lastmod>{today}</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>',
         f'  <url><loc>{base}/methodology.html</loc><lastmod>{today}</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>',
         f'  <url><loc>{base}/calendar.html</loc><lastmod>{today}</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>',
     ]
@@ -266,6 +267,7 @@ def _hub_page(fname: str, h1: str, title: str, desc: str, intro: str,
       <nav class="header-nav" aria-label="주요 메뉴">
         <a href="archive.html">기출검색</a>
         <a href="calendar.html">학사 일정</a>
+        <a href="blog.html">블로그</a>
       </nav>
       <div class="header-tools">
         <form class="header-search" action="./" method="get" role="search">
@@ -288,6 +290,7 @@ def _hub_page(fname: str, h1: str, title: str, desc: str, intro: str,
       <div class="container">
         <a href="archive.html">기출검색</a>
         <a href="calendar.html">학사 일정</a>
+        <a href="blog.html">블로그</a>
         <a href="about.html">소개</a>
       </div>
     </nav>
@@ -649,6 +652,7 @@ def render_sets_directory(items: list[dict], essay_hubs=None, subject_hubs=None)
       <nav class="header-nav" aria-label="주요 메뉴">
         <a href="archive.html">기출검색</a>
         <a href="calendar.html">학사 일정</a>
+        <a href="blog.html">블로그</a>
       </nav>
       <div class="header-tools">
         <form class="header-search" action="./" method="get" role="search">
@@ -671,6 +675,7 @@ def render_sets_directory(items: list[dict], essay_hubs=None, subject_hubs=None)
       <div class="container">
         <a href="archive.html">기출검색</a>
         <a href="calendar.html">학사 일정</a>
+        <a href="blog.html">블로그</a>
         <a href="about.html">소개</a>
       </div>
     </nav>
@@ -678,7 +683,7 @@ def render_sets_directory(items: list[dict], essay_hubs=None, subject_hubs=None)
   <main id="main" class="legal legal--wide">
     <h1>전체 회차 목록</h1>
     <p>수능·평가원·교육청·사관학교·경찰대·LEET·MEET 기출 회차를 학년도별로 모았습니다. 각 회차에서 영역별 문제지, 정답, 해설지, 등급컷 자료로 이동할 수 있습니다.</p>
-    <p class="hub-crumb"><a href="./">기출검색</a> · <a href="calendar.html">학사 일정</a></p>
+    <p class="hub-crumb"><a href="./">기출검색</a> · <a href="calendar.html">학사 일정</a> · <a href="blog.html">블로그</a></p>
     {''.join(sections)}
   </main>
   <footer class="site-footer">

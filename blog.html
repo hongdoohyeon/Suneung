@@ -7,29 +7,30 @@
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://static.cloudflareinsights.com https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; font-src 'self' data:; img-src 'self' data: https:; connect-src 'self' https://suneung-files.hdh061224.workers.dev https://cloudflareinsights.com https://www.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com https://www.google.com; media-src 'self' https://suneung-files.hdh061224.workers.dev; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'self'" />
   <meta name="referrer" content="strict-origin-when-cross-origin" />
   <meta name="naver-site-verification" content="b3138c38039611bed2ce955aa7102ab33011cf14" />
-  <meta name="description" content="기출해체분석기 소개 — 수능·평가원·학력평가·사관·경찰대·LEET·MEET·대학 논술 기출을 한 곳에 모은 학습용 아카이브입니다. 운영 목적, 자료 출처, 저작권·삭제 요청 절차를 안내합니다." />
+  <meta name="description" content="기출해체분석기의 자체 데이터(등급컷·난이도·표준점수 분포)로 쓴 글. 난이도 산정 방법과 검증, 시험 분석을 공개합니다." />
   <meta name="robots" content="index,follow" />
 
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <link rel="apple-touch-icon" href="favicon.svg" />
-  <link rel="canonical" href="https://kicegg.com/about.html" />
+  <link rel="canonical" href="https://kicegg.com/blog.html" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="기출해체분석기" />
-  <meta property="og:title" content="소개 — 기출해체분석기" />
-  <meta property="og:description" content="수능·평가원·학력평가·사관·경찰대·LEET·MEET·대학 논술 기출을 한 곳에 모은 학습용 아카이브. 운영 목적·자료 출처·저작권 및 삭제 요청 절차 안내." />
-  <meta property="og:url" content="https://kicegg.com/about.html" />
+  <meta property="og:title" content="블로그 — 기출해체분석기" />
+  <meta property="og:description" content="기출해체분석기의 자체 데이터로 쓴 분석 글 모음." />
+  <meta property="og:url" content="https://kicegg.com/blog.html" />
   <meta property="og:image" content="https://kicegg.com/og-image.png" />
   <meta property="og:locale" content="ko_KR" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="소개 — 기출해체분석기" />
-  <meta name="twitter:description" content="기출해체분석기의 운영 목적·자료 출처·저작권 및 삭제 요청 절차 안내." />
+  <meta name="twitter:title" content="블로그 — 기출해체분석기" />
+  <meta name="twitter:description" content="기출해체분석기의 자체 데이터로 쓴 분석 글 모음." />
   <meta name="twitter:image" content="https://kicegg.com/og-image.png" />
 
-  <title>소개 — 기출해체분석기</title>
+  <title>블로그 — 기출해체분석기</title>
   <link rel="stylesheet" href="lib/vendor/pretendard/pretendardvariable-dynamic-subset.css?v=ca9d15290f294a461473" />
   <link rel="stylesheet" href="style.css?v=ca9d15290f294a461473" />
+  <link rel="stylesheet" href="style-methodology.css?v=ca9d15290f294a461473" />
   <script src="lib/site-prefs.js?v=ca9d15290f294a461473"></script>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"AboutPage","@id":"https://kicegg.com/about.html","url":"https://kicegg.com/about.html","name":"소개 — 기출해체분석기","inLanguage":"ko-KR","isPartOf":{"@id":"https://kicegg.com/#website"},"about":{"@id":"https://kicegg.com/#org"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Blog","@id":"https://kicegg.com/blog.html","url":"https://kicegg.com/blog.html","name":"기출해체분석기 블로그","inLanguage":"ko-KR","isPartOf":{"@id":"https://kicegg.com/#website"},"publisher":{"@id":"https://kicegg.com/#org"}}</script>
   <script src="lib/measure.js?v=ca9d15290f294a461473" defer></script>
 </head>
 <body class="page-legal">
@@ -81,62 +82,23 @@
     </nav>
   </header>
 
-  <main id="main" class="container legal">
+  <main id="main" class="container legal method">
     <header class="legal__head">
-      <h1 class="legal__title">기출해체분석기 소개</h1>
-      <p class="legal__sub">수능·평가원·학력평가 기출을 한 곳에서</p>
+      <h1 class="legal__title">블로그</h1>
+      <p class="legal__sub">기출해체분석기가 쌓은 등급컷·난이도·점수 분포 데이터로 쓰는 글입니다.</p>
     </header>
 
-    <section class="legal__section">
-      <h2>무엇을 하는 곳인가요</h2>
-      <p>기출해체분석기(kicegg.com)는 대학수학능력시험(수능)과 한국교육과정평가원 모의평가, 전국연합학력평가(교육청), 그리고 사관학교·경찰대학 1차 시험, LEET(법학적성시험), MEET(의·치학교육입문검사), 주요 대학 논술고사의 <strong>기출 문제지·정답·해설지·등급컷</strong>을 한 페이지에서 찾을 수 있도록 모아 둔 학습용 아카이브입니다. 영어 영역은 듣기 평가 음원(MP3)과 듣기 대본까지 함께 제공합니다.</p>
-      <p>흩어져 있는 기출 자료를 학년도·영역·회차 기준으로 정리해, 수험생이 필요한 자료를 빠르게 찾고 내려받을 수 있게 하는 것이 목표입니다.</p>
-    </section>
-
-    <section class="legal__section">
-      <h2>만든 이유</h2>
-      <p>운영자는 수능을 다시 준비하는 수험생으로, 본인이 공부하며 매번 여러 사이트를 오가야 했던 불편을 줄이려고 이 아카이브를 직접 만들었습니다. 개인 학습 도구로 시작해, 같은 어려움을 겪는 다른 수험생도 쓸 수 있도록 공개로 운영하고 있습니다. 회원가입·로그인 없이 누구나 무료로 이용할 수 있습니다.</p>
-    </section>
-
-    <section class="legal__section">
-      <h2>자료의 출처</h2>
-      <p>이 사이트에서 제공하는 기출 자료의 원저작권은 각 시험을 출제·발행한 기관에 있습니다.</p>
-      <ul>
-        <li><strong>수능·모의평가·통계</strong> — 한국교육과정평가원(KICE)</li>
-        <li><strong>전국연합학력평가</strong> — 서울특별시교육청 등 전국 시·도 교육청</li>
-        <li><strong>사관학교 1차 시험</strong> — 육군·해군·공군사관학교</li>
-        <li><strong>경찰대학 1차 시험</strong> — 경찰대학</li>
-        <li><strong>LEET</strong> — 법학전문대학원협의회</li>
-        <li><strong>MEET</strong> — 의·치학교육입문검사 관리위원회</li>
-        <li><strong>대학 논술고사</strong> — 각 대학교</li>
-      </ul>
-      <p>자료를 정리·재배열하여 찾기 쉽게 제공할 뿐이며, 저작권은 위 각 발행 기관에 있고 교육 목적으로만 이용할 수 있습니다. 가능한 한 공식 공개 자료를 출처로 삼습니다.</p>
-    </section>
-
-    <section class="legal__section" id="contact">
-      <h2>저작권 및 자료 삭제 요청</h2>
-      <p>저작권자 또는 그 대리인으로서 특정 자료의 게시 중단을 원하시는 경우, 아래 이메일로 요청해 주시면 확인 후 신속히 처리하겠습니다. 요청 시 다음 내용을 포함해 주세요.</p>
-      <ul>
-        <li>해당 자료의 페이지 주소(URL) 또는 시험명</li>
-        <li>요청인의 권리 관계(저작권자 본인 또는 대리인 여부)</li>
-        <li>연락 가능한 정보</li>
-      </ul>
-      <p>삭제·정정 요청 및 기타 문의: <a href="mailto:hdh061224@gmail.com">hdh061224@gmail.com</a></p>
-    </section>
-
-    <section class="legal__section">
-      <h2>갱신 안내</h2>
-      <p>새로운 시험이 시행되면 문제지·정답·해설·등급컷이 공개되는 대로 자료를 추가합니다. 등급컷 등 일부 자료는 시험 시행 후 공개 시점에 따라 시차가 있을 수 있습니다.</p>
-    </section>
-
-    <section class="legal__section">
-      <h2>연락처</h2>
-      <ul>
-        <li>운영자 · 기출해체분석기</li>
-        <li>이메일 · <a href="mailto:hdh061224@gmail.com">hdh061224@gmail.com</a></li>
-      </ul>
-      <p>관련 문서: <a href="privacy.html">개인정보처리방침</a> · <a href="terms.html">이용약관</a></p>
-    </section>
+    <ul class="blog-list">
+      <li class="blog-card">
+        <a href="methodology.html">
+          <span class="blog-card__tag">방법론</span>
+          <h2 class="blog-card__title">난이도 산정 기준 — ‘매우 쉬움~매우 어려움’은 어떻게 나오나</h2>
+          <p class="blog-card__desc">등급컷과 등급 비율만으로 시험의 평균 점수율·표준편차·왜도를 되찾는 방법, 2026학년도 실측 분포로 확인한 정확도, 그리고 이 방법의 한계를 그래프와 함께 설명합니다.</p>
+          <time class="blog-card__date" datetime="2026-09-29">2026년 9월 29일</time>
+        </a>
+      </li>
+    </ul>
+    <p class="blog-note">글에 쓰인 수치는 사이트의 공개 자료를 바탕으로 계산한 것이며, 오류는 <a href="about.html#contact">문의</a>로 알려 주세요.</p>
   </main>
 
   <footer class="site-footer">
