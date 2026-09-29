@@ -872,7 +872,7 @@ body.pv-lock { overflow: hidden; }
 .legal__section h2 { font-size: 18px; font-weight: 750; letter-spacing: -.02em; color: var(--ink); margin-bottom: 10px; }
 .legal__section p, .legal__section li { font-size: 15px; }
 .legal__section p { margin: 8px 0; }
-.legal__section ul:not(.setsdir__list):not(.hub-list):not(.obj-changes):not(.obj-qs):not(.obj-list) { margin: 8px 0 8px 20px; }
+.legal__section ul:not(.setsdir__list):not(.hub-list) { margin: 8px 0 8px 20px; }
 .legal__section li { margin: 4px 0; }
 .legal--wide { max-width: 1080px; }
 .legal--wide .setsdir__list { columns: 3; }
