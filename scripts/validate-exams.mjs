@@ -348,7 +348,9 @@ async function validateGradecuts() {
         badRaw++;
         if (samples.length < 10) samples.push(`id=${c.id} ${c.subject}${c.subSubject ? '/' + c.subSubject : ''} ${c.gradeYear} ${c.type} [${r.join(',')}]`);
       }
-      if (r.some(v => Number.isFinite(v) && !Number.isInteger(v))) {
+      // EBSi 실채점 표의 0.5점 단위 컷(고1·2 통합사회·통합과학)은 공식값이라 허용
+      if (r.some(v => Number.isFinite(v) && !Number.isInteger(v))
+          && !(String(c.source || '').includes('ebsi-grdcut') && r.every(v => v == null || Number.isInteger(v * 2)))) {
         fractionalRaw++;
       }
     }
