@@ -1,0 +1,36 @@
+/* methodology.html — 난이도 산정 기준 (그림은 render-site.py 가 인라인 SVG 로 생성) */
+.method .legal__section h3 { margin: 22px 0 8px; font-size: 15px; font-weight: 700; letter-spacing: -.02em; }
+.method__steps { margin: 12px 0; padding-left: 20px; display: grid; gap: 8px; line-height: 1.65; }
+.method__fig { margin: 18px 0; padding: 14px 14px 10px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--r, 14px); overflow-x: auto; }
+.method__fig figcaption { margin-top: 8px; font-size: 13px; line-height: 1.6; color: var(--ink-3); }
+.method__fig figcaption strong { color: var(--ink); }
+.method__fig svg { display: block; width: 100%; height: auto; min-width: 520px; }
+.method__fig .mf-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.method__fig .mf-pair svg { min-width: 0; }
+@media (max-width: 720px) { .method__fig .mf-pair { grid-template-columns: 1fr; } .method__fig svg { min-width: 480px; } }
+
+.mf-axis { stroke: var(--line-strong); stroke-width: 1; fill: none; }
+.mf-grid { stroke: var(--line); stroke-width: 1; }
+.mf-txt { fill: var(--ink-4); font-size: 11px; font-family: inherit; }
+.mf-txt--strong { fill: var(--ink-2); font-weight: 700; }
+.mf-txt--sm { font-size: 10px; }
+.mf-band-a { fill: var(--surface-2); }
+.mf-band-b { fill: var(--surface); }
+.mf-bar-a { fill: var(--ink-4); opacity: .55; }
+.mf-bar-b { fill: var(--ink-3); opacity: .8; }
+.mf-cut { stroke: var(--ink-3); stroke-width: 1; stroke-dasharray: 2 3; }
+.mf-true { stroke: var(--ink); stroke-width: 2; }
+.mf-est { stroke: var(--t4); stroke-width: 2; stroke-dasharray: 5 3; }
+.mf-est-txt { fill: var(--t4); font-size: 11px; font-weight: 700; }
+.mf-diag { stroke: var(--line-strong); stroke-width: 1; stroke-dasharray: 4 3; }
+.mf-pt { fill: var(--ink-3); opacity: .8; }
+.mf-thr { stroke: var(--ink-4); stroke-width: 1; stroke-dasharray: 3 3; }
+.mf-t1 { fill: var(--t1); } .mf-t2 { fill: var(--t2); } .mf-t3 { fill: var(--t3); } .mf-t4 { fill: var(--t4); } .mf-t5 { fill: var(--t5); }
+.mf-dens { fill: var(--ink-3); opacity: .75; }
+
+.method__tiers { display: grid; gap: 6px; margin: 12px 0; }
+.method__tiers > div { display: flex; align-items: center; gap: 14px; }
+.method__tiers > div > span:first-child { min-width: 96px; }
+.method__table { border-collapse: collapse; margin: 10px 0; font-size: 14px; }
+.method__table th, .method__table td { padding: 7px 14px 7px 0; text-align: left; border-bottom: 1px solid var(--line); font-variant-numeric: tabular-nums; }
+.method__table th { color: var(--ink-4); font-weight: 600; font-size: 13px; }

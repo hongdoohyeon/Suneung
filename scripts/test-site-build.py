@@ -111,6 +111,39 @@ class BuildTests(unittest.TestCase):
             finally:
                 render.ROOT = source
 
+    def test_grouped_moments_recovers_known_distribution(self):
+        # 표준점수 영역: 평균 100·σ 20 정규분포의 이론 등급컷 → 추정 평균·σ·왜도가 가까워야 한다
+        from statistics import NormalDist
+        nd = NormalDist(100, 20)
+        cum = [.04, .11, .23, .40, .60, .77, .89, .96]
+        cuts = [round(nd.inv_cdf(1 - c)) for c in cum]
+        edges = render.bd.relative_edges(cuts, 40, 160)
+        mean, sd, skew = render.bd.grouped_moments(edges, render.bd.GRADE_RATIOS)
+        self.assertAlmostEqual(mean, 100, delta=1.5)
+        self.assertAlmostEqual(sd, 20, delta=1.5)
+        self.assertAlmostEqual(skew, 0, delta=0.15)
+
+    def test_tier_uses_three_levels_for_small_series_and_five_for_large(self):
+        vals_small = [1, 2, 3, 4, 5, 6]
+        self.assertEqual(render.bd._series_tier(vals_small, 6), 2)
+        self.assertEqual(render.bd._series_tier(vals_small, 1), 4)
+        self.assertEqual(render.bd._series_tier(vals_small, 3.5), 3)
+        vals_big = list(range(20))
+        self.assertEqual(render.bd._series_tier(vals_big, 19), 1)
+        self.assertEqual(render.bd._series_tier(vals_big, 0), 5)
+
+    def test_cut_moments_skips_broken_cuts(self):
+        bad = {'standardCuts': [130, 140, 120, 110, 100, 90, 80, 70], 'rawCuts': [90, 80, 70, 60, 50, 40, 30, 20], 'fullScore': 100}
+        out = render.bd.cut_moments(bad, False)
+        self.assertNotIn('skew', out)          # 순서가 어긋난 표점 컷은 버린다
+        self.assertIn('mean', out)
+        self.assertGreater(out['mean'], 0.4)
+        self.assertLess(out['mean'], 0.8)
+
+    def test_absolute_english_mean_from_grade_ratios(self):
+        out = render.bd.cut_moments({}, True, [5, 15, 25, 20, 13, 9, 6, 5, 2])
+        self.assertAlmostEqual(out['mean'], 0.67, delta=0.05)
+
 
 if __name__ == '__main__':
     unittest.main()

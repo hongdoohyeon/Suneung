@@ -158,6 +158,7 @@ def render_sitemaps(items: list[dict], hubs=None) -> None:
         f'  <url><loc>{base}/essay.html</loc><lastmod>{CONTENT_VERSION}</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>',
         f'  <url><loc>{base}/ged.html</loc><lastmod>{CONTENT_VERSION}</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>',
         f'  <url><loc>{base}/about.html</loc><lastmod>{today}</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>',
+        f'  <url><loc>{base}/methodology.html</loc><lastmod>{today}</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>',
         f'  <url><loc>{base}/calendar.html</loc><lastmod>{today}</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>',
     ]
     for h in (hubs or []):
@@ -295,13 +296,13 @@ def _hub_page(fname: str, h1: str, title: str, desc: str, intro: str,
     <h1>{bd.html_escape(h1, quote=False)}</h1>
     <p>{bd.html_escape(intro, quote=False)}</p>
     <p class="legal__sub">{bd.html_escape(stat, quote=False)}</p>
-    <p class="hub-crumb"><a href="./">기출검색</a> · <a href="sets.html">전체 회차</a></p>
+    <p class="hub-crumb"><a href="./">기출검색</a> · <a href="sets.html">전체 회차</a><a href="methodology.html">난이도 기준</a></p>
     {''.join(sections)}
   </main>
   <footer class="site-footer">
     <div class="container">
       <nav class="site-footer__links" aria-label="사이트 정보">
-        <a href="about.html">소개</a><a href="privacy.html">개인정보처리방침</a><a href="terms.html">이용약관</a><a href="sets.html">전체 회차</a><a href="about.html#contact">문의</a>
+        <a href="about.html">소개</a><a href="privacy.html">개인정보처리방침</a><a href="terms.html">이용약관</a><a href="sets.html">전체 회차</a><a href="methodology.html">난이도 기준</a><a href="about.html#contact">문의</a>
       </nav>
       <p class="site-footer__sub">출처 · 한국교육과정평가원 · 17개 시도교육청 · 각 대학 입학처 외. 저작권은 각 발행기관에 있으며 교육 목적으로만 이용할 수 있습니다.</p>
     </div>
@@ -683,7 +684,7 @@ def render_sets_directory(items: list[dict], essay_hubs=None, subject_hubs=None)
   <footer class="site-footer">
     <div class="container">
       <nav class="site-footer__links" aria-label="사이트 정보">
-        <a href="about.html">소개</a><a href="privacy.html">개인정보처리방침</a><a href="terms.html">이용약관</a><a href="sets.html">전체 회차</a><a href="about.html#contact">문의</a>
+        <a href="about.html">소개</a><a href="privacy.html">개인정보처리방침</a><a href="terms.html">이용약관</a><a href="sets.html">전체 회차</a><a href="methodology.html">난이도 기준</a><a href="about.html#contact">문의</a>
       </nav>
       <p class="site-footer__sub">출처 · 한국교육과정평가원 · 17개 시도교육청 · 각 대학 입학처 외. 저작권은 각 발행기관에 있으며 교육 목적으로만 이용할 수 있습니다.</p>
     </div>
@@ -1116,6 +1117,258 @@ def render_calendar() -> None:
     print(f'  + calendar.html 정적 일정 {len(events)}건')
 
 
+# ── methodology.html — 난이도 산정 기준 (그림은 실제 데이터로 인라인 SVG 생성) ──────────
+def _svg(w: int, h: int, label: str, body: str) -> str:
+    return (f'<svg viewBox="0 0 {w} {h}" role="img" aria-label="{bd.html_escape(label, quote=True)}" '
+            f'xmlns="http://www.w3.org/2000/svg">{body}</svg>')
+
+
+def _txt(x, y, t, cls='mf-txt', anchor='middle', extra='') -> str:
+    return f'<text class="{cls}" x="{x:.1f}" y="{y:.1f}" text-anchor="{anchor}"{extra}>{bd.html_escape(str(t), quote=False)}</text>'
+
+
+def _methodology_validation() -> dict:
+    """2026학년도 수능·9모 실측 표점 분포와, 등급컷만으로 추정한 값을 비교."""
+    import statistics as st
+    dist = json.loads((ROOT / 'data' / 'score-distribution.json').read_text(encoding='utf-8'))
+    cuts = json.loads((ROOT / 'data' / 'gradecuts.json').read_text(encoding='utf-8'))
+    rows = []
+    for x in dist:
+        m = [c for c in cuts if c['gradeYear'] == x['year'] and c['type'] == x['type'] and c['subject'] == x['subject']
+             and c.get('subSubject') == x['subSubject'] and c.get('typeGroup') == x['typeGroup']]
+        if not m or not bd._full8(m[0].get('standardCuts')):
+            continue
+        sc = m[0]['standardCuts'][:8]
+        cnt = {int(k): v['male'] + v['female'] for k, v in x['distribution'].items()}
+        n = sum(cnt.values())
+        mu = sum(k * c for k, c in cnt.items()) / n
+        sd = (sum(c * (k - mu) ** 2 for k, c in cnt.items()) / n) ** 0.5
+        sk = sum(c * ((k - mu) / sd) ** 3 for k, c in cnt.items()) / n
+        hi = m[0].get('highestStandardScore')
+        if not isinstance(hi, (int, float)) or hi < sc[0]:
+            hi = sc[0] + (sc[0] - sc[1])
+        emu, esd, esk = bd.grouped_moments(bd.relative_edges(sc, sc[7] - (hi - sc[0]), hi), bd.GRADE_RATIOS)
+        rows.append({'x': x, 'cut': m[0], 'sc': sc, 'cnt': cnt, 'n': n, 'mu': mu, 'sd': sd, 'sk': sk,
+                     'emu': emu, 'esd': esd, 'esk': esk, 'hi': hi})
+    return {'rows': rows}
+
+
+def _fig_bins(val: dict) -> str:
+    row = next((r for r in val['rows'] if r['x']['subject'] == '국어' and r['x']['type'] == 'csat'), val['rows'][0])
+    cnt, sc, hi = row['cnt'], row['sc'], row['hi']
+    lo_t, hi_t = min(cnt), max(cnt)
+    W, H, ml, mr, mt, mb = 680, 320, 46, 16, 40, 62
+    pw, ph = W - ml - mr, H - mt - mb
+    x0, x1 = lo_t - 2, hi_t + 2
+    X = lambda v: ml + (v - x0) / (x1 - x0) * pw
+    ymax = max(cnt.values())
+    Y = lambda c: mt + ph - c / ymax * ph
+    edges = [hi_t + .5] + [c - .5 for c in sc] + [lo_t - .5]
+    b = []
+    for i in range(9):
+        a_, b_ = X(edges[i + 1]), X(edges[i])
+        b.append(f'<rect class="{"mf-band-a" if i % 2 == 0 else "mf-band-b"}" x="{a_:.1f}" y="{mt}" width="{b_ - a_:.1f}" height="{ph}"/>')
+    bw = max(pw / (x1 - x0) - 1, 1)
+    for k, c in sorted(cnt.items()):
+        g = next((i for i in range(8) if k >= sc[i]), 8)
+        b.append(f'<rect class="{"mf-bar-a" if g % 2 == 0 else "mf-bar-b"}" x="{X(k) - bw / 2:.1f}" y="{Y(c):.1f}" width="{bw:.1f}" height="{mt + ph - Y(c):.1f}"/>')
+    b.append(f'<line class="mf-axis" x1="{ml}" y1="{mt + ph}" x2="{ml + pw}" y2="{mt + ph}"/>')
+    for t in range((lo_t // 20) * 20, hi_t + 1, 20):
+        if x0 <= t <= x1:
+            b.append(_txt(X(t), mt + ph + 14, t, 'mf-txt mf-txt--sm'))
+    for c in sc:
+        b.append(f'<line class="mf-cut" x1="{X(c - .5):.1f}" y1="{mt}" x2="{X(c - .5):.1f}" y2="{mt + ph}"/>')
+    ratios = ['4%', '7%', '12%', '17%', '20%', '17%', '12%', '7%', '4%']
+    for i in range(9):
+        cx = (X(edges[i]) + X(edges[i + 1])) / 2
+        b.append(_txt(cx, mt + ph + 30, f'{i + 1}등급', 'mf-txt mf-txt--strong mf-txt--sm'))
+        b.append(_txt(cx, mt + ph + 43, ratios[i], 'mf-txt mf-txt--sm'))
+    b.append(_txt(ml + pw / 2, H - 4, '표준점수 (막대 = 그 점수를 받은 응시자 수, 점선 = 등급컷)', 'mf-txt mf-txt--sm'))
+    b.append(f'<line class="mf-true" x1="{X(row["mu"]):.1f}" y1="{mt - 6}" x2="{X(row["mu"]):.1f}" y2="{mt + ph}"/>')
+    b.append(f'<line class="mf-est" x1="{X(row["emu"]):.1f}" y1="{mt - 6}" x2="{X(row["emu"]):.1f}" y2="{mt + ph}"/>')
+    b.append(_txt(X(row['mu']) + 6, mt - 22, f'실측 평균 {row["mu"]:.1f}', 'mf-txt mf-txt--strong', 'start'))
+    b.append(_txt(X(row['emu']) - 6, mt - 8, f'등급컷만으로 추정 {row["emu"]:.1f}', 'mf-est-txt', 'end'))
+    x = row['x']
+    cap = (f'<figcaption><strong>그림 1.</strong> {x["year"]}학년도 {bd.KOREAN_TYPE_LABEL.get(x["type"], x["type"])} {x["subject"]} 영역 '
+           f'(응시자 {row["n"]:,}명). 배경 띠는 등급 구간이고 아래 %는 각 등급의 응시자 비율입니다. 1~8등급 컷 8개와 최고점, '
+           f'등급 비율만 사용해 구간 가운데 점수 × 비율을 더하면 평균 {row["emu"]:.1f}(실측 {row["mu"]:.1f}), 표준편차 {row["esd"]:.1f}'
+           f'(실측 {row["sd"]:.1f}), 왜도 {row["esk"]:+.2f}(실측 {row["sk"]:+.2f})가 나옵니다. '
+           f'(표준점수 평균·표준편차가 100·20으로 정의된 영역이라 평균은 항상 100 근처입니다. 난이도 정보는 원점수 컷과의 대응, 그리고 분포의 쏠림에 담깁니다.)</figcaption>')
+    label = x['subject'] + ' 표준점수 분포와 등급 구간, 실측 평균과 추정 평균'
+    return f'<div>{_svg(W, H, label, "".join(b))}</div>{cap}'
+
+
+def _fig_validate(val: dict) -> str:
+    rows = val['rows']
+    W, H = 320, 300
+    # (a) 왜도 산점도
+    lo, hi = -0.6, 1.2
+    ml, mt, pw, ph = 40, 20, 260, 230
+    X = lambda v: ml + (v - lo) / (hi - lo) * pw
+    Y = lambda v: mt + ph - (v - lo) / (hi - lo) * ph
+    a = [f'<line class="mf-axis" x1="{ml}" y1="{mt + ph}" x2="{ml + pw}" y2="{mt + ph}"/><line class="mf-axis" x1="{ml}" y1="{mt}" x2="{ml}" y2="{mt + ph}"/>',
+         f'<line class="mf-diag" x1="{X(lo):.1f}" y1="{Y(lo):.1f}" x2="{X(hi):.1f}" y2="{Y(hi):.1f}"/>']
+    for t in (-0.5, 0, 0.5, 1.0):
+        a.append(_txt(X(t), mt + ph + 14, f'{t:g}', 'mf-txt mf-txt--sm'))
+        a.append(_txt(ml - 6, Y(t) + 3, f'{t:g}', 'mf-txt mf-txt--sm', 'end'))
+    for r in rows:
+        a.append(f'<circle class="mf-pt" cx="{X(r["sk"]):.1f}" cy="{Y(r["esk"]):.1f}" r="3.4"/>')
+    a.append(_txt(ml + pw / 2, H - 22, '실측 왜도', 'mf-txt'))
+    a.append(f'<text class="mf-txt" transform="translate(11 {mt + ph / 2}) rotate(-90)" text-anchor="middle">등급컷으로 추정한 왜도</text>')
+    import statistics as st
+    r_sk = st.correlation([r['sk'] for r in rows], [r['esk'] for r in rows])
+    a.append(_txt(ml + 8, mt + 14, f'상관계수 {r_sk:.3f}', 'mf-txt mf-txt--strong', 'start'))
+    fa = _svg(W, H, '실측 왜도와 추정 왜도의 산점도', ''.join(a))
+    # (b) 평균 오차 (σ 단위) 스트립
+    errs = [(r['emu'] - r['mu']) / r['sd'] for r in rows]
+    e_lo, e_hi = -0.15, 0.15
+    Xe = lambda v: ml + (v - e_lo) / (e_hi - e_lo) * pw
+    b = [f'<line class="mf-axis" x1="{ml}" y1="{mt + ph / 2 + 20}" x2="{ml + pw}" y2="{mt + ph / 2 + 20}"/>',
+         f'<line class="mf-true" x1="{Xe(0):.1f}" y1="{mt + 20}" x2="{Xe(0):.1f}" y2="{mt + ph / 2 + 20}"/>']
+    for t in (-0.1, -0.05, 0, 0.05, 0.1):
+        b.append(_txt(Xe(t), mt + ph / 2 + 36, f'{t:+g}' if t else '0', 'mf-txt mf-txt--sm'))
+    for i, e in enumerate(sorted(errs)):
+        cy = mt + ph / 2 + 12 - (i % 6) * 12
+        b.append(f'<circle class="mf-pt" cx="{Xe(e):.1f}" cy="{cy:.1f}" r="3.4"/>')
+    b.append(_txt(ml + pw / 2, H - 22, '평균 추정 오차 (표준편차 단위, 0 = 정확)', 'mf-txt'))
+    b.append(_txt(ml + pw / 2, mt + 6, f'평균 |오차| {sum(abs(e) for e in errs) / len(errs):.3f}σ · 최대 {max(abs(e) for e in errs):.3f}σ', 'mf-txt mf-txt--strong'))
+    fb = _svg(W, H, '평균 추정 오차 분포', ''.join(b))
+    cap = (f'<figcaption><strong>그림 2.</strong> {len(rows)}개 영역(국어·수학·사탐·과탐 × 수능·9모)의 검증. 왼쪽: 등급컷으로 추정한 왜도(높을수록 어려운 분포)가 '
+           f'실측과 거의 일치합니다. 오른쪽: 평균 추정 오차를 표준편차로 나눈 값이 0 근처에 모여 있습니다(모두 약간 낮게 나오는 체계적 편향이 있어 화면의 값은 ±1점 안팎의 오차를 가집니다).</figcaption>')
+    return f'<div class="mf-pair">{fa}{fb}</div>{cap}'
+
+
+def _val_table(val: dict) -> str:
+    import statistics as st
+    rows = val['rows']
+    errs = [(r['emu'] - r['mu']) / r['sd'] for r in rows]
+    ratio = [r['esd'] / r['sd'] for r in rows]
+    r_sk = st.correlation([r['sk'] for r in rows], [r['esk'] for r in rows])
+    return ('<table class="method__table"><thead><tr><th>검증 항목</th><th>결과</th></tr></thead><tbody>'
+            f'<tr><td>검증 대상</td><td>{len(rows)}개 영역 (2026학년도 수능·9월 모의평가)</td></tr>'
+            f'<tr><td>평균 추정 오차</td><td>평균 {sum(abs(e) for e in errs) / len(errs):.3f}σ · 최대 {max(abs(e) for e in errs):.3f}σ</td></tr>'
+            f'<tr><td>표준편차 비 (추정/실측)</td><td>{min(ratio):.2f} ~ {max(ratio):.2f}</td></tr>'
+            f'<tr><td>왜도 상관계수</td><td>{r_sk:.3f}</td></tr>'
+            '<tr><td>절대평가 시뮬레이션</td><td>실제 분포 모양 50개를 0~100점으로 재척도·절단한 2,000건: 평균 오차 평균 0.76점, 표준편차 비 0.99 (연구 시점 2026-09-29)</td></tr>'
+            '</tbody></table>'
+            '<p>정규분포로 등급컷을 맞추는 방식은 수학(이봉·쏠림 분포)에서 4~7점 어긋나 쓰지 않았습니다. 구간 모멘트 방식은 분포 모양을 가정하지 않아 왜도가 −0.3~+1.0인 분포에서도 안정적이었습니다.</p>')
+
+
+def _fig_series(items: list[dict], scores: dict) -> str:
+    import collections
+    ser = collections.defaultdict(list)
+    for it in items:
+        r = scores.get(it['id'])
+        k = bd.tier_series_key(it)
+        if k and r and r['tierBasis'] == 'mean' and r['tier'] and k[0] == 'suneung' and k[2] == '국어':
+            ser[k].append(it)
+    if not ser:
+        return ''
+    key = max(ser, key=lambda k: len(ser[k]))
+    pts = sorted(ser[key], key=bd._exam_sort_key)
+    # 같은 회차의 선택과목 중복 제거(표시 순서 유지)
+    seen, uniq = set(), []
+    for it in pts:
+        sig = (it['gradeYear'], it['type'])
+        if sig not in seen:
+            seen.add(sig); uniq.append(it)
+    pts = uniq
+    vals = [scores[it['id']]['mean'] * 100 for it in pts]
+    n = len(vals)
+    allv = sorted(scores[it['id']]['mean'] * 100 for it in ser[key])
+    W, H, ml, mr, mt, mb = 680, 300, 46, 84, 16, 44
+    pw, ph = W - ml - mr, H - mt - mb
+    lo, hi = min(vals) - 3, max(vals) + 3
+    X = lambda i: ml + (i + .5) / n * pw
+    Y = lambda v: mt + ph - (v - lo) / (hi - lo) * ph
+    b = [f'<line class="mf-axis" x1="{ml}" y1="{mt + ph}" x2="{ml + pw}" y2="{mt + ph}"/><line class="mf-axis" x1="{ml}" y1="{mt}" x2="{ml}" y2="{mt + ph}"/>']
+    for t in range(int(lo) + 1, int(hi) + 1):
+        if t % 5 == 0:
+            b.append(f'<line class="mf-grid" x1="{ml}" y1="{Y(t):.1f}" x2="{ml + pw}" y2="{Y(t):.1f}"/>')
+            b.append(_txt(ml - 6, Y(t) + 3, f'{t}%', 'mf-txt mf-txt--sm', 'end'))
+    m = len(allv)
+    def q(p):   # 백분위 경계 값(높을수록 쉬움)
+        idx = p * (m - 1)
+        f = int(idx); c = min(f + 1, m - 1)
+        return allv[f] + (allv[c] - allv[f]) * (idx - f)
+    five = m >= bd.TIER_LOW_N
+    cuts = [(q(.8), '매우 쉬움 ▲'), (q(.6), ''), (q(.4), ''), (q(.2), '매우 어려움 ▼')] if five else [(q(2 / 3), ''), (q(1 / 3), '')]
+    for v, _ in cuts:
+        b.append(f'<line class="mf-thr" x1="{ml}" y1="{Y(v):.1f}" x2="{ml + pw}" y2="{Y(v):.1f}"/>')
+    zones = [('매우 쉬움', 1, (q(1.0) + q(.8)) / 2), ('쉬움', 2, (q(.8) + q(.6)) / 2), ('보통', 3, (q(.6) + q(.4)) / 2),
+             ('어려움', 4, (q(.4) + q(.2)) / 2), ('매우 어려움', 5, (q(.2) + q(0)) / 2)] if five else [
+             ('쉬움', 2, (q(1.0) + q(2 / 3)) / 2), ('보통', 3, (q(2 / 3) + q(1 / 3)) / 2), ('어려움', 4, (q(1 / 3) + q(0)) / 2)]
+    for lbl, t, v in zones:
+        b.append(_txt(ml + pw + 8, Y(v) + 3, lbl, f'mf-txt mf-txt--sm', 'start'))
+    for i, it in enumerate(pts):
+        t = scores[it['id']]['tier']
+        b.append(f'<circle class="mf-t{t}" cx="{X(i):.1f}" cy="{Y(vals[i]):.1f}" r="4.6"><title>{bd.html_escape(bd._short_round(it) + f" {vals[i]:.1f}%", quote=False)}</title></circle>')
+    last = None
+    for i, it in enumerate(pts):
+        y = it['gradeYear']
+        if y != last and isinstance(y, int) and i % max(1, n // 12) == 0:
+            b.append(_txt(X(i), mt + ph + 14, y, 'mf-txt mf-txt--sm')); last = y
+    b.append(_txt(ml + pw / 2, H - 6, '학년도 (왼쪽이 과거, 오른쪽이 최근 회차)', 'mf-txt mf-txt--sm'))
+    b.append(f'<text class="mf-txt" transform="translate(12 {mt + ph / 2}) rotate(-90)" text-anchor="middle">추정 평균 점수율</text>')
+    curr = key[1]
+    cap = (f'<figcaption><strong>그림 3.</strong> 수능·모의평가 국어({bd._CURR_LABEL.get(str(curr), str(curr))} 교육과정) {len(allv)}개 회차의 추정 평균 점수율. '
+           f'점의 색은 부여된 난이도이고, 점선은 역대 값의 {"20·40·60·80" if five else "33·67"}% 백분위 경계입니다. '
+           f'점수율이 높을수록 쉬운 시험이라 위쪽이 ‘쉬움’, 아래쪽이 ‘어려움’입니다. 점에 마우스를 올리면 회차와 값이 보입니다.</figcaption>')
+    return f'<div>{_svg(W, H, "국어 역대 회차의 추정 평균 점수율과 난이도 등급", "".join(b))}</div>{cap}'
+
+
+def _fig_abs(items: list[dict], scores: dict) -> str:
+    seen, recs = set(), []
+    for it in sorted(items, key=bd._exam_sort_key):
+        r = scores.get(it['id'])
+        if it.get('subject') == '영어' and it.get('typeGroup') == 'suneung' and r and r['ratios']:
+            sig = (it['gradeYear'], it['type'])
+            if sig not in seen:
+                seen.add(sig); recs.append((it, r))
+    if not recs:
+        return ''
+    it, r = next(((i, x) for i, x in reversed(recs) if i['type'] == 'csat'), recs[-1])
+    ratios = r['ratios']; tot = sum(ratios)
+    E = bd.ABS_EDGES
+    W, H, ml, mr, mt, mb = 680, 260, 46, 16, 30, 46
+    pw, ph = W - ml - mr, H - mt - mb
+    X = lambda v: ml + v / 100 * pw
+    dens = [ratios[i] / tot / (E[i] - E[i + 1]) for i in range(9)]
+    dm = max(dens)
+    Y = lambda d: mt + ph - d / dm * ph
+    b = [f'<line class="mf-axis" x1="{ml}" y1="{mt + ph}" x2="{ml + pw}" y2="{mt + ph}"/>']
+    for i in range(9):
+        x_a, x_b = X(E[i + 1]), X(E[i])
+        b.append(f'<rect class="mf-dens" x="{x_a + 1:.1f}" y="{Y(dens[i]):.1f}" width="{x_b - x_a - 2:.1f}" height="{mt + ph - Y(dens[i]):.1f}"/>')
+        b.append(_txt((x_a + x_b) / 2, Y(dens[i]) - 5, f'{ratios[i]:g}%', 'mf-txt mf-txt--sm'))
+        b.append(_txt((x_a + x_b) / 2, mt + ph + 27, f'{i + 1}등급', 'mf-txt mf-txt--strong mf-txt--sm'))
+    for v in E[1:9]:
+        b.append(_txt(X(v), mt + ph + 14, v, 'mf-txt mf-txt--sm'))
+    mean = r['mean'] * 100
+    b.append(f'<line class="mf-est" x1="{X(mean):.1f}" y1="{mt - 8}" x2="{X(mean):.1f}" y2="{mt + ph}"/>')
+    b.append(_txt(X(mean) - 6, mt - 12, f'추정 평균 {mean:.1f}점', 'mf-est-txt', 'end'))
+    b.append(_txt(ml + pw / 2, H - 4, '원점수 (막대 넓이 = 그 등급 비율, 높이 = 점수 1점당 응시자 밀도)', 'mf-txt mf-txt--sm'))
+    tbl = ['<table class="method__table"><thead><tr><th>시험</th><th>1등급 비율</th><th>추정 평균 점수율</th></tr></thead><tbody>']
+    for i2, r2 in reversed(recs[-6:]):
+        tbl.append(f'<tr><td>{i2["gradeYear"]}학년도 {bd.KOREAN_TYPE_LABEL.get(i2["type"], "")}</td><td>{r2["ratios"][0]:g}%</td><td>{r2["mean"] * 100:.1f}%</td></tr>')
+    tbl.append('</tbody></table>')
+    cap = (f'<figcaption><strong>그림 4.</strong> {it["gradeYear"]}학년도 {bd.KOREAN_TYPE_LABEL.get(it["type"], "")} 영어(절대평가). 경계는 90·80·…·20점으로 고정이고, '
+           f'평가원이 공개한 등급별 비율로 평균 {mean:.1f}점을 추정했습니다. 1등급 비율 하나만 보는 것보다 8개 경계의 정보를 모두 씁니다.</figcaption>')
+    return f'<div>{_svg(W, H, "영어 절대평가 등급별 비율과 추정 평균", "".join(b))}</div>{cap}{"".join(tbl)}'
+
+
+def render_methodology(items: list[dict]) -> None:
+    scores = bd.compute_exam_scores(items)
+    val = _methodology_validation()
+    path = ROOT / 'methodology.html'
+    html = path.read_text(encoding='utf-8')
+    for name, body in (('fig-bins', _fig_bins(val)), ('fig-abs', _fig_abs(items, scores)), ('fig-validate', _fig_validate(val)),
+                       ('val-table', _val_table(val)), ('fig-series', _fig_series(items, scores))):
+        html = _replace_block(html, name, body)
+    path.write_text(html, encoding='utf-8')
+    print(f'  + methodology.html 그림 5종 (검증 {len(val["rows"])}건)')
+
+
 def render_rss(items: list[dict]) -> None:
     """최신 추가 자료 RSS 피드(feed.xml). 네이버는 RSS를 사이트맵과 별개의
     freshness(최신성) 신호로 취급 — 전수가 아니라 '최근 추가 N개'만 담는다.
@@ -1167,6 +1420,7 @@ def main() -> None:
     render_home(items)
     render_rss(items)
     render_calendar()
+    render_methodology(items)
     render_splits(items)
     render_archive_splits(items)
     render_set_splits(items)

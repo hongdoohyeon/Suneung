@@ -777,6 +777,8 @@ def _exam_date(it: dict) -> str:
     m  = it.get('month', 0)
     typ = it.get('type', '')
     if tg == 'suneung':
+        if gy == 2027 and typ == 'sept':
+            return '2026-09-02'
         # 수능: November of (gradeYear - 1), e.g. 2026학년도 = 2025-11-14
         return f'{gy - 1}-11-14'
     elif tg == 'education':
@@ -1047,22 +1049,89 @@ def tier_series_key(it: dict):
     return (tg, it.get('curriculum'), it.get('subject'), it.get('subSubject'), sg)
 
 
-def compute_exam_scores(items: list[dict], cuts: list[dict] | None = None) -> dict:
-    """{exam_id: {raw, std, top, cum, abs, basis, tier, tierBasis, cut}} — 표준점수 최고점 기준 난이도.
+# ── 난이도 추정기 — 구간 자료 모멘트 ──────────────────────────────
+# 등급 경계 8개 + 등급 비율 9개로 점수 분포의 평균·표준편차·왜도를 구한다(정규분포 가정 없음).
+# 상대평가는 비율이 명목값으로 고정, 경계가 관측값. 절대평가(영어)는 경계가 고정, 비율이 관측값.
+# 검증·근거: docs/난이도-산정-기준.md, methodology.html
+GRADE_RATIOS = (.04, .07, .12, .17, .20, .17, .12, .07, .04)     # 상대평가 1~9등급 명목 비율
+ABS_EDGES = (100, 90, 80, 70, 60, 50, 40, 30, 20, 0)             # 절대평가(영어) 등급 경계, 위→아래
+TIER_LOW_N = 10   # 비교 회차가 이보다 적으면 5단계 대신 3단계(쉬움·보통·어려움)로만 분류
 
-    난이도는 같은 묶음(tier_series_key)의 역대 값 안에서의 백분위(중간순위)로 5단계를 매긴다.
-    기준은 묶음 단위로 하나만 쓴다(섞으면 순위가 어긋남):
-      · 표준점수 최고점이 5회 이상이고 묶음 회차의 80% 이상에 있는 묶음 → 표점 최고점 (높을수록 어려움). 표점 최고점이 없는 회차는 매기지 않음.
-      · 그렇지 않은 상대평가 묶음 → 1등급 원점수 컷 (높을수록 쉬움)
-      · 영어(절대평가) → 1등급 비율 (높을수록 쉬움)
-    표본이 5회 미만이거나 값이 모두 같으면 매기지 않는다."""
+
+def grouped_moments(edges, ratios) -> tuple[float, float, float]:
+    """edges: 위→아래 구간 경계 10개, ratios: 9개 구간 비율(합 1). 구간 안은 균등분포로 본다.
+    반환: (평균, 표준편차, 왜도). 왜도가 클수록 '어려운 시험'(높은 점수가 드묾)."""
+    mids = [(edges[i] + edges[i + 1]) / 2 for i in range(9)]
+    mean = sum(p * m for p, m in zip(ratios, mids))
+    var = sum(p * ((m - mean) ** 2 + (edges[i] - edges[i + 1]) ** 2 / 12)
+              for i, (p, m) in enumerate(zip(ratios, mids)))
+    sd = var ** 0.5
+    skew = sum(p * (m - mean) ** 3 for p, m in zip(ratios, mids)) / sd ** 3 if sd > 0 else 0.0
+    return mean, sd, skew
+
+
+def _full8(v) -> bool:
+    return (isinstance(v, list) and len(v) >= 8 and all(isinstance(x, (int, float)) and not isinstance(x, bool) for x in v[:8])
+            and all(v[i] >= v[i + 1] for i in range(7)))
+
+
+def relative_edges(cuts8, lo, hi) -> list[float]:
+    """1~8등급 컷(내림차순)과 최저·최고점 → 9개 구간 경계(정수 점수의 연속 근사: ±0.5)."""
+    return [hi + .5] + [c - .5 for c in cuts8] + [lo - .5]
+
+
+def cut_moments(cut: dict, absolute: bool, en_ratios: list | None = None) -> dict:
+    """등급컷 레코드 하나 → {'skew': 표점 분포 왜도, 'mean': 추정 평균 점수율(0~1), 'sd': 점수율 표준편차}."""
+    out: dict = {}
+    if absolute:
+        if en_ratios and len(en_ratios) == 9 and 95 <= sum(en_ratios) <= 105:
+            tot = sum(en_ratios)
+            m, sd, sk = grouped_moments(ABS_EDGES, [r / tot for r in en_ratios])
+            out.update(mean=round(m / 100, 4), sd=round(sd / 100, 4), skew=round(sk, 3))
+        return out
+    sc = cut.get('standardCuts')
+    if _full8(sc) and sc[0] <= 200 and sc[7] >= 1:
+        sc = sc[:8]
+        hi = cut.get('highestStandardScore')
+        if not isinstance(hi, (int, float)) or hi < sc[0]:
+            hi = sc[0] + (sc[0] - sc[1])           # 최고점이 없으면 1·2등급컷 간격만큼 위로
+        _, _, sk = grouped_moments(relative_edges(sc, sc[7] - (hi - sc[0]), hi), GRADE_RATIOS)
+        out['skew'] = round(sk, 3)
+    rc, fs = cut.get('rawCuts'), cut.get('fullScore')
+    if _full8(rc) and isinstance(fs, (int, float)) and fs > 0 and rc[0] <= fs and rc[7] >= 0:
+        rc = rc[:8]
+        lo = max(0, rc[7] - (fs - rc[0]))
+        m, sd, _ = grouped_moments(relative_edges(rc, lo, fs), GRADE_RATIOS)
+        out.update(mean=round(m / fs, 4), sd=round(sd / fs, 4))
+    return out
+
+
+def _series_tier(vals: list[float], v: float) -> int:
+    """같은 묶음 역대 값(높을수록 쉬움) 안에서의 중간순위 백분위 → 난이도 등급(1 매우 쉬움 … 5 매우 어려움)."""
+    below = sum(1 for x in vals if x < v)
+    equal = sum(1 for x in vals if x == v)
+    p = (below + 0.5 * equal) / len(vals)
+    if len(vals) < TIER_LOW_N:                      # 소표본은 3단계
+        return 2 if p >= 2 / 3 else 4 if p < 1 / 3 else 3
+    return 1 if p >= 0.8 else 2 if p >= 0.6 else 3 if p >= 0.4 else 4 if p >= 0.2 else 5
+
+
+def compute_exam_scores(items: list[dict], cuts: list[dict] | None = None) -> dict:
+    """{exam_id: {raw, std, top, cum, abs, basis, mean, sd, skew, tier, tierBasis, tierN, cut}} — 난이도 5단계.
+
+    난이도는 같은 묶음(tier_series_key)의 역대 값 안에서의 백분위(중간순위)로 매긴다(회차 수가 TIER_LOW_N 미만이면 3단계).
+    회차마다 쓸 수 있는 가장 좋은 지표를 쓴다(묶음 안에서 지표별로 표본 5회 이상·값 3종 이상일 때만 성립):
+      1) mean     추정 평균 점수율 — 원점수 등급컷(상대평가) 또는 등급별 비율(영어 절대평가)에서 구간 모멘트로 추정
+      2) skewtop  표점 분포 — 표점 컷 왜도 + 표점 최고점을 묶음 내 z 점수로 합산(원점수컷이 없는 회차용)
+      3) skew / top / raw  왜도만 · 표점 최고점만 · 1등급 원점수컷만
+    영어(절대평가)는 mean 만 쓴다. 표본이 부족하면 등급을 매기지 않는다."""
     match = build_cut_matcher(cuts if cuts is not None else _load_gradecuts())
     try:   # 영어(절대평가) 등급별 비율 — scripts/extract-english-ratios.py (평가원 채점결과)
         en_ratios = json.loads((ROOT / 'data' / 'english-grade-ratios.json').read_text(encoding='utf-8'))
     except Exception:
         en_ratios = {}
     out: dict = {}
-    series: dict = {}
+    members: dict = {}
     for it in items:
         cut = match(it)
         if not cut:
@@ -1075,57 +1144,62 @@ def compute_exam_scores(items: list[dict], cuts: list[dict] | None = None) -> di
             top = None
         r1 = raw[0] if raw and raw[0] is not None else None
         absolute = is_absolute_cut(it, cut)
-        out[it['id']] = {
+        rec = {
             'raw': r1,
             'std': std[0] if std and std[0] is not None else None,
             'top': top,
             'cum': cum[0] if cum and cum[0] is not None else None,
             'abs': absolute,
             'basis': cut.get('rawCutBasis'),
+            'mean': None, 'sd': None, 'skew': None,
             'tier': None,
             'tierBasis': None,
+            'tierN': None,
             'cut': cut,
             'ratio': None,
             'ratios': None,
         }
+        out[it['id']] = rec
         er = en_ratios.get(f'{it.get("gradeYear")}|{it.get("type")}') if (
             it.get('subject') == '영어' and it.get('typeGroup') == 'suneung') else None
         if er:
-            out[it['id']]['ratios'] = er['ratios']
-            out[it['id']]['ratio'] = er['ratios'][0]
+            rec['ratios'] = er['ratios']
+            rec['ratio'] = er['ratios'][0]
+        rec.update(cut_moments(cut, absolute, er['ratios'] if er else None))
         key = tier_series_key(it)
-        # 난이도 비교값 — 모두 '높을수록 쉬움' 방향으로 맞춘다(표점 최고점은 부호를 뒤집음)
         if key:
-            when = (it.get('gradeYear'), it.get('type'), it.get('month'))
-            s = series.setdefault(key, {'ratio': {}, 'top': {}, 'raw': {}})
-            if absolute:
-                if out[it['id']]['ratio'] is not None:
-                    s['ratio'][when] = out[it['id']]['ratio']
-            else:
-                if top is not None:
-                    s['top'][when] = -top
-                if r1 is not None:
-                    s['raw'][when] = r1
+            members.setdefault(key, []).append(it['id'])
+
     enough = lambda d: len(d) >= _TIER_MIN_SAMPLES and len(set(d.values())) >= 3
-    # 표점 최고점은 묶음의 80% 이상 회차에 있을 때만 — 일부만 있으면 나머지 회차의 난이도가 사라지므로 1등급컷 유지
-    covered = lambda d: enough(d['top']) and len(d['top']) >= 0.8 * len(set(d['top']) | set(d['raw']))
-    basis_of = {k: 'ratio' if enough(d['ratio']) else 'top' if covered(d) else 'raw' if enough(d['raw']) else None
-                for k, d in series.items()}
-    for it in items:
-        rec = out.get(it['id'])
-        key = tier_series_key(it)
-        basis = basis_of.get(key) if rec and key else None
-        if not basis:
-            continue
-        v = {'ratio': rec['ratio'], 'top': -rec['top'] if rec['top'] is not None else None, 'raw': rec['raw']}[basis]
-        if v is None:
-            continue
-        values = list(series[key][basis].values())
-        rec['tierBasis'] = basis
-        below = sum(1 for x in values if x < v)
-        equal = sum(1 for x in values if x == v)
-        p = (below + 0.5 * equal) / len(values)
-        rec['tier'] = 1 if p >= 0.8 else 2 if p >= 0.6 else 3 if p >= 0.4 else 4 if p >= 0.2 else 5
+
+    def zscores(d: dict) -> dict:
+        vs = list(d.values())
+        m = sum(vs) / len(vs)
+        s = (sum((x - m) ** 2 for x in vs) / len(vs)) ** 0.5 or 1.0
+        return {i: (v - m) / s for i, v in d.items()}
+
+    for key, ids in members.items():
+        absolute = any(out[i]['abs'] for i in ids)
+        # 지표별 값 — 모두 '높을수록 쉬움' 방향
+        scales: list[tuple[str, dict]] = [('mean', {i: out[i]['mean'] for i in ids if out[i]['mean'] is not None})]
+        if not absolute:
+            both = {i for i in ids if out[i]['skew'] is not None and out[i]['top'] is not None}
+            zk = zscores({i: -out[i]['skew'] for i in both}) if both else {}
+            zt = zscores({i: -out[i]['top'] for i in both}) if both else {}
+            scales += [
+                ('skewtop', {i: zk[i] + zt[i] for i in both}),
+                ('skew', {i: -out[i]['skew'] for i in ids if out[i]['skew'] is not None}),
+                ('top', {i: -out[i]['top'] for i in ids if out[i]['top'] is not None}),
+                ('raw', {i: out[i]['raw'] for i in ids if out[i]['raw'] is not None}),
+            ]
+        scales = [(b, d) for b, d in scales if enough(d)]
+        for i in ids:
+            for basis, d in scales:
+                if i in d:
+                    out[i]['tier'] = _series_tier(list(d.values()), d[i])
+                    out[i]['tierBasis'] = basis
+                    out[i]['tierN'] = len(d)
+                    break
     return out
 
 
@@ -1295,6 +1369,16 @@ def _short_round(it: dict) -> str:
     return f'{gy}'
 
 
+_TIER_BASIS_LABEL = {'mean': '추정 평균 점수율', 'skewtop': '표점 분포', 'skew': '표점 분포',
+                     'top': '표점 최고점', 'raw': '1등급컷'}
+
+
+def _tier_stat_label(sc: dict) -> str:
+    n = sc.get('tierN')
+    b = _TIER_BASIS_LABEL.get(sc.get('tierBasis'), '')
+    return f'난이도 (역대 {n}회 · {b} 기준)' if n and b else '난이도'
+
+
 def score_stats_html(sc: dict) -> str:
     esc = lambda v: html_escape(str(v), quote=False)
     cells = []
@@ -1305,8 +1389,10 @@ def score_stats_html(sc: dict) -> str:
         cells.append(('1등급 기준', f'{esc(sc["raw"])}<small>점 이상</small>', False))
         if sc.get('ratio') is not None:
             cells.append(('1등급 비율', f'{esc(sc["ratio"])}<small>%</small>', True))
+            if sc.get('mean') is not None:
+                cells.append(('추정 평균 점수율', f'{esc(round(sc["mean"] * 100))}<small>%</small>', True))
             if sc.get('tier'):
-                cells.append(('난이도 (역대 1등급 비율 기준)', TIER_LABELS[sc['tier']], True))
+                cells.append((_tier_stat_label(sc), TIER_LABELS[sc['tier']], True))
         else:
             cells.append(('평가 방식', '절대평가', False))
     else:
@@ -1317,8 +1403,10 @@ def score_stats_html(sc: dict) -> str:
             cells.append(('1등급 표준점수', esc(sc['std']), True))
         if sc.get('cum') is not None:
             cells.append(('1등급 누적 비율', f'{esc(sc["cum"])}<small>%</small>', True))
+        if sc.get('mean') is not None:
+            cells.append(('추정 평균 점수율', f'{esc(round(sc["mean"] * 100))}<small>%</small>', True))
         if sc.get('tier'):
-            cells.append(('난이도 (역대 ' + ('표점 최고점' if sc.get('tierBasis') == 'top' else '1등급컷') + ' 기준)', TIER_LABELS[sc['tier']], True))
+            cells.append((_tier_stat_label(sc), TIER_LABELS[sc['tier']], True))
     return '<div class="stats">' + ''.join(
         f'<div class="card-box stat"><span class="stat__label">{lbl}</span>'
         f'<span class="stat__value{" spoil-val" if blur else ""}">{val}</span></div>' for lbl, val, blur in cells) + '</div>'
@@ -1401,7 +1489,8 @@ def exam_insight_html(it: dict, series: list[dict], scores: dict) -> str:
             out.append(f'직전 회차({html_escape(lab, quote=False)})와 같{"고," if sc.get("tier") else "습니다."}')
     if sc.get('tier'):
         _tl = TIER_LABELS[sc['tier']]
-        out.append(f'역대 대비 난이도는 <span class="spoil-val">{_tl}</span>{"으로" if _has_batchim(_tl) else "로"} 분류됩니다.')
+        out.append(f'역대 대비 난이도는 <span class="spoil-val">{_tl}</span>{"으로" if _has_batchim(_tl) else "로"} 분류됩니다'
+                   f' (<a href="methodology.html#tiers">산정 기준</a>).')
     if sc.get('top') and not ratio_mode:
         out.append(f'표준점수 최고점은 <span class="spoil-val">{sc["top"]}점</span>입니다.')
     # '…높고,' 로 끝난 문장 뒤에 난이도 문장이 이어지도록 공백으로 합친다
