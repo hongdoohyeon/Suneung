@@ -1250,9 +1250,60 @@ def _val_table(val: dict) -> str:
     r_sk = st.correlation([r['sk'] for r in rows], [r['esk'] for r in rows])
     return (f'<p>{len(rows)}개 영역에서 평균 추정 오차는 표준편차의 평균 {sum(abs(e) for e in errs) / len(errs):.3f}배, 최대 {max(abs(e) for e in errs):.3f}배였습니다. '
             f'표준편차 추정값은 실제의 {min(ratio):.2f}배에서 {max(ratio):.2f}배 사이였고, 왜도의 상관계수는 {r_sk:.3f}였습니다.</p>'
-            '<p>절대평가 경로는 실측 분포가 없어 시뮬레이션으로 확인했습니다. 실제 분포 모양 50개를 0점에서 100점 사이로 옮겨 만든 2,000건에서 평균 오차는 평균 0.76점, 표준편차 비는 0.99였습니다.</p>'
             '<p>처음에는 등급컷에 정규분포를 맞추는 방법을 검토했으나, 수학은 점수가 한쪽으로 쏠리고 봉우리가 두 개여서 4점에서 7점씩 어긋나 채택하지 않았습니다. '
             '분포 모양을 가정하지 않는 현재 방식은 왜도가 -0.3에서 1.0까지인 분포에서도 안정적이었습니다.</p>')
+
+
+def _dedupe_rounds(its: list[dict]) -> list[dict]:
+    """같은 회차의 선택과목·영역 중복을 없앤다(시간순 유지)."""
+    seen, out = set(), []
+    for it in sorted(its, key=bd._exam_sort_key):
+        sig = (it['gradeYear'], it['type'])
+        if sig not in seen:
+            seen.add(sig); out.append(it)
+    return out
+
+
+def _tier_dot_chart(pts: list[dict], vals: list[float], allv: list[float], scores: dict, ylabel: str, aria: str) -> tuple[str, bool]:
+    """회차별 값(높을수록 쉬움)을 점으로 찍고, 부여된 난이도 색과 백분위 경계선을 겹친 그림. (svg, 5단계 여부) 반환."""
+    n = len(vals)
+    W, H, ml, mr, mt, mb = 680, 300, 46, 84, 16, 44
+    pw, ph = W - ml - mr, H - mt - mb
+    lo, hi = min(vals) - 3, max(vals) + 3
+    X = lambda i: ml + (i + .5) / n * pw
+    Y = lambda v: mt + ph - (v - lo) / (hi - lo) * ph
+    b = [f'<line class="mf-axis" x1="{ml}" y1="{mt + ph}" x2="{ml + pw}" y2="{mt + ph}"/><line class="mf-axis" x1="{ml}" y1="{mt}" x2="{ml}" y2="{mt + ph}"/>']
+    step = 5 if hi - lo > 12 else 2
+    for t in range(int(lo) + 1, int(hi) + 1):
+        if t % step == 0:
+            b.append(f'<line class="mf-grid" x1="{ml}" y1="{Y(t):.1f}" x2="{ml + pw}" y2="{Y(t):.1f}"/>')
+            b.append(_txt(ml - 6, Y(t) + 3, f'{t}%', 'mf-txt mf-txt--sm', 'end'))
+    allv = sorted(allv)
+    m = len(allv)
+
+    def q(p):   # 백분위 경계 값
+        idx = p * (m - 1)
+        f = int(idx); c = min(f + 1, m - 1)
+        return allv[f] + (allv[c] - allv[f]) * (idx - f)
+    five = m >= bd.TIER_LOW_N
+    edges = [.8, .6, .4, .2] if five else [2 / 3, 1 / 3]
+    for p in edges:
+        b.append(f'<line class="mf-thr" x1="{ml}" y1="{Y(q(p)):.1f}" x2="{ml + pw}" y2="{Y(q(p)):.1f}"/>')
+    zones = ([('매우 쉬움', (1.0, .8)), ('쉬움', (.8, .6)), ('보통', (.6, .4)), ('어려움', (.4, .2)), ('매우 어려움', (.2, 0))] if five
+             else [('쉬움', (1.0, 2 / 3)), ('보통', (2 / 3, 1 / 3)), ('어려움', (1 / 3, 0))])
+    for lbl, (a_, b_) in zones:
+        b.append(_txt(ml + pw + 8, Y((q(a_) + q(b_)) / 2) + 3, lbl, 'mf-txt mf-txt--sm', 'start'))
+    for i, it in enumerate(pts):
+        t = scores[it['id']]['tier']
+        b.append(f'<circle class="mf-t{t}" cx="{X(i):.1f}" cy="{Y(vals[i]):.1f}" r="4.6"><title>{bd.html_escape(bd._short_round(it) + f" {vals[i]:.1f}%", quote=False)}</title></circle>')
+    last = None
+    for i, it in enumerate(pts):
+        y = it['gradeYear']
+        if y != last and isinstance(y, int) and i % max(1, n // 12) == 0:
+            b.append(_txt(X(i), mt + ph + 14, y, 'mf-txt mf-txt--sm')); last = y
+    b.append(_txt(ml + pw / 2, H - 6, '학년도 (왼쪽이 과거, 오른쪽이 최근 회차)', 'mf-txt mf-txt--sm'))
+    b.append(f'<text class="mf-txt" transform="translate(12 {mt + ph / 2}) rotate(-90)" text-anchor="middle">{ylabel}</text>')
+    return _svg(W, H, aria, ''.join(b)), five
 
 
 def _fig_series(items: list[dict], scores: dict) -> str:
@@ -1266,96 +1317,28 @@ def _fig_series(items: list[dict], scores: dict) -> str:
     if not ser:
         return ''
     key = max(ser, key=lambda k: len(ser[k]))
-    pts = sorted(ser[key], key=bd._exam_sort_key)
-    # 같은 회차의 선택과목 중복 제거(표시 순서 유지)
-    seen, uniq = set(), []
-    for it in pts:
-        sig = (it['gradeYear'], it['type'])
-        if sig not in seen:
-            seen.add(sig); uniq.append(it)
-    pts = uniq
-    vals = [scores[it['id']]['mean'] * 100 for it in pts]
-    n = len(vals)
-    allv = sorted(scores[it['id']]['mean'] * 100 for it in ser[key])
-    W, H, ml, mr, mt, mb = 680, 300, 46, 84, 16, 44
-    pw, ph = W - ml - mr, H - mt - mb
-    lo, hi = min(vals) - 3, max(vals) + 3
-    X = lambda i: ml + (i + .5) / n * pw
-    Y = lambda v: mt + ph - (v - lo) / (hi - lo) * ph
-    b = [f'<line class="mf-axis" x1="{ml}" y1="{mt + ph}" x2="{ml + pw}" y2="{mt + ph}"/><line class="mf-axis" x1="{ml}" y1="{mt}" x2="{ml}" y2="{mt + ph}"/>']
-    for t in range(int(lo) + 1, int(hi) + 1):
-        if t % 5 == 0:
-            b.append(f'<line class="mf-grid" x1="{ml}" y1="{Y(t):.1f}" x2="{ml + pw}" y2="{Y(t):.1f}"/>')
-            b.append(_txt(ml - 6, Y(t) + 3, f'{t}%', 'mf-txt mf-txt--sm', 'end'))
-    m = len(allv)
-    def q(p):   # 백분위 경계 값(높을수록 쉬움)
-        idx = p * (m - 1)
-        f = int(idx); c = min(f + 1, m - 1)
-        return allv[f] + (allv[c] - allv[f]) * (idx - f)
-    five = m >= bd.TIER_LOW_N
-    cuts = [(q(.8), '매우 쉬움'), (q(.6), ''), (q(.4), ''), (q(.2), '매우 어려움')] if five else [(q(2 / 3), ''), (q(1 / 3), '')]
-    for v, _ in cuts:
-        b.append(f'<line class="mf-thr" x1="{ml}" y1="{Y(v):.1f}" x2="{ml + pw}" y2="{Y(v):.1f}"/>')
-    zones = [('매우 쉬움', 1, (q(1.0) + q(.8)) / 2), ('쉬움', 2, (q(.8) + q(.6)) / 2), ('보통', 3, (q(.6) + q(.4)) / 2),
-             ('어려움', 4, (q(.4) + q(.2)) / 2), ('매우 어려움', 5, (q(.2) + q(0)) / 2)] if five else [
-             ('쉬움', 2, (q(1.0) + q(2 / 3)) / 2), ('보통', 3, (q(2 / 3) + q(1 / 3)) / 2), ('어려움', 4, (q(1 / 3) + q(0)) / 2)]
-    for lbl, t, v in zones:
-        b.append(_txt(ml + pw + 8, Y(v) + 3, lbl, f'mf-txt mf-txt--sm', 'start'))
-    for i, it in enumerate(pts):
-        t = scores[it['id']]['tier']
-        b.append(f'<circle class="mf-t{t}" cx="{X(i):.1f}" cy="{Y(vals[i]):.1f}" r="4.6"><title>{bd.html_escape(bd._short_round(it) + f" {vals[i]:.1f}%", quote=False)}</title></circle>')
-    last = None
-    for i, it in enumerate(pts):
-        y = it['gradeYear']
-        if y != last and isinstance(y, int) and i % max(1, n // 12) == 0:
-            b.append(_txt(X(i), mt + ph + 14, y, 'mf-txt mf-txt--sm')); last = y
-    b.append(_txt(ml + pw / 2, H - 6, '학년도 (왼쪽이 과거, 오른쪽이 최근 회차)', 'mf-txt mf-txt--sm'))
-    b.append(f'<text class="mf-txt" transform="translate(12 {mt + ph / 2}) rotate(-90)" text-anchor="middle">추정 평균 점수율</text>')
+    pts = _dedupe_rounds(ser[key])
+    svg, five = _tier_dot_chart(pts, [scores[it['id']]['mean'] * 100 for it in pts], [scores[it['id']]['mean'] * 100 for it in ser[key]],
+                                scores, '추정 평균 점수율', '국어 역대 회차의 추정 평균 점수율과 난이도 등급')
     curr = key[1]
-    cap = (f'<figcaption>그림 3. 수능과 모의평가 국어({bd._CURR_LABEL.get(str(curr), str(curr))} 교육과정) {len(allv)}개 회차의 추정 평균 점수율입니다. '
+    cap = (f'<figcaption>그림 3. 수능과 모의평가 국어({bd._CURR_LABEL.get(str(curr), str(curr))} 교육과정) {len(ser[key])}개 회차의 추정 평균 점수율입니다. '
            f'점 색깔은 부여된 난이도이고 점선은 역대 값을 {"20, 40, 60, 80" if five else "33, 67"}퍼센트 지점에서 나눈 경계입니다. '
            f'점수율이 높을수록 쉬운 시험입니다. 점에 마우스를 올리면 회차와 값이 표시됩니다.</figcaption>')
-    return f'<div>{_svg(W, H, "국어 역대 회차의 추정 평균 점수율과 난이도 등급", "".join(b))}</div>{cap}'
+    return f'<div>{svg}</div>{cap}'
 
 
 def _fig_abs(items: list[dict], scores: dict) -> str:
-    seen, recs = set(), []
-    for it in sorted(items, key=bd._exam_sort_key):
-        r = scores.get(it['id'])
-        if it.get('subject') == '영어' and it.get('typeGroup') == 'suneung' and r and r['ratios']:
-            sig = (it['gradeYear'], it['type'])
-            if sig not in seen:
-                seen.add(sig); recs.append((it, r))
-    if not recs:
+    """영어(절대평가): 1등급 비율 추이와 부여된 난이도."""
+    its = [it for it in items if it.get('subject') == '영어' and it.get('typeGroup') == 'suneung'
+           and scores.get(it['id']) and scores[it['id']]['tierBasis'] == 'ratio' and scores[it['id']]['tier']]
+    if not its:
         return ''
-    it, r = next(((i, x) for i, x in reversed(recs) if i['type'] == 'csat'), recs[-1])
-    ratios = r['ratios']; tot = sum(ratios)
-    E = bd.ABS_EDGES
-    W, H, ml, mr, mt, mb = 680, 260, 46, 16, 30, 46
-    pw, ph = W - ml - mr, H - mt - mb
-    X = lambda v: ml + v / 100 * pw
-    dens = [ratios[i] / tot / (E[i] - E[i + 1]) for i in range(9)]
-    dm = max(dens)
-    Y = lambda d: mt + ph - d / dm * ph
-    b = [f'<line class="mf-axis" x1="{ml}" y1="{mt + ph}" x2="{ml + pw}" y2="{mt + ph}"/>']
-    for i in range(9):
-        x_a, x_b = X(E[i + 1]), X(E[i])
-        b.append(f'<rect class="mf-dens" x="{x_a + 1:.1f}" y="{Y(dens[i]):.1f}" width="{x_b - x_a - 2:.1f}" height="{mt + ph - Y(dens[i]):.1f}"/>')
-        b.append(_txt((x_a + x_b) / 2, Y(dens[i]) - 5, f'{ratios[i]:g}%', 'mf-txt mf-txt--sm'))
-        b.append(_txt((x_a + x_b) / 2, mt + ph + 27, f'{i + 1}등급', 'mf-txt mf-txt--strong mf-txt--sm'))
-    for v in E[1:9]:
-        b.append(_txt(X(v), mt + ph + 14, v, 'mf-txt mf-txt--sm'))
-    mean = r['mean'] * 100
-    b.append(f'<line class="mf-est" x1="{X(mean):.1f}" y1="{mt - 8}" x2="{X(mean):.1f}" y2="{mt + ph}"/>')
-    b.append(_txt(X(mean) - 6, mt - 12, f'추정 평균 {mean:.1f}점', 'mf-est-txt', 'end'))
-    b.append(_txt(ml + pw / 2, H - 4, '원점수 (막대 넓이는 등급 비율)', 'mf-txt mf-txt--sm'))
-    tbl = ['<table class="method__table"><thead><tr><th>시험</th><th>1등급 비율</th><th>추정 평균 점수율</th></tr></thead><tbody>']
-    for i2, r2 in reversed(recs[-6:]):
-        tbl.append(f'<tr><td>{i2["gradeYear"]}학년도 {bd.KOREAN_TYPE_LABEL.get(i2["type"], "")}</td><td>{r2["ratios"][0]:g}%</td><td>{r2["mean"] * 100:.1f}%</td></tr>')
-    tbl.append('</tbody></table>')
-    cap = (f'<figcaption>그림 4. {it["gradeYear"]}학년도 {bd.KOREAN_TYPE_LABEL.get(it["type"], "")} 영어(절대평가)입니다. 경계는 90점부터 20점까지 고정이고, '
-           f'평가원이 공개한 등급별 비율로 평균을 {mean:.1f}점으로 추정했습니다. 1등급 비율만이 아니라 등급 전체의 비율을 사용합니다.</figcaption>')
-    return f'<div>{_svg(W, H, "영어 절대평가 등급별 비율과 추정 평균", "".join(b))}</div>{cap}{"".join(tbl)}'
+    pts = _dedupe_rounds(its)
+    svg, five = _tier_dot_chart(pts, [scores[it['id']]['ratio'] for it in pts], [scores[it['id']]['ratio'] for it in its],
+                                scores, '1등급 비율', '영어 역대 회차의 1등급 비율과 난이도 등급')
+    cap = (f'<figcaption>그림 4. 수능과 모의평가 영어(절대평가) {len(its)}개 회차의 1등급 비율입니다. 점 색깔은 부여된 난이도입니다. '
+           f'1등급 비율이 낮을수록 90점을 넘기기 어려웠던 시험이므로 아래쪽이 어려운 시험입니다.</figcaption>')
+    return f'<div>{svg}</div>{cap}'
 
 
 def render_methodology(items: list[dict]) -> None:

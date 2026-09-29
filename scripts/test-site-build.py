@@ -140,9 +140,20 @@ class BuildTests(unittest.TestCase):
         self.assertGreater(out['mean'], 0.4)
         self.assertLess(out['mean'], 0.8)
 
-    def test_absolute_english_mean_from_grade_ratios(self):
-        out = render.bd.cut_moments({}, True, [5, 15, 25, 20, 13, 9, 6, 5, 2])
-        self.assertAlmostEqual(out['mean'], 0.67, delta=0.05)
+    def test_absolute_english_tier_follows_first_grade_ratio(self):
+        # 1등급 비율이 낮을수록 어려움 — 평균이 높게 추정되더라도 등급은 1등급 비율을 따른다
+        items = [{'id': i, 'curriculum': '2015', 'gradeYear': 2018 + i, 'type': 'csat', 'typeGroup': 'suneung',
+                  'subject': '영어', 'subSubject': None} for i in range(6)]
+        cuts = [{'curriculum': '2015', 'gradeYear': 2018 + i, 'type': 'csat', 'subject': '영어', 'subSubject': None,
+                 'rawCuts': [90], 'absolute': True} for i in range(6)]
+        import unittest.mock as um
+        ratios = {f'{2018 + i}|csat': {'ratios': [r, 15, 25, 25, 15, 10, 5, 3, 1]} for i, r in enumerate([3, 8, 12, 5, 20, 1])}
+        with um.patch.object(Path, 'read_text', return_value=json.dumps(ratios)):
+            out = render.bd.compute_exam_scores(items, cuts)
+        self.assertEqual(out[5]['tierBasis'], 'ratio')
+        self.assertEqual(out[4]['tier'], 2)   # 1등급 20% → 쉬움
+        self.assertEqual(out[5]['tier'], 4)   # 1등급 1% → 어려움 (6회차라 3단계)
+
 
 
 if __name__ == '__main__':

@@ -1051,10 +1051,10 @@ def tier_series_key(it: dict):
 
 # ── 난이도 추정기 — 구간 자료 모멘트 ──────────────────────────────
 # 등급 경계 8개 + 등급 비율 9개로 점수 분포의 평균·표준편차·왜도를 구한다(정규분포 가정 없음).
-# 상대평가는 비율이 명목값으로 고정, 경계가 관측값. 절대평가(영어)는 경계가 고정, 비율이 관측값.
+# 상대평가는 비율이 명목값으로 고정, 경계가 관측값이다. 절대평가(영어·한국사)는 평균이 아니라 1등급 비율로 난이도를 매긴다
+# (평균은 하위 등급 비율에 좌우돼 '1등급 받기 어려운 정도'를 못 잡는다 — 2026학년도 수능 영어: 1등급 3.1%인데 평균은 높게 추정됨).
 # 검증·근거: docs/난이도-산정-기준.md, methodology.html
 GRADE_RATIOS = (.04, .07, .12, .17, .20, .17, .12, .07, .04)     # 상대평가 1~9등급 명목 비율
-ABS_EDGES = (100, 90, 80, 70, 60, 50, 40, 30, 20, 0)             # 절대평가(영어) 등급 경계, 위→아래
 TIER_LOW_N = 10   # 비교 회차가 이보다 적으면 5단계 대신 3단계(쉬움·보통·어려움)로만 분류
 
 
@@ -1080,14 +1080,10 @@ def relative_edges(cuts8, lo, hi) -> list[float]:
     return [hi + .5] + [c - .5 for c in cuts8] + [lo - .5]
 
 
-def cut_moments(cut: dict, absolute: bool, en_ratios: list | None = None) -> dict:
-    """등급컷 레코드 하나 → {'skew': 표점 분포 왜도, 'mean': 추정 평균 점수율(0~1), 'sd': 점수율 표준편차}."""
+def cut_moments(cut: dict, absolute: bool) -> dict:
+    """등급컷 레코드 하나 → {'skew': 표점 분포 왜도, 'mean': 추정 평균 점수율(0~1), 'sd': 점수율 표준편차}. 절대평가는 비워 둔다."""
     out: dict = {}
     if absolute:
-        if en_ratios and len(en_ratios) == 9 and 95 <= sum(en_ratios) <= 105:
-            tot = sum(en_ratios)
-            m, sd, sk = grouped_moments(ABS_EDGES, [r / tot for r in en_ratios])
-            out.update(mean=round(m / 100, 4), sd=round(sd / 100, 4), skew=round(sk, 3))
         return out
     sc = cut.get('standardCuts')
     if _full8(sc) and sc[0] <= 200 and sc[7] >= 1:
@@ -1121,10 +1117,10 @@ def compute_exam_scores(items: list[dict], cuts: list[dict] | None = None) -> di
 
     난이도는 같은 묶음(tier_series_key)의 역대 값 안에서의 백분위(중간순위)로 매긴다(회차 수가 TIER_LOW_N 미만이면 3단계).
     회차마다 쓸 수 있는 가장 좋은 지표를 쓴다(묶음 안에서 지표별로 표본 5회 이상·값 3종 이상일 때만 성립):
-      1) mean     추정 평균 점수율 — 원점수 등급컷(상대평가) 또는 등급별 비율(영어 절대평가)에서 구간 모멘트로 추정
+      1) mean     추정 평균 점수율 — 원점수 등급컷(상대평가)에서 구간 모멘트로 추정
       2) skewtop  표점 분포 — 표점 컷 왜도 + 표점 최고점을 묶음 내 z 점수로 합산(원점수컷이 없는 회차용)
       3) skew / top / raw  왜도만 · 표점 최고점만 · 1등급 원점수컷만
-    영어(절대평가)는 mean 만 쓴다. 표본이 부족하면 등급을 매기지 않는다."""
+    절대평가(영어)는 1등급 비율(ratio)만 쓴다. 표본이 부족하면 등급을 매기지 않는다."""
     match = build_cut_matcher(cuts if cuts is not None else _load_gradecuts())
     try:   # 영어(절대평가) 등급별 비율 — scripts/extract-english-ratios.py (평가원 채점결과)
         en_ratios = json.loads((ROOT / 'data' / 'english-grade-ratios.json').read_text(encoding='utf-8'))
@@ -1165,7 +1161,7 @@ def compute_exam_scores(items: list[dict], cuts: list[dict] | None = None) -> di
         if er:
             rec['ratios'] = er['ratios']
             rec['ratio'] = er['ratios'][0]
-        rec.update(cut_moments(cut, absolute, er['ratios'] if er else None))
+        rec.update(cut_moments(cut, absolute))
         key = tier_series_key(it)
         if key:
             members.setdefault(key, []).append(it['id'])
@@ -1181,7 +1177,10 @@ def compute_exam_scores(items: list[dict], cuts: list[dict] | None = None) -> di
     for key, ids in members.items():
         absolute = any(out[i]['abs'] for i in ids)
         # 지표별 값 — 모두 '높을수록 쉬움' 방향
-        scales: list[tuple[str, dict]] = [('mean', {i: out[i]['mean'] for i in ids if out[i]['mean'] is not None})]
+        if absolute:   # 절대평가: 1등급 비율(높을수록 쉬움)
+            scales: list[tuple[str, dict]] = [('ratio', {i: out[i]['ratio'] for i in ids if out[i]['ratio'] is not None})]
+        else:
+            scales = [('mean', {i: out[i]['mean'] for i in ids if out[i]['mean'] is not None})]
         if not absolute:
             both = {i for i in ids if out[i]['skew'] is not None and out[i]['top'] is not None}
             zk = zscores({i: -out[i]['skew'] for i in both}) if both else {}
@@ -1369,7 +1368,7 @@ def _short_round(it: dict) -> str:
     return f'{gy}'
 
 
-_TIER_BASIS_LABEL = {'mean': '추정 평균 점수율', 'skewtop': '표점 분포', 'skew': '표점 분포',
+_TIER_BASIS_LABEL = {'ratio': '1등급 비율', 'mean': '추정 평균 점수율', 'skewtop': '표점 분포', 'skew': '표점 분포',
                      'top': '표점 최고점', 'raw': '1등급컷'}
 
 
@@ -1389,8 +1388,6 @@ def score_stats_html(sc: dict) -> str:
         cells.append(('1등급 기준', f'{esc(sc["raw"])}<small>점 이상</small>', False))
         if sc.get('ratio') is not None:
             cells.append(('1등급 비율', f'{esc(sc["ratio"])}<small>%</small>', True))
-            if sc.get('mean') is not None:
-                cells.append(('추정 평균 점수율', f'{esc(round(sc["mean"] * 100))}<small>%</small>', True))
             if sc.get('tier'):
                 cells.append((_tier_stat_label(sc), TIER_LABELS[sc['tier']], True))
         else:
