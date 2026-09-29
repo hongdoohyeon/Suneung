@@ -1376,7 +1376,7 @@ _TIER_BASIS_LABEL = {'mean': '추정 평균 점수율', 'skewtop': '표점 분�
 def _tier_stat_label(sc: dict) -> str:
     n = sc.get('tierN')
     b = _TIER_BASIS_LABEL.get(sc.get('tierBasis'), '')
-    return f'난이도 (역대 {n}회 · {b} 기준)' if n and b else '난이도'
+    return f'난이도 (역대 {n}회, {b} 기준)' if n and b else '난이도'
 
 
 def score_stats_html(sc: dict) -> str:
