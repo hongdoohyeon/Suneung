@@ -4,16 +4,7 @@ O = os.path.dirname(os.path.abspath(__file__))
 OFF = json.load(open(O + '/official.json'))
 P = json.load(open(O + '/kice_posts.json'))
 AM = json.load(open(O + '/assetmap.json'))
-NEWS = {}
-for f in ('news_a', 'news_b', 'news_c', 'news_d'):
-    for k, v in json.load(open(O + f'/{f}.json')).items():
-        if k.startswith('_'): continue
-        base = k.replace('_extra', '')
-        if base in NEWS:
-            NEWS[base]['items'] += [i for i in v['items'] if i['url'] not in {x['url'] for x in NEWS[base]['items']}]
-            if v.get('summary') and not NEWS[base].get('summary'): NEWS[base]['summary'] = v['summary']
-        else:
-            NEWS[base] = {**v, 'items': list(v['items'])}
+NEWS = json.load(open(O + '/news_final.json'))   # news_clean.py 산출 — 기사별 subjects 태그(세부과목)
 # 평가원 발표를 옮겨 실은 정부·공공기관 게시물
 EXTRA = json.load(open(O + '/official_extra.json'))
 W = 'https://suneung-files.hdh061224.workers.dev/objection-v1/'
@@ -99,6 +90,11 @@ for k, v in OFF.items():
         concl = d['conclusion'].strip()
         if re.search(r'영역|이의\s*신청\s*정답에|이상이\s*없음\s*[-◎]', concl): concl = ''
         answer = [x for x in paras if x != claim]
+        if claim and (len(claim) > 320 or not answer):   # 한 문단짜리 답변 — 이의 요지는 해당 문장만, 답변은 전문
+            sents = [x for x in re.split(r'(?<=[다요])\.\s*', claim) if x.strip()]
+            i = next((j for j, x in enumerate(sents) if re.search(r'이의\s*(제기|신청)', x)), None)
+            claim = (sents[i].strip() + '.') if i is not None else ''
+            answer = paras
         body, n = [], 0
         for x in answer:   # 원문 문단 그대로 — 너무 긴 답변은 앞부분만 (원문 링크로 이어 보기)
             if n + len(x) > 2400: body.append('…'); break
