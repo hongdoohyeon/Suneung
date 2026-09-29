@@ -155,6 +155,30 @@ class BuildTests(unittest.TestCase):
         self.assertEqual(out[5]['tier'], 4)   # 1등급 1% → 어려움 (6회차라 3단계)
 
 
+    def test_set_related_links_cover_prev_next_same_exam_and_hubs(self):
+        cat = [
+            {'fname': f'exam-set-kice-{y}-sept.html', 'head': f'{y}학년도 9월 모의평가', 'gy': y, 'examYear': y - 1, 'month': 9,
+             'typeGroup': 'suneung', 'ntype': 'sept', 'sg': None} for y in (2024, 2025, 2026)
+        ] + [{'fname': 'exam-set-kice-2026-june.html', 'head': '2026학년도 6월 모의평가', 'gy': 2026, 'examYear': 2025, 'month': 6,
+              'typeGroup': 'suneung', 'ntype': 'june', 'sg': None}]
+        me = cat[1]
+        html = render.bd.set_related_html(me, cat, ['국어', '수학'])
+        self.assertIn('href="exam-set-kice-2024-sept.html"', html)
+        self.assertIn('href="exam-set-kice-2026-sept.html"', html)
+        self.assertIn('이전 시험', html)
+        self.assertIn('href="exam-set-kice-2026-june.html"', html)       # 같은 학년도의 다른 시험
+        self.assertNotIn('href="exam-set-kice-2025-sept.html"', html)     # 자기 자신은 제외
+        self.assertIn('suneung-korean.html', html)
+
+    def test_set_titles_include_student_search_terms(self):
+        exams = [{'subject': '국어'}]
+        edu = render.bd.build_set_meta('2015', '2027', 'mar', 3, exams)
+        self.assertIn('3모', edu['title'])
+        self.assertIn('모의고사', edu['title'])
+        self.assertIn('학력평가', edu['title'])
+        csat = render.bd.build_set_meta('2015', '2026', 'csat', None, exams)
+        self.assertIn('수능', csat['title'])
+
 
 if __name__ == '__main__':
     unittest.main()

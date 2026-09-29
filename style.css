@@ -1147,3 +1147,18 @@ body.pv-lock { overflow: hidden; }
 .report-form__status { min-height: 1.2em; font-size: 13px; font-weight: 600; color: var(--ink-2); }
 .report-form__status:empty { display: none; }
 .report-form__actions { display: flex; justify-content: flex-end; gap: 8px; }
+
+/* 회차 페이지: 등급컷·난이도 요약, 관련 기출 링크 */
+.examset__facts, .examset__related { margin-top: 28px; }
+.examset__facts h2, .examset__related h2 { margin: 0 0 8px; font-size: 18px; font-weight: 800; letter-spacing: -.03em; }
+.examset__facts-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+.examset__facts p { margin: 6px 0 12px; font-size: 13.5px; line-height: 1.65; color: var(--ink-3); }
+.examset__facts a, .examset__related a { color: var(--ink); text-decoration: underline; text-decoration-color: var(--line-strong); text-underline-offset: 3px; }
+.examset__facts-scroll { overflow-x: auto; }
+.examset__table { width: 100%; border-collapse: collapse; font-size: 14px; font-variant-numeric: tabular-nums; }
+.examset__table th, .examset__table td { padding: 8px 12px 8px 0; text-align: left; border-bottom: 1px solid var(--line); white-space: nowrap; }
+.examset__table thead th { font-size: 12.5px; font-weight: 600; color: var(--ink-4); }
+.examset__table tbody th { font-weight: 600; }
+.examset__related h3 { margin: 16px 0 6px; font-size: 14px; font-weight: 700; color: var(--ink-3); }
+.examset__prevnext, .examset__links { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: 14px; line-height: 1.6; }
+.examset__prevnext li span { margin-right: 8px; color: var(--ink-4); font-size: 13px; }

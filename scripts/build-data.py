@@ -2304,14 +2304,17 @@ def build_set_meta(curr: str, year: str, t: str, sg: int | None, exams_in_set: l
         title = f'{head} 과목별 문제·정답 — 기출해체분석기'
         desc = (f'{full} {subj_phrase} 기출 문제지와 정답(확정안)을 한 페이지에서 '
                 f'확인하고 무료로 내려받으세요.')
-    elif has_english_listen:
-        title = f'{head} {short} 영역별 문제·정답·영어 듣기·해설지 — 기출해체분석기'
-        desc = (f'{full} {subj_phrase} 기출 문제지·정답·해설지·등급컷. '
-                f'영어 듣기 MP3와 듣기 대본 PDF도 함께 받을 수 있습니다.')
     else:
-        title = f'{head} 영역별 문제·정답·해설지 — 기출해체분석기'
-        desc = (f'{full} {subj_phrase} 기출 문제지·정답·해설지와 등급컷을 '
-                f'영역별로 한 페이지에서 확인하고 무료로 내려받으세요.')
+        # 학생들이 실제로 검색하는 말(3모·6모, 모의고사, 답지)을 제목·설명에 넣는다. 공식 명칭은 그대로 둔다.
+        base = f'{head}({short})' if short and short not in head else head
+        mock = '모의고사 ' if sg is not None else ''
+        title = f'{base} {mock}문제·정답·해설·등급컷 — 기출해체분석기'
+        if has_english_listen:
+            desc = (f'{full} {subj_phrase} 기출 문제지·정답(답지)·해설지·등급컷. '
+                    f'영어 듣기 MP3와 듣기 대본 PDF도 함께 받을 수 있습니다.')
+        else:
+            desc = (f'{full} {subj_phrase} 기출 문제지·정답(답지)·해설지와 등급컷을 '
+                    f'영역별로 한 페이지에서 확인하고 무료로 내려받으세요.')
 
     if is_reference:
         intro_parts = [f'{full} 자료입니다.',
@@ -2346,6 +2349,97 @@ def set_friendly_filename(curr: str, year: str, t: str, sg: int | None) -> str:
     }.get(curr, curr.lower())
     grade_part = f'-g{sg}' if sg else ''
     return f'exam-set-{curr_slug}-{year}-{t}{grade_part}.html'
+
+
+# ── 회차 페이지: 등급컷·난이도 요약 + 관련 시험 내부링크 ────────────────
+_HUB_SLUG = {'국어': 'korean', '수학': 'math', '영어': 'english', '사회탐구': 'social', '과학탐구': 'science',
+             '한국사': 'history', '제2외국어': 'foreign', '직업탐구': 'vocational'}
+_NTYPE = {'jun': 'june', 'sep': 'sept'}
+
+
+def _set_chrono(info: dict):
+    return (info['examYear'], info['month'])
+
+
+def set_facts_html(head: str, exams: list[dict], scores: dict, by_key: dict) -> str:
+    """이 회차 영역별 1등급컷·표준점수 최고점·난이도·전년 대비 표. 값이 하나도 없으면 빈 문자열."""
+    esc = lambda v: html_escape(str(v), quote=False)
+    rows = []
+    for it in sorted(exams, key=lambda x: (SUBJECT_ORDER.get(x.get('subject'), 99), x.get('subject') or '', sub_order_key(x.get('subSubject')))):
+        sc = scores.get(it['id'])
+        if not sc or not (sc['raw'] is not None or sc['top'] is not None or sc['tier'] or sc['ratio'] is not None):
+            continue
+        name = pretty_sub(it.get('subSubject')) or it.get('subject') or ''
+        subject = it.get('subject') or ''
+        if subject and name != subject:
+            name = f'{subject} {name}'
+        if sc['abs'] and sc['ratio'] is None and sc['top'] is None and not sc['tier']:
+            continue   # 한국사처럼 비교할 값이 없는 절대평가 과목
+        if sc['abs']:
+            cut = f'{sc["ratio"]:g}%' if sc['ratio'] is not None else '절대평가'
+        else:
+            cut = f'{sc["raw"]:g}점' if sc['raw'] is not None else '-'
+        top = f'{sc["top"]:g}점' if sc['top'] is not None else '-'
+        tier = f'<span class="tier tier--{sc["tier"]}">{TIER_LABELS[sc["tier"]]}</span>' if sc['tier'] else '-'
+        delta = '-'
+        if sc['raw'] is not None and not sc['abs'] and isinstance(it.get('gradeYear'), int):
+            prev = by_key.get(_score_key(it, it['gradeYear'] - 1))
+            if prev is not None and prev['raw'] is not None:
+                d = sc['raw'] - prev['raw']
+                delta = f'{d:+g}점' if d else '같음'
+        rows.append(f'<tr><th scope="row">{esc(name)}</th><td class="spoil-val">{esc(cut)}</td>'
+                    f'<td class="spoil-val">{esc(top)}</td><td class="spoil-val">{tier}</td><td class="spoil-val">{esc(delta)}</td></tr>')
+    if not rows:
+        return ''
+    return ('<section class="examset__facts" aria-labelledby="examsetFactsTitle">'
+            '<div class="examset__facts-head"><h2 id="examsetFactsTitle">등급컷과 난이도</h2>'
+            '<button type="button" class="switch" role="switch" aria-checked="true" data-spoiler-toggle>스포일러 방지'
+            '<span class="switch__knob" aria-hidden="true"></span></button></div>'
+            f'<p>{esc(head)} 영역별 1등급컷, 표준점수 최고점, 난이도입니다. 난이도는 같은 과목 역대 시험과 비교한 값이며 '
+            '계산 방법은 <a href="methodology.html">난이도 산정 기준</a>에 정리했습니다. 전년 대비는 같은 시험의 직전 학년도 1등급 원점수컷과의 차이입니다.</p>'
+            '<div class="examset__facts-scroll"><table class="examset__table"><thead><tr><th scope="col">영역</th>'
+            '<th scope="col">1등급컷</th><th scope="col">표준점수 최고점</th><th scope="col">난이도</th><th scope="col">전년 대비</th></tr></thead>'
+            f'<tbody>{"".join(rows)}</tbody></table></div></section>')
+
+
+def _score_key(it: dict, gy) -> tuple:
+    sg = it.get('studentGrade') if it.get('typeGroup') == 'education' else None
+    return (it.get('typeGroup'), _NTYPE.get(it.get('type'), it.get('type')), sg, it.get('subject'), it.get('subSubject'), gy)
+
+
+def set_related_html(me: dict, catalog: list[dict], subjects: list[str]) -> str:
+    """같은 시험의 다른 연도, 같은 학년도의 다른 시험, 이전·다음 시험, 과목별 기출 허브로 가는 링크."""
+    a = lambda o: f'<a href="{o["fname"]}">{html_escape(o["head"], quote=False)} 기출</a>'
+    fam = [o for o in catalog if o['typeGroup'] == me['typeGroup'] and o['sg'] == me['sg'] and o['fname'] != me['fname']]
+    blocks = []
+    if me['typeGroup'] in ('suneung', 'education', 'military', 'police', 'leet', 'meet'):
+        seq = [o for o in fam if o['ntype'] not in ('prelim', 'prelim_edu')]   # 예비시험은 이전·다음에서 제외
+        past = [o for o in seq if _set_chrono(o) < _set_chrono(me)]
+        fut = [o for o in seq if _set_chrono(o) > _set_chrono(me)]
+        nav = []
+        if past:
+            nav.append(f'<li><span>이전 시험</span>{a(max(past, key=_set_chrono))}</li>')
+        if fut:
+            nav.append(f'<li><span>다음 시험</span>{a(min(fut, key=_set_chrono))}</li>')
+        if nav:
+            blocks.append(f'<ul class="examset__prevnext">{"".join(nav)}</ul>')
+    same_type = [o for o in fam if o['ntype'] == me['ntype']]
+    same_type.sort(key=lambda o: (abs(o['gy'] - me['gy']), -o['gy']))
+    same_type = sorted(same_type[:10], key=lambda o: -o['gy'])
+    if same_type:
+        blocks.append(f'<h3>같은 시험의 다른 연도</h3><ul class="examset__links">' + ''.join(f'<li>{a(o)}</li>' for o in same_type) + '</ul>')
+    same_year = sorted([o for o in fam if o['gy'] == me['gy'] and o['ntype'] != me['ntype']], key=lambda o: o['month'])
+    if same_year:
+        blocks.append(f'<h3>같은 학년도의 다른 시험</h3><ul class="examset__links">' + ''.join(f'<li>{a(o)}</li>' for o in same_year) + '</ul>')
+    hub_prefix = {'suneung': ('suneung', '수능·평가원'), 'education': ('hakpyeong', '학력평가')}.get(me['typeGroup'])
+    if hub_prefix:
+        hubs = [f'<li><a href="{hub_prefix[0]}-{_HUB_SLUG[sj]}.html">{hub_prefix[1]} {html_escape(sj, quote=False)} 기출 전체</a></li>'
+                for sj in subjects if sj in _HUB_SLUG]
+        if hubs:
+            blocks.append('<h3>과목별 기출 전체</h3><ul class="examset__links">' + ''.join(hubs) + '</ul>')
+    if not blocks:
+        return ''
+    return '<nav class="examset__related" aria-label="관련 시험"><h2>관련 기출</h2>' + ''.join(blocks) + '</nav>'
 
 
 def build_static_set_pages(items: list[dict], template_path: Path, out_root: Path):
@@ -2388,6 +2482,22 @@ def build_static_set_pages(items: list[dict], template_path: Path, out_root: Pat
     for key, exams_in_set in groups.items():
         fname = set_friendly_filename(key[0], key[1], key[2], key[3])
         by_fname.setdefault(fname, []).append((key, exams_in_set))
+
+    # 내부링크용 회차 카탈로그와 등급컷·난이도 점수
+    _scores = compute_exam_scores(items)
+    _by_key = {}
+    for it in items:
+        r = _scores.get(it['id'])
+        if r and isinstance(it.get('gradeYear'), int):
+            _by_key.setdefault(_score_key(it, it['gradeYear']), r)
+    catalog = []
+    for fname, group_list in by_fname.items():
+        (curr, year, t, sg), exs = max(group_list, key=lambda g: len(g[1]))
+        if year == 'preliminary' or not str(year).isdigit():
+            continue
+        catalog.append({'fname': fname, 'head': build_set_meta(curr, year, t, sg, exs)['head'], 'gy': int(year),
+                        'examYear': exs[0].get('examYear') or int(year), 'month': exs[0].get('month') or 0,
+                        'typeGroup': exs[0].get('typeGroup'), 'ntype': _NTYPE.get(t, t), 'sg': sg})
 
     written = 0
     for fname, group_list in by_fname.items():
@@ -2507,6 +2617,14 @@ def build_static_set_pages(items: list[dict], template_path: Path, out_root: Pat
             r'(<section class="examset__grid grid" id="examsetGrid">)\s*(</section>)',
             lambda m: m.group(1) + cards_html + m.group(2),
             html, count=1)
+
+        extra = set_facts_html(meta['head'], merged_exams, _scores, _by_key)
+        me = next((o for o in catalog if o['fname'] == fname), None)
+        if me:
+            extra += set_related_html(me, catalog, sorted({e['subject'] for e in merged_exams if e.get('subject')}, key=lambda x: SUBJECT_ORDER.get(x, 99)))
+        if extra:
+            html = re.sub(r'(<div class="ad-slot ad-slot--banner" data-ad-position="examsetBottom"></div>)',
+                          lambda m: m.group(1) + '\n\n    ' + extra, html, count=1)
 
         (out_root / fname).write_text(html, encoding='utf-8')
         written += 1
