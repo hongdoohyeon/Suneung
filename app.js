@@ -1,19 +1,19 @@
 'use strict';
-import { enableForcedDownloads } from './lib/download.js?v=597ed1ca625fa2420dcf';
+import { enableForcedDownloads } from './lib/download.js?v=f051b6b61f3ce55ca3e3';
 enableForcedDownloads();
 import {
   CURRICULUM_CONFIG, EXAM_TYPE_CONFIG, TAB_CONFIG,
   getTypeConf, getGroupConf, getTabConf, legacyTabKey, prettySub,
-} from './config.js?v=597ed1ca625fa2420dcf';
+} from './config.js?v=f051b6b61f3ce55ca3e3';
 import {
   state, PAGE_SIZE,
   resetFilters, toggleMulti,
   getDisplayYear, availableGradeYears,
   filtered, subjectCounts,
   tabCurriculums, tabCurriculumConfs, tabSubjects, curriculumOfGradeYear,
-} from './state.js?v=597ed1ca625fa2420dcf';
-import { renderAllAdSlots, renderAdSlot } from './lib/ads.js?v=597ed1ca625fa2420dcf';
-import { recentItems, clearRecent } from './lib/recent.js?v=597ed1ca625fa2420dcf';
+} from './state.js?v=f051b6b61f3ce55ca3e3';
+import { renderAllAdSlots, renderAdSlot } from './lib/ads.js?v=f051b6b61f3ce55ca3e3';
+import { recentItems, clearRecent } from './lib/recent.js?v=f051b6b61f3ce55ca3e3';
 
 const tabConf = () => getTabConf(state.tab);
 
@@ -41,7 +41,7 @@ const tabIsSingleType = () => {
 
 // 검색 첫 진입에서 9MB 전체 목록을 받지 않고 현재 탭 split만 로드한다.
 // CI render-site.py가 data/archive/{tab}.json을 exams.json에서 생성한다.
-const DATA_VERSION = '597ed1ca625fa2420dcf';
+const DATA_VERSION = 'f051b6b61f3ce55ca3e3';
 const FULL_DATA_URL = `data/exams.json?v=${DATA_VERSION}`;
 const tabDataCache = new Map();
 let fullDataCache = null;
