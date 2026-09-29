@@ -158,6 +158,7 @@ def render_sitemaps(items: list[dict], hubs=None) -> None:
         f'  <url><loc>{base}/essay.html</loc><lastmod>{CONTENT_VERSION}</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>',
         f'  <url><loc>{base}/ged.html</loc><lastmod>{CONTENT_VERSION}</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>',
         f'  <url><loc>{base}/about.html</loc><lastmod>{today}</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>',
+        f'  <url><loc>{base}/blog-2027-sept-mock.html</loc><lastmod>{today}</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>',
         f'  <url><loc>{base}/blog.html</loc><lastmod>{today}</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>',
         f'  <url><loc>{base}/methodology.html</loc><lastmod>{today}</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>',
         f'  <url><loc>{base}/calendar.html</loc><lastmod>{today}</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>',
@@ -1353,6 +1354,80 @@ def render_methodology(items: list[dict]) -> None:
     print(f'  + methodology.html 그림 5종 (검증 {len(val["rows"])}건)')
 
 
+# ── 시험 분석 글: 2027학년도 9월 모의평가 (그림은 사이트 데이터로 생성) ──────────
+def _fig_post_english(en: dict) -> str:
+    series = [('2027학년도 9월', en['2027|sept'], 'mf-s1'), ('2027학년도 6월', en['2027|june'], 'mf-s2'), ('2026학년도 수능', en['2026|csat'], 'mf-s3')]
+    W, H, ml, mr, mt, mb = 680, 300, 44, 16, 40, 46
+    pw, ph = W - ml - mr, H - mt - mb
+    ymax = 30.0
+    Y = lambda v: mt + ph - v / ymax * ph
+    b = [f'<line class="mf-axis" x1="{ml}" y1="{mt + ph}" x2="{ml + pw}" y2="{mt + ph}"/>']
+    for t in (0, 10, 20, 30):
+        b.append(f'<line class="mf-grid" x1="{ml}" y1="{Y(t):.1f}" x2="{ml + pw}" y2="{Y(t):.1f}"/>')
+        b.append(_txt(ml - 6, Y(t) + 3, f'{t}%', 'mf-txt mf-txt--sm', 'end'))
+    gw = pw / 9
+    bw = gw * 0.24
+    for g in range(9):
+        cx = ml + gw * (g + .5)
+        for k, (_, r, cls) in enumerate(series):
+            x = cx + (k - 1) * (bw + 2) - bw / 2
+            v = r['ratios'][g]
+            b.append(f'<rect class="{cls}" x="{x:.1f}" y="{Y(v):.1f}" width="{bw:.1f}" height="{mt + ph - Y(v):.1f}"><title>{series[k][0]} {g + 1}등급 {v:g}%</title></rect>')
+        b.append(_txt(cx, mt + ph + 16, f'{g + 1}등급', 'mf-txt mf-txt--sm'))
+    lx = ml
+    for name, _, cls in series:
+        b.append(f'<rect class="{cls}" x="{lx}" y="10" width="10" height="10"/>')
+        b.append(_txt(lx + 15, 19, name, 'mf-txt mf-txt--sm', 'start'))
+        lx += 140
+    cap = ('<figcaption>그림 1. 영어 등급별 응시자 비율입니다. 2027학년도 9월 모의평가는 1등급부터 3등급까지 합이 61.6%로, '
+           '6월(42.6%)과 지난해 수능(43.8%)보다 크게 높습니다. 막대에 마우스를 올리면 값이 표시됩니다.</figcaption>')
+    return f'<div>{_svg(W, H, "영어 등급별 비율 비교", "".join(b))}</div>{cap}'
+
+
+def _fig_post_top() -> str:
+    cuts = json.loads((ROOT / 'data' / 'gradecuts.json').read_text(encoding='utf-8'))
+    def top(y, t, subj):
+        for c in cuts:
+            if c['gradeYear'] == y and c['type'] == t and c['subject'] == subj and c.get('typeGroup') == 'suneung' and c.get('highestStandardScore'):
+                return c['highestStandardScore']
+    rounds = [(2026, 'csat', '26 수능'), (2026, 'sept', '26 9월'), (2027, 'june', '27 6월'), (2027, 'sept', '27 9월')]
+    W, H = 680, 260
+    b = []
+    for pi, subj in enumerate(('국어', '수학')):
+        vals = [top(y, t, subj) for y, t, _ in rounds]
+        if any(v is None for v in vals):
+            return ''
+        x0 = 30 + pi * 330
+        pw, mt, ph = 280, 40, 150
+        lo, hi = 125, 150
+        X = lambda i: x0 + 20 + i * (pw - 40) / 3
+        Y = lambda v: mt + ph - (v - lo) / (hi - lo) * ph
+        b.append(_txt(x0 + pw / 2, 20, subj + ' 표준점수 최고점', 'mf-txt mf-txt--strong'))
+        b.append(f'<line class="mf-axis" x1="{x0}" y1="{mt + ph}" x2="{x0 + pw}" y2="{mt + ph}"/>')
+        b.append('<polyline class="mf-line" points="' + ' '.join(f'{X(i):.1f},{Y(v):.1f}' for i, v in enumerate(vals)) + '"/>')
+        for i, ((_, _, lbl), v) in enumerate(zip(rounds, vals)):
+            b.append(f'<circle class="{"mf-dot mf-dot--now" if i == 3 else "mf-dot"}" cx="{X(i):.1f}" cy="{Y(v):.1f}" r="5"/>')
+            b.append(_txt(X(i), Y(v) - 11, v, 'mf-txt mf-txt--strong mf-txt--sm'))
+            b.append(_txt(X(i), mt + ph + 16, lbl, 'mf-txt mf-txt--sm'))
+    b.append(_txt(W / 2, H - 6, '세로축은 125점에서 150점까지만 표시했습니다', 'mf-txt mf-txt--sm'))
+    cap = ('<figcaption>그림 2. 국어와 수학의 표준점수 최고점입니다. 국어는 6월 132점에서 9월 144점으로 올랐고, 수학은 138점에서 137점으로 거의 같습니다.</figcaption>')
+    return f'<div>{_svg(W, H, "국어와 수학 표준점수 최고점 추이", "".join(b))}</div>{cap}'
+
+
+def render_post_2027_sept() -> None:
+    path = ROOT / 'blog-2027-sept-mock.html'
+    if not path.exists():
+        return
+    en = json.loads((ROOT / 'data' / 'english-grade-ratios.json').read_text(encoding='utf-8'))
+    if not all(k in en for k in ('2027|sept', '2027|june', '2026|csat')):
+        return
+    html = path.read_text(encoding='utf-8')
+    html = _replace_block(html, 'fig-eng', _fig_post_english(en))
+    html = _replace_block(html, 'fig-top', _fig_post_top())
+    path.write_text(html, encoding='utf-8')
+    print('  + blog-2027-sept-mock.html 그림 2종')
+
+
 def render_rss(items: list[dict]) -> None:
     """최신 추가 자료 RSS 피드(feed.xml). 네이버는 RSS를 사이트맵과 별개의
     freshness(최신성) 신호로 취급 — 전수가 아니라 '최근 추가 N개'만 담는다.
@@ -1405,6 +1480,7 @@ def main() -> None:
     render_rss(items)
     render_calendar()
     render_methodology(items)
+    render_post_2027_sept()
     render_splits(items)
     render_archive_splits(items)
     render_set_splits(items)

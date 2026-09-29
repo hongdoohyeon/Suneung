@@ -47,3 +47,12 @@
 .blog-crumb { font-size: 13px; color: var(--ink-4); margin: 4px 0 10px; }
 .blog-crumb a { color: var(--ink-3); }
 .blog-meta { margin: 8px 0 0; }
+
+/* 시험 분석 글 */
+.mf-s1 { fill: var(--t4); }
+.mf-s2 { fill: var(--ink-4); opacity: .7; }
+.mf-s3 { fill: var(--ink-3); opacity: .45; }
+.mf-line { stroke: var(--ink-4); stroke-width: 1.5; fill: none; }
+.mf-dot { fill: var(--ink-2); }
+.mf-dot--now { fill: var(--t4); }
+.post__src { margin: 8px 0 0; padding-left: 18px; font-size: 13.5px; line-height: 1.8; color: var(--ink-3); }
