@@ -167,7 +167,14 @@ function renderHead(curriculum, gradeYear, type, items) {
 function showError() {
   $('examsetHead').hidden = true;
   $('examsetGrid').hidden = true;
-  $('examsetError').hidden = false;
+  // 정상 페이지 HTML에는 오류 UI를 두지 않는다 — 실제 오류일 때만 DOM에 만든다.
+  const box = document.createElement('div');
+  box.id = 'examsetError';
+  box.className = 'examset__error';
+  box.innerHTML = '<p class="examset__error-title">시험을 찾을 수 없습니다</p>' +
+    '<p class="examset__error-sub">URL이 잘못되었거나 데이터가 갱신되지 않은 상태일 수 있어요.</p>' +
+    '<a href="archive.html" class="btn btn--ghost" style="margin-top:12px;">기출 검색으로 돌아가기</a>';
+  $('examsetGrid').after(box);
   document.title = '시험을 찾을 수 없습니다 — 기출해체분석기';
 }
 

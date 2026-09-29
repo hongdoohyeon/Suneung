@@ -1084,6 +1084,38 @@ def _compose_index(home: str, archive: str) -> str:
     return html[:footer] + _HOME_MORE + html[footer:]
 
 
+def render_calendar() -> None:
+    """calendar.html 에 data/calendar.json 전체 일정을 월별 정적 HTML 로 채운다 (JS 없이도 크롤)."""
+    esc = bd.html_escape
+    events = json.loads((ROOT / 'data' / 'calendar.json').read_text(encoding='utf-8'))['events']
+    events.sort(key=lambda e: e.get('date') or e['dateRange'][0])
+
+    def label(d: str) -> str:
+        y, m, dd = d.split('-')
+        return f'{y}년 {int(m)}월 {int(dd)}일'
+
+    months: dict[str, list[dict]] = {}
+    for ev in events:
+        months.setdefault((ev.get('date') or ev['dateRange'][0])[:7], []).append(ev)
+    parts = ['    <h2 class="cal-sec">전체 시험·입시 일정</h2>']
+    for ym, evs in months.items():
+        y, m = ym.split('-')
+        parts.append(f'    <h3 class="cal-sec-month">{y}년 {int(m)}월</h3>\n    <ul class="cal-list">')
+        for ev in evs:
+            if ev.get('date'):
+                when = f'<time datetime="{ev["date"]}">{label(ev["date"])}</time>'
+            else:
+                a, b = ev['dateRange']
+                when = f'<time datetime="{a}">{label(a)}</time> ~ <time datetime="{b}">{label(b)}</time>'
+            org = f'<div class="cal-item__sub">{esc(ev["org"], quote=False)}</div>' if ev.get('org') else ''
+            parts.append(f'      <li class="cal-item"><div class="cal-item__date">{when}</div>'
+                         f'<div class="cal-item__body"><div class="cal-item__title">{esc(ev["title"], quote=False)}</div>{org}</div></li>')
+        parts.append('    </ul>')
+    path = ROOT / 'calendar.html'
+    path.write_text(_replace_block(path.read_text(encoding='utf-8'), 'calendar-all', '\n'.join(parts)), encoding='utf-8')
+    print(f'  + calendar.html 정적 일정 {len(events)}건')
+
+
 def render_rss(items: list[dict]) -> None:
     """최신 추가 자료 RSS 피드(feed.xml). 네이버는 RSS를 사이트맵과 별개의
     freshness(최신성) 신호로 취급 — 전수가 아니라 '최근 추가 N개'만 담는다.
@@ -1134,6 +1166,7 @@ def main() -> None:
     render_site_summary(items)
     render_home(items)
     render_rss(items)
+    render_calendar()
     render_splits(items)
     render_archive_splits(items)
     render_set_splits(items)
