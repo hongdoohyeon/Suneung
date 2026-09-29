@@ -7,8 +7,8 @@
 | 분류 | 건수 |
 |---|---:|
 | URL 확장자 `.hwp` (LEET 본문) | 92 |
-| 다운로드 파일명 `.hwp` (savetest cfile + LEET) | 1398 |
-| savetest 출처 hwp entries | 1306 |
+| 다운로드 파일명 `.hwp` (외부 수집본 + LEET) | 1398 |
+| 외부 수집본 hwp entries | 1306 |
 
 ## 1. LEET 한글(.hwp) 본문 파일 92건
 
@@ -49,9 +49,8 @@
 | 3128 | questionUrl | `2017_main_essay_q.hwp` |
 | ... | ... | +62건 더 |
 
-## 2. savetest 출처 한글 파일 1,306건
+## 2. 외부 수집본 한글 파일 1,306건
 
-- 출처: `t1.daumcdn.net/cfile/tistory/...` direct URL (Daum CDN)
 - 옛 자료(2002~2014 학평/모평/MEET/사관/경찰)의 원본이 .hwp 한글 파일
 
 ### 카테고리 × 연도별 hwp entries

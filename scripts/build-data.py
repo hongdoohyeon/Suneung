@@ -1910,7 +1910,7 @@ def build_static_exam_pages(items: list[dict], template_path: Path, out_root: Pa
               'publisher': {'@type': 'Organization', 'name': '기출해체분석기', 'url': 'https://kicegg.com'},
             }
             def _doc_mime(url, name=None):
-                # 잔존 HWP(사관 2018 수학, daumcdn 원본 등)는 application/x-hwp 로 정확히 표기
+                # 잔존 HWP(사관 2018 수학 등)는 application/x-hwp 로 정확히 표기
                 u = (url or '').split('?')[0].lower()
                 n = (name or '').lower()
                 return 'application/x-hwp' if (u.endswith('.hwp') or n.endswith('.hwp')) else 'application/pdf'
@@ -2868,7 +2868,7 @@ def main():
         print(f'  + 자료 보강 overrides: {attached}건 attach')
 
     # ─ 안전 가드: 기존 exams.json 대비 데이터 소실 차단 ─
-    # exams.json 은 1회성 ingest(ebsi-archive, savetest-* 등)가 누적된 머지
+    # exams.json 은 1회성 ingest(ebsi-archive, legacy-* 등)가 누적된 머지
     # 산출물이라 이 스크립트의 소스만으로는 전체를 재구성할 수 없다.
     # 과거 단독 재실행으로 사이트 2/3가 삭제된 사고의 재발 방지용.
     if OUT_JSON.exists():

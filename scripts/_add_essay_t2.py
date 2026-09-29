@@ -2,7 +2,7 @@
 """대학 논술 기출 2차(10개교) exams.json surgical append (1회성).
 
 입력: /tmp/essay_manifest2.json — essay-v1 릴리즈 추가 자산 600건
-(레전드스터디 아카이브의 공식 PDF 사본 — 파일명 규약 "{학년도} {대학}
+(외부 아카이브의 공식 PDF 사본 — 파일명 규약 "{학년도} {대학}
 [수시 ][모의]논술_{계열} {자료종류}.pdf" 을 범용 파싱)
 """
 import json

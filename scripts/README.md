@@ -50,7 +50,7 @@
 ## ⚠️ build-data.py 단독 실행 금지
 
 `data/exams.json` 은 build-data.py 산출분(~4,900건) 위에 **1회성 ingest
-(ebsi-archive, savetest-* 등 ~2,700건)가 surgical append 로 누적된 머지 산출물**이다.
+(ebsi-archive, legacy-* 등 ~2,700건)가 surgical append 로 누적된 머지 산출물**이다.
 build-data.py 는 자기 소스만으로 처음부터 다시 쓰기 때문에 단독 실행하면
 append 분이 통째로 사라지고 id 가 전부 재배열된다 (과거 사이트 2/3 삭제 사고).
 지금은 스크립트 내 안전 가드가 건수 감소·source 소실을 감지하면 중단한다.

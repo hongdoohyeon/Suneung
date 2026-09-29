@@ -29,7 +29,7 @@
       15
     ],
     "fullScore": 100,
-    "source": "crux-suneungcalc",
+    "source": "calc",
     "sourceKey": "20229sat",
     "sourceChoice": "언어와 매체",
     "coefficients": [
@@ -37,8 +37,7 @@
       0.73,
       44
     ],
-    "sourceUrl": "https://suneungcalc.com/js/data.js",
-    "note": "Generated from Crux Table calculator coefficients; rawCuts are the minimum total raw scores whose calculated standard score reaches each grade standardCut."
+    "note": "Generated from published score-conversion coefficients; rawCuts are the minimum total raw scores whose calculated standard score reaches each grade standardCut."
   },
   {
     "curriculum": "2015",
@@ -70,7 +69,7 @@
       18
     ],
     "fullScore": 100,
-    "source": "crux-suneungcalc",
+    "source": "calc",
     "sourceKey": "20229sat",
     "sourceChoice": "화법과 작문",
     "coefficients": [
@@ -78,8 +77,7 @@
       0.74,
       41
     ],
-    "sourceUrl": "https://suneungcalc.com/js/data.js",
-    "note": "Generated from Crux Table calculator coefficients; rawCuts are the minimum total raw scores whose calculated standard score reaches each grade standardCut."
+    "note": "Generated from published score-conversion coefficients; rawCuts are the minimum total raw scores whose calculated standard score reaches each grade standardCut."
   },
   {
     "curriculum": "2015",
@@ -111,7 +109,7 @@
       8
     ],
     "fullScore": 100,
-    "source": "crux-suneungcalc",
+    "source": "calc",
     "sourceKey": "20229sat",
     "sourceChoice": "기하",
     "coefficients": [
@@ -119,8 +117,7 @@
       0.738,
       66
     ],
-    "sourceUrl": "https://suneungcalc.com/js/data.js",
-    "note": "Generated from Crux Table calculator coefficients; rawCuts are the minimum total raw scores whose calculated standard score reaches each grade standardCut."
+    "note": "Generated from published score-conversion coefficients; rawCuts are the minimum total raw scores whose calculated standard score reaches each grade standardCut."
   },
   {
     "curriculum": "2015",
@@ -152,7 +149,7 @@
       7
     ],
     "fullScore": 100,
-    "source": "crux-suneungcalc",
+    "source": "calc",
     "sourceKey": "20229sat",
     "sourceChoice": "미적분",
     "coefficients": [
@@ -160,8 +157,7 @@
       0.848,
       66
     ],
-    "sourceUrl": "https://suneungcalc.com/js/data.js",
-    "note": "Generated from Crux Table calculator coefficients; rawCuts are the minimum total raw scores whose calculated standard score reaches each grade standardCut."
+    "note": "Generated from published score-conversion coefficients; rawCuts are the minimum total raw scores whose calculated standard score reaches each grade standardCut."
   },
   {
     "curriculum": "2015",
@@ -193,7 +189,7 @@
       10
     ],
     "fullScore": 100,
-    "source": "crux-suneungcalc",
+    "source": "calc",
     "sourceKey": "20229sat",
     "sourceChoice": "확률과 통계",
     "coefficients": [
@@ -201,7 +197,6 @@
       0.708,
       64
     ],
-    "sourceUrl": "https://suneungcalc.com/js/data.js",
-    "note": "Generated from Crux Table calculator coefficients; rawCuts are the minimum total raw scores whose calculated standard score reaches each grade standardCut."
+    "note": "Generated from published score-conversion coefficients; rawCuts are the minimum total raw scores whose calculated standard score reaches each grade standardCut."
   }
 ]

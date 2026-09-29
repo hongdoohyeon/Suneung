@@ -50,8 +50,7 @@ node scripts/audit-missing-gradecuts.mjs # create if worth keeping, otherwise us
 **Objective:** Find traceable sources for 2022 9모 and 2022 3학평 Korean/Math elective rawCuts.
 
 **Likely sources:**
-- `https://suneungcalc.com/js/data.js` Crux calculator coefficients
-- Orbi Crux Table posts linked from `data/raw/crux/suneungcalc-csat-rawcuts.json` style
+- 공개된 표준점수 산출식 계수 (`data/raw/calc/calc-csat-rawcuts.json` 형식)
 - EBSi/education office pages if they publish raw by elective
 
 **Rules:**
@@ -66,7 +65,7 @@ node scripts/audit-missing-gradecuts.mjs # create if worth keeping, otherwise us
 **Objective:** Add a raw source JSON and integrate it into build.
 
 **Files:**
-- Create/modify: `data/raw/crux/suneungcalc-mock-rawcuts.json` or similar
+- Create/modify: `data/raw/calc/calc-mock-rawcuts.json` or similar
 - Modify: `scripts/build-gradecuts.mjs`
 - Generated: `data/gradecuts.json`
 
@@ -74,7 +73,7 @@ node scripts/audit-missing-gradecuts.mjs # create if worth keeping, otherwise us
 - Do not overwrite existing non-megastudy/non-empty `rawCuts`.
 - Require compatible `standardCuts`.
 - Skip non-monotonic rawCuts.
-- Keep source label explicit, e.g. `+crux-mock-raw`.
+- Keep source label explicit, e.g. `+calc-mock-raw`.
 
 ---
 

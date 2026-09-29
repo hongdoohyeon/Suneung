@@ -8,15 +8,15 @@
 //   3) /tmp/recent_csat_gc.json                        - 평가원 매년 갱신 fan-out
 //   4) data/raw/etoos/rawcuts-normalized.json          - 이투스 wayback archive (raw)
 //   5) data/raw/manual/verified-rawcuts.json           - 공개 아카이브 대조 검증 raw 보강
-//   6) data/raw/crux/suneungcalc-csat-rawcuts.json     - Crux Table 계산기 기반 최근 수능 국어/수학 raw
-//   7) data/raw/crux/suneungcalc-mock-rawcuts.json     - Crux Table 계산기 기반 최근 모의고사 국어/수학 raw
+//   6) data/raw/calc/calc-csat-rawcuts.json     - 표준점수 산출식 기반 최근 수능 국어/수학 raw
+//   7) data/raw/calc/calc-mock-rawcuts.json     - 표준점수 산출식 기반 최근 모의고사 국어/수학 raw
 //   8) data/raw/ebsi/gradecuts-normalized.json         - EBSi 풀서비스 등급컷 보강
 //   9) data/raw/jongro/gradecuts-normalized.json       - 종로학원 확정 등급컷(공식 표준점수 역산 raw)
 //  10) data/raw/jinhak/gradecuts-normalized.json       - 진학사 공개 가채점 평균(참고용, 화면 미사용)
 //  11) data/raw/kice-archive/gradecuts-normalized.json - 평가원 공식 + 시도교육청 공식 (kice_archive ingest)
 //
 // 적용 순서 (뒤가 우선):
-//   hwpx → 평가원 recent → 메가스터디 → 이투스 → 수동 검증 → Crux → EBSi → 종로 역산 → 진학사 참고값 → kice-archive (최우선, std·raw 둘 다 공식) → 절대평가 자동
+//   hwpx → 평가원 recent → 메가스터디 → 이투스 → 수동 검증 → 산출식 계산 → EBSi → 종로 역산 → 진학사 참고값 → kice-archive (최우선, std·raw 둘 다 공식) → 절대평가 자동
 // 표준점수/백분위/누적은 데이터로만 보존 (사이트 미표시).
 
 import { readFile, writeFile } from 'node:fs/promises';
@@ -51,21 +51,21 @@ async function readJsonOr(p, fallback) {
   catch { return fallback; }
 }
 
-const [exams, megastudy, hwpxData, recentData, etoosArchived, manualVerifiedRawCuts, cruxCsatRawCuts, cruxMockRawCuts, ebsiGradecuts, jongroGradecuts, jinhakGradecuts, kiceArchive] = await Promise.all([
+const [exams, megastudy, hwpxData, recentData, etoosArchived, manualVerifiedRawCuts, calcCsatRawCuts, calcMockRawCuts, ebsiGradecuts, jongroGradecuts, jinhakGradecuts, kiceArchive] = await Promise.all([
   readFile(EXAMS_PATH, 'utf-8').then(JSON.parse),
   readJsonOr(path.resolve(ROOT, 'data/raw/megastudy/gradecuts-normalized.json'), []),
   readJsonOr('/tmp/csat_gc_normalized_v3.json', []),
   readJsonOr('/tmp/recent_csat_gc.json', []),
   readJsonOr(path.resolve(ROOT, 'data/raw/etoos/rawcuts-normalized.json'), []),
   readJsonOr(path.resolve(ROOT, 'data/raw/manual/verified-rawcuts.json'), []),
-  readJsonOr(path.resolve(ROOT, 'data/raw/crux/suneungcalc-csat-rawcuts.json'), []),
-  readJsonOr(path.resolve(ROOT, 'data/raw/crux/suneungcalc-mock-rawcuts.json'), []),
+  readJsonOr(path.resolve(ROOT, 'data/raw/calc/calc-csat-rawcuts.json'), []),
+  readJsonOr(path.resolve(ROOT, 'data/raw/calc/calc-mock-rawcuts.json'), []),
   readJsonOr(path.resolve(ROOT, 'data/raw/ebsi/gradecuts-normalized.json'), []),
   readJsonOr(path.resolve(ROOT, 'data/raw/jongro/gradecuts-normalized.json'), []),
   readJsonOr(path.resolve(ROOT, 'data/raw/jinhak/gradecuts-normalized.json'), []),
   readJsonOr(path.resolve(ROOT, 'data/raw/kice-archive/gradecuts-normalized.json'), []),
 ]);
-const cruxRawCuts = [...cruxCsatRawCuts, ...cruxMockRawCuts];
+const calcRawCuts = [...calcCsatRawCuts, ...calcMockRawCuts];
 // 기존 출력 파일을 seed로 사용해, 현재 환경에 없는 보조 raw 소스(/tmp 평가원 추출물 등)가
 // 재빌드 과정에서 삭제되지 않게 한다. 아래 source 적용 순서가 기존 값을 덮어쓰므로
 // megastudy/etoos 최신 raw 보강은 계속 반영된다.
@@ -254,33 +254,33 @@ for (const r of manualVerifiedRawCuts) {
   manualApplied++;
 }
 
-// 5c. Crux Table 계산기 기반 최근 국어/수학 원점수 보강.
+// 5c. 표준점수 산출식 기반 최근 국어/수학 원점수 보강.
 //     EBSi/메가스터디의 최근 통합형 국어·수학은 선택과목 원점수 칸이 비어 있어,
-//     Crux/suneungcalc의 표준점수 산출식으로 각 등급 표준점수 컷을 만족하는 최소 원점수를 계산해 보강한다.
-let cruxApplied = 0;
-let cruxSkippedByStdMismatch = 0;
-let cruxSkippedByExistingRawCuts = 0;
-let cruxSkippedByNonMonotonicRawCuts = 0;
-for (const r of cruxRawCuts) {
+//     공개된 표준점수 산출식으로 각 등급 표준점수 컷을 만족하는 최소 원점수를 계산해 보강한다.
+let calcApplied = 0;
+let calcSkippedByStdMismatch = 0;
+let calcSkippedByExistingRawCuts = 0;
+let calcSkippedByNonMonotonicRawCuts = 0;
+for (const r of calcRawCuts) {
   if (!Array.isArray(r.rawCuts) || !r.rawCuts.some(v => v != null)) continue;
   if (!isMonotonicCuts(r.rawCuts)) {
-    cruxSkippedByNonMonotonicRawCuts++;
+    calcSkippedByNonMonotonicRawCuts++;
     continue;
   }
   const rec = ensureRecord(r);
   if (rec.rawCuts && (!rec.source || !rec.source.startsWith('megastudy') || rec.source.includes('etoos'))) {
-    cruxSkippedByExistingRawCuts++;
+    calcSkippedByExistingRawCuts++;
     continue;
   }
   if (!compatibleStandardCuts(rec.standardCuts, r.standardCuts)) {
-    cruxSkippedByStdMismatch++;
+    calcSkippedByStdMismatch++;
     continue;
   }
   rec.rawCuts = r.rawCuts;
   if (r.fullScore != null) rec.fullScore = r.fullScore;
   if (!rec.standardCuts && r.standardCuts) rec.standardCuts = r.standardCuts;
-  rec.source = rec.source ? `${rec.source}+crux-raw` : 'crux-suneungcalc';
-  cruxApplied++;
+  rec.source = rec.source ? `${rec.source}+calc-raw` : 'calc';
+  calcApplied++;
 }
 
 // 5d. EBSi 풀서비스 보강 — 평가원 공식 원자료가 들어오기 전 최신 시험의 std/raw를 채운다.
@@ -364,7 +364,7 @@ for (const r of jinhakGradecuts) {
 
 // 5g. kice-archive — 평가원 공식 + 시도교육청 공식 자료 (최우선 신뢰도).
 //      standardCuts는 무조건 덮어쓰기 (공식이라 가장 정확).
-//      rawCuts는 kice-archive가 가진 경우만 덮어쓰기. 없으면 기존(megastudy/etoos/manual/crux/EBSi) 유지.
+//      rawCuts는 kice-archive가 가진 경우만 덮어쓰기. 없으면 기존(megastudy/etoos/manual/calc/EBSi) 유지.
 let kiceArchiveApplied = 0;
 let kiceArchiveRawApplied = 0;
 for (const r of kiceArchive) {
@@ -587,7 +587,7 @@ console.log(`recent 적재: ${recentApplied}건`);
 console.log(`megastudy 적재: ${megaApplied}건`);
 console.log(`etoos archived rawCuts: ${etoosApplied}건 (표준점수 불일치 skip ${etoosSkippedByStdMismatch}건, 만점 불일치 skip ${etoosSkippedByFullScoreMismatch}건, rawCuts 단조성 skip ${etoosSkippedByNonMonotonicRawCuts}건)`);
 console.log(`manual verified rawCuts: ${manualApplied}건 (기존 rawCuts 유지 skip ${manualSkippedByExistingRawCuts}건, 표준점수 불일치 skip ${manualSkippedByStdMismatch}건, rawCuts 단조성 skip ${manualSkippedByNonMonotonicRawCuts}건)`);
-console.log(`crux rawCuts: ${cruxApplied}건 (기존 rawCuts 유지 skip ${cruxSkippedByExistingRawCuts}건, 표준점수 불일치 skip ${cruxSkippedByStdMismatch}건, rawCuts 단조성 skip ${cruxSkippedByNonMonotonicRawCuts}건)`);
+console.log(`calc rawCuts: ${calcApplied}건 (기존 rawCuts 유지 skip ${calcSkippedByExistingRawCuts}건, 표준점수 불일치 skip ${calcSkippedByStdMismatch}건, rawCuts 단조성 skip ${calcSkippedByNonMonotonicRawCuts}건)`);
 console.log(`EBSi gradecuts: ${ebsiApplied}건 (rawCuts 보강 ${ebsiRawApplied}건)`);
 console.log(`종로 역산 rawCuts: ${jongroApplied}건`);
 console.log(`jinhak 참고값 상태 분리: ${jinhakApplied}건 (기존 rawCuts 유지 skip ${jinhakSkippedByExistingRawCuts}건, rawCuts 단조성 skip ${jinhakSkippedByNonMonotonicRawCuts}건)`);

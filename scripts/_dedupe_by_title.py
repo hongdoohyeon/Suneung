@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """렌더된 제목 기준 2차 중복 제거 (1회성).
 
-1차(_dedupe_kice_archive.py)는 필드 키로 매칭했지만, savetest 인제스트가
+1차(_dedupe_kice_archive.py)는 필드 키로 매칭했지만, 외부 수집 인제스트가
 curriculum 을 '2009'/'2007개정' 등으로 다르게 기록한 쌍(사관·경찰대·LEET·
 평가원 ~110쌍)은 키가 어긋나 남았다. 사용자에게 보이는 진실은 페이지 제목이
 같다는 것이므로, 제목 그룹에서 '원본(BUILD, source 없음) 1 + 인제스트 donor'

@@ -53,7 +53,7 @@ for e in exams:
         set_(e['id'], type='may', month=5, **rename_names(e, '4월', '5월')); notes['4월→5월 학평 라벨'] += 1
         for f in KIND: handled.add((e['id'], f))
 
-# ── ④-b 2003년 12월 '고2 학평'(savetest) = 실제 평가원 2005학년도 수능 예비평가 — 대부분 평가원 원본 항목의 중복
+# ── ④-b 2003년 12월 '고2 학평'(외부 수집본) = 실제 평가원 2005학년도 수능 예비평가 — 대부분 평가원 원본 항목의 중복
 import hashlib as _h
 def _full(u):
     f = ROOT / 'tmp/material-fix/full' / (_h.sha1(u.split('?')[0].encode()).hexdigest()[:12] + '.txt')
@@ -88,7 +88,7 @@ for x in report['issues']:
         if to and (i, 'label') not in handled:
             set_(i, subSubject=to, **rename_names(e, e['subSubject'], to)); handled.add((i, 'label')); notes['가/나형 → A/B형'] += 1
 
-# ── ④-d savetest '국어' 항목이 실제 중국어 시험지 → 같은 시험 중국어가 있으면 중복 삭제, 없으면 옮김
+# ── ④-d 외부 수집본 '국어' 항목이 실제 중국어 시험지 → 같은 시험 중국어가 있으면 중복 삭제, 없으면 옮김
 for c in conf:
     if c['code'] == 'subject' and '제2외국어' in c['msg']:
         for i in c['ids']:

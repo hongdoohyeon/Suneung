@@ -43,8 +43,8 @@ def main() -> None:
             continue
         srcs = {e.get('source') for e in es}
         sgs = {e.get('studentGrade') for e in es}
-        # '원본(None) + 인제스트(kice-archive/savetest-mock), sg {3, None}' 패턴만
-        if srcs not in ({None, 'kice-archive'}, {None, 'savetest-mock'}) or sgs != {3, None}:
+        # '원본(None) + 인제스트(kice-archive/legacy-mock), sg {3, None}' 패턴만
+        if srcs not in ({None, 'kice-archive'}, {None, 'legacy-mock'}) or sgs != {3, None}:
             continue
         keeper = next(e for e in es if e.get('source') is None)
         donor = next(e for e in es if e.get('source') is not None)
