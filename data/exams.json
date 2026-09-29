@@ -103802,15 +103802,16 @@
     "subSubject": "생물Ⅱ",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6036_questionUrl.pdf?name=2005%EB%85%84%204%EC%9B%94%20%EA%B3%A03%20%ED%95%99%EB%A0%A5%ED%8F%89%EA%B0%80%20%EC%83%9D%EB%AC%BC2.pdf",
     "questionDownload": "2005년 4월 고3 학력평가 생물2.pdf",
-    "answerUrl": null,
-    "answerDownload": null,
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/edu-ans-v2/st05_4_g3_f7bfc9b7ee_a.pdf?name=2005%EB%85%84%204%EC%9B%94%20%EA%B3%A03%20%ED%95%99%EB%A0%A5%ED%8F%89%EA%B0%80%20%EA%B3%BC%ED%95%99%ED%83%90%EA%B5%AC%28%EC%83%9D%EB%AC%BC%E2%85%A1%29%20%EC%A0%95%EB%8B%B5%C2%B7%ED%95%B4%EC%84%A4.pdf",
+    "answerDownload": "2005년 4월 고3 학력평가 과학탐구(생물Ⅱ) 정답·해설.pdf",
     "solutionUrl": null,
     "listenUrl": null,
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
     "source": "savetest-archive",
-    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/167B891F4CE9381052"
+    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/167B891F4CE9381052",
+    "answerIncludesSolution": true
   },
   {
     "id": 6037,
@@ -103873,15 +103874,16 @@
     "subSubject": null,
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6039_questionUrl.pdf?name=2005%EB%85%84%205%EC%9B%94%20%EA%B3%A02%20%EC%84%B1%EC%B7%A8%EB%8F%84%ED%8F%89%EA%B0%80%20%EC%88%98%EB%A6%AC%EC%98%81%EC%97%AD%28%EA%B0%80%ED%98%95%29.pdf",
     "questionDownload": "2005년 5월 고2 성취도평가 수리영역(가형).pdf",
-    "answerUrl": null,
-    "answerDownload": null,
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/edu-ans-v2/st05_5_g2_3c3526814a_a.pdf?name=2005%EB%85%84%205%EC%9B%94%20%EA%B3%A02%20%ED%95%99%EB%A0%A5%ED%8F%89%EA%B0%80%20%EC%88%98%ED%95%99%20%EC%A0%95%EB%8B%B5%C2%B7%ED%95%B4%EC%84%A4.pdf",
+    "answerDownload": "2005년 5월 고2 학력평가 수학 정답·해설.pdf",
     "solutionUrl": null,
     "listenUrl": null,
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
     "source": "savetest-archive",
-    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/202672204CECCB4116"
+    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/202672204CECCB4116",
+    "answerIncludesSolution": true
   },
   {
     "id": 6040,
@@ -103896,15 +103898,16 @@
     "subSubject": "경제",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6040_questionUrl.pdf?name=2005%EB%85%84%205%EC%9B%94%20%EA%B3%A02%20%EC%84%B1%EC%B7%A8%EB%8F%84%ED%8F%89%EA%B0%80%20%EA%B2%BD%EC%A0%9C.pdf",
     "questionDownload": "2005년 5월 고2 성취도평가 경제.pdf",
-    "answerUrl": null,
-    "answerDownload": null,
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/edu-ans-v2/st05_5_g2_3c3526814a_a.pdf?name=2005%EB%85%84%205%EC%9B%94%20%EA%B3%A02%20%ED%95%99%EB%A0%A5%ED%8F%89%EA%B0%80%20%EC%82%AC%ED%9A%8C%ED%83%90%EA%B5%AC%28%EA%B2%BD%EC%A0%9C%29%20%EC%A0%95%EB%8B%B5%C2%B7%ED%95%B4%EC%84%A4.pdf",
+    "answerDownload": "2005년 5월 고2 학력평가 사회탐구(경제) 정답·해설.pdf",
     "solutionUrl": null,
     "listenUrl": null,
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
     "source": "savetest-archive",
-    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/17394A224CECCBD335"
+    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/17394A224CECCBD335",
+    "answerIncludesSolution": true
   },
   {
     "id": 6041,
@@ -103919,15 +103922,16 @@
     "subSubject": "경제지리",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6041_questionUrl.pdf?name=2005%EB%85%84%205%EC%9B%94%20%EA%B3%A02%20%EC%84%B1%EC%B7%A8%EB%8F%84%ED%8F%89%EA%B0%80%20%EA%B2%BD%EC%A0%9C%EC%A7%80%EB%A6%AC.pdf",
     "questionDownload": "2005년 5월 고2 성취도평가 경제지리.pdf",
-    "answerUrl": null,
-    "answerDownload": null,
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/edu-ans-v2/st05_5_g2_3c3526814a_a.pdf?name=2005%EB%85%84%205%EC%9B%94%20%EA%B3%A02%20%ED%95%99%EB%A0%A5%ED%8F%89%EA%B0%80%20%EC%82%AC%ED%9A%8C%ED%83%90%EA%B5%AC%28%EA%B2%BD%EC%A0%9C%EC%A7%80%EB%A6%AC%29%20%EC%A0%95%EB%8B%B5%C2%B7%ED%95%B4%EC%84%A4.pdf",
+    "answerDownload": "2005년 5월 고2 학력평가 사회탐구(경제지리) 정답·해설.pdf",
     "solutionUrl": null,
     "listenUrl": null,
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
     "source": "savetest-archive",
-    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/205273224CECCBD514"
+    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/205273224CECCBD514",
+    "answerIncludesSolution": true
   },
   {
     "id": 6042,
@@ -103942,15 +103946,16 @@
     "subSubject": "국사",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6042_questionUrl.pdf?name=2005%EB%85%84%205%EC%9B%94%20%EA%B3%A02%20%EC%84%B1%EC%B7%A8%EB%8F%84%ED%8F%89%EA%B0%80%20%EA%B5%AD%EC%82%AC.pdf",
     "questionDownload": "2005년 5월 고2 성취도평가 국사.pdf",
-    "answerUrl": null,
-    "answerDownload": null,
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/edu-ans-v2/st05_5_g2_3c3526814a_a.pdf?name=2005%EB%85%84%205%EC%9B%94%20%EA%B3%A02%20%ED%95%99%EB%A0%A5%ED%8F%89%EA%B0%80%20%EC%82%AC%ED%9A%8C%ED%83%90%EA%B5%AC%28%EA%B5%AD%EC%82%AC%29%20%EC%A0%95%EB%8B%B5%C2%B7%ED%95%B4%EC%84%A4.pdf",
+    "answerDownload": "2005년 5월 고2 학력평가 사회탐구(국사) 정답·해설.pdf",
     "solutionUrl": null,
     "listenUrl": null,
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
     "source": "savetest-archive",
-    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/1945DC224CECCBD620"
+    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/1945DC224CECCBD620",
+    "answerIncludesSolution": true
   },
   {
     "id": 6043,
@@ -103965,15 +103970,16 @@
     "subSubject": "법과사회",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6043_questionUrl.pdf?name=2005%EB%85%84%205%EC%9B%94%20%EA%B3%A02%20%EC%84%B1%EC%B7%A8%EB%8F%84%ED%8F%89%EA%B0%80%20%EB%B2%95%EA%B3%BC%EC%82%AC%ED%9A%8C.pdf",
     "questionDownload": "2005년 5월 고2 성취도평가 법과사회.pdf",
-    "answerUrl": null,
-    "answerDownload": null,
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/edu-ans-v2/st05_5_g2_3c3526814a_a.pdf?name=2005%EB%85%84%205%EC%9B%94%20%EA%B3%A02%20%ED%95%99%EB%A0%A5%ED%8F%89%EA%B0%80%20%EC%82%AC%ED%9A%8C%ED%83%90%EA%B5%AC%28%EB%B2%95%EA%B3%BC%EC%82%AC%ED%9A%8C%29%20%EC%A0%95%EB%8B%B5%C2%B7%ED%95%B4%EC%84%A4.pdf",
+    "answerDownload": "2005년 5월 고2 학력평가 사회탐구(법과사회) 정답·해설.pdf",
     "solutionUrl": null,
     "listenUrl": null,
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
     "source": "savetest-archive",
-    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/112ADD224CECCBD757"
+    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/112ADD224CECCBD757",
+    "answerIncludesSolution": true
   },
   {
     "id": 6044,
@@ -103988,15 +103994,16 @@
     "subSubject": "사회·문화",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6044_questionUrl.pdf?name=2005%EB%85%84%205%EC%9B%94%20%EA%B3%A02%20%EC%84%B1%EC%B7%A8%EB%8F%84%ED%8F%89%EA%B0%80%20%EC%82%AC%ED%9A%8C%EB%AC%B8%ED%99%94.pdf",
     "questionDownload": "2005년 5월 고2 성취도평가 사회문화.pdf",
-    "answerUrl": null,
-    "answerDownload": null,
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/edu-ans-v2/st05_5_g2_3c3526814a_a.pdf?name=2005%EB%85%84%205%EC%9B%94%20%EA%B3%A02%20%ED%95%99%EB%A0%A5%ED%8F%89%EA%B0%80%20%EC%82%AC%ED%9A%8C%ED%83%90%EA%B5%AC%28%EC%82%AC%ED%9A%8C%C2%B7%EB%AC%B8%ED%99%94%29%20%EC%A0%95%EB%8B%B5%C2%B7%ED%95%B4%EC%84%A4.pdf",
+    "answerDownload": "2005년 5월 고2 학력평가 사회탐구(사회·문화) 정답·해설.pdf",
     "solutionUrl": null,
     "listenUrl": null,
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
     "source": "savetest-archive",
-    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/12537E224CECCBD805"
+    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/12537E224CECCBD805",
+    "answerIncludesSolution": true
   },
   {
     "id": 6045,
@@ -104011,15 +104018,16 @@
     "subSubject": "세계사",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6045_questionUrl.pdf?name=2005%EB%85%84%205%EC%9B%94%20%EA%B3%A02%20%EC%84%B1%EC%B7%A8%EB%8F%84%ED%8F%89%EA%B0%80%20%EC%84%B8%EA%B3%84%EC%82%AC.pdf",
     "questionDownload": "2005년 5월 고2 성취도평가 세계사.pdf",
-    "answerUrl": null,
-    "answerDownload": null,
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/edu-ans-v2/st05_5_g2_3c3526814a_a.pdf?name=2005%EB%85%84%205%EC%9B%94%20%EA%B3%A02%20%ED%95%99%EB%A0%A5%ED%8F%89%EA%B0%80%20%EC%82%AC%ED%9A%8C%ED%83%90%EA%B5%AC%28%EC%84%B8%EA%B3%84%EC%82%AC%29%20%EC%A0%95%EB%8B%B5%C2%B7%ED%95%B4%EC%84%A4.pdf",
+    "answerDownload": "2005년 5월 고2 학력평가 사회탐구(세계사) 정답·해설.pdf",
     "solutionUrl": null,
     "listenUrl": null,
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
     "source": "savetest-archive",
-    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/184CC2224CECCBD90F"
+    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/184CC2224CECCBD90F",
+    "answerIncludesSolution": true
   },
   {
     "id": 6046,
@@ -104034,15 +104042,16 @@
     "subSubject": "세계지리",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6046_questionUrl.pdf?name=2005%EB%85%84%205%EC%9B%94%20%EA%B3%A02%20%EC%84%B1%EC%B7%A8%EB%8F%84%ED%8F%89%EA%B0%80%20%EC%84%B8%EA%B3%84%EC%A7%80%EB%A6%AC.pdf",
     "questionDownload": "2005년 5월 고2 성취도평가 세계지리.pdf",
-    "answerUrl": null,
-    "answerDownload": null,
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/edu-ans-v2/st05_5_g2_3c3526814a_a.pdf?name=2005%EB%85%84%205%EC%9B%94%20%EA%B3%A02%20%ED%95%99%EB%A0%A5%ED%8F%89%EA%B0%80%20%EC%82%AC%ED%9A%8C%ED%83%90%EA%B5%AC%28%EC%84%B8%EA%B3%84%EC%A7%80%EB%A6%AC%29%20%EC%A0%95%EB%8B%B5%C2%B7%ED%95%B4%EC%84%A4.pdf",
+    "answerDownload": "2005년 5월 고2 학력평가 사회탐구(세계지리) 정답·해설.pdf",
     "solutionUrl": null,
     "listenUrl": null,
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
     "source": "savetest-archive",
-    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/115462224CECCBDA04"
+    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/115462224CECCBDA04",
+    "answerIncludesSolution": true
   },
   {
     "id": 6047,
@@ -104057,15 +104066,16 @@
     "subSubject": "윤리",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6047_questionUrl.pdf?name=2005%EB%85%84%205%EC%9B%94%20%EA%B3%A02%20%EC%84%B1%EC%B7%A8%EB%8F%84%ED%8F%89%EA%B0%80%20%EC%9C%A4%EB%A6%AC.pdf",
     "questionDownload": "2005년 5월 고2 성취도평가 윤리.pdf",
-    "answerUrl": null,
-    "answerDownload": null,
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/edu-ans-v2/st05_5_g2_3c3526814a_a.pdf?name=2005%EB%85%84%205%EC%9B%94%20%EA%B3%A02%20%ED%95%99%EB%A0%A5%ED%8F%89%EA%B0%80%20%EC%82%AC%ED%9A%8C%ED%83%90%EA%B5%AC%28%EC%9C%A4%EB%A6%AC%29%20%EC%A0%95%EB%8B%B5%C2%B7%ED%95%B4%EC%84%A4.pdf",
+    "answerDownload": "2005년 5월 고2 학력평가 사회탐구(윤리) 정답·해설.pdf",
     "solutionUrl": null,
     "listenUrl": null,
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
     "source": "savetest-archive",
-    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/15341F224CECCBDB40"
+    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/15341F224CECCBDB40",
+    "answerIncludesSolution": true
   },
   {
     "id": 6048,
@@ -104080,15 +104090,16 @@
     "subSubject": "정치",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6048_questionUrl.pdf?name=2005%EB%85%84%205%EC%9B%94%20%EA%B3%A02%20%EC%84%B1%EC%B7%A8%EB%8F%84%ED%8F%89%EA%B0%80%20%EC%A0%95%EC%B9%98.pdf",
     "questionDownload": "2005년 5월 고2 성취도평가 정치.pdf",
-    "answerUrl": null,
-    "answerDownload": null,
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/edu-ans-v2/st05_5_g2_3c3526814a_a.pdf?name=2005%EB%85%84%205%EC%9B%94%20%EA%B3%A02%20%ED%95%99%EB%A0%A5%ED%8F%89%EA%B0%80%20%EC%82%AC%ED%9A%8C%ED%83%90%EA%B5%AC%28%EC%A0%95%EC%B9%98%29%20%EC%A0%95%EB%8B%B5%C2%B7%ED%95%B4%EC%84%A4.pdf",
+    "answerDownload": "2005년 5월 고2 학력평가 사회탐구(정치) 정답·해설.pdf",
     "solutionUrl": null,
     "listenUrl": null,
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
     "source": "savetest-archive",
-    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/16542C224CECCBDC04"
+    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/16542C224CECCBDC04",
+    "answerIncludesSolution": true
   },
   {
     "id": 6049,
@@ -104103,15 +104114,16 @@
     "subSubject": "한국근현대사",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6049_questionUrl.pdf?name=2005%EB%85%84%205%EC%9B%94%20%EA%B3%A02%20%EC%84%B1%EC%B7%A8%EB%8F%84%ED%8F%89%EA%B0%80%20%ED%95%9C%EA%B5%AD%EA%B7%BC%ED%98%84%EB%8C%80%EC%82%AC.pdf",
     "questionDownload": "2005년 5월 고2 성취도평가 한국근현대사.pdf",
-    "answerUrl": null,
-    "answerDownload": null,
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/edu-ans-v2/st05_5_g2_3c3526814a_a.pdf?name=2005%EB%85%84%205%EC%9B%94%20%EA%B3%A02%20%ED%95%99%EB%A0%A5%ED%8F%89%EA%B0%80%20%EC%82%AC%ED%9A%8C%ED%83%90%EA%B5%AC%28%ED%95%9C%EA%B5%AD%EA%B7%BC%ED%98%84%EB%8C%80%EC%82%AC%29%20%EC%A0%95%EB%8B%B5%C2%B7%ED%95%B4%EC%84%A4.pdf",
+    "answerDownload": "2005년 5월 고2 학력평가 사회탐구(한국근현대사) 정답·해설.pdf",
     "solutionUrl": null,
     "listenUrl": null,
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
     "source": "savetest-archive",
-    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/20402A224CECCBDD31"
+    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/20402A224CECCBDD31",
+    "answerIncludesSolution": true
   },
   {
     "id": 6050,
@@ -104126,15 +104138,16 @@
     "subSubject": "한국지리",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6050_questionUrl.pdf?name=2005%EB%85%84%205%EC%9B%94%20%EA%B3%A02%20%EC%84%B1%EC%B7%A8%EB%8F%84%ED%8F%89%EA%B0%80%20%ED%95%9C%EA%B5%AD%EC%A7%80%EB%A6%AC.pdf",
     "questionDownload": "2005년 5월 고2 성취도평가 한국지리.pdf",
-    "answerUrl": null,
-    "answerDownload": null,
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/edu-ans-v2/st05_5_g2_3c3526814a_a.pdf?name=2005%EB%85%84%205%EC%9B%94%20%EA%B3%A02%20%ED%95%99%EB%A0%A5%ED%8F%89%EA%B0%80%20%EC%82%AC%ED%9A%8C%ED%83%90%EA%B5%AC%28%ED%95%9C%EA%B5%AD%EC%A7%80%EB%A6%AC%29%20%EC%A0%95%EB%8B%B5%C2%B7%ED%95%B4%EC%84%A4.pdf",
+    "answerDownload": "2005년 5월 고2 학력평가 사회탐구(한국지리) 정답·해설.pdf",
     "solutionUrl": null,
     "listenUrl": null,
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
     "source": "savetest-archive",
-    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/144E6C224CECCBDE0D"
+    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/144E6C224CECCBDE0D",
+    "answerIncludesSolution": true
   },
   {
     "id": 6051,
@@ -104149,15 +104162,16 @@
     "subSubject": "물리Ⅰ",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6051_questionUrl.pdf?name=2005%EB%85%84%205%EC%9B%94%20%EA%B3%A02%20%EC%84%B1%EC%B7%A8%EB%8F%84%ED%8F%89%EA%B0%80%20%EB%AC%BC%EB%A6%AC1.pdf",
     "questionDownload": "2005년 5월 고2 성취도평가 물리1.pdf",
-    "answerUrl": null,
-    "answerDownload": null,
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/edu-ans-v2/st05_5_g2_3c3526814a_a.pdf?name=2005%EB%85%84%205%EC%9B%94%20%EA%B3%A02%20%ED%95%99%EB%A0%A5%ED%8F%89%EA%B0%80%20%EA%B3%BC%ED%95%99%ED%83%90%EA%B5%AC%28%EB%AC%BC%EB%A6%AC%E2%85%A0%29%20%EC%A0%95%EB%8B%B5%C2%B7%ED%95%B4%EC%84%A4.pdf",
+    "answerDownload": "2005년 5월 고2 학력평가 과학탐구(물리Ⅰ) 정답·해설.pdf",
     "solutionUrl": null,
     "listenUrl": null,
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
     "source": "savetest-archive",
-    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/19132F234CECCC180A"
+    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/19132F234CECCC180A",
+    "answerIncludesSolution": true
   },
   {
     "id": 6052,
@@ -104172,15 +104186,16 @@
     "subSubject": "화학Ⅰ",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6052_questionUrl.pdf?name=2005%EB%85%84%205%EC%9B%94%20%EA%B3%A02%20%EC%84%B1%EC%B7%A8%EB%8F%84%ED%8F%89%EA%B0%80%20%ED%99%94%ED%95%991.pdf",
     "questionDownload": "2005년 5월 고2 성취도평가 화학1.pdf",
-    "answerUrl": null,
-    "answerDownload": null,
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/edu-ans-v2/st05_5_g2_3c3526814a_a.pdf?name=2005%EB%85%84%205%EC%9B%94%20%EA%B3%A02%20%ED%95%99%EB%A0%A5%ED%8F%89%EA%B0%80%20%EA%B3%BC%ED%95%99%ED%83%90%EA%B5%AC%28%ED%99%94%ED%95%99%E2%85%A0%29%20%EC%A0%95%EB%8B%B5%C2%B7%ED%95%B4%EC%84%A4.pdf",
+    "answerDownload": "2005년 5월 고2 학력평가 과학탐구(화학Ⅰ) 정답·해설.pdf",
     "solutionUrl": null,
     "listenUrl": null,
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
     "source": "savetest-archive",
-    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/130D42234CECCC1C1E"
+    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/130D42234CECCC1C1E",
+    "answerIncludesSolution": true
   },
   {
     "id": 6053,
@@ -104195,15 +104210,16 @@
     "subSubject": "생물Ⅰ",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6053_questionUrl.pdf?name=2005%EB%85%84%205%EC%9B%94%20%EA%B3%A02%20%EC%84%B1%EC%B7%A8%EB%8F%84%ED%8F%89%EA%B0%80%20%EC%83%9D%EB%AC%BC1.pdf",
     "questionDownload": "2005년 5월 고2 성취도평가 생물1.pdf",
-    "answerUrl": null,
-    "answerDownload": null,
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/edu-ans-v2/st05_5_g2_3c3526814a_a.pdf?name=2005%EB%85%84%205%EC%9B%94%20%EA%B3%A02%20%ED%95%99%EB%A0%A5%ED%8F%89%EA%B0%80%20%EA%B3%BC%ED%95%99%ED%83%90%EA%B5%AC%28%EC%83%9D%EB%AC%BC%E2%85%A0%29%20%EC%A0%95%EB%8B%B5%C2%B7%ED%95%B4%EC%84%A4.pdf",
+    "answerDownload": "2005년 5월 고2 학력평가 과학탐구(생물Ⅰ) 정답·해설.pdf",
     "solutionUrl": null,
     "listenUrl": null,
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
     "source": "savetest-archive",
-    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/170C3E234CECCC191B"
+    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/170C3E234CECCC191B",
+    "answerIncludesSolution": true
   },
   {
     "id": 6054,
@@ -104218,15 +104234,16 @@
     "subSubject": "지구과학Ⅰ",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6054_questionUrl.pdf?name=2005%EB%85%84%205%EC%9B%94%20%EA%B3%A02%20%EC%84%B1%EC%B7%A8%EB%8F%84%ED%8F%89%EA%B0%80%20%EC%A7%80%EA%B5%AC%EA%B3%BC%ED%95%991.pdf",
     "questionDownload": "2005년 5월 고2 성취도평가 지구과학1.pdf",
-    "answerUrl": null,
-    "answerDownload": null,
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/edu-ans-v2/st05_5_g2_3c3526814a_a.pdf?name=2005%EB%85%84%205%EC%9B%94%20%EA%B3%A02%20%ED%95%99%EB%A0%A5%ED%8F%89%EA%B0%80%20%EA%B3%BC%ED%95%99%ED%83%90%EA%B5%AC%28%EC%A7%80%EA%B5%AC%EA%B3%BC%ED%95%99%E2%85%A0%29%20%EC%A0%95%EB%8B%B5%C2%B7%ED%95%B4%EC%84%A4.pdf",
+    "answerDownload": "2005년 5월 고2 학력평가 과학탐구(지구과학Ⅰ) 정답·해설.pdf",
     "solutionUrl": null,
     "listenUrl": null,
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
     "source": "savetest-archive",
-    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/1206CD234CECCC1A22"
+    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/1206CD234CECCC1A22",
+    "answerIncludesSolution": true
   },
   {
     "id": 6055,
@@ -104241,15 +104258,16 @@
     "subSubject": "공업입문",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6055_questionUrl.pdf?name=2005%EB%85%84%205%EC%9B%94%20%EA%B3%A02%20%EC%84%B1%EC%B7%A8%EB%8F%84%ED%8F%89%EA%B0%80%20%EA%B3%B5%EC%97%85%EC%9E%85%EB%AC%B8.pdf",
     "questionDownload": "2005년 5월 고2 성취도평가 공업입문.pdf",
-    "answerUrl": null,
-    "answerDownload": null,
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/edu-ans-v2/st05_5_g2_3c3526814a_a.pdf?name=2005%EB%85%84%205%EC%9B%94%20%EA%B3%A02%20%ED%95%99%EB%A0%A5%ED%8F%89%EA%B0%80%20%EC%A7%81%EC%97%85%ED%83%90%EA%B5%AC%28%EA%B3%B5%EC%97%85%EC%9E%85%EB%AC%B8%29%20%EC%A0%95%EB%8B%B5%C2%B7%ED%95%B4%EC%84%A4.pdf",
+    "answerDownload": "2005년 5월 고2 학력평가 직업탐구(공업입문) 정답·해설.pdf",
     "solutionUrl": null,
     "listenUrl": null,
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
     "source": "savetest-archive",
-    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/190E6E214CECCCA614"
+    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/190E6E214CECCCA614",
+    "answerIncludesSolution": true
   },
   {
     "id": 6056,
@@ -104264,15 +104282,16 @@
     "subSubject": "기초제도",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6056_questionUrl.pdf?name=2005%EB%85%84%205%EC%9B%94%20%EA%B3%A02%20%EC%84%B1%EC%B7%A8%EB%8F%84%ED%8F%89%EA%B0%80%20%EA%B8%B0%EC%B4%88%EC%A0%9C%EB%8F%84.pdf",
     "questionDownload": "2005년 5월 고2 성취도평가 기초제도.pdf",
-    "answerUrl": null,
-    "answerDownload": null,
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/edu-ans-v2/st05_5_g2_3c3526814a_a.pdf?name=2005%EB%85%84%205%EC%9B%94%20%EA%B3%A02%20%ED%95%99%EB%A0%A5%ED%8F%89%EA%B0%80%20%EC%A7%81%EC%97%85%ED%83%90%EA%B5%AC%28%EA%B8%B0%EC%B4%88%EC%A0%9C%EB%8F%84%29%20%EC%A0%95%EB%8B%B5%C2%B7%ED%95%B4%EC%84%A4.pdf",
+    "answerDownload": "2005년 5월 고2 학력평가 직업탐구(기초제도) 정답·해설.pdf",
     "solutionUrl": null,
     "listenUrl": null,
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
     "source": "savetest-archive",
-    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/1915F1214CECCCA703"
+    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/1915F1214CECCCA703",
+    "answerIncludesSolution": true
   },
   {
     "id": 6057,
@@ -104287,15 +104306,16 @@
     "subSubject": "농업기초기술",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6057_questionUrl.pdf?name=2005%EB%85%84%205%EC%9B%94%20%EA%B3%A02%20%EC%84%B1%EC%B7%A8%EB%8F%84%ED%8F%89%EA%B0%80%20%EB%86%8D%EC%97%85%EA%B8%B0%EC%B4%88%EA%B8%B0%EC%88%A0.pdf",
     "questionDownload": "2005년 5월 고2 성취도평가 농업기초기술.pdf",
-    "answerUrl": null,
-    "answerDownload": null,
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/edu-ans-v2/st05_5_g2_3c3526814a_a.pdf?name=2005%EB%85%84%205%EC%9B%94%20%EA%B3%A02%20%ED%95%99%EB%A0%A5%ED%8F%89%EA%B0%80%20%EC%A7%81%EC%97%85%ED%83%90%EA%B5%AC%28%EB%86%8D%EC%97%85%EA%B8%B0%EC%B4%88%EA%B8%B0%EC%88%A0%29%20%EC%A0%95%EB%8B%B5%C2%B7%ED%95%B4%EC%84%A4.pdf",
+    "answerDownload": "2005년 5월 고2 학력평가 직업탐구(농업기초기술) 정답·해설.pdf",
     "solutionUrl": null,
     "listenUrl": null,
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
     "source": "savetest-archive",
-    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/126F10214CECCCA940"
+    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/126F10214CECCCA940",
+    "answerIncludesSolution": true
   },
   {
     "id": 6058,
@@ -104310,15 +104330,16 @@
     "subSubject": "농업이해",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6058_questionUrl.pdf?name=2005%EB%85%84%205%EC%9B%94%20%EA%B3%A02%20%EC%84%B1%EC%B7%A8%EB%8F%84%ED%8F%89%EA%B0%80%20%EB%86%8D%EC%97%85%EC%9D%B4%ED%95%B4.pdf",
     "questionDownload": "2005년 5월 고2 성취도평가 농업이해.pdf",
-    "answerUrl": null,
-    "answerDownload": null,
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/edu-ans-v2/st05_5_g2_3c3526814a_a.pdf?name=2005%EB%85%84%205%EC%9B%94%20%EA%B3%A02%20%ED%95%99%EB%A0%A5%ED%8F%89%EA%B0%80%20%EC%A7%81%EC%97%85%ED%83%90%EA%B5%AC%28%EB%86%8D%EC%97%85%EC%9D%B4%ED%95%B4%29%20%EC%A0%95%EB%8B%B5%C2%B7%ED%95%B4%EC%84%A4.pdf",
+    "answerDownload": "2005년 5월 고2 학력평가 직업탐구(농업이해) 정답·해설.pdf",
     "solutionUrl": null,
     "listenUrl": null,
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
     "source": "savetest-archive",
-    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/201703214CECCCAA02"
+    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/201703214CECCCAA02",
+    "answerIncludesSolution": true
   },
   {
     "id": 6059,
@@ -104333,15 +104354,16 @@
     "subSubject": "농업정보관리",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6059_questionUrl.pdf?name=2005%EB%85%84%205%EC%9B%94%20%EA%B3%A02%20%EC%84%B1%EC%B7%A8%EB%8F%84%ED%8F%89%EA%B0%80%20%EB%86%8D%EC%97%85%EC%A0%95%EB%B3%B4%EA%B4%80%EB%A6%AC.pdf",
     "questionDownload": "2005년 5월 고2 성취도평가 농업정보관리.pdf",
-    "answerUrl": null,
-    "answerDownload": null,
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/edu-ans-v2/st05_5_g2_3c3526814a_a.pdf?name=2005%EB%85%84%205%EC%9B%94%20%EA%B3%A02%20%ED%95%99%EB%A0%A5%ED%8F%89%EA%B0%80%20%EC%A7%81%EC%97%85%ED%83%90%EA%B5%AC%28%EB%86%8D%EC%97%85%EC%A0%95%EB%B3%B4%EA%B4%80%EB%A6%AC%29%20%EC%A0%95%EB%8B%B5%C2%B7%ED%95%B4%EC%84%A4.pdf",
+    "answerDownload": "2005년 5월 고2 학력평가 직업탐구(농업정보관리) 정답·해설.pdf",
     "solutionUrl": null,
     "listenUrl": null,
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
     "source": "savetest-archive",
-    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/117CEB214CECCCAB26"
+    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/117CEB214CECCCAB26",
+    "answerIncludesSolution": true
   },
   {
     "id": 6060,
@@ -104356,15 +104378,16 @@
     "subSubject": "디자인일반",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6060_questionUrl.pdf?name=2005%EB%85%84%205%EC%9B%94%20%EA%B3%A02%20%EC%84%B1%EC%B7%A8%EB%8F%84%ED%8F%89%EA%B0%80%20%EB%94%94%EC%9E%90%EC%9D%B8%EC%9D%BC%EB%B0%98.pdf",
     "questionDownload": "2005년 5월 고2 성취도평가 디자인일반.pdf",
-    "answerUrl": null,
-    "answerDownload": null,
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/edu-ans-v2/st05_5_g2_3c3526814a_a.pdf?name=2005%EB%85%84%205%EC%9B%94%20%EA%B3%A02%20%ED%95%99%EB%A0%A5%ED%8F%89%EA%B0%80%20%EC%A7%81%EC%97%85%ED%83%90%EA%B5%AC%28%EB%94%94%EC%9E%90%EC%9D%B8%EC%9D%BC%EB%B0%98%29%20%EC%A0%95%EB%8B%B5%C2%B7%ED%95%B4%EC%84%A4.pdf",
+    "answerDownload": "2005년 5월 고2 학력평가 직업탐구(디자인일반) 정답·해설.pdf",
     "solutionUrl": null,
     "listenUrl": null,
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
     "source": "savetest-archive",
-    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/156BB0214CECCCAD4C"
+    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/156BB0214CECCCAD4C",
+    "answerIncludesSolution": true
   },
   {
     "id": 6061,
@@ -104379,15 +104402,16 @@
     "subSubject": "식품과영양",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6061_questionUrl.pdf?name=2005%EB%85%84%205%EC%9B%94%20%EA%B3%A02%20%EC%84%B1%EC%B7%A8%EB%8F%84%ED%8F%89%EA%B0%80%20%EC%8B%9D%ED%92%88%EA%B3%BC%EC%98%81%EC%96%91.pdf",
     "questionDownload": "2005년 5월 고2 성취도평가 식품과영양.pdf",
-    "answerUrl": null,
-    "answerDownload": null,
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/edu-ans-v2/st05_5_g2_3c3526814a_a.pdf?name=2005%EB%85%84%205%EC%9B%94%20%EA%B3%A02%20%ED%95%99%EB%A0%A5%ED%8F%89%EA%B0%80%20%EC%A7%81%EC%97%85%ED%83%90%EA%B5%AC%28%EC%8B%9D%ED%92%88%EA%B3%BC%EC%98%81%EC%96%91%29%20%EC%A0%95%EB%8B%B5%C2%B7%ED%95%B4%EC%84%A4.pdf",
+    "answerDownload": "2005년 5월 고2 학력평가 직업탐구(식품과영양) 정답·해설.pdf",
     "solutionUrl": null,
     "listenUrl": null,
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
     "source": "savetest-archive",
-    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/160F37214CECCCAF20"
+    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/160F37214CECCCAF20",
+    "answerIncludesSolution": true
   },
   {
     "id": 6062,
@@ -104402,15 +104426,16 @@
     "subSubject": "인간발달",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6062_questionUrl.pdf?name=2005%EB%85%84%205%EC%9B%94%20%EA%B3%A02%20%EC%84%B1%EC%B7%A8%EB%8F%84%ED%8F%89%EA%B0%80%20%EC%9D%B8%EA%B0%84%EB%B0%9C%EB%8B%AC.pdf",
     "questionDownload": "2005년 5월 고2 성취도평가 인간발달.pdf",
-    "answerUrl": null,
-    "answerDownload": null,
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/edu-ans-v2/st05_5_g2_3c3526814a_a.pdf?name=2005%EB%85%84%205%EC%9B%94%20%EA%B3%A02%20%ED%95%99%EB%A0%A5%ED%8F%89%EA%B0%80%20%EC%A7%81%EC%97%85%ED%83%90%EA%B5%AC%28%EC%9D%B8%EA%B0%84%EB%B0%9C%EB%8B%AC%29%20%EC%A0%95%EB%8B%B5%C2%B7%ED%95%B4%EC%84%A4.pdf",
+    "answerDownload": "2005년 5월 고2 학력평가 직업탐구(인간발달) 정답·해설.pdf",
     "solutionUrl": null,
     "listenUrl": null,
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
     "source": "savetest-archive",
-    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/156D89214CECCCB065"
+    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/156D89214CECCCB065",
+    "answerIncludesSolution": true
   },
   {
     "id": 6063,
@@ -104425,15 +104450,16 @@
     "subSubject": "정보기술기초",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6063_questionUrl.pdf?name=2005%EB%85%84%205%EC%9B%94%20%EA%B3%A02%20%EC%84%B1%EC%B7%A8%EB%8F%84%ED%8F%89%EA%B0%80%20%EC%A0%95%EB%B3%B4%EA%B8%B0%EC%88%A0%EA%B8%B0%EC%B4%88.pdf",
     "questionDownload": "2005년 5월 고2 성취도평가 정보기술기초.pdf",
-    "answerUrl": null,
-    "answerDownload": null,
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/edu-ans-v2/st05_5_g2_3c3526814a_a.pdf?name=2005%EB%85%84%205%EC%9B%94%20%EA%B3%A02%20%ED%95%99%EB%A0%A5%ED%8F%89%EA%B0%80%20%EC%A7%81%EC%97%85%ED%83%90%EA%B5%AC%28%EC%A0%95%EB%B3%B4%EA%B8%B0%EC%88%A0%EA%B8%B0%EC%B4%88%29%20%EC%A0%95%EB%8B%B5%C2%B7%ED%95%B4%EC%84%A4.pdf",
+    "answerDownload": "2005년 5월 고2 학력평가 직업탐구(정보기술기초) 정답·해설.pdf",
     "solutionUrl": null,
     "listenUrl": null,
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
     "source": "savetest-archive",
-    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/151456214CECCCB107"
+    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/151456214CECCCB107",
+    "answerIncludesSolution": true
   },
   {
     "id": 6064,
@@ -104448,15 +104474,16 @@
     "subSubject": "컴퓨터일반",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6064_questionUrl.pdf?name=2005%EB%85%84%205%EC%9B%94%20%EA%B3%A02%20%EC%84%B1%EC%B7%A8%EB%8F%84%ED%8F%89%EA%B0%80%20%EC%BB%B4%ED%93%A8%ED%84%B0%EC%9D%BC%EB%B0%98.pdf",
     "questionDownload": "2005년 5월 고2 성취도평가 컴퓨터일반.pdf",
-    "answerUrl": null,
-    "answerDownload": null,
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/edu-ans-v2/st05_5_g2_3c3526814a_a.pdf?name=2005%EB%85%84%205%EC%9B%94%20%EA%B3%A02%20%ED%95%99%EB%A0%A5%ED%8F%89%EA%B0%80%20%EC%A7%81%EC%97%85%ED%83%90%EA%B5%AC%28%EC%BB%B4%ED%93%A8%ED%84%B0%EC%9D%BC%EB%B0%98%29%20%EC%A0%95%EB%8B%B5%C2%B7%ED%95%B4%EC%84%A4.pdf",
+    "answerDownload": "2005년 5월 고2 학력평가 직업탐구(컴퓨터일반) 정답·해설.pdf",
     "solutionUrl": null,
     "listenUrl": null,
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
     "source": "savetest-archive",
-    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/1815E4214CECCCB204"
+    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/1815E4214CECCCB204",
+    "answerIncludesSolution": true
   },
   {
     "id": 6065,
@@ -104471,15 +104498,16 @@
     "subSubject": "프로그래밍",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6065_questionUrl.pdf?name=2005%EB%85%84%205%EC%9B%94%20%EA%B3%A02%20%EC%84%B1%EC%B7%A8%EB%8F%84%ED%8F%89%EA%B0%80%20%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D.pdf",
     "questionDownload": "2005년 5월 고2 성취도평가 프로그래밍.pdf",
-    "answerUrl": null,
-    "answerDownload": null,
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/edu-ans-v2/st05_5_g2_3c3526814a_a.pdf?name=2005%EB%85%84%205%EC%9B%94%20%EA%B3%A02%20%ED%95%99%EB%A0%A5%ED%8F%89%EA%B0%80%20%EC%A7%81%EC%97%85%ED%83%90%EA%B5%AC%28%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D%29%20%EC%A0%95%EB%8B%B5%C2%B7%ED%95%B4%EC%84%A4.pdf",
+    "answerDownload": "2005년 5월 고2 학력평가 직업탐구(프로그래밍) 정답·해설.pdf",
     "solutionUrl": null,
     "listenUrl": null,
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
     "source": "savetest-archive",
-    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/2013AA214CECCCB308"
+    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/2013AA214CECCCB308",
+    "answerIncludesSolution": true
   },
   {
     "id": 6066,
@@ -104494,15 +104522,16 @@
     "subSubject": "회계원리",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6066_questionUrl.pdf?name=2005%EB%85%84%205%EC%9B%94%20%EA%B3%A02%20%EC%84%B1%EC%B7%A8%EB%8F%84%ED%8F%89%EA%B0%80%20%ED%9A%8C%EA%B3%84%EC%9B%90%EB%A6%AC.pdf",
     "questionDownload": "2005년 5월 고2 성취도평가 회계원리.pdf",
-    "answerUrl": null,
-    "answerDownload": null,
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/edu-ans-v2/st05_5_g2_3c3526814a_a.pdf?name=2005%EB%85%84%205%EC%9B%94%20%EA%B3%A02%20%ED%95%99%EB%A0%A5%ED%8F%89%EA%B0%80%20%EC%A7%81%EC%97%85%ED%83%90%EA%B5%AC%28%ED%9A%8C%EA%B3%84%EC%9B%90%EB%A6%AC%29%20%EC%A0%95%EB%8B%B5%C2%B7%ED%95%B4%EC%84%A4.pdf",
+    "answerDownload": "2005년 5월 고2 학력평가 직업탐구(회계원리) 정답·해설.pdf",
     "solutionUrl": null,
     "listenUrl": null,
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
     "source": "savetest-archive",
-    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/170A91214CECCCB414"
+    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/170A91214CECCCB414",
+    "answerIncludesSolution": true
   },
   {
     "id": 6067,
@@ -104517,15 +104546,16 @@
     "subSubject": "독일어",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6067_questionUrl.pdf?name=2005%EB%85%84%205%EC%9B%94%20%EA%B3%A02%20%EC%84%B1%EC%B7%A8%EB%8F%84%ED%8F%89%EA%B0%80%20%EB%8F%85%EC%9D%BC%EC%96%B4.pdf",
     "questionDownload": "2005년 5월 고2 성취도평가 독일어.pdf",
-    "answerUrl": null,
-    "answerDownload": null,
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/edu-ans-v2/st05_5_g2_896ec3b55a_a.pdf?name=2005%EB%85%84%205%EC%9B%94%20%EA%B3%A02%20%ED%95%99%EB%A0%A5%ED%8F%89%EA%B0%80%20%EC%A0%9C2%EC%99%B8%EA%B5%AD%EC%96%B4%28%EB%8F%85%EC%9D%BC%EC%96%B4%29%20%EC%A0%95%EB%8B%B5%C2%B7%ED%95%B4%EC%84%A4.pdf",
+    "answerDownload": "2005년 5월 고2 학력평가 제2외국어(독일어) 정답·해설.pdf",
     "solutionUrl": null,
     "listenUrl": null,
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
     "source": "savetest-archive",
-    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/205271224CECCD191C"
+    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/205271224CECCD191C",
+    "answerIncludesSolution": true
   },
   {
     "id": 6068,
@@ -104540,15 +104570,16 @@
     "subSubject": "러시아어",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6068_questionUrl.pdf?name=2005%EB%85%84%205%EC%9B%94%20%EA%B3%A02%20%EC%84%B1%EC%B7%A8%EB%8F%84%ED%8F%89%EA%B0%80%20%EB%9F%AC%EC%8B%9C%EC%95%84%EC%96%B4.pdf",
     "questionDownload": "2005년 5월 고2 성취도평가 러시아어.pdf",
-    "answerUrl": null,
-    "answerDownload": null,
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/edu-ans-v2/st05_5_g2_896ec3b55a_a.pdf?name=2005%EB%85%84%205%EC%9B%94%20%EA%B3%A02%20%ED%95%99%EB%A0%A5%ED%8F%89%EA%B0%80%20%EC%A0%9C2%EC%99%B8%EA%B5%AD%EC%96%B4%28%EB%9F%AC%EC%8B%9C%EC%95%84%EC%96%B4%29%20%EC%A0%95%EB%8B%B5%C2%B7%ED%95%B4%EC%84%A4.pdf",
+    "answerDownload": "2005년 5월 고2 학력평가 제2외국어(러시아어) 정답·해설.pdf",
     "solutionUrl": null,
     "listenUrl": null,
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
     "source": "savetest-archive",
-    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/20531D224CECCD1A17"
+    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/20531D224CECCD1A17",
+    "answerIncludesSolution": true
   },
   {
     "id": 6069,
@@ -104563,15 +104594,16 @@
     "subSubject": "스페인어",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6069_questionUrl.pdf?name=2005%EB%85%84%205%EC%9B%94%20%EA%B3%A02%20%EC%84%B1%EC%B7%A8%EB%8F%84%ED%8F%89%EA%B0%80%20%EC%8A%A4%ED%8E%98%EC%9D%B8%EC%96%B4.pdf",
     "questionDownload": "2005년 5월 고2 성취도평가 스페인어.pdf",
-    "answerUrl": null,
-    "answerDownload": null,
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/edu-ans-v2/st05_5_g2_896ec3b55a_a.pdf?name=2005%EB%85%84%205%EC%9B%94%20%EA%B3%A02%20%ED%95%99%EB%A0%A5%ED%8F%89%EA%B0%80%20%EC%A0%9C2%EC%99%B8%EA%B5%AD%EC%96%B4%28%EC%8A%A4%ED%8E%98%EC%9D%B8%EC%96%B4%29%20%EC%A0%95%EB%8B%B5%C2%B7%ED%95%B4%EC%84%A4.pdf",
+    "answerDownload": "2005년 5월 고2 학력평가 제2외국어(스페인어) 정답·해설.pdf",
     "solutionUrl": null,
     "listenUrl": null,
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
     "source": "savetest-archive",
-    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/12581F224CECCD1C01"
+    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/12581F224CECCD1C01",
+    "answerIncludesSolution": true
   },
   {
     "id": 6070,
@@ -104586,15 +104618,16 @@
     "subSubject": "일본어",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6070_questionUrl.pdf?name=2005%EB%85%84%205%EC%9B%94%20%EA%B3%A02%20%EC%84%B1%EC%B7%A8%EB%8F%84%ED%8F%89%EA%B0%80%20%EC%9D%BC%EB%B3%B8%EC%96%B4.pdf",
     "questionDownload": "2005년 5월 고2 성취도평가 일본어.pdf",
-    "answerUrl": null,
-    "answerDownload": null,
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/edu-ans-v2/st05_5_g2_896ec3b55a_a.pdf?name=2005%EB%85%84%205%EC%9B%94%20%EA%B3%A02%20%ED%95%99%EB%A0%A5%ED%8F%89%EA%B0%80%20%EC%A0%9C2%EC%99%B8%EA%B5%AD%EC%96%B4%28%EC%9D%BC%EB%B3%B8%EC%96%B4%29%20%EC%A0%95%EB%8B%B5%C2%B7%ED%95%B4%EC%84%A4.pdf",
+    "answerDownload": "2005년 5월 고2 학력평가 제2외국어(일본어) 정답·해설.pdf",
     "solutionUrl": null,
     "listenUrl": null,
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
     "source": "savetest-archive",
-    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/205462224CECCD1D07"
+    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/205462224CECCD1D07",
+    "answerIncludesSolution": true
   },
   {
     "id": 6071,
@@ -104609,15 +104642,16 @@
     "subSubject": "프랑스어",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6071_questionUrl.pdf?name=2005%EB%85%84%205%EC%9B%94%20%EA%B3%A02%20%EC%84%B1%EC%B7%A8%EB%8F%84%ED%8F%89%EA%B0%80%20%ED%94%84%EB%9E%91%EC%8A%A4%EC%96%B4.pdf",
     "questionDownload": "2005년 5월 고2 성취도평가 프랑스어.pdf",
-    "answerUrl": null,
-    "answerDownload": null,
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/edu-ans-v2/st05_5_g2_896ec3b55a_a.pdf?name=2005%EB%85%84%205%EC%9B%94%20%EA%B3%A02%20%ED%95%99%EB%A0%A5%ED%8F%89%EA%B0%80%20%EC%A0%9C2%EC%99%B8%EA%B5%AD%EC%96%B4%28%ED%94%84%EB%9E%91%EC%8A%A4%EC%96%B4%29%20%EC%A0%95%EB%8B%B5%C2%B7%ED%95%B4%EC%84%A4.pdf",
+    "answerDownload": "2005년 5월 고2 학력평가 제2외국어(프랑스어) 정답·해설.pdf",
     "solutionUrl": null,
     "listenUrl": null,
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
     "source": "savetest-archive",
-    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/114E6C224CECCD2310"
+    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/114E6C224CECCD2310",
+    "answerIncludesSolution": true
   },
   {
     "id": 6072,
@@ -104632,15 +104666,16 @@
     "subSubject": "한문",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6072_questionUrl.pdf?name=2005%EB%85%84%205%EC%9B%94%20%EA%B3%A02%20%EC%84%B1%EC%B7%A8%EB%8F%84%ED%8F%89%EA%B0%80%20%ED%95%9C%EB%AC%B8.pdf",
     "questionDownload": "2005년 5월 고2 성취도평가 한문.pdf",
-    "answerUrl": null,
-    "answerDownload": null,
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/edu-ans-v2/st05_5_g2_896ec3b55a_a.pdf?name=2005%EB%85%84%205%EC%9B%94%20%EA%B3%A02%20%ED%95%99%EB%A0%A5%ED%8F%89%EA%B0%80%20%EC%A0%9C2%EC%99%B8%EA%B5%AD%EC%96%B4%28%ED%95%9C%EB%AC%B8%29%20%EC%A0%95%EB%8B%B5%C2%B7%ED%95%B4%EC%84%A4.pdf",
+    "answerDownload": "2005년 5월 고2 학력평가 제2외국어(한문) 정답·해설.pdf",
     "solutionUrl": null,
     "listenUrl": null,
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
     "source": "savetest-archive",
-    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/155481224CECCD2406"
+    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/155481224CECCD2406",
+    "answerIncludesSolution": true
   },
   {
     "id": 6073,
@@ -104655,15 +104690,16 @@
     "subSubject": null,
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6073_questionUrl.pdf?name=2005%EB%85%84%20%EA%B3%A03%205%EC%9B%94%20%EC%84%B1%EC%B7%A8%EB%8F%84%ED%8F%89%EA%B0%80%20%EC%88%98%EB%A6%AC%EC%98%81%EC%97%AD%28%EA%B0%80%ED%98%95%29.pdf",
     "questionDownload": "2005년 고3 5월 성취도평가 수리영역(가형).pdf",
-    "answerUrl": null,
-    "answerDownload": null,
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/edu-ans-v2/st05_5_g3_2152e475c0_a.pdf?name=2005%EB%85%84%205%EC%9B%94%20%EA%B3%A03%20%ED%95%99%EB%A0%A5%ED%8F%89%EA%B0%80%20%EC%88%98%ED%95%99%20%EC%A0%95%EB%8B%B5%C2%B7%ED%95%B4%EC%84%A4.pdf",
+    "answerDownload": "2005년 5월 고3 학력평가 수학 정답·해설.pdf",
     "solutionUrl": null,
     "listenUrl": null,
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
     "source": "savetest-archive",
-    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/142C431C4CE93FCB0F"
+    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/142C431C4CE93FCB0F",
+    "answerIncludesSolution": true
   },
   {
     "id": 6074,
@@ -104678,15 +104714,16 @@
     "subSubject": null,
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6074_questionUrl.pdf?name=2005%EB%85%84%20%EA%B3%A03%205%EC%9B%94%20%EC%84%B1%EC%B7%A8%EB%8F%84%ED%8F%89%EA%B0%80%20%EC%99%B8%EA%B5%AD%EC%96%B4%EC%98%81%EC%97%AD.pdf",
     "questionDownload": "2005년 고3 5월 성취도평가 외국어영역.pdf",
-    "answerUrl": null,
-    "answerDownload": null,
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/edu-ans-v2/st05_5_g3_2152e475c0_a.pdf?name=2005%EB%85%84%205%EC%9B%94%20%EA%B3%A03%20%ED%95%99%EB%A0%A5%ED%8F%89%EA%B0%80%20%EA%B5%AD%EC%96%B4%20%EC%A0%95%EB%8B%B5%C2%B7%ED%95%B4%EC%84%A4.pdf",
+    "answerDownload": "2005년 5월 고3 학력평가 국어 정답·해설.pdf",
     "solutionUrl": null,
     "listenUrl": null,
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
     "source": "savetest-archive",
-    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/167F011C4CE940658E"
+    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/167F011C4CE940658E",
+    "answerIncludesSolution": true
   },
   {
     "id": 6075,
@@ -104701,15 +104738,16 @@
     "subSubject": "경제",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6075_questionUrl.pdf?name=2005%EB%85%84%20%EA%B3%A03%205%EC%9B%94%20%EC%84%B1%EC%B7%A8%EB%8F%84%ED%8F%89%EA%B0%80%20%EA%B2%BD%EC%A0%9C.pdf",
     "questionDownload": "2005년 고3 5월 성취도평가 경제.pdf",
-    "answerUrl": null,
-    "answerDownload": null,
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/edu-ans-v2/st05_5_g3_2152e475c0_a.pdf?name=2005%EB%85%84%205%EC%9B%94%20%EA%B3%A03%20%ED%95%99%EB%A0%A5%ED%8F%89%EA%B0%80%20%EC%82%AC%ED%9A%8C%ED%83%90%EA%B5%AC%28%EA%B2%BD%EC%A0%9C%29%20%EC%A0%95%EB%8B%B5%C2%B7%ED%95%B4%EC%84%A4.pdf",
+    "answerDownload": "2005년 5월 고3 학력평가 사회탐구(경제) 정답·해설.pdf",
     "solutionUrl": null,
     "listenUrl": null,
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
     "source": "savetest-archive",
-    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/1729561E4CE941041E"
+    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/1729561E4CE941041E",
+    "answerIncludesSolution": true
   },
   {
     "id": 6076,
@@ -104724,15 +104762,16 @@
     "subSubject": "경제지리",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6076_questionUrl.pdf?name=2005%EB%85%84%20%EA%B3%A03%205%EC%9B%94%20%EC%84%B1%EC%B7%A8%EB%8F%84%ED%8F%89%EA%B0%80%20%EA%B2%BD%EC%A0%9C%EC%A7%80%EB%A6%AC.pdf",
     "questionDownload": "2005년 고3 5월 성취도평가 경제지리.pdf",
-    "answerUrl": null,
-    "answerDownload": null,
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/edu-ans-v2/st05_5_g3_2152e475c0_a.pdf?name=2005%EB%85%84%205%EC%9B%94%20%EA%B3%A03%20%ED%95%99%EB%A0%A5%ED%8F%89%EA%B0%80%20%EC%82%AC%ED%9A%8C%ED%83%90%EA%B5%AC%28%EA%B2%BD%EC%A0%9C%EC%A7%80%EB%A6%AC%29%20%EC%A0%95%EB%8B%B5%C2%B7%ED%95%B4%EC%84%A4.pdf",
+    "answerDownload": "2005년 5월 고3 학력평가 사회탐구(경제지리) 정답·해설.pdf",
     "solutionUrl": null,
     "listenUrl": null,
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
     "source": "savetest-archive",
-    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/18238A1E4CE9410A1E"
+    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/18238A1E4CE9410A1E",
+    "answerIncludesSolution": true
   },
   {
     "id": 6077,
@@ -104747,15 +104786,16 @@
     "subSubject": "국사",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6077_questionUrl.pdf?name=2005%EB%85%84%20%EA%B3%A03%205%EC%9B%94%20%EC%84%B1%EC%B7%A8%EB%8F%84%ED%8F%89%EA%B0%80%20%EA%B5%AD%EC%82%AC.pdf",
     "questionDownload": "2005년 고3 5월 성취도평가 국사.pdf",
-    "answerUrl": null,
-    "answerDownload": null,
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/edu-ans-v2/st05_5_g3_2152e475c0_a.pdf?name=2005%EB%85%84%205%EC%9B%94%20%EA%B3%A03%20%ED%95%99%EB%A0%A5%ED%8F%89%EA%B0%80%20%EC%82%AC%ED%9A%8C%ED%83%90%EA%B5%AC%28%EA%B5%AD%EC%82%AC%29%20%EC%A0%95%EB%8B%B5%C2%B7%ED%95%B4%EC%84%A4.pdf",
+    "answerDownload": "2005년 5월 고3 학력평가 사회탐구(국사) 정답·해설.pdf",
     "solutionUrl": null,
     "listenUrl": null,
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
     "source": "savetest-archive",
-    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/1778BB1E4CE9410E7C"
+    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/1778BB1E4CE9410E7C",
+    "answerIncludesSolution": true
   },
   {
     "id": 6078,
@@ -104770,15 +104810,16 @@
     "subSubject": "법과사회",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6078_questionUrl.pdf?name=2005%EB%85%84%20%EA%B3%A03%205%EC%9B%94%20%EC%84%B1%EC%B7%A8%EB%8F%84%ED%8F%89%EA%B0%80%20%EB%B2%95%EA%B3%BC%EC%82%AC%ED%9A%8C.pdf",
     "questionDownload": "2005년 고3 5월 성취도평가 법과사회.pdf",
-    "answerUrl": null,
-    "answerDownload": null,
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/edu-ans-v2/st05_5_g3_2152e475c0_a.pdf?name=2005%EB%85%84%205%EC%9B%94%20%EA%B3%A03%20%ED%95%99%EB%A0%A5%ED%8F%89%EA%B0%80%20%EC%82%AC%ED%9A%8C%ED%83%90%EA%B5%AC%28%EB%B2%95%EA%B3%BC%EC%82%AC%ED%9A%8C%29%20%EC%A0%95%EB%8B%B5%C2%B7%ED%95%B4%EC%84%A4.pdf",
+    "answerDownload": "2005년 5월 고3 학력평가 사회탐구(법과사회) 정답·해설.pdf",
     "solutionUrl": null,
     "listenUrl": null,
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
     "source": "savetest-archive",
-    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/15700E1E4CE9411494"
+    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/15700E1E4CE9411494",
+    "answerIncludesSolution": true
   },
   {
     "id": 6079,
@@ -104793,15 +104834,16 @@
     "subSubject": "사회·문화",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6079_questionUrl.pdf?name=2005%EB%85%84%20%EA%B3%A03%205%EC%9B%94%20%EC%84%B1%EC%B7%A8%EB%8F%84%ED%8F%89%EA%B0%80%20%EC%82%AC%ED%9A%8C%EB%AC%B8%ED%99%94.pdf",
     "questionDownload": "2005년 고3 5월 성취도평가 사회문화.pdf",
-    "answerUrl": null,
-    "answerDownload": null,
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/edu-ans-v2/st05_5_g3_2152e475c0_a.pdf?name=2005%EB%85%84%205%EC%9B%94%20%EA%B3%A03%20%ED%95%99%EB%A0%A5%ED%8F%89%EA%B0%80%20%EC%82%AC%ED%9A%8C%ED%83%90%EA%B5%AC%28%EC%82%AC%ED%9A%8C%C2%B7%EB%AC%B8%ED%99%94%29%20%EC%A0%95%EB%8B%B5%C2%B7%ED%95%B4%EC%84%A4.pdf",
+    "answerDownload": "2005년 5월 고3 학력평가 사회탐구(사회·문화) 정답·해설.pdf",
     "solutionUrl": null,
     "listenUrl": null,
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
     "source": "savetest-archive",
-    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/1505451E4CE9411C2D"
+    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/1505451E4CE9411C2D",
+    "answerIncludesSolution": true
   },
   {
     "id": 6080,
@@ -104816,15 +104858,16 @@
     "subSubject": "세계사",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6080_questionUrl.pdf?name=2005%EB%85%84%20%EA%B3%A03%205%EC%9B%94%20%EC%84%B1%EC%B7%A8%EB%8F%84%ED%8F%89%EA%B0%80%20%EC%84%B8%EA%B3%84%EC%82%AC.pdf",
     "questionDownload": "2005년 고3 5월 성취도평가 세계사.pdf",
-    "answerUrl": null,
-    "answerDownload": null,
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/edu-ans-v2/st05_5_g3_2152e475c0_a.pdf?name=2005%EB%85%84%205%EC%9B%94%20%EA%B3%A03%20%ED%95%99%EB%A0%A5%ED%8F%89%EA%B0%80%20%EC%82%AC%ED%9A%8C%ED%83%90%EA%B5%AC%28%EC%84%B8%EA%B3%84%EC%82%AC%29%20%EC%A0%95%EB%8B%B5%C2%B7%ED%95%B4%EC%84%A4.pdf",
+    "answerDownload": "2005년 5월 고3 학력평가 사회탐구(세계사) 정답·해설.pdf",
     "solutionUrl": null,
     "listenUrl": null,
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
     "source": "savetest-archive",
-    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/132EC31E4CE9412926"
+    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/132EC31E4CE9412926",
+    "answerIncludesSolution": true
   },
   {
     "id": 6081,
@@ -104839,15 +104882,16 @@
     "subSubject": "세계지리",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6081_questionUrl.pdf?name=2005%EB%85%84%20%EA%B3%A03%205%EC%9B%94%20%EC%84%B1%EC%B7%A8%EB%8F%84%ED%8F%89%EA%B0%80%20%EC%84%B8%EA%B3%84%EC%A7%80%EB%A6%AC.pdf",
     "questionDownload": "2005년 고3 5월 성취도평가 세계지리.pdf",
-    "answerUrl": null,
-    "answerDownload": null,
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/edu-ans-v2/st05_5_g3_2152e475c0_a.pdf?name=2005%EB%85%84%205%EC%9B%94%20%EA%B3%A03%20%ED%95%99%EB%A0%A5%ED%8F%89%EA%B0%80%20%EC%82%AC%ED%9A%8C%ED%83%90%EA%B5%AC%28%EC%84%B8%EA%B3%84%EC%A7%80%EB%A6%AC%29%20%EC%A0%95%EB%8B%B5%C2%B7%ED%95%B4%EC%84%A4.pdf",
+    "answerDownload": "2005년 5월 고3 학력평가 사회탐구(세계지리) 정답·해설.pdf",
     "solutionUrl": null,
     "listenUrl": null,
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
     "source": "savetest-archive",
-    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/1431A11E4CE9413703"
+    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/1431A11E4CE9413703",
+    "answerIncludesSolution": true
   },
   {
     "id": 6082,
@@ -104862,15 +104906,16 @@
     "subSubject": "윤리",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6082_questionUrl.pdf?name=2005%EB%85%84%20%EA%B3%A03%205%EC%9B%94%20%EC%84%B1%EC%B7%A8%EB%8F%84%ED%8F%89%EA%B0%80%20%EC%9C%A4%EB%A6%AC.pdf",
     "questionDownload": "2005년 고3 5월 성취도평가 윤리.pdf",
-    "answerUrl": null,
-    "answerDownload": null,
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/edu-ans-v2/st05_5_g3_2152e475c0_a.pdf?name=2005%EB%85%84%205%EC%9B%94%20%EA%B3%A03%20%ED%95%99%EB%A0%A5%ED%8F%89%EA%B0%80%20%EC%82%AC%ED%9A%8C%ED%83%90%EA%B5%AC%28%EC%9C%A4%EB%A6%AC%29%20%EC%A0%95%EB%8B%B5%C2%B7%ED%95%B4%EC%84%A4.pdf",
+    "answerDownload": "2005년 5월 고3 학력평가 사회탐구(윤리) 정답·해설.pdf",
     "solutionUrl": null,
     "listenUrl": null,
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
     "source": "savetest-archive",
-    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/1822D41E4CE9413A0E"
+    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/1822D41E4CE9413A0E",
+    "answerIncludesSolution": true
   },
   {
     "id": 6083,
@@ -104885,15 +104930,16 @@
     "subSubject": "정치",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6083_questionUrl.pdf?name=2005%EB%85%84%20%EA%B3%A03%205%EC%9B%94%20%EC%84%B1%EC%B7%A8%EB%8F%84%ED%8F%89%EA%B0%80%20%EC%A0%95%EC%B9%98.pdf",
     "questionDownload": "2005년 고3 5월 성취도평가 정치.pdf",
-    "answerUrl": null,
-    "answerDownload": null,
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/edu-ans-v2/st05_5_g3_2152e475c0_a.pdf?name=2005%EB%85%84%205%EC%9B%94%20%EA%B3%A03%20%ED%95%99%EB%A0%A5%ED%8F%89%EA%B0%80%20%EC%82%AC%ED%9A%8C%ED%83%90%EA%B5%AC%28%EC%A0%95%EC%B9%98%29%20%EC%A0%95%EB%8B%B5%C2%B7%ED%95%B4%EC%84%A4.pdf",
+    "answerDownload": "2005년 5월 고3 학력평가 사회탐구(정치) 정답·해설.pdf",
     "solutionUrl": null,
     "listenUrl": null,
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
     "source": "savetest-archive",
-    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/172EC71E4CE9414005"
+    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/172EC71E4CE9414005",
+    "answerIncludesSolution": true
   },
   {
     "id": 6084,
@@ -104908,15 +104954,16 @@
     "subSubject": "한국근현대사",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6084_questionUrl.pdf?name=2005%EB%85%84%20%EA%B3%A03%205%EC%9B%94%20%EC%84%B1%EC%B7%A8%EB%8F%84%ED%8F%89%EA%B0%80%20%ED%95%9C%EA%B5%AD%EA%B7%BC%ED%98%84%EB%8C%80%EC%82%AC.pdf",
     "questionDownload": "2005년 고3 5월 성취도평가 한국근현대사.pdf",
-    "answerUrl": null,
-    "answerDownload": null,
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/edu-ans-v2/st05_5_g3_2152e475c0_a.pdf?name=2005%EB%85%84%205%EC%9B%94%20%EA%B3%A03%20%ED%95%99%EB%A0%A5%ED%8F%89%EA%B0%80%20%EC%82%AC%ED%9A%8C%ED%83%90%EA%B5%AC%28%ED%95%9C%EA%B5%AD%EA%B7%BC%ED%98%84%EB%8C%80%EC%82%AC%29%20%EC%A0%95%EB%8B%B5%C2%B7%ED%95%B4%EC%84%A4.pdf",
+    "answerDownload": "2005년 5월 고3 학력평가 사회탐구(한국근현대사) 정답·해설.pdf",
     "solutionUrl": null,
     "listenUrl": null,
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
     "source": "savetest-archive",
-    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/1779CD1E4CE9414D7F"
+    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/1779CD1E4CE9414D7F",
+    "answerIncludesSolution": true
   },
   {
     "id": 6085,
@@ -104931,15 +104978,16 @@
     "subSubject": "한국지리",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6085_questionUrl.pdf?name=2005%EB%85%84%20%EA%B3%A03%205%EC%9B%94%20%EC%84%B1%EC%B7%A8%EB%8F%84%ED%8F%89%EA%B0%80%20%ED%95%9C%EA%B5%AD%EC%A7%80%EB%A6%AC.pdf",
     "questionDownload": "2005년 고3 5월 성취도평가 한국지리.pdf",
-    "answerUrl": null,
-    "answerDownload": null,
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/edu-ans-v2/st05_5_g3_2152e475c0_a.pdf?name=2005%EB%85%84%205%EC%9B%94%20%EA%B3%A03%20%ED%95%99%EB%A0%A5%ED%8F%89%EA%B0%80%20%EC%82%AC%ED%9A%8C%ED%83%90%EA%B5%AC%28%ED%95%9C%EA%B5%AD%EC%A7%80%EB%A6%AC%29%20%EC%A0%95%EB%8B%B5%C2%B7%ED%95%B4%EC%84%A4.pdf",
+    "answerDownload": "2005년 5월 고3 학력평가 사회탐구(한국지리) 정답·해설.pdf",
     "solutionUrl": null,
     "listenUrl": null,
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
     "source": "savetest-archive",
-    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/182FB41E4CE9415305"
+    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/182FB41E4CE9415305",
+    "answerIncludesSolution": true
   },
   {
     "id": 6086,
@@ -104954,15 +105002,16 @@
     "subSubject": "물리Ⅰ",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6086_questionUrl.pdf?name=2005%EB%85%84%20%EA%B3%A03%205%EC%9B%94%20%EC%84%B1%EC%B7%A8%EB%8F%84%ED%8F%89%EA%B0%80%20%EB%AC%BC%EB%A6%AC1.pdf",
     "questionDownload": "2005년 고3 5월 성취도평가 물리1.pdf",
-    "answerUrl": null,
-    "answerDownload": null,
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/edu-ans-v2/st05_5_g3_2152e475c0_a.pdf?name=2005%EB%85%84%205%EC%9B%94%20%EA%B3%A03%20%ED%95%99%EB%A0%A5%ED%8F%89%EA%B0%80%20%EA%B3%BC%ED%95%99%ED%83%90%EA%B5%AC%28%EB%AC%BC%EB%A6%AC%E2%85%A0%29%20%EC%A0%95%EB%8B%B5%C2%B7%ED%95%B4%EC%84%A4.pdf",
+    "answerDownload": "2005년 5월 고3 학력평가 과학탐구(물리Ⅰ) 정답·해설.pdf",
     "solutionUrl": null,
     "listenUrl": null,
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
     "source": "savetest-archive",
-    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/140BA61C4CE9417F52"
+    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/140BA61C4CE9417F52",
+    "answerIncludesSolution": true
   },
   {
     "id": 6087,
@@ -104977,15 +105026,16 @@
     "subSubject": "물리Ⅱ",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6087_questionUrl.pdf?name=2005%EB%85%84%20%EA%B3%A03%205%EC%9B%94%20%EC%84%B1%EC%B7%A8%EB%8F%84%ED%8F%89%EA%B0%80%20%EB%AC%BC%EB%A6%AC2.pdf",
     "questionDownload": "2005년 고3 5월 성취도평가 물리2.pdf",
-    "answerUrl": null,
-    "answerDownload": null,
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/edu-ans-v2/st05_5_g3_2152e475c0_a.pdf?name=2005%EB%85%84%205%EC%9B%94%20%EA%B3%A03%20%ED%95%99%EB%A0%A5%ED%8F%89%EA%B0%80%20%EA%B3%BC%ED%95%99%ED%83%90%EA%B5%AC%28%EB%AC%BC%EB%A6%AC%E2%85%A1%29%20%EC%A0%95%EB%8B%B5%C2%B7%ED%95%B4%EC%84%A4.pdf",
+    "answerDownload": "2005년 5월 고3 학력평가 과학탐구(물리Ⅱ) 정답·해설.pdf",
     "solutionUrl": null,
     "listenUrl": null,
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
     "source": "savetest-archive",
-    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/14301A1C4CE941860F"
+    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/14301A1C4CE941860F",
+    "answerIncludesSolution": true
   },
   {
     "id": 6088,
@@ -105000,15 +105050,16 @@
     "subSubject": "생물Ⅰ",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6088_questionUrl.pdf?name=2005%EB%85%84%20%EA%B3%A03%205%EC%9B%94%20%EC%84%B1%EC%B7%A8%EB%8F%84%ED%8F%89%EA%B0%80%20%EC%83%9D%EB%AC%BC1.pdf",
     "questionDownload": "2005년 고3 5월 성취도평가 생물1.pdf",
-    "answerUrl": null,
-    "answerDownload": null,
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/edu-ans-v2/st05_5_g3_2152e475c0_a.pdf?name=2005%EB%85%84%205%EC%9B%94%20%EA%B3%A03%20%ED%95%99%EB%A0%A5%ED%8F%89%EA%B0%80%20%EA%B3%BC%ED%95%99%ED%83%90%EA%B5%AC%28%EC%83%9D%EB%AC%BC%E2%85%A0%29%20%EC%A0%95%EB%8B%B5%C2%B7%ED%95%B4%EC%84%A4.pdf",
+    "answerDownload": "2005년 5월 고3 학력평가 과학탐구(생물Ⅰ) 정답·해설.pdf",
     "solutionUrl": null,
     "listenUrl": null,
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
     "source": "savetest-archive",
-    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/1839101C4CE9418A03"
+    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/1839101C4CE9418A03",
+    "answerIncludesSolution": true
   },
   {
     "id": 6089,
@@ -105023,15 +105074,16 @@
     "subSubject": "생물Ⅱ",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6089_questionUrl.pdf?name=2005%EB%85%84%20%EA%B3%A03%205%EC%9B%94%20%EC%84%B1%EC%B7%A8%EB%8F%84%ED%8F%89%EA%B0%80%20%EC%83%9D%EB%AC%BC2.pdf",
     "questionDownload": "2005년 고3 5월 성취도평가 생물2.pdf",
-    "answerUrl": null,
-    "answerDownload": null,
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/edu-ans-v2/st05_5_g3_2152e475c0_a.pdf?name=2005%EB%85%84%205%EC%9B%94%20%EA%B3%A03%20%ED%95%99%EB%A0%A5%ED%8F%89%EA%B0%80%20%EA%B3%BC%ED%95%99%ED%83%90%EA%B5%AC%28%EC%83%9D%EB%AC%BC%E2%85%A1%29%20%EC%A0%95%EB%8B%B5%C2%B7%ED%95%B4%EC%84%A4.pdf",
+    "answerDownload": "2005년 5월 고3 학력평가 과학탐구(생물Ⅱ) 정답·해설.pdf",
     "solutionUrl": null,
     "listenUrl": null,
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
     "source": "savetest-archive",
-    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/1939B91C4CE9418F03"
+    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/1939B91C4CE9418F03",
+    "answerIncludesSolution": true
   },
   {
     "id": 6090,
@@ -105046,15 +105098,16 @@
     "subSubject": "지구과학Ⅰ",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6090_questionUrl.pdf?name=2005%EB%85%84%20%EA%B3%A03%205%EC%9B%94%20%EC%84%B1%EC%B7%A8%EB%8F%84%ED%8F%89%EA%B0%80%20%EC%A7%80%EA%B5%AC%EA%B3%BC%ED%95%991.pdf",
     "questionDownload": "2005년 고3 5월 성취도평가 지구과학1.pdf",
-    "answerUrl": null,
-    "answerDownload": null,
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/edu-ans-v2/st05_5_g3_2152e475c0_a.pdf?name=2005%EB%85%84%205%EC%9B%94%20%EA%B3%A03%20%ED%95%99%EB%A0%A5%ED%8F%89%EA%B0%80%20%EA%B3%BC%ED%95%99%ED%83%90%EA%B5%AC%28%EC%A7%80%EA%B5%AC%EA%B3%BC%ED%95%99%E2%85%A0%29%20%EC%A0%95%EB%8B%B5%C2%B7%ED%95%B4%EC%84%A4.pdf",
+    "answerDownload": "2005년 5월 고3 학력평가 과학탐구(지구과학Ⅰ) 정답·해설.pdf",
     "solutionUrl": null,
     "listenUrl": null,
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
     "source": "savetest-archive",
-    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/1638CD1C4CE9419406"
+    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/1638CD1C4CE9419406",
+    "answerIncludesSolution": true
   },
   {
     "id": 6091,
@@ -105069,15 +105122,16 @@
     "subSubject": "화학Ⅰ",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6091_questionUrl.pdf?name=2005%EB%85%84%20%EA%B3%A03%205%EC%9B%94%20%EC%84%B1%EC%B7%A8%EB%8F%84%ED%8F%89%EA%B0%80%20%ED%99%94%ED%95%991.pdf",
     "questionDownload": "2005년 고3 5월 성취도평가 화학1.pdf",
-    "answerUrl": null,
-    "answerDownload": null,
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/edu-ans-v2/st05_5_g3_2152e475c0_a.pdf?name=2005%EB%85%84%205%EC%9B%94%20%EA%B3%A03%20%ED%95%99%EB%A0%A5%ED%8F%89%EA%B0%80%20%EA%B3%BC%ED%95%99%ED%83%90%EA%B5%AC%28%ED%99%94%ED%95%99%E2%85%A0%29%20%EC%A0%95%EB%8B%B5%C2%B7%ED%95%B4%EC%84%A4.pdf",
+    "answerDownload": "2005년 5월 고3 학력평가 과학탐구(화학Ⅰ) 정답·해설.pdf",
     "solutionUrl": null,
     "listenUrl": null,
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
     "source": "savetest-archive",
-    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/150C4F1C4CE9419A52"
+    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/150C4F1C4CE9419A52",
+    "answerIncludesSolution": true
   },
   {
     "id": 6092,
@@ -105092,15 +105146,16 @@
     "subSubject": "화학Ⅱ",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6092_questionUrl.pdf?name=2005%EB%85%84%20%EA%B3%A03%205%EC%9B%94%20%EC%84%B1%EC%B7%A8%EB%8F%84%ED%8F%89%EA%B0%80%20%ED%99%94%ED%95%992.pdf",
     "questionDownload": "2005년 고3 5월 성취도평가 화학2.pdf",
-    "answerUrl": null,
-    "answerDownload": null,
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/edu-ans-v2/st05_5_g3_2152e475c0_a.pdf?name=2005%EB%85%84%205%EC%9B%94%20%EA%B3%A03%20%ED%95%99%EB%A0%A5%ED%8F%89%EA%B0%80%20%EA%B3%BC%ED%95%99%ED%83%90%EA%B5%AC%28%ED%99%94%ED%95%99%E2%85%A1%29%20%EC%A0%95%EB%8B%B5%C2%B7%ED%95%B4%EC%84%A4.pdf",
+    "answerDownload": "2005년 5월 고3 학력평가 과학탐구(화학Ⅱ) 정답·해설.pdf",
     "solutionUrl": null,
     "listenUrl": null,
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
     "source": "savetest-archive",
-    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/122CD81C4CE941A01B"
+    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/122CD81C4CE941A01B",
+    "answerIncludesSolution": true
   },
   {
     "id": 6093,
@@ -105115,15 +105170,16 @@
     "subSubject": "공업입문",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6093_questionUrl.pdf?name=2005%EB%85%84%20%EA%B3%A03%205%EC%9B%94%20%EC%84%B1%EC%B7%A8%EB%8F%84%ED%8F%89%EA%B0%80%20%EA%B3%B5%EC%97%85%EC%9E%85%EB%AC%B8.pdf",
     "questionDownload": "2005년 고3 5월 성취도평가 공업입문.pdf",
-    "answerUrl": null,
-    "answerDownload": null,
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/edu-ans-v2/st05_5_g3_2152e475c0_a.pdf?name=2005%EB%85%84%205%EC%9B%94%20%EA%B3%A03%20%ED%95%99%EB%A0%A5%ED%8F%89%EA%B0%80%20%EC%A7%81%EC%97%85%ED%83%90%EA%B5%AC%28%EA%B3%B5%EC%97%85%EC%9E%85%EB%AC%B8%29%20%EC%A0%95%EB%8B%B5%C2%B7%ED%95%B4%EC%84%A4.pdf",
+    "answerDownload": "2005년 5월 고3 학력평가 직업탐구(공업입문) 정답·해설.pdf",
     "solutionUrl": null,
     "listenUrl": null,
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
     "source": "savetest-archive",
-    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/1469131D4CE942657B"
+    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/1469131D4CE942657B",
+    "answerIncludesSolution": true
   },
   {
     "id": 6094,
@@ -105138,15 +105194,16 @@
     "subSubject": "기초제도",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6094_questionUrl.pdf?name=2005%EB%85%84%20%EA%B3%A03%205%EC%9B%94%20%EC%84%B1%EC%B7%A8%EB%8F%84%ED%8F%89%EA%B0%80%20%EA%B8%B0%EC%B4%88%EC%A0%9C%EB%8F%84.pdf",
     "questionDownload": "2005년 고3 5월 성취도평가 기초제도.pdf",
-    "answerUrl": null,
-    "answerDownload": null,
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/edu-ans-v2/st05_5_g3_2152e475c0_a.pdf?name=2005%EB%85%84%205%EC%9B%94%20%EA%B3%A03%20%ED%95%99%EB%A0%A5%ED%8F%89%EA%B0%80%20%EC%A7%81%EC%97%85%ED%83%90%EA%B5%AC%28%EA%B8%B0%EC%B4%88%EC%A0%9C%EB%8F%84%29%20%EC%A0%95%EB%8B%B5%C2%B7%ED%95%B4%EC%84%A4.pdf",
+    "answerDownload": "2005년 5월 고3 학력평가 직업탐구(기초제도) 정답·해설.pdf",
     "solutionUrl": null,
     "listenUrl": null,
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
     "source": "savetest-archive",
-    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/1465031D4CE9426951"
+    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/1465031D4CE9426951",
+    "answerIncludesSolution": true
   },
   {
     "id": 6095,
@@ -105161,15 +105218,16 @@
     "subSubject": "농업기초기술",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6095_questionUrl.pdf?name=2005%EB%85%84%20%EA%B3%A03%205%EC%9B%94%20%EC%84%B1%EC%B7%A8%EB%8F%84%ED%8F%89%EA%B0%80%20%EB%86%8D%EC%97%85%EA%B8%B0%EC%B4%88%EA%B8%B0%EC%88%A0.pdf",
     "questionDownload": "2005년 고3 5월 성취도평가 농업기초기술.pdf",
-    "answerUrl": null,
-    "answerDownload": null,
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/edu-ans-v2/st05_5_g3_2152e475c0_a.pdf?name=2005%EB%85%84%205%EC%9B%94%20%EA%B3%A03%20%ED%95%99%EB%A0%A5%ED%8F%89%EA%B0%80%20%EC%A7%81%EC%97%85%ED%83%90%EA%B5%AC%28%EB%86%8D%EC%97%85%EA%B8%B0%EC%B4%88%EA%B8%B0%EC%88%A0%29%20%EC%A0%95%EB%8B%B5%C2%B7%ED%95%B4%EC%84%A4.pdf",
+    "answerDownload": "2005년 5월 고3 학력평가 직업탐구(농업기초기술) 정답·해설.pdf",
     "solutionUrl": null,
     "listenUrl": null,
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
     "source": "savetest-archive",
-    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/176AB51D4CE9426D5E"
+    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/176AB51D4CE9426D5E",
+    "answerIncludesSolution": true
   },
   {
     "id": 6096,
@@ -105184,15 +105242,16 @@
     "subSubject": "농업이해",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6096_questionUrl.pdf?name=2005%EB%85%84%20%EA%B3%A03%205%EC%9B%94%20%EC%84%B1%EC%B7%A8%EB%8F%84%ED%8F%89%EA%B0%80%20%EB%86%8D%EC%97%85%EC%9D%B4%ED%95%B4.pdf",
     "questionDownload": "2005년 고3 5월 성취도평가 농업이해.pdf",
-    "answerUrl": null,
-    "answerDownload": null,
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/edu-ans-v2/st05_5_g3_2152e475c0_a.pdf?name=2005%EB%85%84%205%EC%9B%94%20%EA%B3%A03%20%ED%95%99%EB%A0%A5%ED%8F%89%EA%B0%80%20%EC%A7%81%EC%97%85%ED%83%90%EA%B5%AC%28%EB%86%8D%EC%97%85%EC%9D%B4%ED%95%B4%29%20%EC%A0%95%EB%8B%B5%C2%B7%ED%95%B4%EC%84%A4.pdf",
+    "answerDownload": "2005년 5월 고3 학력평가 직업탐구(농업이해) 정답·해설.pdf",
     "solutionUrl": null,
     "listenUrl": null,
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
     "source": "savetest-archive",
-    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/176FF81D4CE942714B"
+    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/176FF81D4CE942714B",
+    "answerIncludesSolution": true
   },
   {
     "id": 6097,
@@ -105207,15 +105266,16 @@
     "subSubject": "농업정보관리",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6097_questionUrl.pdf?name=2005%EB%85%84%20%EA%B3%A03%205%EC%9B%94%20%EC%84%B1%EC%B7%A8%EB%8F%84%ED%8F%89%EA%B0%80%20%EB%86%8D%EC%97%85%EC%A0%95%EB%B3%B4%EA%B4%80%EB%A6%AC.pdf",
     "questionDownload": "2005년 고3 5월 성취도평가 농업정보관리.pdf",
-    "answerUrl": null,
-    "answerDownload": null,
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/edu-ans-v2/st05_5_g3_2152e475c0_a.pdf?name=2005%EB%85%84%205%EC%9B%94%20%EA%B3%A03%20%ED%95%99%EB%A0%A5%ED%8F%89%EA%B0%80%20%EC%A7%81%EC%97%85%ED%83%90%EA%B5%AC%28%EB%86%8D%EC%97%85%EC%A0%95%EB%B3%B4%EA%B4%80%EB%A6%AC%29%20%EC%A0%95%EB%8B%B5%C2%B7%ED%95%B4%EC%84%A4.pdf",
+    "answerDownload": "2005년 5월 고3 학력평가 직업탐구(농업정보관리) 정답·해설.pdf",
     "solutionUrl": null,
     "listenUrl": null,
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
     "source": "savetest-archive",
-    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/2062001D4CE942786F"
+    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/2062001D4CE942786F",
+    "answerIncludesSolution": true
   },
   {
     "id": 6098,
@@ -105230,15 +105290,16 @@
     "subSubject": "디자인일반",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6098_questionUrl.pdf?name=2005%EB%85%84%20%EA%B3%A03%205%EC%9B%94%20%EC%84%B1%EC%B7%A8%EB%8F%84%ED%8F%89%EA%B0%80%20%EB%94%94%EC%9E%90%EC%9D%B8%EC%9D%BC%EB%B0%98.pdf",
     "questionDownload": "2005년 고3 5월 성취도평가 디자인일반.pdf",
-    "answerUrl": null,
-    "answerDownload": null,
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/edu-ans-v2/st05_5_g3_2152e475c0_a.pdf?name=2005%EB%85%84%205%EC%9B%94%20%EA%B3%A03%20%ED%95%99%EB%A0%A5%ED%8F%89%EA%B0%80%20%EC%A7%81%EC%97%85%ED%83%90%EA%B5%AC%28%EB%94%94%EC%9E%90%EC%9D%B8%EC%9D%BC%EB%B0%98%29%20%EC%A0%95%EB%8B%B5%C2%B7%ED%95%B4%EC%84%A4.pdf",
+    "answerDownload": "2005년 5월 고3 학력평가 직업탐구(디자인일반) 정답·해설.pdf",
     "solutionUrl": null,
     "listenUrl": null,
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
     "source": "savetest-archive",
-    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/1115961D4CE9427D04"
+    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/1115961D4CE9427D04",
+    "answerIncludesSolution": true
   },
   {
     "id": 6099,
@@ -105253,15 +105314,16 @@
     "subSubject": "식품과영양",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6099_questionUrl.pdf?name=2005%EB%85%84%20%EA%B3%A03%205%EC%9B%94%20%EC%84%B1%EC%B7%A8%EB%8F%84%ED%8F%89%EA%B0%80%20%EC%8B%9D%ED%92%88%EA%B3%BC%EC%98%81%EC%96%91.pdf",
     "questionDownload": "2005년 고3 5월 성취도평가 식품과영양.pdf",
-    "answerUrl": null,
-    "answerDownload": null,
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/edu-ans-v2/st05_5_g3_2152e475c0_a.pdf?name=2005%EB%85%84%205%EC%9B%94%20%EA%B3%A03%20%ED%95%99%EB%A0%A5%ED%8F%89%EA%B0%80%20%EC%A7%81%EC%97%85%ED%83%90%EA%B5%AC%28%EC%8B%9D%ED%92%88%EA%B3%BC%EC%98%81%EC%96%91%29%20%EC%A0%95%EB%8B%B5%C2%B7%ED%95%B4%EC%84%A4.pdf",
+    "answerDownload": "2005년 5월 고3 학력평가 직업탐구(식품과영양) 정답·해설.pdf",
     "solutionUrl": null,
     "listenUrl": null,
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
     "source": "savetest-archive",
-    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/1161EA1D4CE9428B38"
+    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/1161EA1D4CE9428B38",
+    "answerIncludesSolution": true
   },
   {
     "id": 6100,
@@ -105276,15 +105338,16 @@
     "subSubject": "인간발달",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6100_questionUrl.pdf?name=2005%EB%85%84%20%EA%B3%A03%205%EC%9B%94%20%EC%84%B1%EC%B7%A8%EB%8F%84%ED%8F%89%EA%B0%80%20%EC%9D%B8%EA%B0%84%EB%B0%9C%EB%8B%AC.pdf",
     "questionDownload": "2005년 고3 5월 성취도평가 인간발달.pdf",
-    "answerUrl": null,
-    "answerDownload": null,
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/edu-ans-v2/st05_5_g3_2152e475c0_a.pdf?name=2005%EB%85%84%205%EC%9B%94%20%EA%B3%A03%20%ED%95%99%EB%A0%A5%ED%8F%89%EA%B0%80%20%EC%A7%81%EC%97%85%ED%83%90%EA%B5%AC%28%EC%9D%B8%EA%B0%84%EB%B0%9C%EB%8B%AC%29%20%EC%A0%95%EB%8B%B5%C2%B7%ED%95%B4%EC%84%A4.pdf",
+    "answerDownload": "2005년 5월 고3 학력평가 직업탐구(인간발달) 정답·해설.pdf",
     "solutionUrl": null,
     "listenUrl": null,
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
     "source": "savetest-archive",
-    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/1462541D4CE942907F"
+    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/1462541D4CE942907F",
+    "answerIncludesSolution": true
   },
   {
     "id": 6101,
@@ -105299,15 +105362,16 @@
     "subSubject": "정보기술기초",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6101_questionUrl.pdf?name=2005%EB%85%84%20%EA%B3%A03%205%EC%9B%94%20%EC%84%B1%EC%B7%A8%EB%8F%84%ED%8F%89%EA%B0%80%20%EC%A0%95%EB%B3%B4%EA%B8%B0%EC%88%A0%EA%B8%B0%EC%B4%88.pdf",
     "questionDownload": "2005년 고3 5월 성취도평가 정보기술기초.pdf",
-    "answerUrl": null,
-    "answerDownload": null,
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/edu-ans-v2/st05_5_g3_2152e475c0_a.pdf?name=2005%EB%85%84%205%EC%9B%94%20%EA%B3%A03%20%ED%95%99%EB%A0%A5%ED%8F%89%EA%B0%80%20%EC%A7%81%EC%97%85%ED%83%90%EA%B5%AC%28%EC%A0%95%EB%B3%B4%EA%B8%B0%EC%88%A0%EA%B8%B0%EC%B4%88%29%20%EC%A0%95%EB%8B%B5%C2%B7%ED%95%B4%EC%84%A4.pdf",
+    "answerDownload": "2005년 5월 고3 학력평가 직업탐구(정보기술기초) 정답·해설.pdf",
     "solutionUrl": null,
     "listenUrl": null,
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
     "source": "savetest-archive",
-    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/1869DE1D4CE942943A"
+    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/1869DE1D4CE942943A",
+    "answerIncludesSolution": true
   },
   {
     "id": 6102,
@@ -105322,15 +105386,16 @@
     "subSubject": "컴퓨터일반",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6102_questionUrl.pdf?name=2005%EB%85%84%20%EA%B3%A03%205%EC%9B%94%20%EC%84%B1%EC%B7%A8%EB%8F%84%ED%8F%89%EA%B0%80%20%EC%BB%B4%ED%93%A8%ED%84%B0%EC%9D%BC%EB%B0%98.pdf",
     "questionDownload": "2005년 고3 5월 성취도평가 컴퓨터일반.pdf",
-    "answerUrl": null,
-    "answerDownload": null,
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/edu-ans-v2/st05_5_g3_2152e475c0_a.pdf?name=2005%EB%85%84%205%EC%9B%94%20%EA%B3%A03%20%ED%95%99%EB%A0%A5%ED%8F%89%EA%B0%80%20%EC%A7%81%EC%97%85%ED%83%90%EA%B5%AC%28%EC%BB%B4%ED%93%A8%ED%84%B0%EC%9D%BC%EB%B0%98%29%20%EC%A0%95%EB%8B%B5%C2%B7%ED%95%B4%EC%84%A4.pdf",
+    "answerDownload": "2005년 5월 고3 학력평가 직업탐구(컴퓨터일반) 정답·해설.pdf",
     "solutionUrl": null,
     "listenUrl": null,
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
     "source": "savetest-archive",
-    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/1477C01D4CE942984E"
+    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/1477C01D4CE942984E",
+    "answerIncludesSolution": true
   },
   {
     "id": 6103,
@@ -105345,15 +105410,16 @@
     "subSubject": "프로그래밍",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6103_questionUrl.pdf?name=2005%EB%85%84%20%EA%B3%A03%205%EC%9B%94%20%EC%84%B1%EC%B7%A8%EB%8F%84%ED%8F%89%EA%B0%80%20%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D.pdf",
     "questionDownload": "2005년 고3 5월 성취도평가 프로그래밍.pdf",
-    "answerUrl": null,
-    "answerDownload": null,
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/edu-ans-v2/st05_5_g3_2152e475c0_a.pdf?name=2005%EB%85%84%205%EC%9B%94%20%EA%B3%A03%20%ED%95%99%EB%A0%A5%ED%8F%89%EA%B0%80%20%EC%A7%81%EC%97%85%ED%83%90%EA%B5%AC%28%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D%29%20%EC%A0%95%EB%8B%B5%C2%B7%ED%95%B4%EC%84%A4.pdf",
+    "answerDownload": "2005년 5월 고3 학력평가 직업탐구(프로그래밍) 정답·해설.pdf",
     "solutionUrl": null,
     "listenUrl": null,
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
     "source": "savetest-archive",
-    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/146E0C1D4CE9429D28"
+    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/146E0C1D4CE9429D28",
+    "answerIncludesSolution": true
   },
   {
     "id": 6104,
@@ -105368,15 +105434,16 @@
     "subSubject": "회계원리",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6104_questionUrl.pdf?name=2005%EB%85%84%20%EA%B3%A03%205%EC%9B%94%20%EC%84%B1%EC%B7%A8%EB%8F%84%ED%8F%89%EA%B0%80%20%ED%9A%8C%EA%B3%84%EC%9B%90%EB%A6%AC.pdf",
     "questionDownload": "2005년 고3 5월 성취도평가 회계원리.pdf",
-    "answerUrl": null,
-    "answerDownload": null,
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/edu-ans-v2/st05_5_g3_2152e475c0_a.pdf?name=2005%EB%85%84%205%EC%9B%94%20%EA%B3%A03%20%ED%95%99%EB%A0%A5%ED%8F%89%EA%B0%80%20%EC%A7%81%EC%97%85%ED%83%90%EA%B5%AC%28%ED%9A%8C%EA%B3%84%EC%9B%90%EB%A6%AC%29%20%EC%A0%95%EB%8B%B5%C2%B7%ED%95%B4%EC%84%A4.pdf",
+    "answerDownload": "2005년 5월 고3 학력평가 직업탐구(회계원리) 정답·해설.pdf",
     "solutionUrl": null,
     "listenUrl": null,
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
     "source": "savetest-archive",
-    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/19640A1D4CE942A565"
+    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/19640A1D4CE942A565",
+    "answerIncludesSolution": true
   },
   {
     "id": 6105,
@@ -106321,15 +106388,16 @@
     "subSubject": "생물Ⅱ",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6146_questionUrl.pdf?name=2005%EB%85%84%207%EC%9B%94%20%EA%B3%A03%20%ED%95%99%EB%A0%A5%ED%8F%89%EA%B0%80%20%EC%83%9D%EB%AC%BC2.pdf",
     "questionDownload": "2005년 7월 고3 학력평가 생물2.pdf",
-    "answerUrl": null,
-    "answerDownload": null,
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/edu-ans-v2/st05_7_g3_70bd71dcae_a.pdf?name=2005%EB%85%84%207%EC%9B%94%20%EA%B3%A03%20%ED%95%99%EB%A0%A5%ED%8F%89%EA%B0%80%20%EA%B3%BC%ED%95%99%ED%83%90%EA%B5%AC%28%EC%83%9D%EB%AC%BC%E2%85%A1%29%20%EC%A0%95%EB%8B%B5%C2%B7%ED%95%B4%EC%84%A4.pdf",
+    "answerDownload": "2005년 7월 고3 학력평가 과학탐구(생물Ⅱ) 정답·해설.pdf",
     "solutionUrl": null,
     "listenUrl": null,
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
     "source": "savetest-archive",
-    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/2063F31E4CE9BBD772"
+    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/2063F31E4CE9BBD772",
+    "answerIncludesSolution": true
   },
   {
     "id": 6147,
@@ -107159,15 +107227,16 @@
     "subSubject": "생물Ⅱ",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6183_questionUrl.pdf?name=2005%EB%85%84%2010%EC%9B%94%20%EA%B3%A03%20%ED%95%99%EB%A0%A5%ED%8F%89%EA%B0%80%20%EC%83%9D%EB%AC%BC2.pdf",
     "questionDownload": "2005년 10월 고3 학력평가 생물2.pdf",
-    "answerUrl": null,
-    "answerDownload": null,
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/edu-ans-v2/st05_10_g3_f8b0f40b5e_a.pdf?name=2005%EB%85%84%2010%EC%9B%94%20%EA%B3%A03%20%ED%95%99%EB%A0%A5%ED%8F%89%EA%B0%80%20%EA%B3%BC%ED%95%99%ED%83%90%EA%B5%AC%28%EC%83%9D%EB%AC%BC%E2%85%A1%29%20%EC%A0%95%EB%8B%B5%C2%B7%ED%95%B4%EC%84%A4.pdf",
+    "answerDownload": "2005년 10월 고3 학력평가 과학탐구(생물Ⅱ) 정답·해설.pdf",
     "solutionUrl": null,
     "listenUrl": null,
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
     "source": "savetest-archive",
-    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/19168B044CE9C34031"
+    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/19168B044CE9C34031",
+    "answerIncludesSolution": true
   },
   {
     "id": 6184,
@@ -108118,15 +108187,16 @@
     "subSubject": "생물Ⅱ",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6224_questionUrl.pdf?name=2005%EB%85%84%203%EC%9B%94%20%EA%B3%A03%20%ED%95%99%EB%A0%A5%ED%8F%89%EA%B0%80%20%EC%83%9D%EB%AC%BC2.pdf",
     "questionDownload": "2005년 3월 고3 학력평가 생물2.pdf",
-    "answerUrl": null,
-    "answerDownload": null,
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/edu-ans-v2/st05_3_g3_f72ba9811c_a.pdf?name=2005%EB%85%84%203%EC%9B%94%20%EA%B3%A03%20%ED%95%99%EB%A0%A5%ED%8F%89%EA%B0%80%20%EA%B3%BC%ED%95%99%ED%83%90%EA%B5%AC%28%EC%83%9D%EB%AC%BC%E2%85%A1%29%20%EC%A0%95%EB%8B%B5%C2%B7%ED%95%B4%EC%84%A4.pdf",
+    "answerDownload": "2005년 3월 고3 학력평가 과학탐구(생물Ⅱ) 정답·해설.pdf",
     "solutionUrl": null,
     "listenUrl": null,
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
     "source": "savetest-archive",
-    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/125CDF334CE9347130"
+    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/125CDF334CE9347130",
+    "answerIncludesSolution": true
   },
   {
     "id": 6225,
@@ -108165,15 +108235,16 @@
     "subSubject": null,
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6226_questionUrl.pdf?name=2005%EB%85%84%205%EC%9B%94%20%EA%B3%A01%20%EC%84%B1%EC%B7%A8%EB%8F%84%ED%8F%89%EA%B0%80%20%EC%96%B8%EC%96%B4%EC%98%81%EC%97%AD.pdf",
     "questionDownload": "2005년 5월 고1 성취도평가 언어영역.pdf",
-    "answerUrl": null,
-    "answerDownload": null,
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/edu-ans-v2/st05_5_g1_4e97b1c973_a.pdf?name=2005%EB%85%84%205%EC%9B%94%20%EA%B3%A01%20%ED%95%99%EB%A0%A5%ED%8F%89%EA%B0%80%20%EA%B5%AD%EC%96%B4%20%EC%A0%95%EB%8B%B5%C2%B7%ED%95%B4%EC%84%A4.pdf",
+    "answerDownload": "2005년 5월 고1 학력평가 국어 정답·해설.pdf",
     "solutionUrl": null,
     "listenUrl": null,
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
     "source": "savetest-archive",
-    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/1731EA374CEDBC140D"
+    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/1731EA374CEDBC140D",
+    "answerIncludesSolution": true
   },
   {
     "id": 6227,
@@ -108188,15 +108259,16 @@
     "subSubject": null,
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6227_questionUrl.pdf?name=2005%EB%85%84%205%EC%9B%94%20%EA%B3%A01%20%EC%84%B1%EC%B7%A8%EB%8F%84%ED%8F%89%EA%B0%80%20%EC%88%98%EB%A6%AC%EC%98%81%EC%97%AD.pdf",
     "questionDownload": "2005년 5월 고1 성취도평가 수리영역.pdf",
-    "answerUrl": null,
-    "answerDownload": null,
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/edu-ans-v2/st05_5_g1_4e97b1c973_a.pdf?name=2005%EB%85%84%205%EC%9B%94%20%EA%B3%A01%20%ED%95%99%EB%A0%A5%ED%8F%89%EA%B0%80%20%EC%88%98%ED%95%99%20%EC%A0%95%EB%8B%B5%C2%B7%ED%95%B4%EC%84%A4.pdf",
+    "answerDownload": "2005년 5월 고1 학력평가 수학 정답·해설.pdf",
     "solutionUrl": null,
     "listenUrl": null,
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
     "source": "savetest-archive",
-    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/163187374CEDBC0A0D"
+    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/163187374CEDBC0A0D",
+    "answerIncludesSolution": true
   },
   {
     "id": 6228,
@@ -108739,15 +108811,16 @@
     "subSubject": "공업입문",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6251_questionUrl.pdf?name=2005%EB%85%84%2011%EC%9B%94%20%EA%B3%A02%20%ED%95%99%EB%A0%A5%ED%8F%89%EA%B0%80%20%EA%B3%B5%EC%97%85%EC%9E%85%EB%AC%B8.pdf",
     "questionDownload": "2005년 11월 고2 학력평가 공업입문.pdf",
-    "answerUrl": null,
-    "answerDownload": null,
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/edu-ans-v2/st05_11_g2_1f93129fb0_a.pdf?name=2005%EB%85%84%2011%EC%9B%94%20%EA%B3%A02%20%ED%95%99%EB%A0%A5%ED%8F%89%EA%B0%80%20%EC%A7%81%EC%97%85%ED%83%90%EA%B5%AC%28%EA%B3%B5%EC%97%85%EC%9E%85%EB%AC%B8%29%20%EC%A0%95%EB%8B%B5%C2%B7%ED%95%B4%EC%84%A4.pdf",
+    "answerDownload": "2005년 11월 고2 학력평가 직업탐구(공업입문) 정답·해설.pdf",
     "solutionUrl": null,
     "listenUrl": null,
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
     "source": "savetest-archive",
-    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/206ED7324CECD64928"
+    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/206ED7324CECD64928",
+    "answerIncludesSolution": true
   },
   {
     "id": 6252,
@@ -108762,15 +108835,16 @@
     "subSubject": "기초제도",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6252_questionUrl.pdf?name=2005%EB%85%84%2011%EC%9B%94%20%EA%B3%A02%20%ED%95%99%EB%A0%A5%ED%8F%89%EA%B0%80%20%EA%B8%B0%EC%B4%88%EC%A0%9C%EB%8F%84.pdf",
     "questionDownload": "2005년 11월 고2 학력평가 기초제도.pdf",
-    "answerUrl": null,
-    "answerDownload": null,
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/edu-ans-v2/st05_11_g2_1f93129fb0_a.pdf?name=2005%EB%85%84%2011%EC%9B%94%20%EA%B3%A02%20%ED%95%99%EB%A0%A5%ED%8F%89%EA%B0%80%20%EC%A7%81%EC%97%85%ED%83%90%EA%B5%AC%28%EA%B8%B0%EC%B4%88%EC%A0%9C%EB%8F%84%29%20%EC%A0%95%EB%8B%B5%C2%B7%ED%95%B4%EC%84%A4.pdf",
+    "answerDownload": "2005년 11월 고2 학력평가 직업탐구(기초제도) 정답·해설.pdf",
     "solutionUrl": null,
     "listenUrl": null,
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
     "source": "savetest-archive",
-    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/116E96324CECD64A23"
+    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/116E96324CECD64A23",
+    "answerIncludesSolution": true
   },
   {
     "id": 6253,
@@ -108785,15 +108859,16 @@
     "subSubject": "농업기초기술",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6253_questionUrl.pdf?name=2005%EB%85%84%2011%EC%9B%94%20%EA%B3%A02%20%ED%95%99%EB%A0%A5%ED%8F%89%EA%B0%80%20%EB%86%8D%EC%97%85%EA%B8%B0%EC%B4%88%EA%B8%B0%EC%88%A0.pdf",
     "questionDownload": "2005년 11월 고2 학력평가 농업기초기술.pdf",
-    "answerUrl": null,
-    "answerDownload": null,
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/edu-ans-v2/st05_11_g2_1f93129fb0_a.pdf?name=2005%EB%85%84%2011%EC%9B%94%20%EA%B3%A02%20%ED%95%99%EB%A0%A5%ED%8F%89%EA%B0%80%20%EC%A7%81%EC%97%85%ED%83%90%EA%B5%AC%28%EB%86%8D%EC%97%85%EA%B8%B0%EC%B4%88%EA%B8%B0%EC%88%A0%29%20%EC%A0%95%EB%8B%B5%C2%B7%ED%95%B4%EC%84%A4.pdf",
+    "answerDownload": "2005년 11월 고2 학력평가 직업탐구(농업기초기술) 정답·해설.pdf",
     "solutionUrl": null,
     "listenUrl": null,
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
     "source": "savetest-archive",
-    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/1979A3324CECD64B0B"
+    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/1979A3324CECD64B0B",
+    "answerIncludesSolution": true
   },
   {
     "id": 6254,
@@ -108808,15 +108883,16 @@
     "subSubject": "농업이해",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6254_questionUrl.pdf?name=2005%EB%85%84%2011%EC%9B%94%20%EA%B3%A02%20%ED%95%99%EB%A0%A5%ED%8F%89%EA%B0%80%20%EB%86%8D%EC%97%85%EC%9D%B4%ED%95%B4.pdf",
     "questionDownload": "2005년 11월 고2 학력평가 농업이해.pdf",
-    "answerUrl": null,
-    "answerDownload": null,
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/edu-ans-v2/st05_11_g2_1f93129fb0_a.pdf?name=2005%EB%85%84%2011%EC%9B%94%20%EA%B3%A02%20%ED%95%99%EB%A0%A5%ED%8F%89%EA%B0%80%20%EC%A7%81%EC%97%85%ED%83%90%EA%B5%AC%28%EB%86%8D%EC%97%85%EC%9D%B4%ED%95%B4%29%20%EC%A0%95%EB%8B%B5%C2%B7%ED%95%B4%EC%84%A4.pdf",
+    "answerDownload": "2005년 11월 고2 학력평가 직업탐구(농업이해) 정답·해설.pdf",
     "solutionUrl": null,
     "listenUrl": null,
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
     "source": "savetest-archive",
-    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/187626324CECD64C1D"
+    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/187626324CECD64C1D",
+    "answerIncludesSolution": true
   },
   {
     "id": 6255,
@@ -108831,15 +108907,16 @@
     "subSubject": "농업정보관리",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6255_questionUrl.pdf?name=2005%EB%85%84%2011%EC%9B%94%20%EA%B3%A02%20%ED%95%99%EB%A0%A5%ED%8F%89%EA%B0%80%20%EB%86%8D%EC%97%85%EC%A0%95%EB%B3%B4%EA%B4%80%EB%A6%AC.pdf",
     "questionDownload": "2005년 11월 고2 학력평가 농업정보관리.pdf",
-    "answerUrl": null,
-    "answerDownload": null,
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/edu-ans-v2/st05_11_g2_1f93129fb0_a.pdf?name=2005%EB%85%84%2011%EC%9B%94%20%EA%B3%A02%20%ED%95%99%EB%A0%A5%ED%8F%89%EA%B0%80%20%EC%A7%81%EC%97%85%ED%83%90%EA%B5%AC%28%EB%86%8D%EC%97%85%EC%A0%95%EB%B3%B4%EA%B4%80%EB%A6%AC%29%20%EC%A0%95%EB%8B%B5%C2%B7%ED%95%B4%EC%84%A4.pdf",
+    "answerDownload": "2005년 11월 고2 학력평가 직업탐구(농업정보관리) 정답·해설.pdf",
     "solutionUrl": null,
     "listenUrl": null,
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
     "source": "savetest-archive",
-    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/1875D3324CECD64D24"
+    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/1875D3324CECD64D24",
+    "answerIncludesSolution": true
   },
   {
     "id": 6256,
@@ -108854,15 +108931,16 @@
     "subSubject": "디자인일반",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6256_questionUrl.pdf?name=2005%EB%85%84%2011%EC%9B%94%20%EA%B3%A02%20%ED%95%99%EB%A0%A5%ED%8F%89%EA%B0%80%20%EB%94%94%EC%9E%90%EC%9D%B8%EC%9D%BC%EB%B0%98.pdf",
     "questionDownload": "2005년 11월 고2 학력평가 디자인일반.pdf",
-    "answerUrl": null,
-    "answerDownload": null,
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/edu-ans-v2/st05_11_g2_1f93129fb0_a.pdf?name=2005%EB%85%84%2011%EC%9B%94%20%EA%B3%A02%20%ED%95%99%EB%A0%A5%ED%8F%89%EA%B0%80%20%EC%A7%81%EC%97%85%ED%83%90%EA%B5%AC%28%EB%94%94%EC%9E%90%EC%9D%B8%EC%9D%BC%EB%B0%98%29%20%EC%A0%95%EB%8B%B5%C2%B7%ED%95%B4%EC%84%A4.pdf",
+    "answerDownload": "2005년 11월 고2 학력평가 직업탐구(디자인일반) 정답·해설.pdf",
     "solutionUrl": null,
     "listenUrl": null,
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
     "source": "savetest-archive",
-    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/1878D5324CECD64E0D"
+    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/1878D5324CECD64E0D",
+    "answerIncludesSolution": true
   },
   {
     "id": 6257,
@@ -108877,15 +108955,16 @@
     "subSubject": "수산일반",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6257_questionUrl.pdf?name=2005%EB%85%84%2011%EC%9B%94%20%EA%B3%A02%20%ED%95%99%EB%A0%A5%ED%8F%89%EA%B0%80%20%EC%88%98%EC%82%B0%EC%9D%BC%EB%B0%98.pdf",
     "questionDownload": "2005년 11월 고2 학력평가 수산일반.pdf",
-    "answerUrl": null,
-    "answerDownload": null,
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/edu-ans-v2/st05_11_g2_1f93129fb0_a.pdf?name=2005%EB%85%84%2011%EC%9B%94%20%EA%B3%A02%20%ED%95%99%EB%A0%A5%ED%8F%89%EA%B0%80%20%EC%A7%81%EC%97%85%ED%83%90%EA%B5%AC%28%EC%88%98%EC%82%B0%EC%9D%BC%EB%B0%98%29%20%EC%A0%95%EB%8B%B5%C2%B7%ED%95%B4%EC%84%A4.pdf",
+    "answerDownload": "2005년 11월 고2 학력평가 직업탐구(수산일반) 정답·해설.pdf",
     "solutionUrl": null,
     "listenUrl": null,
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
     "source": "savetest-archive",
-    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/137B66324CECD65008"
+    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/137B66324CECD65008",
+    "answerIncludesSolution": true
   },
   {
     "id": 6258,
@@ -108900,15 +108979,16 @@
     "subSubject": "수산해운정보처리",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6258_questionUrl.pdf?name=2005%EB%85%84%2011%EC%9B%94%20%EA%B3%A02%20%ED%95%99%EB%A0%A5%ED%8F%89%EA%B0%80%20%EC%88%98%EC%82%B0%ED%95%B4%EC%9A%B4%EC%A0%95%EB%B3%B4%EC%B2%98%EB%A6%AC.pdf",
     "questionDownload": "2005년 11월 고2 학력평가 수산해운정보처리.pdf",
-    "answerUrl": null,
-    "answerDownload": null,
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/edu-ans-v2/st05_11_g2_1f93129fb0_a.pdf?name=2005%EB%85%84%2011%EC%9B%94%20%EA%B3%A02%20%ED%95%99%EB%A0%A5%ED%8F%89%EA%B0%80%20%EC%A7%81%EC%97%85%ED%83%90%EA%B5%AC%28%EC%88%98%EC%82%B0%ED%95%B4%EC%9A%B4%EC%A0%95%EB%B3%B4%EC%B2%98%EB%A6%AC%29%20%EC%A0%95%EB%8B%B5%C2%B7%ED%95%B4%EC%84%A4.pdf",
+    "answerDownload": "2005년 11월 고2 학력평가 직업탐구(수산해운정보처리) 정답·해설.pdf",
     "solutionUrl": null,
     "listenUrl": null,
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
     "source": "savetest-archive",
-    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/176CE8324CECD65032"
+    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/176CE8324CECD65032",
+    "answerIncludesSolution": true
   },
   {
     "id": 6259,
@@ -108923,15 +109003,16 @@
     "subSubject": "식품과영양",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6259_questionUrl.pdf?name=2005%EB%85%84%2011%EC%9B%94%20%EA%B3%A02%20%ED%95%99%EB%A0%A5%ED%8F%89%EA%B0%80%20%EC%8B%9D%ED%92%88%EA%B3%BC%EC%98%81%EC%96%91.pdf",
     "questionDownload": "2005년 11월 고2 학력평가 식품과영양.pdf",
-    "answerUrl": null,
-    "answerDownload": null,
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/edu-ans-v2/st05_11_g2_1f93129fb0_a.pdf?name=2005%EB%85%84%2011%EC%9B%94%20%EA%B3%A02%20%ED%95%99%EB%A0%A5%ED%8F%89%EA%B0%80%20%EC%A7%81%EC%97%85%ED%83%90%EA%B5%AC%28%EC%8B%9D%ED%92%88%EA%B3%BC%EC%98%81%EC%96%91%29%20%EC%A0%95%EB%8B%B5%C2%B7%ED%95%B4%EC%84%A4.pdf",
+    "answerDownload": "2005년 11월 고2 학력평가 직업탐구(식품과영양) 정답·해설.pdf",
     "solutionUrl": null,
     "listenUrl": null,
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
     "source": "savetest-archive",
-    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/157540324CECD65218"
+    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/157540324CECD65218",
+    "answerIncludesSolution": true
   },
   {
     "id": 6260,
@@ -108946,15 +109027,16 @@
     "subSubject": "인간발달",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6260_questionUrl.pdf?name=2005%EB%85%84%2011%EC%9B%94%20%EA%B3%A02%20%ED%95%99%EB%A0%A5%ED%8F%89%EA%B0%80%20%EC%9D%B8%EA%B0%84%EB%B0%9C%EB%8B%AC.pdf",
     "questionDownload": "2005년 11월 고2 학력평가 인간발달.pdf",
-    "answerUrl": null,
-    "answerDownload": null,
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/edu-ans-v2/st05_11_g2_1f93129fb0_a.pdf?name=2005%EB%85%84%2011%EC%9B%94%20%EA%B3%A02%20%ED%95%99%EB%A0%A5%ED%8F%89%EA%B0%80%20%EC%A7%81%EC%97%85%ED%83%90%EA%B5%AC%28%EC%9D%B8%EA%B0%84%EB%B0%9C%EB%8B%AC%29%20%EC%A0%95%EB%8B%B5%C2%B7%ED%95%B4%EC%84%A4.pdf",
+    "answerDownload": "2005년 11월 고2 학력평가 직업탐구(인간발달) 정답·해설.pdf",
     "solutionUrl": null,
     "listenUrl": null,
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
     "source": "savetest-archive",
-    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/18666C324CECD65337"
+    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/18666C324CECD65337",
+    "answerIncludesSolution": true
   },
   {
     "id": 6261,
@@ -108969,15 +109051,16 @@
     "subSubject": "정보기술기초",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6261_questionUrl.pdf?name=2005%EB%85%84%2011%EC%9B%94%20%EA%B3%A02%20%ED%95%99%EB%A0%A5%ED%8F%89%EA%B0%80%20%EC%A0%95%EB%B3%B4%EA%B8%B0%EC%88%A0%EA%B8%B0%EC%B4%88.pdf",
     "questionDownload": "2005년 11월 고2 학력평가 정보기술기초.pdf",
-    "answerUrl": null,
-    "answerDownload": null,
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/edu-ans-v2/st05_11_g2_1f93129fb0_a.pdf?name=2005%EB%85%84%2011%EC%9B%94%20%EA%B3%A02%20%ED%95%99%EB%A0%A5%ED%8F%89%EA%B0%80%20%EC%A7%81%EC%97%85%ED%83%90%EA%B5%AC%28%EC%A0%95%EB%B3%B4%EA%B8%B0%EC%88%A0%EA%B8%B0%EC%B4%88%29%20%EC%A0%95%EB%8B%B5%C2%B7%ED%95%B4%EC%84%A4.pdf",
+    "answerDownload": "2005년 11월 고2 학력평가 직업탐구(정보기술기초) 정답·해설.pdf",
     "solutionUrl": null,
     "listenUrl": null,
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
     "source": "savetest-archive",
-    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/115EFD324CECD65555"
+    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/115EFD324CECD65555",
+    "answerIncludesSolution": true
   },
   {
     "id": 6262,
@@ -108992,15 +109075,16 @@
     "subSubject": "컴퓨터일반",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6262_questionUrl.pdf?name=2005%EB%85%84%2011%EC%9B%94%20%EA%B3%A02%20%ED%95%99%EB%A0%A5%ED%8F%89%EA%B0%80%20%EC%BB%B4%ED%93%A8%ED%84%B0%EC%9D%BC%EB%B0%98.pdf",
     "questionDownload": "2005년 11월 고2 학력평가 컴퓨터일반.pdf",
-    "answerUrl": null,
-    "answerDownload": null,
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/edu-ans-v2/st05_11_g2_1f93129fb0_a.pdf?name=2005%EB%85%84%2011%EC%9B%94%20%EA%B3%A02%20%ED%95%99%EB%A0%A5%ED%8F%89%EA%B0%80%20%EC%A7%81%EC%97%85%ED%83%90%EA%B5%AC%28%EC%BB%B4%ED%93%A8%ED%84%B0%EC%9D%BC%EB%B0%98%29%20%EC%A0%95%EB%8B%B5%C2%B7%ED%95%B4%EC%84%A4.pdf",
+    "answerDownload": "2005년 11월 고2 학력평가 직업탐구(컴퓨터일반) 정답·해설.pdf",
     "solutionUrl": null,
     "listenUrl": null,
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
     "source": "savetest-archive",
-    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/117F85324CECD65704"
+    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/117F85324CECD65704",
+    "answerIncludesSolution": true
   },
   {
     "id": 6263,
@@ -109015,15 +109099,16 @@
     "subSubject": "프로그래밍",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6263_questionUrl.pdf?name=2005%EB%85%84%2011%EC%9B%94%20%EA%B3%A02%20%ED%95%99%EB%A0%A5%ED%8F%89%EA%B0%80%20%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D.pdf",
     "questionDownload": "2005년 11월 고2 학력평가 프로그래밍.pdf",
-    "answerUrl": null,
-    "answerDownload": null,
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/edu-ans-v2/st05_11_g2_1f93129fb0_a.pdf?name=2005%EB%85%84%2011%EC%9B%94%20%EA%B3%A02%20%ED%95%99%EB%A0%A5%ED%8F%89%EA%B0%80%20%EC%A7%81%EC%97%85%ED%83%90%EA%B5%AC%28%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D%29%20%EC%A0%95%EB%8B%B5%C2%B7%ED%95%B4%EC%84%A4.pdf",
+    "answerDownload": "2005년 11월 고2 학력평가 직업탐구(프로그래밍) 정답·해설.pdf",
     "solutionUrl": null,
     "listenUrl": null,
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
     "source": "savetest-archive",
-    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/136F81324CECD6582B"
+    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/136F81324CECD6582B",
+    "answerIncludesSolution": true
   },
   {
     "id": 6264,
@@ -109038,15 +109123,16 @@
     "subSubject": "해사일반",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6264_questionUrl.pdf?name=2005%EB%85%84%2011%EC%9B%94%20%EA%B3%A02%20%ED%95%99%EB%A0%A5%ED%8F%89%EA%B0%80%20%ED%95%B4%EC%82%AC%EC%9D%BC%EB%B0%98.pdf",
     "questionDownload": "2005년 11월 고2 학력평가 해사일반.pdf",
-    "answerUrl": null,
-    "answerDownload": null,
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/edu-ans-v2/st05_11_g2_1f93129fb0_a.pdf?name=2005%EB%85%84%2011%EC%9B%94%20%EA%B3%A02%20%ED%95%99%EB%A0%A5%ED%8F%89%EA%B0%80%20%EC%A7%81%EC%97%85%ED%83%90%EA%B5%AC%28%ED%95%B4%EC%82%AC%EC%9D%BC%EB%B0%98%29%20%EC%A0%95%EB%8B%B5%C2%B7%ED%95%B4%EC%84%A4.pdf",
+    "answerDownload": "2005년 11월 고2 학력평가 직업탐구(해사일반) 정답·해설.pdf",
     "solutionUrl": null,
     "listenUrl": null,
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
     "source": "savetest-archive",
-    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/147F88324CECD65A04"
+    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/147F88324CECD65A04",
+    "answerIncludesSolution": true
   },
   {
     "id": 6265,
@@ -109061,15 +109147,16 @@
     "subSubject": "해양일반",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6265_questionUrl.pdf?name=2005%EB%85%84%2011%EC%9B%94%20%EA%B3%A02%20%ED%95%99%EB%A0%A5%ED%8F%89%EA%B0%80%20%ED%95%B4%EC%96%91%EC%9D%BC%EB%B0%98.pdf",
     "questionDownload": "2005년 11월 고2 학력평가 해양일반.pdf",
-    "answerUrl": null,
-    "answerDownload": null,
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/edu-ans-v2/st05_11_g2_1f93129fb0_a.pdf?name=2005%EB%85%84%2011%EC%9B%94%20%EA%B3%A02%20%ED%95%99%EB%A0%A5%ED%8F%89%EA%B0%80%20%EC%A7%81%EC%97%85%ED%83%90%EA%B5%AC%28%ED%95%B4%EC%96%91%EC%9D%BC%EB%B0%98%29%20%EC%A0%95%EB%8B%B5%C2%B7%ED%95%B4%EC%84%A4.pdf",
+    "answerDownload": "2005년 11월 고2 학력평가 직업탐구(해양일반) 정답·해설.pdf",
     "solutionUrl": null,
     "listenUrl": null,
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
     "source": "savetest-archive",
-    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/126D82324CECD65B28"
+    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/126D82324CECD65B28",
+    "answerIncludesSolution": true
   },
   {
     "id": 6266,
@@ -109084,15 +109171,16 @@
     "subSubject": "회계원리",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6266_questionUrl.pdf?name=2005%EB%85%84%2011%EC%9B%94%20%EA%B3%A02%20%ED%95%99%EB%A0%A5%ED%8F%89%EA%B0%80%20%ED%9A%8C%EA%B3%84%EC%9B%90%EB%A6%AC.pdf",
     "questionDownload": "2005년 11월 고2 학력평가 회계원리.pdf",
-    "answerUrl": null,
-    "answerDownload": null,
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/edu-ans-v2/st05_11_g2_1f93129fb0_a.pdf?name=2005%EB%85%84%2011%EC%9B%94%20%EA%B3%A02%20%ED%95%99%EB%A0%A5%ED%8F%89%EA%B0%80%20%EC%A7%81%EC%97%85%ED%83%90%EA%B5%AC%28%ED%9A%8C%EA%B3%84%EC%9B%90%EB%A6%AC%29%20%EC%A0%95%EB%8B%B5%C2%B7%ED%95%B4%EC%84%A4.pdf",
+    "answerDownload": "2005년 11월 고2 학력평가 직업탐구(회계원리) 정답·해설.pdf",
     "solutionUrl": null,
     "listenUrl": null,
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
     "source": "savetest-archive",
-    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/195A6D324CECD65B5D"
+    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/195A6D324CECD65B5D",
+    "answerIncludesSolution": true
   },
   {
     "id": 6267,
@@ -110015,15 +110103,16 @@
     "subSubject": "가형",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/hwp-pdf-v1/st_6306_questionUrl_2005._9._.2_._._.pdf?name=2005%EB%85%84%209%EC%9B%94%20%EA%B3%A02%20%EB%AA%A8%EC%9D%98%EA%B3%A0%EC%82%AC%20%EC%88%98%ED%95%99%EA%B0%80%ED%98%95%20%EB%AC%B8%EC%A0%9C.pdf",
     "questionDownload": "2005년 9월 고2 모의고사 수학가형 문제.pdf",
-    "answerUrl": null,
-    "answerDownload": null,
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/edu-ans-v2/st05_9_g2_4ff3c1c97a_a.pdf?name=2005%EB%85%84%209%EC%9B%94%20%EA%B3%A02%20%ED%95%99%EB%A0%A5%ED%8F%89%EA%B0%80%20%EC%88%98%ED%95%99%28%EA%B0%80%ED%98%95%29%20%EC%A0%95%EB%8B%B5%C2%B7%ED%95%B4%EC%84%A4.pdf",
+    "answerDownload": "2005년 9월 고2 학력평가 수학(가형) 정답·해설.pdf",
     "solutionUrl": null,
     "listenUrl": null,
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
     "source": "savetest-archive",
-    "questionUrl_hwp_original": "https://t1.daumcdn.net/cfile/tistory/2356DB345620D66314"
+    "questionUrl_hwp_original": "https://t1.daumcdn.net/cfile/tistory/2356DB345620D66314",
+    "answerIncludesSolution": true
   },
   {
     "id": 6307,
@@ -110038,15 +110127,16 @@
     "subSubject": "나형",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/hwp-pdf-v1/st_6307_questionUrl_2005._9._.2_._._.pdf?name=2005%EB%85%84%209%EC%9B%94%20%EA%B3%A02%20%EB%AA%A8%EC%9D%98%EA%B3%A0%EC%82%AC%20%EC%88%98%ED%95%99%EB%82%98%ED%98%95%20%EB%AC%B8%EC%A0%9C.pdf",
     "questionDownload": "2005년 9월 고2 모의고사 수학나형 문제.pdf",
-    "answerUrl": null,
-    "answerDownload": null,
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/edu-ans-v2/st05_9_g2_4ff3c1c97a_a.pdf?name=2005%EB%85%84%209%EC%9B%94%20%EA%B3%A02%20%ED%95%99%EB%A0%A5%ED%8F%89%EA%B0%80%20%EC%88%98%ED%95%99%28%EB%82%98%ED%98%95%29%20%EC%A0%95%EB%8B%B5%C2%B7%ED%95%B4%EC%84%A4.pdf",
+    "answerDownload": "2005년 9월 고2 학력평가 수학(나형) 정답·해설.pdf",
     "solutionUrl": null,
     "listenUrl": null,
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
     "source": "savetest-archive",
-    "questionUrl_hwp_original": "https://t1.daumcdn.net/cfile/tistory/234BB8345620D6671F"
+    "questionUrl_hwp_original": "https://t1.daumcdn.net/cfile/tistory/234BB8345620D6671F",
+    "answerIncludesSolution": true
   },
   {
     "id": 6308,
@@ -111259,15 +111349,16 @@
     "subSubject": "가형",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/hwp-pdf-v1/st_6380_questionUrl_2005._11._.2_._._.pdf?name=2005%EB%85%84%2011%EC%9B%94%20%EA%B3%A02%20%EB%AA%A8%EC%9D%98%EA%B3%A0%EC%82%AC%20%EC%88%98%ED%95%99%EA%B0%80%ED%98%95%20%EB%AC%B8%EC%A0%9C.pdf",
     "questionDownload": "2005년 11월 고2 모의고사 수학가형 문제.pdf",
-    "answerUrl": null,
-    "answerDownload": null,
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/edu-ans-v2/st05_11_g2_c2e95c5e09_a.pdf?name=2005%EB%85%84%2011%EC%9B%94%20%EA%B3%A02%20%ED%95%99%EB%A0%A5%ED%8F%89%EA%B0%80%20%EC%88%98%ED%95%99%28%EA%B0%80%ED%98%95%29%20%EC%A0%95%EB%8B%B5%C2%B7%ED%95%B4%EC%84%A4.pdf",
+    "answerDownload": "2005년 11월 고2 학력평가 수학(가형) 정답·해설.pdf",
     "solutionUrl": null,
     "listenUrl": null,
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
     "source": "savetest-archive",
-    "questionUrl_hwp_original": "https://t1.daumcdn.net/cfile/tistory/2763043D5620E3EF0B"
+    "questionUrl_hwp_original": "https://t1.daumcdn.net/cfile/tistory/2763043D5620E3EF0B",
+    "answerIncludesSolution": true
   },
   {
     "id": 6381,
@@ -111282,15 +111373,16 @@
     "subSubject": "나형",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/hwp-pdf-v1/st_6381_questionUrl_2005._11._.2_._._.pdf?name=2005%EB%85%84%2011%EC%9B%94%20%EA%B3%A02%20%EB%AA%A8%EC%9D%98%EA%B3%A0%EC%82%AC%20%EC%88%98%ED%95%99%EB%82%98%ED%98%95%20%EB%AC%B8%EC%A0%9C.pdf",
     "questionDownload": "2005년 11월 고2 모의고사 수학나형 문제.pdf",
-    "answerUrl": null,
-    "answerDownload": null,
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/edu-ans-v2/st05_11_g2_c2e95c5e09_a.pdf?name=2005%EB%85%84%2011%EC%9B%94%20%EA%B3%A02%20%ED%95%99%EB%A0%A5%ED%8F%89%EA%B0%80%20%EC%88%98%ED%95%99%28%EB%82%98%ED%98%95%29%20%EC%A0%95%EB%8B%B5%C2%B7%ED%95%B4%EC%84%A4.pdf",
+    "answerDownload": "2005년 11월 고2 학력평가 수학(나형) 정답·해설.pdf",
     "solutionUrl": null,
     "listenUrl": null,
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
     "source": "savetest-archive",
-    "questionUrl_hwp_original": "https://t1.daumcdn.net/cfile/tistory/215AB93D5620E3F112"
+    "questionUrl_hwp_original": "https://t1.daumcdn.net/cfile/tistory/215AB93D5620E3F112",
+    "answerIncludesSolution": true
   },
   {
     "id": 6382,
@@ -111929,15 +112021,16 @@
     "subSubject": "가형",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/hwp-pdf-v1/st_6409_questionUrl_2005._4._.3_._._.pdf?name=2005%EB%85%84%204%EC%9B%94%20%EA%B3%A03%20%EB%AA%A8%EC%9D%98%EA%B3%A0%EC%82%AC%20%EC%88%98%ED%95%99%EA%B0%80%ED%98%95%20%EB%AC%B8%EC%A0%9C.pdf",
     "questionDownload": "2005년 4월 고3 모의고사 수학가형 문제.pdf",
-    "answerUrl": null,
-    "answerDownload": null,
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/edu-ans-v2/st05_4_g3_b39a468cab_a.pdf?name=2005%EB%85%84%204%EC%9B%94%20%EA%B3%A03%20%ED%95%99%EB%A0%A5%ED%8F%89%EA%B0%80%20%EC%88%98%ED%95%99%28%EA%B0%80%ED%98%95%29%20%EC%A0%95%EB%8B%B5%C2%B7%ED%95%B4%EC%84%A4.pdf",
+    "answerDownload": "2005년 4월 고3 학력평가 수학(가형) 정답·해설.pdf",
     "solutionUrl": null,
     "listenUrl": null,
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
     "source": "savetest-archive",
-    "questionUrl_hwp_original": "https://t1.daumcdn.net/cfile/tistory/250DBE4156393BCC16"
+    "questionUrl_hwp_original": "https://t1.daumcdn.net/cfile/tistory/250DBE4156393BCC16",
+    "answerIncludesSolution": true
   },
   {
     "id": 6410,
@@ -111952,15 +112045,16 @@
     "subSubject": "나형",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/hwp-pdf-v1/st_6410_questionUrl_2005._4._.3_._._.pdf?name=2005%EB%85%84%204%EC%9B%94%20%EA%B3%A03%20%EB%AA%A8%EC%9D%98%EA%B3%A0%EC%82%AC%20%EC%88%98%ED%95%99%EB%82%98%ED%98%95%20%EB%AC%B8%EC%A0%9C.pdf",
     "questionDownload": "2005년 4월 고3 모의고사 수학나형 문제.pdf",
-    "answerUrl": null,
-    "answerDownload": null,
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/edu-ans-v2/st05_4_g3_b39a468cab_a.pdf?name=2005%EB%85%84%204%EC%9B%94%20%EA%B3%A03%20%ED%95%99%EB%A0%A5%ED%8F%89%EA%B0%80%20%EC%88%98%ED%95%99%28%EB%82%98%ED%98%95%29%20%EC%A0%95%EB%8B%B5%C2%B7%ED%95%B4%EC%84%A4.pdf",
+    "answerDownload": "2005년 4월 고3 학력평가 수학(나형) 정답·해설.pdf",
     "solutionUrl": null,
     "listenUrl": null,
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
     "source": "savetest-archive",
-    "questionUrl_hwp_original": "https://t1.daumcdn.net/cfile/tistory/23791B4156393BCF14"
+    "questionUrl_hwp_original": "https://t1.daumcdn.net/cfile/tistory/23791B4156393BCF14",
+    "answerIncludesSolution": true
   },
   {
     "id": 6411,
@@ -112071,15 +112165,16 @@
     "subSubject": "가형",
     "questionUrl": "https://github.com/hongdoohyeon/Suneung/releases/download/daum-mirror-v1/dm_6415_questionUrl.hwp",
     "questionDownload": "2005년 3월 고3 모의고사 수학가형 문제.hwp",
-    "answerUrl": null,
-    "answerDownload": null,
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/edu-ans-v2/st05_3_g3_27add49aee_a.pdf?name=2005%EB%85%84%203%EC%9B%94%20%EA%B3%A03%20%ED%95%99%EB%A0%A5%ED%8F%89%EA%B0%80%20%EC%88%98%ED%95%99%28%EA%B0%80%ED%98%95%29%20%EC%A0%95%EB%8B%B5%C2%B7%ED%95%B4%EC%84%A4.pdf",
+    "answerDownload": "2005년 3월 고3 학력평가 수학(가형) 정답·해설.pdf",
     "solutionUrl": null,
     "listenUrl": null,
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
     "source": "savetest-archive",
-    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/252A3A345639324813"
+    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/252A3A345639324813",
+    "answerIncludesSolution": true
   },
   {
     "id": 6416,
@@ -112094,15 +112189,16 @@
     "subSubject": "나형",
     "questionUrl": "https://github.com/hongdoohyeon/Suneung/releases/download/daum-mirror-v1/dm_6416_questionUrl.hwp",
     "questionDownload": "2005년 3월 고3 모의고사 수학나형 문제.hwp",
-    "answerUrl": null,
-    "answerDownload": null,
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/edu-ans-v2/st05_3_g3_27add49aee_a.pdf?name=2005%EB%85%84%203%EC%9B%94%20%EA%B3%A03%20%ED%95%99%EB%A0%A5%ED%8F%89%EA%B0%80%20%EC%88%98%ED%95%99%28%EB%82%98%ED%98%95%29%20%EC%A0%95%EB%8B%B5%C2%B7%ED%95%B4%EC%84%A4.pdf",
+    "answerDownload": "2005년 3월 고3 학력평가 수학(나형) 정답·해설.pdf",
     "solutionUrl": null,
     "listenUrl": null,
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
     "source": "savetest-archive",
-    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/235952345639324B12"
+    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/235952345639324B12",
+    "answerIncludesSolution": true
   },
   {
     "id": 6417,
@@ -112669,15 +112765,16 @@
     "subSubject": "가형",
     "questionUrl": "https://github.com/hongdoohyeon/Suneung/releases/download/daum-mirror-v1/dm_6441_questionUrl.hwp",
     "questionDownload": "2005년 7월 고3 모의고사 수학가형 문제.hwp",
-    "answerUrl": null,
-    "answerDownload": null,
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/edu-ans-v2/st05_7_g3_c64fd915f6_a.pdf?name=2005%EB%85%84%207%EC%9B%94%20%EA%B3%A03%20%ED%95%99%EB%A0%A5%ED%8F%89%EA%B0%80%20%EC%88%98%ED%95%99%28%EA%B0%80%ED%98%95%29%20%EC%A0%95%EB%8B%B5%C2%B7%ED%95%B4%EC%84%A4.pdf",
+    "answerDownload": "2005년 7월 고3 학력평가 수학(가형) 정답·해설.pdf",
     "solutionUrl": null,
     "listenUrl": null,
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
     "source": "savetest-archive",
-    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/237A9643563982441E"
+    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/237A9643563982441E",
+    "answerIncludesSolution": true
   },
   {
     "id": 6442,
@@ -112692,15 +112789,16 @@
     "subSubject": "나형",
     "questionUrl": "https://github.com/hongdoohyeon/Suneung/releases/download/daum-mirror-v1/dm_6442_questionUrl.hwp",
     "questionDownload": "2005년 7월 고3 모의고사 수학나형 문제.hwp",
-    "answerUrl": null,
-    "answerDownload": null,
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/edu-ans-v2/st05_7_g3_c64fd915f6_a.pdf?name=2005%EB%85%84%207%EC%9B%94%20%EA%B3%A03%20%ED%95%99%EB%A0%A5%ED%8F%89%EA%B0%80%20%EC%88%98%ED%95%99%28%EB%82%98%ED%98%95%29%20%EC%A0%95%EB%8B%B5%C2%B7%ED%95%B4%EC%84%A4.pdf",
+    "answerDownload": "2005년 7월 고3 학력평가 수학(나형) 정답·해설.pdf",
     "solutionUrl": null,
     "listenUrl": null,
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
     "source": "savetest-archive",
-    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/2611FD435639824703"
+    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/2611FD435639824703",
+    "answerIncludesSolution": true
   },
   {
     "id": 6443,
@@ -113845,15 +113943,16 @@
     "subSubject": "가형",
     "questionUrl": "https://github.com/hongdoohyeon/Suneung/releases/download/daum-mirror-v1/dm_6491_questionUrl.hwp",
     "questionDownload": "2005년 10월 고3 모의고사 수학가형 문제.hwp",
-    "answerUrl": null,
-    "answerDownload": null,
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/edu-ans-v2/st05_10_g3_f1f917dc3e_a.pdf?name=2005%EB%85%84%2010%EC%9B%94%20%EA%B3%A03%20%ED%95%99%EB%A0%A5%ED%8F%89%EA%B0%80%20%EC%88%98%ED%95%99%28%EA%B0%80%ED%98%95%29%20%EC%A0%95%EB%8B%B5%C2%B7%ED%95%B4%EC%84%A4.pdf",
+    "answerDownload": "2005년 10월 고3 학력평가 수학(가형) 정답·해설.pdf",
     "solutionUrl": null,
     "listenUrl": null,
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
     "source": "savetest-archive",
-    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/2234CB425639ABF303"
+    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/2234CB425639ABF303",
+    "answerIncludesSolution": true
   },
   {
     "id": 6492,
@@ -113868,15 +113967,16 @@
     "subSubject": "나형",
     "questionUrl": "https://github.com/hongdoohyeon/Suneung/releases/download/daum-mirror-v1/dm_6492_questionUrl.hwp",
     "questionDownload": "2005년 10월 고3 모의고사 수학나형 문제.hwp",
-    "answerUrl": null,
-    "answerDownload": null,
+    "answerUrl": "https://suneung-files.hdh061224.workers.dev/edu-ans-v2/st05_10_g3_f1f917dc3e_a.pdf?name=2005%EB%85%84%2010%EC%9B%94%20%EA%B3%A03%20%ED%95%99%EB%A0%A5%ED%8F%89%EA%B0%80%20%EC%88%98%ED%95%99%28%EB%82%98%ED%98%95%29%20%EC%A0%95%EB%8B%B5%C2%B7%ED%95%B4%EC%84%A4.pdf",
+    "answerDownload": "2005년 10월 고3 학력평가 수학(나형) 정답·해설.pdf",
     "solutionUrl": null,
     "listenUrl": null,
     "listenDownload": null,
     "scriptUrl": null,
     "scriptDownload": null,
     "source": "savetest-archive",
-    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/25660D425639ABF608"
+    "questionUrl_daum_original": "https://t1.daumcdn.net/cfile/tistory/25660D425639ABF608",
+    "answerIncludesSolution": true
   },
   {
     "id": 6493,
