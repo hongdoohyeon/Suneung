@@ -1188,17 +1188,17 @@ def _fig_bins(val: dict) -> str:
         cx = (X(edges[i]) + X(edges[i + 1])) / 2
         b.append(_txt(cx, mt + ph + 30, f'{i + 1}등급', 'mf-txt mf-txt--strong mf-txt--sm'))
         b.append(_txt(cx, mt + ph + 43, ratios[i], 'mf-txt mf-txt--sm'))
-    b.append(_txt(ml + pw / 2, H - 4, '표준점수 (막대 = 그 점수를 받은 응시자 수, 점선 = 등급컷)', 'mf-txt mf-txt--sm'))
+    b.append(_txt(ml + pw / 2, H - 4, '표준점수. 막대는 그 점수를 받은 응시자 수, 점선은 등급컷', 'mf-txt mf-txt--sm'))
     b.append(f'<line class="mf-true" x1="{X(row["mu"]):.1f}" y1="{mt - 6}" x2="{X(row["mu"]):.1f}" y2="{mt + ph}"/>')
     b.append(f'<line class="mf-est" x1="{X(row["emu"]):.1f}" y1="{mt - 6}" x2="{X(row["emu"]):.1f}" y2="{mt + ph}"/>')
     b.append(_txt(X(row['mu']) + 6, mt - 22, f'실측 평균 {row["mu"]:.1f}', 'mf-txt mf-txt--strong', 'start'))
     b.append(_txt(X(row['emu']) - 6, mt - 8, f'등급컷만으로 추정 {row["emu"]:.1f}', 'mf-est-txt', 'end'))
     x = row['x']
     cap = (f'<figcaption><strong>그림 1.</strong> {x["year"]}학년도 {bd.KOREAN_TYPE_LABEL.get(x["type"], x["type"])} {x["subject"]} 영역 '
-           f'(응시자 {row["n"]:,}명). 배경 띠는 등급 구간이고 아래 %는 각 등급의 응시자 비율입니다. 1~8등급 컷 8개와 최고점, '
-           f'등급 비율만 사용해 구간 가운데 점수 × 비율을 더하면 평균 {row["emu"]:.1f}(실측 {row["mu"]:.1f}), 표준편차 {row["esd"]:.1f}'
-           f'(실측 {row["sd"]:.1f}), 왜도 {row["esk"]:+.2f}(실측 {row["sk"]:+.2f})가 나옵니다. '
-           f'(표준점수 평균·표준편차가 100·20으로 정의된 영역이라 평균은 항상 100 근처입니다. 난이도 정보는 원점수 컷과의 대응, 그리고 분포의 쏠림에 담깁니다.)</figcaption>')
+           f'(응시자 {row["n"]:,}명). 배경의 띠가 등급 구간이고, 아래에 적은 %는 그 등급의 응시자 비율이에요. 1등급부터 8등급까지의 컷 8개와 최고점, '
+           f'등급 비율만 가지고 구간마다 가운데 점수에 비율을 곱해 더했더니 평균 {row["emu"]:.1f}(실제 {row["mu"]:.1f}), 표준편차 {row["esd"]:.1f}'
+           f'(실제 {row["sd"]:.1f}), 왜도 {row["esk"]:+.2f}(실제 {row["sk"]:+.2f})가 나왔어요. '
+           f'표준점수는 평균이 100, 표준편차가 20이 되도록 정해 놓은 값이라 평균은 항상 100 근처예요. 난이도 정보는 표준점수와 원점수의 대응, 그리고 분포가 어느 쪽으로 쏠렸는지에 들어 있어요.</figcaption>')
     label = x['subject'] + ' 표준점수 분포와 등급 구간, 실측 평균과 추정 평균'
     return f'<div>{_svg(W, H, label, "".join(b))}</div>{cap}'
 
@@ -1235,11 +1235,11 @@ def _fig_validate(val: dict) -> str:
     for i, e in enumerate(sorted(errs)):
         cy = mt + ph / 2 + 12 - (i % 6) * 12
         b.append(f'<circle class="mf-pt" cx="{Xe(e):.1f}" cy="{cy:.1f}" r="3.4"/>')
-    b.append(_txt(ml + pw / 2, H - 22, '평균 추정 오차 (표준편차 단위, 0 = 정확)', 'mf-txt'))
-    b.append(_txt(ml + pw / 2, mt + 6, f'평균 |오차| {sum(abs(e) for e in errs) / len(errs):.3f}σ · 최대 {max(abs(e) for e in errs):.3f}σ', 'mf-txt mf-txt--strong'))
+    b.append(_txt(ml + pw / 2, H - 22, '평균 추정 오차 (표준편차의 몇 배, 0이면 정확)', 'mf-txt'))
+    b.append(_txt(ml + pw / 2, mt + 6, f'평균 오차 {sum(abs(e) for e in errs) / len(errs):.3f}배, 최대 {max(abs(e) for e in errs):.3f}배', 'mf-txt mf-txt--strong'))
     fb = _svg(W, H, '평균 추정 오차 분포', ''.join(b))
-    cap = (f'<figcaption><strong>그림 2.</strong> {len(rows)}개 영역(국어·수학·사탐·과탐 × 수능·9모)의 검증. 왼쪽: 등급컷으로 추정한 왜도(높을수록 어려운 분포)가 '
-           f'실측과 거의 일치합니다. 오른쪽: 평균 추정 오차를 표준편차로 나눈 값이 0 근처에 모여 있습니다(모두 약간 낮게 나오는 체계적 편향이 있어 화면의 값은 ±1점 안팎의 오차를 가집니다).</figcaption>')
+    cap = (f'<figcaption><strong>그림 2.</strong> 국어, 수학, 사탐, 과탐의 수능과 9모 {len(rows)}개 영역으로 확인한 결과예요. 왼쪽은 등급컷으로 추정한 왜도(높을수록 어려운 분포)인데 실제 값과 거의 겹쳐요. '
+           f'오른쪽은 평균 추정 오차를 표준편차로 나눈 값이고 0 근처에 모여 있어요. 전부 조금씩 낮게 나오는 편향이 있어서, 화면에 보이는 평균 점수율은 1점 안팎의 오차가 있다고 보면 돼요.</figcaption>')
     return f'<div class="mf-pair">{fa}{fb}</div>{cap}'
 
 
@@ -1251,12 +1251,12 @@ def _val_table(val: dict) -> str:
     r_sk = st.correlation([r['sk'] for r in rows], [r['esk'] for r in rows])
     return ('<table class="method__table"><thead><tr><th>검증 항목</th><th>결과</th></tr></thead><tbody>'
             f'<tr><td>검증 대상</td><td>{len(rows)}개 영역 (2026학년도 수능·9월 모의평가)</td></tr>'
-            f'<tr><td>평균 추정 오차</td><td>평균 {sum(abs(e) for e in errs) / len(errs):.3f}σ · 최대 {max(abs(e) for e in errs):.3f}σ</td></tr>'
-            f'<tr><td>표준편차 비 (추정/실측)</td><td>{min(ratio):.2f} ~ {max(ratio):.2f}</td></tr>'
-            f'<tr><td>왜도 상관계수</td><td>{r_sk:.3f}</td></tr>'
-            '<tr><td>절대평가 시뮬레이션</td><td>실제 분포 모양 50개를 0~100점으로 재척도·절단한 2,000건: 평균 오차 평균 0.76점, 표준편차 비 0.99 (연구 시점 2026-09-29)</td></tr>'
+            f'<tr><td>평균 추정 오차 (표준편차의 몇 배)</td><td>평균 {sum(abs(e) for e in errs) / len(errs):.3f}배, 최대 {max(abs(e) for e in errs):.3f}배</td></tr>'
+            f'<tr><td>표준편차 (추정값 ÷ 실제값)</td><td>{min(ratio):.2f}에서 {max(ratio):.2f}</td></tr>'
+            f'<tr><td>왜도 상관계수 (추정과 실제)</td><td>{r_sk:.3f}</td></tr>'
+            '<tr><td>절대평가 시뮬레이션</td><td>실제 분포 모양 50개를 0점에서 100점 사이로 옮겨 만든 2,000건에서 평균 오차는 평균 0.76점, 표준편차 비는 0.99였어요 (2026년 9월 29일 계산)</td></tr>'
             '</tbody></table>'
-            '<p>정규분포로 등급컷을 맞추는 방식은 수학(이봉·쏠림 분포)에서 4~7점 어긋나 쓰지 않았습니다. 구간 모멘트 방식은 분포 모양을 가정하지 않아 왜도가 −0.3~+1.0인 분포에서도 안정적이었습니다.</p>')
+            '<p>처음에는 등급컷에 정규분포를 맞춰 보려고 했어요. 그런데 수학은 점수가 한쪽으로 쏠리고 봉우리가 두 개라서 4점에서 7점씩 어긋났어요. 그래서 분포 모양을 가정하지 않는 지금 방식으로 바꿨고, 왜도가 -0.3에서 1.0까지 다른 분포에서도 안정적으로 맞았어요.</p>')
 
 
 def _fig_series(items: list[dict], scores: dict) -> str:
@@ -1297,7 +1297,7 @@ def _fig_series(items: list[dict], scores: dict) -> str:
         f = int(idx); c = min(f + 1, m - 1)
         return allv[f] + (allv[c] - allv[f]) * (idx - f)
     five = m >= bd.TIER_LOW_N
-    cuts = [(q(.8), '매우 쉬움 ▲'), (q(.6), ''), (q(.4), ''), (q(.2), '매우 어려움 ▼')] if five else [(q(2 / 3), ''), (q(1 / 3), '')]
+    cuts = [(q(.8), '매우 쉬움'), (q(.6), ''), (q(.4), ''), (q(.2), '매우 어려움')] if five else [(q(2 / 3), ''), (q(1 / 3), '')]
     for v, _ in cuts:
         b.append(f'<line class="mf-thr" x1="{ml}" y1="{Y(v):.1f}" x2="{ml + pw}" y2="{Y(v):.1f}"/>')
     zones = [('매우 쉬움', 1, (q(1.0) + q(.8)) / 2), ('쉬움', 2, (q(.8) + q(.6)) / 2), ('보통', 3, (q(.6) + q(.4)) / 2),
@@ -1316,9 +1316,9 @@ def _fig_series(items: list[dict], scores: dict) -> str:
     b.append(_txt(ml + pw / 2, H - 6, '학년도 (왼쪽이 과거, 오른쪽이 최근 회차)', 'mf-txt mf-txt--sm'))
     b.append(f'<text class="mf-txt" transform="translate(12 {mt + ph / 2}) rotate(-90)" text-anchor="middle">추정 평균 점수율</text>')
     curr = key[1]
-    cap = (f'<figcaption><strong>그림 3.</strong> 수능·모의평가 국어({bd._CURR_LABEL.get(str(curr), str(curr))} 교육과정) {len(allv)}개 회차의 추정 평균 점수율. '
-           f'점의 색은 부여된 난이도이고, 점선은 역대 값의 {"20·40·60·80" if five else "33·67"}% 백분위 경계입니다. '
-           f'점수율이 높을수록 쉬운 시험이라 위쪽이 ‘쉬움’, 아래쪽이 ‘어려움’입니다. 점에 마우스를 올리면 회차와 값이 보입니다.</figcaption>')
+    cap = (f'<figcaption><strong>그림 3.</strong> 수능과 모의평가 국어({bd._CURR_LABEL.get(str(curr), str(curr))} 교육과정) {len(allv)}개 회차의 추정 평균 점수율이에요. '
+           f'점 색깔이 그 시험에 붙은 난이도이고, 점선은 역대 값을 {"20, 40, 60, 80" if five else "33, 67"}% 지점에서 나눈 경계예요. '
+           f'점수율이 높을수록 쉬운 시험이라 위쪽이 ‘쉬움’, 아래쪽이 ‘어려움’이에요. 점에 마우스를 올리면 회차와 값이 떠요.</figcaption>')
     return f'<div>{_svg(W, H, "국어 역대 회차의 추정 평균 점수율과 난이도 등급", "".join(b))}</div>{cap}'
 
 
@@ -1352,13 +1352,13 @@ def _fig_abs(items: list[dict], scores: dict) -> str:
     mean = r['mean'] * 100
     b.append(f'<line class="mf-est" x1="{X(mean):.1f}" y1="{mt - 8}" x2="{X(mean):.1f}" y2="{mt + ph}"/>')
     b.append(_txt(X(mean) - 6, mt - 12, f'추정 평균 {mean:.1f}점', 'mf-est-txt', 'end'))
-    b.append(_txt(ml + pw / 2, H - 4, '원점수 (막대 넓이 = 그 등급 비율, 높이 = 점수 1점당 응시자 밀도)', 'mf-txt mf-txt--sm'))
+    b.append(_txt(ml + pw / 2, H - 4, '원점수. 막대 넓이가 그 등급의 비율이고, 높이는 1점당 응시자 밀도', 'mf-txt mf-txt--sm'))
     tbl = ['<table class="method__table"><thead><tr><th>시험</th><th>1등급 비율</th><th>추정 평균 점수율</th></tr></thead><tbody>']
     for i2, r2 in reversed(recs[-6:]):
         tbl.append(f'<tr><td>{i2["gradeYear"]}학년도 {bd.KOREAN_TYPE_LABEL.get(i2["type"], "")}</td><td>{r2["ratios"][0]:g}%</td><td>{r2["mean"] * 100:.1f}%</td></tr>')
     tbl.append('</tbody></table>')
-    cap = (f'<figcaption><strong>그림 4.</strong> {it["gradeYear"]}학년도 {bd.KOREAN_TYPE_LABEL.get(it["type"], "")} 영어(절대평가). 경계는 90·80·…·20점으로 고정이고, '
-           f'평가원이 공개한 등급별 비율로 평균 {mean:.1f}점을 추정했습니다. 1등급 비율 하나만 보는 것보다 8개 경계의 정보를 모두 씁니다.</figcaption>')
+    cap = (f'<figcaption><strong>그림 4.</strong> {it["gradeYear"]}학년도 {bd.KOREAN_TYPE_LABEL.get(it["type"], "")} 영어(절대평가)예요. 경계는 90점, 80점, 70점 순으로 20점까지 정해져 있고, '
+           f'평가원이 공개한 등급별 비율로 평균을 {mean:.1f}점으로 추정했어요. 1등급 비율 하나만 보지 않고 등급 전체의 비율을 써요.</figcaption>')
     return f'<div>{_svg(W, H, "영어 절대평가 등급별 비율과 추정 평균", "".join(b))}</div>{cap}{"".join(tbl)}'
 
 
