@@ -2,7 +2,7 @@
   "source": "EBSi 공개 기출문제 아카이브",
   "sourcePage": "https://www.ebsi.co.kr/ebs/xip/xipc/previousPaperList.ebs?targetCd=D300",
   "fetchedAt": "2026-07-25T10:28:34.841Z",
-  "count": 1588,
+  "count": 1587,
   "records": [
     {
       "id": 4539,
@@ -287,17 +287,6 @@
       "subSubject": "가형",
       "solutionUrl": "https://wdown.ebsi.co.kr/W61001/01exam/20060906/mathga_hsj.pdf",
       "solutionDownload": "2007학년도 9월 모평 수학(가형) 정답·해설.pdf",
-      "solutionSource": "EBSi",
-      "solutionSourcePage": "https://www.ebsi.co.kr/ebs/xip/xipc/previousPaperList.ebs?targetCd=D300"
-    },
-    {
-      "id": 6884,
-      "gradeYear": 2007,
-      "type": "sept",
-      "subject": "수학",
-      "subSubject": null,
-      "solutionUrl": "https://wdown.ebsi.co.kr/W61001/01exam/20060906/mathga_hsj.pdf",
-      "solutionDownload": "2007학년도 9월 모평 수학 정답·해설.pdf",
       "solutionSource": "EBSi",
       "solutionSourcePage": "https://www.ebsi.co.kr/ebs/xip/xipc/previousPaperList.ebs?targetCd=D300"
     },
@@ -1077,8 +1066,8 @@
       "type": "june",
       "subject": "직업탐구",
       "subSubject": "농업정보관리",
-      "solutionUrl": null,
-      "solutionDownload": null,
+      "solutionUrl": "https://wdown.ebsi.co.kr/W61001/01exam/20060603/j_jic01_hsj.pdf",
+      "solutionDownload": "2007학년도 6월 모평 직업탐구(농업정보관리) 정답·해설.pdf",
       "solutionSource": "EBSi",
       "solutionSourcePage": "https://www.ebsi.co.kr/ebs/xip/xipc/previousPaperList.ebs?targetCd=D300"
     },
