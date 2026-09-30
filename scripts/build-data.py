@@ -1614,6 +1614,157 @@ def source_note_html(it: dict) -> str:
             '등급컷의 공식값과 입시기관 추정값 구분은 <a href="data-policy.html#cuts">데이터 원칙</a>을 참고하세요.</p></section>')
 
 
+# ── 공식 채점 통계 — 시·도교육청 학평 통계(data/edu-official.json)와 평가원 표준점수 도수분포 ──────────────
+_EDU_OFFICIAL = None
+_SCORE_DISTS = None
+_SPOIL_NOTE = ('<p class="spoil-note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">'
+               '<path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></svg>'
+               '<span>시험지를 먼저 풀어보세요. 점수와 인원 수치를 흐리게 가려 뒀어요.</span>'
+               '<button type="button" class="btn btn--sm btn--primary" data-spoiler-off>결과 보기</button></p>')
+
+
+def _nrm_sub(s) -> str:
+    return re.sub(r'\s+', '', s or '').replace('II', 'Ⅱ').replace('I', 'Ⅰ').replace('사회문화', '사회·문화')
+
+
+def _load_edu_official() -> dict:
+    global _EDU_OFFICIAL
+    if _EDU_OFFICIAL is None:
+        p = ROOT / 'data' / 'edu-official.json'
+        _EDU_OFFICIAL = json.loads(p.read_text(encoding='utf-8')) if p.exists() else {}
+    return _EDU_OFFICIAL
+
+
+def _load_score_dists() -> dict:
+    """(학년도, 종류, 과목, 선택과목) → 분포. score-distribution.json(2026 수능·9월) + score-distribution-archive.json."""
+    global _SCORE_DISTS
+    if _SCORE_DISTS is None:
+        _SCORE_DISTS = {}
+        for name in ('score-distribution.json', 'score-distribution-archive.json'):
+            p = ROOT / 'data' / name
+            if not p.exists():
+                continue
+            for r in json.loads(p.read_text(encoding='utf-8')):
+                gy = r.get('gradeYear', r.get('year'))
+                typ = {'sept': 'sept', 'csat': 'csat', 'june': 'june'}.get(r.get('type'))
+                if typ:
+                    _SCORE_DISTS[(gy, typ, r['subject'], _nrm_sub(r.get('subSubject')))] = r['distribution']
+    return _SCORE_DISTS
+
+
+def dist_svg(freq: dict, label: str) -> str:
+    """표준점수 분포 막대 그래프(인라인 SVG). freq: {점수: 인원}."""
+    pts = sorted((int(k), v) for k, v in freq.items() if v)
+    if len(pts) < 3:
+        return ''
+    lo, hi = pts[0][0], pts[-1][0]
+    peak = max(v for _, v in pts)
+    W, H, L, B = 640, 190, 8, 26
+    span = hi - lo + 1
+    bw = (W - 2 * L) / span
+    bars = ''.join(
+        f'<rect class="dist-bar" x="{L + (sc - lo) * bw:.2f}" y="{(H - B) - (H - B - 8) * v / peak:.2f}" '
+        f'width="{max(bw - 0.6, 0.6):.2f}" height="{(H - B - 8) * v / peak:.2f}"/>' for sc, v in pts)
+    mode = max(pts, key=lambda p: p[1])[0]
+    ticks = ''.join(
+        f'<text class="dist-tick" x="{L + (t - lo + .5) * bw:.1f}" y="{H - 8}" text-anchor="middle">{t}</text>'
+        for t in sorted({lo, mode, hi}))
+    return (f'<svg class="dist-chart" viewBox="0 0 {W} {H}" role="img" aria-label="{html_escape(label)}">'
+            f'<line class="dist-axis" x1="{L}" y1="{H - B}" x2="{W - L}" y2="{H - B}"/>{bars}{ticks}</svg>')
+
+
+def _stat_cards(cells: list) -> str:
+    return '<div class="stats">' + ''.join(
+        f'<div class="card-box stat"><span class="stat__label">{lbl}</span><span class="stat__value spoil-val">{val}</span></div>'
+        for lbl, val in cells) + '</div>'
+
+
+def _official_section(title: str, body: str) -> str:
+    return (f'<section class="exam-section exam-official" aria-labelledby="offTitle"><div class="exam-section__head">'
+            f'<h2 id="offTitle">{title}</h2></div>{_SPOIL_NOTE}{body}</section>')
+
+
+def edu_official_html(it: dict) -> str:
+    """전국연합학력평가 — 시·도교육청이 공개한 응시자 수·원점수 평균·등급 구분 점수와 인원·표준점수 분포."""
+    if it.get('typeGroup') != 'education' or not it.get('studentGrade'):
+        return ''
+    exam = _load_edu_official().get(f"{it['examYear']}_{it['month']:02d}_g{it['studentGrade']}")
+    if not exam:
+        return ''
+    ents, subj, ss = exam['e'], it['subject'], _nrm_sub(it.get('subSubject'))
+    own = ents.get(f'{subj}|{ss}') if ss else None
+    area = ents.get(f'{subj}|')
+    if not ss and subj in ('사회탐구', '과학탐구'):
+        own = next((v for k, v in ents.items() if k.startswith(subj + '|') and k != f'{subj}|'), None)
+    if not own and not area:
+        return ''
+    base = {**(area or {}), **(own or {})}
+    shared = own is not None and ss and (area is not None) and not own.get('c') and area.get('c')
+    cuts = (own or {}).get('c') or (area or {}).get('c')
+    freq = (own or {}).get('f') or (area or {}).get('f')
+    cells = []
+    if base.get('n'):
+        cells.append(('응시자', f'{base["n"]:,}<small>명</small>'))
+    if (own or {}).get('m') is not None:
+        cells.append(('원점수 평균', f'{own["m"]:g}<small>점</small>'))
+    if (own or {}).get('s') is not None:
+        cells.append(('원점수 표준편차', f'{own["s"]:g}'))
+    body = _stat_cards(cells) if cells else ''
+    if cuts:
+        kind = '표준점수' if cuts[0][2] == 's' else '원점수'
+        rows = ''.join(f'<tr><td>{g}</td><td>{sc:g}</td><td class="is-muted">{f"{n:,}" if n is not None else "—"}</td>'
+                       f'<td class="is-muted">{f"{r:g}%" if r is not None else "—"}</td></tr>' for g, sc, _, n, r in cuts)
+        scope = f'{subj} 영역 전체 응시자 기준 · ' if shared else ''
+        body += ('<section class="exam-card"><header class="exam-card__head"><h3 class="exam-card__title">등급 구분 점수와 인원</h3></header>'
+                 '<div class="exam-card__body"><table class="grade-table"><thead><tr><th scope="col">등급</th>'
+                 f'<th scope="col">{kind} 이상</th><th scope="col">인원(명)</th><th scope="col">비율</th></tr></thead>'
+                 f'<tbody class="spoil-val">{rows}</tbody></table>'
+                 f'<p class="grade-table__legend">{scope}시·도교육청 공개 자료</p></div></section>')
+    if freq:
+        svg = dist_svg(freq, f'{it["subject"]} 표준점수 분포')
+        if svg:
+            body += ('<section class="exam-card"><header class="exam-card__head"><h3 class="exam-card__title">표준점수 분포</h3></header>'
+                     f'<div class="exam-card__body spoil-val">{svg}</div></section>')
+    if not body:
+        return ''
+    src = exam.get('src', '')
+    link = f' <a href="{src}" rel="noopener" target="_blank">공개 자료 페이지</a>' if src.startswith('https://') else ''
+    body += (f'<p class="exam-official__src">출처: 시·도교육청이 공개한 전국연합학력평가 성적 분석 및 통계자료.{link}</p>')
+    return _official_section('시·도교육청 공식 통계', body)
+
+
+def suneung_dist_html(it: dict) -> str:
+    """수능·모의평가 — 평가원 공개 표준점수 도수분포에서 응시자 수·평균·표준편차·최고점·분포 그래프."""
+    if it.get('typeGroup') != 'suneung' or it.get('type') not in ('csat', 'june', 'sept'):
+        return ''
+    dists = _load_score_dists()
+    subj, ss = it['subject'], _nrm_sub(it.get('subSubject'))
+    key = (it['gradeYear'], it['type'], subj)
+    dist = dists.get(key + (ss,))
+    shared = False
+    if dist is None and subj in ('국어', '수학'):
+        dist, shared = dists.get(key + ('',)), True
+    if not dist:
+        return ''
+    freq = {int(k): v['male'] + v['female'] for k, v in dist.items()}
+    n = sum(freq.values())
+    if n < 50:
+        return ''
+    mode = max(freq.items(), key=lambda kv: kv[1])[0]
+    female = sum(v['female'] for v in dist.values())
+    cells = [('응시자', f'{n:,}<small>명</small>'), ('표준점수 최고점', f'{max(freq)}'),
+             ('최고점 인원', f'{freq[max(freq)]:,}<small>명</small>'), ('여학생 비율', f'{female / n * 100:.1f}<small>%</small>')]
+    svg = dist_svg(freq, f'{subj} 표준점수 분포')
+    scope = f'{subj} 영역 전체 응시자 기준. ' if shared else ''
+    body = _stat_cards(cells)
+    if svg:
+        body += ('<section class="exam-card"><header class="exam-card__head"><h3 class="exam-card__title">표준점수 분포</h3>'
+                 f'<span class="exam-card__hint">가장 많은 점수 {mode}점</span></header>'
+                 f'<div class="exam-card__body spoil-val">{svg}</div></section>')
+    body += (f'<p class="exam-official__src">{scope}한국교육과정평가원이 교육부 보도자료로 공개한 표준점수 도수분포에서 계산했습니다.</p>')
+    return _official_section('공개 점수 분포', body)
+
+
 _OBJECTIONS = None
 
 
@@ -2170,7 +2321,8 @@ def build_static_exam_pages(items: list[dict], template_path: Path, out_root: Pa
                                 '<section class="card-box exam__body" id="examBody">'
                                 + _note.read_text(encoding='utf-8').strip() + '</section>', 1)
 
-        if sc is None:   # 등급컷 등 고유 정보가 없는 얇은 페이지 — 광고 슬롯을 렌더하지 않는다(lib/ads.js)
+        _off = edu_official_html(it) or suneung_dist_html(it)
+        if sc is None and not _off:   # 등급컷·공식 통계 등 고유 정보가 없는 얇은 페이지 — 광고 슬롯을 렌더하지 않는다(lib/ads.js)
             html = html.replace('<body class="page-exam">', '<body class="page-exam" data-no-ads>', 1)
 
         # 등급컷·난이도 — 매칭 컷이 있을 때만 섹션 공개 (검정고시 등은 숨김 유지)
@@ -2195,6 +2347,7 @@ def build_static_exam_pages(items: list[dict], template_path: Path, out_root: Pa
         if _obj:
             html = html.replace('<!-- exam-tabs -->', _obj_tabs, 1)
             html = html.replace('<!-- exam-objections -->', _obj, 1)
+        html = html.replace('<!-- exam-official -->', _off, 1)
         html = html.replace('<!-- exam-source -->', source_note_html(it), 1)
 
         # 최근 회차와 비교(그래프·비교표) — 등급컷 있는 지난 회차가 2개 이상일 때. 없으면 다른 회차 카드.

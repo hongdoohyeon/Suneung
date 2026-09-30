@@ -661,6 +661,12 @@ main { flex: 1 0 auto; width: 100%; }
 .exam-card__head { display: flex; align-items: center; gap: 8px; margin-bottom: 12px; }
 .exam-card__title { font-size: 14px; font-weight: 700; }
 .exam-card__head .exam-card__hint { margin-left: auto; font-size: 12px; }
+.dist-chart { display: block; width: 100%; height: auto; }
+.dist-bar { fill: var(--pop); }
+.dist-axis { stroke: var(--line-strong); stroke-width: 1; }
+.dist-tick { fill: var(--ink-4); font-size: 20px; }
+.exam-official__src { margin-top: 12px; font-size: 13px; color: var(--ink-4); }
+.exam-card + .exam-card { margin-top: 12px; }
 .exam-card__sub { font-size: 13.5px; color: var(--ink-4); }
 .grade-table { width: 100%; border-collapse: collapse; font-size: 14px; }
 .grade-table th { font-size: 12px; color: var(--ink-4); font-weight: 600; text-align: right; padding: 0 0 8px; }
