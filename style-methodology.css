@@ -56,3 +56,10 @@
 .mf-dot { fill: var(--ink-2); }
 .mf-dot--now { fill: var(--t4); }
 .post__src { margin: 8px 0 0; padding-left: 18px; font-size: 13.5px; line-height: 1.8; color: var(--ink-3); }
+
+/* 데이터 분석 글 — 다계열 선 그래프·막대 */
+.mf-line--1 { stroke: var(--t4); } .mf-dot--1 { fill: var(--t4); } .mf-txt--c1 { fill: var(--t4); font-weight: 700; }
+.mf-line--2 { stroke: var(--ink-3); } .mf-dot--2 { fill: var(--ink-3); } .mf-txt--c2 { fill: var(--ink-3); font-weight: 700; }
+.mf-bar { fill: var(--ink-4); opacity: .55; }
+.mf-bar--now { fill: var(--t4); opacity: 1; }
+.post__tablewrap { overflow-x: auto; }

@@ -158,12 +158,15 @@ def render_sitemaps(items: list[dict], hubs=None) -> None:
         f'  <url><loc>{base}/essay.html</loc><lastmod>{CONTENT_VERSION}</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>',
         f'  <url><loc>{base}/ged.html</loc><lastmod>{CONTENT_VERSION}</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>',
         f'  <url><loc>{base}/about.html</loc><lastmod>{today}</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>',
-        f'  <url><loc>{base}/blog-2027-sept-mock.html</loc><lastmod>{today}</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>',
         f'  <url><loc>{base}/blog.html</loc><lastmod>{today}</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>',
         f'  <url><loc>{base}/methodology.html</loc><lastmod>{today}</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>',
         f'  <url><loc>{base}/data-policy.html</loc><lastmod>{today}</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>',
         f'  <url><loc>{base}/calendar.html</loc><lastmod>{today}</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>',
     ]
+    for p in _blog_posts():
+        if p['file'].startswith('blog-'):
+            static_rows.append(f'  <url><loc>{base}/{p["file"]}</loc><lastmod>{p["date"]}</lastmod>'
+                               f'<changefreq>monthly</changefreq><priority>0.6</priority></url>')
     for h in (hubs or []):
         hub_mod = max((lastmod.get(e['id'], CONTENT_VERSION) for e in h.get('exams', [])), default=CONTENT_VERSION)
         static_rows.append(f'  <url><loc>{base}/{h["fname"]}</loc><lastmod>{hub_mod}</lastmod>'
@@ -974,6 +977,11 @@ def _replace_block(html: str, name: str, body: str) -> str:
 _HOME_SUBJECTS = ('국어', '수학', '영어', '한국사')
 
 
+def _blog_posts() -> list[dict]:
+    """data/blog-posts.json — 블로그·분석 글 목록(최신순). 홈 카드·블로그 목록·사이트맵이 함께 쓴다."""
+    return json.loads((ROOT / 'data' / 'blog-posts.json').read_text(encoding='utf-8'))
+
+
 def render_home(items: list[dict]) -> None:
     """index.html 의 '최근 시험'·'시험 종류' 블록을 정적으로 채운다 (JS 없이도 크롤·표시)."""
     esc = bd.html_escape
@@ -1049,11 +1057,23 @@ def render_home(items: list[dict]) -> None:
         f'<span><span class="cat-card__name">{name}</span><span class="cat-card__sub">{sub}</span></span>{arrow}</a>'
         for href, n, name, sub in cats) + '\n      </div>'
 
+    posts = _blog_posts()
+    home_posts = '      <div class="post-cards" aria-labelledby="postsTitle">\n' + '\n'.join(
+        f'        <a class="card-box post-card" href="{p["file"]}"><span class="post-card__tag">{esc(p["tag"], quote=False)}</span>'
+        f'<span class="post-card__title">{esc(p["title"], quote=False)}</span><span class="post-card__desc">{esc(p["desc"], quote=False)}</span></a>'
+        for p in posts[:3]) + '\n      </div>'
     path = ROOT / 'index.html'
     html = _compose_index(path.read_text(encoding='utf-8'), (ROOT / 'archive.html').read_text(encoding='utf-8'))
     html = _replace_block(html, 'latest-sets', latest_html)
     html = _replace_block(html, 'categories', cat_html)
+    html = _replace_block(html, 'home-posts', home_posts)
     path.write_text(html, encoding='utf-8')
+    blog = ROOT / 'blog.html'
+    blog.write_text(_replace_block(blog.read_text(encoding='utf-8'), 'blog-list', '\n'.join(
+        f'      <li class="blog-card">\n        <a href="{p["file"]}">\n          <span class="blog-card__tag">{esc(p["tag"], quote=False)}</span>\n'
+        f'          <h2 class="blog-card__title">{esc(p["title"], quote=False)}</h2>\n          <p class="blog-card__desc">{esc(p["desc"], quote=False)}</p>\n'
+        f'          <time class="blog-card__date" datetime="{p["date"]}">{int(p["date"][:4])}년 {int(p["date"][5:7])}월 {int(p["date"][8:])}일</time>\n        </a>\n      </li>'
+        for p in posts)), encoding='utf-8')
     print(f'  + index.html (기출검색 + 최근 시험 {len(cards)}개 · 시험 종류 {len(cats)}개)')
 
 
@@ -1076,6 +1096,11 @@ _HOME_MORE = """  <section class="container home-more" aria-label="최근 시험
       <div class="sec-head"><h2 id="catTitle">시험 종류</h2></div>
       <!-- categories:start (render-site.py 가 채움) -->
       <!-- categories:end -->
+    </div>
+    <div class="home-posts">
+      <div class="sec-head"><h2 id="postsTitle">블로그</h2><a class="sec-head__more" href="blog.html">전체 글</a></div>
+      <!-- home-posts:start (render-site.py 가 채움) -->
+      <!-- home-posts:end -->
     </div>
   </section>
 
