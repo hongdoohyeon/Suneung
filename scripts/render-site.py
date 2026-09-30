@@ -161,6 +161,7 @@ def render_sitemaps(items: list[dict], hubs=None) -> None:
         f'  <url><loc>{base}/blog-2027-sept-mock.html</loc><lastmod>{today}</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>',
         f'  <url><loc>{base}/blog.html</loc><lastmod>{today}</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>',
         f'  <url><loc>{base}/methodology.html</loc><lastmod>{today}</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>',
+        f'  <url><loc>{base}/data-policy.html</loc><lastmod>{today}</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>',
         f'  <url><loc>{base}/calendar.html</loc><lastmod>{today}</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>',
     ]
     for h in (hubs or []):
@@ -306,7 +307,7 @@ def _hub_page(fname: str, h1: str, title: str, desc: str, intro: str,
   <footer class="site-footer">
     <div class="container">
       <nav class="site-footer__links" aria-label="사이트 정보">
-        <a href="about.html">소개</a><a href="privacy.html">개인정보처리방침</a><a href="terms.html">이용약관</a><a href="sets.html">전체 회차</a><a href="methodology.html">난이도 기준</a><a href="about.html#contact">문의</a>
+        <a href="about.html">소개</a><a href="privacy.html">개인정보처리방침</a><a href="terms.html">이용약관</a><a href="sets.html">전체 회차</a><a href="methodology.html">난이도 기준</a><a href="blog.html">블로그</a><a href="data-policy.html">데이터 원칙</a><a href="about.html#contact">문의</a>
       </nav>
       <p class="site-footer__sub">출처 · 한국교육과정평가원 · 17개 시도교육청 · 각 대학 입학처 외. 저작권은 각 발행기관에 있으며 교육 목적으로만 이용할 수 있습니다.</p>
     </div>
@@ -690,7 +691,7 @@ def render_sets_directory(items: list[dict], essay_hubs=None, subject_hubs=None)
   <footer class="site-footer">
     <div class="container">
       <nav class="site-footer__links" aria-label="사이트 정보">
-        <a href="about.html">소개</a><a href="privacy.html">개인정보처리방침</a><a href="terms.html">이용약관</a><a href="sets.html">전체 회차</a><a href="methodology.html">난이도 기준</a><a href="about.html#contact">문의</a>
+        <a href="about.html">소개</a><a href="privacy.html">개인정보처리방침</a><a href="terms.html">이용약관</a><a href="sets.html">전체 회차</a><a href="methodology.html">난이도 기준</a><a href="blog.html">블로그</a><a href="data-policy.html">데이터 원칙</a><a href="about.html#contact">문의</a>
       </nav>
       <p class="site-footer__sub">출처 · 한국교육과정평가원 · 17개 시도교육청 · 각 대학 입학처 외. 저작권은 각 발행기관에 있으며 교육 목적으로만 이용할 수 있습니다.</p>
     </div>

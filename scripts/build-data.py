@@ -1576,6 +1576,44 @@ def related_cards_html(it: dict, rel: list[dict]) -> str:
             f'<h2 id="relTitle">다른 회차 {esc(name)}</h2></div><div class="rel-grid">{"".join(cards)}</div></section>')
 
 
+_PUBLISHERS = {
+    'suneung': ('한국교육과정평가원(KICE)', 'https://www.suneung.re.kr'),
+    'education': ('시·도교육청(전국연합학력평가)', 'https://www.sen.go.kr/user/bbs/BD_selectBbsList.do?q_bbsSn=1036'),
+    'military': ('육군·해군·공군사관학교', None),
+    'police': ('경찰대학', None),
+    'leet': ('법학전문대학원협의회(LEET)', 'https://www.leet.or.kr'),
+    'meet': ('의·치학교육입문검사 관리위원회(MEET)', None),
+    'essay': ('각 대학교 입학처', None),
+    'ged': ('시·도교육청(검정고시)', None),
+}
+
+
+def source_note_html(it: dict) -> str:
+    """상세 페이지 '자료 출처' 섹션 — 발행기관과 파일 보관 위치(URL 호스트로 판별 가능한 사실만)."""
+    pub = _PUBLISHERS.get(it.get('typeGroup'))
+    if not pub:
+        return ''
+    esc = lambda v: html_escape(str(v), quote=False)
+    name, url = pub
+    urls = [u for u in (it.get('questionUrl'), it.get('answerUrl'), it.get('solutionUrl')) if u]
+    if not urls:
+        return ''
+    hosts = {re.match(r'https?://([^/]+)', u).group(1) for u in urls if re.match(r'https?://([^/]+)', u)}
+    own = any(h.endswith('workers.dev') for h in hosts)
+    ext = sorted(h for h in hosts if not h.endswith('workers.dev'))
+    where = []
+    if own:
+        where.append('이 사이트가 보관한 사본')
+    if ext:
+        where.append('외부 서버 직접 링크(' + ', '.join(ext) + ')')
+    pub_html = f'<a href="{url}" rel="noopener" target="_blank">{esc(name)}</a>' if url else esc(name)
+    return ('<section class="exam-section exam-source" aria-labelledby="srcTitle"><div class="exam-section__head">'
+            '<h2 id="srcTitle">자료 출처</h2></div>'
+            f'<p>발행 기관: {pub_html}. 파일 위치: {esc(" · ".join(where))}. 저작권은 발행 기관에 있으며, '
+            '자료가 원본과 다르거나 게시 중단이 필요하면 <a href="about.html#contact">연락처</a>로 알려 주세요. '
+            '등급컷의 공식값과 입시기관 추정값 구분은 <a href="data-policy.html#cuts">데이터 원칙</a>을 참고하세요.</p></section>')
+
+
 _OBJECTIONS = None
 
 
@@ -2157,6 +2195,7 @@ def build_static_exam_pages(items: list[dict], template_path: Path, out_root: Pa
         if _obj:
             html = html.replace('<!-- exam-tabs -->', _obj_tabs, 1)
             html = html.replace('<!-- exam-objections -->', _obj, 1)
+        html = html.replace('<!-- exam-source -->', source_note_html(it), 1)
 
         # 최근 회차와 비교(그래프·비교표) — 등급컷 있는 지난 회차가 2개 이상일 때. 없으면 다른 회차 카드.
         _k = tier_series_key(it)
