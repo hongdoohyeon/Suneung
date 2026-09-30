@@ -195,7 +195,8 @@ if (essayReports2026.documents.some(document => !document.officialPage || !Numbe
   || document.pages < 1 || !/^[0-9a-f]{64}$/.test(document.sha256))) {
   errors.push('2026 공식 보고서 출처 메타데이터 누락');
 }
-if (latest2026Worker.some(e => !reportAssets.has(new URL(e.questionUrl).pathname.split('/').at(-1)))) {
+const isReportAsset = name => [...reportAssets].some(asset => name === asset || name.startsWith(`${asset.replace(/\.pdf$/, '')}_`));
+if (latest2026Worker.some(e => !isReportAsset(new URL(e.questionUrl).pathname.split('/').at(-1)))) {
   errors.push('essay-v20 URL과 공식 보고서 출처 자산 불일치');
 }
 const kangnamOfficial = essays.filter(e => e.source === 'kangnam-official');
