@@ -1753,7 +1753,7 @@ def suneung_dist_html(it: dict) -> str:
     mode = max(freq.items(), key=lambda kv: kv[1])[0]
     female = sum(v['female'] for v in dist.values())
     cells = [('응시자', f'{n:,}<small>명</small>'), ('표준점수 최고점', f'{max(freq)}'),
-             ('최고점 인원', f'{freq[max(freq)]:,}<small>명</small>'), ('여학생 비율', f'{female / n * 100:.1f}<small>%</small>')]
+             ('최고점 인원', f'{freq[max(freq)]:,}<small>명</small>'), ('성비 (남 : 여)', f'{(n - female) / n * 100:.1f} : {female / n * 100:.1f}')]
     svg = dist_svg(freq, f'{subj} 표준점수 분포')
     scope = f'{subj} 영역 전체 응시자 기준. ' if shared else ''
     body = _stat_cards(cells)
