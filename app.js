@@ -324,6 +324,42 @@ async function fetchFullData() {
   return data;
 }
 
+// 파일 주소는 첫 그리기 뒤에 따로 받아 목록에 합친다(목록 JSON 용량 152KB → 35KB). 합치면 한 번 더 그려 버튼 주소를 바꾼다.
+const URL_FIELDS = ['questionUrl', 'answerUrl', 'solutionUrl', 'listenUrl', 'scriptUrl', 'questionUrlEven'];
+const DL_FIELDS = ['questionDownload', 'answerDownload', 'solutionDownload', 'listenDownload'];
+const urlsLoaded = new Set();
+async function loadTabUrls(tab, list) {
+  if (urlsLoaded.has(tab) || !list.some(e => e.questionUrl === 1 || e.answerUrl === 1 || e.solutionUrl === 1)) return;
+  urlsLoaded.add(tab);
+  try {
+    const res = await fetch(`data/archive/${encodeURIComponent(tab)}.urls.json?v=${DATA_VERSION}`);
+    if (!res.ok) return;
+    const map = await res.json();
+    const byId = new Map();
+    for (const e of list) {
+      const row = map[e.id];
+      if (!row) continue;
+      URL_FIELDS.forEach((k, i) => { if (row[i]) e[k] = row[i]; });
+      DL_FIELDS.forEach((k, i) => { if (row[URL_FIELDS.length + i]) e[k] = row[URL_FIELDS.length + i]; });
+      byId.set(String(e.id), e);
+    }
+    if (state.exams !== list) return;
+    // 이미 그려진 버튼의 주소·내려받기 이름만 제자리에서 교체 — DOM 을 새로 만들지 않아 첫 화면 표시에 영향이 없다
+    const DL_OF = { questionUrl: 'questionDownload', answerUrl: 'answerDownload', solutionUrl: 'solutionDownload', listenUrl: 'listenDownload' };
+    document.querySelectorAll('a[data-f]').forEach(a => {
+      const e = byId.get(a.dataset.eid), key = a.dataset.f;
+      const url = e && typeof e[key] === 'string' ? safeUrl(e[key]) : '';
+      if (!url) return;
+      a.href = url;
+      const name = e[DL_OF[key]];
+      a.setAttribute('download', name || '');
+      a.removeAttribute('data-f');
+      if (key === 'solutionUrl' && e.questionUrl === e.solutionUrl) a.remove();              // 문제지와 해설이 한 파일이면 해설 버튼은 없앤다
+      if (key === 'questionUrl' && e.questionUrl === e.solutionUrl) a.textContent = '문제·해설';
+    });
+  } catch { /* 주소를 못 받아도 상세 페이지 링크로 쓸 수 있다 */ }
+}
+
 async function replaceExamsForTab(tab) {
   const requestId = ++dataRequestId;
   state.loading = true;
@@ -350,6 +386,8 @@ async function replaceExamsForTab(tab) {
   state.exams = data;
   state.loading = false;
   showSkeleton(false);
+  // 첫 그리기를 막지 않게 주소 파일은 한 박자 뒤에 받는다
+  setTimeout(() => loadTabUrls(tab, data), 0);
   return true;
 }
 
@@ -1008,15 +1046,21 @@ function scoreCells(e) {
   return { has: true, cut, tier: tierHtml, cutInline: `<span class="card__sub spoil-val">1컷 ${raw}</span>` };
 }
 
+// 목록 데이터에는 파일 주소 대신 "있음(1)" 표시만 들어 있다 — 실제 주소(.urls.json)가 도착하기 전에는 상세 페이지로 연결한다.
+const fileUrl = (exam, key) => exam[key] === 1 ? `exam-${exam.id}.html` : safeUrl(exam[key]);
+const dlAttr = (exam, key, name) => exam[key] === 1
+  ? `data-f="${key}" data-eid="${exam.id}"`   // 주소가 도착하면 loadTabUrls 가 이 링크만 제자리에서 바꾼다(다시 그리지 않음)
+  : (name ? `download="${escAttr(name)}"` : 'download');
+
 function actionsHTML(exam) {
   if (exam.searchOnly) return `<a class="btn btn--primary" href="exam-${exam.id}.html">자료 보기</a>`;
-  const dl = name => name ? `download="${escAttr(name)}"` : 'download';
   const out = [];
-  const q = safeUrl(exam.questionUrl), a = safeUrl(exam.answerUrl), s = safeUrl(exam.solutionUrl), l = safeUrl(exam.listenUrl);
-  if (q) out.push(`<a class="btn btn--primary" href="${escAttr(q)}" ${dl(exam.questionDownload)}>${q === s ? '문제·해설' : '문제지'}</a>`);
-  if (a) out.push(`<a class="btn" href="${escAttr(a)}" ${dl(exam.answerDownload)}>${exam.answerIncludesSolution ? '정답·해설' : '정답'}</a>`);
-  if (s && s !== q) out.push(`<a class="btn" href="${escAttr(s)}" ${dl(exam.solutionDownload)}>해설</a>`);
-  if (l) out.push(`<a class="btn" href="${escAttr(l)}" ${dl(exam.listenDownload)}>듣기</a>`);
+  const q = fileUrl(exam, 'questionUrl'), a = fileUrl(exam, 'answerUrl'), s = fileUrl(exam, 'solutionUrl'), l = fileUrl(exam, 'listenUrl');
+  const sameQS = typeof exam.questionUrl === 'string' && exam.questionUrl === exam.solutionUrl;
+  if (q) out.push(`<a class="btn btn--primary" href="${escAttr(q)}" ${dlAttr(exam, 'questionUrl', exam.questionDownload)}>${sameQS ? '문제·해설' : '문제지'}</a>`);
+  if (a) out.push(`<a class="btn" href="${escAttr(a)}" ${dlAttr(exam, 'answerUrl', exam.answerDownload)}>${exam.answerIncludesSolution ? '정답·해설' : '정답'}</a>`);
+  if (s && !sameQS) out.push(`<a class="btn" href="${escAttr(s)}" ${dlAttr(exam, 'solutionUrl', exam.solutionDownload)}>해설</a>`);
+  if (l) out.push(`<a class="btn" href="${escAttr(l)}" ${dlAttr(exam, 'listenUrl', exam.listenDownload)}>듣기</a>`);
   return out.join('');
 }
 
@@ -1150,19 +1194,18 @@ function cardHTML(exam, idx = 0) {
     : '';
   const score = scoreCells(exam);
 
-  const dl = name => name ? `download="${escAttr(name)}"` : 'download';
-  const qUrl = safeUrl(exam.questionUrl);
-  const aUrl = safeUrl(exam.answerUrl);
-  const sUrl = safeUrl(exam.solutionUrl);
+  const qUrl = fileUrl(exam, 'questionUrl');
+  const aUrl = fileUrl(exam, 'answerUrl');
+  const sUrl = fileUrl(exam, 'solutionUrl');
   const qBtn = qUrl
-    ? `<a class="btn btn--primary" href="${escAttr(qUrl)}" ${dl(exam.questionDownload)}>문제지</a>`
+    ? `<a class="btn btn--primary" href="${escAttr(qUrl)}" ${dlAttr(exam, 'questionUrl', exam.questionDownload)}>문제지</a>`
     : '';
   const aBtn = aUrl
-    ? `<a class="btn" href="${escAttr(aUrl)}" ${dl(exam.answerDownload)}>${exam.answerIncludesSolution ? '정답·해설' : '정답'}</a>`
+    ? `<a class="btn" href="${escAttr(aUrl)}" ${dlAttr(exam, 'answerUrl', exam.answerDownload)}>${exam.answerIncludesSolution ? '정답·해설' : '정답'}</a>`
     : '';
   // 제공되지 않는 자료는 비활성 버튼 대신 숨긴다.
   const sBtn = sUrl
-    ? `<a class="btn" href="${escAttr(sUrl)}" ${dl(exam.solutionDownload)}>해설</a>`
+    ? `<a class="btn" href="${escAttr(sUrl)}" ${dlAttr(exam, 'solutionUrl', exam.solutionDownload)}>해설</a>`
     : '';
 
   const delay = `${Math.min(idx * 28, 220)}ms`;

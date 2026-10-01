@@ -11,6 +11,7 @@ build-data.py(DB 인제스트, 단독 실행 금지)와 달리 이 스크립트�
 
 exams.json 을 수정했으면 이 스크립트 한 번으로 사이트 전체가 동기화된다.
 """
+import collections
 import datetime
 import importlib.util
 import json
@@ -251,7 +252,7 @@ def _hub_page(fname: str, h1: str, title: str, desc: str, intro: str,
   <meta name="twitter:image" content="https://kicegg.com/og-image.png" />
   <script type="application/ld+json">{ld}</script>
   <title>{bd.html_escape(title, quote=True)}</title>
-  <link rel="stylesheet" href="lib/vendor/pretendard/pretendardvariable-dynamic-subset.css" />
+  <noscript><link rel="stylesheet" href="lib/vendor/pretendard/pretendardvariable-dynamic-subset.css" /></noscript>
   <link rel="stylesheet" href="style.css?v=20260727a" />
   <script src="lib/site-prefs.js"></script>
 </head>
@@ -636,7 +637,7 @@ def render_sets_directory(items: list[dict], essay_hubs=None, subject_hubs=None)
   <meta name="twitter:image" content="https://kicegg.com/og-image.png" />
   <script type="application/ld+json">{jsonld_block}</script>
   <title>전체 회차 목록 — 기출해체분석기</title>
-  <link rel="stylesheet" href="lib/vendor/pretendard/pretendardvariable-dynamic-subset.css" />
+  <noscript><link rel="stylesheet" href="lib/vendor/pretendard/pretendardvariable-dynamic-subset.css" /></noscript>
   <link rel="stylesheet" href="style.css?v=20260727a" />
   <script src="lib/site-prefs.js"></script>
 </head>
@@ -737,17 +738,36 @@ def render_archive_splits(items: list[dict]) -> None:
     expected_ids = {it['id'] for it in items if it.get('typeGroup') != 'reference'}
     written = 0
 
-    def archive_item(it: dict) -> dict:
-        compact = dict(it)
-        for url_key, download_key in (
-            ('questionUrl', 'questionDownload'),
-            ('answerUrl', 'answerDownload'),
-            ('solutionUrl', 'solutionDownload'),
-        ):
-            url = compact.get(url_key)
-            if url and dict(parse_qsl(urlsplit(url).query)).get('name'):
-                compact.pop(download_key, None)
-        return compact
+    # 목록(첫 화면)에는 파일 주소를 싣지 않는다 — 긴 URL 이 용량의 대부분(압축 후 152KB → 35KB).
+    # 있다는 표시(1)와 중복 판별용 questionKey 만 넣고, 실제 주소·내려받기 이름은 {tab}.urls.json 에서 첫 그리기 뒤에 받는다.
+    url_keys = ('questionUrl', 'answerUrl', 'solutionUrl', 'listenUrl', 'scriptUrl', 'questionUrlEven')
+    dl_keys = ('questionDownload', 'answerDownload', 'solutionDownload', 'listenDownload')
+    keep = {'id', 'curriculum', 'gradeYear', 'examYear', 'month', 'studentGrade', 'typeGroup', 'type',
+            'subject', 'subSubject', 'answerIncludesSolution'}
+    urls_by_tab: dict[str, dict] = {}
+    shared_q: dict = {}
+    for it in items:
+        if it.get('questionUrl'):
+            shared_q[it['questionUrl']] = shared_q.get(it['questionUrl'], 0) + 1
+    shared_q = collections.defaultdict(int, shared_q)
+
+    def archive_item(it: dict, tab: str) -> dict:
+        slim = {k: v for k, v in it.items() if k in keep}
+        for k in url_keys:
+            if it.get(k):
+                slim[k] = 1
+        if it.get('questionUrl') and shared_q[it['questionUrl']] > 1:   # 같은 시험지를 여러 영역이 공유하는 경우만(검색 결과 중복 제거용)
+            slim['questionKey'] = hashlib.sha256(it['questionUrl'].encode()).hexdigest()[:12]
+        row = [it.get(k) for k in url_keys]
+        for url_key, dk in zip(('questionUrl', 'answerUrl', 'solutionUrl', 'listenUrl'), dl_keys):
+            url = it.get(url_key)
+            named = bool(url and dict(parse_qsl(urlsplit(url).query)).get('name'))
+            row.append(None if named else it.get(dk))
+        while row and row[-1] is None:
+            row.pop()
+        if row:
+            urls_by_tab.setdefault(tab, {})[str(it['id'])] = row
+        return slim
 
     for tab, rule in ARCHIVE_TAB_RULES.items():
         selected = []
@@ -758,7 +778,7 @@ def render_archive_splits(items: list[dict]) -> None:
                 continue
             if it.get('typeGroup') == 'education' and it.get('studentGrade') != rule.get('education_grade'):
                 continue
-            selected.append(archive_item(it))
+            selected.append(archive_item(it, tab))
             previous = assigned.setdefault(it['id'], tab)
             if previous != tab:
                 raise RuntimeError(f'archive split 중복 id={it["id"]}: {previous}, {tab}')
@@ -767,6 +787,11 @@ def render_archive_splits(items: list[dict]) -> None:
         path = out_dir / f'{tab}.json'
         if not path.exists() or path.read_text(encoding='utf-8') != body:
             path.write_text(body, encoding='utf-8')
+            written += 1
+        ubody = json.dumps(urls_by_tab.get(tab, {}), ensure_ascii=False, separators=(',', ':')) + '\n'
+        upath = out_dir / f'{tab}.urls.json'
+        if not upath.exists() or upath.read_text(encoding='utf-8') != ubody:
+            upath.write_text(ubody, encoding='utf-8')
             written += 1
 
     missing = sorted(expected_ids - set(assigned))
@@ -788,8 +813,8 @@ def render_archive_splits(items: list[dict]) -> None:
         entry['searchOnly'] = True
         entry['hasFiles'] = any(item.get(k) for k in ('questionUrl', 'answerUrl', 'solutionUrl'))
         entry['hasListening'] = bool(item.get('listenUrl') or item.get('scriptUrl'))
-        if item.get('questionUrl'):
-            entry['questionKey'] = hashlib.sha256(item['questionUrl'].encode()).hexdigest()[:24]
+        if item.get('questionUrl') and shared_q[item['questionUrl']] > 1:
+            entry['questionKey'] = hashlib.sha256(item['questionUrl'].encode()).hexdigest()[:12]
         index.append(entry)
     (out_dir / 'all.json').write_text(json.dumps(index, ensure_ascii=False, separators=(',', ':')) + '\n', encoding='utf-8')
 
@@ -799,7 +824,8 @@ def render_archive_splits(items: list[dict]) -> None:
                   for i, r in sorted(scores.items()) if r['raw'] is not None}
     (out_dir / 'cuts.json').write_text(json.dumps(cuts_index, ensure_ascii=False, separators=(',', ':')) + '\n', encoding='utf-8')
 
-    valid_names = {f'{tab}.json' for tab in ARCHIVE_TAB_RULES} | {'all.json', 'cuts.json'}
+    valid_names = ({f'{tab}.json' for tab in ARCHIVE_TAB_RULES} | {f'{tab}.urls.json' for tab in ARCHIVE_TAB_RULES}
+                   | {'all.json', 'cuts.json'})
     pruned = 0
     for path in out_dir.glob('*.json'):
         if path.name not in valid_names:

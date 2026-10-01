@@ -2225,6 +2225,9 @@ def build_static_exam_pages(items: list[dict], template_path: Path, out_root: Pa
                                 f'<div class="preview__viewer" id="previewQViewer" data-preview="{_pv}">', 1)
             html = html.replace('</head>', f'  <link rel="preload" as="image" href="{_pv}" fetchpriority="high" />\n</head>', 1)
 
+        # exam.js 가 곧 받을 상세 JSON 을 head 에서 먼저 요청(모듈 로딩을 기다리지 않음)
+        html = html.replace('</head>', f'  <link rel="preload" as="fetch" crossorigin href="data/exam/{it["id"]}.json?v=20260801a" />\n</head>', 1)
+
         # JSON-LD: </head> 직전 한 번만 삽입
         html = html.replace('</head>', '  ' + ld_block + '</head>', 1)
 

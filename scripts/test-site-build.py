@@ -106,8 +106,11 @@ class BuildTests(unittest.TestCase):
                 render.ROOT = Path(tmp)
                 render.render_archive_splits(items)
                 entry = json.loads((render.ROOT / 'data/archive/senior.json').read_text())[0]
+                # 목록에는 주소 대신 있음 표시(1)만, 실제 주소는 senior.urls.json
+                self.assertEqual(entry['questionUrl'], 1)
                 self.assertNotIn('questionDownload', entry)
-                self.assertEqual(entry['questionUrl'], items[0]['questionUrl'])
+                urls = json.loads((render.ROOT / 'data/archive/senior.urls.json').read_text())
+                self.assertEqual(urls['1'][0], items[0]['questionUrl'])
             finally:
                 render.ROOT = source
 

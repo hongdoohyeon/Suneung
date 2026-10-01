@@ -1183,3 +1183,13 @@ body.pv-lock { overflow: hidden; }
 .exam-card__body > .grade-table { max-width: 760px; }
 .stats { grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); }
 @media (max-width: 720px) { .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+/* 터치 기기: 누르는 영역을 키운다(권장 44px) */
+@media (pointer: coarse) {
+  .icon-btn { min-width: 44px; min-height: 44px; }
+  .rrow .btn, .card .btn { min-height: 42px; }
+  .pill { min-height: 40px; }
+  .latest-card { position: relative; }
+  .latest-card__title a::after { content: ""; position: absolute; inset: 0; }   /* 카드 전체를 누를 수 있게 */
+  .latest-card .subj-links { position: relative; z-index: 1; }
+}

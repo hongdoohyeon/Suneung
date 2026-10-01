@@ -64,11 +64,13 @@ def line_chart(label, years, series, lo, hi, step, divider=None, note=""):
         xd = (X(years.index(divider)) + X(years.index(divider) + 1)) / 2
         b.append(f'<line class="mf-grid" x1="{xd:.1f}" y1="{T - 6}" x2="{xd:.1f}" y2="{H - B}" stroke-dasharray="4 3"/>')
     for k, (name, data, n) in enumerate(series):
-        pts = [(X(i), Y(data[y]), data[y]) for i, y in enumerate(years) if y in data]
-        b.append(f'<polyline class="mf-line mf-line--{n}" points="' + " ".join(f"{x:.1f},{yy:.1f}" for x, yy, _ in pts) + '"/>')
-        for x, yy, v in pts:
+        pts = [(X(i), Y(data[y]), data[y], y) for i, y in enumerate(years) if y in data]
+        b.append(f'<polyline class="mf-line mf-line--{n}" points="' + " ".join(f"{x:.1f},{yy:.1f}" for x, yy, _, _ in pts) + '"/>')
+        for x, yy, v, y in pts:
             b.append(f'<circle class="mf-dot mf-dot--{n}" cx="{x:.1f}" cy="{yy:.1f}" r="3.6"/>')
-            b.append(txt(x, yy - 9 if n == 1 else yy + 17, v, f"mf-txt mf-txt--sm mf-txt--c{n}"))
+            others = [d[y] for nm, d, m in series if m != n and y in d]
+            above = (not others) or v >= max(others) if len(series) > 1 else True   # 같은 해에 값이 더 큰 쪽 라벨은 위, 작은 쪽은 아래
+            b.append(txt(x, yy - 9 if above else yy + 17, v, f"mf-txt mf-txt--sm mf-txt--c{n}"))
         b.append(f'<circle class="mf-dot mf-dot--{n}" cx="{L + 8}" cy="{12 + k * 16}" r="4"/>' + txt(L + 16, 16 + k * 16, name, "mf-txt", "start"))
     if note:
         b.append(txt(W / 2, H - 4, note, "mf-txt mf-txt--sm"))

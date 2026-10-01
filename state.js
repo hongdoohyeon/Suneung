@@ -671,7 +671,7 @@ export function filtered() {
     const seen = new Set();
     const out = [];
     for (const e of items) {
-      const u = e.questionUrl || e.questionKey;
+      const u = e.questionKey || (typeof e.questionUrl === 'string' ? e.questionUrl : null);
       if (u && seen.has(u)) continue;
       if (u) seen.add(u);
       out.push(e);
