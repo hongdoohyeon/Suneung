@@ -51,7 +51,7 @@ def txt(x, y, t, cls="mf-txt", anchor="middle"):
 
 def line_chart(label, years, series, lo, hi, step, divider=None, note=""):
     """series: [(이름, {년: 값}, 클래스번호)]. 선은 값이 있는 해끼리만 잇는다."""
-    W, H, L, R, T, B = 680, 300, 44, 20, 34, 40
+    W, H, L, R, T, B = 480, 300, 40, 14, 34, 40
     X = lambda i: L + i * (W - L - R) / (len(years) - 1)
     Y = lambda v: T + (H - T - B) * (1 - (v - lo) / (hi - lo))
     b = []
@@ -69,14 +69,14 @@ def line_chart(label, years, series, lo, hi, step, divider=None, note=""):
         for x, yy, v in pts:
             b.append(f'<circle class="mf-dot mf-dot--{n}" cx="{x:.1f}" cy="{yy:.1f}" r="3.6"/>')
             b.append(txt(x, yy - 9 if n == 1 else yy + 17, v, f"mf-txt mf-txt--sm mf-txt--c{n}"))
-        b.append(f'<circle class="mf-dot mf-dot--{n}" cx="{L + 8 + k * 110}" cy="14" r="4"/>' + txt(L + 16 + k * 110, 18, name, "mf-txt", "start"))
+        b.append(f'<circle class="mf-dot mf-dot--{n}" cx="{L + 8}" cy="{12 + k * 16}" r="4"/>' + txt(L + 16, 16 + k * 16, name, "mf-txt", "start"))
     if note:
         b.append(txt(W / 2, H - 4, note, "mf-txt mf-txt--sm"))
     return f'<div>{svg(W, H, label, "".join(b))}</div>'
 
 
 def bar_chart(label, data, lo_label_years, unit_fmt):
-    W, H, L, R, T, B = 680, 280, 44, 16, 26, 34
+    W, H, L, R, T, B = 480, 280, 40, 12, 26, 34
     ys = sorted(data)
     mx = max(data.values())
     top_v = (mx // 100000 + 1) * 100000
@@ -99,7 +99,7 @@ def bar_chart(label, data, lo_label_years, unit_fmt):
 
 def share_chart(label, rows, names):
     """rows: [(라벨, [값...])] — 각 행을 100% 가로 막대로."""
-    W, L, R = 680, 60, 16
+    W, L, R = 480, 50, 12
     rh = 44
     H = 30 + rh * len(rows) + 30
     b = []
@@ -128,7 +128,7 @@ def table(head, rows, cls="method__table"):
 
 
 def fig(inner, caption):
-    return f'<figure class="method__fig">\n        {inner}\n        <figcaption>{caption}</figcaption>\n      </figure>'
+    return f'<figure class="method__fig method__fig--chart">\n        {inner}\n        <figcaption>{caption}</figcaption>\n      </figure>'
 
 
 def fmt(n):

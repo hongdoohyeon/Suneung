@@ -63,3 +63,8 @@
 .mf-bar { fill: var(--ink-4); opacity: .55; }
 .mf-bar--now { fill: var(--t4); opacity: 1; }
 .post__tablewrap { overflow-x: auto; }
+.post__tablewrap { -webkit-overflow-scrolling: touch; }
+.post__tablewrap .method__table { min-width: 600px; white-space: nowrap; }
+.method__fig--chart svg { min-width: 0; max-width: 600px; margin: 0 auto; }
+.method__fig--chart .mf-txt { font-size: 13px; }
+.method__fig--chart .mf-txt--sm { font-size: 12px; }

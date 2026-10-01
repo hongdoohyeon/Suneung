@@ -1675,7 +1675,8 @@ def dist_svg(freq: dict, label: str) -> str:
         f'width="{max(bw - 0.6, 0.6):.2f}" height="{(H - B - 8) * v / peak:.2f}"/>' for sc, v in pts)
     mode = max(pts, key=lambda p: p[1])[0]
     ticks = ''.join(
-        f'<text class="dist-tick" x="{L + (t - lo + .5) * bw:.1f}" y="{H - 8}" text-anchor="middle">{t}</text>'
+        f'<text class="dist-tick" x="{L + (t - lo + .5) * bw:.1f}" y="{H - 8}" '
+        f'text-anchor="{"start" if t == lo else "end" if t == hi else "middle"}">{t}</text>'
         for t in sorted({lo, mode, hi}))
     return (f'<svg class="dist-chart" viewBox="0 0 {W} {H}" role="img" aria-label="{html_escape(label)}">'
             f'<line class="dist-axis" x1="{L}" y1="{H - B}" x2="{W - L}" y2="{H - B}"/>{bars}{ticks}</svg>')
