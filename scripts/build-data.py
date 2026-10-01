@@ -966,7 +966,7 @@ def build_exam_meta(it: dict, has_cut: bool = True) -> dict:
         else:
             intro = f'{full_phrase} 기출 자료입니다.'
         if tg not in ('ged', 'essay', 'reference'):
-            intro += ' 공개된 등급컷이 있으면 등급별 원점수·표준점수와 역대 대비 난이도를 함께 보여 줍니다.'
+            intro += ' 공개된 등급컷이 있으면 등급별 점수와 역대 회차 대비 난이도도 함께 볼 수 있습니다.'
 
     # JSON-LD keywords 배열 — 핵심어만(스터핑 방지): 제목·과목·대표 별칭 3개 + 자료유형 키워드
     kw = list(dict.fromkeys(
@@ -1459,36 +1459,44 @@ def exam_insight_html(it: dict, series: list[dict], scores: dict) -> str:
     val = sc.get('ratio') if ratio_mode else (None if sc.get('abs') else sc.get('raw'))
     if val is None:
         return ''
-    unit, what = ('%', '1등급 비율') if ratio_mode else ('점', '1등급컷(원점수)')
+    unit, what = ('%', '1등급 비율') if ratio_mode else ('점', '1등급컷은 원점수')
     metric = lambda x: (scores.get(x['id']) or {}).get('ratio' if ratio_mode else 'raw')
     pts = [x for x in series if metric(x) is not None]
     cur_key = _exam_sort_key(it)
     past = [x for x in pts if x['id'] != it['id'] and _exam_sort_key(x) < cur_key]
     sv = lambda v: f'<span class="spoil-val">{html_escape(str(v), quote=False)}{unit}</span>'
     fmt = lambda v: (f'{v:.2f}'.rstrip('0').rstrip('.') if isinstance(v, float) else v)
-    out = [f'이 시험의 {what}은 {sv(fmt(val))}입니다.']
+    josa = '로' if unit == '%' else '으로'
     vals = sorted({metric(x) for x in pts}, reverse=True)
+    rank = ''
     if len(pts) >= 5:
         higher = sum(1 for x in pts if metric(x) > val)
         n = len(pts)
         if higher < n / 2:
-            out.append(f'같은 과목 역대 {n}회 가운데 <span class="spoil-val">{"가장" if higher == 0 else f"{higher + 1}번째로"} 높습니다</span>.')
+            rank = f'같은 과목 역대 {n}회 가운데 <span class="spoil-val">{"가장" if higher == 0 else f"{higher + 1}번째로"} 높습니다</span>.'
         else:
             lower = sum(1 for x in pts if metric(x) < val)
-            out.append(f'같은 과목 역대 {n}회 가운데 <span class="spoil-val">{"가장" if lower == 0 else f"{lower + 1}번째로"} 낮습니다</span>.')
+            rank = f'같은 과목 역대 {n}회 가운데 <span class="spoil-val">{"가장" if lower == 0 else f"{lower + 1}번째로"} 낮습니다</span>.'
+    subject_word = '이 시험의 ' + ('1등급 비율은 ' if ratio_mode else '1등급컷은 원점수 ')
+    out = [f'{subject_word}{sv(fmt(val))}{josa}, {rank}' if rank else f'{subject_word}{sv(fmt(val))}입니다.']
+    tier_joined = False
     if past:
         prev = past[-1]; d = round(val - metric(prev), 2)
         lab = (f"{prev.get('examYear')}년 {prev.get('month')}월" if prev.get('typeGroup') == 'education' and prev.get('examYear')
                else f"{prev.get('gradeYear')}학년도 {KOREAN_TYPE_LABEL.get(prev.get('type'), '')}".strip())
+        L = html_escape(lab, quote=False)
+        has_tier = bool(sc.get('tier'))
         if d:
-            out.append(f'직전 회차({html_escape(lab, quote=False)})보다 <span class="spoil-val">{fmt(abs(d))}{unit} {"높고" if d > 0 else "낮고"}</span>,'
-                       if sc.get('tier') else f'직전 회차({html_escape(lab, quote=False)})보다 <span class="spoil-val">{fmt(abs(d))}{unit} {"높습니다" if d > 0 else "낮습니다"}</span>.')
+            word = ('올랐' if d > 0 else '내렸')
+            out.append(f'직전 회차({L})보다 <span class="spoil-val">{fmt(abs(d))}{unit}</span> {word}{"고," if has_tier else "습니다."}')
         else:
-            out.append(f'직전 회차({html_escape(lab, quote=False)})와 같{"고," if sc.get("tier") else "습니다."}')
+            out.append(f'직전 회차({L})와 같{"았고," if has_tier else "습니다."}')
+        tier_joined = has_tier
     if sc.get('tier'):
         _tl = TIER_LABELS[sc['tier']]
-        out.append(f'역대 대비 난이도는 <span class="spoil-val">{_tl}</span>{"으로" if _has_batchim(_tl) else "로"} 분류됩니다'
-                   f' (<a href="methodology.html#tiers">산정 기준</a>).')
+        lead = '난이도는' if tier_joined else '역대 회차와 견준 난이도는'
+        out.append(f'{lead} <span class="spoil-val">「{_tl}」</span>{"으로" if _has_batchim(_tl) else "로"} 분류됩니다'
+                   f'(<a href="methodology.html#tiers">산정 기준</a>).')
     if sc.get('top') and not ratio_mode:
         out.append(f'표준점수 최고점은 <span class="spoil-val">{sc["top"]}점</span>입니다.')
     # '…높고,' 로 끝난 문장 뒤에 난이도 문장이 이어지도록 공백으로 합친다
@@ -1546,7 +1554,7 @@ def compare_html(it: dict, series: list[dict], scores: dict, with_toggle: bool =
     if with_toggle:
         toggle = ('<button type="button" class="switch" role="switch" aria-checked="true" data-spoiler-toggle>'
                   '스포일러 방지<span class="switch__knob" aria-hidden="true"></span></button>')
-        note = ('<p class="spoil-note"><span>지난 회차의 <b>등급컷 · 표준점수 · 난이도</b>를 흐리게 가려 뒀어요.</span>'
+        note = ('<p class="spoil-note"><span>지난 회차의 <b>등급컷·표준점수·난이도</b>는 흐리게 가려 뒀어요.</span>'
                 '<button type="button" class="btn btn--sm btn--primary" data-spoiler-off>결과 보기</button></p>')
     return (
         f'<section class="exam-section compare" id="examCompare" data-metric="{metrics[0][0]}" aria-labelledby="cmpTitle">'
@@ -1609,9 +1617,9 @@ def source_note_html(it: dict) -> str:
     pub_html = f'<a href="{url}" rel="noopener" target="_blank">{esc(name)}</a>' if url else esc(name)
     return ('<section class="exam-section exam-source" aria-labelledby="srcTitle"><div class="exam-section__head">'
             '<h2 id="srcTitle">자료 출처</h2></div>'
-            f'<p>발행 기관: {pub_html}. 파일 위치: {esc(" · ".join(where))}. 저작권은 발행 기관에 있으며, '
-            '자료가 원본과 다르거나 게시 중단이 필요하면 <a href="about.html#contact">연락처</a>로 알려 주세요. '
-            '등급컷의 공식값과 입시기관 추정값 구분은 <a href="data-policy.html#cuts">데이터 원칙</a>을 참고하세요.</p></section>')
+            f'<p>발행 기관: {pub_html}. 파일 위치: {esc(" · ".join(where))}. 저작권은 발행 기관에 있습니다. '
+            '원본과 다르거나 게시 중단이 필요하면 <a href="about.html#contact">연락처</a>로 알려 주세요. '
+            '등급컷 출처 구분은 <a href="data-policy.html#cuts">데이터 원칙</a>에서 설명합니다.</p></section>')
 
 
 # ── 공식 채점 통계 — 시·도교육청 학평 통계(data/edu-official.json)와 평가원 표준점수 도수분포 ──────────────
@@ -1619,7 +1627,7 @@ _EDU_OFFICIAL = None
 _SCORE_DISTS = None
 _SPOIL_NOTE = ('<p class="spoil-note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">'
                '<path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></svg>'
-               '<span>시험지를 먼저 풀어보세요. 점수와 인원 수치를 흐리게 가려 뒀어요.</span>'
+               '<span>시험지를 먼저 풀어 보세요. 점수와 인원 수치는 흐리게 가려 뒀어요.</span>'
                '<button type="button" class="btn btn--sm btn--primary" data-spoiler-off>결과 보기</button></p>')
 
 
@@ -1714,12 +1722,12 @@ def edu_official_html(it: dict) -> str:
         kind = '표준점수' if cuts[0][2] == 's' else '원점수'
         rows = ''.join(f'<tr><td>{g}</td><td>{sc:g}</td><td class="is-muted">{f"{n:,}" if n is not None else "—"}</td>'
                        f'<td class="is-muted">{f"{r:g}%" if r is not None else "—"}</td></tr>' for g, sc, _, n, r in cuts)
-        scope = f'{subj} 영역 전체 응시자 기준 · ' if shared else ''
+        scope = f'{subj} 영역 전체 응시자 기준이에요.' if shared else ''
         body += ('<section class="exam-card"><header class="exam-card__head"><h3 class="exam-card__title">등급 구분 점수와 인원</h3></header>'
                  '<div class="exam-card__body"><table class="grade-table"><thead><tr><th scope="col">등급</th>'
                  f'<th scope="col">{kind} 이상</th><th scope="col">인원(명)</th><th scope="col">비율</th></tr></thead>'
                  f'<tbody class="spoil-val">{rows}</tbody></table>'
-                 f'<p class="grade-table__legend">{scope}시·도교육청 공개 자료</p></div></section>')
+                 f'<p class="grade-table__legend">{scope or "시·도교육청 공개 자료"}</p></div></section>')
     if freq:
         svg = dist_svg(freq, f'{it["subject"]} 표준점수 분포')
         if svg:
@@ -1728,9 +1736,9 @@ def edu_official_html(it: dict) -> str:
     if not body:
         return ''
     src = exam.get('src', '')
-    link = f' <a href="{src}" rel="noopener" target="_blank">공개 자료 페이지</a>' if src.startswith('https://') else ''
-    body += (f'<p class="exam-official__src">출처: 시·도교육청이 공개한 전국연합학력평가 성적 분석 및 통계자료.{link}</p>')
-    return _official_section('시·도교육청 공식 통계', body)
+    link = f'(<a href="{src}" rel="noopener" target="_blank">공개 자료 보기</a>)' if src.startswith('https://') else ''
+    body += (f'<p class="exam-official__src">출처: 시·도교육청이 공개한 전국연합학력평가 성적 분석·통계자료{link}.</p>')
+    return _official_section('교육청 공식 통계', body)
 
 
 def suneung_dist_html(it: dict) -> str:
@@ -1755,14 +1763,14 @@ def suneung_dist_html(it: dict) -> str:
     cells = [('응시자', f'{n:,}<small>명</small>'), ('표준점수 최고점', f'{max(freq)}'),
              ('최고점 인원', f'{freq[max(freq)]:,}<small>명</small>'), ('성비 (남 : 여)', f'{(n - female) / n * 100:.1f} : {female / n * 100:.1f}')]
     svg = dist_svg(freq, f'{subj} 표준점수 분포')
-    scope = f'{subj} 영역 전체 응시자 기준. ' if shared else ''
+    scope = f'{subj} 영역 전체 응시자 기준입니다. ' if shared else ''
     body = _stat_cards(cells)
     if svg:
         body += ('<section class="exam-card"><header class="exam-card__head"><h3 class="exam-card__title">표준점수 분포</h3>'
                  f'<span class="exam-card__hint">가장 많은 점수 {mode}점</span></header>'
                  f'<div class="exam-card__body spoil-val">{svg}</div></section>')
-    body += (f'<p class="exam-official__src">{scope}한국교육과정평가원이 교육부 보도자료로 공개한 표준점수 도수분포에서 계산했습니다.</p>')
-    return _official_section('공개 점수 분포', body)
+    body += (f'<p class="exam-official__src">{scope}한국교육과정평가원이 교육부 보도자료로 공개한 표준점수 도수분포로 계산했습니다.</p>')
+    return _official_section('점수 분포', body)
 
 
 _OBJECTIONS = None
@@ -2207,8 +2215,14 @@ def build_static_exam_pages(items: list[dict], template_path: Path, out_root: Pa
         # 흐린 표지 = 이 시험지 1쪽 (scripts/material-audit/extract.mjs 가 만든 previews/{h}.jpg 가 있을 때만)
         _pv = preview_image_path(it.get('questionUrl'), out_root)
         if _pv:
+            # 표지 이미지를 HTML 에 직접 넣고 우선 로드한다(JS 가 만들면 LCP 가 1~2초 늦어짐). 버튼은 exam.js 가 붙인다.
+            html = html.replace('<div class="preview__viewer" id="previewQViewer">\n            <div class="preview__skeleton" aria-hidden="true"></div>',
+                                f'<div class="preview__viewer" id="previewQViewer" data-preview="{_pv}">\n            '
+                                f'<div class="preview__loading"><img class="preview__loading-image" src="{_pv}" alt="" aria-hidden="true" '
+                                f'fetchpriority="high" decoding="async" /></div>', 1)
             html = html.replace('<div class="preview__viewer" id="previewQViewer">',
                                 f'<div class="preview__viewer" id="previewQViewer" data-preview="{_pv}">', 1)
+            html = html.replace('</head>', f'  <link rel="preload" as="image" href="{_pv}" fetchpriority="high" />\n</head>', 1)
 
         # JSON-LD: </head> 직전 한 번만 삽입
         html = html.replace('</head>', '  ' + ld_block + '</head>', 1)
@@ -2322,6 +2336,8 @@ def build_static_exam_pages(items: list[dict], template_path: Path, out_root: Pa
                                 + _note.read_text(encoding='utf-8').strip() + '</section>', 1)
 
         _off = edu_official_html(it) or suneung_dist_html(it)
+        if sc is not None:   # 등급컷 섹션에 이미 스포일러 안내가 있으면 중복 표시하지 않는다(결과 보기 버튼은 전역 설정)
+            _off = _off.replace(_SPOIL_NOTE, '')
         if sc is None and not _off:   # 등급컷·공식 통계 등 고유 정보가 없는 얇은 페이지 — 광고 슬롯을 렌더하지 않는다(lib/ads.js)
             html = html.replace('<body class="page-exam">', '<body class="page-exam" data-no-ads>', 1)
 
@@ -2335,7 +2351,7 @@ def build_static_exam_pages(items: list[dict], template_path: Path, out_root: Pa
                                 + '" id="gradeDist" aria-labelledby="gradeDistTitle">', 1)
             if sc['abs']:
                 _t = '등급 기준 · 1등급 비율' if sc.get('ratio') is not None else '등급 기준 · 절대평가'
-                html = html.replace('<h2 id="gradeDistTitle">등급컷 · 난이도</h2>', f'<h2 id="gradeDistTitle">{_t}</h2>', 1)
+                html = html.replace('<h2 id="gradeDistTitle">등급컷과 난이도</h2>', f'<h2 id="gradeDistTitle">{_t}</h2>', 1)
             html = html.replace('<div id="gradeDistStats"></div>',
                                 '<div id="gradeDistStats">' + score_stats_html(sc) + '</div>', 1)
             html = html.replace('<div class="exam-card__body" id="gradeDistBody"></div>',

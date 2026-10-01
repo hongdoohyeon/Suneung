@@ -356,7 +356,7 @@ function showError() {
   $('examMain').hidden = true;
   $('examSubjects')?.setAttribute('hidden', '');
   $('examError').hidden = false;
-  document.title = '자료를 찾을 수 없습니다 — 기출해체분석기';
+  document.title = '자료를 찾지 못했어요 — 기출해체분석기';
 }
 
 main();

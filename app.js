@@ -58,10 +58,18 @@ let cutsRequested = false;
 function loadCuts() {
   if (cutsRequested) return;
   cutsRequested = true;
-  fetch(`data/archive/cuts.json?v=${DATA_VERSION}`)
-    .then(res => res.ok ? res.json() : null)
+  // site-prefs.js 가 <head> 에서 미리 시작한 요청이 있으면 이어받는다
+  const pre = window.__kiceggCuts;
+  window.__kiceggCuts = null;
+  (pre || fetch(`data/archive/cuts.json?v=${DATA_VERSION}`).then(res => res.ok ? res.json() : null))
     .then(data => { if (data) { cutsIndex = data; state.cuts = data; if (!state.loading) render(); } })
     .catch(() => {});
+}
+// 첫 그리기 전에 등급컷 표를 잠깐(최대 0.8초) 기다린다 — 없는 채로 그렸다가 다시 그리지 않게
+function cutsReadyForFirstRender() {
+  const pre = window.__kiceggCuts;
+  if (!pre) return Promise.resolve();
+  return Promise.race([pre.then(() => {}, () => {}), new Promise(r => setTimeout(r, 800))]);
 }
 const TIER_LABEL = { 1: '매우 쉬움', 2: '쉬움', 3: '보통', 4: '어려움', 5: '매우 어려움' };
 // 탐구 등 접힌 영역의 펼침 상태 — 한 번 펼친 영역은 다른 회차·페이지에서도 펼쳐 둔다
@@ -83,7 +91,7 @@ document.addEventListener('toggle', e => {
 
 const URL_KEYS = ['focus', 'tab','typeGroup','type','gradeYear','subject','subjects','subSubject','subSubjects','has','cut','sort','tier','q','search','page'];
 const HAS_LABEL = { listen: '듣기 있음', script: '대본 있음', solution: '해설 있음', even: '짝수형' };
-const SORT_LABEL = { hard: '어려운 순', easy: '쉬운 순', old: '오래된 순' };
+const SORT_LABEL = { hard: '난이도 높은 순', easy: '난이도 낮은 순', old: '오래된 순' };
 
 function serializeMulti(v) {
   if (v === 'all' || v == null) return '';
@@ -268,7 +276,7 @@ function showDataError(msg) {
   div.id = 'dataErrorBanner';
   // z-index 100 — site-header(80) 위. 모바일 padding은 작게.
   div.style.cssText = 'position:sticky;top:0;z-index:100;background:#fef3c7;color:#92400e;padding:10px 12px;text-align:center;font-size:13px;line-height:1.5;border-bottom:1px solid #fde68a';
-  div.innerHTML = `<strong>⚠️ 데이터 로드 실패</strong> · ${msg} · <button type="button" class="data-reload" style="color:#92400e;text-decoration:underline;background:none;border:0;font:inherit;cursor:pointer;padding:0">새로고침</button>`;
+  div.innerHTML = `<strong>시험 목록 오류</strong> · ${msg} · <button type="button" class="data-reload" style="color:#92400e;text-decoration:underline;background:none;border:0;font:inherit;cursor:pointer;padding:0">다시 시도</button>`;
   document.body.prepend(div);
   div.querySelector('.data-reload')?.addEventListener('click', () => location.reload());
 }
@@ -278,7 +286,7 @@ function showDataFallbackNotice() {
   const div = document.createElement('div');
   div.id = 'dataFallbackBanner';
   div.style.cssText = 'position:sticky;top:0;z-index:100;background:#eff6ff;color:#1e3a5f;padding:8px 12px;text-align:center;font-size:12px;line-height:1.5;border-bottom:1px solid #bfdbfe';
-  div.textContent = '빠른 시험 목록이 아직 준비되지 않아 전체 목록으로 표시합니다.';
+  div.textContent = '전체 목록으로 보여 드려요. 조금 느릴 수 있어요.';
   document.body.prepend(div);
 }
 
@@ -333,7 +341,7 @@ async function replaceExamsForTab(tab) {
         state.exams = [];
         state.loading = false;
         showSkeleton(false);
-        showDataError('시험 목록을 불러올 수 없습니다. 네트워크 연결을 확인해주세요.');
+        showDataError('시험 목록을 불러오지 못했어요. 인터넷 연결을 확인하고 다시 시도해 주세요.');
       }
       return false;
     }
@@ -371,6 +379,8 @@ async function loadExams() {
   renderActiveTags();
   updateFilterBadge();
   if (!await replaceExamsForTab(initialTab)) return;
+  await cutsReadyForFirstRender();
+  loadCuts();
 
   applyUrlTab();   // URL ?tab=... 가 있으면 해당 탭으로 진입
   renderFilterPanel();
@@ -1339,13 +1349,13 @@ function updateEmptyState(isPlaceholder) {
   const btn   = $('emptyResetBtn');
   if (isPlaceholder) {
     const t = tabConf();
-    if (title) title.textContent = `${t?.label ?? ''} 자료는 준비 중이에요`;
-    if (sub)   sub.textContent   = '데이터가 채워지는 대로 이 페이지에서 바로 보실 수 있어요.';
+    if (title) title.textContent = `${t?.label ?? ''} 자료는 아직 정리 중이에요`;
+    if (sub)   sub.textContent   = '자료가 올라오면 이 페이지에서 바로 볼 수 있어요.';
     if (btn)   { btn.style.display = 'none'; btn.setAttribute('aria-hidden', 'true'); }
     empty.classList.add('is-placeholder');
   } else {
-    if (title) title.textContent = '검색 결과가 없습니다';
-    if (sub)   sub.textContent   = '필터 조건을 줄이거나 검색어를 변경해 보세요.';
+    if (title) title.textContent = '검색 결과가 없어요';
+    if (sub)   sub.textContent   = '필터를 줄이거나 다른 검색어로 찾아보세요.';
     if (btn)   { btn.style.display = ''; btn.removeAttribute('aria-hidden'); }
     empty.classList.remove('is-placeholder');
   }
