@@ -1,0 +1,609 @@
+﻿id,구분,학년도,월,과목,세부과목,파일종류,검증상태,공식 교체 불가 사유,URL
+3380,suneung,2016,9,한국사,,solutionUrl,점검 누락,해설은 평가원 게시판에 없음,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6853_answerUrl.pdf
+4172,suneung,2013,6,수학,가형,answerUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,후보 없음,https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7305_answerUrl.pdf
+4173,suneung,2013,6,수학,나형,answerUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,후보 없음,https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7305_answerUrl.pdf
+4757,suneung,2004,11,국어,예체능계,questionUrl,부분검증: 머리글에 과목명 없음(본문 글자는 정상),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2004_csat_kor_q.pdf
+4759,suneung,2004,11,국어,인문계,questionUrl,부분검증: 머리글에 과목명 없음(본문 글자는 정상),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2004_csat_kor_q.pdf
+4761,suneung,2004,11,국어,자연계,questionUrl,부분검증: 머리글에 과목명 없음(본문 글자는 정상),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2004_csat_kor_q.pdf
+4763,suneung,2004,11,수학,예체능계,questionUrl,부분검증: 머리글에 과목명 없음(본문 글자는 정상),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2004_csat_math_art_q.pdf
+4765,suneung,2004,11,수학,인문계,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2004_csat_math_hum_q.pdf
+4767,suneung,2004,11,수학,자연계,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2004_csat_math_nat_q.pdf
+4769,suneung,2004,11,영어,예체능계,questionUrl,부분검증: 머리글에 과목명 없음(본문 글자는 정상),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2004_csat_eng_q.pdf
+4771,suneung,2004,11,영어,인문계,questionUrl,부분검증: 머리글에 과목명 없음(본문 글자는 정상),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2004_csat_eng_q.pdf
+4773,suneung,2004,11,영어,자연계,questionUrl,부분검증: 머리글에 과목명 없음(본문 글자는 정상),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2004_csat_eng_q.pdf
+4775,suneung,2004,11,과학탐구,자연계,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2004_csat_sci_nat_q.pdf
+4777,suneung,2004,11,사회탐구,인문계,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2004_csat_soc_hum_q.pdf
+4785,suneung,2003,11,국어,예체능계,questionUrl,부분검증: 머리글에 과목명 없음(본문 글자는 정상),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2003_csat_kor_q.pdf
+4786,suneung,2003,11,국어,인문계,questionUrl,부분검증: 머리글에 과목명 없음(본문 글자는 정상),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2003_csat_kor_q.pdf
+4787,suneung,2003,11,국어,자연계,questionUrl,부분검증: 머리글에 과목명 없음(본문 글자는 정상),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2003_csat_kor_q.pdf
+4788,suneung,2003,11,수학,예체능계,questionUrl,부분검증: 머리글에 과목명 없음(본문 글자는 정상),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2003_csat_math_art_q.pdf
+4789,suneung,2003,11,수학,인문계,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2003_csat_math_hum_q.pdf
+4790,suneung,2003,11,수학,자연계,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2003_csat_math_nat_q.pdf
+4791,suneung,2003,11,영어,예체능계,questionUrl,부분검증: 머리글에 과목명 없음(본문 글자는 정상),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2003_csat_eng_q.pdf
+4792,suneung,2003,11,영어,인문계,questionUrl,부분검증: 머리글에 과목명 없음(본문 글자는 정상),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2003_csat_eng_q.pdf
+4793,suneung,2003,11,영어,자연계,questionUrl,부분검증: 머리글에 과목명 없음(본문 글자는 정상),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2003_csat_eng_q.pdf
+4794,suneung,2003,11,과학탐구,자연계,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2003_csat_sci_nat_q.pdf
+4795,suneung,2003,11,사회탐구,인문계,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2003_csat_soc_hum_q.pdf
+4797,suneung,2002,11,국어,예체능계,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2002_csat_kor_q.pdf
+4798,suneung,2002,11,국어,인문계,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2002_csat_kor_q.pdf
+4799,suneung,2002,11,국어,자연계,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2002_csat_kor_q.pdf
+4800,suneung,2002,11,수학,예체능계,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2002_csat_math_art_q.pdf
+4801,suneung,2002,11,수학,인문계,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2002_csat_math_hum_q.pdf
+4802,suneung,2002,11,수학,자연계,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2002_csat_math_nat_q.pdf
+4803,suneung,2002,11,영어,예체능계,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2002_csat_eng_q.pdf
+4804,suneung,2002,11,영어,인문계,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2002_csat_eng_q.pdf
+4805,suneung,2002,11,영어,자연계,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2002_csat_eng_q.pdf
+4806,suneung,2002,11,과학탐구,자연계,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2002_csat_sci_nat_q.pdf
+4807,suneung,2002,11,사회탐구,인문계,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2002_csat_soc_hum_q.pdf
+4808,suneung,2001,11,국어,예체능계,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2001_csat_kor_q.pdf
+4809,suneung,2001,11,국어,인문계,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2001_csat_kor_q.pdf
+4810,suneung,2001,11,국어,자연계,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2001_csat_kor_q.pdf
+4811,suneung,2001,11,수학,예체능계,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2001_csat_math_art_q.pdf
+4812,suneung,2001,11,수학,인문계,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2001_csat_math_hum_q.pdf
+4813,suneung,2001,11,수학,자연계,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2001_csat_math_nat_q.pdf
+4814,suneung,2001,11,영어,예체능계,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2001_csat_eng_q.pdf
+4815,suneung,2001,11,영어,인문계,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2001_csat_eng_q.pdf
+4816,suneung,2001,11,영어,자연계,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2001_csat_eng_q.pdf
+4817,suneung,2001,11,과학탐구,자연계,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2001_csat_sci_nat_q.pdf
+4818,suneung,2001,11,사회탐구,인문계,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2001_csat_soc_hum_q.pdf
+4819,suneung,2000,11,국어,예체능계,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2000_csat_kor_q.pdf
+4820,suneung,2000,11,국어,인문계,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2000_csat_kor_q.pdf
+4822,suneung,2000,11,국어,자연계,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2000_csat_kor_q.pdf
+4824,suneung,2000,11,수학,예체능계,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2000_csat_math_art_q.pdf
+4825,suneung,2000,11,수학,인문계,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2000_csat_math_hum_q.pdf
+4827,suneung,2000,11,수학,자연계,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2000_csat_math_nat_q.pdf
+4829,suneung,2000,11,영어,예체능계,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2000_csat_eng_q.pdf
+4830,suneung,2000,11,영어,인문계,questionUrl,문제: 열리지 않음/빈 파일,해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2000_csat_eng_q.pdf
+4832,suneung,2000,11,영어,자연계,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2000_csat_eng_q.pdf
+4834,suneung,2000,11,과학탐구,자연계,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2000_csat_sci_nat_q.pdf
+4836,suneung,2000,11,사회탐구,인문계,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2000_csat_soc_hum_q.pdf
+4838,suneung,1999,11,국어,예체능계,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/1999_csat_kor_q.pdf
+4839,suneung,1999,11,국어,인문계,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/1999_csat_kor_q.pdf
+4841,suneung,1999,11,국어,자연계,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/1999_csat_kor_q.pdf
+4842,suneung,1999,11,수학,예체능계,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/1999_csat_math_art_q.pdf
+4843,suneung,1999,11,수학,인문계,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/1999_csat_math_hum_q.pdf
+4845,suneung,1999,11,수학,자연계,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/1999_csat_math_nat_q.pdf
+4846,suneung,1999,11,영어,예체능계,questionUrl,문제: 열리지 않음/빈 파일,해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/1999_csat_eng_q.pdf
+4847,suneung,1999,11,영어,인문계,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/1999_csat_eng_q.pdf
+4849,suneung,1999,11,영어,자연계,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/1999_csat_eng_q.pdf
+4850,suneung,1999,11,과학탐구,자연계,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/1999_csat_sci_nat_q.pdf
+4851,suneung,1999,11,사회탐구,인문계,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/1999_csat_soc_hum_q.pdf
+6020,education,2006,4,국어,,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6020_questionUrl.pdf
+6021,education,2006,4,수학,,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6021_questionUrl.pdf
+6022,education,2006,4,사회탐구,경제,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6022_questionUrl.pdf
+6023,education,2006,4,사회탐구,경제지리,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6023_questionUrl.pdf
+6024,education,2006,4,사회탐구,국사,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6024_questionUrl.pdf
+6025,education,2006,4,사회탐구,법과사회,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6025_questionUrl.pdf
+6026,education,2006,4,사회탐구,사회·문화,questionUrl,부분검증: 머리글에 과목명 없음(본문 글자는 정상),,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6026_questionUrl.pdf
+6027,education,2006,4,사회탐구,세계사,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6027_questionUrl.pdf
+6028,education,2006,4,사회탐구,세계지리,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6028_questionUrl.pdf
+6029,education,2006,4,사회탐구,윤리,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6029_questionUrl.pdf
+6030,education,2006,4,사회탐구,정치,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6030_questionUrl.pdf
+6031,education,2006,4,과학탐구,물리Ⅰ,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6031_questionUrl.pdf
+6032,education,2006,4,과학탐구,물리Ⅱ,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6032_questionUrl.pdf
+6033,education,2006,4,과학탐구,화학Ⅰ,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6033_questionUrl.pdf
+6034,education,2006,4,과학탐구,화학Ⅱ,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6034_questionUrl.pdf
+6036,education,2006,4,과학탐구,생물Ⅱ,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6036_questionUrl.pdf
+6037,education,2006,4,과학탐구,지구과학Ⅰ,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6037_questionUrl.pdf
+6038,education,2005,5,국어,,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6038_questionUrl.pdf
+6038,education,2005,5,국어,,answerUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6038_answerUrl.pdf
+6039,education,2005,5,수학,,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6039_questionUrl.pdf
+6040,education,2005,5,사회탐구,경제,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6040_questionUrl.pdf
+6041,education,2005,5,사회탐구,경제지리,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6041_questionUrl.pdf
+6042,education,2005,5,사회탐구,국사,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6042_questionUrl.pdf
+6043,education,2005,5,사회탐구,법과사회,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6043_questionUrl.pdf
+6044,education,2005,5,사회탐구,사회·문화,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6044_questionUrl.pdf
+6045,education,2005,5,사회탐구,세계사,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6045_questionUrl.pdf
+6046,education,2005,5,사회탐구,세계지리,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6046_questionUrl.pdf
+6047,education,2005,5,사회탐구,윤리,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6047_questionUrl.pdf
+6048,education,2005,5,사회탐구,정치,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6048_questionUrl.pdf
+6049,education,2005,5,사회탐구,한국근현대사,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6049_questionUrl.pdf
+6050,education,2005,5,사회탐구,한국지리,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6050_questionUrl.pdf
+6051,education,2005,5,과학탐구,물리Ⅰ,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6051_questionUrl.pdf
+6052,education,2005,5,과학탐구,화학Ⅰ,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6052_questionUrl.pdf
+6053,education,2005,5,과학탐구,생물Ⅰ,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6053_questionUrl.pdf
+6054,education,2005,5,과학탐구,지구과학Ⅰ,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6054_questionUrl.pdf
+6055,education,2005,5,직업탐구,공업입문,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6055_questionUrl.pdf
+6056,education,2005,5,직업탐구,기초제도,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6056_questionUrl.pdf
+6057,education,2005,5,직업탐구,농업기초기술,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6057_questionUrl.pdf
+6058,education,2005,5,직업탐구,농업이해,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6058_questionUrl.pdf
+6059,education,2005,5,직업탐구,농업정보관리,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6059_questionUrl.pdf
+6060,education,2005,5,직업탐구,디자인일반,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6060_questionUrl.pdf
+6061,education,2005,5,직업탐구,식품과영양,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6061_questionUrl.pdf
+6062,education,2005,5,직업탐구,인간발달,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6062_questionUrl.pdf
+6063,education,2005,5,직업탐구,정보기술기초,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6063_questionUrl.pdf
+6064,education,2005,5,직업탐구,컴퓨터일반,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6064_questionUrl.pdf
+6065,education,2005,5,직업탐구,프로그래밍,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6065_questionUrl.pdf
+6066,education,2005,5,직업탐구,회계원리,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6066_questionUrl.pdf
+6067,education,2005,5,제2외국어,독일어,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6067_questionUrl.pdf
+6068,education,2005,5,제2외국어,러시아어,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6068_questionUrl.pdf
+6069,education,2005,5,제2외국어,스페인어,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6069_questionUrl.pdf
+6070,education,2005,5,제2외국어,일본어,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6070_questionUrl.pdf
+6071,education,2005,5,제2외국어,프랑스어,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6071_questionUrl.pdf
+6072,education,2005,5,제2외국어,한문,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6072_questionUrl.pdf
+6073,education,2006,5,수학,,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6073_questionUrl.pdf
+6074,education,2006,5,국어,,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6074_questionUrl.pdf
+6075,education,2006,5,사회탐구,경제,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6075_questionUrl.pdf
+6076,education,2006,5,사회탐구,경제지리,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6076_questionUrl.pdf
+6077,education,2006,5,사회탐구,국사,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6077_questionUrl.pdf
+6078,education,2006,5,사회탐구,법과사회,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6078_questionUrl.pdf
+6079,education,2006,5,사회탐구,사회·문화,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6079_questionUrl.pdf
+6080,education,2006,5,사회탐구,세계사,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6080_questionUrl.pdf
+6081,education,2006,5,사회탐구,세계지리,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6081_questionUrl.pdf
+6082,education,2006,5,사회탐구,윤리,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6082_questionUrl.pdf
+6083,education,2006,5,사회탐구,정치,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6083_questionUrl.pdf
+6084,education,2006,5,사회탐구,한국근현대사,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6084_questionUrl.pdf
+6085,education,2006,5,사회탐구,한국지리,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6085_questionUrl.pdf
+6086,education,2006,5,과학탐구,물리Ⅰ,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6086_questionUrl.pdf
+6087,education,2006,5,과학탐구,물리Ⅱ,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6087_questionUrl.pdf
+6088,education,2006,5,과학탐구,생물Ⅰ,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6088_questionUrl.pdf
+6089,education,2006,5,과학탐구,생물Ⅱ,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6089_questionUrl.pdf
+6090,education,2006,5,과학탐구,지구과학Ⅰ,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6090_questionUrl.pdf
+6091,education,2006,5,과학탐구,화학Ⅰ,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6091_questionUrl.pdf
+6092,education,2006,5,과학탐구,화학Ⅱ,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6092_questionUrl.pdf
+6093,education,2006,5,직업탐구,공업입문,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6093_questionUrl.pdf
+6094,education,2006,5,직업탐구,기초제도,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6094_questionUrl.pdf
+6095,education,2006,5,직업탐구,농업기초기술,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6095_questionUrl.pdf
+6096,education,2006,5,직업탐구,농업이해,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6096_questionUrl.pdf
+6097,education,2006,5,직업탐구,농업정보관리,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6097_questionUrl.pdf
+6098,education,2006,5,직업탐구,디자인일반,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6098_questionUrl.pdf
+6099,education,2006,5,직업탐구,식품과영양,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6099_questionUrl.pdf
+6100,education,2006,5,직업탐구,인간발달,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6100_questionUrl.pdf
+6101,education,2006,5,직업탐구,정보기술기초,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6101_questionUrl.pdf
+6102,education,2006,5,직업탐구,컴퓨터일반,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6102_questionUrl.pdf
+6103,education,2006,5,직업탐구,프로그래밍,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6103_questionUrl.pdf
+6104,education,2006,5,직업탐구,회계원리,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6104_questionUrl.pdf
+6105,education,2006,5,제2외국어,독일어,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6105_questionUrl.pdf
+6106,education,2006,5,제2외국어,러시아어,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6106_questionUrl.pdf
+6107,education,2006,5,제2외국어,스페인어,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6107_questionUrl.pdf
+6108,education,2006,5,제2외국어,일본어,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6108_questionUrl.pdf
+6109,education,2006,5,제2외국어,프랑스어,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6109_questionUrl.pdf
+6110,education,2006,5,제2외국어,한문,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6110_questionUrl.pdf
+6111,education,2005,9,국어,,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6111_questionUrl.pdf
+6112,education,2005,9,수학,,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6112_questionUrl.pdf
+6113,education,2005,9,사회탐구,경제,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6113_questionUrl.pdf
+6114,education,2005,9,사회탐구,경제지리,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6114_questionUrl.pdf
+6115,education,2005,9,사회탐구,국사,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6115_questionUrl.pdf
+6116,education,2005,9,사회탐구,법과사회,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6116_questionUrl.pdf
+6117,education,2005,9,사회탐구,사회·문화,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6117_questionUrl.pdf
+6118,education,2005,9,사회탐구,세계사,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6118_questionUrl.pdf
+6119,education,2005,9,사회탐구,세계지리,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6119_questionUrl.pdf
+6120,education,2005,9,사회탐구,윤리,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6120_questionUrl.pdf
+6121,education,2005,9,사회탐구,정치,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6121_questionUrl.pdf
+6122,education,2005,9,사회탐구,한국근현대사,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6122_questionUrl.pdf
+6123,education,2005,9,사회탐구,한국지리,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6123_questionUrl.pdf
+6124,education,2005,9,과학탐구,물리Ⅰ,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6124_questionUrl.pdf
+6125,education,2005,9,과학탐구,화학Ⅰ,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6125_questionUrl.pdf
+6127,education,2005,9,과학탐구,지구과학Ⅰ,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6127_questionUrl.pdf
+6128,education,2006,7,국어,,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6128_questionUrl.pdf
+6129,education,2006,7,수학,,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6129_questionUrl.pdf
+6130,education,2006,7,사회탐구,경제,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6130_questionUrl.pdf
+6131,education,2006,7,사회탐구,경제지리,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6131_questionUrl.pdf
+6132,education,2006,7,사회탐구,국사,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6132_questionUrl.pdf
+6133,education,2006,7,사회탐구,법과사회,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6133_questionUrl.pdf
+6134,education,2006,7,사회탐구,사회·문화,questionUrl,부분검증: 머리글에 과목명 없음(본문 글자는 정상),,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6134_questionUrl.pdf
+6135,education,2006,7,사회탐구,세계사,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6135_questionUrl.pdf
+6136,education,2006,7,사회탐구,세계지리,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6136_questionUrl.pdf
+6137,education,2006,7,사회탐구,윤리,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6137_questionUrl.pdf
+6138,education,2006,7,사회탐구,정치,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6138_questionUrl.pdf
+6139,education,2006,7,사회탐구,한국근현대사,questionUrl,부분검증: 머리글에 과목명 없음(본문 글자는 정상),,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6139_questionUrl.pdf
+6140,education,2006,7,사회탐구,한국지리,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6140_questionUrl.pdf
+6141,education,2006,7,과학탐구,물리Ⅰ,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6141_questionUrl.pdf
+6142,education,2006,7,과학탐구,물리Ⅱ,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6142_questionUrl.pdf
+6143,education,2006,7,과학탐구,화학Ⅰ,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6143_questionUrl.pdf
+6144,education,2006,7,과학탐구,화학Ⅱ,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6144_questionUrl.pdf
+6146,education,2006,7,과학탐구,생물Ⅱ,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6146_questionUrl.pdf
+6147,education,2006,7,과학탐구,지구과학Ⅰ,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6147_questionUrl.pdf
+6148,education,2005,6,국어,,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6148_questionUrl.pdf
+6149,education,2005,6,수학,,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6149_questionUrl.pdf
+6150,education,2005,6,사회탐구,경제,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6150_questionUrl.pdf
+6151,education,2005,6,사회탐구,경제지리,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6151_questionUrl.pdf
+6152,education,2005,6,사회탐구,국사,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6152_questionUrl.pdf
+6153,education,2005,6,사회탐구,법과사회,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6153_questionUrl.pdf
+6154,education,2005,6,사회탐구,사회·문화,questionUrl,부분검증: 머리글에 과목명 없음(본문 글자는 정상),,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6154_questionUrl.pdf
+6155,education,2005,6,사회탐구,세계사,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6155_questionUrl.pdf
+6156,education,2005,6,사회탐구,세계지리,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6156_questionUrl.pdf
+6157,education,2005,6,사회탐구,윤리,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6157_questionUrl.pdf
+6158,education,2005,6,사회탐구,정치,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6158_questionUrl.pdf
+6159,education,2005,6,사회탐구,한국근현대사,questionUrl,부분검증: 머리글에 과목명 없음(본문 글자는 정상),,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6159_questionUrl.pdf
+6160,education,2005,6,사회탐구,한국지리,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6160_questionUrl.pdf
+6161,education,2005,6,과학탐구,물리Ⅰ,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6161_questionUrl.pdf
+6162,education,2005,6,과학탐구,화학Ⅰ,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6162_questionUrl.pdf
+6164,education,2005,6,과학탐구,지구과학Ⅰ,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6164_questionUrl.pdf
+6165,education,2006,10,제2외국어,중국어,questionUrl,부분검증: 머리글에 과목명 없음(본문 글자는 정상),,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6165_questionUrl.pdf
+6165,education,2006,10,제2외국어,중국어,answerUrl,부분검증: 머리글에 과목명 없음(본문 글자는 정상),,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6165_answerUrl.pdf
+6166,education,2006,10,수학,,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6166_questionUrl.pdf
+6167,education,2006,10,사회탐구,경제,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6167_questionUrl.pdf
+6168,education,2006,10,사회탐구,경제지리,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6168_questionUrl.pdf
+6169,education,2006,10,사회탐구,국사,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6169_questionUrl.pdf
+6170,education,2006,10,사회탐구,법과사회,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6170_questionUrl.pdf
+6171,education,2006,10,사회탐구,사회·문화,questionUrl,부분검증: 머리글에 과목명 없음(본문 글자는 정상),,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6171_questionUrl.pdf
+6172,education,2006,10,사회탐구,세계사,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6172_questionUrl.pdf
+6173,education,2006,10,사회탐구,세계지리,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6173_questionUrl.pdf
+6174,education,2006,10,사회탐구,윤리,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6174_questionUrl.pdf
+6175,education,2006,10,사회탐구,정치,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6175_questionUrl.pdf
+6176,education,2006,10,사회탐구,한국근현대사,questionUrl,부분검증: 머리글에 과목명 없음(본문 글자는 정상),,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6176_questionUrl.pdf
+6177,education,2006,10,사회탐구,한국지리,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6177_questionUrl.pdf
+6178,education,2006,10,과학탐구,물리Ⅰ,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6178_questionUrl.pdf
+6179,education,2006,10,과학탐구,물리Ⅱ,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6179_questionUrl.pdf
+6180,education,2006,10,과학탐구,화학Ⅰ,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6180_questionUrl.pdf
+6181,education,2006,10,과학탐구,화학Ⅱ,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6181_questionUrl.pdf
+6183,education,2006,10,과학탐구,생물Ⅱ,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6183_questionUrl.pdf
+6184,education,2006,10,과학탐구,지구과학Ⅰ,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6184_questionUrl.pdf
+6185,education,2006,10,직업탐구,공업입문,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6185_questionUrl.pdf
+6186,education,2006,10,직업탐구,기초제도,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6186_questionUrl.pdf
+6187,education,2006,10,직업탐구,농업기초기술,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6187_questionUrl.pdf
+6188,education,2006,10,직업탐구,농업이해,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6188_questionUrl.pdf
+6189,education,2006,10,직업탐구,농업정보관리,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6189_questionUrl.pdf
+6190,education,2006,10,직업탐구,디자인일반,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6190_questionUrl.pdf
+6191,education,2006,10,직업탐구,수산일반,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6191_questionUrl.pdf
+6192,education,2006,10,직업탐구,식품과영양,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6192_questionUrl.pdf
+6193,education,2006,10,직업탐구,인간발달,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6193_questionUrl.pdf
+6194,education,2006,10,직업탐구,정보기술기초,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6194_questionUrl.pdf
+6195,education,2006,10,직업탐구,컴퓨터일반,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6195_questionUrl.pdf
+6196,education,2006,10,직업탐구,프로그래밍,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6196_questionUrl.pdf
+6197,education,2006,10,직업탐구,해사일반,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6197_questionUrl.pdf
+6198,education,2006,10,직업탐구,해양일반,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6198_questionUrl.pdf
+6199,education,2006,10,직업탐구,회계원리,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6199_questionUrl.pdf
+6200,education,2006,10,제2외국어,독일어,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6200_questionUrl.pdf
+6201,education,2006,10,제2외국어,러시아어,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6201_questionUrl.pdf
+6202,education,2006,10,제2외국어,스페인어,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6202_questionUrl.pdf
+6203,education,2006,10,제2외국어,일본어,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6203_questionUrl.pdf
+6204,education,2006,10,제2외국어,프랑스어,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6204_questionUrl.pdf
+6205,education,2006,10,제2외국어,한문,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6205_questionUrl.pdf
+6206,education,2006,3,국어,,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6206_questionUrl.pdf
+6207,education,2006,3,수학,,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6207_questionUrl.pdf
+6208,education,2006,3,사회탐구,경제,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6208_questionUrl.pdf
+6209,education,2006,3,사회탐구,경제지리,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6209_questionUrl.pdf
+6210,education,2006,3,사회탐구,국사,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6210_questionUrl.pdf
+6211,education,2006,3,사회탐구,법과사회,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6211_questionUrl.pdf
+6212,education,2006,3,사회탐구,사회·문화,questionUrl,부분검증: 머리글에 과목명 없음(본문 글자는 정상),,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6212_questionUrl.pdf
+6213,education,2006,3,사회탐구,세계사,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6213_questionUrl.pdf
+6214,education,2006,3,사회탐구,세계지리,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6214_questionUrl.pdf
+6215,education,2006,3,사회탐구,윤리,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6215_questionUrl.pdf
+6216,education,2006,3,사회탐구,정치,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6216_questionUrl.pdf
+6217,education,2006,3,사회탐구,한국근현대사,questionUrl,부분검증: 머리글에 과목명 없음(본문 글자는 정상),,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6217_questionUrl.pdf
+6218,education,2006,3,사회탐구,한국지리,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6218_questionUrl.pdf
+6219,education,2006,3,과학탐구,물리Ⅰ,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6219_questionUrl.pdf
+6220,education,2006,3,과학탐구,물리Ⅱ,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6220_questionUrl.pdf
+6221,education,2006,3,과학탐구,화학Ⅰ,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6221_questionUrl.pdf
+6222,education,2006,3,과학탐구,화학Ⅱ,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6222_questionUrl.pdf
+6224,education,2006,3,과학탐구,생물Ⅱ,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6224_questionUrl.pdf
+6225,education,2006,3,과학탐구,지구과학Ⅰ,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6225_questionUrl.pdf
+6226,education,2005,5,국어,,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6226_questionUrl.pdf
+6227,education,2005,5,수학,,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6227_questionUrl.pdf
+6228,education,2005,9,국어,,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6228_questionUrl.pdf
+6229,education,2005,9,수학,,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6229_questionUrl.pdf
+6230,education,2005,6,국어,,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6230_questionUrl.pdf
+6231,education,2005,6,수학,,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6231_questionUrl.pdf
+6232,education,2005,11,국어,,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6232_questionUrl.pdf
+6233,education,2005,11,수학,,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6233_questionUrl.pdf
+6234,education,2005,11,제2외국어,중국어,questionUrl,부분검증: 머리글에 과목명 없음(본문 글자는 정상),,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6234_questionUrl.pdf
+6234,education,2005,11,제2외국어,중국어,answerUrl,부분검증: 머리글에 과목명 없음(본문 글자는 정상),,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6234_answerUrl.pdf
+6235,education,2005,11,수학,,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6235_questionUrl.pdf
+6236,education,2005,11,사회탐구,경제,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6236_questionUrl.pdf
+6237,education,2005,11,사회탐구,경제지리,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6237_questionUrl.pdf
+6238,education,2005,11,사회탐구,국사,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6238_questionUrl.pdf
+6239,education,2005,11,사회탐구,법과사회,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6239_questionUrl.pdf
+6240,education,2005,11,사회탐구,사회·문화,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6240_questionUrl.pdf
+6241,education,2005,11,사회탐구,세계사,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6241_questionUrl.pdf
+6242,education,2005,11,사회탐구,세계지리,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6242_questionUrl.pdf
+6243,education,2005,11,사회탐구,윤리,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6243_questionUrl.pdf
+6244,education,2005,11,사회탐구,정치,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6244_questionUrl.pdf
+6245,education,2005,11,사회탐구,한국근현대사,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6245_questionUrl.pdf
+6246,education,2005,11,사회탐구,한국지리,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6246_questionUrl.pdf
+6247,education,2005,11,과학탐구,물리Ⅰ,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6247_questionUrl.pdf
+6248,education,2005,11,과학탐구,화학Ⅰ,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6248_questionUrl.pdf
+6250,education,2005,11,과학탐구,지구과학Ⅰ,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6250_questionUrl.pdf
+6251,education,2005,11,직업탐구,공업입문,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6251_questionUrl.pdf
+6252,education,2005,11,직업탐구,기초제도,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6252_questionUrl.pdf
+6253,education,2005,11,직업탐구,농업기초기술,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6253_questionUrl.pdf
+6254,education,2005,11,직업탐구,농업이해,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6254_questionUrl.pdf
+6255,education,2005,11,직업탐구,농업정보관리,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6255_questionUrl.pdf
+6256,education,2005,11,직업탐구,디자인일반,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6256_questionUrl.pdf
+6257,education,2005,11,직업탐구,수산일반,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6257_questionUrl.pdf
+6258,education,2005,11,직업탐구,수산해운정보처리,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6258_questionUrl.pdf
+6259,education,2005,11,직업탐구,식품과영양,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6259_questionUrl.pdf
+6260,education,2005,11,직업탐구,인간발달,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6260_questionUrl.pdf
+6261,education,2005,11,직업탐구,정보기술기초,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6261_questionUrl.pdf
+6262,education,2005,11,직업탐구,컴퓨터일반,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6262_questionUrl.pdf
+6263,education,2005,11,직업탐구,프로그래밍,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6263_questionUrl.pdf
+6264,education,2005,11,직업탐구,해사일반,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6264_questionUrl.pdf
+6265,education,2005,11,직업탐구,해양일반,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6265_questionUrl.pdf
+6266,education,2005,11,직업탐구,회계원리,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6266_questionUrl.pdf
+6267,education,2005,11,제2외국어,독일어,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6267_questionUrl.pdf
+6268,education,2005,11,제2외국어,러시아어,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6268_questionUrl.pdf
+6269,education,2005,11,제2외국어,스페인어,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6269_questionUrl.pdf
+6270,education,2005,11,제2외국어,일본어,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6270_questionUrl.pdf
+6271,education,2005,11,제2외국어,프랑스어,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6271_questionUrl.pdf
+6272,education,2005,11,제2외국어,한문,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6272_questionUrl.pdf
+6448,education,2005,3,국어,,scriptUrl,점검 누락,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6448_scriptUrl.pdf
+6452,education,2005,3,영어,,scriptUrl,점검 누락,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6452_scriptUrl.pdf
+6630,suneung,2006,9,제2외국어,아랍어,questionUrl,부분검증: 머리글에 과목명 없음(본문 글자는 정상),후보 없음,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6630_questionUrl.pdf
+6674,suneung,2012,6,직업탐구,공업입문,questionUrl,문제: 열리지 않음/빈 파일,공식 파일이 HWP뿐,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6674_questionUrl.pdf
+6699,suneung,2009,6,국어,,questionUrl,검증됨: 공식 HWP 본문이 미러에 포함(일치율 98%),공식 파일이 HWP뿐,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6699_questionUrl.pdf
+6699,suneung,2009,6,국어,,answerUrl,검증불가: 공식 HWP에 본문 글자 없음(답안표 등),공식 파일이 HWP뿐,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6699_answerUrl.pdf
+6726,suneung,2009,6,직업탐구,수산일반,answerUrl,검증불가: 공식 HWP에 본문 글자 없음(답안표 등),공식 파일이 HWP뿐,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6726_answerUrl.pdf
+6733,suneung,2009,6,직업탐구,해사일반,answerUrl,검증불가: 공식 HWP에 본문 글자 없음(답안표 등),공식 파일이 HWP뿐,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6733_answerUrl.pdf
+6739,suneung,2009,6,제2외국어,아랍어,questionUrl,부분검증: 머리글에 과목명 없음(본문 글자는 정상),후보 없음,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6739_questionUrl.pdf
+6739,suneung,2009,6,제2외국어,아랍어,answerUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,후보 없음,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6739_answerUrl.pdf
+6747,suneung,2014,6,영어,A형,scriptUrl,점검 누락,공식 파일이 HWP뿐,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6747_scriptUrl.pdf
+6748,suneung,2014,6,영어,B형,scriptUrl,점검 누락,공식 파일이 HWP뿐,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6748_scriptUrl.pdf
+6815,suneung,2005,9,제2외국어,아랍어,questionUrl,부분검증: 머리글에 과목명 없음(본문 글자는 정상),후보 없음,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6815_questionUrl.pdf
+6903,suneung,2006,6,국어,,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),후보 없음,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6903_questionUrl.pdf
+6903,suneung,2006,6,국어,,answerUrl,검증불가: 공식 HWP 3.0·읽기 실패,공식 파일이 HWP뿐,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6903_answerUrl.pdf
+6903,suneung,2006,6,국어,,scriptUrl,검증불가: 공식 HWP 3.0·읽기 실패,공식 파일이 HWP뿐,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6903_scriptUrl.pdf
+6904,suneung,2006,6,수학,,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),후보 없음,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6904_questionUrl.pdf
+6904,suneung,2006,6,수학,,answerUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,후보 없음,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6936_answerUrl.pdf
+6906,suneung,2006,6,과학탐구,물리Ⅰ,questionUrl,검증불가: 공식 HWP 3.0·읽기 실패,공식 파일이 HWP뿐,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6906_questionUrl.pdf
+6907,suneung,2006,6,과학탐구,물리Ⅱ,questionUrl,검증불가: 공식 HWP 3.0·읽기 실패,공식 파일이 HWP뿐,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6907_questionUrl.pdf
+6908,suneung,2006,6,과학탐구,화학Ⅰ,questionUrl,검증불가: 공식 HWP 3.0·읽기 실패,공식 파일이 HWP뿐,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6908_questionUrl.pdf
+6909,suneung,2006,6,과학탐구,화학Ⅱ,questionUrl,검증불가: 공식 HWP 3.0·읽기 실패,공식 파일이 HWP뿐,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6909_questionUrl.pdf
+6910,suneung,2006,6,과학탐구,생물Ⅰ,questionUrl,검증불가: 공식 HWP 3.0·읽기 실패,공식 파일이 HWP뿐,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6910_questionUrl.pdf
+6911,suneung,2006,6,과학탐구,생물Ⅱ,questionUrl,검증불가: 공식 HWP 3.0·읽기 실패,공식 파일이 HWP뿐,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6911_questionUrl.pdf
+6912,suneung,2006,6,과학탐구,지구과학Ⅰ,questionUrl,검증불가: 공식 HWP 3.0·읽기 실패,공식 파일이 HWP뿐,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6912_questionUrl.pdf
+6913,suneung,2006,6,직업탐구,공업입문,questionUrl,검증불가: 공식 HWP 3.0·읽기 실패,공식 파일이 HWP뿐,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6913_questionUrl.pdf
+6914,suneung,2006,6,직업탐구,기초제도,questionUrl,검증불가: 공식 HWP 3.0·읽기 실패,공식 파일이 HWP뿐,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6914_questionUrl.pdf
+6915,suneung,2006,6,직업탐구,농업기초기술,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),후보 없음,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6915_questionUrl.pdf
+6916,suneung,2006,6,직업탐구,농업이해,questionUrl,검증불가: 공식 HWP 3.0·읽기 실패,공식 파일이 HWP뿐,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6916_questionUrl.pdf
+6917,suneung,2006,6,직업탐구,농업정보관리,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),후보 없음,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6917_questionUrl.pdf
+6918,suneung,2006,6,직업탐구,디자인일반,questionUrl,검증불가: 공식 HWP 3.0·읽기 실패,공식 파일이 HWP뿐,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6918_questionUrl.pdf
+6919,suneung,2006,6,직업탐구,수산일반,questionUrl,검증불가: 공식 HWP 3.0·읽기 실패,공식 파일이 HWP뿐,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6919_questionUrl.pdf
+6920,suneung,2006,6,직업탐구,수산해운정보처리,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),후보 없음,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6920_questionUrl.pdf
+6921,suneung,2006,6,직업탐구,식품과영양,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),후보 없음,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6921_questionUrl.pdf
+6922,suneung,2006,6,직업탐구,인간발달,questionUrl,검증불가: 공식 HWP 3.0·읽기 실패,공식 파일이 HWP뿐,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6922_questionUrl.pdf
+6923,suneung,2006,6,직업탐구,정보기술기초,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),후보 없음,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6923_questionUrl.pdf
+6924,suneung,2006,6,직업탐구,컴퓨터일반,questionUrl,검증불가: 공식 HWP 3.0·읽기 실패,공식 파일이 HWP뿐,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6924_questionUrl.pdf
+6925,suneung,2006,6,직업탐구,프로그래밍,questionUrl,검증불가: 공식 HWP 3.0·읽기 실패,공식 파일이 HWP뿐,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6925_questionUrl.pdf
+6926,suneung,2006,6,직업탐구,해사일반,questionUrl,검증불가: 공식 HWP 3.0·읽기 실패,공식 파일이 HWP뿐,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6926_questionUrl.pdf
+6927,suneung,2006,6,직업탐구,해양일반,questionUrl,검증불가: 공식 HWP 3.0·읽기 실패,공식 파일이 HWP뿐,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6927_questionUrl.pdf
+6928,suneung,2006,6,직업탐구,회계원리,questionUrl,검증불가: 공식 HWP 3.0·읽기 실패,공식 파일이 HWP뿐,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6928_questionUrl.pdf
+6929,suneung,2006,6,제2외국어,독일어,questionUrl,검증불가: 공식 HWP 3.0·읽기 실패,공식 파일이 HWP뿐,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6929_questionUrl.pdf
+6929,suneung,2006,6,제2외국어,독일어,answerUrl,검증불가: 공식 HWP에 본문 글자 없음(답안표 등),공식 파일이 HWP뿐,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6929_answerUrl.pdf
+6930,suneung,2006,6,제2외국어,러시아어,questionUrl,검증불가: 공식 HWP 3.0·읽기 실패,공식 파일이 HWP뿐,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6930_questionUrl.pdf
+6930,suneung,2006,6,제2외국어,러시아어,answerUrl,검증불가: 공식 HWP에 본문 글자 없음(답안표 등),공식 파일이 HWP뿐,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6930_answerUrl.pdf
+6931,suneung,2006,6,제2외국어,스페인어,questionUrl,검증불가: 공식 HWP 3.0·읽기 실패,공식 파일이 HWP뿐,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6931_questionUrl.pdf
+6931,suneung,2006,6,제2외국어,스페인어,answerUrl,검증불가: 공식 HWP에 본문 글자 없음(답안표 등),공식 파일이 HWP뿐,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6931_answerUrl.pdf
+6932,suneung,2006,6,제2외국어,아랍어,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),후보 없음,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6932_questionUrl.pdf
+6932,suneung,2006,6,제2외국어,아랍어,answerUrl,검증불가: 공식 HWP에 본문 글자 없음(답안표 등),공식 파일이 HWP뿐,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6932_answerUrl.pdf
+6933,suneung,2006,6,제2외국어,일본어,questionUrl,검증불가: 공식 HWP 3.0·읽기 실패,공식 파일이 HWP뿐,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6933_questionUrl.pdf
+6933,suneung,2006,6,제2외국어,일본어,answerUrl,검증불가: 공식 HWP에 본문 글자 없음(답안표 등),공식 파일이 HWP뿐,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6933_answerUrl.pdf
+6934,suneung,2006,6,제2외국어,프랑스어,questionUrl,검증불가: 공식 HWP 3.0·읽기 실패,공식 파일이 HWP뿐,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6934_questionUrl.pdf
+6934,suneung,2006,6,제2외국어,프랑스어,answerUrl,검증불가: 공식 HWP에 본문 글자 없음(답안표 등),공식 파일이 HWP뿐,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6934_answerUrl.pdf
+6935,suneung,2006,6,제2외국어,한문,questionUrl,검증불가: 공식 HWP 3.0·읽기 실패,공식 파일이 HWP뿐,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6935_questionUrl.pdf
+6935,suneung,2006,6,제2외국어,한문,answerUrl,검증불가: 공식 HWP에 본문 글자 없음(답안표 등),공식 파일이 HWP뿐,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6935_answerUrl.pdf
+6979,suneung,2009,6,수학,,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),후보 없음,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6979_questionUrl.pdf
+6981,suneung,2009,6,과학탐구,생물Ⅱ,questionUrl,검증불가: 공식 HWP에 본문 글자 없음(답안표 등),공식 파일이 HWP뿐,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6981_questionUrl.pdf
+7008,suneung,2008,9,영어,,questionUrl,검증됨: 공식 HWP 본문이 미러에 포함(일치율 88%),공식 파일이 HWP뿐,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_7008_questionUrl.pdf
+7008,suneung,2008,9,영어,,answerUrl,검증불가: 공식 HWP에 본문 글자 없음(답안표 등),공식 파일이 HWP뿐,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_7008_answerUrl.pdf
+7043,suneung,2006,9,수학,,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),후보 없음,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_7043_questionUrl.pdf
+7043,suneung,2006,9,수학,,answerUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),후보 없음,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_7043_answerUrl.pdf
+7045,suneung,2006,9,과학탐구,생물Ⅱ,questionUrl,검증불가: 공식 HWP 3.0·읽기 실패,공식 파일이 HWP뿐,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_7045_questionUrl.pdf
+7116,suneung,2007,6,수학,,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),후보 없음,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_7116_questionUrl.pdf
+7122,suneung,2007,6,직업탐구,농업기초기술,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),후보 없음,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_7122_questionUrl.pdf
+7124,suneung,2007,6,직업탐구,농업정보관리,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),후보 없음,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_7124_questionUrl.pdf
+7127,suneung,2007,6,직업탐구,수산해운정보처리,questionUrl,부분검증: 머리글에 과목명 없음(본문 글자는 정상),후보 없음,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_7127_questionUrl.pdf
+7130,suneung,2007,6,직업탐구,정보기술기초,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),후보 없음,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_7130_questionUrl.pdf
+7136,suneung,2007,6,제2외국어,독일어,questionUrl,검증불가: 공식 HWP 3.0·읽기 실패,공식 파일이 HWP뿐,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_7136_questionUrl.pdf
+7137,suneung,2007,6,제2외국어,러시아어,questionUrl,확인필요: 공식 HWP와 일치율 낮음(1%),공식 파일이 HWP뿐,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_7137_questionUrl.pdf
+7138,suneung,2007,6,제2외국어,스페인어,questionUrl,검증불가: 공식 HWP에 본문 글자 없음(답안표 등),공식 파일이 HWP뿐,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_7138_questionUrl.pdf
+7139,suneung,2007,6,제2외국어,아랍어,questionUrl,부분검증: 머리글에 과목명 없음(본문 글자는 정상),후보 없음,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_7139_questionUrl.pdf
+7140,suneung,2007,6,제2외국어,일본어,questionUrl,검증불가: 공식 HWP에 본문 글자 없음(답안표 등),공식 파일이 HWP뿐,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_7140_questionUrl.pdf
+7141,suneung,2007,6,제2외국어,프랑스어,questionUrl,검증불가: 공식 HWP에 본문 글자 없음(답안표 등),공식 파일이 HWP뿐,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_7141_questionUrl.pdf
+7142,suneung,2007,6,제2외국어,한문,questionUrl,검증불가: 공식 HWP에 본문 글자 없음(답안표 등),공식 파일이 HWP뿐,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_7142_questionUrl.pdf
+7145,suneung,2008,6,국어,,questionUrl,검증됨: 공식 HWP 본문이 미러에 포함(일치율 96%),공식 파일이 HWP뿐,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_7145_questionUrl.pdf
+7145,suneung,2008,6,국어,,answerUrl,검증불가: 공식 HWP에 본문 글자 없음(답안표 등),공식 파일이 HWP뿐,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_7145_answerUrl.pdf
+7145,suneung,2008,6,국어,,scriptUrl,검증됨: 공식 HWP 본문이 미러에 포함(일치율 92%),공식 파일이 HWP뿐,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_7145_scriptUrl.pdf
+7146,suneung,2008,6,수학,,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,후보 없음,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_7146_questionUrl.pdf
+7146,suneung,2008,6,수학,,answerUrl,부분검증: 머리글에 과목명 없음(본문 글자는 정상),후보 없음,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_7146_answerUrl.pdf
+7147,suneung,2008,6,사회탐구,경제,questionUrl,검증됨: 공식 HWP 본문이 미러에 포함(일치율 81%),공식 파일이 HWP뿐,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_7147_questionUrl.pdf
+7148,suneung,2008,6,사회탐구,경제지리,questionUrl,검증됨: 공식 HWP 본문이 미러에 포함(일치율 81%),공식 파일이 HWP뿐,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_7148_questionUrl.pdf
+7149,suneung,2008,6,사회탐구,국사,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,후보 2개(모호),https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_7149_questionUrl.pdf
+7150,suneung,2008,6,사회탐구,법과사회,questionUrl,검증됨: 공식 HWP 본문이 미러에 포함(일치율 87%),공식 파일이 HWP뿐,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_7150_questionUrl.pdf
+7151,suneung,2008,6,사회탐구,사회·문화,questionUrl,검증됨: 공식 HWP 본문이 미러에 포함(일치율 81%),공식 파일이 HWP뿐,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_7151_questionUrl.pdf
+7152,suneung,2008,6,사회탐구,세계사,questionUrl,검증됨: 공식 HWP 본문이 미러에 포함(일치율 89%),공식 파일이 HWP뿐,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_7152_questionUrl.pdf
+7153,suneung,2008,6,사회탐구,세계지리,questionUrl,검증됨: 공식 HWP 본문이 미러에 포함(일치율 77%),공식 파일이 HWP뿐,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_7153_questionUrl.pdf
+7154,suneung,2008,6,사회탐구,윤리,questionUrl,검증됨: 공식 HWP 본문이 미러에 포함(일치율 88%),공식 파일이 HWP뿐,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_7154_questionUrl.pdf
+7155,suneung,2008,6,사회탐구,정치,questionUrl,검증됨: 공식 HWP 본문이 미러에 포함(일치율 84%),공식 파일이 HWP뿐,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_7155_questionUrl.pdf
+7156,suneung,2008,6,사회탐구,한국근현대사,questionUrl,부분검증: 머리글에 과목명 없음(본문 글자는 정상),후보 없음,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_7156_questionUrl.pdf
+7157,suneung,2008,6,사회탐구,한국지리,questionUrl,검증됨: 공식 HWP 본문이 미러에 포함(일치율 80%),공식 파일이 HWP뿐,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_7157_questionUrl.pdf
+7158,suneung,2008,6,과학탐구,물리Ⅰ,questionUrl,확인필요: 공식 HWP와 일치율 낮음(66%),공식 파일이 HWP뿐,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_7158_questionUrl.pdf
+7159,suneung,2008,6,과학탐구,물리Ⅱ,questionUrl,확인필요: 공식 HWP와 일치율 낮음(74%),공식 파일이 HWP뿐,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_7159_questionUrl.pdf
+7161,suneung,2008,6,과학탐구,생물Ⅱ,questionUrl,검증불가: 공식 HWP 3.0·읽기 실패,공식 파일이 HWP뿐,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_7161_questionUrl.pdf
+7162,suneung,2008,6,과학탐구,지구과학Ⅰ,questionUrl,검증됨: 공식 HWP 본문이 미러에 포함(일치율 80%),공식 파일이 HWP뿐,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_7162_questionUrl.pdf
+7163,suneung,2008,6,과학탐구,화학Ⅰ,questionUrl,확인필요: 공식 HWP와 일치율 낮음(74%),공식 파일이 HWP뿐,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_7163_questionUrl.pdf
+7164,suneung,2008,6,과학탐구,화학Ⅱ,questionUrl,확인필요: 공식 HWP와 일치율 낮음(63%),공식 파일이 HWP뿐,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_7164_questionUrl.pdf
+7165,suneung,2008,6,직업탐구,공업입문,questionUrl,검증됨: 공식 HWP 본문이 미러에 포함(일치율 85%),공식 파일이 HWP뿐,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_7165_questionUrl.pdf
+7166,suneung,2008,6,직업탐구,기초제도,questionUrl,검증됨: 공식 HWP 본문이 미러에 포함(일치율 77%),공식 파일이 HWP뿐,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_7166_questionUrl.pdf
+7167,suneung,2008,6,직업탐구,농업기초기술,questionUrl,부분검증: 머리글에 과목명 없음(본문 글자는 정상),후보 없음,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_7167_questionUrl.pdf
+7168,suneung,2008,6,직업탐구,농업이해,questionUrl,검증됨: 공식 HWP 본문이 미러에 포함(일치율 85%),공식 파일이 HWP뿐,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_7168_questionUrl.pdf
+7169,suneung,2008,6,직업탐구,농업정보관리,questionUrl,부분검증: 머리글에 과목명 없음(본문 글자는 정상),후보 없음,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_7169_questionUrl.pdf
+7170,suneung,2008,6,직업탐구,디자인일반,questionUrl,검증됨: 공식 HWP 본문이 미러에 포함(일치율 86%),공식 파일이 HWP뿐,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_7170_questionUrl.pdf
+7171,suneung,2008,6,직업탐구,수산일반,questionUrl,검증됨: 공식 HWP 본문이 미러에 포함(일치율 82%),공식 파일이 HWP뿐,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_7171_questionUrl.pdf
+7172,suneung,2008,6,직업탐구,수산해운정보처리,questionUrl,부분검증: 머리글에 과목명 없음(본문 글자는 정상),후보 없음,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_7172_questionUrl.pdf
+7173,suneung,2008,6,직업탐구,식품과영양,questionUrl,부분검증: 머리글에 과목명 없음(본문 글자는 정상),후보 없음,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_7173_questionUrl.pdf
+7174,suneung,2008,6,직업탐구,인간발달,questionUrl,검증됨: 공식 HWP 본문이 미러에 포함(일치율 84%),공식 파일이 HWP뿐,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_7174_questionUrl.pdf
+7175,suneung,2008,6,직업탐구,정보기술기초,questionUrl,부분검증: 머리글에 과목명 없음(본문 글자는 정상),후보 없음,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_7175_questionUrl.pdf
+7176,suneung,2008,6,직업탐구,컴퓨터일반,questionUrl,검증됨: 공식 HWP 본문이 미러에 포함(일치율 78%),공식 파일이 HWP뿐,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_7176_questionUrl.pdf
+7177,suneung,2008,6,직업탐구,프로그래밍,questionUrl,확인필요: 공식 HWP와 일치율 낮음(67%),공식 파일이 HWP뿐,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_7177_questionUrl.pdf
+7178,suneung,2008,6,직업탐구,해사일반,questionUrl,검증됨: 공식 HWP 본문이 미러에 포함(일치율 79%),공식 파일이 HWP뿐,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_7178_questionUrl.pdf
+7179,suneung,2008,6,직업탐구,해양일반,questionUrl,검증됨: 공식 HWP 본문이 미러에 포함(일치율 76%),공식 파일이 HWP뿐,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_7179_questionUrl.pdf
+7180,suneung,2008,6,직업탐구,회계원리,questionUrl,확인필요: 공식 HWP와 일치율 낮음(75%),공식 파일이 HWP뿐,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_7180_questionUrl.pdf
+7181,suneung,2008,6,제2외국어,독일어,questionUrl,부분검증: 머리글에 과목명 없음(본문 글자는 정상),후보 없음,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_7181_questionUrl.pdf
+7182,suneung,2008,6,제2외국어,러시아어,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,후보 없음,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_7182_questionUrl.pdf
+7183,suneung,2008,6,제2외국어,스페인어,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,후보 없음,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_7183_questionUrl.pdf
+7184,suneung,2008,6,제2외국어,아랍어,questionUrl,부분검증: 머리글에 과목명 없음(본문 글자는 정상),후보 없음,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_7184_questionUrl.pdf
+7185,suneung,2008,6,제2외국어,일본어,questionUrl,부분검증: 머리글에 과목명 없음(본문 글자는 정상),후보 없음,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_7185_questionUrl.pdf
+7186,suneung,2008,6,제2외국어,프랑스어,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,후보 없음,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_7186_questionUrl.pdf
+7187,suneung,2008,6,제2외국어,한문,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,후보 없음,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_7187_questionUrl.pdf
+7247,suneung,2005,6,제2외국어,아랍어,questionUrl,부분검증: 머리글에 과목명 없음(본문 글자는 정상),후보 없음,https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7247_questionUrl.pdf
+7302,suneung,2008,9,수학,,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),후보 없음,https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7302_questionUrl.pdf
+7302,suneung,2008,9,수학,,answerUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),후보 없음,https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7302_answerUrl.pdf
+7304,suneung,2008,9,과학탐구,생물Ⅱ,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),후보 없음,https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7304_questionUrl.pdf
+7402,suneung,2014,9,영어,A형,scriptUrl,점검 누락,공식 파일이 HWP뿐,https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7402_scriptUrl.pdf
+7403,suneung,2014,9,영어,B형,scriptUrl,점검 누락,공식 파일이 HWP뿐,https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7403_scriptUrl.pdf
+7427,suneung,2014,9,제2외국어,한문,questionUrl,부분검증: 머리글에 과목명 없음(본문 글자는 정상),후보 없음,https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7427_questionUrl.pdf
+7428,suneung,2010,6,수학,가형,answerUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,후보 없음,https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7428_answerUrl.pdf
+7429,suneung,2010,6,수학,나형,answerUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,후보 없음,https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7429_answerUrl.pdf
+7430,suneung,2010,6,사회탐구,경제,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,후보 없음,https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7430_questionUrl.pdf
+7430,suneung,2010,6,사회탐구,경제,answerUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),후보 없음,https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7430_answerUrl.pdf
+7431,suneung,2010,6,사회탐구,경제지리,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,후보 없음,https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7431_questionUrl.pdf
+7431,suneung,2010,6,사회탐구,경제지리,answerUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),후보 없음,https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7431_answerUrl.pdf
+7432,suneung,2010,6,사회탐구,국사,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,후보 없음,https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7432_questionUrl.pdf
+7432,suneung,2010,6,사회탐구,국사,answerUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),후보 없음,https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7432_answerUrl.pdf
+7433,suneung,2010,6,사회탐구,한국근현대사,questionUrl,부분검증: 머리글에 과목명 없음(본문 글자는 정상),후보 없음,https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7433_questionUrl.pdf
+7433,suneung,2010,6,사회탐구,한국근현대사,answerUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),후보 없음,https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7433_answerUrl.pdf
+7434,suneung,2010,6,사회탐구,법과사회,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,후보 없음,https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7434_questionUrl.pdf
+7434,suneung,2010,6,사회탐구,법과사회,answerUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,후보 없음,https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7434_answerUrl.pdf
+7435,suneung,2010,6,사회탐구,사회·문화,questionUrl,부분검증: 머리글에 과목명 없음(본문 글자는 정상),후보 없음,https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7435_questionUrl.pdf
+7435,suneung,2010,6,사회탐구,사회·문화,answerUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),후보 없음,https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7435_answerUrl.pdf
+7436,suneung,2010,6,사회탐구,세계사,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,후보 없음,https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7436_questionUrl.pdf
+7436,suneung,2010,6,사회탐구,세계사,answerUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),후보 없음,https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7436_answerUrl.pdf
+7437,suneung,2010,6,사회탐구,세계지리,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,후보 없음,https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7437_questionUrl.pdf
+7437,suneung,2010,6,사회탐구,세계지리,answerUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),후보 없음,https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7437_answerUrl.pdf
+7438,suneung,2010,6,사회탐구,윤리,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,후보 없음,https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7438_questionUrl.pdf
+7438,suneung,2010,6,사회탐구,윤리,answerUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),후보 없음,https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7438_answerUrl.pdf
+7439,suneung,2010,6,사회탐구,정치,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,후보 없음,https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7439_questionUrl.pdf
+7439,suneung,2010,6,사회탐구,정치,answerUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),후보 없음,https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7439_answerUrl.pdf
+7440,suneung,2010,6,사회탐구,한국지리,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,후보 없음,https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7440_questionUrl.pdf
+7440,suneung,2010,6,사회탐구,한국지리,answerUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),후보 없음,https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7440_answerUrl.pdf
+7441,suneung,2010,6,과학탐구,물리Ⅰ,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,후보 없음,https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7441_questionUrl.pdf
+7441,suneung,2010,6,과학탐구,물리Ⅰ,answerUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,후보 없음,https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7441_answerUrl.pdf
+7442,suneung,2010,6,과학탐구,물리Ⅱ,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,후보 없음,https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7442_questionUrl.pdf
+7442,suneung,2010,6,과학탐구,물리Ⅱ,answerUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,후보 없음,https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7442_answerUrl.pdf
+7443,suneung,2010,6,과학탐구,생명과학Ⅰ,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,후보 없음,https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7443_questionUrl.pdf
+7443,suneung,2010,6,과학탐구,생명과학Ⅰ,answerUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,후보 없음,https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7443_answerUrl.pdf
+7444,suneung,2010,6,과학탐구,지구과학Ⅰ,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,후보 없음,https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7444_questionUrl.pdf
+7444,suneung,2010,6,과학탐구,지구과학Ⅰ,answerUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,후보 없음,https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7444_answerUrl.pdf
+7445,suneung,2010,6,과학탐구,화학Ⅰ,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,후보 없음,https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7445_questionUrl.pdf
+7445,suneung,2010,6,과학탐구,화학Ⅰ,answerUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,후보 없음,https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7445_answerUrl.pdf
+7446,suneung,2010,6,과학탐구,화학Ⅱ,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,후보 없음,https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7446_questionUrl.pdf
+7446,suneung,2010,6,과학탐구,화학Ⅱ,answerUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,후보 없음,https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7446_answerUrl.pdf
+7447,suneung,2010,6,직업탐구,공업입문,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,후보 없음,https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7447_questionUrl.pdf
+7447,suneung,2010,6,직업탐구,공업입문,answerUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,후보 없음,https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7447_answerUrl.pdf
+7448,suneung,2010,6,직업탐구,기초제도,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,후보 없음,https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7448_questionUrl.pdf
+7448,suneung,2010,6,직업탐구,기초제도,answerUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,후보 없음,https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7448_answerUrl.pdf
+7449,suneung,2010,6,직업탐구,농업기초기술,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,후보 없음,https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7449_questionUrl.pdf
+7449,suneung,2010,6,직업탐구,농업기초기술,answerUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,후보 없음,https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7449_answerUrl.pdf
+7450,suneung,2010,6,직업탐구,농업이해,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,후보 없음,https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7450_questionUrl.pdf
+7450,suneung,2010,6,직업탐구,농업이해,answerUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,후보 없음,https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7450_answerUrl.pdf
+7451,suneung,2010,6,직업탐구,농업정보관리,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,후보 없음,https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7451_questionUrl.pdf
+7451,suneung,2010,6,직업탐구,농업정보관리,answerUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,후보 없음,https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7451_answerUrl.pdf
+7452,suneung,2010,6,직업탐구,디자인일반,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,후보 없음,https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7452_questionUrl.pdf
+7452,suneung,2010,6,직업탐구,디자인일반,answerUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,후보 없음,https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7452_answerUrl.pdf
+7453,suneung,2010,6,직업탐구,수산일반,answerUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,후보 없음,https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7453_answerUrl.pdf
+7454,suneung,2010,6,직업탐구,수산해운정보처리,questionUrl,부분검증: 머리글에 과목명 없음(본문 글자는 정상),후보 없음,https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7454_questionUrl.pdf
+7455,suneung,2010,6,직업탐구,식품과영양,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,후보 없음,https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7455_questionUrl.pdf
+7455,suneung,2010,6,직업탐구,식품과영양,answerUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,후보 없음,https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7455_answerUrl.pdf
+7456,suneung,2010,6,직업탐구,인간발달,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,후보 없음,https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7456_questionUrl.pdf
+7456,suneung,2010,6,직업탐구,인간발달,answerUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,후보 없음,https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7456_answerUrl.pdf
+7457,suneung,2010,6,직업탐구,정보기술기초,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,후보 없음,https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7457_questionUrl.pdf
+7457,suneung,2010,6,직업탐구,정보기술기초,answerUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,후보 없음,https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7457_answerUrl.pdf
+7458,suneung,2010,6,직업탐구,컴퓨터일반,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,후보 없음,https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7458_questionUrl.pdf
+7458,suneung,2010,6,직업탐구,컴퓨터일반,answerUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,후보 없음,https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7458_answerUrl.pdf
+7459,suneung,2010,6,직업탐구,프로그래밍,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,후보 없음,https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7459_questionUrl.pdf
+7459,suneung,2010,6,직업탐구,프로그래밍,answerUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,후보 없음,https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7459_answerUrl.pdf
+7460,suneung,2010,6,직업탐구,해사일반,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,후보 없음,https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7460_questionUrl.pdf
+7460,suneung,2010,6,직업탐구,해사일반,answerUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,후보 없음,https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7460_answerUrl.pdf
+7461,suneung,2010,6,직업탐구,해양일반,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,후보 없음,https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7461_questionUrl.pdf
+7461,suneung,2010,6,직업탐구,해양일반,answerUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,후보 없음,https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7461_answerUrl.pdf
+7462,suneung,2010,6,직업탐구,회계원리,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,후보 없음,https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7462_questionUrl.pdf
+7462,suneung,2010,6,직업탐구,회계원리,answerUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,후보 없음,https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7462_answerUrl.pdf
+7463,suneung,2010,6,제2외국어,독일어,answerUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,후보 없음,https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7463_answerUrl.pdf
+7464,suneung,2010,6,제2외국어,러시아어,answerUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,후보 없음,https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7464_answerUrl.pdf
+7465,suneung,2010,6,제2외국어,스페인어,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),후보 없음,https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7465_questionUrl.pdf
+7465,suneung,2010,6,제2외국어,스페인어,answerUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,후보 없음,https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7465_answerUrl.pdf
+7466,suneung,2010,6,제2외국어,아랍어,questionUrl,부분검증: 머리글에 과목명 없음(본문 글자는 정상),후보 없음,https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7466_questionUrl.pdf
+7466,suneung,2010,6,제2외국어,아랍어,answerUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,후보 없음,https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7466_answerUrl.pdf
+7467,suneung,2010,6,제2외국어,일본어,questionUrl,부분검증: 머리글에 과목명 없음(본문 글자는 정상),후보 없음,https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7467_questionUrl.pdf
+7467,suneung,2010,6,제2외국어,일본어,answerUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,후보 없음,https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7467_answerUrl.pdf
+7468,suneung,2010,6,제2외국어,프랑스어,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),후보 없음,https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7468_questionUrl.pdf
+7468,suneung,2010,6,제2외국어,프랑스어,answerUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,후보 없음,https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7468_answerUrl.pdf
+7469,suneung,2010,6,제2외국어,한문,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),후보 없음,https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7469_questionUrl.pdf
+7469,suneung,2010,6,제2외국어,한문,answerUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,후보 없음,https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7469_answerUrl.pdf
+7497,suneung,2009,9,국어,,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,후보 2개(모호),https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7497_questionUrl.pdf
+7497,suneung,2009,9,국어,,answerUrl,검증불가: 공식 HWP에 본문 글자 없음(답안표 등),공식 파일이 HWP뿐,https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7497_answerUrl.pdf
+7498,suneung,2009,9,수학,,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),후보 없음,https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7498_questionUrl.pdf
+7499,suneung,2009,9,사회탐구,경제,questionUrl,검증됨: 공식 HWP 본문이 미러에 포함(일치율 91%),공식 파일이 HWP뿐,https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7499_questionUrl.pdf
+7499,suneung,2009,9,사회탐구,경제,answerUrl,검증불가: 공식 HWP에 본문 글자 없음(답안표 등),공식 파일이 HWP뿐,https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7499_answerUrl.pdf
+7500,suneung,2009,9,사회탐구,경제지리,questionUrl,검증됨: 공식 HWP 본문이 미러에 포함(일치율 89%),공식 파일이 HWP뿐,https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7500_questionUrl.pdf
+7500,suneung,2009,9,사회탐구,경제지리,answerUrl,검증불가: 공식 HWP에 본문 글자 없음(답안표 등),공식 파일이 HWP뿐,https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7500_answerUrl.pdf
+7501,suneung,2009,9,사회탐구,국사,questionUrl,검증됨: 공식 HWP 본문이 미러에 포함(일치율 90%),공식 파일이 HWP뿐,https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7501_questionUrl.pdf
+7501,suneung,2009,9,사회탐구,국사,answerUrl,검증불가: 공식 HWP에 본문 글자 없음(답안표 등),공식 파일이 HWP뿐,https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7501_answerUrl.pdf
+7502,suneung,2009,9,사회탐구,법과사회,questionUrl,검증됨: 공식 HWP 본문이 미러에 포함(일치율 93%),공식 파일이 HWP뿐,https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7502_questionUrl.pdf
+7502,suneung,2009,9,사회탐구,법과사회,answerUrl,검증불가: 공식 HWP에 본문 글자 없음(답안표 등),공식 파일이 HWP뿐,https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7502_answerUrl.pdf
+7503,suneung,2009,9,사회탐구,사회·문화,questionUrl,검증됨: 공식 HWP 본문이 미러에 포함(일치율 92%),공식 파일이 HWP뿐,https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7503_questionUrl.pdf
+7503,suneung,2009,9,사회탐구,사회·문화,answerUrl,검증불가: 공식 HWP에 본문 글자 없음(답안표 등),공식 파일이 HWP뿐,https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7503_answerUrl.pdf
+7504,suneung,2009,9,사회탐구,세계사,questionUrl,검증됨: 공식 HWP 본문이 미러에 포함(일치율 92%),공식 파일이 HWP뿐,https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7504_questionUrl.pdf
+7504,suneung,2009,9,사회탐구,세계사,answerUrl,검증불가: 공식 HWP에 본문 글자 없음(답안표 등),공식 파일이 HWP뿐,https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7504_answerUrl.pdf
+7505,suneung,2009,9,사회탐구,세계지리,questionUrl,검증됨: 공식 HWP 본문이 미러에 포함(일치율 88%),공식 파일이 HWP뿐,https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7505_questionUrl.pdf
+7505,suneung,2009,9,사회탐구,세계지리,answerUrl,검증불가: 공식 HWP에 본문 글자 없음(답안표 등),공식 파일이 HWP뿐,https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7505_answerUrl.pdf
+7506,suneung,2009,9,사회탐구,윤리,questionUrl,검증됨: 공식 HWP 본문이 미러에 포함(일치율 92%),공식 파일이 HWP뿐,https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7506_questionUrl.pdf
+7506,suneung,2009,9,사회탐구,윤리,answerUrl,검증불가: 공식 HWP에 본문 글자 없음(답안표 등),공식 파일이 HWP뿐,https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7506_answerUrl.pdf
+7507,suneung,2009,9,사회탐구,정치,questionUrl,검증됨: 공식 HWP 본문이 미러에 포함(일치율 91%),공식 파일이 HWP뿐,https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7507_questionUrl.pdf
+7507,suneung,2009,9,사회탐구,정치,answerUrl,검증불가: 공식 HWP에 본문 글자 없음(답안표 등),공식 파일이 HWP뿐,https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7507_answerUrl.pdf
+7508,suneung,2009,9,사회탐구,한국근현대사,questionUrl,검증됨: 공식 HWP 본문이 미러에 포함(일치율 92%),공식 파일이 HWP뿐,https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7508_questionUrl.pdf
+7508,suneung,2009,9,사회탐구,한국근현대사,answerUrl,검증불가: 공식 HWP에 본문 글자 없음(답안표 등),공식 파일이 HWP뿐,https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7508_answerUrl.pdf
+7509,suneung,2009,9,사회탐구,한국지리,questionUrl,검증됨: 공식 HWP 본문이 미러에 포함(일치율 88%),공식 파일이 HWP뿐,https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7509_questionUrl.pdf
+7509,suneung,2009,9,사회탐구,한국지리,answerUrl,검증불가: 공식 HWP에 본문 글자 없음(답안표 등),공식 파일이 HWP뿐,https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7509_answerUrl.pdf
+7510,suneung,2009,9,과학탐구,물리Ⅰ,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,후보 2개(모호),https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7510_questionUrl.pdf
+7510,suneung,2009,9,과학탐구,물리Ⅰ,answerUrl,검증불가: 공식 HWP에 본문 글자 없음(답안표 등),공식 파일이 HWP뿐,https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7510_answerUrl.pdf
+7511,suneung,2009,9,과학탐구,물리Ⅱ,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,후보 2개(모호),https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7511_questionUrl.pdf
+7511,suneung,2009,9,과학탐구,물리Ⅱ,answerUrl,검증불가: 공식 HWP에 본문 글자 없음(답안표 등),공식 파일이 HWP뿐,https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7511_answerUrl.pdf
+7513,suneung,2009,9,과학탐구,생물Ⅱ,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,후보 2개(모호),https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7513_questionUrl.pdf
+7513,suneung,2009,9,과학탐구,생물Ⅱ,answerUrl,검증불가: 공식 HWP에 본문 글자 없음(답안표 등),공식 파일이 HWP뿐,https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7513_answerUrl.pdf
+7514,suneung,2009,9,과학탐구,지구과학Ⅰ,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,후보 2개(모호),https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7514_questionUrl.pdf
+7514,suneung,2009,9,과학탐구,지구과학Ⅰ,answerUrl,검증불가: 공식 HWP에 본문 글자 없음(답안표 등),공식 파일이 HWP뿐,https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7514_answerUrl.pdf
+7515,suneung,2009,9,과학탐구,화학Ⅰ,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,후보 2개(모호),https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7515_questionUrl.pdf
+7515,suneung,2009,9,과학탐구,화학Ⅰ,answerUrl,검증불가: 공식 HWP에 본문 글자 없음(답안표 등),공식 파일이 HWP뿐,https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7515_answerUrl.pdf
+7516,suneung,2009,9,과학탐구,화학Ⅱ,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,후보 2개(모호),https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7516_questionUrl.pdf
+7516,suneung,2009,9,과학탐구,화학Ⅱ,answerUrl,검증불가: 공식 HWP에 본문 글자 없음(답안표 등),공식 파일이 HWP뿐,https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7516_answerUrl.pdf
+7517,suneung,2009,9,직업탐구,공업입문,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,후보 2개(모호),https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7517_questionUrl.pdf
+7517,suneung,2009,9,직업탐구,공업입문,answerUrl,검증불가: 공식 HWP에 본문 글자 없음(답안표 등),공식 파일이 HWP뿐,https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7517_answerUrl.pdf
+7518,suneung,2009,9,직업탐구,기초제도,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,후보 2개(모호),https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7518_questionUrl.pdf
+7518,suneung,2009,9,직업탐구,기초제도,answerUrl,검증불가: 공식 HWP에 본문 글자 없음(답안표 등),공식 파일이 HWP뿐,https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7518_answerUrl.pdf
+7519,suneung,2009,9,직업탐구,농업기초기술,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,후보 2개(모호),https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7519_questionUrl.pdf
+7519,suneung,2009,9,직업탐구,농업기초기술,answerUrl,검증불가: 공식 HWP에 본문 글자 없음(답안표 등),공식 파일이 HWP뿐,https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7519_answerUrl.pdf
+7520,suneung,2009,9,직업탐구,농업이해,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,후보 2개(모호),https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7520_questionUrl.pdf
+7520,suneung,2009,9,직업탐구,농업이해,answerUrl,검증불가: 공식 HWP에 본문 글자 없음(답안표 등),공식 파일이 HWP뿐,https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7520_answerUrl.pdf
+7521,suneung,2009,9,직업탐구,농업정보관리,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,후보 2개(모호),https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7521_questionUrl.pdf
+7522,suneung,2009,9,직업탐구,디자인일반,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,후보 2개(모호),https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7522_questionUrl.pdf
+7522,suneung,2009,9,직업탐구,디자인일반,answerUrl,검증불가: 공식 HWP에 본문 글자 없음(답안표 등),공식 파일이 HWP뿐,https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7522_answerUrl.pdf
+7523,suneung,2009,9,직업탐구,수산일반,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,후보 2개(모호),https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7523_questionUrl.pdf
+7523,suneung,2009,9,직업탐구,수산일반,answerUrl,검증불가: 공식 HWP에 본문 글자 없음(답안표 등),공식 파일이 HWP뿐,https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7523_answerUrl.pdf
+7524,suneung,2009,9,직업탐구,수산해운정보처리,questionUrl,부분검증: 머리글에 과목명 없음(본문 글자는 정상),후보 2개(모호),https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7524_questionUrl.pdf
+7525,suneung,2009,9,직업탐구,식품과영양,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,후보 2개(모호),https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7525_questionUrl.pdf
+7525,suneung,2009,9,직업탐구,식품과영양,answerUrl,검증불가: 공식 HWP에 본문 글자 없음(답안표 등),공식 파일이 HWP뿐,https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7525_answerUrl.pdf
+7526,suneung,2009,9,직업탐구,인간발달,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,후보 2개(모호),https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7526_questionUrl.pdf
+7526,suneung,2009,9,직업탐구,인간발달,answerUrl,검증불가: 공식 HWP에 본문 글자 없음(답안표 등),공식 파일이 HWP뿐,https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7526_answerUrl.pdf
+7527,suneung,2009,9,직업탐구,정보기술기초,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,후보 2개(모호),https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7527_questionUrl.pdf
+7527,suneung,2009,9,직업탐구,정보기술기초,answerUrl,검증불가: 공식 HWP에 본문 글자 없음(답안표 등),공식 파일이 HWP뿐,https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7527_answerUrl.pdf
+7528,suneung,2009,9,직업탐구,컴퓨터일반,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,후보 2개(모호),https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7528_questionUrl.pdf
+7528,suneung,2009,9,직업탐구,컴퓨터일반,answerUrl,검증불가: 공식 HWP에 본문 글자 없음(답안표 등),공식 파일이 HWP뿐,https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7528_answerUrl.pdf
+7529,suneung,2009,9,직업탐구,프로그래밍,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,후보 2개(모호),https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7529_questionUrl.pdf
+7529,suneung,2009,9,직업탐구,프로그래밍,answerUrl,검증불가: 공식 HWP에 본문 글자 없음(답안표 등),공식 파일이 HWP뿐,https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7529_answerUrl.pdf
+7530,suneung,2009,9,직업탐구,해사일반,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,후보 2개(모호),https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7530_questionUrl.pdf
+7530,suneung,2009,9,직업탐구,해사일반,answerUrl,검증불가: 공식 HWP에 본문 글자 없음(답안표 등),공식 파일이 HWP뿐,https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7530_answerUrl.pdf
+7531,suneung,2009,9,직업탐구,해양일반,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,후보 2개(모호),https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7531_questionUrl.pdf
+7531,suneung,2009,9,직업탐구,해양일반,answerUrl,검증불가: 공식 HWP에 본문 글자 없음(답안표 등),공식 파일이 HWP뿐,https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7531_answerUrl.pdf
+7532,suneung,2009,9,직업탐구,회계원리,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,후보 2개(모호),https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7532_questionUrl.pdf
+7532,suneung,2009,9,직업탐구,회계원리,answerUrl,검증불가: 공식 HWP에 본문 글자 없음(답안표 등),공식 파일이 HWP뿐,https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7532_answerUrl.pdf
+7533,suneung,2009,9,제2외국어,독일어,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),후보 2개(모호),https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7533_questionUrl.pdf
+7533,suneung,2009,9,제2외국어,독일어,answerUrl,검증불가: 공식 HWP에 본문 글자 없음(답안표 등),공식 파일이 HWP뿐,https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7533_answerUrl.pdf
+7534,suneung,2009,9,제2외국어,러시아어,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),후보 2개(모호),https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7534_questionUrl.pdf
+7534,suneung,2009,9,제2외국어,러시아어,answerUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,후보 없음,https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7534_answerUrl.pdf
+7535,suneung,2009,9,제2외국어,스페인어,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),후보 2개(모호),https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7535_questionUrl.pdf
+7535,suneung,2009,9,제2외국어,스페인어,answerUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,후보 없음,https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7535_answerUrl.pdf
+7536,suneung,2009,9,제2외국어,아랍어,answerUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,후보 없음,https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7536_answerUrl.pdf
+7537,suneung,2009,9,제2외국어,일본어,questionUrl,부분검증: 머리글에 과목명 없음(본문 글자는 정상),후보 2개(모호),https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7537_questionUrl.pdf
+7537,suneung,2009,9,제2외국어,일본어,answerUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,후보 없음,https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7537_answerUrl.pdf
+7538,suneung,2009,9,제2외국어,프랑스어,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),후보 2개(모호),https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7538_questionUrl.pdf
+7538,suneung,2009,9,제2외국어,프랑스어,answerUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,후보 없음,https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7538_answerUrl.pdf
+7539,suneung,2009,9,제2외국어,한문,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),후보 없음,https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7539_questionUrl.pdf
+7539,suneung,2009,9,제2외국어,한문,answerUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,후보 없음,https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7539_answerUrl.pdf
+7540,suneung,2009,9,수학,가형,answerUrl,검증불가: 공식 HWP에 본문 글자 없음(답안표 등),공식 파일이 HWP뿐,https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7540_answerUrl.pdf
+7541,suneung,2009,9,수학,나형,answerUrl,검증불가: 공식 HWP에 본문 글자 없음(답안표 등),공식 파일이 HWP뿐,https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7541_answerUrl.pdf
+7574,suneung,2009,9,영어,,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,후보 없음,https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7574_questionUrl.pdf
+7575,suneung,2009,9,과학탐구,생명과학Ⅰ,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,후보 2개(모호),https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7575_questionUrl.pdf
+7580,suneung,2010,6,과학탐구,생물Ⅱ,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,후보 없음,https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7580_questionUrl.pdf
+7580,suneung,2010,6,과학탐구,생물Ⅱ,answerUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,후보 없음,https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7580_answerUrl.pdf

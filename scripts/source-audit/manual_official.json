@@ -1,0 +1,26 @@
+[
+ {
+  "id": 4830,
+  "field": "questionUrl",
+  "src": "tmp/source-audit/official/수능/2000-수능-인문계-3001070/2000-수능_외국어(홀수형).pdf",
+  "board": "csat_old",
+  "post": "3001070",
+  "note": "미러 파일이 비어 있거나 열리지 않아 공식 원본으로 교체"
+ },
+ {
+  "id": 4846,
+  "field": "questionUrl",
+  "src": "tmp/source-audit/official/수능/1999-수능-예체능계-3001060/E991.pdf",
+  "board": "csat_old",
+  "post": "3001060",
+  "note": "미러 파일이 비어 있거나 열리지 않아 공식 원본으로 교체"
+ },
+ {
+  "id": 6674,
+  "field": "questionUrl",
+  "src": "tmp/source-audit/official/모평/2012-6월-직업탐구-3001245/공업입문.pdf",
+  "board": "mock",
+  "post": "3001245",
+  "note": "미러 파일이 비어 있거나 열리지 않아 공식 원본으로 교체"
+ }
+]

@@ -43,6 +43,13 @@ def plan():
         out.append({"id": r["id"], "field": r["field"], "src": r["official"], "asset": asset, "name": dl_name(it, r["field"]),
                     "post": f"https://suneung.re.kr/boardCnts/view.do?boardID={board}&boardSeq={o['post']}&lev=0&m={m}&s=suneung",
                     "verdict": r["verdict"], "oldUrl": it[r["field"]]})
+    for x in json.loads((Path(__file__).parent / "manual_official.json").read_text(encoding="utf-8")):
+        it = items[x["id"]]
+        board = 1500236 if x["board"] == "mock" else 1500234
+        m = "0403" if x["board"] == "mock" else "0402"
+        out.append({"id": x["id"], "field": x["field"], "src": x["src"], "asset": f"off_{x['id']}_{KIND[x['field']][0]}.pdf", "name": dl_name(it, x["field"]),
+                    "post": f"https://suneung.re.kr/boardCnts/view.do?boardID={board}&boardSeq={x['post']}&lev=0&m={m}&s=suneung",
+                    "verdict": "MANUAL", "oldUrl": it[x["field"]]})
     return out
 
 

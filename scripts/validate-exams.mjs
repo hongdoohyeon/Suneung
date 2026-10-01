@@ -245,10 +245,13 @@ function validateBusinessRules(data) {
   for (const ex of data.filter(
     e => e.type === 'csat' && e.gradeYear >= 1999 && e.gradeYear <= 2004
   )) {
-    if (
+    // 평가원 게시판 원본으로 교체한 문제지(questionUrl_source_original)는 공식 원본이므로 허용
+    const officialReplaced = ex.questionUrl_source_original?.startsWith('https://suneung.re.kr/')
+      && ex.questionUrl?.includes('/kice-official-v1/');
+    if (!officialReplaced && (
       ex.source !== 'legacy-csat-v2'
       || !ex.questionUrl?.includes('/legacy-csat-v2/')
-    ) {
+    )) {
       err(`id=${ex.id} 구형 수능 문제가 과목별 분리 자산(legacy-csat-v2)이 아님`);
     }
   }

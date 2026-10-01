@@ -70,7 +70,8 @@ def work(job):
 def main():
     cat = json.loads((ROOT / "data/kice-catalog.json").read_text(encoding="utf-8"))["boards"]
     ymin = int(sys.argv[1]) if len(sys.argv) > 1 else 0
-    jobs = [(b, p) for b in ("csat", "csat_old", "mock") for p in cat[b] if int(p["gradeYear"]) >= ymin]
+    ymax = int(sys.argv[2]) if len(sys.argv) > 2 else 9999
+    jobs = [(b, p) for b in ("csat", "csat_old", "mock") for p in cat[b] if ymin <= int(p["gradeYear"]) <= ymax]
     OUT.mkdir(parents=True, exist_ok=True)
     print(f"{len(jobs)}개 게시물", file=sys.stderr)
     out = []
@@ -79,7 +80,8 @@ def main():
             out.append(r)
             if i % 40 == 0:
                 print(f"  {i}/{len(jobs)}", file=sys.stderr)
-    (OUT / "manifest.json").write_text(json.dumps(out, ensure_ascii=False, indent=1), encoding="utf-8")
+    name = "manifest.json" if ymax == 9999 else f"manifest-{ymin}-{ymax}.json"
+    (OUT / name).write_text(json.dumps(out, ensure_ascii=False, indent=1), encoding="utf-8")
     print("완료", sum(len(r["files"]) for r in out), "파일")
 
 
