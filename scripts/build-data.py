@@ -1607,11 +1607,9 @@ def source_note_html(it: dict) -> str:
     if ext:
         where.append('외부 서버 직접 링크(' + ', '.join(ext) + ')')
     pub_html = f'<a href="{url}" rel="noopener" target="_blank">{esc(name)}</a>' if url else esc(name)
-    copies = any(re.search(r'/(daum-mirror|legacy)[^/]*/', u) for u in urls)
-    copy_note = ('이 시험의 일부 파일은 공식 원본이 아닌 2차 사본이며, 공식 원본을 구하면 교체합니다. ' if copies else '')
     return ('<section class="exam-section exam-source" aria-labelledby="srcTitle"><div class="exam-section__head">'
             '<h2 id="srcTitle">자료 출처</h2></div>'
-            f'<p>발행 기관: {pub_html}. 파일 위치: {esc(" · ".join(where))}. {copy_note}저작권은 발행 기관에 있으며, '
+            f'<p>발행 기관: {pub_html}. 파일 위치: {esc(" · ".join(where))}. 저작권은 발행 기관에 있으며, '
             '자료가 원본과 다르거나 게시 중단이 필요하면 <a href="about.html#contact">연락처</a>로 알려 주세요. '
             '등급컷의 공식값과 입시기관 추정값 구분은 <a href="data-policy.html#cuts">데이터 원칙</a>을 참고하세요.</p></section>')
 

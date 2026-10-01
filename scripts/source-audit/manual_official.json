@@ -22,5 +22,21 @@
   "board": "mock",
   "post": "3001245",
   "note": "미러 파일이 비어 있거나 열리지 않아 공식 원본으로 교체"
+ },
+ {
+  "id": 4608,
+  "field": "answerUrl",
+  "src": "tmp/source-audit/official/모평/2007-6월-과학탐구-3001179/200706과학탐구생물II영역답안.pdf",
+  "board": "mock",
+  "post": "3001179",
+  "note": "HWP→PDF 변환본의 수식이 깨져 공식 정답표로 교체"
+ },
+ {
+  "id": 7020,
+  "field": "answerUrl",
+  "src": "tmp/source-audit/official/모평/2008-9월-과학탐구-3001188/200809과학탐구답안.pdf",
+  "board": "mock",
+  "post": "3001188",
+  "note": "HWP→PDF 변환본의 수식이 깨져 공식 정답표로 교체"
  }
 ]
