@@ -16,9 +16,9 @@ OFF = ROOT / "tmp/source-audit/official"
 ROUND = {"csat": "수능", "june": "6월", "sept": "9월"}
 AREA = {  # 항목 영역 → 게시물 영역 후보
     "국어": ["국어", "언어"], "수학": ["수학", "수리"], "영어": ["영어", "외국어"], "한국사": ["한국사", "국사"],
-    "사회탐구": ["사회탐구"], "과학탐구": ["과학탐구"], "직업탐구": ["직업탐구"], "제2외국어": ["제2외국어/한문"],
+    "사회탐구": ["사회탐구"], "과학탐구": ["과학탐구"], "직업탐구": ["직업탐구"], "제2외국어": ["제2외국어/한문", "제2외국어"],
 }
-STRIP = ("제Ⅱ외국어", "제2외국어한문영역", "답안지", "답안", "사회탐구영역", "과학탐구영역", "직업탐구영역", "제2외국어한문영역", "제2외국어", "사회탐구", "과학탐구", "직업탐구",
+STRIP = ("제Ⅱ외국어한문영역", "한문영역", "제Ⅱ외국어한문", "제Ⅱ외국어", "제2외국어한문영역", "답안지", "답안", "사회탐구영역", "과학탐구영역", "직업탐구영역", "제2외국어한문영역", "제2외국어", "사회탐구", "과학탐구", "직업탐구",
          "사탐", "과탐", "직탐", "영역", "문제지", "정답표", "정답", "문제", "최종본", "탐구", "교시")
 
 
@@ -105,6 +105,12 @@ def main():
                     k = re.sub(r"^(국어|수학|영어|한국사)", "", k) if it["subject"] in ("국어", "수학", "영어", "한국사") else k
                     if k == want or (not want and k in ("", it["subject"])) or (want and k.replace("형", "") == want.replace("형", "")):
                         hits.append((p, f))
+            if not hits and field == "answerUrl" and it["subject"] in ("제2외국어", "사회탐구", "과학탐구", "직업탐구"):
+                merged = [(p, f) for p in cands for f in p["files"] if "error" not in f and f["name"].lower().endswith("pdf")
+                          and kind_of(f["name"], f.get("zip", "")) == "answerUrl" and key_of(f["name"], area_words) == ""]
+                if len(merged) == 1:
+                    hits = merged
+                    rec["merged"] = True
             if len(hits) == 1:
                 p, f = hits[0]
                 rec["official"] = {"path": f"{p['dir']}/{f['name']}", "name": f["name"], "post": p["postId"], "board": p["board"],
