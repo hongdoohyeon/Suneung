@@ -13,6 +13,7 @@ ident = {(r["id"], r["field"]): r for r in json.loads((T / "identity.json").read
 qual = {(r["id"], r["field"]): r for r in json.loads((T / "quality-mirror.json").read_text(encoding="utf-8"))}
 pairs = {(r["id"], r["field"]): r for r in json.loads((T / "verify-pairs.json").read_text(encoding="utf-8"))}
 match = {(r["id"], r["field"]): r for r in json.loads((T / "match-official.json").read_text(encoding="utf-8"))}
+OLD = {tuple(x) for x in json.loads((T / "old-csat-verified.json").read_text(encoding="utf-8"))}
 rows = []
 for i in it:
     for f in ("questionUrl", "answerUrl", "solutionUrl", "scriptUrl"):
@@ -22,7 +23,9 @@ for i in it:
             continue
         k = (i["id"], f)
         q, idn, pr, mt = qual.get(k, {}), ident.get(k, {}), pairs.get(k), match.get(k, {})
-        if any(x.startswith(("OPEN_FAIL", "NO_PAGES")) for x in q.get("flags", [])):
+        if (i["id"], f) in OLD:
+            st = "검증됨: 평가원 게시판 원본 스캔과 쪽 이미지 일치(원본에서 잘라낸 분리본)"
+        elif any(x.startswith(("OPEN_FAIL", "NO_PAGES")) for x in q.get("flags", [])):
             st = "문제: 열리지 않음/빈 파일"
         elif pr and pr["ext"] == "hwp":
             c = pr.get("offInMirror") or 0

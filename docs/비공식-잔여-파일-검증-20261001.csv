@@ -2,70 +2,70 @@
 3380,suneung,2016,9,한국사,,solutionUrl,점검 누락(대본·해설 등),해설은 평가원 게시판에 없음,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6853_answerUrl.pdf
 4172,suneung,2013,6,수학,가형,answerUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,후보 없음,https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7305_answerUrl.pdf
 4173,suneung,2013,6,수학,나형,answerUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,후보 없음,https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7305_answerUrl.pdf
-4757,suneung,2004,11,국어,예체능계,questionUrl,부분검증: 머리글에 과목명 없음(본문 글자는 정상),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2004_csat_kor_q.pdf
-4759,suneung,2004,11,국어,인문계,questionUrl,부분검증: 머리글에 과목명 없음(본문 글자는 정상),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2004_csat_kor_q.pdf
-4761,suneung,2004,11,국어,자연계,questionUrl,부분검증: 머리글에 과목명 없음(본문 글자는 정상),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2004_csat_kor_q.pdf
-4763,suneung,2004,11,수학,예체능계,questionUrl,부분검증: 머리글에 과목명 없음(본문 글자는 정상),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2004_csat_math_art_q.pdf
-4765,suneung,2004,11,수학,인문계,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2004_csat_math_hum_q.pdf
-4767,suneung,2004,11,수학,자연계,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2004_csat_math_nat_q.pdf
-4769,suneung,2004,11,영어,예체능계,questionUrl,부분검증: 머리글에 과목명 없음(본문 글자는 정상),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2004_csat_eng_q.pdf
-4771,suneung,2004,11,영어,인문계,questionUrl,부분검증: 머리글에 과목명 없음(본문 글자는 정상),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2004_csat_eng_q.pdf
-4773,suneung,2004,11,영어,자연계,questionUrl,부분검증: 머리글에 과목명 없음(본문 글자는 정상),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2004_csat_eng_q.pdf
-4775,suneung,2004,11,과학탐구,자연계,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2004_csat_sci_nat_q.pdf
+4757,suneung,2004,11,국어,예체능계,questionUrl,검증됨: 평가원 게시판 원본 스캔과 쪽 이미지 일치(원본에서 잘라낸 분리본),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2004_csat_kor_q.pdf
+4759,suneung,2004,11,국어,인문계,questionUrl,검증됨: 평가원 게시판 원본 스캔과 쪽 이미지 일치(원본에서 잘라낸 분리본),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2004_csat_kor_q.pdf
+4761,suneung,2004,11,국어,자연계,questionUrl,검증됨: 평가원 게시판 원본 스캔과 쪽 이미지 일치(원본에서 잘라낸 분리본),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2004_csat_kor_q.pdf
+4763,suneung,2004,11,수학,예체능계,questionUrl,검증됨: 평가원 게시판 원본 스캔과 쪽 이미지 일치(원본에서 잘라낸 분리본),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2004_csat_math_art_q.pdf
+4765,suneung,2004,11,수학,인문계,questionUrl,검증됨: 평가원 게시판 원본 스캔과 쪽 이미지 일치(원본에서 잘라낸 분리본),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2004_csat_math_hum_q.pdf
+4767,suneung,2004,11,수학,자연계,questionUrl,검증됨: 평가원 게시판 원본 스캔과 쪽 이미지 일치(원본에서 잘라낸 분리본),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2004_csat_math_nat_q.pdf
+4769,suneung,2004,11,영어,예체능계,questionUrl,검증됨: 평가원 게시판 원본 스캔과 쪽 이미지 일치(원본에서 잘라낸 분리본),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2004_csat_eng_q.pdf
+4771,suneung,2004,11,영어,인문계,questionUrl,검증됨: 평가원 게시판 원본 스캔과 쪽 이미지 일치(원본에서 잘라낸 분리본),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2004_csat_eng_q.pdf
+4773,suneung,2004,11,영어,자연계,questionUrl,검증됨: 평가원 게시판 원본 스캔과 쪽 이미지 일치(원본에서 잘라낸 분리본),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2004_csat_eng_q.pdf
+4775,suneung,2004,11,과학탐구,자연계,questionUrl,검증됨: 평가원 게시판 원본 스캔과 쪽 이미지 일치(원본에서 잘라낸 분리본),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2004_csat_sci_nat_q.pdf
 4777,suneung,2004,11,사회탐구,인문계,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2004_csat_soc_hum_q.pdf
-4785,suneung,2003,11,국어,예체능계,questionUrl,부분검증: 머리글에 과목명 없음(본문 글자는 정상),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2003_csat_kor_q.pdf
-4786,suneung,2003,11,국어,인문계,questionUrl,부분검증: 머리글에 과목명 없음(본문 글자는 정상),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2003_csat_kor_q.pdf
-4787,suneung,2003,11,국어,자연계,questionUrl,부분검증: 머리글에 과목명 없음(본문 글자는 정상),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2003_csat_kor_q.pdf
-4788,suneung,2003,11,수학,예체능계,questionUrl,부분검증: 머리글에 과목명 없음(본문 글자는 정상),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2003_csat_math_art_q.pdf
-4789,suneung,2003,11,수학,인문계,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2003_csat_math_hum_q.pdf
-4790,suneung,2003,11,수학,자연계,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2003_csat_math_nat_q.pdf
-4791,suneung,2003,11,영어,예체능계,questionUrl,부분검증: 머리글에 과목명 없음(본문 글자는 정상),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2003_csat_eng_q.pdf
-4792,suneung,2003,11,영어,인문계,questionUrl,부분검증: 머리글에 과목명 없음(본문 글자는 정상),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2003_csat_eng_q.pdf
-4793,suneung,2003,11,영어,자연계,questionUrl,부분검증: 머리글에 과목명 없음(본문 글자는 정상),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2003_csat_eng_q.pdf
-4794,suneung,2003,11,과학탐구,자연계,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2003_csat_sci_nat_q.pdf
+4785,suneung,2003,11,국어,예체능계,questionUrl,검증됨: 평가원 게시판 원본 스캔과 쪽 이미지 일치(원본에서 잘라낸 분리본),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2003_csat_kor_q.pdf
+4786,suneung,2003,11,국어,인문계,questionUrl,검증됨: 평가원 게시판 원본 스캔과 쪽 이미지 일치(원본에서 잘라낸 분리본),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2003_csat_kor_q.pdf
+4787,suneung,2003,11,국어,자연계,questionUrl,검증됨: 평가원 게시판 원본 스캔과 쪽 이미지 일치(원본에서 잘라낸 분리본),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2003_csat_kor_q.pdf
+4788,suneung,2003,11,수학,예체능계,questionUrl,검증됨: 평가원 게시판 원본 스캔과 쪽 이미지 일치(원본에서 잘라낸 분리본),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2003_csat_math_art_q.pdf
+4789,suneung,2003,11,수학,인문계,questionUrl,검증됨: 평가원 게시판 원본 스캔과 쪽 이미지 일치(원본에서 잘라낸 분리본),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2003_csat_math_hum_q.pdf
+4790,suneung,2003,11,수학,자연계,questionUrl,검증됨: 평가원 게시판 원본 스캔과 쪽 이미지 일치(원본에서 잘라낸 분리본),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2003_csat_math_nat_q.pdf
+4791,suneung,2003,11,영어,예체능계,questionUrl,검증됨: 평가원 게시판 원본 스캔과 쪽 이미지 일치(원본에서 잘라낸 분리본),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2003_csat_eng_q.pdf
+4792,suneung,2003,11,영어,인문계,questionUrl,검증됨: 평가원 게시판 원본 스캔과 쪽 이미지 일치(원본에서 잘라낸 분리본),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2003_csat_eng_q.pdf
+4793,suneung,2003,11,영어,자연계,questionUrl,검증됨: 평가원 게시판 원본 스캔과 쪽 이미지 일치(원본에서 잘라낸 분리본),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2003_csat_eng_q.pdf
+4794,suneung,2003,11,과학탐구,자연계,questionUrl,검증됨: 평가원 게시판 원본 스캔과 쪽 이미지 일치(원본에서 잘라낸 분리본),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2003_csat_sci_nat_q.pdf
 4795,suneung,2003,11,사회탐구,인문계,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2003_csat_soc_hum_q.pdf
-4797,suneung,2002,11,국어,예체능계,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2002_csat_kor_q.pdf
-4798,suneung,2002,11,국어,인문계,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2002_csat_kor_q.pdf
-4799,suneung,2002,11,국어,자연계,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2002_csat_kor_q.pdf
-4800,suneung,2002,11,수학,예체능계,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2002_csat_math_art_q.pdf
-4801,suneung,2002,11,수학,인문계,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2002_csat_math_hum_q.pdf
-4802,suneung,2002,11,수학,자연계,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2002_csat_math_nat_q.pdf
-4803,suneung,2002,11,영어,예체능계,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2002_csat_eng_q.pdf
-4804,suneung,2002,11,영어,인문계,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2002_csat_eng_q.pdf
-4805,suneung,2002,11,영어,자연계,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2002_csat_eng_q.pdf
-4806,suneung,2002,11,과학탐구,자연계,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2002_csat_sci_nat_q.pdf
+4797,suneung,2002,11,국어,예체능계,questionUrl,검증됨: 평가원 게시판 원본 스캔과 쪽 이미지 일치(원본에서 잘라낸 분리본),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2002_csat_kor_q.pdf
+4798,suneung,2002,11,국어,인문계,questionUrl,검증됨: 평가원 게시판 원본 스캔과 쪽 이미지 일치(원본에서 잘라낸 분리본),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2002_csat_kor_q.pdf
+4799,suneung,2002,11,국어,자연계,questionUrl,검증됨: 평가원 게시판 원본 스캔과 쪽 이미지 일치(원본에서 잘라낸 분리본),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2002_csat_kor_q.pdf
+4800,suneung,2002,11,수학,예체능계,questionUrl,검증됨: 평가원 게시판 원본 스캔과 쪽 이미지 일치(원본에서 잘라낸 분리본),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2002_csat_math_art_q.pdf
+4801,suneung,2002,11,수학,인문계,questionUrl,검증됨: 평가원 게시판 원본 스캔과 쪽 이미지 일치(원본에서 잘라낸 분리본),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2002_csat_math_hum_q.pdf
+4802,suneung,2002,11,수학,자연계,questionUrl,검증됨: 평가원 게시판 원본 스캔과 쪽 이미지 일치(원본에서 잘라낸 분리본),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2002_csat_math_nat_q.pdf
+4803,suneung,2002,11,영어,예체능계,questionUrl,검증됨: 평가원 게시판 원본 스캔과 쪽 이미지 일치(원본에서 잘라낸 분리본),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2002_csat_eng_q.pdf
+4804,suneung,2002,11,영어,인문계,questionUrl,검증됨: 평가원 게시판 원본 스캔과 쪽 이미지 일치(원본에서 잘라낸 분리본),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2002_csat_eng_q.pdf
+4805,suneung,2002,11,영어,자연계,questionUrl,검증됨: 평가원 게시판 원본 스캔과 쪽 이미지 일치(원본에서 잘라낸 분리본),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2002_csat_eng_q.pdf
+4806,suneung,2002,11,과학탐구,자연계,questionUrl,검증됨: 평가원 게시판 원본 스캔과 쪽 이미지 일치(원본에서 잘라낸 분리본),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2002_csat_sci_nat_q.pdf
 4807,suneung,2002,11,사회탐구,인문계,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2002_csat_soc_hum_q.pdf
-4808,suneung,2001,11,국어,예체능계,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2001_csat_kor_q.pdf
-4809,suneung,2001,11,국어,인문계,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2001_csat_kor_q.pdf
-4810,suneung,2001,11,국어,자연계,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2001_csat_kor_q.pdf
-4811,suneung,2001,11,수학,예체능계,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2001_csat_math_art_q.pdf
-4812,suneung,2001,11,수학,인문계,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2001_csat_math_hum_q.pdf
-4813,suneung,2001,11,수학,자연계,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2001_csat_math_nat_q.pdf
-4814,suneung,2001,11,영어,예체능계,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2001_csat_eng_q.pdf
-4815,suneung,2001,11,영어,인문계,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2001_csat_eng_q.pdf
-4816,suneung,2001,11,영어,자연계,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2001_csat_eng_q.pdf
-4817,suneung,2001,11,과학탐구,자연계,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2001_csat_sci_nat_q.pdf
+4808,suneung,2001,11,국어,예체능계,questionUrl,검증됨: 평가원 게시판 원본 스캔과 쪽 이미지 일치(원본에서 잘라낸 분리본),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2001_csat_kor_q.pdf
+4809,suneung,2001,11,국어,인문계,questionUrl,검증됨: 평가원 게시판 원본 스캔과 쪽 이미지 일치(원본에서 잘라낸 분리본),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2001_csat_kor_q.pdf
+4810,suneung,2001,11,국어,자연계,questionUrl,검증됨: 평가원 게시판 원본 스캔과 쪽 이미지 일치(원본에서 잘라낸 분리본),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2001_csat_kor_q.pdf
+4811,suneung,2001,11,수학,예체능계,questionUrl,검증됨: 평가원 게시판 원본 스캔과 쪽 이미지 일치(원본에서 잘라낸 분리본),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2001_csat_math_art_q.pdf
+4812,suneung,2001,11,수학,인문계,questionUrl,검증됨: 평가원 게시판 원본 스캔과 쪽 이미지 일치(원본에서 잘라낸 분리본),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2001_csat_math_hum_q.pdf
+4813,suneung,2001,11,수학,자연계,questionUrl,검증됨: 평가원 게시판 원본 스캔과 쪽 이미지 일치(원본에서 잘라낸 분리본),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2001_csat_math_nat_q.pdf
+4814,suneung,2001,11,영어,예체능계,questionUrl,검증됨: 평가원 게시판 원본 스캔과 쪽 이미지 일치(원본에서 잘라낸 분리본),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2001_csat_eng_q.pdf
+4815,suneung,2001,11,영어,인문계,questionUrl,검증됨: 평가원 게시판 원본 스캔과 쪽 이미지 일치(원본에서 잘라낸 분리본),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2001_csat_eng_q.pdf
+4816,suneung,2001,11,영어,자연계,questionUrl,검증됨: 평가원 게시판 원본 스캔과 쪽 이미지 일치(원본에서 잘라낸 분리본),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2001_csat_eng_q.pdf
+4817,suneung,2001,11,과학탐구,자연계,questionUrl,검증됨: 평가원 게시판 원본 스캔과 쪽 이미지 일치(원본에서 잘라낸 분리본),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2001_csat_sci_nat_q.pdf
 4818,suneung,2001,11,사회탐구,인문계,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2001_csat_soc_hum_q.pdf
-4819,suneung,2000,11,국어,예체능계,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2000_csat_kor_q.pdf
-4820,suneung,2000,11,국어,인문계,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2000_csat_kor_q.pdf
-4822,suneung,2000,11,국어,자연계,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2000_csat_kor_q.pdf
+4819,suneung,2000,11,국어,예체능계,questionUrl,검증됨: 평가원 게시판 원본 스캔과 쪽 이미지 일치(원본에서 잘라낸 분리본),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2000_csat_kor_q.pdf
+4820,suneung,2000,11,국어,인문계,questionUrl,검증됨: 평가원 게시판 원본 스캔과 쪽 이미지 일치(원본에서 잘라낸 분리본),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2000_csat_kor_q.pdf
+4822,suneung,2000,11,국어,자연계,questionUrl,검증됨: 평가원 게시판 원본 스캔과 쪽 이미지 일치(원본에서 잘라낸 분리본),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2000_csat_kor_q.pdf
 4824,suneung,2000,11,수학,예체능계,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2000_csat_math_art_q.pdf
 4825,suneung,2000,11,수학,인문계,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2000_csat_math_hum_q.pdf
-4827,suneung,2000,11,수학,자연계,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2000_csat_math_nat_q.pdf
+4827,suneung,2000,11,수학,자연계,questionUrl,검증됨: 평가원 게시판 원본 스캔과 쪽 이미지 일치(원본에서 잘라낸 분리본),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2000_csat_math_nat_q.pdf
 4829,suneung,2000,11,영어,예체능계,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2000_csat_eng_q.pdf
 4832,suneung,2000,11,영어,자연계,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2000_csat_eng_q.pdf
-4834,suneung,2000,11,과학탐구,자연계,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2000_csat_sci_nat_q.pdf
+4834,suneung,2000,11,과학탐구,자연계,questionUrl,검증됨: 평가원 게시판 원본 스캔과 쪽 이미지 일치(원본에서 잘라낸 분리본),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2000_csat_sci_nat_q.pdf
 4836,suneung,2000,11,사회탐구,인문계,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2000_csat_soc_hum_q.pdf
-4838,suneung,1999,11,국어,예체능계,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/1999_csat_kor_q.pdf
-4839,suneung,1999,11,국어,인문계,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/1999_csat_kor_q.pdf
-4841,suneung,1999,11,국어,자연계,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/1999_csat_kor_q.pdf
-4842,suneung,1999,11,수학,예체능계,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/1999_csat_math_art_q.pdf
-4843,suneung,1999,11,수학,인문계,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/1999_csat_math_hum_q.pdf
-4845,suneung,1999,11,수학,자연계,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/1999_csat_math_nat_q.pdf
-4847,suneung,1999,11,영어,인문계,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/1999_csat_eng_q.pdf
-4849,suneung,1999,11,영어,자연계,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/1999_csat_eng_q.pdf
-4850,suneung,1999,11,과학탐구,자연계,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/1999_csat_sci_nat_q.pdf
-4851,suneung,1999,11,사회탐구,인문계,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/1999_csat_soc_hum_q.pdf
+4838,suneung,1999,11,국어,예체능계,questionUrl,검증됨: 평가원 게시판 원본 스캔과 쪽 이미지 일치(원본에서 잘라낸 분리본),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/1999_csat_kor_q.pdf
+4839,suneung,1999,11,국어,인문계,questionUrl,검증됨: 평가원 게시판 원본 스캔과 쪽 이미지 일치(원본에서 잘라낸 분리본),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/1999_csat_kor_q.pdf
+4841,suneung,1999,11,국어,자연계,questionUrl,검증됨: 평가원 게시판 원본 스캔과 쪽 이미지 일치(원본에서 잘라낸 분리본),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/1999_csat_kor_q.pdf
+4842,suneung,1999,11,수학,예체능계,questionUrl,검증됨: 평가원 게시판 원본 스캔과 쪽 이미지 일치(원본에서 잘라낸 분리본),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/1999_csat_math_art_q.pdf
+4843,suneung,1999,11,수학,인문계,questionUrl,검증됨: 평가원 게시판 원본 스캔과 쪽 이미지 일치(원본에서 잘라낸 분리본),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/1999_csat_math_hum_q.pdf
+4845,suneung,1999,11,수학,자연계,questionUrl,검증됨: 평가원 게시판 원본 스캔과 쪽 이미지 일치(원본에서 잘라낸 분리본),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/1999_csat_math_nat_q.pdf
+4847,suneung,1999,11,영어,인문계,questionUrl,검증됨: 평가원 게시판 원본 스캔과 쪽 이미지 일치(원본에서 잘라낸 분리본),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/1999_csat_eng_q.pdf
+4849,suneung,1999,11,영어,자연계,questionUrl,검증됨: 평가원 게시판 원본 스캔과 쪽 이미지 일치(원본에서 잘라낸 분리본),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/1999_csat_eng_q.pdf
+4850,suneung,1999,11,과학탐구,자연계,questionUrl,검증됨: 평가원 게시판 원본 스캔과 쪽 이미지 일치(원본에서 잘라낸 분리본),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/1999_csat_sci_nat_q.pdf
+4851,suneung,1999,11,사회탐구,인문계,questionUrl,검증됨: 평가원 게시판 원본 스캔과 쪽 이미지 일치(원본에서 잘라낸 분리본),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/1999_csat_soc_hum_q.pdf
 6020,education,2006,4,국어,,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6020_questionUrl.pdf
 6021,education,2006,4,수학,,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6021_questionUrl.pdf
 6022,education,2006,4,사회탐구,경제,questionUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6022_questionUrl.pdf
