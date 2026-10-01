@@ -1,5 +1,5 @@
 ﻿id,구분,학년도,월,과목,세부과목,파일종류,검증상태,공식 교체 불가 사유,URL
-3380,suneung,2016,9,한국사,,solutionUrl,점검 누락,해설은 평가원 게시판에 없음,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6853_answerUrl.pdf
+3380,suneung,2016,9,한국사,,solutionUrl,점검 누락(대본·해설 등),해설은 평가원 게시판에 없음,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6853_answerUrl.pdf
 4172,suneung,2013,6,수학,가형,answerUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,후보 없음,https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7305_answerUrl.pdf
 4173,suneung,2013,6,수학,나형,answerUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,후보 없음,https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7305_answerUrl.pdf
 4757,suneung,2004,11,국어,예체능계,questionUrl,부분검증: 머리글에 과목명 없음(본문 글자는 정상),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2004_csat_kor_q.pdf
@@ -53,7 +53,6 @@
 4825,suneung,2000,11,수학,인문계,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2000_csat_math_hum_q.pdf
 4827,suneung,2000,11,수학,자연계,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2000_csat_math_nat_q.pdf
 4829,suneung,2000,11,영어,예체능계,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2000_csat_eng_q.pdf
-4830,suneung,2000,11,영어,인문계,questionUrl,문제: 열리지 않음/빈 파일,해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2000_csat_eng_q.pdf
 4832,suneung,2000,11,영어,자연계,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2000_csat_eng_q.pdf
 4834,suneung,2000,11,과학탐구,자연계,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2000_csat_sci_nat_q.pdf
 4836,suneung,2000,11,사회탐구,인문계,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/2000_csat_soc_hum_q.pdf
@@ -63,7 +62,6 @@
 4842,suneung,1999,11,수학,예체능계,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/1999_csat_math_art_q.pdf
 4843,suneung,1999,11,수학,인문계,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/1999_csat_math_hum_q.pdf
 4845,suneung,1999,11,수학,자연계,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/1999_csat_math_nat_q.pdf
-4846,suneung,1999,11,영어,예체능계,questionUrl,문제: 열리지 않음/빈 파일,해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/1999_csat_eng_q.pdf
 4847,suneung,1999,11,영어,인문계,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/1999_csat_eng_q.pdf
 4849,suneung,1999,11,영어,자연계,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/1999_csat_eng_q.pdf
 4850,suneung,1999,11,과학탐구,자연계,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),해당 학년도·회차·영역 게시물 없음,https://suneung-files.hdh061224.workers.dev/legacy-csat-v2/1999_csat_sci_nat_q.pdf
@@ -317,18 +315,17 @@
 6270,education,2005,11,제2외국어,일본어,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6270_questionUrl.pdf
 6271,education,2005,11,제2외국어,프랑스어,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6271_questionUrl.pdf
 6272,education,2005,11,제2외국어,한문,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6272_questionUrl.pdf
-6448,education,2005,3,국어,,scriptUrl,점검 누락,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6448_scriptUrl.pdf
-6452,education,2005,3,영어,,scriptUrl,점검 누락,,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6452_scriptUrl.pdf
+6448,education,2005,3,국어,,scriptUrl,점검 누락(대본·해설 등),,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6448_scriptUrl.pdf
+6452,education,2005,3,영어,,scriptUrl,점검 누락(대본·해설 등),,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6452_scriptUrl.pdf
 6630,suneung,2006,9,제2외국어,아랍어,questionUrl,부분검증: 머리글에 과목명 없음(본문 글자는 정상),후보 없음,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6630_questionUrl.pdf
-6674,suneung,2012,6,직업탐구,공업입문,questionUrl,문제: 열리지 않음/빈 파일,공식 파일이 HWP뿐,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6674_questionUrl.pdf
 6699,suneung,2009,6,국어,,questionUrl,검증됨: 공식 HWP 본문이 미러에 포함(일치율 98%),공식 파일이 HWP뿐,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6699_questionUrl.pdf
 6699,suneung,2009,6,국어,,answerUrl,검증불가: 공식 HWP에 본문 글자 없음(답안표 등),공식 파일이 HWP뿐,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6699_answerUrl.pdf
 6726,suneung,2009,6,직업탐구,수산일반,answerUrl,검증불가: 공식 HWP에 본문 글자 없음(답안표 등),공식 파일이 HWP뿐,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6726_answerUrl.pdf
 6733,suneung,2009,6,직업탐구,해사일반,answerUrl,검증불가: 공식 HWP에 본문 글자 없음(답안표 등),공식 파일이 HWP뿐,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6733_answerUrl.pdf
 6739,suneung,2009,6,제2외국어,아랍어,questionUrl,부분검증: 머리글에 과목명 없음(본문 글자는 정상),후보 없음,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6739_questionUrl.pdf
 6739,suneung,2009,6,제2외국어,아랍어,answerUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,후보 없음,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6739_answerUrl.pdf
-6747,suneung,2014,6,영어,A형,scriptUrl,점검 누락,공식 파일이 HWP뿐,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6747_scriptUrl.pdf
-6748,suneung,2014,6,영어,B형,scriptUrl,점검 누락,공식 파일이 HWP뿐,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6748_scriptUrl.pdf
+6747,suneung,2014,6,영어,A형,scriptUrl,점검 누락(대본·해설 등),공식 파일이 HWP뿐,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6747_scriptUrl.pdf
+6748,suneung,2014,6,영어,B형,scriptUrl,점검 누락(대본·해설 등),공식 파일이 HWP뿐,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6748_scriptUrl.pdf
 6815,suneung,2005,9,제2외국어,아랍어,questionUrl,부분검증: 머리글에 과목명 없음(본문 글자는 정상),후보 없음,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6815_questionUrl.pdf
 6903,suneung,2006,6,국어,,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),후보 없음,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6903_questionUrl.pdf
 6903,suneung,2006,6,국어,,answerUrl,검증불가: 공식 HWP 3.0·읽기 실패,공식 파일이 HWP뿐,https://suneung-files.hdh061224.workers.dev/daum-mirror-v1/dm_6903_answerUrl.pdf
@@ -440,8 +437,8 @@
 7302,suneung,2008,9,수학,,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),후보 없음,https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7302_questionUrl.pdf
 7302,suneung,2008,9,수학,,answerUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),후보 없음,https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7302_answerUrl.pdf
 7304,suneung,2008,9,과학탐구,생물Ⅱ,questionUrl,검증불가: 글자층 없는 스캔본(쪽수·형태만 확인),후보 없음,https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7304_questionUrl.pdf
-7402,suneung,2014,9,영어,A형,scriptUrl,점검 누락,공식 파일이 HWP뿐,https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7402_scriptUrl.pdf
-7403,suneung,2014,9,영어,B형,scriptUrl,점검 누락,공식 파일이 HWP뿐,https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7403_scriptUrl.pdf
+7402,suneung,2014,9,영어,A형,scriptUrl,점검 누락(대본·해설 등),공식 파일이 HWP뿐,https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7402_scriptUrl.pdf
+7403,suneung,2014,9,영어,B형,scriptUrl,점검 누락(대본·해설 등),공식 파일이 HWP뿐,https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7403_scriptUrl.pdf
 7427,suneung,2014,9,제2외국어,한문,questionUrl,부분검증: 머리글에 과목명 없음(본문 글자는 정상),후보 없음,https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7427_questionUrl.pdf
 7428,suneung,2010,6,수학,가형,answerUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,후보 없음,https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7428_answerUrl.pdf
 7429,suneung,2010,6,수학,나형,answerUrl,검증됨: 첫 쪽 글자로 학년도·영역 확인,후보 없음,https://suneung-files.hdh061224.workers.dev/daum-mirror-v2/dm_7429_answerUrl.pdf
