@@ -1,0 +1,136 @@
+{
+ "date": "2027-11-18",
+ "scoreNotice": "2027-12-10",
+ "sources": [
+  {
+   "title": "교육부 보도자료 '2028학년도 대학수학능력시험은 2027년 11월 18일(목)에 시행됩니다' (2025.5.30 배포) 붙임2",
+   "url": "https://www.moe.go.kr/boardCnts/viewRenew.do?boardID=294&boardSeq=103512&lev=0&searchType=null&statusYN=W&page=1&s=moe&m=020402&opType=N"
+  },
+  {
+   "title": "교육부 보도자료 '2028 입시부터 국어·수학·사회·과학 선택과목 없는 통합형 수능' (2023.12.27)",
+   "url": "https://www.moe.go.kr/boardCnts/viewRenew.do?boardID=294&boardSeq=97551&lev=0&searchType=null&statusYN=W&page=1&s=moe&m=020402&opType=N"
+  }
+ ],
+ "pending": [
+  "평가원 시행기본계획은 2027년 3월 공고 예정(2026-10 현재 미공고). 확정되면 이 파일의 scope 를 갱신한다.",
+  "공통과목(공통국어·공통수학)이 간접 출제 범위에 드는지는 평가원 예시문항 안내자료집(2025.4.15)의 보도 내용을 근거로 'indirect'로 둔다. 시행기본계획으로 확인 필요.",
+  "한국사는 보도자료가 '한국사를 바탕으로'라고만 적었다. 한국사1·2 전체를 범위로 가정한다."
+ ],
+ "areas": [
+  {
+   "area": "국어",
+   "questions": 45,
+   "minutes": 80,
+   "score": 100,
+   "courses": [
+    "화법과 언어",
+    "독서와 작문",
+    "문학"
+   ],
+   "note": "선택과목 폐지. 다양한 소재의 지문·자료로 출제."
+  },
+  {
+   "area": "수학",
+   "questions": 30,
+   "minutes": 100,
+   "score": 100,
+   "courses": [
+    "대수",
+    "미적분Ⅰ",
+    "확률과 통계"
+   ],
+   "note": "선택과목 폐지, 단답형 30%. 미적분Ⅱ·기하(심화수학)는 제외."
+  },
+  {
+   "area": "영어",
+   "questions": 45,
+   "minutes": 70,
+   "score": 100,
+   "courses": [
+    "영어Ⅰ",
+    "영어Ⅱ"
+   ],
+   "note": "듣기 17문항, 절대평가."
+  },
+  {
+   "area": "한국사",
+   "questions": 20,
+   "minutes": 30,
+   "score": 50,
+   "courses": [
+    "한국사"
+   ],
+   "note": "필수, 절대평가. 핵심 내용 중심."
+  },
+  {
+   "area": "사회탐구",
+   "questions": 25,
+   "minutes": 40,
+   "score": 50,
+   "courses": [
+    "통합사회"
+   ],
+   "note": "선택 없음. 배점 1.5·2·2.5점. 사회·과학 응시자는 둘 다 응시."
+  },
+  {
+   "area": "과학탐구",
+   "questions": 25,
+   "minutes": 40,
+   "score": 50,
+   "courses": [
+    "통합과학"
+   ],
+   "note": "선택 없음. 배점 1.5·2·2.5점."
+  },
+  {
+   "area": "직업탐구",
+   "questions": 25,
+   "minutes": 40,
+   "score": 50,
+   "courses": [
+    "성공적인 직업 생활"
+   ],
+   "note": ""
+  },
+  {
+   "area": "제2외국어/한문",
+   "questions": 20,
+   "minutes": 30,
+   "score": 50,
+   "courses": [
+    "독일어",
+    "프랑스어",
+    "스페인어",
+    "중국어",
+    "일본어",
+    "러시아어",
+    "아랍어",
+    "베트남어",
+    "한문"
+   ],
+   "note": "9과목 중 1과목, 절대평가."
+  }
+ ],
+ "scope": {
+  "화법과 언어": "core",
+  "독서와 작문": "core",
+  "문학": "core",
+  "공통국어1": "indirect",
+  "공통국어2": "indirect",
+  "대수": "core",
+  "미적분Ⅰ": "core",
+  "확률과 통계": "core",
+  "공통수학1": "indirect",
+  "공통수학2": "indirect",
+  "미적분Ⅱ": "out",
+  "기하": "out",
+  "영어Ⅰ": "core",
+  "영어Ⅱ": "core",
+  "한국사1": "core",
+  "한국사2": "core",
+  "통합사회1": "core",
+  "통합사회2": "core",
+  "통합과학1": "core",
+  "통합과학2": "core"
+ }
+}
