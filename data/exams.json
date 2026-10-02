@@ -118550,7 +118550,7 @@
     "questionDownload": "2014학년도 6모 제2외국어(중국어) 문제지.pdf",
     "answerUrl": "https://suneung-files.hdh061224.workers.dev/kice-official-v1/off_6772_a.pdf?name=2014%ED%95%99%EB%85%84%EB%8F%84%206%EB%AA%A8%20%EC%A0%9C2%EC%99%B8%EA%B5%AD%EC%96%B4%28%EC%A4%91%EA%B5%AD%EC%96%B4%29%20%EC%A0%95%EB%8B%B5.pdf",
     "answerDownload": "2014학년도 6모 제2외국어(중국어) 정답.pdf",
-    "solutionUrl": null,
+    "solutionUrl": "https://wdown.ebsi.co.kr/W61001/01exam/201306053/2nd_ch1_hsj.pdf",
     "listenUrl": null,
     "listenDownload": null,
     "scriptUrl": null,
@@ -118558,7 +118558,10 @@
     "source": "legacy-mock",
     "id": 6772,
     "questionUrl_source_original": "https://suneung.re.kr/boardCnts/view.do?boardID=1500236&boardSeq=3018178&lev=0&m=0403&s=suneung",
-    "answerUrl_source_original": "https://suneung.re.kr/boardCnts/view.do?boardID=1500236&boardSeq=3018178&lev=0&m=0403&s=suneung"
+    "answerUrl_source_original": "https://suneung.re.kr/boardCnts/view.do?boardID=1500236&boardSeq=3018178&lev=0&m=0403&s=suneung",
+    "solutionDownload": "2014학년도 6월 모평 제2외국어(중국어) 정답·해설.pdf",
+    "solutionSource": "EBSi",
+    "solutionSourcePage": "https://www.ebsi.co.kr/ebs/xip/xipc/previousPaperList.ebs?targetCd=D300"
   },
   {
     "curriculum": "2007개정",
@@ -128078,7 +128081,7 @@
     "questionDownload": "2015학년도 9모 수학(A형) 문제지.pdf",
     "answerUrl": "https://suneung-files.hdh061224.workers.dev/kice-official-v1/off_7356_a.pdf?name=2015%ED%95%99%EB%85%84%EB%8F%84%209%EB%AA%A8%20%EC%88%98%ED%95%99%28A%ED%98%95%29%20%EC%A0%95%EB%8B%B5.pdf",
     "answerDownload": "2015학년도 9모 수학(A형) 정답.pdf",
-    "solutionUrl": null,
+    "solutionUrl": "https://wdown.ebsi.co.kr/W61001/01exam/201409033/KYQUgbU7_h3_matha_hsj.pdf",
     "listenUrl": null,
     "listenDownload": null,
     "scriptUrl": null,
@@ -128086,7 +128089,10 @@
     "source": "legacy-mock",
     "id": 7356,
     "questionUrl_source_original": "https://suneung.re.kr/boardCnts/view.do?boardID=1500236&boardSeq=3027895&lev=0&m=0403&s=suneung",
-    "answerUrl_source_original": "https://suneung.re.kr/boardCnts/view.do?boardID=1500236&boardSeq=3027895&lev=0&m=0403&s=suneung"
+    "answerUrl_source_original": "https://suneung.re.kr/boardCnts/view.do?boardID=1500236&boardSeq=3027895&lev=0&m=0403&s=suneung",
+    "solutionDownload": "2015학년도 9월 모평 수학(A형) 정답·해설.pdf",
+    "solutionSource": "EBSi",
+    "solutionSourcePage": "https://www.ebsi.co.kr/ebs/xip/xipc/previousPaperList.ebs?targetCd=D300"
   },
   {
     "curriculum": "2009",
@@ -128102,7 +128108,7 @@
     "questionDownload": "2015학년도 9모 수학(B형) 문제지.pdf",
     "answerUrl": "https://suneung-files.hdh061224.workers.dev/kice-official-v1/off_7357_a.pdf?name=2015%ED%95%99%EB%85%84%EB%8F%84%209%EB%AA%A8%20%EC%88%98%ED%95%99%28B%ED%98%95%29%20%EC%A0%95%EB%8B%B5.pdf",
     "answerDownload": "2015학년도 9모 수학(B형) 정답.pdf",
-    "solutionUrl": null,
+    "solutionUrl": "https://wdown.ebsi.co.kr/W61001/01exam/201409033/nOdFicTz_h3_mathb_hsj_1.pdf",
     "listenUrl": null,
     "listenDownload": null,
     "scriptUrl": null,
@@ -128110,7 +128116,10 @@
     "source": "legacy-mock",
     "id": 7357,
     "questionUrl_source_original": "https://suneung.re.kr/boardCnts/view.do?boardID=1500236&boardSeq=3027895&lev=0&m=0403&s=suneung",
-    "answerUrl_source_original": "https://suneung.re.kr/boardCnts/view.do?boardID=1500236&boardSeq=3027895&lev=0&m=0403&s=suneung"
+    "answerUrl_source_original": "https://suneung.re.kr/boardCnts/view.do?boardID=1500236&boardSeq=3027895&lev=0&m=0403&s=suneung",
+    "solutionDownload": "2015학년도 9월 모평 수학(B형) 정답·해설.pdf",
+    "solutionSource": "EBSi",
+    "solutionSourcePage": "https://www.ebsi.co.kr/ebs/xip/xipc/previousPaperList.ebs?targetCd=D300"
   },
   {
     "curriculum": "2009",
@@ -128315,7 +128324,7 @@
     "questionDownload": "2014학년도 9모 수학(A형) 문제지.pdf",
     "answerUrl": "https://suneung-files.hdh061224.workers.dev/kice-official-v1/off_7400_a.pdf?name=2014%ED%95%99%EB%85%84%EB%8F%84%209%EB%AA%A8%20%EC%88%98%ED%95%99%28A%ED%98%95%29%20%EC%A0%95%EB%8B%B5.pdf",
     "answerDownload": "2014학년도 9모 수학(A형) 정답.pdf",
-    "solutionUrl": null,
+    "solutionUrl": "https://wdown.ebsi.co.kr/W61001/01exam/201309033/matha_hsj.pdf",
     "listenUrl": null,
     "listenDownload": null,
     "scriptUrl": null,
@@ -128323,7 +128332,10 @@
     "source": "legacy-mock",
     "id": 7400,
     "questionUrl_source_original": "https://suneung.re.kr/boardCnts/view.do?boardID=1500236&boardSeq=3020143&lev=0&m=0403&s=suneung",
-    "answerUrl_source_original": "https://suneung.re.kr/boardCnts/view.do?boardID=1500236&boardSeq=3020143&lev=0&m=0403&s=suneung"
+    "answerUrl_source_original": "https://suneung.re.kr/boardCnts/view.do?boardID=1500236&boardSeq=3020143&lev=0&m=0403&s=suneung",
+    "solutionDownload": "2014학년도 9월 모평 수학(A형) 정답·해설.pdf",
+    "solutionSource": "EBSi",
+    "solutionSourcePage": "https://www.ebsi.co.kr/ebs/xip/xipc/previousPaperList.ebs?targetCd=D300"
   },
   {
     "curriculum": "2007개정",
@@ -128339,7 +128351,7 @@
     "questionDownload": "2014학년도 9모 수학(B형) 문제지.pdf",
     "answerUrl": "https://suneung-files.hdh061224.workers.dev/kice-official-v1/off_7401_a.pdf?name=2014%ED%95%99%EB%85%84%EB%8F%84%209%EB%AA%A8%20%EC%88%98%ED%95%99%28B%ED%98%95%29%20%EC%A0%95%EB%8B%B5.pdf",
     "answerDownload": "2014학년도 9모 수학(B형) 정답.pdf",
-    "solutionUrl": null,
+    "solutionUrl": "https://wdown.ebsi.co.kr/W61001/01exam/201309033/mathb_hsj.pdf",
     "listenUrl": null,
     "listenDownload": null,
     "scriptUrl": null,
@@ -128347,7 +128359,10 @@
     "source": "legacy-mock",
     "id": 7401,
     "questionUrl_source_original": "https://suneung.re.kr/boardCnts/view.do?boardID=1500236&boardSeq=3020143&lev=0&m=0403&s=suneung",
-    "answerUrl_source_original": "https://suneung.re.kr/boardCnts/view.do?boardID=1500236&boardSeq=3020143&lev=0&m=0403&s=suneung"
+    "answerUrl_source_original": "https://suneung.re.kr/boardCnts/view.do?boardID=1500236&boardSeq=3020143&lev=0&m=0403&s=suneung",
+    "solutionDownload": "2014학년도 9월 모평 수학(B형) 정답·해설.pdf",
+    "solutionSource": "EBSi",
+    "solutionSourcePage": "https://www.ebsi.co.kr/ebs/xip/xipc/previousPaperList.ebs?targetCd=D300"
   },
   {
     "curriculum": "2007개정",
@@ -128605,7 +128620,7 @@
     "questionDownload": "2014학년도 9모 제2외국어(중국어) 문제지.pdf",
     "answerUrl": "https://suneung-files.hdh061224.workers.dev/kice-official-v1/off_7425_a.pdf?name=2014%ED%95%99%EB%85%84%EB%8F%84%209%EB%AA%A8%20%EC%A0%9C2%EC%99%B8%EA%B5%AD%EC%96%B4%28%EC%A4%91%EA%B5%AD%EC%96%B4%29%20%EC%A0%95%EB%8B%B5.pdf",
     "answerDownload": "2014학년도 9모 제2외국어(중국어) 정답.pdf",
-    "solutionUrl": null,
+    "solutionUrl": "https://wdown.ebsi.co.kr/W61001/01exam/201309033/2nd_ch1_hsj.pdf",
     "listenUrl": null,
     "listenDownload": null,
     "scriptUrl": null,
@@ -128613,7 +128628,10 @@
     "source": "legacy-mock",
     "id": 7425,
     "questionUrl_source_original": "https://suneung.re.kr/boardCnts/view.do?boardID=1500236&boardSeq=3020137&lev=0&m=0403&s=suneung",
-    "answerUrl_source_original": "https://suneung.re.kr/boardCnts/view.do?boardID=1500236&boardSeq=3020137&lev=0&m=0403&s=suneung"
+    "answerUrl_source_original": "https://suneung.re.kr/boardCnts/view.do?boardID=1500236&boardSeq=3020137&lev=0&m=0403&s=suneung",
+    "solutionDownload": "2014학년도 9월 모평 제2외국어(중국어) 정답·해설.pdf",
+    "solutionSource": "EBSi",
+    "solutionSourcePage": "https://www.ebsi.co.kr/ebs/xip/xipc/previousPaperList.ebs?targetCd=D300"
   },
   {
     "curriculum": "2007개정",
@@ -130994,7 +131012,7 @@
     "questionDownload": "2015학년도 6모 수학(A형) 문제지.pdf",
     "answerUrl": "https://suneung-files.hdh061224.workers.dev/kice-official-v1/off_7542_a.pdf?name=2015%ED%95%99%EB%85%84%EB%8F%84%206%EB%AA%A8%20%EC%88%98%ED%95%99%28A%ED%98%95%29%20%EC%A0%95%EB%8B%B5.pdf",
     "answerDownload": "2015학년도 6모 수학(A형) 정답.pdf",
-    "solutionUrl": null,
+    "solutionUrl": "https://wdown.ebsi.co.kr/W61001/01exam/201406123/matha_hsj.pdf",
     "listenUrl": null,
     "listenDownload": null,
     "scriptUrl": null,
@@ -131002,7 +131020,10 @@
     "source": "legacy-mock",
     "id": 7542,
     "questionUrl_source_original": "https://suneung.re.kr/boardCnts/view.do?boardID=1500236&boardSeq=3026345&lev=0&m=0403&s=suneung",
-    "answerUrl_source_original": "https://suneung.re.kr/boardCnts/view.do?boardID=1500236&boardSeq=3026345&lev=0&m=0403&s=suneung"
+    "answerUrl_source_original": "https://suneung.re.kr/boardCnts/view.do?boardID=1500236&boardSeq=3026345&lev=0&m=0403&s=suneung",
+    "solutionDownload": "2015학년도 6월 모평 수학(A형) 정답·해설.pdf",
+    "solutionSource": "EBSi",
+    "solutionSourcePage": "https://www.ebsi.co.kr/ebs/xip/xipc/previousPaperList.ebs?targetCd=D300"
   },
   {
     "curriculum": "2009",
@@ -131018,7 +131039,7 @@
     "questionDownload": "2015학년도 6모 수학(B형) 문제지.pdf",
     "answerUrl": "https://suneung-files.hdh061224.workers.dev/kice-official-v1/off_7543_a.pdf?name=2015%ED%95%99%EB%85%84%EB%8F%84%206%EB%AA%A8%20%EC%88%98%ED%95%99%28B%ED%98%95%29%20%EC%A0%95%EB%8B%B5.pdf",
     "answerDownload": "2015학년도 6모 수학(B형) 정답.pdf",
-    "solutionUrl": null,
+    "solutionUrl": "https://wdown.ebsi.co.kr/W61001/01exam/201406123/mathb_hsj.pdf",
     "listenUrl": null,
     "listenDownload": null,
     "scriptUrl": null,
@@ -131026,7 +131047,10 @@
     "source": "legacy-mock",
     "id": 7543,
     "questionUrl_source_original": "https://suneung.re.kr/boardCnts/view.do?boardID=1500236&boardSeq=3026345&lev=0&m=0403&s=suneung",
-    "answerUrl_source_original": "https://suneung.re.kr/boardCnts/view.do?boardID=1500236&boardSeq=3026345&lev=0&m=0403&s=suneung"
+    "answerUrl_source_original": "https://suneung.re.kr/boardCnts/view.do?boardID=1500236&boardSeq=3026345&lev=0&m=0403&s=suneung",
+    "solutionDownload": "2015학년도 6월 모평 수학(B형) 정답·해설.pdf",
+    "solutionSource": "EBSi",
+    "solutionSourcePage": "https://www.ebsi.co.kr/ebs/xip/xipc/previousPaperList.ebs?targetCd=D300"
   },
   {
     "curriculum": "2009",
