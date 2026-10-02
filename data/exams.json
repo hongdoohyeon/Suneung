@@ -29305,12 +29305,15 @@
     "type": "sept",
     "subject": "과학탐구",
     "subSubject": "물리Ⅰ",
-    "solutionUrl": null,
+    "solutionUrl": "https://wdown.ebsi.co.kr/W61001/01exam/20200916/go3/g_phy1_hsj_ORXY983T.pdf",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-v3/2021_mock09_science_physics1_q.pdf?name=2021%ED%95%99%EB%85%84%EB%8F%84%209%EB%AA%A8%20%EA%B3%BC%ED%95%99%ED%83%90%EA%B5%AC%28%EB%AC%BC%EB%A6%AC%E2%85%A0%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
     "answerUrl": "https://suneung-files.hdh061224.workers.dev/kice-official-v1/off_1769_a.pdf?name=2021%ED%95%99%EB%85%84%EB%8F%84%209%EB%AA%A8%20%EA%B3%BC%ED%95%99%ED%83%90%EA%B5%AC%28%EB%AC%BC%EB%A6%AC%E2%85%A0%29%20%EC%A0%95%EB%8B%B5.pdf",
     "questionDownload": "2021학년도 9모 과학탐구(물리Ⅰ) 문제지.pdf",
     "answerDownload": "2021학년도 9모 과학탐구(물리Ⅰ) 정답.pdf",
-    "answerUrl_source_original": "https://suneung.re.kr/boardCnts/view.do?boardID=1500236&boardSeq=5050883&lev=0&m=0403&s=suneung"
+    "answerUrl_source_original": "https://suneung.re.kr/boardCnts/view.do?boardID=1500236&boardSeq=5050883&lev=0&m=0403&s=suneung",
+    "solutionDownload": "2021학년도 9월 모평 과학탐구(물리Ⅰ) 정답·해설.pdf",
+    "solutionSource": "EBSi",
+    "solutionSourcePage": "https://www.ebsi.co.kr/ebs/xip/xipc/previousPaperList.ebs?targetCd=D300"
   },
   {
     "id": 1770,
@@ -30647,12 +30650,15 @@
     "type": "june",
     "subject": "과학탐구",
     "subSubject": "물리Ⅰ",
-    "solutionUrl": null,
+    "solutionUrl": "https://wdown.ebsi.co.kr/W61001/01exam/20200618/go3/g_phy1_hsj_86A9932N.pdf",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-fix-v1/2021_mock06_x1841_q.pdf?name=2021%ED%95%99%EB%85%84%EB%8F%84%206%EB%AA%A8%20%EA%B3%BC%ED%95%99%ED%83%90%EA%B5%AC%28%EB%AC%BC%EB%A6%AC%E2%85%A0%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
     "answerUrl": "https://suneung-files.hdh061224.workers.dev/kice-official-v1/off_1841_a.pdf?name=2021%ED%95%99%EB%85%84%EB%8F%84%206%EB%AA%A8%20%EA%B3%BC%ED%95%99%ED%83%90%EA%B5%AC%28%EB%AC%BC%EB%A6%AC%E2%85%A0%29%20%EC%A0%95%EB%8B%B5.pdf",
     "questionDownload": "2021학년도 6모 과학탐구(물리Ⅰ) 문제지.pdf",
     "answerDownload": "2021학년도 6모 과학탐구(물리Ⅰ) 정답.pdf",
-    "answerUrl_source_original": "https://suneung.re.kr/boardCnts/view.do?boardID=1500236&boardSeq=5049913&lev=0&m=0403&s=suneung"
+    "answerUrl_source_original": "https://suneung.re.kr/boardCnts/view.do?boardID=1500236&boardSeq=5049913&lev=0&m=0403&s=suneung",
+    "solutionDownload": "2021학년도 6월 모평 과학탐구(물리Ⅰ) 정답·해설.pdf",
+    "solutionSource": "EBSi",
+    "solutionSourcePage": "https://www.ebsi.co.kr/ebs/xip/xipc/previousPaperList.ebs?targetCd=D300"
   },
   {
     "id": 1842,
@@ -119922,7 +119928,7 @@
     "questionDownload": "2016학년도 9모 제2외국어(중국어) 문제지.pdf",
     "answerUrl": "https://suneung-files.hdh061224.workers.dev/kice-official-v1/off_6863_a.pdf?name=2016%ED%95%99%EB%85%84%EB%8F%84%209%EB%AA%A8%20%EC%A0%9C2%EC%99%B8%EA%B5%AD%EC%96%B4%28%EC%A4%91%EA%B5%AD%EC%96%B4%29%20%EC%A0%95%EB%8B%B5.pdf",
     "answerDownload": "2016학년도 9모 제2외국어(중국어) 정답.pdf",
-    "solutionUrl": null,
+    "solutionUrl": "https://wdown.ebsi.co.kr/W61001/01exam/20150902/go3/vjClQTGC_2nd_ch1_hsj.pdf",
     "listenUrl": null,
     "listenDownload": null,
     "scriptUrl": null,
@@ -119930,7 +119936,10 @@
     "source": "legacy-mock",
     "id": 6863,
     "questionUrl_source_original": "https://suneung.re.kr/boardCnts/view.do?boardID=1500236&boardSeq=5000537&lev=0&m=0403&s=suneung",
-    "answerUrl_source_original": "https://suneung.re.kr/boardCnts/view.do?boardID=1500236&boardSeq=5000537&lev=0&m=0403&s=suneung"
+    "answerUrl_source_original": "https://suneung.re.kr/boardCnts/view.do?boardID=1500236&boardSeq=5000537&lev=0&m=0403&s=suneung",
+    "solutionDownload": "2016학년도 9월 모평 제2외국어(중국어) 정답·해설.pdf",
+    "solutionSource": "EBSi",
+    "solutionSourcePage": "https://www.ebsi.co.kr/ebs/xip/xipc/previousPaperList.ebs?targetCd=D300"
   },
   {
     "curriculum": "2009",
@@ -127307,7 +127316,7 @@
     "questionDownload": "2016학년도 6모 제2외국어(중국어) 문제지.pdf",
     "answerUrl": "https://suneung-files.hdh061224.workers.dev/kice-official-v1/off_7281_a.pdf?name=2016%ED%95%99%EB%85%84%EB%8F%84%206%EB%AA%A8%20%EC%A0%9C2%EC%99%B8%EA%B5%AD%EC%96%B4%28%EC%A4%91%EA%B5%AD%EC%96%B4%29%20%EC%A0%95%EB%8B%B5.pdf",
     "answerDownload": "2016학년도 6모 제2외국어(중국어) 정답.pdf",
-    "solutionUrl": null,
+    "solutionUrl": "https://wdown.ebsi.co.kr/W61001/01exam/20150604/go3/vjPkQTGp_2nd_ch1_hsj.pdf",
     "listenUrl": null,
     "listenDownload": null,
     "scriptUrl": null,
@@ -127315,7 +127324,10 @@
     "source": "legacy-mock",
     "id": 7281,
     "questionUrl_source_original": "https://suneung.re.kr/boardCnts/view.do?boardID=1500236&boardSeq=3033358&lev=0&m=0403&s=suneung",
-    "answerUrl_source_original": "https://suneung.re.kr/boardCnts/view.do?boardID=1500236&boardSeq=3033358&lev=0&m=0403&s=suneung"
+    "answerUrl_source_original": "https://suneung.re.kr/boardCnts/view.do?boardID=1500236&boardSeq=3033358&lev=0&m=0403&s=suneung",
+    "solutionDownload": "2016학년도 6월 모평 제2외국어(중국어) 정답·해설.pdf",
+    "solutionSource": "EBSi",
+    "solutionSourcePage": "https://www.ebsi.co.kr/ebs/xip/xipc/previousPaperList.ebs?targetCd=D300"
   },
   {
     "curriculum": "2009",
