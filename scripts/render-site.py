@@ -342,9 +342,22 @@ def _exam_row(it: dict, label: str) -> str:
             f'{_dl_buttons(it)}</li>')
 
 
-def _write_essay_hub(h: dict) -> None:
+def _eul(word: str) -> str:
+    """받침 유무로 을/를."""
+    return '을' if (ord(word[-1]) - 0xAC00) % 28 else '를'
+
+
+def _school_short(school: str) -> str:
+    """'성신여자대학교' → '성신여대', '연세대학교(미래)' → '연세대(미래)' — 검색어에 쓰는 통칭."""
+    return school.replace('여자대학교', '여대').replace('대학교', '대')
+
+
+def _write_essay_hub(h: dict, related: list = None) -> None:
     base = 'https://kicegg.com'
     school, fname, count = h['school'], h['fname'], h['count']
+    short = _school_short(school)
+    n_ans = sum(1 for e in h['exams'] if e.get('answerUrl'))
+    n_sol = sum(1 for e in h['exams'] if e.get('solutionUrl') and e.get('solutionUrl') != e.get('questionUrl'))
     n_mock = sum(1 for e in h['exams'] if e.get('type') == 'essay_mock')
     n_annual = count - n_mock
     yr = ''
@@ -369,13 +382,25 @@ def _write_essay_hub(h: dict) -> None:
                         f'<ul class="hub-list">{"".join(lis)}</ul></section>')
 
     yr_sp = (yr + ' ') if yr else ''
-    intro = (f'{school} 수시 논술전형 기출 {count}건을 한곳에 모았습니다. '
+    have = [t for t, n in (('예시답안', n_ans), ('해설', n_sol)) if n]
+    have_txt = (' · '.join(f'{t} {n}건' for t, n in
+                           (('예시답안', n_ans), ('해설', n_sol)) if n))
+    named = school if school.replace('학교', '') == short or '(' in school else f'{school}({short})'
+    kinds = '·'.join(['문제지'] + have)
+    kinds_cnt = f'본논술 {n_annual}건' + (f'·모의논술 {n_mock}건' if n_mock else '')
+    intro = (f'{named} 수시 논술전형 기출 {count}건을 한곳에 모았습니다. '
              f'{yr_sp}논술·모의논술 기출 문제지와 (제공되는 경우) 예시답안·해설을 '
              f'연도별로 정리했으니, 필요한 회차를 골라 PDF로 내려받아 확인하세요.')
-    stat = f'본논술 {n_annual}건 · 모의논술 {n_mock}건'
-    title = f'{school} 논술 기출 전체{(" (" + yr + ")") if yr else ""} — 기출해체분석기'
-    desc = (f'{school} 수시 논술전형 기출 {count}건 — {yr_sp}'
-            f'논술·모의논술 문제지·예시답안·해설을 연도별로 한곳에서 확인하고 PDF로 내려받으세요.')
+    stat = f'본논술 {n_annual}건 · 모의논술 {n_mock}건' + (f' · {have_txt}' if have_txt else '')
+    title = f'{short} 논술 기출문제 {yr_sp}문제지·{"예시답안·" if "예시답안" in have else ""}PDF — 기출해체분석기'
+    desc = (f'{named} 논술 기출문제 {count}건 — {kinds_cnt}, {yr_sp}'
+            f'{kinds}{_eul(kinds)} 연도별로 정리하고 PDF로 무료 다운로드하세요.')
+    if related:
+        rel = ''.join(f'<li><a href="{r["fname"]}">{bd.html_escape(_school_short(r["school"]), quote=False)} 논술 기출</a></li>'
+                      for r in related)
+        sections.append('<section class="legal__section"><h2>다른 대학 논술 기출</h2>'
+                        f'<ul class="setsdir__list">{rel}</ul>'
+                        '<p><a href="essay.html">대학별 논술 기출 전체 보기</a></p></section>')
     _hub_page(fname, f'{school} 논술 기출 전체', title, desc, intro, stat,
               sections, f'{school} 논술', item_list)
 
@@ -386,7 +411,9 @@ def render_essay_school_hubs(items: list[dict]) -> list[dict]:
         old.unlink()
     hubs = essay_hub_list(items)
     for h in hubs:
-        _write_essay_hub(h)
+        # 인기순(건수) 상위 12개교로 서로 연결 — 자기 자신 제외
+        rel = [r for r in hubs if r['fname'] != h['fname']][:12]
+        _write_essay_hub(h, rel)
     print(f'  + 대학별 논술 허브 {len(hubs)}개')
     return hubs
 
