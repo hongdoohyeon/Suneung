@@ -194,6 +194,35 @@ LEGACY = {
              ]},
 }
 
+# ── 구 교육과정 추가분: 7차 선택 수학·국어·국사, 단원 미수집 과목은 '전체' 한 단원으로 둔다 ──
+NOUNIT = "전체(단원 미수집)"
+_l7 = LEGACY["7th"]["courses"]
+for c in _l7:
+    if c["course"] == "미분과 적분":
+        c.update(areas=["삼각함수", "함수의 극한", "미분", "적분"], pending=None)
+    elif c["course"] == "확률과 통계":
+        c.update(areas=["자료의 정리와 요약", "확률", "확률변수와 확률분포", "통계적 추정"], pending=None)
+    elif c["course"] == "이산수학":
+        c.update(areas=["선택과 배열", "그래프", "알고리즘", "의사결정의 최적화"], pending=None)
+_l7.append({"subject": "국어", "course": "국어(언어 영역)", "areas": ["듣기·말하기", "읽기", "쓰기", "국어 지식", "문학"],
+            "note": "7차 국어과 영역 구성(작성자 정리, 고시 원문 미확인)"})
+_l7.append({"subject": "사회", "course": "국사", "areas": ["한국사의 바른 이해", "선사 시대의 문화와 국가의 형성", "통치 구조와 정치 활동", "경제 구조와 경제 생활", "사회 구조와 사회 생활", "민족 문화의 발달"],
+            "note": "나무위키 7차 사회과 문서의 6개 대단원"})
+for _n in ("한국근현대사", "한국지리", "세계지리", "경제지리", "세계사", "법과 사회", "정치", "경제", "사회·문화", "윤리"):
+    _l7.append({"subject": "사회", "course": _n, "areas": [NOUNIT]})
+for _n in ("물리Ⅰ", "물리Ⅱ", "화학Ⅰ", "화학Ⅱ", "생물Ⅰ", "생물Ⅱ", "지구과학Ⅰ", "지구과학Ⅱ"):
+    _l7.append({"subject": "과학", "course": _n, "areas": [NOUNIT]})
+_l07 = LEGACY["2007"]["courses"]
+for _n in ("화법과 작문Ⅰ", "화법과 작문Ⅱ", "독서와 문법Ⅰ", "독서와 문법Ⅱ", "문학Ⅰ", "문학Ⅱ"):
+    _l07.append({"subject": "국어", "course": _n, "areas": [NOUNIT]})
+for _n in ("국사", "한국근현대사", "한국지리", "세계지리", "경제지리", "세계사", "법과 사회", "정치", "경제", "사회·문화", "윤리"):
+    _l07.append({"subject": "사회", "course": _n, "areas": [NOUNIT]})
+for _n in ("물리Ⅰ", "물리Ⅱ", "화학Ⅰ", "화학Ⅱ", "생명과학Ⅰ", "생명과학Ⅱ", "지구과학Ⅰ", "지구과학Ⅱ"):
+    _l07.append({"subject": "과학", "course": _n, "areas": [NOUNIT]})
+for _e in LEGACY.values():
+    _e["courses"] = [c for c in _e["courses"]]
+
+
 
 def load(era):
     return json.loads((D / "official" / f"{era}.json").read_text(encoding="utf-8"))
@@ -425,6 +454,60 @@ def electives():
         add(R("2015", course, area), [R("2022", c, a) for c, a in tos], "partial", "partial", "통합과학 수준의 기초 개념만 범위. 선택과목 심화 문항은 범위 밖.", P, "low")
 
 
+def legacy_more():
+    for era in ("7th", "2007"):
+        pass
+    # 7차 선택 수학
+    add(R("7th", "미분과 적분", "삼각함수"), [R("2022", "대수", "삼각함수")], "partial", "partial", "삼각함수 기본·그래프는 범위 안, 덧셈정리·삼각방정식 일반해는 범위 밖.", "secondary", "low")
+    add(R("7th", "미분과 적분", "함수의 극한"), [R("2022", "미적분Ⅰ", "함수의 극한과 연속"), R("2022", "미적분Ⅱ", "미분법")], "partial", "partial", "초월함수의 극한(e·자연로그)은 범위 밖.", "secondary", "low")
+    add(R("7th", "미분과 적분", "미분"), [R("2022", "미적분Ⅱ", "미분법")], "moved", "out", "지수·로그·삼각함수·음함수·매개변수 미분.", "secondary", "low")
+    add(R("7th", "미분과 적분", "적분"), [R("2022", "미적분Ⅱ", "적분법")], "moved", "out", "치환·부분적분, 회전체 부피.", "secondary", "low")
+    add(R("7th", "확률과 통계", "자료의 정리와 요약"), [], "none", "out", "중학교 통계 수준.", "secondary", "low")
+    add(R("7th", "확률과 통계", "확률"), [R("2022", "확률과 통계", "확률")], "same", "in", "", "secondary", "medium")
+    add(R("7th", "확률과 통계", "확률변수와 확률분포"), [R("2022", "확률과 통계", "통계")], "same", "in", "", "secondary", "medium")
+    add(R("7th", "확률과 통계", "통계적 추정"), [R("2022", "확률과 통계", "통계")], "same", "in", "2022는 모비율 추정까지.", "secondary", "medium")
+    add(R("7th", "이산수학", "선택과 배열"), [R("2022", "확률과 통계", "경우의 수"), R("2022", "공통수학1", "경우의 수")], "partial", "partial", "순열·조합 일부만. 비둘기집·포함배제는 범위 밖.", "secondary", "low")
+    for nm in ("그래프", "알고리즘", "의사결정의 최적화"):
+        add(R("7th", "이산수학", nm), [], "none", "out", "2022 범위에 대응 없음.", "secondary", "low")
+    # 국어
+    G = lambda c, i: f"2022:{c}:g{i}"
+    for nm, to, note in (("듣기·말하기", [G("화법과 언어", 2)], "화법"), ("읽기", [G("독서와 작문", 2), G("독서와 작문", 4)], "독서"),
+                         ("쓰기", [G("독서와 작문", 3), G("독서와 작문", 5)], "작문"), ("국어 지식", [G("화법과 언어", 1)], "문법(언어)"), ("문학", [G("문학", 1), G("문학", 2)], "문학")):
+        add(R("7th", "국어(언어 영역)", nm), to, "moved", "in", note, "judgment", "medium")
+    for course, to, note in (("화법과 작문Ⅰ", [G("화법과 언어", 2), G("독서와 작문", 3), G("독서와 작문", 5)], "화법+작문"), ("화법과 작문Ⅱ", [G("화법과 언어", 2), G("독서와 작문", 3), G("독서와 작문", 5)], "화법+작문"),
+                             ("독서와 문법Ⅰ", [G("독서와 작문", 2), G("독서와 작문", 4), G("화법과 언어", 1)], "독서+문법"), ("독서와 문법Ⅱ", [G("독서와 작문", 2), G("독서와 작문", 4), G("화법과 언어", 1)], "독서+문법"),
+                             ("문학Ⅰ", [G("문학", 1), G("문학", 2)], "문학"), ("문학Ⅱ", [G("문학", 1), G("문학", 2)], "문학")):
+        add(R("2007", course, NOUNIT), to, "partial", "in", note + ". 2009 개정 같은 이름 과목과 같은 소재.", "judgment", "medium")
+    # 한국사류
+    P = lambda pid: [R(*t) for t in next(p for p in KOREAN_HISTORY_PERIODS if p["id"] == pid)["to"]]
+    a = lambda n: R("7th", "국사", n)
+    add(a("한국사의 바른 이해"), [], "none", "out", "역사 학습 방법 단원. 2022 한국사에 대응 없음.", "judgment", "low")
+    add(a("선사 시대의 문화와 국가의 형성"), P("P1"), "moved", "in", "", "judgment", "medium")
+    add(a("통치 구조와 정치 활동"), P("P1") + P("P2") + P("P3"), "moved", "in", "정치사(전근대).", "judgment", "medium")
+    add(a("경제 구조와 경제 생활"), P("P4"), "moved", "in", "수취 체제 등 주제사.", "judgment", "medium")
+    add(a("사회 구조와 사회 생활"), P("P4"), "moved", "in", "신분제 등 주제사.", "judgment", "medium")
+    add(a("민족 문화의 발달"), P("P4"), "moved", "in", "사상·문화.", "judgment", "medium")
+    for era in ("7th", "2007"):
+        add(R(era, "한국근현대사", NOUNIT), P("P5") + P("P6") + P("P7"), "moved", "in", "개항~현대.", "judgment", "high")
+    add(R("2007", "국사", NOUNIT), P("P1") + P("P2") + P("P3") + P("P4"), "moved", "in", "전근대 한국사(국사 과목).", "judgment", "medium")
+    # 사탐·과탐: 과목 단위로만 대응(소재가 겹치는 통합 영역을 가리킨다)
+    soc = {"한국지리": [("통합사회1", "자연환경과 인간"), ("통합사회1", "생활공간과 사회")], "세계지리": [("통합사회1", "자연환경과 인간"), ("통합사회1", "문화와 다양성")],
+           "경제지리": [("통합사회1", "생활공간과 사회"), ("통합사회2", "시장경제와 지속가능발전")], "경제": [("통합사회2", "시장경제와 지속가능발전")],
+           "법과 사회": [("통합사회2", "인권보장과 헌법")], "정치": [("통합사회2", "인권보장과 헌법")], "사회·문화": [("통합사회1", "문화와 다양성"), ("통합사회2", "사회정의와 불평등")],
+           "윤리": [("통합사회1", "통합적 관점"), ("통합사회2", "사회정의와 불평등")], "세계사": [("통합사회2", "세계화와 평화")]}
+    for era in ("7th", "2007"):
+        for course, tos in soc.items():
+            add(R(era, course, NOUNIT), [R("2022", c, n) for c, n in tos], "partial", "partial", "과목 단위 대응(단원 미수집). 소재가 겹치는 통합사회 영역만 범위.", "judgment", "low")
+    sci1 = {"물리Ⅰ": [("통합과학1", "시스템과 상호작용")], "화학Ⅰ": [("통합과학1", "물질과 규칙성")], "생물Ⅰ": [("통합과학1", "시스템과 상호작용")], "생명과학Ⅰ": [("통합과학1", "시스템과 상호작용")],
+            "지구과학Ⅰ": [("통합과학1", "시스템과 상호작용")]}
+    for era, names in (("7th", ("물리Ⅰ", "화학Ⅰ", "생물Ⅰ", "지구과학Ⅰ")), ("2007", ("물리Ⅰ", "화학Ⅰ", "생명과학Ⅰ", "지구과학Ⅰ"))):
+        for course in names:
+            add(R(era, course, NOUNIT), [R("2022", c, n) for c, n in sci1[course]], "partial", "partial", "과목 단위 대응(단원 미수집). 통합과학 수준의 기초 개념만 범위.", "judgment", "low")
+    for era, names in (("7th", ("물리Ⅱ", "화학Ⅱ", "생물Ⅱ", "지구과학Ⅱ")), ("2007", ("물리Ⅱ", "화학Ⅱ", "생명과학Ⅱ", "지구과학Ⅱ"))):
+        for course in names:
+            add(R(era, course, NOUNIT), [], "none", "out", "Ⅱ 과목은 심화 내용이라 통합과학 범위 밖.", "judgment", "low")
+
+
 def main():
     # 2022 국어 파생 그룹을 단원 표에 넣기 위해 UNITS 에 추가(g1, g2 …)
     for course, groups in DERIVED_GROUPS.items():
@@ -439,6 +522,7 @@ def main():
     history()
     integrated()
     electives()
+    legacy_more()
     for x in X:
         for r in [x["from"]] + x["to"]:
             if r not in UNITS:

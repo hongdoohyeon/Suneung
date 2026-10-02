@@ -1,6 +1,27 @@
 {
  "description": "구 교육과정 단원 → 2022 개정 단원 대응. csat2028: in 직접 범위 / indirect 공통과목(간접) / partial 일부만 / out 범위 밖.",
  "units": {
+  "2007:경제:1": {
+   "era": "2007",
+   "subject": "사회",
+   "course": "경제",
+   "no": 1,
+   "name": "전체(단원 미수집)"
+  },
+  "2007:경제지리:1": {
+   "era": "2007",
+   "subject": "사회",
+   "course": "경제지리",
+   "no": 1,
+   "name": "전체(단원 미수집)"
+  },
+  "2007:국사:1": {
+   "era": "2007",
+   "subject": "사회",
+   "course": "국사",
+   "no": 1,
+   "name": "전체(단원 미수집)"
+  },
   "2007:기하와 벡터:1": {
    "era": "2007",
    "subject": "수학",
@@ -28,6 +49,48 @@
    "course": "기하와 벡터",
    "no": 4,
    "name": "벡터"
+  },
+  "2007:독서와 문법Ⅰ:1": {
+   "era": "2007",
+   "subject": "국어",
+   "course": "독서와 문법Ⅰ",
+   "no": 1,
+   "name": "전체(단원 미수집)"
+  },
+  "2007:독서와 문법Ⅱ:1": {
+   "era": "2007",
+   "subject": "국어",
+   "course": "독서와 문법Ⅱ",
+   "no": 1,
+   "name": "전체(단원 미수집)"
+  },
+  "2007:문학Ⅰ:1": {
+   "era": "2007",
+   "subject": "국어",
+   "course": "문학Ⅰ",
+   "no": 1,
+   "name": "전체(단원 미수집)"
+  },
+  "2007:문학Ⅱ:1": {
+   "era": "2007",
+   "subject": "국어",
+   "course": "문학Ⅱ",
+   "no": 1,
+   "name": "전체(단원 미수집)"
+  },
+  "2007:물리Ⅰ:1": {
+   "era": "2007",
+   "subject": "과학",
+   "course": "물리Ⅰ",
+   "no": 1,
+   "name": "전체(단원 미수집)"
+  },
+  "2007:물리Ⅱ:1": {
+   "era": "2007",
+   "subject": "과학",
+   "course": "물리Ⅱ",
+   "no": 1,
+   "name": "전체(단원 미수집)"
   },
   "2007:미적분과 통계 기본:1": {
    "era": "2007",
@@ -63,6 +126,48 @@
    "course": "미적분과 통계 기본",
    "no": 5,
    "name": "통계"
+  },
+  "2007:법과 사회:1": {
+   "era": "2007",
+   "subject": "사회",
+   "course": "법과 사회",
+   "no": 1,
+   "name": "전체(단원 미수집)"
+  },
+  "2007:사회·문화:1": {
+   "era": "2007",
+   "subject": "사회",
+   "course": "사회·문화",
+   "no": 1,
+   "name": "전체(단원 미수집)"
+  },
+  "2007:생명과학Ⅰ:1": {
+   "era": "2007",
+   "subject": "과학",
+   "course": "생명과학Ⅰ",
+   "no": 1,
+   "name": "전체(단원 미수집)"
+  },
+  "2007:생명과학Ⅱ:1": {
+   "era": "2007",
+   "subject": "과학",
+   "course": "생명과학Ⅱ",
+   "no": 1,
+   "name": "전체(단원 미수집)"
+  },
+  "2007:세계사:1": {
+   "era": "2007",
+   "subject": "사회",
+   "course": "세계사",
+   "no": 1,
+   "name": "전체(단원 미수집)"
+  },
+  "2007:세계지리:1": {
+   "era": "2007",
+   "subject": "사회",
+   "course": "세계지리",
+   "no": 1,
+   "name": "전체(단원 미수집)"
   },
   "2007:수학Ⅰ:1": {
    "era": "2007",
@@ -120,6 +225,13 @@
    "no": 4,
    "name": "미분법"
   },
+  "2007:윤리:1": {
+   "era": "2007",
+   "subject": "사회",
+   "course": "윤리",
+   "no": 1,
+   "name": "전체(단원 미수집)"
+  },
   "2007:적분과 통계:1": {
    "era": "2007",
    "subject": "수학",
@@ -147,6 +259,69 @@
    "course": "적분과 통계",
    "no": 4,
    "name": "통계"
+  },
+  "2007:정치:1": {
+   "era": "2007",
+   "subject": "사회",
+   "course": "정치",
+   "no": 1,
+   "name": "전체(단원 미수집)"
+  },
+  "2007:지구과학Ⅰ:1": {
+   "era": "2007",
+   "subject": "과학",
+   "course": "지구과학Ⅰ",
+   "no": 1,
+   "name": "전체(단원 미수집)"
+  },
+  "2007:지구과학Ⅱ:1": {
+   "era": "2007",
+   "subject": "과학",
+   "course": "지구과학Ⅱ",
+   "no": 1,
+   "name": "전체(단원 미수집)"
+  },
+  "2007:한국근현대사:1": {
+   "era": "2007",
+   "subject": "사회",
+   "course": "한국근현대사",
+   "no": 1,
+   "name": "전체(단원 미수집)"
+  },
+  "2007:한국지리:1": {
+   "era": "2007",
+   "subject": "사회",
+   "course": "한국지리",
+   "no": 1,
+   "name": "전체(단원 미수집)"
+  },
+  "2007:화법과 작문Ⅰ:1": {
+   "era": "2007",
+   "subject": "국어",
+   "course": "화법과 작문Ⅰ",
+   "no": 1,
+   "name": "전체(단원 미수집)"
+  },
+  "2007:화법과 작문Ⅱ:1": {
+   "era": "2007",
+   "subject": "국어",
+   "course": "화법과 작문Ⅱ",
+   "no": 1,
+   "name": "전체(단원 미수집)"
+  },
+  "2007:화학Ⅰ:1": {
+   "era": "2007",
+   "subject": "과학",
+   "course": "화학Ⅰ",
+   "no": 1,
+   "name": "전체(단원 미수집)"
+  },
+  "2007:화학Ⅱ:1": {
+   "era": "2007",
+   "subject": "과학",
+   "course": "화학Ⅱ",
+   "no": 1,
+   "name": "전체(단원 미수집)"
   },
   "2009:경제:1": {
    "era": "2009",
@@ -3778,6 +3953,181 @@
    "no": 3,
    "name": "통계"
   },
+  "7th:경제:1": {
+   "era": "7th",
+   "subject": "사회",
+   "course": "경제",
+   "no": 1,
+   "name": "전체(단원 미수집)"
+  },
+  "7th:경제지리:1": {
+   "era": "7th",
+   "subject": "사회",
+   "course": "경제지리",
+   "no": 1,
+   "name": "전체(단원 미수집)"
+  },
+  "7th:국사:1": {
+   "era": "7th",
+   "subject": "사회",
+   "course": "국사",
+   "no": 1,
+   "name": "한국사의 바른 이해"
+  },
+  "7th:국사:2": {
+   "era": "7th",
+   "subject": "사회",
+   "course": "국사",
+   "no": 2,
+   "name": "선사 시대의 문화와 국가의 형성"
+  },
+  "7th:국사:3": {
+   "era": "7th",
+   "subject": "사회",
+   "course": "국사",
+   "no": 3,
+   "name": "통치 구조와 정치 활동"
+  },
+  "7th:국사:4": {
+   "era": "7th",
+   "subject": "사회",
+   "course": "국사",
+   "no": 4,
+   "name": "경제 구조와 경제 생활"
+  },
+  "7th:국사:5": {
+   "era": "7th",
+   "subject": "사회",
+   "course": "국사",
+   "no": 5,
+   "name": "사회 구조와 사회 생활"
+  },
+  "7th:국사:6": {
+   "era": "7th",
+   "subject": "사회",
+   "course": "국사",
+   "no": 6,
+   "name": "민족 문화의 발달"
+  },
+  "7th:국어(언어 영역):1": {
+   "era": "7th",
+   "subject": "국어",
+   "course": "국어(언어 영역)",
+   "no": 1,
+   "name": "듣기·말하기"
+  },
+  "7th:국어(언어 영역):2": {
+   "era": "7th",
+   "subject": "국어",
+   "course": "국어(언어 영역)",
+   "no": 2,
+   "name": "읽기"
+  },
+  "7th:국어(언어 영역):3": {
+   "era": "7th",
+   "subject": "국어",
+   "course": "국어(언어 영역)",
+   "no": 3,
+   "name": "쓰기"
+  },
+  "7th:국어(언어 영역):4": {
+   "era": "7th",
+   "subject": "국어",
+   "course": "국어(언어 영역)",
+   "no": 4,
+   "name": "국어 지식"
+  },
+  "7th:국어(언어 영역):5": {
+   "era": "7th",
+   "subject": "국어",
+   "course": "국어(언어 영역)",
+   "no": 5,
+   "name": "문학"
+  },
+  "7th:물리Ⅰ:1": {
+   "era": "7th",
+   "subject": "과학",
+   "course": "물리Ⅰ",
+   "no": 1,
+   "name": "전체(단원 미수집)"
+  },
+  "7th:물리Ⅱ:1": {
+   "era": "7th",
+   "subject": "과학",
+   "course": "물리Ⅱ",
+   "no": 1,
+   "name": "전체(단원 미수집)"
+  },
+  "7th:미분과 적분:1": {
+   "era": "7th",
+   "subject": "수학",
+   "course": "미분과 적분",
+   "no": 1,
+   "name": "삼각함수"
+  },
+  "7th:미분과 적분:2": {
+   "era": "7th",
+   "subject": "수학",
+   "course": "미분과 적분",
+   "no": 2,
+   "name": "함수의 극한"
+  },
+  "7th:미분과 적분:3": {
+   "era": "7th",
+   "subject": "수학",
+   "course": "미분과 적분",
+   "no": 3,
+   "name": "미분"
+  },
+  "7th:미분과 적분:4": {
+   "era": "7th",
+   "subject": "수학",
+   "course": "미분과 적분",
+   "no": 4,
+   "name": "적분"
+  },
+  "7th:법과 사회:1": {
+   "era": "7th",
+   "subject": "사회",
+   "course": "법과 사회",
+   "no": 1,
+   "name": "전체(단원 미수집)"
+  },
+  "7th:사회·문화:1": {
+   "era": "7th",
+   "subject": "사회",
+   "course": "사회·문화",
+   "no": 1,
+   "name": "전체(단원 미수집)"
+  },
+  "7th:생물Ⅰ:1": {
+   "era": "7th",
+   "subject": "과학",
+   "course": "생물Ⅰ",
+   "no": 1,
+   "name": "전체(단원 미수집)"
+  },
+  "7th:생물Ⅱ:1": {
+   "era": "7th",
+   "subject": "과학",
+   "course": "생물Ⅱ",
+   "no": 1,
+   "name": "전체(단원 미수집)"
+  },
+  "7th:세계사:1": {
+   "era": "7th",
+   "subject": "사회",
+   "course": "세계사",
+   "no": 1,
+   "name": "전체(단원 미수집)"
+  },
+  "7th:세계지리:1": {
+   "era": "7th",
+   "subject": "사회",
+   "course": "세계지리",
+   "no": 1,
+   "name": "전체(단원 미수집)"
+  },
   "7th:수학Ⅰ:1": {
    "era": "7th",
    "subject": "수학",
@@ -3882,6 +4232,118 @@
    "course": "수학Ⅱ",
    "no": 7,
    "name": "벡터"
+  },
+  "7th:윤리:1": {
+   "era": "7th",
+   "subject": "사회",
+   "course": "윤리",
+   "no": 1,
+   "name": "전체(단원 미수집)"
+  },
+  "7th:이산수학:1": {
+   "era": "7th",
+   "subject": "수학",
+   "course": "이산수학",
+   "no": 1,
+   "name": "선택과 배열"
+  },
+  "7th:이산수학:2": {
+   "era": "7th",
+   "subject": "수학",
+   "course": "이산수학",
+   "no": 2,
+   "name": "그래프"
+  },
+  "7th:이산수학:3": {
+   "era": "7th",
+   "subject": "수학",
+   "course": "이산수학",
+   "no": 3,
+   "name": "알고리즘"
+  },
+  "7th:이산수학:4": {
+   "era": "7th",
+   "subject": "수학",
+   "course": "이산수학",
+   "no": 4,
+   "name": "의사결정의 최적화"
+  },
+  "7th:정치:1": {
+   "era": "7th",
+   "subject": "사회",
+   "course": "정치",
+   "no": 1,
+   "name": "전체(단원 미수집)"
+  },
+  "7th:지구과학Ⅰ:1": {
+   "era": "7th",
+   "subject": "과학",
+   "course": "지구과학Ⅰ",
+   "no": 1,
+   "name": "전체(단원 미수집)"
+  },
+  "7th:지구과학Ⅱ:1": {
+   "era": "7th",
+   "subject": "과학",
+   "course": "지구과학Ⅱ",
+   "no": 1,
+   "name": "전체(단원 미수집)"
+  },
+  "7th:한국근현대사:1": {
+   "era": "7th",
+   "subject": "사회",
+   "course": "한국근현대사",
+   "no": 1,
+   "name": "전체(단원 미수집)"
+  },
+  "7th:한국지리:1": {
+   "era": "7th",
+   "subject": "사회",
+   "course": "한국지리",
+   "no": 1,
+   "name": "전체(단원 미수집)"
+  },
+  "7th:화학Ⅰ:1": {
+   "era": "7th",
+   "subject": "과학",
+   "course": "화학Ⅰ",
+   "no": 1,
+   "name": "전체(단원 미수집)"
+  },
+  "7th:화학Ⅱ:1": {
+   "era": "7th",
+   "subject": "과학",
+   "course": "화학Ⅱ",
+   "no": 1,
+   "name": "전체(단원 미수집)"
+  },
+  "7th:확률과 통계:1": {
+   "era": "7th",
+   "subject": "수학",
+   "course": "확률과 통계",
+   "no": 1,
+   "name": "자료의 정리와 요약"
+  },
+  "7th:확률과 통계:2": {
+   "era": "7th",
+   "subject": "수학",
+   "course": "확률과 통계",
+   "no": 2,
+   "name": "확률"
+  },
+  "7th:확률과 통계:3": {
+   "era": "7th",
+   "subject": "수학",
+   "course": "확률과 통계",
+   "no": 3,
+   "name": "확률변수와 확률분포"
+  },
+  "7th:확률과 통계:4": {
+   "era": "7th",
+   "subject": "수학",
+   "course": "확률과 통계",
+   "no": 4,
+   "name": "통계적 추정"
   }
  },
  "mappings": [
@@ -5760,6 +6222,742 @@
    "relation": "partial",
    "csat2028": "partial",
    "note": "통합과학 수준의 기초 개념만 범위. 선택과목 심화 문항은 범위 밖.",
+   "basis": "judgment",
+   "confidence": "low"
+  },
+  {
+   "from": "7th:미분과 적분:1",
+   "to": [
+    "2022:대수:2"
+   ],
+   "relation": "partial",
+   "csat2028": "partial",
+   "note": "삼각함수 기본·그래프는 범위 안, 덧셈정리·삼각방정식 일반해는 범위 밖.",
+   "basis": "secondary",
+   "confidence": "low"
+  },
+  {
+   "from": "7th:미분과 적분:2",
+   "to": [
+    "2022:미적분Ⅰ:1",
+    "2022:미적분Ⅱ:2"
+   ],
+   "relation": "partial",
+   "csat2028": "partial",
+   "note": "초월함수의 극한(e·자연로그)은 범위 밖.",
+   "basis": "secondary",
+   "confidence": "low"
+  },
+  {
+   "from": "7th:미분과 적분:3",
+   "to": [
+    "2022:미적분Ⅱ:2"
+   ],
+   "relation": "moved",
+   "csat2028": "out",
+   "note": "지수·로그·삼각함수·음함수·매개변수 미분.",
+   "basis": "secondary",
+   "confidence": "low"
+  },
+  {
+   "from": "7th:미분과 적분:4",
+   "to": [
+    "2022:미적분Ⅱ:3"
+   ],
+   "relation": "moved",
+   "csat2028": "out",
+   "note": "치환·부분적분, 회전체 부피.",
+   "basis": "secondary",
+   "confidence": "low"
+  },
+  {
+   "from": "7th:확률과 통계:1",
+   "to": [],
+   "relation": "none",
+   "csat2028": "out",
+   "note": "중학교 통계 수준.",
+   "basis": "secondary",
+   "confidence": "low"
+  },
+  {
+   "from": "7th:확률과 통계:2",
+   "to": [
+    "2022:확률과 통계:2"
+   ],
+   "relation": "same",
+   "csat2028": "in",
+   "note": "",
+   "basis": "secondary",
+   "confidence": "medium"
+  },
+  {
+   "from": "7th:확률과 통계:3",
+   "to": [
+    "2022:확률과 통계:3"
+   ],
+   "relation": "same",
+   "csat2028": "in",
+   "note": "",
+   "basis": "secondary",
+   "confidence": "medium"
+  },
+  {
+   "from": "7th:확률과 통계:4",
+   "to": [
+    "2022:확률과 통계:3"
+   ],
+   "relation": "same",
+   "csat2028": "in",
+   "note": "2022는 모비율 추정까지.",
+   "basis": "secondary",
+   "confidence": "medium"
+  },
+  {
+   "from": "7th:이산수학:1",
+   "to": [
+    "2022:확률과 통계:1",
+    "2022:공통수학1:3"
+   ],
+   "relation": "partial",
+   "csat2028": "partial",
+   "note": "순열·조합 일부만. 비둘기집·포함배제는 범위 밖.",
+   "basis": "secondary",
+   "confidence": "low"
+  },
+  {
+   "from": "7th:이산수학:2",
+   "to": [],
+   "relation": "none",
+   "csat2028": "out",
+   "note": "2022 범위에 대응 없음.",
+   "basis": "secondary",
+   "confidence": "low"
+  },
+  {
+   "from": "7th:이산수학:3",
+   "to": [],
+   "relation": "none",
+   "csat2028": "out",
+   "note": "2022 범위에 대응 없음.",
+   "basis": "secondary",
+   "confidence": "low"
+  },
+  {
+   "from": "7th:이산수학:4",
+   "to": [],
+   "relation": "none",
+   "csat2028": "out",
+   "note": "2022 범위에 대응 없음.",
+   "basis": "secondary",
+   "confidence": "low"
+  },
+  {
+   "from": "7th:국어(언어 영역):1",
+   "to": [
+    "2022:화법과 언어:g2"
+   ],
+   "relation": "moved",
+   "csat2028": "in",
+   "note": "화법",
+   "basis": "judgment",
+   "confidence": "medium"
+  },
+  {
+   "from": "7th:국어(언어 영역):2",
+   "to": [
+    "2022:독서와 작문:g2",
+    "2022:독서와 작문:g4"
+   ],
+   "relation": "moved",
+   "csat2028": "in",
+   "note": "독서",
+   "basis": "judgment",
+   "confidence": "medium"
+  },
+  {
+   "from": "7th:국어(언어 영역):3",
+   "to": [
+    "2022:독서와 작문:g3",
+    "2022:독서와 작문:g5"
+   ],
+   "relation": "moved",
+   "csat2028": "in",
+   "note": "작문",
+   "basis": "judgment",
+   "confidence": "medium"
+  },
+  {
+   "from": "7th:국어(언어 영역):4",
+   "to": [
+    "2022:화법과 언어:g1"
+   ],
+   "relation": "moved",
+   "csat2028": "in",
+   "note": "문법(언어)",
+   "basis": "judgment",
+   "confidence": "medium"
+  },
+  {
+   "from": "7th:국어(언어 영역):5",
+   "to": [
+    "2022:문학:g1",
+    "2022:문학:g2"
+   ],
+   "relation": "moved",
+   "csat2028": "in",
+   "note": "문학",
+   "basis": "judgment",
+   "confidence": "medium"
+  },
+  {
+   "from": "2007:화법과 작문Ⅰ:1",
+   "to": [
+    "2022:화법과 언어:g2",
+    "2022:독서와 작문:g3",
+    "2022:독서와 작문:g5"
+   ],
+   "relation": "partial",
+   "csat2028": "in",
+   "note": "화법+작문. 2009 개정 같은 이름 과목과 같은 소재.",
+   "basis": "judgment",
+   "confidence": "medium"
+  },
+  {
+   "from": "2007:화법과 작문Ⅱ:1",
+   "to": [
+    "2022:화법과 언어:g2",
+    "2022:독서와 작문:g3",
+    "2022:독서와 작문:g5"
+   ],
+   "relation": "partial",
+   "csat2028": "in",
+   "note": "화법+작문. 2009 개정 같은 이름 과목과 같은 소재.",
+   "basis": "judgment",
+   "confidence": "medium"
+  },
+  {
+   "from": "2007:독서와 문법Ⅰ:1",
+   "to": [
+    "2022:독서와 작문:g2",
+    "2022:독서와 작문:g4",
+    "2022:화법과 언어:g1"
+   ],
+   "relation": "partial",
+   "csat2028": "in",
+   "note": "독서+문법. 2009 개정 같은 이름 과목과 같은 소재.",
+   "basis": "judgment",
+   "confidence": "medium"
+  },
+  {
+   "from": "2007:독서와 문법Ⅱ:1",
+   "to": [
+    "2022:독서와 작문:g2",
+    "2022:독서와 작문:g4",
+    "2022:화법과 언어:g1"
+   ],
+   "relation": "partial",
+   "csat2028": "in",
+   "note": "독서+문법. 2009 개정 같은 이름 과목과 같은 소재.",
+   "basis": "judgment",
+   "confidence": "medium"
+  },
+  {
+   "from": "2007:문학Ⅰ:1",
+   "to": [
+    "2022:문학:g1",
+    "2022:문학:g2"
+   ],
+   "relation": "partial",
+   "csat2028": "in",
+   "note": "문학. 2009 개정 같은 이름 과목과 같은 소재.",
+   "basis": "judgment",
+   "confidence": "medium"
+  },
+  {
+   "from": "2007:문학Ⅱ:1",
+   "to": [
+    "2022:문학:g1",
+    "2022:문학:g2"
+   ],
+   "relation": "partial",
+   "csat2028": "in",
+   "note": "문학. 2009 개정 같은 이름 과목과 같은 소재.",
+   "basis": "judgment",
+   "confidence": "medium"
+  },
+  {
+   "from": "7th:국사:1",
+   "to": [],
+   "relation": "none",
+   "csat2028": "out",
+   "note": "역사 학습 방법 단원. 2022 한국사에 대응 없음.",
+   "basis": "judgment",
+   "confidence": "low"
+  },
+  {
+   "from": "7th:국사:2",
+   "to": [
+    "2022:한국사1:1"
+   ],
+   "relation": "moved",
+   "csat2028": "in",
+   "note": "",
+   "basis": "judgment",
+   "confidence": "medium"
+  },
+  {
+   "from": "7th:국사:3",
+   "to": [
+    "2022:한국사1:1",
+    "2022:한국사1:1",
+    "2022:한국사1:1"
+   ],
+   "relation": "moved",
+   "csat2028": "in",
+   "note": "정치사(전근대).",
+   "basis": "judgment",
+   "confidence": "medium"
+  },
+  {
+   "from": "7th:국사:4",
+   "to": [
+    "2022:한국사1:2"
+   ],
+   "relation": "moved",
+   "csat2028": "in",
+   "note": "수취 체제 등 주제사.",
+   "basis": "judgment",
+   "confidence": "medium"
+  },
+  {
+   "from": "7th:국사:5",
+   "to": [
+    "2022:한국사1:2"
+   ],
+   "relation": "moved",
+   "csat2028": "in",
+   "note": "신분제 등 주제사.",
+   "basis": "judgment",
+   "confidence": "medium"
+  },
+  {
+   "from": "7th:국사:6",
+   "to": [
+    "2022:한국사1:2"
+   ],
+   "relation": "moved",
+   "csat2028": "in",
+   "note": "사상·문화.",
+   "basis": "judgment",
+   "confidence": "medium"
+  },
+  {
+   "from": "7th:한국근현대사:1",
+   "to": [
+    "2022:한국사1:3",
+    "2022:한국사2:1",
+    "2022:한국사2:2",
+    "2022:한국사2:3"
+   ],
+   "relation": "moved",
+   "csat2028": "in",
+   "note": "개항~현대.",
+   "basis": "judgment",
+   "confidence": "high"
+  },
+  {
+   "from": "2007:한국근현대사:1",
+   "to": [
+    "2022:한국사1:3",
+    "2022:한국사2:1",
+    "2022:한국사2:2",
+    "2022:한국사2:3"
+   ],
+   "relation": "moved",
+   "csat2028": "in",
+   "note": "개항~현대.",
+   "basis": "judgment",
+   "confidence": "high"
+  },
+  {
+   "from": "2007:국사:1",
+   "to": [
+    "2022:한국사1:1",
+    "2022:한국사1:1",
+    "2022:한국사1:1",
+    "2022:한국사1:2"
+   ],
+   "relation": "moved",
+   "csat2028": "in",
+   "note": "전근대 한국사(국사 과목).",
+   "basis": "judgment",
+   "confidence": "medium"
+  },
+  {
+   "from": "7th:한국지리:1",
+   "to": [
+    "2022:통합사회1:3",
+    "2022:통합사회1:5"
+   ],
+   "relation": "partial",
+   "csat2028": "partial",
+   "note": "과목 단위 대응(단원 미수집). 소재가 겹치는 통합사회 영역만 범위.",
+   "basis": "judgment",
+   "confidence": "low"
+  },
+  {
+   "from": "7th:세계지리:1",
+   "to": [
+    "2022:통합사회1:3",
+    "2022:통합사회1:4"
+   ],
+   "relation": "partial",
+   "csat2028": "partial",
+   "note": "과목 단위 대응(단원 미수집). 소재가 겹치는 통합사회 영역만 범위.",
+   "basis": "judgment",
+   "confidence": "low"
+  },
+  {
+   "from": "7th:경제지리:1",
+   "to": [
+    "2022:통합사회1:5",
+    "2022:통합사회2:3"
+   ],
+   "relation": "partial",
+   "csat2028": "partial",
+   "note": "과목 단위 대응(단원 미수집). 소재가 겹치는 통합사회 영역만 범위.",
+   "basis": "judgment",
+   "confidence": "low"
+  },
+  {
+   "from": "7th:경제:1",
+   "to": [
+    "2022:통합사회2:3"
+   ],
+   "relation": "partial",
+   "csat2028": "partial",
+   "note": "과목 단위 대응(단원 미수집). 소재가 겹치는 통합사회 영역만 범위.",
+   "basis": "judgment",
+   "confidence": "low"
+  },
+  {
+   "from": "7th:법과 사회:1",
+   "to": [
+    "2022:통합사회2:1"
+   ],
+   "relation": "partial",
+   "csat2028": "partial",
+   "note": "과목 단위 대응(단원 미수집). 소재가 겹치는 통합사회 영역만 범위.",
+   "basis": "judgment",
+   "confidence": "low"
+  },
+  {
+   "from": "7th:정치:1",
+   "to": [
+    "2022:통합사회2:1"
+   ],
+   "relation": "partial",
+   "csat2028": "partial",
+   "note": "과목 단위 대응(단원 미수집). 소재가 겹치는 통합사회 영역만 범위.",
+   "basis": "judgment",
+   "confidence": "low"
+  },
+  {
+   "from": "7th:사회·문화:1",
+   "to": [
+    "2022:통합사회1:4",
+    "2022:통합사회2:2"
+   ],
+   "relation": "partial",
+   "csat2028": "partial",
+   "note": "과목 단위 대응(단원 미수집). 소재가 겹치는 통합사회 영역만 범위.",
+   "basis": "judgment",
+   "confidence": "low"
+  },
+  {
+   "from": "7th:윤리:1",
+   "to": [
+    "2022:통합사회1:1",
+    "2022:통합사회2:2"
+   ],
+   "relation": "partial",
+   "csat2028": "partial",
+   "note": "과목 단위 대응(단원 미수집). 소재가 겹치는 통합사회 영역만 범위.",
+   "basis": "judgment",
+   "confidence": "low"
+  },
+  {
+   "from": "7th:세계사:1",
+   "to": [
+    "2022:통합사회2:4"
+   ],
+   "relation": "partial",
+   "csat2028": "partial",
+   "note": "과목 단위 대응(단원 미수집). 소재가 겹치는 통합사회 영역만 범위.",
+   "basis": "judgment",
+   "confidence": "low"
+  },
+  {
+   "from": "2007:한국지리:1",
+   "to": [
+    "2022:통합사회1:3",
+    "2022:통합사회1:5"
+   ],
+   "relation": "partial",
+   "csat2028": "partial",
+   "note": "과목 단위 대응(단원 미수집). 소재가 겹치는 통합사회 영역만 범위.",
+   "basis": "judgment",
+   "confidence": "low"
+  },
+  {
+   "from": "2007:세계지리:1",
+   "to": [
+    "2022:통합사회1:3",
+    "2022:통합사회1:4"
+   ],
+   "relation": "partial",
+   "csat2028": "partial",
+   "note": "과목 단위 대응(단원 미수집). 소재가 겹치는 통합사회 영역만 범위.",
+   "basis": "judgment",
+   "confidence": "low"
+  },
+  {
+   "from": "2007:경제지리:1",
+   "to": [
+    "2022:통합사회1:5",
+    "2022:통합사회2:3"
+   ],
+   "relation": "partial",
+   "csat2028": "partial",
+   "note": "과목 단위 대응(단원 미수집). 소재가 겹치는 통합사회 영역만 범위.",
+   "basis": "judgment",
+   "confidence": "low"
+  },
+  {
+   "from": "2007:경제:1",
+   "to": [
+    "2022:통합사회2:3"
+   ],
+   "relation": "partial",
+   "csat2028": "partial",
+   "note": "과목 단위 대응(단원 미수집). 소재가 겹치는 통합사회 영역만 범위.",
+   "basis": "judgment",
+   "confidence": "low"
+  },
+  {
+   "from": "2007:법과 사회:1",
+   "to": [
+    "2022:통합사회2:1"
+   ],
+   "relation": "partial",
+   "csat2028": "partial",
+   "note": "과목 단위 대응(단원 미수집). 소재가 겹치는 통합사회 영역만 범위.",
+   "basis": "judgment",
+   "confidence": "low"
+  },
+  {
+   "from": "2007:정치:1",
+   "to": [
+    "2022:통합사회2:1"
+   ],
+   "relation": "partial",
+   "csat2028": "partial",
+   "note": "과목 단위 대응(단원 미수집). 소재가 겹치는 통합사회 영역만 범위.",
+   "basis": "judgment",
+   "confidence": "low"
+  },
+  {
+   "from": "2007:사회·문화:1",
+   "to": [
+    "2022:통합사회1:4",
+    "2022:통합사회2:2"
+   ],
+   "relation": "partial",
+   "csat2028": "partial",
+   "note": "과목 단위 대응(단원 미수집). 소재가 겹치는 통합사회 영역만 범위.",
+   "basis": "judgment",
+   "confidence": "low"
+  },
+  {
+   "from": "2007:윤리:1",
+   "to": [
+    "2022:통합사회1:1",
+    "2022:통합사회2:2"
+   ],
+   "relation": "partial",
+   "csat2028": "partial",
+   "note": "과목 단위 대응(단원 미수집). 소재가 겹치는 통합사회 영역만 범위.",
+   "basis": "judgment",
+   "confidence": "low"
+  },
+  {
+   "from": "2007:세계사:1",
+   "to": [
+    "2022:통합사회2:4"
+   ],
+   "relation": "partial",
+   "csat2028": "partial",
+   "note": "과목 단위 대응(단원 미수집). 소재가 겹치는 통합사회 영역만 범위.",
+   "basis": "judgment",
+   "confidence": "low"
+  },
+  {
+   "from": "7th:물리Ⅰ:1",
+   "to": [
+    "2022:통합과학1:3"
+   ],
+   "relation": "partial",
+   "csat2028": "partial",
+   "note": "과목 단위 대응(단원 미수집). 통합과학 수준의 기초 개념만 범위.",
+   "basis": "judgment",
+   "confidence": "low"
+  },
+  {
+   "from": "7th:화학Ⅰ:1",
+   "to": [
+    "2022:통합과학1:2"
+   ],
+   "relation": "partial",
+   "csat2028": "partial",
+   "note": "과목 단위 대응(단원 미수집). 통합과학 수준의 기초 개념만 범위.",
+   "basis": "judgment",
+   "confidence": "low"
+  },
+  {
+   "from": "7th:생물Ⅰ:1",
+   "to": [
+    "2022:통합과학1:3"
+   ],
+   "relation": "partial",
+   "csat2028": "partial",
+   "note": "과목 단위 대응(단원 미수집). 통합과학 수준의 기초 개념만 범위.",
+   "basis": "judgment",
+   "confidence": "low"
+  },
+  {
+   "from": "7th:지구과학Ⅰ:1",
+   "to": [
+    "2022:통합과학1:3"
+   ],
+   "relation": "partial",
+   "csat2028": "partial",
+   "note": "과목 단위 대응(단원 미수집). 통합과학 수준의 기초 개념만 범위.",
+   "basis": "judgment",
+   "confidence": "low"
+  },
+  {
+   "from": "2007:물리Ⅰ:1",
+   "to": [
+    "2022:통합과학1:3"
+   ],
+   "relation": "partial",
+   "csat2028": "partial",
+   "note": "과목 단위 대응(단원 미수집). 통합과학 수준의 기초 개념만 범위.",
+   "basis": "judgment",
+   "confidence": "low"
+  },
+  {
+   "from": "2007:화학Ⅰ:1",
+   "to": [
+    "2022:통합과학1:2"
+   ],
+   "relation": "partial",
+   "csat2028": "partial",
+   "note": "과목 단위 대응(단원 미수집). 통합과학 수준의 기초 개념만 범위.",
+   "basis": "judgment",
+   "confidence": "low"
+  },
+  {
+   "from": "2007:생명과학Ⅰ:1",
+   "to": [
+    "2022:통합과학1:3"
+   ],
+   "relation": "partial",
+   "csat2028": "partial",
+   "note": "과목 단위 대응(단원 미수집). 통합과학 수준의 기초 개념만 범위.",
+   "basis": "judgment",
+   "confidence": "low"
+  },
+  {
+   "from": "2007:지구과학Ⅰ:1",
+   "to": [
+    "2022:통합과학1:3"
+   ],
+   "relation": "partial",
+   "csat2028": "partial",
+   "note": "과목 단위 대응(단원 미수집). 통합과학 수준의 기초 개념만 범위.",
+   "basis": "judgment",
+   "confidence": "low"
+  },
+  {
+   "from": "7th:물리Ⅱ:1",
+   "to": [],
+   "relation": "none",
+   "csat2028": "out",
+   "note": "Ⅱ 과목은 심화 내용이라 통합과학 범위 밖.",
+   "basis": "judgment",
+   "confidence": "low"
+  },
+  {
+   "from": "7th:화학Ⅱ:1",
+   "to": [],
+   "relation": "none",
+   "csat2028": "out",
+   "note": "Ⅱ 과목은 심화 내용이라 통합과학 범위 밖.",
+   "basis": "judgment",
+   "confidence": "low"
+  },
+  {
+   "from": "7th:생물Ⅱ:1",
+   "to": [],
+   "relation": "none",
+   "csat2028": "out",
+   "note": "Ⅱ 과목은 심화 내용이라 통합과학 범위 밖.",
+   "basis": "judgment",
+   "confidence": "low"
+  },
+  {
+   "from": "7th:지구과학Ⅱ:1",
+   "to": [],
+   "relation": "none",
+   "csat2028": "out",
+   "note": "Ⅱ 과목은 심화 내용이라 통합과학 범위 밖.",
+   "basis": "judgment",
+   "confidence": "low"
+  },
+  {
+   "from": "2007:물리Ⅱ:1",
+   "to": [],
+   "relation": "none",
+   "csat2028": "out",
+   "note": "Ⅱ 과목은 심화 내용이라 통합과학 범위 밖.",
+   "basis": "judgment",
+   "confidence": "low"
+  },
+  {
+   "from": "2007:화학Ⅱ:1",
+   "to": [],
+   "relation": "none",
+   "csat2028": "out",
+   "note": "Ⅱ 과목은 심화 내용이라 통합과학 범위 밖.",
+   "basis": "judgment",
+   "confidence": "low"
+  },
+  {
+   "from": "2007:생명과학Ⅱ:1",
+   "to": [],
+   "relation": "none",
+   "csat2028": "out",
+   "note": "Ⅱ 과목은 심화 내용이라 통합과학 범위 밖.",
+   "basis": "judgment",
+   "confidence": "low"
+  },
+  {
+   "from": "2007:지구과학Ⅱ:1",
+   "to": [],
+   "relation": "none",
+   "csat2028": "out",
+   "note": "Ⅱ 과목은 심화 내용이라 통합과학 범위 밖.",
    "basis": "judgment",
    "confidence": "low"
   }
