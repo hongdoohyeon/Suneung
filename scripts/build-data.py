@@ -1162,6 +1162,8 @@ def compute_exam_scores(items: list[dict], cuts: list[dict] | None = None) -> di
         out[it['id']] = rec
         er = en_ratios.get(f'{it.get("gradeYear")}|{it.get("type")}') if (
             it.get('subject') == '영어' and it.get('typeGroup') == 'suneung') else None
+        if not er and absolute and it.get('subject') == '영어' and it.get('typeGroup') == 'education' and it.get('studentGrade'):
+            er = _edu_english_ratios(it)   # 학평(2022~) — 시·도교육청 공식 통계의 등급별 인원 비율
         if er:
             rec['ratios'] = er['ratios']
             rec['ratio'] = er['ratios'][0]
@@ -1402,7 +1404,7 @@ def score_stats_html(sc: dict) -> str:
         else:
             cells.append(('평가 방식', '절대평가', False))
     else:
-        cells.append(('1등급컷' + (f' ({kind})' if kind else ''), f'{esc(sc["raw"])}<small>원점수</small>', True))
+        cells.append((f'1등급컷 ({kind or "비공식"})', f'{esc(sc["raw"])}<small>원점수</small>', True))
         if sc.get('top') is not None:
             cells.append(('표준점수 최고점', esc(sc['top']), True))
         elif sc.get('std') is not None:
@@ -1446,7 +1448,9 @@ def grade_table_html(cut: dict, absolute: bool, ratios: list | None = None) -> s
     basis = cut.get('rawCutBasis')
     note = ('입시기관 역산값' if basis == 'academy_reverse_calculated' else
             '입시기관 추정 정수 경계' if basis == 'academy_integerized_threshold' else
-            '공식 표준점수 컷 기준 입시기관 추정 종합' if basis == 'academy_consensus_estimate' else '')
+            '공식 표준점수 컷 기준 입시기관 추정 종합' if basis == 'academy_consensus_estimate' else
+            # 상대평가 원점수컷은 평가원·교육청이 내지 않는다 — 출처 표시가 없어도 EBSi·입시기관 값
+            '원점수는 EBSi·입시기관 값(비공식)' if not absolute and any(v is not None for v in cut.get('rawCuts') or []) else '')
     legend = ' · '.join(x for x in ('등급별 컷', '절대평가' if absolute else '', note,
                                     f'만점 {cut.get("fullScore")}점' if cut.get('fullScore') else '') if x)
     head = ''.join(f'<th scope="col">{lbl}</th>' for lbl, _, _ in cols)
@@ -1649,6 +1653,16 @@ def _load_edu_official() -> dict:
         p = ROOT / 'data' / 'edu-official.json'
         _EDU_OFFICIAL = json.loads(p.read_text(encoding='utf-8')) if p.exists() else {}
     return _EDU_OFFICIAL
+
+
+def _edu_english_ratios(it: dict) -> dict | None:
+    """학평 영어 등급별 인원 비율 {'ratios': [1~9등급 %]} — 원점수 등급 9개가 다 있을 때만."""
+    exam = _load_edu_official().get(f"{it.get('examYear')}_{int(it.get('month') or 0):02d}_g{it['studentGrade']}")
+    rows = ((exam or {}).get('e', {}).get('영어|') or {}).get('c') or []
+    by_grade = {r[0]: r[4] for r in rows if r[2] == 'r' and r[4] is not None}
+    if sorted(by_grade) != list(range(1, 10)):
+        return None
+    return {'ratios': [by_grade[g] for g in range(1, 10)]}
 
 
 def _load_score_dists() -> dict:
@@ -2629,7 +2643,8 @@ def set_facts_html(head: str, exams: list[dict], scores: dict, by_key: dict) -> 
             '<button type="button" class="switch" role="switch" aria-checked="true" data-spoiler-toggle>스포일러 방지'
             '<span class="switch__knob" aria-hidden="true"></span></button></div>'
             f'<p>{esc(head)} 영역별 1등급컷, 표준점수 최고점, 난이도입니다. 난이도는 같은 과목 역대 시험과 비교한 값이며 '
-            '계산 방법은 <a href="methodology.html">난이도 산정 기준</a>에 정리했습니다. 전년 대비는 같은 시험의 직전 학년도 1등급 원점수컷과의 차이입니다.</p>'
+            '계산 방법은 <a href="methodology.html">난이도 산정 기준</a>에 정리했습니다. 전년 대비는 같은 시험의 직전 학년도 1등급 원점수컷과의 차이입니다. '
+            '원점수 1등급컷은 평가원·교육청 발표값이 아니라 EBSi·입시기관 값입니다.</p>'
             '<div class="examset__facts-scroll"><table class="examset__table"><thead><tr><th scope="col">영역</th>'
             '<th scope="col">1등급컷</th><th scope="col">표준점수 최고점</th><th scope="col">난이도</th><th scope="col">전년 대비</th></tr></thead>'
             f'<tbody>{"".join(rows)}</tbody></table></div></section>')
@@ -2677,10 +2692,11 @@ def set_cut_summary(head: str, exams: list[dict], scores: dict, official_src: bo
     else:
         body_h = f'영어 1등급 비율은 {sv(f"{ratio:g}%")}입니다.'
         body_t = f'영어 1등급 비율은 {ratio:g}%입니다.'
-    # 원점수컷 대부분은 입시기관 값이고 출처 표시(basis)는 역산·추정만 달려 있다 — 값마다 공식 여부를 단정하지 않고 원칙만 적는다
+    # 상대평가 원점수컷은 평가원·교육청이 발표하지 않는다 — 이 사이트의 값은 모두 EBSi·입시기관 값
+    has_raw = bool(groups)
     src_t = ((('표준점수 최고점과 영어 1등급 비율은' if ratio is not None else '표준점수 최고점은') + ' 평가원·시도교육청 발표값입니다. ' if official_src else '')
-             + ('원점수 1등급컷은 공식 발표가 없으면 입시기관 공개값을 쓰며, 역산·추정한 값은 따로 표시했습니다. ' if estimated
-                else '원점수 1등급컷은 공식 발표가 없으면 입시기관 공개값을 씁니다. '))
+             + (('원점수 1등급컷은 공식 발표값이 아니라 EBSi·입시기관 값이며, 역산·추정한 값은 따로 표시했습니다. ' if estimated
+                 else '원점수 1등급컷은 공식 발표값이 아니라 EBSi·입시기관 값입니다. ') if has_raw else ''))
     src = (html_escape(src_t, quote=False)
            + '과목별 값은 <a href="#examsetFactsTitle">등급컷과 난이도</a> 표, 출처 구분은 <a href="data-policy.html">데이터 원칙</a>에 있습니다.')
     html = (f'<p class="examset__answer"><strong>{e}</strong> {body_h}</p>'
