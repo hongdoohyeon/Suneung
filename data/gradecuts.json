@@ -7947,10 +7947,22 @@
       39,
       36
     ],
-    "source": "kice-archive-2015",
+    "source": "kice-archive-2015+ebsi-past-grdcut",
     "id": 204,
     "fullScore": 50,
-    "highestStandardScore": 67
+    "highestStandardScore": 67,
+    "rawCuts": [
+      50,
+      46,
+      41,
+      28,
+      18,
+      13,
+      10,
+      5
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2015",
@@ -7971,10 +7983,22 @@
       38,
       36
     ],
-    "source": "kice-archive-2015",
+    "source": "kice-archive-2015+ebsi-past-grdcut",
     "id": 205,
     "fullScore": 50,
-    "highestStandardScore": 70
+    "highestStandardScore": 70,
+    "rawCuts": [
+      48,
+      44,
+      36,
+      28,
+      22,
+      17,
+      13,
+      10
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2015",
@@ -8019,10 +8043,22 @@
       39,
       37
     ],
-    "source": "kice-archive-2015",
+    "source": "kice-archive-2015+ebsi-past-grdcut",
     "id": 207,
     "fullScore": 50,
-    "highestStandardScore": 68
+    "highestStandardScore": 68,
+    "rawCuts": [
+      50,
+      47,
+      39,
+      25,
+      19,
+      13,
+      11,
+      8
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2015",
@@ -11667,10 +11703,22 @@
       41,
       39
     ],
-    "source": "kice-archive-2015",
+    "source": "kice-archive-2015+ebsi-past-grdcut",
     "id": 302,
     "fullScore": 50,
-    "highestStandardScore": 88
+    "highestStandardScore": 88,
+    "rawCuts": [
+      39,
+      26,
+      20,
+      15,
+      12,
+      8,
+      7,
+      5
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2015",
@@ -11691,10 +11739,22 @@
       39,
       37
     ],
-    "source": "kice-archive-2015",
+    "source": "kice-archive-2015+ebsi-past-grdcut",
     "id": 303,
     "fullScore": 50,
-    "highestStandardScore": 84
+    "highestStandardScore": 84,
+    "rawCuts": [
+      37,
+      31,
+      24,
+      18,
+      13,
+      9,
+      7,
+      5
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2015",
@@ -11739,10 +11799,22 @@
       40,
       36
     ],
-    "source": "kice-archive-2015",
+    "source": "kice-archive-2015+ebsi-past-grdcut",
     "id": 305,
     "fullScore": 50,
-    "highestStandardScore": 79
+    "highestStandardScore": 79,
+    "rawCuts": [
+      41,
+      33,
+      27,
+      21,
+      15,
+      10,
+      8,
+      4
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2015",
@@ -22224,10 +22296,22 @@
       38,
       35
     ],
-    "source": "kice-archive-2015",
+    "source": "kice-archive-2015+ebsi-past-grdcut",
     "id": 564,
     "fullScore": 50,
-    "highestStandardScore": 72
+    "highestStandardScore": 72,
+    "rawCuts": [
+      45,
+      41,
+      33,
+      26,
+      18,
+      12,
+      8,
+      5
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2015",
@@ -22248,10 +22332,22 @@
       38,
       35
     ],
-    "source": "kice-archive-2015",
+    "source": "kice-archive-2015+ebsi-past-grdcut",
     "id": 565,
     "fullScore": 50,
-    "highestStandardScore": 72
+    "highestStandardScore": 72,
+    "rawCuts": [
+      45,
+      41,
+      35,
+      26,
+      20,
+      15,
+      10,
+      7
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2015",
@@ -22296,10 +22392,22 @@
       38,
       35
     ],
-    "source": "kice-archive-2015",
+    "source": "kice-archive-2015+ebsi-past-grdcut",
     "id": 567,
     "fullScore": 50,
-    "highestStandardScore": 66
+    "highestStandardScore": 66,
+    "rawCuts": [
+      50,
+      46,
+      43,
+      32,
+      23,
+      16,
+      12,
+      8
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2015",
@@ -24059,10 +24167,22 @@
       39,
       36
     ],
-    "source": "kice-archive-2015",
+    "source": "kice-archive-2015+ebsi-past-grdcut",
     "id": 613,
     "fullScore": 50,
-    "highestStandardScore": 78
+    "highestStandardScore": 78,
+    "rawCuts": [
+      41,
+      36,
+      28,
+      22,
+      16,
+      12,
+      8,
+      5
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2015",
@@ -24083,10 +24203,22 @@
       39,
       36
     ],
-    "source": "kice-archive-2015",
+    "source": "kice-archive-2015+ebsi-past-grdcut",
     "id": 614,
     "fullScore": 50,
-    "highestStandardScore": 81
+    "highestStandardScore": 81,
+    "rawCuts": [
+      40,
+      32,
+      27,
+      22,
+      15,
+      11,
+      9,
+      6
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2015",
@@ -24131,10 +24263,22 @@
       39,
       38
     ],
-    "source": "kice-archive-2015",
+    "source": "kice-archive-2015+ebsi-past-grdcut",
     "id": 616,
     "fullScore": 50,
-    "highestStandardScore": 74
+    "highestStandardScore": 74,
+    "rawCuts": [
+      46,
+      39,
+      29,
+      23,
+      16,
+      10,
+      7,
+      6
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2015",
@@ -38502,10 +38646,22 @@
       38,
       35
     ],
-    "source": "kice-archive-2015",
+    "source": "kice-archive-2015+ebsi-past-grdcut",
     "id": 958,
     "fullScore": 50,
-    "highestStandardScore": 70
+    "highestStandardScore": 70,
+    "rawCuts": [
+      47,
+      44,
+      37,
+      27,
+      21,
+      17,
+      12,
+      8
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2015",
@@ -38526,10 +38682,22 @@
       37,
       34
     ],
-    "source": "kice-archive-2015",
+    "source": "kice-archive-2015+ebsi-past-grdcut",
     "id": 959,
     "fullScore": 50,
-    "highestStandardScore": 68
+    "highestStandardScore": 68,
+    "rawCuts": [
+      47,
+      45,
+      39,
+      31,
+      22,
+      16,
+      11,
+      7
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2015",
@@ -38574,10 +38742,22 @@
       37,
       32
     ],
-    "source": "kice-archive-2015",
+    "source": "kice-archive-2015+ebsi-past-grdcut",
     "id": 961,
     "fullScore": 50,
-    "highestStandardScore": 66
+    "highestStandardScore": 66,
+    "rawCuts": [
+      48,
+      47,
+      42,
+      32,
+      24,
+      19,
+      13,
+      6
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2015",
@@ -42222,10 +42402,22 @@
       39,
       36
     ],
-    "source": "kice-archive-2015",
+    "source": "kice-archive-2015+ebsi-past-grdcut",
     "id": 1056,
     "fullScore": 50,
-    "highestStandardScore": 87
+    "highestStandardScore": 87,
+    "rawCuts": [
+      36,
+      29,
+      23,
+      18,
+      13,
+      10,
+      8,
+      5
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2015",
@@ -42246,10 +42438,22 @@
       38,
       35
     ],
-    "source": "kice-archive-2015",
+    "source": "kice-archive-2015+ebsi-past-grdcut",
     "id": 1057,
     "fullScore": 50,
-    "highestStandardScore": 81
+    "highestStandardScore": 81,
+    "rawCuts": [
+      39,
+      33,
+      27,
+      21,
+      15,
+      12,
+      8,
+      5
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2015",
@@ -42294,10 +42498,22 @@
       38,
       36
     ],
-    "source": "kice-archive-2015",
+    "source": "kice-archive-2015+ebsi-past-grdcut",
     "id": 1059,
     "fullScore": 50,
-    "highestStandardScore": 88
+    "highestStandardScore": 88,
+    "rawCuts": [
+      34,
+      28,
+      23,
+      19,
+      14,
+      12,
+      8,
+      6
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2015",
@@ -58282,10 +58498,22 @@
       41,
       38
     ],
-    "source": "kice-archive-2015",
+    "source": "kice-archive-2015+ebsi-past-grdcut",
     "id": 1448,
     "fullScore": 50,
-    "highestStandardScore": 91
+    "highestStandardScore": 91,
+    "rawCuts": [
+      35,
+      26,
+      20,
+      14,
+      11,
+      9,
+      7,
+      5
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2015",
@@ -58306,10 +58534,22 @@
       37,
       32
     ],
-    "source": "kice-archive-2015",
+    "source": "kice-archive-2015+ebsi-past-grdcut",
     "id": 1449,
     "fullScore": 50,
-    "highestStandardScore": 76
+    "highestStandardScore": 76,
+    "rawCuts": [
+      41,
+      36,
+      32,
+      27,
+      20,
+      15,
+      10,
+      5
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2015",
@@ -58354,10 +58594,22 @@
       39,
       37
     ],
-    "source": "kice-archive-2015",
+    "source": "kice-archive-2015+ebsi-past-grdcut",
     "id": 1451,
     "fullScore": 50,
-    "highestStandardScore": 99
+    "highestStandardScore": 99,
+    "rawCuts": [
+      29,
+      23,
+      19,
+      15,
+      12,
+      9,
+      7,
+      5
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2015",
@@ -69703,10 +69955,22 @@
       40,
       37
     ],
-    "source": "kice-archive-2015",
+    "source": "kice-archive-2015+ebsi-past-grdcut",
     "id": 1734,
     "fullScore": 50,
-    "highestStandardScore": 77
+    "highestStandardScore": 77,
+    "rawCuts": [
+      43,
+      37,
+      30,
+      22,
+      18,
+      14,
+      11,
+      8
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2015",
@@ -69727,10 +69991,22 @@
       38,
       33
     ],
-    "source": "kice-archive-2015",
+    "source": "kice-archive-2015+ebsi-past-grdcut",
     "id": 1735,
     "fullScore": 50,
-    "highestStandardScore": 71
+    "highestStandardScore": 71,
+    "rawCuts": [
+      47,
+      42,
+      38,
+      31,
+      26,
+      22,
+      18,
+      13
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2015",
@@ -69775,10 +70051,22 @@
       40,
       38
     ],
-    "source": "kice-archive-2015",
+    "source": "kice-archive-2015+ebsi-past-grdcut",
     "id": 1738,
     "fullScore": 50,
-    "highestStandardScore": 70
+    "highestStandardScore": 70,
+    "rawCuts": [
+      50,
+      45,
+      36,
+      22,
+      16,
+      12,
+      9,
+      7
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2015",
@@ -124892,10 +125180,22 @@
       37,
       36
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 3142,
     "fullScore": 50,
-    "highestStandardScore": 65
+    "highestStandardScore": 65,
+    "rawCuts": [
+      48,
+      45,
+      42,
+      36,
+      18,
+      11,
+      8,
+      6
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -124940,10 +125240,22 @@
       41,
       39
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 3144,
     "fullScore": 50,
-    "highestStandardScore": 71
+    "highestStandardScore": 71,
+    "rawCuts": [
+      47,
+      44,
+      36,
+      16,
+      11,
+      9,
+      7,
+      4
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -124988,10 +125300,22 @@
       42,
       40
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 3146,
     "fullScore": 50,
-    "highestStandardScore": 81
+    "highestStandardScore": 81,
+    "rawCuts": [
+      46,
+      33,
+      18,
+      14,
+      12,
+      10,
+      8,
+      5
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -125036,10 +125360,22 @@
       38,
       36
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 3148,
     "fullScore": 50,
-    "highestStandardScore": 70
+    "highestStandardScore": 70,
+    "rawCuts": [
+      44,
+      43,
+      38,
+      30,
+      19,
+      14,
+      10,
+      8
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -125084,10 +125420,22 @@
       42,
       40
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 3150,
     "fullScore": 50,
-    "highestStandardScore": 91
+    "highestStandardScore": 91,
+    "rawCuts": [
+      40,
+      21,
+      16,
+      13,
+      11,
+      9,
+      7,
+      5
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -125132,10 +125480,22 @@
       37,
       35
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 3152,
     "fullScore": 50,
-    "highestStandardScore": 72
+    "highestStandardScore": 72,
+    "rawCuts": [
+      44,
+      40,
+      36,
+      30,
+      21,
+      16,
+      11,
+      9
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -125180,10 +125540,22 @@
       37,
       35
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 3154,
     "fullScore": 50,
-    "highestStandardScore": 69
+    "highestStandardScore": 69,
+    "rawCuts": [
+      46,
+      43,
+      38,
+      32,
+      22,
+      15,
+      11,
+      9
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -125228,10 +125600,22 @@
       38,
       35
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 3156,
     "fullScore": 50,
-    "highestStandardScore": 69
+    "highestStandardScore": 69,
+    "rawCuts": [
+      43,
+      42,
+      38,
+      30,
+      18,
+      12,
+      9,
+      5
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -125276,10 +125660,22 @@
       38,
       34
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 3158,
     "fullScore": 50,
-    "highestStandardScore": 69
+    "highestStandardScore": 69,
+    "rawCuts": [
+      49,
+      45,
+      38,
+      29,
+      21,
+      18,
+      13,
+      8
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -125372,8 +125768,20 @@
     ],
     "id": 3162,
     "fullScore": 50,
-    "source": "kice-archive-2009",
-    "highestStandardScore": 71
+    "source": "kice-archive-2009+ebsi-past-grdcut",
+    "highestStandardScore": 71,
+    "rawCuts": [
+      47,
+      44,
+      35,
+      24,
+      17,
+      12,
+      9,
+      6
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -125442,8 +125850,20 @@
     ],
     "id": 3165,
     "fullScore": 50,
-    "source": "kice-archive-2009",
-    "highestStandardScore": 73
+    "source": "kice-archive-2009+ebsi-past-grdcut",
+    "highestStandardScore": 73,
+    "rawCuts": [
+      48,
+      41,
+      33,
+      24,
+      17,
+      14,
+      10,
+      7
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -125464,10 +125884,22 @@
       38,
       34
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 3166,
     "fullScore": 50,
-    "highestStandardScore": 74
+    "highestStandardScore": 74,
+    "rawCuts": [
+      45,
+      39,
+      33,
+      25,
+      20,
+      16,
+      11,
+      7
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -125514,8 +125946,20 @@
     ],
     "id": 3168,
     "fullScore": 50,
-    "source": "kice-archive-2009",
-    "highestStandardScore": 67
+    "source": "kice-archive-2009+ebsi-past-grdcut",
+    "highestStandardScore": 67,
+    "rawCuts": [
+      50,
+      47,
+      42,
+      31,
+      26,
+      21,
+      17,
+      13
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -125536,10 +125980,22 @@
       39,
       33
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 3169,
     "fullScore": 50,
-    "highestStandardScore": 73
+    "highestStandardScore": 73,
+    "rawCuts": [
+      48,
+      40,
+      31,
+      27,
+      20,
+      15,
+      10,
+      3
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -125562,8 +126018,20 @@
     ],
     "id": 3170,
     "fullScore": 50,
-    "source": "kice-archive-2009",
-    "highestStandardScore": 73
+    "source": "kice-archive-2009+ebsi-past-grdcut",
+    "highestStandardScore": 73,
+    "rawCuts": [
+      47,
+      41,
+      33,
+      26,
+      20,
+      16,
+      12,
+      9
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -141056,10 +141524,22 @@
       37,
       35
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 3529,
     "fullScore": 50,
-    "highestStandardScore": 67
+    "highestStandardScore": 67,
+    "rawCuts": [
+      46,
+      44,
+      41,
+      36,
+      21,
+      14,
+      10,
+      8
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -141104,10 +141584,22 @@
       41,
       40
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 3531,
     "fullScore": 50,
-    "highestStandardScore": 75
+    "highestStandardScore": 75,
+    "rawCuts": [
+      45,
+      40,
+      31,
+      14,
+      10,
+      9,
+      6,
+      5
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -141152,10 +141644,22 @@
       42,
       40
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 3533,
     "fullScore": 50,
-    "highestStandardScore": 79
+    "highestStandardScore": 79,
+    "rawCuts": [
+      46,
+      38,
+      19,
+      15,
+      12,
+      10,
+      8,
+      6
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -141200,10 +141704,22 @@
       39,
       36
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 3535,
     "fullScore": 50,
-    "highestStandardScore": 69
+    "highestStandardScore": 69,
+    "rawCuts": [
+      46,
+      41,
+      37,
+      29,
+      16,
+      12,
+      9,
+      5
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -141248,10 +141764,22 @@
       42,
       40
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 3537,
     "fullScore": 50,
-    "highestStandardScore": 90
+    "highestStandardScore": 90,
+    "rawCuts": [
+      42,
+      21,
+      16,
+      13,
+      11,
+      9,
+      7,
+      5
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -141296,10 +141824,22 @@
       38,
       35
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 3539,
     "fullScore": 50,
-    "highestStandardScore": 68
+    "highestStandardScore": 68,
+    "rawCuts": [
+      46,
+      43,
+      39,
+      31,
+      20,
+      13,
+      10,
+      6
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -141344,10 +141884,22 @@
       37,
       34
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 3541,
     "fullScore": 50,
-    "highestStandardScore": 69
+    "highestStandardScore": 69,
+    "rawCuts": [
+      46,
+      42,
+      38,
+      33,
+      23,
+      15,
+      11,
+      8
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -141392,10 +141944,22 @@
       36,
       34
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 3543,
     "fullScore": 50,
-    "highestStandardScore": 67
+    "highestStandardScore": 67,
+    "rawCuts": [
+      46,
+      44,
+      41,
+      36,
+      27,
+      15,
+      11,
+      8
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -141440,10 +142004,22 @@
       39,
       37
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 3545,
     "fullScore": 50,
-    "highestStandardScore": 76
+    "highestStandardScore": 76,
+    "rawCuts": [
+      44,
+      38,
+      29,
+      22,
+      17,
+      13,
+      10,
+      7
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -141536,8 +142112,20 @@
     ],
     "id": 3549,
     "fullScore": 50,
-    "source": "kice-archive-2009",
-    "highestStandardScore": 69
+    "source": "kice-archive-2009+ebsi-past-grdcut",
+    "highestStandardScore": 69,
+    "rawCuts": [
+      47,
+      44,
+      39,
+      24,
+      15,
+      11,
+      8,
+      6
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -141606,8 +142194,20 @@
     ],
     "id": 3552,
     "fullScore": 50,
-    "source": "kice-archive-2009",
-    "highestStandardScore": 71
+    "source": "kice-archive-2009+ebsi-past-grdcut",
+    "highestStandardScore": 71,
+    "rawCuts": [
+      47,
+      44,
+      35,
+      27,
+      21,
+      16,
+      13,
+      8
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -141628,10 +142228,22 @@
       36,
       31
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 3553,
     "fullScore": 50,
-    "highestStandardScore": 65
+    "highestStandardScore": 65,
+    "rawCuts": [
+      48,
+      47,
+      42,
+      37,
+      30,
+      23,
+      16,
+      10
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -141678,8 +142290,20 @@
     ],
     "id": 3555,
     "fullScore": 50,
-    "source": "kice-archive-2009",
-    "highestStandardScore": 68
+    "source": "kice-archive-2009+ebsi-past-grdcut",
+    "highestStandardScore": 68,
+    "rawCuts": [
+      50,
+      47,
+      40,
+      27,
+      21,
+      15,
+      13,
+      9
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -141726,8 +142350,20 @@
     ],
     "id": 3557,
     "fullScore": 50,
-    "source": "kice-archive-2009",
-    "highestStandardScore": 70
+    "source": "kice-archive-2009+ebsi-past-grdcut",
+    "highestStandardScore": 70,
+    "rawCuts": [
+      48,
+      44,
+      37,
+      27,
+      21,
+      17,
+      13,
+      8
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -142900,10 +143536,22 @@
       35,
       34
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 3581,
     "fullScore": 50,
-    "highestStandardScore": 68
+    "highestStandardScore": 68,
+    "rawCuts": [
+      44,
+      41,
+      38,
+      35,
+      27,
+      15,
+      10,
+      8
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -142948,10 +143596,22 @@
       39,
       37
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 3583,
     "fullScore": 50,
-    "highestStandardScore": 65
+    "highestStandardScore": 65,
+    "rawCuts": [
+      48,
+      45,
+      43,
+      36,
+      13,
+      8,
+      6,
+      3
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -142996,10 +143656,22 @@
       41,
       39
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 3585,
     "fullScore": 50,
-    "highestStandardScore": 74
+    "highestStandardScore": 74,
+    "rawCuts": [
+      45,
+      41,
+      31,
+      16,
+      10,
+      8,
+      6,
+      4
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -143092,10 +143764,22 @@
       40,
       37
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 3589,
     "fullScore": 50,
-    "highestStandardScore": 92
+    "highestStandardScore": 92,
+    "rawCuts": [
+      35,
+      26,
+      20,
+      16,
+      13,
+      10,
+      8,
+      6
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -143140,10 +143824,22 @@
       34,
       31
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 3591,
     "fullScore": 50,
-    "highestStandardScore": 66
+    "highestStandardScore": 66,
+    "rawCuts": [
+      45,
+      44,
+      42,
+      37,
+      31,
+      22,
+      13,
+      9
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -143188,10 +143884,22 @@
       35,
       32
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 3593,
     "fullScore": 50,
-    "highestStandardScore": 69
+    "highestStandardScore": 69,
+    "rawCuts": [
+      44,
+      41,
+      38,
+      34,
+      28,
+      18,
+      12,
+      9
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -143236,10 +143944,22 @@
       35,
       30
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 3595,
     "fullScore": 50,
-    "highestStandardScore": 71
+    "highestStandardScore": 71,
+    "rawCuts": [
+      43,
+      39,
+      36,
+      33,
+      28,
+      20,
+      12,
+      6
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -143284,10 +144004,22 @@
       39,
       35
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 3597,
     "fullScore": 50,
-    "highestStandardScore": 71
+    "highestStandardScore": 71,
+    "rawCuts": [
+      46,
+      41,
+      35,
+      26,
+      17,
+      12,
+      10,
+      5
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -143355,10 +144087,22 @@
       41,
       39
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 3600,
     "fullScore": 50,
-    "highestStandardScore": 74
+    "highestStandardScore": 74,
+    "rawCuts": [
+      45,
+      41,
+      31,
+      17,
+      12,
+      10,
+      8,
+      5
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -143379,10 +144123,22 @@
       41,
       37
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 3601,
     "fullScore": 50,
-    "highestStandardScore": 88
+    "highestStandardScore": 88,
+    "rawCuts": [
+      36,
+      28,
+      20,
+      15,
+      11,
+      9,
+      7,
+      4
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -143403,10 +144159,22 @@
       40,
       38
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 3602,
     "fullScore": 50,
-    "highestStandardScore": 74
+    "highestStandardScore": 74,
+    "rawCuts": [
+      44,
+      38,
+      31,
+      21,
+      12,
+      8,
+      6,
+      4
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -143451,10 +144219,22 @@
       40,
       38
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 3604,
     "fullScore": 50,
-    "highestStandardScore": 80
+    "highestStandardScore": 80,
+    "rawCuts": [
+      42,
+      32,
+      24,
+      17,
+      11,
+      8,
+      6,
+      3
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -143475,10 +144255,22 @@
       39,
       38
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 3605,
     "fullScore": 50,
-    "highestStandardScore": 91
+    "highestStandardScore": 91,
+    "rawCuts": [
+      33,
+      28,
+      18,
+      15,
+      13,
+      9,
+      6,
+      5
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -143499,10 +144291,22 @@
       40,
       36
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 3606,
     "fullScore": 50,
-    "highestStandardScore": 86
+    "highestStandardScore": 86,
+    "rawCuts": [
+      38,
+      30,
+      22,
+      16,
+      13,
+      10,
+      8,
+      4
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -144555,10 +145359,22 @@
       37,
       35
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 3630,
     "fullScore": 50,
-    "highestStandardScore": 65
+    "highestStandardScore": 65,
+    "rawCuts": [
+      47,
+      44,
+      43,
+      37,
+      21,
+      11,
+      8,
+      6
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -144603,10 +145419,22 @@
       41,
       40
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 3632,
     "fullScore": 50,
-    "highestStandardScore": 69
+    "highestStandardScore": 69,
+    "rawCuts": [
+      48,
+      45,
+      39,
+      16,
+      11,
+      8,
+      6,
+      5
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -144651,10 +145479,22 @@
       42,
       40
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 3634,
     "fullScore": 50,
-    "highestStandardScore": 83
+    "highestStandardScore": 83,
+    "rawCuts": [
+      44,
+      31,
+      17,
+      13,
+      11,
+      9,
+      6,
+      4
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -144699,10 +145539,22 @@
       36,
       34
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 3636,
     "fullScore": 50,
-    "highestStandardScore": 66
+    "highestStandardScore": 66,
+    "rawCuts": [
+      46,
+      45,
+      42,
+      37,
+      25,
+      14,
+      11,
+      8
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -144747,10 +145599,22 @@
       40,
       37
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 3638,
     "fullScore": 50,
-    "highestStandardScore": 100
+    "highestStandardScore": 100,
+    "rawCuts": [
+      30,
+      22,
+      19,
+      16,
+      13,
+      11,
+      9,
+      7
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -144795,10 +145659,22 @@
       36,
       34
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 3640,
     "fullScore": 50,
-    "highestStandardScore": 68
+    "highestStandardScore": 68,
+    "rawCuts": [
+      45,
+      44,
+      39,
+      34,
+      24,
+      16,
+      11,
+      9
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -144843,10 +145719,22 @@
       35,
       31
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 3642,
     "fullScore": 50,
-    "highestStandardScore": 69
+    "highestStandardScore": 69,
+    "rawCuts": [
+      45,
+      40,
+      38,
+      35,
+      29,
+      20,
+      13,
+      9
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -144891,10 +145779,22 @@
       35,
       32
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 3644,
     "fullScore": 50,
-    "highestStandardScore": 63
+    "highestStandardScore": 63,
+    "rawCuts": [
+      47,
+      46,
+      44,
+      40,
+      35,
+      15,
+      11,
+      7
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -144939,10 +145839,22 @@
       38,
       36
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 3646,
     "fullScore": 50,
-    "highestStandardScore": 79
+    "highestStandardScore": 79,
+    "rawCuts": [
+      41,
+      35,
+      29,
+      24,
+      18,
+      13,
+      10,
+      8
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -145010,10 +145922,22 @@
       40,
       38
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 3649,
     "fullScore": 50,
-    "highestStandardScore": 83
+    "highestStandardScore": 83,
+    "rawCuts": [
+      40,
+      32,
+      22,
+      15,
+      11,
+      9,
+      6,
+      4
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -145034,10 +145958,22 @@
       40,
       36
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 3650,
     "fullScore": 50,
-    "highestStandardScore": 100
+    "highestStandardScore": 100,
+    "rawCuts": [
+      30,
+      23,
+      18,
+      14,
+      11,
+      9,
+      7,
+      4
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -145058,10 +145994,22 @@
       39,
       36
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 3651,
     "fullScore": 50,
-    "highestStandardScore": 74
+    "highestStandardScore": 74,
+    "rawCuts": [
+      43,
+      38,
+      32,
+      23,
+      15,
+      11,
+      8,
+      5
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -145106,10 +146054,22 @@
       39,
       36
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 3653,
     "fullScore": 50,
-    "highestStandardScore": 96
+    "highestStandardScore": 96,
+    "rawCuts": [
+      31,
+      23,
+      19,
+      16,
+      12,
+      9,
+      6,
+      4
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -145130,10 +146090,22 @@
       39,
       36
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 3654,
     "fullScore": 50,
-    "highestStandardScore": 90
+    "highestStandardScore": 90,
+    "rawCuts": [
+      34,
+      27,
+      21,
+      17,
+      12,
+      11,
+      7,
+      5
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -145154,10 +146126,22 @@
       41,
       37
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 3655,
     "fullScore": 50,
-    "highestStandardScore": 92
+    "highestStandardScore": 92,
+    "rawCuts": [
+      34,
+      26,
+      20,
+      15,
+      13,
+      10,
+      8,
+      5
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -172550,10 +173534,22 @@
       36,
       32
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 4292,
     "fullScore": 50,
-    "highestStandardScore": 72
+    "highestStandardScore": 72,
+    "rawCuts": [
+      44,
+      40,
+      36,
+      32,
+      25,
+      18,
+      13,
+      9
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -172598,10 +173594,22 @@
       38,
       35
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 4294,
     "fullScore": 50,
-    "highestStandardScore": 76
+    "highestStandardScore": 76,
+    "rawCuts": [
+      42,
+      37,
+      32,
+      26,
+      20,
+      15,
+      11,
+      8
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -172622,10 +173630,22 @@
       36,
       34
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 4295,
     "fullScore": 50,
-    "highestStandardScore": 65
+    "highestStandardScore": 65,
+    "rawCuts": [
+      48,
+      45,
+      41,
+      37,
+      26,
+      14,
+      10,
+      7
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -172646,10 +173666,22 @@
       37,
       34
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 4296,
     "fullScore": 50,
-    "highestStandardScore": 72
+    "highestStandardScore": 72,
+    "rawCuts": [
+      45,
+      41,
+      35,
+      29,
+      22,
+      16,
+      11,
+      8
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -172670,10 +173702,22 @@
       37,
       35
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 4297,
     "fullScore": 50,
-    "highestStandardScore": 64
+    "highestStandardScore": 64,
+    "rawCuts": [
+      50,
+      46,
+      44,
+      37,
+      23,
+      16,
+      12,
+      9
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -172694,10 +173738,22 @@
       36,
       32
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 4298,
     "fullScore": 50,
-    "highestStandardScore": 67
+    "highestStandardScore": 67,
+    "rawCuts": [
+      46,
+      44,
+      40,
+      35,
+      27,
+      19,
+      12,
+      8
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -172718,10 +173774,22 @@
       36,
       33
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 4299,
     "fullScore": 50,
-    "highestStandardScore": 68
+    "highestStandardScore": 68,
+    "rawCuts": [
+      45,
+      43,
+      39,
+      34,
+      26,
+      16,
+      12,
+      8
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -172742,10 +173810,22 @@
       73,
       63
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 4300,
     "fullScore": 100,
-    "highestStandardScore": 134
+    "highestStandardScore": 134,
+    "rawCuts": [
+      96,
+      90,
+      82,
+      72,
+      60,
+      47,
+      35,
+      25
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -172766,10 +173846,22 @@
       72,
       60
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 4301,
     "fullScore": 100,
-    "highestStandardScore": 136
+    "highestStandardScore": 136,
+    "rawCuts": [
+      93,
+      88,
+      81,
+      72,
+      61,
+      49,
+      36,
+      24
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -173168,10 +174260,22 @@
       73,
       63
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 4314,
     "fullScore": 100,
-    "highestStandardScore": 136
+    "highestStandardScore": 136,
+    "rawCuts": [
+      94,
+      88,
+      81,
+      71,
+      59,
+      46,
+      35,
+      25
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -173192,10 +174296,22 @@
       37,
       35
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 4315,
     "fullScore": 50,
-    "highestStandardScore": 66
+    "highestStandardScore": 66,
+    "rawCuts": [
+      48,
+      44,
+      41,
+      34,
+      19,
+      10,
+      7,
+      4
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -173240,10 +174356,22 @@
       41,
       40
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 4317,
     "fullScore": 50,
-    "highestStandardScore": 71
+    "highestStandardScore": 71,
+    "rawCuts": [
+      47,
+      44,
+      34,
+      15,
+      11,
+      9,
+      6,
+      5
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -173288,10 +174416,22 @@
       37,
       35
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 4319,
     "fullScore": 50,
-    "highestStandardScore": 66
+    "highestStandardScore": 66,
+    "rawCuts": [
+      48,
+      44,
+      42,
+      35,
+      23,
+      15,
+      11,
+      8
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -173336,10 +174476,22 @@
       42,
       40
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 4321,
     "fullScore": 50,
-    "highestStandardScore": 100
+    "highestStandardScore": 100,
+    "rawCuts": [
+      23,
+      17,
+      14,
+      12,
+      10,
+      8,
+      7,
+      5
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -173384,10 +174536,22 @@
       36,
       33
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 4323,
     "fullScore": 50,
-    "highestStandardScore": 67
+    "highestStandardScore": 67,
+    "rawCuts": [
+      46,
+      42,
+      40,
+      36,
+      26,
+      15,
+      10,
+      7
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -173432,10 +174596,22 @@
       36,
       34
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 4325,
     "fullScore": 50,
-    "highestStandardScore": 67
+    "highestStandardScore": 67,
+    "rawCuts": [
+      47,
+      44,
+      40,
+      35,
+      23,
+      16,
+      10,
+      8
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -173480,10 +174656,22 @@
       36,
       34
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 4327,
     "fullScore": 50,
-    "highestStandardScore": 65
+    "highestStandardScore": 65,
+    "rawCuts": [
+      47,
+      45,
+      42,
+      38,
+      26,
+      17,
+      12,
+      9
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -173528,10 +174716,22 @@
       39,
       36
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 4329,
     "fullScore": 50,
-    "highestStandardScore": 69
+    "highestStandardScore": 69,
+    "rawCuts": [
+      47,
+      46,
+      38,
+      27,
+      19,
+      15,
+      11,
+      7
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -173577,7 +174777,20 @@
       71
     ],
     "id": 4331,
-    "fullScore": 100
+    "fullScore": 100,
+    "rawCuts": [
+      93,
+      86,
+      74,
+      55,
+      42,
+      33,
+      25,
+      19
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1",
+    "source": "ebsi-past-grdcut"
   },
   {
     "curriculum": "2009",
@@ -173676,10 +174889,22 @@
       37,
       35
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 4335,
     "fullScore": 50,
-    "highestStandardScore": 68
+    "highestStandardScore": 68,
+    "rawCuts": [
+      47,
+      43,
+      39,
+      32,
+      21,
+      13,
+      9,
+      7
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -173724,10 +174949,22 @@
       37,
       35
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 4337,
     "fullScore": 50,
-    "highestStandardScore": 73
+    "highestStandardScore": 73,
+    "rawCuts": [
+      45,
+      39,
+      35,
+      28,
+      22,
+      16,
+      11,
+      9
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -173748,10 +174985,22 @@
       38,
       35
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 4338,
     "fullScore": 50,
-    "highestStandardScore": 67
+    "highestStandardScore": 67,
+    "rawCuts": [
+      46,
+      45,
+      41,
+      34,
+      21,
+      13,
+      10,
+      6
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -173772,10 +175021,22 @@
       37,
       34
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 4339,
     "fullScore": 50,
-    "highestStandardScore": 72
+    "highestStandardScore": 72,
+    "rawCuts": [
+      44,
+      40,
+      34,
+      29,
+      22,
+      17,
+      11,
+      8
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -173796,10 +175057,22 @@
       39,
       36
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 4340,
     "fullScore": 50,
-    "highestStandardScore": 68
+    "highestStandardScore": 68,
+    "rawCuts": [
+      50,
+      45,
+      39,
+      28,
+      19,
+      12,
+      11,
+      7
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -173820,10 +175093,22 @@
       37,
       33
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 4341,
     "fullScore": 50,
-    "highestStandardScore": 68
+    "highestStandardScore": 68,
+    "rawCuts": [
+      46,
+      43,
+      39,
+      33,
+      25,
+      18,
+      13,
+      8
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -173844,10 +175129,22 @@
       39,
       37
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 4342,
     "fullScore": 50,
-    "highestStandardScore": 68
+    "highestStandardScore": 68,
+    "rawCuts": [
+      47,
+      44,
+      40,
+      27,
+      14,
+      12,
+      8,
+      5
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -173868,10 +175165,22 @@
       66,
       59
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 4343,
     "fullScore": 100,
-    "highestStandardScore": 122
+    "highestStandardScore": 122,
+    "rawCuts": [
+      100,
+      97,
+      93,
+      86,
+      73,
+      52,
+      28,
+      19
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -173892,10 +175201,22 @@
       68,
       60
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 4344,
     "fullScore": 100,
-    "highestStandardScore": 128
+    "highestStandardScore": 128,
+    "rawCuts": [
+      97,
+      92,
+      86,
+      78,
+      64,
+      46,
+      27,
+      17
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -173916,10 +175237,22 @@
       41,
       39
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 4345,
     "fullScore": 50,
-    "highestStandardScore": 71
+    "highestStandardScore": 71,
+    "rawCuts": [
+      47,
+      43,
+      33,
+      19,
+      12,
+      10,
+      8,
+      5
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -173940,10 +175273,22 @@
       38,
       36
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 4346,
     "fullScore": 50,
-    "highestStandardScore": 70
+    "highestStandardScore": 70,
+    "rawCuts": [
+      46,
+      41,
+      36,
+      28,
+      19,
+      13,
+      9,
+      6
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -173964,10 +175309,22 @@
       38,
       36
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 4347,
     "fullScore": 50,
-    "highestStandardScore": 68
+    "highestStandardScore": 68,
+    "rawCuts": [
+      48,
+      44,
+      39,
+      28,
+      19,
+      13,
+      9,
+      7
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -173988,10 +175345,22 @@
       38,
       36
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 4348,
     "fullScore": 50,
-    "highestStandardScore": 70
+    "highestStandardScore": 70,
+    "rawCuts": [
+      45,
+      42,
+      37,
+      28,
+      18,
+      12,
+      10,
+      7
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -174012,10 +175381,22 @@
       37,
       34
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 4349,
     "fullScore": 50,
-    "highestStandardScore": 74
+    "highestStandardScore": 74,
+    "rawCuts": [
+      41,
+      38,
+      34,
+      28,
+      22,
+      15,
+      10,
+      7
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -174036,10 +175417,22 @@
       39,
       36
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 4350,
     "fullScore": 50,
-    "highestStandardScore": 72
+    "highestStandardScore": 72,
+    "rawCuts": [
+      45,
+      41,
+      34,
+      25,
+      17,
+      12,
+      10,
+      6
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -174060,10 +175453,22 @@
       37,
       35
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 4351,
     "fullScore": 50,
-    "highestStandardScore": 72
+    "highestStandardScore": 72,
+    "rawCuts": [
+      44,
+      41,
+      35,
+      28,
+      20,
+      14,
+      9,
+      7
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -174084,10 +175489,22 @@
       39,
       37
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 4352,
     "fullScore": 50,
-    "highestStandardScore": 71
+    "highestStandardScore": 71,
+    "rawCuts": [
+      45,
+      42,
+      36,
+      26,
+      15,
+      10,
+      9,
+      6
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -174132,10 +175549,22 @@
       37,
       34
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 4354,
     "fullScore": 50,
-    "highestStandardScore": 70
+    "highestStandardScore": 70,
+    "rawCuts": [
+      45,
+      42,
+      37,
+      30,
+      23,
+      16,
+      11,
+      8
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -174156,10 +175585,22 @@
       76,
       73
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 4355,
     "fullScore": 100,
-    "highestStandardScore": 138
+    "highestStandardScore": 138,
+    "rawCuts": [
+      96,
+      88,
+      75,
+      55,
+      32,
+      21,
+      14,
+      10
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -174180,10 +175621,22 @@
       69,
       64
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 4356,
     "fullScore": 100,
-    "highestStandardScore": 129
+    "highestStandardScore": 129,
+    "rawCuts": [
+      100,
+      92,
+      83,
+      73,
+      57,
+      36,
+      19,
+      13
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -174204,10 +175657,22 @@
       69,
       62
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 4357,
     "fullScore": 100,
-    "highestStandardScore": 126
+    "highestStandardScore": 126,
+    "rawCuts": [
+      100,
+      95,
+      90,
+      79,
+      64,
+      45,
+      27,
+      18
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -174228,10 +175693,22 @@
       37,
       34
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 4358,
     "fullScore": 50,
-    "highestStandardScore": 65
+    "highestStandardScore": 65,
+    "rawCuts": [
+      48,
+      46,
+      41,
+      35,
+      25,
+      13,
+      10,
+      5
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -174276,10 +175753,22 @@
       40,
       39
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 4360,
     "fullScore": 50,
-    "highestStandardScore": 67
+    "highestStandardScore": 67,
+    "rawCuts": [
+      48,
+      45,
+      40,
+      23,
+      10,
+      6,
+      5,
+      3
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -174324,10 +175813,22 @@
       35,
       33
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 4362,
     "fullScore": 50,
-    "highestStandardScore": 65
+    "highestStandardScore": 65,
+    "rawCuts": [
+      46,
+      44,
+      41,
+      37,
+      27,
+      14,
+      8,
+      5
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -174372,10 +175873,22 @@
       42,
       39
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 4364,
     "fullScore": 50,
-    "highestStandardScore": 100
+    "highestStandardScore": 100,
+    "rawCuts": [
+      30,
+      20,
+      15,
+      12,
+      10,
+      8,
+      7,
+      5
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -174420,10 +175933,22 @@
       35,
       33
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 4366,
     "fullScore": 50,
-    "highestStandardScore": 65
+    "highestStandardScore": 65,
+    "rawCuts": [
+      48,
+      46,
+      42,
+      37,
+      29,
+      18,
+      11,
+      9
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -174468,10 +175993,22 @@
       35,
       33
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 4368,
     "fullScore": 50,
-    "highestStandardScore": 68
+    "highestStandardScore": 68,
+    "rawCuts": [
+      45,
+      43,
+      38,
+      34,
+      27,
+      18,
+      11,
+      9
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -174516,10 +176053,22 @@
       35,
       33
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 4370,
     "fullScore": 50,
-    "highestStandardScore": 63
+    "highestStandardScore": 63,
+    "rawCuts": [
+      48,
+      46,
+      44,
+      40,
+      33,
+      16,
+      11,
+      8
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -174564,10 +176113,22 @@
       38,
       34
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 4372,
     "fullScore": 50,
-    "highestStandardScore": 67
+    "highestStandardScore": 67,
+    "rawCuts": [
+      47,
+      46,
+      42,
+      30,
+      21,
+      15,
+      11,
+      5
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -174612,10 +176173,22 @@
       38,
       35
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 4374,
     "fullScore": 50,
-    "highestStandardScore": 64
+    "highestStandardScore": 64,
+    "rawCuts": [
+      50,
+      46,
+      44,
+      36,
+      23,
+      14,
+      11,
+      7
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -174636,10 +176209,22 @@
       37,
       34
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 4375,
     "fullScore": 50,
-    "highestStandardScore": 67
+    "highestStandardScore": 67,
+    "rawCuts": [
+      48,
+      45,
+      40,
+      34,
+      24,
+      18,
+      13,
+      9
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -174660,10 +176245,22 @@
       41,
       39
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 4376,
     "fullScore": 50,
-    "highestStandardScore": 77
+    "highestStandardScore": 77,
+    "rawCuts": [
+      43,
+      37,
+      27,
+      17,
+      11,
+      8,
+      7,
+      5
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -174684,10 +176281,22 @@
       38,
       36
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 4377,
     "fullScore": 50,
-    "highestStandardScore": 74
+    "highestStandardScore": 74,
+    "rawCuts": [
+      46,
+      39,
+      33,
+      27,
+      20,
+      15,
+      12,
+      10
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -174708,10 +176317,22 @@
       38,
       36
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 4378,
     "fullScore": 50,
-    "highestStandardScore": 68
+    "highestStandardScore": 68,
+    "rawCuts": [
+      47,
+      44,
+      39,
+      28,
+      18,
+      12,
+      8,
+      6
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -174732,10 +176353,22 @@
       38,
       34
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 4379,
     "fullScore": 50,
-    "highestStandardScore": 74
+    "highestStandardScore": 74,
+    "rawCuts": [
+      45,
+      39,
+      34,
+      28,
+      22,
+      17,
+      13,
+      9
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -174756,10 +176389,22 @@
       38,
       36
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 4380,
     "fullScore": 50,
-    "highestStandardScore": 75
+    "highestStandardScore": 75,
+    "rawCuts": [
+      43,
+      39,
+      32,
+      24,
+      16,
+      13,
+      8,
+      6
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -174780,10 +176425,22 @@
       37,
       34
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 4381,
     "fullScore": 50,
-    "highestStandardScore": 75
+    "highestStandardScore": 75,
+    "rawCuts": [
+      43,
+      39,
+      34,
+      28,
+      22,
+      17,
+      12,
+      9
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -174804,10 +176461,22 @@
       40,
       38
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 4382,
     "fullScore": 50,
-    "highestStandardScore": 77
+    "highestStandardScore": 77,
+    "rawCuts": [
+      43,
+      37,
+      28,
+      19,
+      14,
+      10,
+      8,
+      6
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -174828,10 +176497,22 @@
       68,
       57
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 4383,
     "fullScore": 100,
-    "highestStandardScore": 126
+    "highestStandardScore": 126,
+    "rawCuts": [
+      98,
+      94,
+      89,
+      82,
+      68,
+      52,
+      31,
+      18
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -174852,10 +176533,22 @@
       69,
       58
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 4384,
     "fullScore": 100,
-    "highestStandardScore": 124
+    "highestStandardScore": 124,
+    "rawCuts": [
+      100,
+      96,
+      92,
+      83,
+      70,
+      54,
+      35,
+      21
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -174876,10 +176569,22 @@
       40,
       39
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 4385,
     "fullScore": 50,
-    "highestStandardScore": 70
+    "highestStandardScore": 70,
+    "rawCuts": [
+      50,
+      46,
+      34,
+      19,
+      13,
+      9,
+      6,
+      4
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -174900,10 +176605,22 @@
       38,
       36
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 4386,
     "fullScore": 50,
-    "highestStandardScore": 70
+    "highestStandardScore": 70,
+    "rawCuts": [
+      47,
+      44,
+      36,
+      27,
+      18,
+      13,
+      9,
+      6
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -174924,10 +176641,22 @@
       38,
       34
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 4387,
     "fullScore": 50,
-    "highestStandardScore": 71
+    "highestStandardScore": 71,
+    "rawCuts": [
+      45,
+      42,
+      35,
+      30,
+      23,
+      16,
+      12,
+      8
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -174948,10 +176677,22 @@
       37,
       34
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 4388,
     "fullScore": 50,
-    "highestStandardScore": 71
+    "highestStandardScore": 71,
+    "rawCuts": [
+      46,
+      41,
+      36,
+      29,
+      23,
+      18,
+      12,
+      9
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -174972,10 +176713,22 @@
       36,
       33
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 4389,
     "fullScore": 50,
-    "highestStandardScore": 67
+    "highestStandardScore": 67,
+    "rawCuts": [
+      46,
+      44,
+      40,
+      35,
+      27,
+      19,
+      13,
+      10
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -174996,10 +176749,22 @@
       39,
       36
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 4390,
     "fullScore": 50,
-    "highestStandardScore": 71
+    "highestStandardScore": 71,
+    "rawCuts": [
+      47,
+      42,
+      35,
+      24,
+      17,
+      13,
+      9,
+      5
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -175020,10 +176785,22 @@
       37,
       35
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 4391,
     "fullScore": 50,
-    "highestStandardScore": 71
+    "highestStandardScore": 71,
+    "rawCuts": [
+      45,
+      42,
+      36,
+      27,
+      20,
+      14,
+      10,
+      7
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -175044,10 +176821,22 @@
       37,
       36
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 4392,
     "fullScore": 50,
-    "highestStandardScore": 69
+    "highestStandardScore": 69,
+    "rawCuts": [
+      47,
+      44,
+      37,
+      29,
+      21,
+      13,
+      9,
+      8
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -175092,10 +176881,22 @@
       35,
       32
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 4394,
     "fullScore": 50,
-    "highestStandardScore": 68
+    "highestStandardScore": 68,
+    "rawCuts": [
+      48,
+      43,
+      40,
+      34,
+      27,
+      20,
+      12,
+      9
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -175116,10 +176917,22 @@
       75,
       72
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 4395,
     "fullScore": 100,
-    "highestStandardScore": 137
+    "highestStandardScore": 137,
+    "rawCuts": [
+      96,
+      88,
+      75,
+      57,
+      36,
+      21,
+      14,
+      10
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -175140,10 +176953,22 @@
       69,
       61
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 4396,
     "fullScore": 100,
-    "highestStandardScore": 131
+    "highestStandardScore": 131,
+    "rawCuts": [
+      95,
+      88,
+      84,
+      74,
+      59,
+      41,
+      23,
+      14
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -175164,10 +176989,22 @@
       70,
       63
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 4397,
     "fullScore": 100,
-    "highestStandardScore": 128
+    "highestStandardScore": 128,
+    "rawCuts": [
+      100,
+      95,
+      88,
+      77,
+      63,
+      46,
+      30,
+      22
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -175188,10 +177025,22 @@
       37,
       36
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 4398,
     "fullScore": 50,
-    "highestStandardScore": 67
+    "highestStandardScore": 67,
+    "rawCuts": [
+      47,
+      43,
+      39,
+      33,
+      19,
+      13,
+      8,
+      7
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -175236,10 +177085,22 @@
       41,
       40
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 4400,
     "fullScore": 50,
-    "highestStandardScore": 70
+    "highestStandardScore": 70,
+    "rawCuts": [
+      47,
+      44,
+      38,
+      14,
+      11,
+      9,
+      6,
+      5
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -175284,10 +177145,22 @@
       36,
       34
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 4402,
     "fullScore": 50,
-    "highestStandardScore": 67
+    "highestStandardScore": 67,
+    "rawCuts": [
+      46,
+      44,
+      40,
+      35,
+      24,
+      15,
+      10,
+      8
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -175332,10 +177205,22 @@
       41,
       38
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 4404,
     "fullScore": 50,
-    "highestStandardScore": 100
+    "highestStandardScore": 100,
+    "rawCuts": [
+      28,
+      23,
+      18,
+      15,
+      13,
+      11,
+      9,
+      7
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -175380,10 +177265,22 @@
       36,
       34
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 4406,
     "fullScore": 50,
-    "highestStandardScore": 67
+    "highestStandardScore": 67,
+    "rawCuts": [
+      47,
+      44,
+      40,
+      35,
+      24,
+      15,
+      10,
+      8
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -175428,10 +177325,22 @@
       37,
       35
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 4408,
     "fullScore": 50,
-    "highestStandardScore": 70
+    "highestStandardScore": 70,
+    "rawCuts": [
+      45,
+      40,
+      37,
+      31,
+      21,
+      15,
+      11,
+      8
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -175476,10 +177385,22 @@
       38,
       37
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 4410,
     "fullScore": 50,
-    "highestStandardScore": 68
+    "highestStandardScore": 68,
+    "rawCuts": [
+      46,
+      43,
+      39,
+      32,
+      17,
+      11,
+      8,
+      7
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -175524,10 +177445,22 @@
       38,
       35
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 4412,
     "fullScore": 50,
-    "highestStandardScore": 71
+    "highestStandardScore": 71,
+    "rawCuts": [
+      48,
+      43,
+      36,
+      28,
+      21,
+      15,
+      12,
+      8
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -175572,10 +177505,22 @@
       38,
       36
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 4414,
     "fullScore": 50,
-    "highestStandardScore": 70
+    "highestStandardScore": 70,
+    "rawCuts": [
+      47,
+      42,
+      36,
+      27,
+      18,
+      13,
+      9,
+      6
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -186512,10 +188457,22 @@
       38,
       35
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 4666,
     "fullScore": 50,
-    "highestStandardScore": 72
+    "highestStandardScore": 72,
+    "rawCuts": [
+      45,
+      41,
+      35,
+      27,
+      20,
+      16,
+      11,
+      8
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -186536,10 +188493,22 @@
       37,
       35
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 4667,
     "fullScore": 50,
-    "highestStandardScore": 67
+    "highestStandardScore": 67,
+    "rawCuts": [
+      48,
+      45,
+      41,
+      33,
+      23,
+      15,
+      12,
+      9
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -186560,10 +188529,22 @@
       37,
       35
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 4668,
     "fullScore": 50,
-    "highestStandardScore": 71
+    "highestStandardScore": 71,
+    "rawCuts": [
+      45,
+      40,
+      36,
+      29,
+      21,
+      15,
+      11,
+      8
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -186584,10 +188565,22 @@
       37,
       34
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 4669,
     "fullScore": 50,
-    "highestStandardScore": 73
+    "highestStandardScore": 73,
+    "rawCuts": [
+      42,
+      39,
+      34,
+      27,
+      20,
+      14,
+      10,
+      6
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -186608,10 +188601,22 @@
       37,
       34
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 4670,
     "fullScore": 50,
-    "highestStandardScore": 69
+    "highestStandardScore": 69,
+    "rawCuts": [
+      47,
+      43,
+      39,
+      33,
+      25,
+      18,
+      14,
+      10
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -186632,10 +188637,22 @@
       39,
       35
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 4671,
     "fullScore": 50,
-    "highestStandardScore": 71
+    "highestStandardScore": 71,
+    "rawCuts": [
+      47,
+      42,
+      36,
+      27,
+      20,
+      15,
+      13,
+      8
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -186656,10 +188673,22 @@
       36,
       33
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 4672,
     "fullScore": 50,
-    "highestStandardScore": 71
+    "highestStandardScore": 71,
+    "rawCuts": [
+      46,
+      41,
+      36,
+      32,
+      25,
+      17,
+      12,
+      9
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -186680,10 +188709,22 @@
       36,
       33
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 4673,
     "fullScore": 50,
-    "highestStandardScore": 68
+    "highestStandardScore": 68,
+    "rawCuts": [
+      47,
+      43,
+      40,
+      34,
+      26,
+      19,
+      13,
+      9
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -186704,10 +188745,22 @@
       72,
       62
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 4674,
     "fullScore": 100,
-    "highestStandardScore": 132
+    "highestStandardScore": 132,
+    "rawCuts": [
+      97,
+      91,
+      85,
+      75,
+      62,
+      48,
+      35,
+      25
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -186728,10 +188781,22 @@
       72,
       61
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 4675,
     "fullScore": 100,
-    "highestStandardScore": 139
+    "highestStandardScore": 139,
+    "rawCuts": [
+      91,
+      85,
+      78,
+      70,
+      59,
+      47,
+      35,
+      24
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -187172,10 +189237,22 @@
       75,
       72
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 4686,
     "fullScore": 100,
-    "highestStandardScore": 131
+    "highestStandardScore": 131,
+    "rawCuts": [
+      96,
+      92,
+      83,
+      67,
+      39,
+      24,
+      16,
+      12
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -187196,10 +189273,22 @@
       68,
       60
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 4687,
     "fullScore": 100,
-    "highestStandardScore": 125
+    "highestStandardScore": 125,
+    "rawCuts": [
+      100,
+      96,
+      90,
+      80,
+      66,
+      48,
+      26,
+      15
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -187220,10 +189309,22 @@
       71,
       61
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 4688,
     "fullScore": 100,
-    "highestStandardScore": 132
+    "highestStandardScore": 132,
+    "rawCuts": [
+      98,
+      93,
+      83,
+      74,
+      64,
+      51,
+      36,
+      26
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -187244,10 +189345,22 @@
       39,
       37
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 4689,
     "fullScore": 50,
-    "highestStandardScore": 68
+    "highestStandardScore": 68,
+    "rawCuts": [
+      46,
+      44,
+      40,
+      30,
+      16,
+      10,
+      9,
+      6
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -187340,10 +189453,22 @@
       37,
       35
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 4693,
     "fullScore": 50,
-    "highestStandardScore": 68
+    "highestStandardScore": 68,
+    "rawCuts": [
+      46,
+      44,
+      40,
+      33,
+      22,
+      14,
+      10,
+      8
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -187388,10 +189513,22 @@
       41,
       38
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 4695,
     "fullScore": 50,
-    "highestStandardScore": 100
+    "highestStandardScore": 100,
+    "rawCuts": [
+      24,
+      19,
+      16,
+      14,
+      12,
+      9,
+      7,
+      5
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -187436,10 +189573,22 @@
       36,
       35
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 4697,
     "fullScore": 50,
-    "highestStandardScore": 66
+    "highestStandardScore": 66,
+    "rawCuts": [
+      47,
+      45,
+      42,
+      35,
+      24,
+      15,
+      9,
+      8
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -187484,10 +189633,22 @@
       37,
       35
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 4699,
     "fullScore": 50,
-    "highestStandardScore": 68
+    "highestStandardScore": 68,
+    "rawCuts": [
+      47,
+      44,
+      40,
+      33,
+      21,
+      15,
+      10,
+      8
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -187532,10 +189693,22 @@
       38,
       36
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 4701,
     "fullScore": 50,
-    "highestStandardScore": 66
+    "highestStandardScore": 66,
+    "rawCuts": [
+      47,
+      46,
+      43,
+      34,
+      18,
+      12,
+      9,
+      6
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -187580,10 +189753,22 @@
       38,
       36
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 4703,
     "fullScore": 50,
-    "highestStandardScore": 70
+    "highestStandardScore": 70,
+    "rawCuts": [
+      48,
+      45,
+      37,
+      27,
+      21,
+      17,
+      12,
+      10
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -187629,7 +189814,20 @@
       73
     ],
     "id": 4705,
-    "fullScore": 100
+    "fullScore": 100,
+    "rawCuts": [
+      95,
+      85,
+      69,
+      51,
+      41,
+      33,
+      26,
+      21
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1",
+    "source": "ebsi-past-grdcut"
   },
   {
     "curriculum": "2009",
@@ -187738,10 +189936,22 @@
       37,
       35
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 4709,
     "fullScore": 50,
-    "highestStandardScore": 69
+    "highestStandardScore": 69,
+    "rawCuts": [
+      47,
+      43,
+      37,
+      29,
+      21,
+      15,
+      10,
+      7
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -187762,10 +189972,22 @@
       39,
       37
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 4710,
     "fullScore": 50,
-    "highestStandardScore": 67
+    "highestStandardScore": 67,
+    "rawCuts": [
+      48,
+      45,
+      41,
+      29,
+      14,
+      11,
+      8,
+      5
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -187786,10 +190008,22 @@
       38,
       36
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 4711,
     "fullScore": 50,
-    "highestStandardScore": 79
+    "highestStandardScore": 79,
+    "rawCuts": [
+      40,
+      35,
+      30,
+      24,
+      18,
+      14,
+      10,
+      8
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -187810,10 +190044,22 @@
       38,
       35
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 4712,
     "fullScore": 50,
-    "highestStandardScore": 71
+    "highestStandardScore": 71,
+    "rawCuts": [
+      45,
+      42,
+      36,
+      28,
+      20,
+      14,
+      10,
+      7
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -187834,10 +190080,22 @@
       37,
       35
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 4713,
     "fullScore": 50,
-    "highestStandardScore": 75
+    "highestStandardScore": 75,
+    "rawCuts": [
+      41,
+      38,
+      32,
+      26,
+      20,
+      14,
+      10,
+      8
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -187858,10 +190116,22 @@
       39,
       37
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 4714,
     "fullScore": 50,
-    "highestStandardScore": 74
+    "highestStandardScore": 74,
+    "rawCuts": [
+      44,
+      39,
+      32,
+      23,
+      16,
+      11,
+      9,
+      6
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -187882,10 +190152,22 @@
       37,
       34
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 4715,
     "fullScore": 50,
-    "highestStandardScore": 72
+    "highestStandardScore": 72,
+    "rawCuts": [
+      45,
+      40,
+      35,
+      29,
+      22,
+      15,
+      11,
+      7
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -187906,10 +190188,22 @@
       37,
       34
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 4716,
     "fullScore": 50,
-    "highestStandardScore": 66
+    "highestStandardScore": 66,
+    "rawCuts": [
+      47,
+      45,
+      41,
+      34,
+      21,
+      13,
+      8,
+      4
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -187930,10 +190224,22 @@
       66,
       60
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 4717,
     "fullScore": 100,
-    "highestStandardScore": 124
+    "highestStandardScore": 124,
+    "rawCuts": [
+      100,
+      96,
+      91,
+      83,
+      71,
+      51,
+      28,
+      20
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -187954,10 +190260,22 @@
       65,
       57
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 4718,
     "fullScore": 100,
-    "highestStandardScore": 122
+    "highestStandardScore": 122,
+    "rawCuts": [
+      100,
+      97,
+      93,
+      87,
+      76,
+      57,
+      30,
+      21
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -187978,10 +190296,22 @@
       39,
       37
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 4719,
     "fullScore": 50,
-    "highestStandardScore": 69
+    "highestStandardScore": 69,
+    "rawCuts": [
+      47,
+      44,
+      36,
+      25,
+      15,
+      11,
+      9,
+      6
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -188002,10 +190332,22 @@
       38,
       35
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 4720,
     "fullScore": 50,
-    "highestStandardScore": 67
+    "highestStandardScore": 67,
+    "rawCuts": [
+      48,
+      44,
+      40,
+      32,
+      22,
+      14,
+      11,
+      7
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -188026,10 +190368,22 @@
       38,
       35
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 4721,
     "fullScore": 50,
-    "highestStandardScore": 70
+    "highestStandardScore": 70,
+    "rawCuts": [
+      44,
+      42,
+      36,
+      28,
+      18,
+      13,
+      9,
+      5
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -188050,10 +190404,22 @@
       36,
       33
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 4722,
     "fullScore": 50,
-    "highestStandardScore": 68
+    "highestStandardScore": 68,
+    "rawCuts": [
+      47,
+      43,
+      39,
+      32,
+      24,
+      16,
+      10,
+      6
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -188074,10 +190440,22 @@
       37,
       34
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 4723,
     "fullScore": 50,
-    "highestStandardScore": 67
+    "highestStandardScore": 67,
+    "rawCuts": [
+      46,
+      44,
+      40,
+      33,
+      26,
+      17,
+      12,
+      9
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -188098,10 +190476,22 @@
       38,
       36
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 4724,
     "fullScore": 50,
-    "highestStandardScore": 70
+    "highestStandardScore": 70,
+    "rawCuts": [
+      47,
+      42,
+      35,
+      26,
+      18,
+      12,
+      8,
+      6
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -188122,10 +190512,22 @@
       36,
       33
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 4725,
     "fullScore": 50,
-    "highestStandardScore": 67
+    "highestStandardScore": 67,
+    "rawCuts": [
+      47,
+      44,
+      40,
+      35,
+      25,
+      18,
+      12,
+      8
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -188146,10 +190548,22 @@
       37,
       36
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 4726,
     "fullScore": 50,
-    "highestStandardScore": 68
+    "highestStandardScore": 68,
+    "rawCuts": [
+      46,
+      45,
+      39,
+      30,
+      19,
+      13,
+      8,
+      6
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -188194,10 +190608,22 @@
       36,
       32
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 4728,
     "fullScore": 50,
-    "highestStandardScore": 65
+    "highestStandardScore": 65,
+    "rawCuts": [
+      50,
+      46,
+      43,
+      37,
+      29,
+      20,
+      14,
+      9
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -188218,10 +190644,22 @@
       77,
       73
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 4729,
     "fullScore": 100,
-    "highestStandardScore": 146
+    "highestStandardScore": 146,
+    "rawCuts": [
+      88,
+      78,
+      65,
+      49,
+      30,
+      19,
+      14,
+      9
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -188242,10 +190680,22 @@
       71,
       67
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 4730,
     "fullScore": 100,
-    "highestStandardScore": 137
+    "highestStandardScore": 137,
+    "rawCuts": [
+      92,
+      85,
+      77,
+      64,
+      48,
+      31,
+      17,
+      12
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -188266,10 +190716,22 @@
       68,
       63
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 4731,
     "fullScore": 100,
-    "highestStandardScore": 128
+    "highestStandardScore": 128,
+    "rawCuts": [
+      98,
+      94,
+      86,
+      76,
+      63,
+      44,
+      24,
+      18
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -188290,10 +190752,22 @@
       35,
       33
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 4732,
     "fullScore": 50,
-    "highestStandardScore": 65
+    "highestStandardScore": 65,
+    "rawCuts": [
+      46,
+      43,
+      42,
+      38,
+      28,
+      15,
+      10,
+      7
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -188338,10 +190812,22 @@
       39,
       37
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 4734,
     "fullScore": 50,
-    "highestStandardScore": 66
+    "highestStandardScore": 66,
+    "rawCuts": [
+      48,
+      46,
+      41,
+      32,
+      13,
+      9,
+      8,
+      5
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -188386,10 +190872,22 @@
       34,
       32
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 4736,
     "fullScore": 50,
-    "highestStandardScore": 64
+    "highestStandardScore": 64,
+    "rawCuts": [
+      47,
+      45,
+      43,
+      39,
+      31,
+      17,
+      9,
+      7
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -188434,10 +190932,22 @@
       42,
       40
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 4738,
     "fullScore": 50,
-    "highestStandardScore": 98
+    "highestStandardScore": 98,
+    "rawCuts": [
+      33,
+      19,
+      15,
+      12,
+      10,
+      9,
+      7,
+      5
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -188482,10 +190992,22 @@
       35,
       33
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 4740,
     "fullScore": 50,
-    "highestStandardScore": 65
+    "highestStandardScore": 65,
+    "rawCuts": [
+      48,
+      44,
+      42,
+      37,
+      29,
+      18,
+      11,
+      9
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -188530,10 +191052,22 @@
       36,
       34
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 4742,
     "fullScore": 50,
-    "highestStandardScore": 68
+    "highestStandardScore": 68,
+    "rawCuts": [
+      46,
+      44,
+      40,
+      34,
+      25,
+      16,
+      11,
+      8
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -188578,10 +191112,22 @@
       36,
       34
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 4744,
     "fullScore": 50,
-    "highestStandardScore": 65
+    "highestStandardScore": 65,
+    "rawCuts": [
+      47,
+      46,
+      43,
+      36,
+      28,
+      15,
+      11,
+      8
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -188626,10 +191172,22 @@
       37,
       33
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 4746,
     "fullScore": 50,
-    "highestStandardScore": 66
+    "highestStandardScore": 66,
+    "rawCuts": [
+      49,
+      45,
+      43,
+      34,
+      26,
+      20,
+      15,
+      10
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -188674,10 +191232,22 @@
       37,
       36
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 4748,
     "fullScore": 50,
-    "highestStandardScore": 64
+    "highestStandardScore": 64,
+    "rawCuts": [
+      50,
+      46,
+      43,
+      36,
+      22,
+      13,
+      9,
+      7
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -188698,10 +191268,22 @@
       38,
       35
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 4749,
     "fullScore": 50,
-    "highestStandardScore": 77
+    "highestStandardScore": 77,
+    "rawCuts": [
+      42,
+      37,
+      31,
+      24,
+      19,
+      14,
+      10,
+      7
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -188722,10 +191304,22 @@
       40,
       37
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 4750,
     "fullScore": 50,
-    "highestStandardScore": 72
+    "highestStandardScore": 72,
+    "rawCuts": [
+      45,
+      41,
+      33,
+      23,
+      14,
+      10,
+      9,
+      5
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -188746,10 +191340,22 @@
       37,
       34
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 4751,
     "fullScore": 50,
-    "highestStandardScore": 72
+    "highestStandardScore": 72,
+    "rawCuts": [
+      46,
+      41,
+      35,
+      29,
+      23,
+      18,
+      13,
+      10
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -188770,10 +191376,22 @@
       37,
       34
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 4752,
     "fullScore": 50,
-    "highestStandardScore": 67
+    "highestStandardScore": 67,
+    "rawCuts": [
+      48,
+      45,
+      41,
+      33,
+      22,
+      16,
+      10,
+      6
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -188794,10 +191412,22 @@
       38,
       33
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 4753,
     "fullScore": 50,
-    "highestStandardScore": 73
+    "highestStandardScore": 73,
+    "rawCuts": [
+      44,
+      40,
+      34,
+      28,
+      22,
+      16,
+      13,
+      7
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -188818,10 +191448,22 @@
       40,
       37
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 4754,
     "fullScore": 50,
-    "highestStandardScore": 78
+    "highestStandardScore": 78,
+    "rawCuts": [
+      42,
+      35,
+      27,
+      19,
+      13,
+      10,
+      8,
+      4
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -188842,10 +191484,22 @@
       37,
       33
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 4755,
     "fullScore": 50,
-    "highestStandardScore": 73
+    "highestStandardScore": 73,
+    "rawCuts": [
+      44,
+      39,
+      35,
+      29,
+      21,
+      17,
+      12,
+      7
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -188866,10 +191520,22 @@
       39,
       36
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 4756,
     "fullScore": 50,
-    "highestStandardScore": 74
+    "highestStandardScore": 74,
+    "rawCuts": [
+      43,
+      38,
+      32,
+      24,
+      15,
+      11,
+      8,
+      5
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -188890,10 +191556,22 @@
       39,
       37
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 4757,
     "fullScore": 50,
-    "highestStandardScore": 69
+    "highestStandardScore": 69,
+    "rawCuts": [
+      50,
+      44,
+      37,
+      24,
+      14,
+      10,
+      7,
+      4
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -188914,10 +191592,22 @@
       37,
       35
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 4758,
     "fullScore": 50,
-    "highestStandardScore": 71
+    "highestStandardScore": 71,
+    "rawCuts": [
+      45,
+      41,
+      36,
+      28,
+      20,
+      14,
+      9,
+      6
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -188938,10 +191628,22 @@
       37,
       35
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 4759,
     "fullScore": 50,
-    "highestStandardScore": 70
+    "highestStandardScore": 70,
+    "rawCuts": [
+      46,
+      42,
+      37,
+      30,
+      21,
+      16,
+      11,
+      8
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -188962,10 +191664,22 @@
       36,
       32
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 4760,
     "fullScore": 50,
-    "highestStandardScore": 66
+    "highestStandardScore": 66,
+    "rawCuts": [
+      47,
+      45,
+      41,
+      35,
+      28,
+      21,
+      13,
+      8
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -188986,10 +191700,22 @@
       37,
       34
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 4761,
     "fullScore": 50,
-    "highestStandardScore": 74
+    "highestStandardScore": 74,
+    "rawCuts": [
+      44,
+      39,
+      33,
+      27,
+      20,
+      15,
+      10,
+      7
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -189010,10 +191736,22 @@
       38,
       36
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 4762,
     "fullScore": 50,
-    "highestStandardScore": 73
+    "highestStandardScore": 73,
+    "rawCuts": [
+      46,
+      40,
+      33,
+      25,
+      18,
+      14,
+      10,
+      7
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -189034,10 +191772,22 @@
       37,
       33
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 4763,
     "fullScore": 50,
-    "highestStandardScore": 67
+    "highestStandardScore": 67,
+    "rawCuts": [
+      48,
+      45,
+      40,
+      33,
+      27,
+      18,
+      13,
+      8
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -189058,10 +191808,22 @@
       38,
       35
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 4764,
     "fullScore": 50,
-    "highestStandardScore": 70
+    "highestStandardScore": 70,
+    "rawCuts": [
+      47,
+      43,
+      37,
+      29,
+      20,
+      14,
+      10,
+      7
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -189106,10 +191868,22 @@
       36,
       32
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 4766,
     "fullScore": 50,
-    "highestStandardScore": 69
+    "highestStandardScore": 69,
+    "rawCuts": [
+      47,
+      43,
+      38,
+      32,
+      25,
+      19,
+      13,
+      8
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -189130,10 +191904,22 @@
       69,
       61
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 4767,
     "fullScore": 100,
-    "highestStandardScore": 126
+    "highestStandardScore": 126,
+    "rawCuts": [
+      100,
+      97,
+      90,
+      79,
+      66,
+      48,
+      30,
+      20
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -189154,10 +191940,22 @@
       37,
       35
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 4768,
     "fullScore": 50,
-    "highestStandardScore": 69
+    "highestStandardScore": 69,
+    "rawCuts": [
+      45,
+      42,
+      37,
+      31,
+      20,
+      13,
+      9,
+      6
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -189202,10 +192000,22 @@
       40,
       39
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 4770,
     "fullScore": 50,
-    "highestStandardScore": 68
+    "highestStandardScore": 68,
+    "rawCuts": [
+      50,
+      46,
+      40,
+      16,
+      11,
+      8,
+      5,
+      3
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -189250,10 +192060,22 @@
       37,
       35
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 4772,
     "fullScore": 50,
-    "highestStandardScore": 65
+    "highestStandardScore": 65,
+    "rawCuts": [
+      48,
+      45,
+      41,
+      35,
+      23,
+      13,
+      9,
+      6
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -189298,10 +192120,22 @@
       41,
       39
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 4774,
     "fullScore": 50,
-    "highestStandardScore": 100
+    "highestStandardScore": 100,
+    "rawCuts": [
+      26,
+      21,
+      17,
+      15,
+      13,
+      11,
+      8,
+      7
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -189346,10 +192180,22 @@
       36,
       34
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 4776,
     "fullScore": 50,
-    "highestStandardScore": 67
+    "highestStandardScore": 67,
+    "rawCuts": [
+      46,
+      44,
+      40,
+      35,
+      25,
+      17,
+      12,
+      10
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -189394,10 +192240,22 @@
       36,
       34
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 4778,
     "fullScore": 50,
-    "highestStandardScore": 68
+    "highestStandardScore": 68,
+    "rawCuts": [
+      45,
+      43,
+      39,
+      33,
+      26,
+      17,
+      12,
+      10
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -189442,10 +192300,22 @@
       36,
       34
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 4780,
     "fullScore": 50,
-    "highestStandardScore": 66
+    "highestStandardScore": 66,
+    "rawCuts": [
+      46,
+      43,
+      40,
+      36,
+      23,
+      12,
+      8,
+      5
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -189490,10 +192360,22 @@
       39,
       35
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 4782,
     "fullScore": 50,
-    "highestStandardScore": 70
+    "highestStandardScore": 70,
+    "rawCuts": [
+      47,
+      44,
+      36,
+      27,
+      19,
+      15,
+      12,
+      7
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -189538,10 +192420,22 @@
       39,
       36
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 4784,
     "fullScore": 50,
-    "highestStandardScore": 70
+    "highestStandardScore": 70,
+    "rawCuts": [
+      47,
+      43,
+      36,
+      26,
+      17,
+      12,
+      10,
+      6
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -199823,10 +202717,22 @@
       35,
       33
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 5038,
     "fullScore": 50,
-    "highestStandardScore": 66
+    "highestStandardScore": 66,
+    "rawCuts": [
+      46,
+      45,
+      41,
+      36,
+      27,
+      18,
+      11,
+      8
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -199891,10 +202797,22 @@
       37,
       34
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 5040,
     "fullScore": 50,
-    "highestStandardScore": 67
+    "highestStandardScore": 67,
+    "rawCuts": [
+      47,
+      45,
+      39,
+      33,
+      22,
+      15,
+      10,
+      6
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -199959,10 +202877,22 @@
       37,
       35
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 5042,
     "fullScore": 50,
-    "highestStandardScore": 68
+    "highestStandardScore": 68,
+    "rawCuts": [
+      48,
+      45,
+      40,
+      33,
+      23,
+      15,
+      12,
+      9
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -200027,10 +202957,22 @@
       37,
       34
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 5044,
     "fullScore": 50,
-    "highestStandardScore": 72
+    "highestStandardScore": 72,
+    "rawCuts": [
+      44,
+      40,
+      35,
+      29,
+      22,
+      15,
+      11,
+      7
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -200051,10 +202993,22 @@
       72,
       60
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 5045,
     "fullScore": 100,
-    "highestStandardScore": 132
+    "highestStandardScore": 132,
+    "rawCuts": [
+      96,
+      91,
+      84,
+      76,
+      65,
+      53,
+      40,
+      27
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -200075,10 +203029,22 @@
       72,
       59
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 5046,
     "fullScore": 100,
-    "highestStandardScore": 131
+    "highestStandardScore": 131,
+    "rawCuts": [
+      96,
+      92,
+      87,
+      79,
+      68,
+      56,
+      43,
+      30
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -200519,10 +203485,22 @@
       77,
       75
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 5057,
     "fullScore": 100,
-    "highestStandardScore": 143
+    "highestStandardScore": 143,
+    "rawCuts": [
+      92,
+      83,
+      70,
+      48,
+      30,
+      21,
+      15,
+      12
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -200543,10 +203521,22 @@
       72,
       67
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 5058,
     "fullScore": 100,
-    "highestStandardScore": 138
+    "highestStandardScore": 138,
+    "rawCuts": [
+      92,
+      84,
+      74,
+      62,
+      47,
+      30,
+      19,
+      13
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -200615,10 +203605,22 @@
       36,
       35
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 5061,
     "fullScore": 50,
-    "highestStandardScore": 65
+    "highestStandardScore": 65,
+    "rawCuts": [
+      47,
+      45,
+      43,
+      39,
+      24,
+      14,
+      10,
+      8
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -200663,10 +203665,22 @@
       42,
       41
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 5063,
     "fullScore": 50,
-    "highestStandardScore": 77
+    "highestStandardScore": 77,
+    "rawCuts": [
+      48,
+      42,
+      18,
+      14,
+      10,
+      9,
+      7,
+      5
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -200711,10 +203725,22 @@
       37,
       35
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 5065,
     "fullScore": 50,
-    "highestStandardScore": 66
+    "highestStandardScore": 66,
+    "rawCuts": [
+      48,
+      46,
+      42,
+      35,
+      22,
+      16,
+      11,
+      9
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -200759,10 +203785,22 @@
       43,
       41
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 5067,
     "fullScore": 50,
-    "highestStandardScore": 87
+    "highestStandardScore": 87,
+    "rawCuts": [
+      44,
+      21,
+      15,
+      13,
+      10,
+      9,
+      7,
+      5
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -200807,10 +203845,22 @@
       37,
       34
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 5069,
     "fullScore": 50,
-    "highestStandardScore": 66
+    "highestStandardScore": 66,
+    "rawCuts": [
+      49,
+      45,
+      41,
+      36,
+      26,
+      17,
+      13,
+      9
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -200855,10 +203905,22 @@
       38,
       36
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 5071,
     "fullScore": 50,
-    "highestStandardScore": 71
+    "highestStandardScore": 71,
+    "rawCuts": [
+      45,
+      42,
+      36,
+      28,
+      19,
+      14,
+      10,
+      8
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -200903,10 +203965,22 @@
       37,
       35
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 5073,
     "fullScore": 50,
-    "highestStandardScore": 68
+    "highestStandardScore": 68,
+    "rawCuts": [
+      46,
+      42,
+      40,
+      34,
+      23,
+      17,
+      12,
+      10
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -200951,10 +204025,22 @@
       39,
       37
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 5075,
     "fullScore": 50,
-    "highestStandardScore": 71
+    "highestStandardScore": 71,
+    "rawCuts": [
+      48,
+      44,
+      34,
+      24,
+      18,
+      14,
+      10,
+      8
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -201000,7 +204086,20 @@
       72
     ],
     "id": 5077,
-    "fullScore": 100
+    "fullScore": 100,
+    "rawCuts": [
+      84,
+      74,
+      60,
+      47,
+      38,
+      31,
+      25,
+      20
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1",
+    "source": "ebsi-past-grdcut"
   },
   {
     "curriculum": "2009",
@@ -201109,10 +204208,22 @@
       37,
       35
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 5081,
     "fullScore": 50,
-    "highestStandardScore": 67
+    "highestStandardScore": 67,
+    "rawCuts": [
+      48,
+      45,
+      40,
+      33,
+      23,
+      15,
+      11,
+      8
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -201133,10 +204244,22 @@
       36,
       35
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 5082,
     "fullScore": 50,
-    "highestStandardScore": 65
+    "highestStandardScore": 65,
+    "rawCuts": [
+      48,
+      45,
+      43,
+      36,
+      24,
+      12,
+      8,
+      6
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -201157,10 +204280,22 @@
       38,
       35
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 5083,
     "fullScore": 50,
-    "highestStandardScore": 76
+    "highestStandardScore": 76,
+    "rawCuts": [
+      42,
+      37,
+      32,
+      25,
+      19,
+      15,
+      11,
+      8
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -201181,10 +204316,22 @@
       38,
       36
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 5084,
     "fullScore": 50,
-    "highestStandardScore": 72
+    "highestStandardScore": 72,
+    "rawCuts": [
+      45,
+      41,
+      35,
+      26,
+      19,
+      15,
+      10,
+      8
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -201205,10 +204352,22 @@
       37,
       34
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 5085,
     "fullScore": 50,
-    "highestStandardScore": 77
+    "highestStandardScore": 77,
+    "rawCuts": [
+      42,
+      36,
+      31,
+      25,
+      20,
+      15,
+      11,
+      8
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -201229,10 +204388,22 @@
       38,
       36
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 5086,
     "fullScore": 50,
-    "highestStandardScore": 74
+    "highestStandardScore": 74,
+    "rawCuts": [
+      45,
+      39,
+      33,
+      24,
+      17,
+      12,
+      9,
+      6
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -201253,10 +204424,22 @@
       36,
       32
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 5087,
     "fullScore": 50,
-    "highestStandardScore": 68
+    "highestStandardScore": 68,
+    "rawCuts": [
+      47,
+      44,
+      40,
+      34,
+      26,
+      18,
+      12,
+      7
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -201277,10 +204460,22 @@
       36,
       33
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 5088,
     "fullScore": 50,
-    "highestStandardScore": 68
+    "highestStandardScore": 68,
+    "rawCuts": [
+      47,
+      44,
+      39,
+      33,
+      25,
+      16,
+      11,
+      7
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -201301,10 +204496,22 @@
       37,
       35
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 5089,
     "fullScore": 50,
-    "highestStandardScore": 67
+    "highestStandardScore": 67,
+    "rawCuts": [
+      48,
+      45,
+      41,
+      32,
+      21,
+      13,
+      9,
+      6
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -201325,10 +204532,22 @@
       38,
       35
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 5090,
     "fullScore": 50,
-    "highestStandardScore": 72
+    "highestStandardScore": 72,
+    "rawCuts": [
+      45,
+      41,
+      34,
+      27,
+      20,
+      16,
+      11,
+      8
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -201349,10 +204568,22 @@
       36,
       33
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 5091,
     "fullScore": 50,
-    "highestStandardScore": 65
+    "highestStandardScore": 65,
+    "rawCuts": [
+      50,
+      47,
+      42,
+      37,
+      27,
+      18,
+      12,
+      8
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -201373,10 +204604,22 @@
       37,
       34
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 5092,
     "fullScore": 50,
-    "highestStandardScore": 71
+    "highestStandardScore": 71,
+    "rawCuts": [
+      45,
+      40,
+      36,
+      29,
+      21,
+      15,
+      10,
+      7
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -201397,10 +204640,22 @@
       36,
       33
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 5093,
     "fullScore": 50,
-    "highestStandardScore": 71
+    "highestStandardScore": 71,
+    "rawCuts": [
+      45,
+      41,
+      36,
+      30,
+      23,
+      16,
+      10,
+      7
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -201421,10 +204676,22 @@
       37,
       36
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 5094,
     "fullScore": 50,
-    "highestStandardScore": 72
+    "highestStandardScore": 72,
+    "rawCuts": [
+      44,
+      41,
+      35,
+      28,
+      19,
+      13,
+      9,
+      7
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -201445,10 +204712,22 @@
       36,
       32
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 5095,
     "fullScore": 50,
-    "highestStandardScore": 67
+    "highestStandardScore": 67,
+    "rawCuts": [
+      47,
+      44,
+      40,
+      34,
+      27,
+      18,
+      12,
+      7
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -201469,10 +204748,22 @@
       37,
       33
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 5096,
     "fullScore": 50,
-    "highestStandardScore": 69
+    "highestStandardScore": 69,
+    "rawCuts": [
+      47,
+      43,
+      37,
+      29,
+      20,
+      14,
+      9,
+      4
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -201517,10 +204808,22 @@
       35,
       33
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 5098,
     "fullScore": 50,
-    "highestStandardScore": 66
+    "highestStandardScore": 66,
+    "rawCuts": [
+      48,
+      45,
+      41,
+      35,
+      26,
+      18,
+      11,
+      8
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -201565,10 +204868,22 @@
       36,
       34
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 5100,
     "fullScore": 50,
-    "highestStandardScore": 65
+    "highestStandardScore": 65,
+    "rawCuts": [
+      49,
+      45,
+      42,
+      38,
+      27,
+      13,
+      10,
+      7
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -201637,10 +204952,22 @@
       40,
       39
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 5103,
     "fullScore": 50,
-    "highestStandardScore": 69
+    "highestStandardScore": 69,
+    "rawCuts": [
+      49,
+      46,
+      40,
+      20,
+      15,
+      12,
+      10,
+      8
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -201709,10 +205036,22 @@
       35,
       33
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 5106,
     "fullScore": 50,
-    "highestStandardScore": 65
+    "highestStandardScore": 65,
+    "rawCuts": [
+      47,
+      44,
+      43,
+      39,
+      31,
+      17,
+      12,
+      9
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -201781,10 +205120,22 @@
       41,
       40
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 5109,
     "fullScore": 50,
-    "highestStandardScore": 77
+    "highestStandardScore": 77,
+    "rawCuts": [
+      46,
+      40,
+      24,
+      14,
+      12,
+      9,
+      7,
+      5
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -201853,10 +205204,22 @@
       36,
       34
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 5112,
     "fullScore": 50,
-    "highestStandardScore": 64
+    "highestStandardScore": 64,
+    "rawCuts": [
+      48,
+      46,
+      45,
+      39,
+      28,
+      16,
+      11,
+      9
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -201973,10 +205336,22 @@
       35,
       33
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 5117,
     "fullScore": 50,
-    "highestStandardScore": 65
+    "highestStandardScore": 65,
+    "rawCuts": [
+      48,
+      45,
+      43,
+      38,
+      30,
+      15,
+      10,
+      7
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -202045,10 +205420,22 @@
       37,
       33
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 5120,
     "fullScore": 50,
-    "highestStandardScore": 66
+    "highestStandardScore": 66,
+    "rawCuts": [
+      48,
+      46,
+      42,
+      36,
+      27,
+      20,
+      15,
+      10
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -202093,10 +205480,22 @@
       37,
       35
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 5122,
     "fullScore": 50,
-    "highestStandardScore": 68
+    "highestStandardScore": 68,
+    "rawCuts": [
+      48,
+      44,
+      39,
+      32,
+      21,
+      13,
+      9,
+      6
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -202117,10 +205516,22 @@
       39,
       36
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 5123,
     "fullScore": 50,
-    "highestStandardScore": 76
+    "highestStandardScore": 76,
+    "rawCuts": [
+      43,
+      37,
+      30,
+      22,
+      16,
+      11,
+      9,
+      6
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -202141,10 +205552,22 @@
       38,
       36
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 5124,
     "fullScore": 50,
-    "highestStandardScore": 71
+    "highestStandardScore": 71,
+    "rawCuts": [
+      43,
+      40,
+      35,
+      28,
+      17,
+      10,
+      8,
+      5
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -202165,10 +205588,22 @@
       39,
       36
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 5125,
     "fullScore": 50,
-    "highestStandardScore": 76
+    "highestStandardScore": 76,
+    "rawCuts": [
+      44,
+      37,
+      30,
+      22,
+      17,
+      11,
+      9,
+      6
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -202189,10 +205624,22 @@
       37,
       35
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 5126,
     "fullScore": 50,
-    "highestStandardScore": 68
+    "highestStandardScore": 68,
+    "rawCuts": [
+      47,
+      45,
+      38,
+      30,
+      21,
+      15,
+      9,
+      7
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -202213,10 +205660,22 @@
       38,
       35
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 5127,
     "fullScore": 50,
-    "highestStandardScore": 80
+    "highestStandardScore": 80,
+    "rawCuts": [
+      40,
+      35,
+      29,
+      24,
+      19,
+      14,
+      11,
+      8
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -202237,10 +205696,22 @@
       39,
       37
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 5128,
     "fullScore": 50,
-    "highestStandardScore": 79
+    "highestStandardScore": 79,
+    "rawCuts": [
+      41,
+      35,
+      27,
+      20,
+      15,
+      11,
+      8,
+      6
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -202261,10 +205732,22 @@
       36,
       33
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 5129,
     "fullScore": 50,
-    "highestStandardScore": 66
+    "highestStandardScore": 66,
+    "rawCuts": [
+      50,
+      46,
+      42,
+      35,
+      24,
+      18,
+      11,
+      7
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -202285,10 +205768,22 @@
       38,
       36
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 5130,
     "fullScore": 50,
-    "highestStandardScore": 68
+    "highestStandardScore": 68,
+    "rawCuts": [
+      47,
+      45,
+      39,
+      30,
+      19,
+      12,
+      10,
+      7
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -202309,10 +205804,22 @@
       37,
       36
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 5131,
     "fullScore": 50,
-    "highestStandardScore": 72
+    "highestStandardScore": 72,
+    "rawCuts": [
+      45,
+      40,
+      34,
+      25,
+      18,
+      13,
+      7,
+      6
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -202333,10 +205840,22 @@
       38,
       36
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 5132,
     "fullScore": 50,
-    "highestStandardScore": 81
+    "highestStandardScore": 81,
+    "rawCuts": [
+      40,
+      33,
+      26,
+      20,
+      15,
+      11,
+      8,
+      6
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -202357,10 +205876,22 @@
       37,
       35
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 5133,
     "fullScore": 50,
-    "highestStandardScore": 75
+    "highestStandardScore": 75,
+    "rawCuts": [
+      43,
+      38,
+      32,
+      26,
+      19,
+      14,
+      9,
+      7
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -202381,10 +205912,22 @@
       37,
       34
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 5134,
     "fullScore": 50,
-    "highestStandardScore": 68
+    "highestStandardScore": 68,
+    "rawCuts": [
+      47,
+      44,
+      39,
+      32,
+      24,
+      16,
+      11,
+      7
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -202405,10 +205948,22 @@
       35,
       30
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 5135,
     "fullScore": 50,
-    "highestStandardScore": 71
+    "highestStandardScore": 71,
+    "rawCuts": [
+      44,
+      40,
+      37,
+      32,
+      27,
+      20,
+      12,
+      7
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -202429,10 +205984,22 @@
       39,
       37
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 5136,
     "fullScore": 50,
-    "highestStandardScore": 77
+    "highestStandardScore": 77,
+    "rawCuts": [
+      44,
+      36,
+      28,
+      21,
+      15,
+      12,
+      9,
+      7
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -202453,10 +206020,22 @@
       37,
       33
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 5137,
     "fullScore": 50,
-    "highestStandardScore": 70
+    "highestStandardScore": 70,
+    "rawCuts": [
+      45,
+      42,
+      37,
+      30,
+      24,
+      18,
+      12,
+      8
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -202477,10 +206056,22 @@
       39,
       36
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 5138,
     "fullScore": 50,
-    "highestStandardScore": 73
+    "highestStandardScore": 73,
+    "rawCuts": [
+      45,
+      41,
+      33,
+      24,
+      16,
+      12,
+      9,
+      6
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -202525,10 +206116,22 @@
       37,
       33
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 5140,
     "fullScore": 50,
-    "highestStandardScore": 76
+    "highestStandardScore": 76,
+    "rawCuts": [
+      42,
+      37,
+      33,
+      28,
+      22,
+      17,
+      12,
+      8
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -202573,10 +206176,22 @@
       35,
       34
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 5142,
     "fullScore": 50,
-    "highestStandardScore": 65
+    "highestStandardScore": 65,
+    "rawCuts": [
+      48,
+      44,
+      42,
+      36,
+      28,
+      15,
+      9,
+      8
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -202645,10 +206260,22 @@
       41,
       39
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 5145,
     "fullScore": 50,
-    "highestStandardScore": 67
+    "highestStandardScore": 67,
+    "rawCuts": [
+      48,
+      45,
+      44,
+      18,
+      10,
+      8,
+      6,
+      2
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -202789,10 +206416,22 @@
       41,
       38
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 5151,
     "fullScore": 50,
-    "highestStandardScore": 93
+    "highestStandardScore": 93,
+    "rawCuts": [
+      36,
+      23,
+      18,
+      14,
+      11,
+      9,
+      7,
+      5
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -202861,10 +206500,22 @@
       38,
       35
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 5154,
     "fullScore": 50,
-    "highestStandardScore": 70
+    "highestStandardScore": 70,
+    "rawCuts": [
+      46,
+      41,
+      36,
+      30,
+      20,
+      13,
+      10,
+      7
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -203029,10 +206680,22 @@
       39,
       36
     ],
-    "source": "kice-archive-2009",
+    "source": "kice-archive-2009+ebsi-past-grdcut",
     "id": 5161,
     "fullScore": 50,
-    "highestStandardScore": 74
+    "highestStandardScore": 74,
+    "rawCuts": [
+      43,
+      39,
+      33,
+      25,
+      18,
+      13,
+      10,
+      7
+    ],
+    "rawCutBasis": "ebsi_estimate",
+    "rawCutSourceUrl": "https://www.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",

@@ -388,6 +388,15 @@ async function validateGradecuts() {
           || c.rawCuts.some(v => !Number.isInteger(v)))) {
       invalidReverseCalculated++;
     }
+    // 공식 표준점수 컷(평가원) + EBSi 역대 등급컷 표의 원점수 추정 (apply-ebsi-past-rawcuts.py)
+    if (c.rawCutBasis === 'ebsi_estimate'
+        && (!String(c.source || '').includes('ebsi-past-grdcut')
+          || !String(c.rawCutSourceUrl || '').startsWith('https://www.ebsi.co.kr/')
+          || !Array.isArray(c.rawCuts)
+          || c.rawCuts.length !== 8
+          || c.rawCuts.some(v => !Number.isInteger(v)))) {
+      invalidReverseCalculated++;
+    }
     if (c.rawCutBasis === 'academy_integerized_threshold'
         && (!String(c.source || '').includes('megastudy')
           || !Array.isArray(c.rawCuts)
