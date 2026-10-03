@@ -1,9 +1,14 @@
 User-agent: *
 Allow: /
+# 상세 페이지 본문은 HTML 에 다 있다 — 같은 내용의 시험별 JSON 은 크롤 예산만 쓴다(2026-10 크롤 통계: 요청의 31%가 JSON)
+Disallow: /data/exam/
+Disallow: /data/gradecut/
 
 # 네이버 검색 크롤러(Yeti) 명시 허용
 User-agent: Yeti
 Allow: /
+Disallow: /data/exam/
+Disallow: /data/gradecut/
 
 Sitemap: https://kicegg.com/sitemap.xml
 # RSS(최신 자료 피드): https://kicegg.com/feed.xml

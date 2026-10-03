@@ -283,8 +283,9 @@ async function main() {
   if (examResult.status === 'fulfilled') exam = examResult.value;
   if (cutResult.status === 'fulfilled' && cutResult.value) gradecuts = [cutResult.value];
 
-  // 단건 split 미배포 환경 폴백: 통합 exams.json
-  if (!exam) {
+  // 단건 split 미배포 환경 폴백: 통합 exams.json(12MB) — 정적 상세는 본문이 HTML 에 다 있어 받지 않는다
+  // (robots.txt 가 data/exam/ 을 막아 검색엔진 렌더러가 여기로 오면 12MB 를 매 페이지 받게 된다)
+  if (!exam && !isStaticExam) {
     try {
       const res = await fetch('data/exams.json?v=6984bbcd34cea15bcffc');
       if (res.ok) {
