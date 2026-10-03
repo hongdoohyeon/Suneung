@@ -683,6 +683,8 @@ ENGLISH_ASSET_KEYWORDS = [
     '영어 답지', '영어 해설지', '영어 정답', '영어 문제지',
 ]
 COMMON_ASSET_KEYWORDS = ['문제지', '기출문제', '정답', '답지', '해설지', '풀이', '등급컷']
+NO_CUT_ASSET_KEYWORDS = [k for k in COMMON_ASSET_KEYWORDS if k != '등급컷']   # 등급컷이 없는 시험(논술·검정고시·통계)
+NO_GRADECUT_CURRS = ('논술', 'reference', '초졸', '중졸', '고졸')
 
 # 대학별 논술 허브 URL 슬러그 (subject 전체명 → ASCII slug). 허브: nonsul-{slug}.html
 ESSAY_SCHOOL_SLUG = {
@@ -971,7 +973,8 @@ def build_exam_meta(it: dict, has_cut: bool = True) -> dict:
     # JSON-LD keywords 배열 — 핵심어만(스터핑 방지): 제목·과목·대표 별칭 3개 + 자료유형 키워드
     kw = list(dict.fromkeys(
         [head, sub] + aliases[:3]
-        + (ENGLISH_ASSET_KEYWORDS if is_english else COMMON_ASSET_KEYWORDS)
+        + (ENGLISH_ASSET_KEYWORDS if is_english
+           else NO_CUT_ASSET_KEYWORDS if tg in ('ged', 'essay', 'reference') else COMMON_ASSET_KEYWORDS)
     ))
 
     return {
@@ -2539,6 +2542,13 @@ def build_set_meta(curr: str, year: str, t: str, sg: int | None, exams_in_set: l
     elif is_ged:
         intro_parts = [f'{full} 기출 자료입니다.',
                        f'{subj_phrase} 과목별 문제지와 정답(확정안)을 확인할 수 있습니다.']
+    elif curr == '논술':
+        more = ' 등' if len(subjects) > 6 else ''
+        intro_parts = [f'{full} 기출 자료입니다.',
+                       f'{subj_phrase}{more} 대학별 논술 문제지와 해설을 확인할 수 있습니다.']
+    elif curr in ('사관', '경찰대', 'LEET', 'MEET'):
+        intro_parts = [f'{full} 기출 자료입니다.',
+                       f'{subj_phrase} 문제지와 정답, 해설지를 확인할 수 있습니다.']
     else:
         intro_parts = [f'{full} 기출 자료입니다.',
                        f'국어·수학·영어·한국사·탐구 문제지와 정답, 해설지를 확인할 수 있습니다.']
@@ -2546,7 +2556,8 @@ def build_set_meta(curr: str, year: str, t: str, sg: int | None, exams_in_set: l
         intro_parts.append('영어 영역은 듣기 MP3와 듣기 대본 PDF도 함께 제공합니다.')
     intro = ' '.join(intro_parts)
 
-    keywords = list(dict.fromkeys(aliases + [head, full, short] + subjects + COMMON_ASSET_KEYWORDS
+    asset_kw = COMMON_ASSET_KEYWORDS if curr not in NO_GRADECUT_CURRS else NO_CUT_ASSET_KEYWORDS
+    keywords = list(dict.fromkeys(aliases + [head, full, short] + subjects + asset_kw
                                   + (ENGLISH_ASSET_KEYWORDS if has_english_listen else [])))
     return {
         'title': title, 'description': desc, 'head': head, 'intro': intro,
