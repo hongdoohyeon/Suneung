@@ -2,10 +2,10 @@ name = "kicegg-security-headers"
 main = "src/index.js"
 compatibility_date = "2026-07-18"
 
-# Deploy to kicegg.com domain
-[[routes]]
-pattern = "kicegg.com/*"
-zone_name = "kicegg.com"
+# Headers and cache policies now use Cloudflare Rules; keep this Worker for rollback.
+routes = []
+workers_dev = false
+preview_urls = false
 
 [observability]
 enabled = true

@@ -1,8 +1,8 @@
 /**
  * kicegg.com — Security Headers Worker
  *
- * Deploy as a Cloudflare Worker on route `kicegg.com/*` to add HTTP-level
- * security headers that GitHub Pages cannot provide.
+ * Retained for rollback. Production headers and cache policies use Cloudflare
+ * Rules, so this Worker must remain disconnected from public routes.
  *
  * Headers added:
  *   - Strict-Transport-Security (HSTS)
