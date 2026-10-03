@@ -1387,7 +1387,7 @@ def score_stats_html(sc: dict) -> str:
     cells = []
     basis = sc.get('basis')
     kind = ('역산값' if basis == 'academy_reverse_calculated' else '추정 경계' if basis == 'academy_integerized_threshold'
-            else '추정' if basis in ('academy_consensus_estimate', 'ebsi_estimate', 'public_dist_verified') else '')
+            else '추정' if basis in ('academy_consensus_estimate', 'ebsi_estimate', 'public_dist_verified', 'academy_consensus') else '')
     if sc['abs']:
         cells.append(('1등급 기준', f'{esc(sc["raw"])}<small>점 이상</small>', False))
         if sc.get('ratio') is not None:
@@ -1411,6 +1411,18 @@ def score_stats_html(sc: dict) -> str:
     return '<div class="stats">' + ''.join(
         f'<div class="card-box stat"><span class="stat__label">{lbl}</span>'
         f'<span class="stat__value{" spoil-val" if blur else ""}">{val}</span></div>' for lbl, val, blur in cells) + '</div>'
+
+
+ACADEMY_NAMES = {'ebsi': 'EBSi', 'megastudy': '메가스터디', 'etoos': '이투스', 'jongro': '종로학원', 'daesung': '대성마이맥'}
+
+
+def academy_consensus_note(cut: dict) -> str:
+    # 입시기관 원점수 추정 종합 (scripts/academy-cuts/apply_consensus.py) — 기관 이름과 선택과목 단서
+    names = [ACADEMY_NAMES.get(s, s) for s in cut.get('rawCutSources') or []]
+    note = f'입시기관 {len(names)}곳 원점수 추정 종합({"·".join(names)})' if len(names) > 1 else f'{"".join(names)} 원점수 추정'
+    if cut.get('subject') in ('국어', '수학') and (cut.get('gradeYear') or 0) >= 2022 and cut.get('subSubject'):
+        note += ' · 공통+선택 점수 조합에 따라 다를 수 있음'
+    return note
 
 
 def grade_table_html(cut: dict, absolute: bool, ratios: list | None = None) -> str:
@@ -1443,7 +1455,8 @@ def grade_table_html(cut: dict, absolute: bool, ratios: list | None = None) -> s
             '입시기관 추정 정수 경계' if basis == 'academy_integerized_threshold' else
             '공식 표준점수 컷 기준 입시기관 추정 종합' if basis == 'academy_consensus_estimate' else
             '공식 표준점수 컷 기준 EBSi 원점수 추정' if basis == 'ebsi_estimate' else
-            '공개 원점수 추정 · 평가원 표준점수 분포로 검증' if basis == 'public_dist_verified' else '')
+            '공개 원점수 추정 · 평가원 표준점수 분포로 검증' if basis == 'public_dist_verified' else
+            academy_consensus_note(cut) if basis == 'academy_consensus' else '')
     legend = ' · '.join(x for x in ('등급별 컷', '절대평가' if absolute else '', note,
                                     f'만점 {cut.get("fullScore")}점' if cut.get('fullScore') else '') if x)
     head = ''.join(f'<th scope="col">{lbl}</th>' for lbl, _, _ in cols)

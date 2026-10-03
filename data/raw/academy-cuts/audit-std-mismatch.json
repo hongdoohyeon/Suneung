@@ -1,0 +1,2486 @@
+[
+ {
+  "id": 668,
+  "gradeYear": 2025,
+  "type": "oct",
+  "studentGrade": 2,
+  "subject": "과학탐구",
+  "subSubject": "물리학Ⅰ",
+  "rejected": {
+   "megastudy": "표준점수 컷 2점 차이"
+  }
+ },
+ {
+  "id": 674,
+  "gradeYear": 2025,
+  "type": "oct",
+  "studentGrade": 2,
+  "subject": "과학탐구",
+  "subSubject": "지구과학Ⅰ",
+  "rejected": {
+   "megastudy": "표준점수 컷 2점 차이"
+  }
+ },
+ {
+  "id": 677,
+  "gradeYear": 2025,
+  "type": "oct",
+  "studentGrade": 2,
+  "subject": "과학탐구",
+  "subSubject": "화학Ⅰ",
+  "rejected": {
+   "megastudy": "표준점수 컷 2점 차이"
+  }
+ },
+ {
+  "id": 685,
+  "gradeYear": 2025,
+  "type": "oct",
+  "studentGrade": 2,
+  "subject": "사회탐구",
+  "subSubject": "경제",
+  "rejected": {
+   "megastudy": "표준점수 컷 2점 차이",
+   "jongro": "표준점수 컷 2점 차이",
+   "daesung": "표준점수 컷 2점 차이"
+  }
+ },
+ {
+  "id": 689,
+  "gradeYear": 2025,
+  "type": "oct",
+  "studentGrade": 2,
+  "subject": "사회탐구",
+  "subSubject": "사회·문화",
+  "rejected": {
+   "megastudy": "표준점수 컷 3점 차이",
+   "jongro": "표준점수 컷 3점 차이",
+   "daesung": "표준점수 컷 3점 차이"
+  }
+ },
+ {
+  "id": 691,
+  "gradeYear": 2025,
+  "type": "oct",
+  "studentGrade": 2,
+  "subject": "사회탐구",
+  "subSubject": "생활과윤리",
+  "rejected": {
+   "megastudy": "표준점수 컷 2점 차이",
+   "jongro": "표준점수 컷 2점 차이",
+   "daesung": "표준점수 컷 2점 차이"
+  }
+ },
+ {
+  "id": 697,
+  "gradeYear": 2025,
+  "type": "oct",
+  "studentGrade": 2,
+  "subject": "사회탐구",
+  "subSubject": "윤리와사상",
+  "rejected": {
+   "megastudy": "표준점수 컷 2점 차이",
+   "jongro": "표준점수 컷 2점 차이",
+   "daesung": "표준점수 컷 2점 차이"
+  }
+ },
+ {
+  "id": 792,
+  "gradeYear": 2025,
+  "type": "mar",
+  "studentGrade": 2,
+  "subject": "과학탐구",
+  "subSubject": "화학Ⅰ",
+  "rejected": {
+   "ebsi": "표준점수 컷 2점 차이",
+   "megastudy": "표준점수 컷 2점 차이"
+  }
+ },
+ {
+  "id": 801,
+  "gradeYear": 2025,
+  "type": "mar",
+  "studentGrade": 2,
+  "subject": "사회탐구",
+  "subSubject": "동아시아사",
+  "rejected": {
+   "ebsi": "표준점수 컷 2점 차이",
+   "megastudy": "표준점수 컷 2점 차이",
+   "jongro": "표준점수 컷 2점 차이",
+   "daesung": "표준점수 컷 2점 차이"
+  }
+ },
+ {
+  "id": 803,
+  "gradeYear": 2025,
+  "type": "mar",
+  "studentGrade": 2,
+  "subject": "사회탐구",
+  "subSubject": "사회·문화",
+  "rejected": {
+   "ebsi": "표준점수 컷 2점 차이",
+   "megastudy": "표준점수 컷 2점 차이",
+   "jongro": "표준점수 컷 2점 차이",
+   "daesung": "표준점수 컷 2점 차이"
+  }
+ },
+ {
+  "id": 805,
+  "gradeYear": 2025,
+  "type": "mar",
+  "studentGrade": 2,
+  "subject": "사회탐구",
+  "subSubject": "생활과윤리",
+  "rejected": {
+   "ebsi": "표준점수 컷 2점 차이",
+   "megastudy": "표준점수 컷 2점 차이",
+   "jongro": "표준점수 컷 2점 차이",
+   "daesung": "표준점수 컷 2점 차이"
+  }
+ },
+ {
+  "id": 809,
+  "gradeYear": 2025,
+  "type": "mar",
+  "studentGrade": 2,
+  "subject": "사회탐구",
+  "subSubject": "세계지리",
+  "rejected": {
+   "ebsi": "표준점수 컷 2점 차이",
+   "megastudy": "표준점수 컷 2점 차이",
+   "jongro": "표준점수 컷 2점 차이",
+   "daesung": "표준점수 컷 2점 차이"
+  }
+ },
+ {
+  "id": 813,
+  "gradeYear": 2025,
+  "type": "mar",
+  "studentGrade": 2,
+  "subject": "사회탐구",
+  "subSubject": "정치와법",
+  "rejected": {
+   "ebsi": "표준점수 컷 2점 차이",
+   "megastudy": "표준점수 컷 2점 차이",
+   "jongro": "표준점수 컷 2점 차이",
+   "daesung": "표준점수 컷 2점 차이"
+  }
+ },
+ {
+  "id": 815,
+  "gradeYear": 2025,
+  "type": "mar",
+  "studentGrade": 2,
+  "subject": "사회탐구",
+  "subSubject": "한국지리",
+  "rejected": {
+   "ebsi": "표준점수 컷 3점 차이",
+   "megastudy": "표준점수 컷 3점 차이",
+   "jongro": "표준점수 컷 3점 차이",
+   "daesung": "표준점수 컷 3점 차이"
+  }
+ },
+ {
+  "id": 1068,
+  "gradeYear": 2024,
+  "type": "oct",
+  "studentGrade": 2,
+  "subject": "과학탐구",
+  "subSubject": "지구과학Ⅰ",
+  "rejected": {
+   "megastudy": "표준점수 컷 2점 차이"
+  }
+ },
+ {
+  "id": 1079,
+  "gradeYear": 2024,
+  "type": "oct",
+  "studentGrade": 2,
+  "subject": "사회탐구",
+  "subSubject": "경제",
+  "rejected": {
+   "megastudy": "표준점수 컷 2점 차이",
+   "jongro": "표준점수 컷 2점 차이",
+   "daesung": "표준점수 컷 2점 차이"
+  }
+ },
+ {
+  "id": 1081,
+  "gradeYear": 2024,
+  "type": "oct",
+  "studentGrade": 2,
+  "subject": "사회탐구",
+  "subSubject": "동아시아사",
+  "rejected": {
+   "megastudy": "표준점수 컷 2점 차이",
+   "jongro": "표준점수 컷 2점 차이",
+   "daesung": "표준점수 컷 2점 차이"
+  }
+ },
+ {
+  "id": 1083,
+  "gradeYear": 2024,
+  "type": "oct",
+  "studentGrade": 2,
+  "subject": "사회탐구",
+  "subSubject": "사회·문화",
+  "rejected": {
+   "megastudy": "표준점수 컷 2점 차이",
+   "jongro": "표준점수 컷 2점 차이",
+   "daesung": "표준점수 컷 2점 차이"
+  }
+ },
+ {
+  "id": 1085,
+  "gradeYear": 2024,
+  "type": "oct",
+  "studentGrade": 2,
+  "subject": "사회탐구",
+  "subSubject": "생활과윤리",
+  "rejected": {
+   "megastudy": "표준점수 컷 3점 차이",
+   "jongro": "표준점수 컷 3점 차이",
+   "daesung": "표준점수 컷 3점 차이"
+  }
+ },
+ {
+  "id": 1087,
+  "gradeYear": 2024,
+  "type": "oct",
+  "studentGrade": 2,
+  "subject": "사회탐구",
+  "subSubject": "세계사",
+  "rejected": {
+   "megastudy": "표준점수 컷 2점 차이",
+   "jongro": "표준점수 컷 2점 차이",
+   "daesung": "표준점수 컷 2점 차이"
+  }
+ },
+ {
+  "id": 1091,
+  "gradeYear": 2024,
+  "type": "oct",
+  "studentGrade": 2,
+  "subject": "사회탐구",
+  "subSubject": "윤리와사상",
+  "rejected": {
+   "megastudy": "표준점수 컷 2점 차이",
+   "jongro": "표준점수 컷 2점 차이",
+   "daesung": "표준점수 컷 2점 차이"
+  }
+ },
+ {
+  "id": 1095,
+  "gradeYear": 2024,
+  "type": "oct",
+  "studentGrade": 2,
+  "subject": "사회탐구",
+  "subSubject": "한국지리",
+  "rejected": {
+   "megastudy": "표준점수 컷 3점 차이",
+   "jongro": "표준점수 컷 3점 차이",
+   "daesung": "표준점수 컷 3점 차이"
+  }
+ },
+ {
+  "id": 1182,
+  "gradeYear": 2024,
+  "type": "mar",
+  "studentGrade": 2,
+  "subject": "과학탐구",
+  "subSubject": "생명과학Ⅰ",
+  "rejected": {
+   "ebsi": "표준점수 컷 2점 차이",
+   "megastudy": "표준점수 컷 2점 차이"
+  }
+ },
+ {
+  "id": 1184,
+  "gradeYear": 2024,
+  "type": "mar",
+  "studentGrade": 2,
+  "subject": "과학탐구",
+  "subSubject": "지구과학Ⅰ",
+  "rejected": {
+   "ebsi": "표준점수 컷 2점 차이",
+   "megastudy": "표준점수 컷 2점 차이"
+  }
+ },
+ {
+  "id": 1195,
+  "gradeYear": 2024,
+  "type": "mar",
+  "studentGrade": 2,
+  "subject": "사회탐구",
+  "subSubject": "동아시아사",
+  "rejected": {
+   "ebsi": "표준점수 컷 2점 차이",
+   "megastudy": "표준점수 컷 2점 차이",
+   "jongro": "표준점수 컷 2점 차이",
+   "daesung": "표준점수 컷 2점 차이"
+  }
+ },
+ {
+  "id": 1197,
+  "gradeYear": 2024,
+  "type": "mar",
+  "studentGrade": 2,
+  "subject": "사회탐구",
+  "subSubject": "사회·문화",
+  "rejected": {
+   "ebsi": "표준점수 컷 4점 차이",
+   "megastudy": "표준점수 컷 4점 차이",
+   "jongro": "표준점수 컷 4점 차이",
+   "daesung": "표준점수 컷 4점 차이"
+  }
+ },
+ {
+  "id": 1199,
+  "gradeYear": 2024,
+  "type": "mar",
+  "studentGrade": 2,
+  "subject": "사회탐구",
+  "subSubject": "생활과윤리",
+  "rejected": {
+   "ebsi": "표준점수 컷 2점 차이",
+   "megastudy": "표준점수 컷 2점 차이",
+   "jongro": "표준점수 컷 2점 차이",
+   "daesung": "표준점수 컷 2점 차이"
+  }
+ },
+ {
+  "id": 1203,
+  "gradeYear": 2024,
+  "type": "mar",
+  "studentGrade": 2,
+  "subject": "사회탐구",
+  "subSubject": "세계지리",
+  "rejected": {
+   "ebsi": "표준점수 컷 3점 차이",
+   "megastudy": "표준점수 컷 3점 차이",
+   "jongro": "표준점수 컷 3점 차이",
+   "daesung": "표준점수 컷 3점 차이"
+  }
+ },
+ {
+  "id": 1205,
+  "gradeYear": 2024,
+  "type": "mar",
+  "studentGrade": 2,
+  "subject": "사회탐구",
+  "subSubject": "윤리와사상",
+  "rejected": {
+   "ebsi": "표준점수 컷 3점 차이",
+   "megastudy": "표준점수 컷 3점 차이",
+   "jongro": "표준점수 컷 3점 차이",
+   "daesung": "표준점수 컷 3점 차이"
+  }
+ },
+ {
+  "id": 1494,
+  "gradeYear": 2023,
+  "type": "oct",
+  "studentGrade": 3,
+  "subject": "직업탐구",
+  "subSubject": "성공적인 직업생활",
+  "rejected": {
+   "ebsi": "표준점수 컷 2점 차이"
+  }
+ },
+ {
+  "id": 1551,
+  "gradeYear": 2023,
+  "type": "mar",
+  "studentGrade": 2,
+  "subject": "과학탐구",
+  "subSubject": "물리학Ⅰ",
+  "rejected": {
+   "ebsi": "표준점수 컷 3점 차이",
+   "megastudy": "표준점수 컷 3점 차이"
+  }
+ },
+ {
+  "id": 1553,
+  "gradeYear": 2023,
+  "type": "mar",
+  "studentGrade": 2,
+  "subject": "과학탐구",
+  "subSubject": "생명과학Ⅰ",
+  "rejected": {
+   "ebsi": "표준점수 컷 2점 차이",
+   "megastudy": "표준점수 컷 2점 차이"
+  }
+ },
+ {
+  "id": 1557,
+  "gradeYear": 2023,
+  "type": "mar",
+  "studentGrade": 2,
+  "subject": "과학탐구",
+  "subSubject": "화학Ⅰ",
+  "rejected": {
+   "ebsi": "표준점수 컷 2점 차이",
+   "megastudy": "표준점수 컷 2점 차이"
+  }
+ },
+ {
+  "id": 1566,
+  "gradeYear": 2023,
+  "type": "mar",
+  "studentGrade": 2,
+  "subject": "사회탐구",
+  "subSubject": "동아시아사",
+  "rejected": {
+   "ebsi": "표준점수 컷 2점 차이",
+   "megastudy": "표준점수 컷 2점 차이",
+   "jongro": "표준점수 컷 2점 차이",
+   "daesung": "표준점수 컷 2점 차이"
+  }
+ },
+ {
+  "id": 1568,
+  "gradeYear": 2023,
+  "type": "mar",
+  "studentGrade": 2,
+  "subject": "사회탐구",
+  "subSubject": "사회·문화",
+  "rejected": {
+   "ebsi": "표준점수 컷 2점 차이",
+   "megastudy": "표준점수 컷 2점 차이",
+   "jongro": "표준점수 컷 2점 차이",
+   "daesung": "표준점수 컷 2점 차이"
+  }
+ },
+ {
+  "id": 1570,
+  "gradeYear": 2023,
+  "type": "mar",
+  "studentGrade": 2,
+  "subject": "사회탐구",
+  "subSubject": "생활과윤리",
+  "rejected": {
+   "ebsi": "표준점수 컷 2점 차이",
+   "megastudy": "표준점수 컷 2점 차이",
+   "jongro": "표준점수 컷 2점 차이",
+   "daesung": "표준점수 컷 2점 차이"
+  }
+ },
+ {
+  "id": 1572,
+  "gradeYear": 2023,
+  "type": "mar",
+  "studentGrade": 2,
+  "subject": "사회탐구",
+  "subSubject": "세계사",
+  "rejected": {
+   "ebsi": "표준점수 컷 2점 차이",
+   "megastudy": "표준점수 컷 2점 차이",
+   "jongro": "표준점수 컷 2점 차이",
+   "daesung": "표준점수 컷 2점 차이"
+  }
+ },
+ {
+  "id": 1576,
+  "gradeYear": 2023,
+  "type": "mar",
+  "studentGrade": 2,
+  "subject": "사회탐구",
+  "subSubject": "윤리와사상",
+  "rejected": {
+   "ebsi": "표준점수 컷 2점 차이",
+   "megastudy": "표준점수 컷 2점 차이",
+   "jongro": "표준점수 컷 2점 차이",
+   "daesung": "표준점수 컷 2점 차이"
+  }
+ },
+ {
+  "id": 1580,
+  "gradeYear": 2023,
+  "type": "mar",
+  "studentGrade": 2,
+  "subject": "사회탐구",
+  "subSubject": "한국지리",
+  "rejected": {
+   "ebsi": "표준점수 컷 2점 차이",
+   "megastudy": "표준점수 컷 2점 차이",
+   "jongro": "표준점수 컷 2점 차이",
+   "daesung": "표준점수 컷 2점 차이"
+  }
+ },
+ {
+  "id": 1915,
+  "gradeYear": 2022,
+  "type": "oct",
+  "studentGrade": 3,
+  "subject": "직업탐구",
+  "subSubject": "상업 경제",
+  "rejected": {
+   "ebsi": "표준점수 컷 2점 차이"
+  }
+ },
+ {
+  "id": 1923,
+  "gradeYear": 2022,
+  "type": "oct",
+  "studentGrade": 3,
+  "subject": "직업탐구",
+  "subSubject": "인간 발달",
+  "rejected": {
+   "ebsi": "표준점수 컷 3점 차이"
+  }
+ },
+ {
+  "id": 1990,
+  "gradeYear": 2022,
+  "type": "mar",
+  "studentGrade": 2,
+  "subject": "과학탐구",
+  "subSubject": "물리학Ⅰ",
+  "rejected": {
+   "ebsi": "표준점수 컷 2점 차이",
+   "megastudy": "표준점수 컷 2점 차이"
+  }
+ },
+ {
+  "id": 1994,
+  "gradeYear": 2022,
+  "type": "mar",
+  "studentGrade": 2,
+  "subject": "과학탐구",
+  "subSubject": "지구과학Ⅰ",
+  "rejected": {
+   "ebsi": "표준점수 컷 3점 차이",
+   "megastudy": "표준점수 컷 3점 차이"
+  }
+ },
+ {
+  "id": 1996,
+  "gradeYear": 2022,
+  "type": "mar",
+  "studentGrade": 2,
+  "subject": "과학탐구",
+  "subSubject": "화학Ⅰ",
+  "rejected": {
+   "ebsi": "표준점수 컷 3점 차이",
+   "megastudy": "표준점수 컷 3점 차이"
+  }
+ },
+ {
+  "id": 2000,
+  "gradeYear": 2022,
+  "type": "mar",
+  "studentGrade": 1,
+  "subject": "국어",
+  "subSubject": null,
+  "rejected": {
+   "ebsi": "표준점수 컷 7점 차이",
+   "megastudy": "표준점수 컷 7점 차이",
+   "jongro": "표준점수 컷 7점 차이"
+  }
+ },
+ {
+  "id": 2001,
+  "gradeYear": 2022,
+  "type": "mar",
+  "studentGrade": 2,
+  "subject": "국어",
+  "subSubject": null,
+  "rejected": {
+   "ebsi": "표준점수 컷 3점 차이",
+   "megastudy": "표준점수 컷 3점 차이"
+  }
+ },
+ {
+  "id": 2009,
+  "gradeYear": 2022,
+  "type": "mar",
+  "studentGrade": 2,
+  "subject": "사회탐구",
+  "subSubject": "사회·문화",
+  "rejected": {
+   "ebsi": "표준점수 컷 2점 차이",
+   "megastudy": "표준점수 컷 2점 차이",
+   "jongro": "표준점수 컷 2점 차이"
+  }
+ },
+ {
+  "id": 2011,
+  "gradeYear": 2022,
+  "type": "mar",
+  "studentGrade": 2,
+  "subject": "사회탐구",
+  "subSubject": "생활과윤리",
+  "rejected": {
+   "ebsi": "표준점수 컷 2점 차이",
+   "megastudy": "표준점수 컷 2점 차이",
+   "jongro": "표준점수 컷 2점 차이"
+  }
+ },
+ {
+  "id": 2013,
+  "gradeYear": 2022,
+  "type": "mar",
+  "studentGrade": 2,
+  "subject": "사회탐구",
+  "subSubject": "세계사",
+  "rejected": {
+   "ebsi": "표준점수 컷 2점 차이",
+   "megastudy": "표준점수 컷 2점 차이",
+   "jongro": "표준점수 컷 2점 차이"
+  }
+ },
+ {
+  "id": 2015,
+  "gradeYear": 2022,
+  "type": "mar",
+  "studentGrade": 2,
+  "subject": "사회탐구",
+  "subSubject": "세계지리",
+  "rejected": {
+   "ebsi": "표준점수 컷 2점 차이",
+   "megastudy": "표준점수 컷 2점 차이",
+   "jongro": "표준점수 컷 2점 차이"
+  }
+ },
+ {
+  "id": 2025,
+  "gradeYear": 2022,
+  "type": "mar",
+  "studentGrade": 1,
+  "subject": "수학",
+  "subSubject": null,
+  "rejected": {
+   "ebsi": "표준점수 컷 8점 차이",
+   "megastudy": "표준점수 컷 8점 차이",
+   "jongro": "표준점수 컷 8점 차이"
+  }
+ },
+ {
+  "id": 2026,
+  "gradeYear": 2022,
+  "type": "mar",
+  "studentGrade": 2,
+  "subject": "수학",
+  "subSubject": null,
+  "rejected": {
+   "ebsi": "표준점수 컷 2점 차이",
+   "megastudy": "표준점수 컷 2점 차이",
+   "jongro": "표준점수 컷 2점 차이"
+  }
+ },
+ {
+  "id": 2343,
+  "gradeYear": 2021,
+  "type": "oct",
+  "studentGrade": 3,
+  "subject": "사회탐구",
+  "subSubject": "정치와법",
+  "rejected": {
+   "ebsi": "표준점수 컷 2점 차이",
+   "megastudy": "표준점수 컷 2점 차이",
+   "etoos": "표준점수 컷 2점 차이",
+   "jongro": "표준점수 컷 2점 차이"
+  }
+ },
+ {
+  "id": 2368,
+  "gradeYear": 2021,
+  "type": "oct",
+  "studentGrade": 3,
+  "subject": "직업탐구",
+  "subSubject": "기초 제도",
+  "rejected": {
+   "ebsi": "표준점수 컷 2점 차이"
+  }
+ },
+ {
+  "id": 2369,
+  "gradeYear": 2021,
+  "type": "oct",
+  "studentGrade": 3,
+  "subject": "직업탐구",
+  "subSubject": "기초 제도",
+  "rejected": {
+   "ebsi": "표준점수 컷 2점 차이"
+  }
+ },
+ {
+  "id": 2373,
+  "gradeYear": 2021,
+  "type": "oct",
+  "studentGrade": 3,
+  "subject": "직업탐구",
+  "subSubject": "생활 서비스 산업의 이해",
+  "rejected": {
+   "ebsi": "표준점수 컷 5점 차이"
+  }
+ },
+ {
+  "id": 2377,
+  "gradeYear": 2021,
+  "type": "oct",
+  "studentGrade": 3,
+  "subject": "직업탐구",
+  "subSubject": "인간 발달",
+  "rejected": {
+   "ebsi": "표준점수 컷 2점 차이"
+  }
+ },
+ {
+  "id": 2379,
+  "gradeYear": 2021,
+  "type": "oct",
+  "studentGrade": 3,
+  "subject": "직업탐구",
+  "subSubject": "해양의 이해",
+  "rejected": {
+   "ebsi": "표준점수 컷 4점 차이"
+  }
+ },
+ {
+  "id": 2380,
+  "gradeYear": 2021,
+  "type": "oct",
+  "studentGrade": 3,
+  "subject": "직업탐구",
+  "subSubject": "회계 원리",
+  "rejected": {
+   "ebsi": "표준점수 컷 2점 차이"
+  }
+ },
+ {
+  "id": 2381,
+  "gradeYear": 2021,
+  "type": "oct",
+  "studentGrade": 3,
+  "subject": "직업탐구",
+  "subSubject": "회계 원리",
+  "rejected": {
+   "ebsi": "표준점수 컷 2점 차이"
+  }
+ },
+ {
+  "id": 2403,
+  "gradeYear": 2021,
+  "type": "jul",
+  "studentGrade": 3,
+  "subject": "사회탐구",
+  "subSubject": "정치와법",
+  "rejected": {
+   "ebsi": "표준점수 컷 2점 차이",
+   "megastudy": "표준점수 컷 2점 차이",
+   "etoos": "표준점수 컷 2점 차이",
+   "jongro": "표준점수 컷 2점 차이"
+  }
+ },
+ {
+  "id": 2460,
+  "gradeYear": 2021,
+  "type": "mar",
+  "studentGrade": 3,
+  "subject": "과학탐구",
+  "subSubject": "물리Ⅰ",
+  "rejected": {
+   "ebsi": "표준점수 컷 4점 차이"
+  }
+ },
+ {
+  "id": 2462,
+  "gradeYear": 2021,
+  "type": "mar",
+  "studentGrade": 2,
+  "subject": "과학탐구",
+  "subSubject": "생명과학Ⅰ",
+  "rejected": {
+   "ebsi": "표준점수 컷 6점 차이",
+   "megastudy": "표준점수 컷 6점 차이"
+  }
+ },
+ {
+  "id": 2465,
+  "gradeYear": 2021,
+  "type": "mar",
+  "studentGrade": 3,
+  "subject": "과학탐구",
+  "subSubject": "생명과학Ⅰ",
+  "rejected": {
+   "ebsi": "표준점수 컷 2점 차이"
+  }
+ },
+ {
+  "id": 2466,
+  "gradeYear": 2021,
+  "type": "mar",
+  "studentGrade": 2,
+  "subject": "과학탐구",
+  "subSubject": "지구과학Ⅰ",
+  "rejected": {
+   "ebsi": "표준점수 컷 4점 차이",
+   "megastudy": "표준점수 컷 4점 차이"
+  }
+ },
+ {
+  "id": 2469,
+  "gradeYear": 2021,
+  "type": "mar",
+  "studentGrade": 3,
+  "subject": "과학탐구",
+  "subSubject": "지구과학Ⅰ",
+  "rejected": {
+   "ebsi": "표준점수 컷 2점 차이"
+  }
+ },
+ {
+  "id": 2470,
+  "gradeYear": 2021,
+  "type": "mar",
+  "studentGrade": 2,
+  "subject": "과학탐구",
+  "subSubject": "화학Ⅰ",
+  "rejected": {
+   "ebsi": "표준점수 컷 4점 차이",
+   "megastudy": "표준점수 컷 4점 차이"
+  }
+ },
+ {
+  "id": 2473,
+  "gradeYear": 2021,
+  "type": "mar",
+  "studentGrade": 3,
+  "subject": "과학탐구",
+  "subSubject": "화학Ⅰ",
+  "rejected": {
+   "ebsi": "표준점수 컷 5점 차이"
+  }
+ },
+ {
+  "id": 2474,
+  "gradeYear": 2021,
+  "type": "mar",
+  "studentGrade": 1,
+  "subject": "국어",
+  "subSubject": null,
+  "rejected": {
+   "ebsi": "표준점수 컷 3점 차이",
+   "megastudy": "표준점수 컷 3점 차이",
+   "jongro": "표준점수 컷 3점 차이"
+  }
+ },
+ {
+  "id": 2475,
+  "gradeYear": 2021,
+  "type": "mar",
+  "studentGrade": 2,
+  "subject": "국어",
+  "subSubject": null,
+  "rejected": {
+   "ebsi": "표준점수 컷 2점 차이",
+   "megastudy": "표준점수 컷 2점 차이"
+  }
+ },
+ {
+  "id": 2479,
+  "gradeYear": 2021,
+  "type": "mar",
+  "studentGrade": 3,
+  "subject": "국어",
+  "subSubject": null,
+  "rejected": {
+   "ebsi": "표준점수 컷 6점 차이"
+  }
+ },
+ {
+  "id": 2482,
+  "gradeYear": 2021,
+  "type": "mar",
+  "studentGrade": 2,
+  "subject": "사회탐구",
+  "subSubject": "경제",
+  "rejected": {
+   "ebsi": "표준점수 컷 5점 차이",
+   "megastudy": "표준점수 컷 5점 차이",
+   "jongro": "표준점수 컷 5점 차이"
+  }
+ },
+ {
+  "id": 2485,
+  "gradeYear": 2021,
+  "type": "mar",
+  "studentGrade": 3,
+  "subject": "사회탐구",
+  "subSubject": "경제",
+  "rejected": {
+   "ebsi": "표준점수 컷 4점 차이"
+  }
+ },
+ {
+  "id": 2486,
+  "gradeYear": 2021,
+  "type": "mar",
+  "studentGrade": 2,
+  "subject": "사회탐구",
+  "subSubject": "동아시아사",
+  "rejected": {
+   "ebsi": "표준점수 컷 2점 차이",
+   "megastudy": "표준점수 컷 2점 차이",
+   "jongro": "표준점수 컷 2점 차이"
+  }
+ },
+ {
+  "id": 2489,
+  "gradeYear": 2021,
+  "type": "mar",
+  "studentGrade": 3,
+  "subject": "사회탐구",
+  "subSubject": "동아시아사",
+  "rejected": {
+   "ebsi": "표준점수 컷 2점 차이"
+  }
+ },
+ {
+  "id": 2491,
+  "gradeYear": 2021,
+  "type": "mar",
+  "studentGrade": 3,
+  "subject": "사회탐구",
+  "subSubject": "법과정치",
+  "rejected": {
+   "ebsi": "표준점수 컷 5점 차이"
+  }
+ },
+ {
+  "id": 2492,
+  "gradeYear": 2021,
+  "type": "mar",
+  "studentGrade": 2,
+  "subject": "사회탐구",
+  "subSubject": "사회·문화",
+  "rejected": {
+   "ebsi": "표준점수 컷 5점 차이",
+   "megastudy": "표준점수 컷 5점 차이",
+   "jongro": "표준점수 컷 5점 차이"
+  }
+ },
+ {
+  "id": 2495,
+  "gradeYear": 2021,
+  "type": "mar",
+  "studentGrade": 3,
+  "subject": "사회탐구",
+  "subSubject": "사회·문화",
+  "rejected": {
+   "ebsi": "표준점수 컷 2점 차이"
+  }
+ },
+ {
+  "id": 2496,
+  "gradeYear": 2021,
+  "type": "mar",
+  "studentGrade": 2,
+  "subject": "사회탐구",
+  "subSubject": "생활과윤리",
+  "rejected": {
+   "ebsi": "표준점수 컷 4점 차이",
+   "megastudy": "표준점수 컷 4점 차이",
+   "jongro": "표준점수 컷 4점 차이"
+  }
+ },
+ {
+  "id": 2499,
+  "gradeYear": 2021,
+  "type": "mar",
+  "studentGrade": 3,
+  "subject": "사회탐구",
+  "subSubject": "생활과윤리",
+  "rejected": {
+   "ebsi": "표준점수 컷 4점 차이"
+  }
+ },
+ {
+  "id": 2500,
+  "gradeYear": 2021,
+  "type": "mar",
+  "studentGrade": 2,
+  "subject": "사회탐구",
+  "subSubject": "세계사",
+  "rejected": {
+   "ebsi": "표준점수 컷 4점 차이",
+   "megastudy": "표준점수 컷 4점 차이",
+   "jongro": "표준점수 컷 4점 차이"
+  }
+ },
+ {
+  "id": 2503,
+  "gradeYear": 2021,
+  "type": "mar",
+  "studentGrade": 3,
+  "subject": "사회탐구",
+  "subSubject": "세계사",
+  "rejected": {
+   "ebsi": "표준점수 컷 3점 차이"
+  }
+ },
+ {
+  "id": 2504,
+  "gradeYear": 2021,
+  "type": "mar",
+  "studentGrade": 2,
+  "subject": "사회탐구",
+  "subSubject": "세계지리",
+  "rejected": {
+   "ebsi": "표준점수 컷 7점 차이",
+   "megastudy": "표준점수 컷 7점 차이",
+   "jongro": "표준점수 컷 7점 차이"
+  }
+ },
+ {
+  "id": 2507,
+  "gradeYear": 2021,
+  "type": "mar",
+  "studentGrade": 3,
+  "subject": "사회탐구",
+  "subSubject": "세계지리",
+  "rejected": {
+   "ebsi": "표준점수 컷 4점 차이"
+  }
+ },
+ {
+  "id": 2508,
+  "gradeYear": 2021,
+  "type": "mar",
+  "studentGrade": 2,
+  "subject": "사회탐구",
+  "subSubject": "윤리와사상",
+  "rejected": {
+   "ebsi": "표준점수 컷 7점 차이",
+   "megastudy": "표준점수 컷 7점 차이",
+   "jongro": "표준점수 컷 7점 차이"
+  }
+ },
+ {
+  "id": 2511,
+  "gradeYear": 2021,
+  "type": "mar",
+  "studentGrade": 3,
+  "subject": "사회탐구",
+  "subSubject": "윤리와사상",
+  "rejected": {
+   "ebsi": "표준점수 컷 3점 차이"
+  }
+ },
+ {
+  "id": 2512,
+  "gradeYear": 2021,
+  "type": "mar",
+  "studentGrade": 2,
+  "subject": "사회탐구",
+  "subSubject": "정치와법",
+  "rejected": {
+   "ebsi": "표준점수 컷 4점 차이",
+   "megastudy": "표준점수 컷 4점 차이",
+   "jongro": "표준점수 컷 4점 차이"
+  }
+ },
+ {
+  "id": 2514,
+  "gradeYear": 2021,
+  "type": "mar",
+  "studentGrade": 2,
+  "subject": "사회탐구",
+  "subSubject": "한국지리",
+  "rejected": {
+   "ebsi": "표준점수 컷 4점 차이",
+   "megastudy": "표준점수 컷 4점 차이",
+   "jongro": "표준점수 컷 4점 차이"
+  }
+ },
+ {
+  "id": 2517,
+  "gradeYear": 2021,
+  "type": "mar",
+  "studentGrade": 3,
+  "subject": "사회탐구",
+  "subSubject": "한국지리",
+  "rejected": {
+   "ebsi": "표준점수 컷 2점 차이"
+  }
+ },
+ {
+  "id": 2519,
+  "gradeYear": 2021,
+  "type": "mar",
+  "studentGrade": 2,
+  "subject": "수학",
+  "subSubject": null,
+  "rejected": {
+   "ebsi": "표준점수 컷 5점 차이",
+   "megastudy": "표준점수 컷 5점 차이",
+   "jongro": "표준점수 컷 5점 차이"
+  }
+ },
+ {
+  "id": 2577,
+  "gradeYear": 2021,
+  "type": "nov",
+  "studentGrade": 2,
+  "subject": "국어",
+  "subSubject": null,
+  "rejected": {
+   "ebsi": "표준점수 컷 4점 차이",
+   "megastudy": "표준점수 컷 4점 차이"
+  }
+ },
+ {
+  "id": 2579,
+  "gradeYear": 2021,
+  "type": "jun",
+  "studentGrade": 2,
+  "subject": "국어",
+  "subSubject": null,
+  "rejected": {
+   "ebsi": "표준점수 컷 4점 차이",
+   "megastudy": "표준점수 컷 4점 차이"
+  }
+ },
+ {
+  "id": 2665,
+  "gradeYear": 2021,
+  "type": "nov",
+  "studentGrade": 2,
+  "subject": "수학",
+  "subSubject": null,
+  "rejected": {
+   "ebsi": "표준점수 컷 5점 차이",
+   "megastudy": "표준점수 컷 5점 차이",
+   "jongro": "표준점수 컷 5점 차이"
+  }
+ },
+ {
+  "id": 2667,
+  "gradeYear": 2021,
+  "type": "jun",
+  "studentGrade": 2,
+  "subject": "수학",
+  "subSubject": null,
+  "rejected": {
+   "ebsi": "표준점수 컷 3점 차이",
+   "megastudy": "표준점수 컷 3점 차이",
+   "jongro": "표준점수 컷 3점 차이"
+  }
+ },
+ {
+  "id": 2898,
+  "gradeYear": 2020,
+  "type": "oct",
+  "studentGrade": 3,
+  "subject": "사회탐구",
+  "subSubject": "정치와법",
+  "rejected": {
+   "ebsi": "표준점수 컷 2점 차이",
+   "megastudy": "표준점수 컷 2점 차이",
+   "jongro": "표준점수 컷 2점 차이"
+  }
+ },
+ {
+  "id": 2918,
+  "gradeYear": 2020,
+  "type": "oct",
+  "studentGrade": 3,
+  "subject": "직업탐구",
+  "subSubject": "기초 제도",
+  "rejected": {
+   "ebsi": "표준점수 컷 3점 차이"
+  }
+ },
+ {
+  "id": 2924,
+  "gradeYear": 2020,
+  "type": "oct",
+  "studentGrade": 3,
+  "subject": "직업탐구",
+  "subSubject": "회계 원리",
+  "rejected": {
+   "ebsi": "표준점수 컷 4점 차이"
+  }
+ },
+ {
+  "id": 2966,
+  "gradeYear": 2020,
+  "type": "apr",
+  "studentGrade": 3,
+  "subject": "사회탐구",
+  "subSubject": "정치와법",
+  "rejected": {
+   "ebsi": "표준점수 컷 2점 차이",
+   "megastudy": "표준점수 컷 2점 차이",
+   "jongro": "표준점수 컷 2점 차이"
+  }
+ },
+ {
+  "id": 2973,
+  "gradeYear": 2020,
+  "type": "mar",
+  "studentGrade": 2,
+  "subject": "과학탐구",
+  "subSubject": "물리Ⅰ",
+  "rejected": {
+   "ebsi": "표준점수 컷 3점 차이"
+  }
+ },
+ {
+  "id": 2975,
+  "gradeYear": 2020,
+  "type": "mar",
+  "studentGrade": 2,
+  "subject": "과학탐구",
+  "subSubject": "생명과학Ⅰ",
+  "rejected": {
+   "ebsi": "표준점수 컷 2점 차이"
+  }
+ },
+ {
+  "id": 2977,
+  "gradeYear": 2020,
+  "type": "mar",
+  "studentGrade": 2,
+  "subject": "과학탐구",
+  "subSubject": "지구과학Ⅰ",
+  "rejected": {
+   "ebsi": "표준점수 컷 5점 차이"
+  }
+ },
+ {
+  "id": 2981,
+  "gradeYear": 2020,
+  "type": "mar",
+  "studentGrade": 1,
+  "subject": "국어",
+  "subSubject": null,
+  "rejected": {
+   "ebsi": "표준점수 컷 2점 차이"
+  }
+ },
+ {
+  "id": 2985,
+  "gradeYear": 2020,
+  "type": "mar",
+  "studentGrade": 2,
+  "subject": "사회탐구",
+  "subSubject": "경제",
+  "rejected": {
+   "ebsi": "표준점수 컷 4점 차이"
+  }
+ },
+ {
+  "id": 2987,
+  "gradeYear": 2020,
+  "type": "mar",
+  "studentGrade": 2,
+  "subject": "사회탐구",
+  "subSubject": "동아시아사",
+  "rejected": {
+   "ebsi": "표준점수 컷 2점 차이"
+  }
+ },
+ {
+  "id": 2989,
+  "gradeYear": 2020,
+  "type": "mar",
+  "studentGrade": 2,
+  "subject": "사회탐구",
+  "subSubject": "법과정치",
+  "rejected": {
+   "ebsi": "표준점수 컷 2점 차이"
+  }
+ },
+ {
+  "id": 2993,
+  "gradeYear": 2020,
+  "type": "mar",
+  "studentGrade": 2,
+  "subject": "사회탐구",
+  "subSubject": "생활과윤리",
+  "rejected": {
+   "ebsi": "표준점수 컷 2점 차이"
+  }
+ },
+ {
+  "id": 2995,
+  "gradeYear": 2020,
+  "type": "mar",
+  "studentGrade": 2,
+  "subject": "사회탐구",
+  "subSubject": "세계사",
+  "rejected": {
+   "ebsi": "표준점수 컷 3점 차이"
+  }
+ },
+ {
+  "id": 2999,
+  "gradeYear": 2020,
+  "type": "mar",
+  "studentGrade": 2,
+  "subject": "사회탐구",
+  "subSubject": "윤리와사상",
+  "rejected": {
+   "ebsi": "표준점수 컷 4점 차이"
+  }
+ },
+ {
+  "id": 3001,
+  "gradeYear": 2020,
+  "type": "mar",
+  "studentGrade": 3,
+  "subject": "사회탐구",
+  "subSubject": "정치와법",
+  "rejected": {
+   "ebsi": "표준점수 컷 4점 차이",
+   "megastudy": "표준점수 컷 4점 차이",
+   "jongro": "표준점수 컷 4점 차이"
+  }
+ },
+ {
+  "id": 3002,
+  "gradeYear": 2020,
+  "type": "mar",
+  "studentGrade": 2,
+  "subject": "사회탐구",
+  "subSubject": "한국지리",
+  "rejected": {
+   "ebsi": "표준점수 컷 2점 차이"
+  }
+ },
+ {
+  "id": 3287,
+  "gradeYear": 2019,
+  "type": "oct",
+  "studentGrade": 3,
+  "subject": "사회탐구",
+  "subSubject": "정치와법",
+  "rejected": {
+   "ebsi": "표준점수 컷 4점 차이",
+   "megastudy": "표준점수 컷 4점 차이",
+   "jongro": "표준점수 컷 4점 차이"
+  }
+ },
+ {
+  "id": 3313,
+  "gradeYear": 2019,
+  "type": "oct",
+  "studentGrade": 3,
+  "subject": "직업탐구",
+  "subSubject": "회계 원리",
+  "rejected": {
+   "ebsi": "표준점수 컷 4점 차이"
+  }
+ },
+ {
+  "id": 3355,
+  "gradeYear": 2019,
+  "type": "apr",
+  "studentGrade": 3,
+  "subject": "사회탐구",
+  "subSubject": "정치와법",
+  "rejected": {
+   "ebsi": "표준점수 컷 2점 차이",
+   "megastudy": "표준점수 컷 2점 차이",
+   "jongro": "표준점수 컷 2점 차이"
+  }
+ },
+ {
+  "id": 3362,
+  "gradeYear": 2019,
+  "type": "mar",
+  "studentGrade": 2,
+  "subject": "과학탐구",
+  "subSubject": "물리Ⅰ",
+  "rejected": {
+   "ebsi": "표준점수 컷 2점 차이",
+   "megastudy": "표준점수 컷 2점 차이"
+  }
+ },
+ {
+  "id": 3364,
+  "gradeYear": 2019,
+  "type": "mar",
+  "studentGrade": 3,
+  "subject": "과학탐구",
+  "subSubject": "물리학Ⅰ",
+  "rejected": {
+   "ebsi": "표준점수 컷 5점 차이",
+   "megastudy": "표준점수 컷 5점 차이"
+  }
+ },
+ {
+  "id": 3365,
+  "gradeYear": 2019,
+  "type": "mar",
+  "studentGrade": 2,
+  "subject": "과학탐구",
+  "subSubject": "생명과학Ⅰ",
+  "rejected": {
+   "ebsi": "표준점수 컷 3점 차이",
+   "megastudy": "표준점수 컷 3점 차이"
+  }
+ },
+ {
+  "id": 3367,
+  "gradeYear": 2019,
+  "type": "mar",
+  "studentGrade": 2,
+  "subject": "과학탐구",
+  "subSubject": "지구과학Ⅰ",
+  "rejected": {
+   "ebsi": "표준점수 컷 4점 차이",
+   "megastudy": "표준점수 컷 4점 차이"
+  }
+ },
+ {
+  "id": 3369,
+  "gradeYear": 2019,
+  "type": "mar",
+  "studentGrade": 2,
+  "subject": "과학탐구",
+  "subSubject": "화학Ⅰ",
+  "rejected": {
+   "ebsi": "표준점수 컷 3점 차이",
+   "megastudy": "표준점수 컷 3점 차이"
+  }
+ },
+ {
+  "id": 3371,
+  "gradeYear": 2019,
+  "type": "mar",
+  "studentGrade": 1,
+  "subject": "국어",
+  "subSubject": null,
+  "rejected": {
+   "ebsi": "표준점수 컷 2점 차이",
+   "megastudy": "표준점수 컷 2점 차이",
+   "jongro": "표준점수 컷 2점 차이"
+  }
+ },
+ {
+  "id": 3375,
+  "gradeYear": 2019,
+  "type": "mar",
+  "studentGrade": 2,
+  "subject": "사회탐구",
+  "subSubject": "경제",
+  "rejected": {
+   "ebsi": "표준점수 컷 5점 차이",
+   "megastudy": "표준점수 컷 5점 차이",
+   "jongro": "표준점수 컷 5점 차이"
+  }
+ },
+ {
+  "id": 3377,
+  "gradeYear": 2019,
+  "type": "mar",
+  "studentGrade": 2,
+  "subject": "사회탐구",
+  "subSubject": "동아시아사",
+  "rejected": {
+   "ebsi": "표준점수 컷 2점 차이",
+   "megastudy": "표준점수 컷 2점 차이",
+   "jongro": "표준점수 컷 2점 차이"
+  }
+ },
+ {
+  "id": 3379,
+  "gradeYear": 2019,
+  "type": "mar",
+  "studentGrade": 2,
+  "subject": "사회탐구",
+  "subSubject": "법과정치",
+  "rejected": {
+   "ebsi": "표준점수 컷 2점 차이",
+   "megastudy": "표준점수 컷 2점 차이",
+   "jongro": "표준점수 컷 2점 차이"
+  }
+ },
+ {
+  "id": 3381,
+  "gradeYear": 2019,
+  "type": "mar",
+  "studentGrade": 2,
+  "subject": "사회탐구",
+  "subSubject": "사회·문화",
+  "rejected": {
+   "ebsi": "표준점수 컷 3점 차이",
+   "megastudy": "표준점수 컷 3점 차이",
+   "jongro": "표준점수 컷 3점 차이"
+  }
+ },
+ {
+  "id": 3383,
+  "gradeYear": 2019,
+  "type": "mar",
+  "studentGrade": 2,
+  "subject": "사회탐구",
+  "subSubject": "생활과윤리",
+  "rejected": {
+   "ebsi": "표준점수 컷 4점 차이",
+   "megastudy": "표준점수 컷 4점 차이",
+   "jongro": "표준점수 컷 4점 차이"
+  }
+ },
+ {
+  "id": 3385,
+  "gradeYear": 2019,
+  "type": "mar",
+  "studentGrade": 2,
+  "subject": "사회탐구",
+  "subSubject": "세계사",
+  "rejected": {
+   "ebsi": "표준점수 컷 4점 차이",
+   "megastudy": "표준점수 컷 4점 차이",
+   "jongro": "표준점수 컷 4점 차이"
+  }
+ },
+ {
+  "id": 3387,
+  "gradeYear": 2019,
+  "type": "mar",
+  "studentGrade": 2,
+  "subject": "사회탐구",
+  "subSubject": "세계지리",
+  "rejected": {
+   "ebsi": "표준점수 컷 2점 차이",
+   "megastudy": "표준점수 컷 2점 차이",
+   "jongro": "표준점수 컷 2점 차이"
+  }
+ },
+ {
+  "id": 3389,
+  "gradeYear": 2019,
+  "type": "mar",
+  "studentGrade": 2,
+  "subject": "사회탐구",
+  "subSubject": "윤리와사상",
+  "rejected": {
+   "ebsi": "표준점수 컷 3점 차이",
+   "megastudy": "표준점수 컷 3점 차이",
+   "jongro": "표준점수 컷 3점 차이"
+  }
+ },
+ {
+  "id": 3391,
+  "gradeYear": 2019,
+  "type": "mar",
+  "studentGrade": 3,
+  "subject": "사회탐구",
+  "subSubject": "정치와법",
+  "rejected": {
+   "ebsi": "표준점수 컷 3점 차이",
+   "megastudy": "표준점수 컷 3점 차이",
+   "jongro": "표준점수 컷 3점 차이"
+  }
+ },
+ {
+  "id": 3392,
+  "gradeYear": 2019,
+  "type": "mar",
+  "studentGrade": 2,
+  "subject": "사회탐구",
+  "subSubject": "한국지리",
+  "rejected": {
+   "ebsi": "표준점수 컷 2점 차이",
+   "megastudy": "표준점수 컷 2점 차이",
+   "jongro": "표준점수 컷 2점 차이"
+  }
+ },
+ {
+  "id": 3395,
+  "gradeYear": 2019,
+  "type": "mar",
+  "studentGrade": 2,
+  "subject": "수학",
+  "subSubject": "가형",
+  "rejected": {
+   "ebsi": "표준점수 컷 5점 차이"
+  }
+ },
+ {
+  "id": 3556,
+  "gradeYear": 2018,
+  "type": "csat",
+  "studentGrade": null,
+  "subject": "직업탐구",
+  "subSubject": "해양의 이해",
+  "rejected": {
+   "ebsi": "표준점수 컷 4점 차이"
+  }
+ },
+ {
+  "id": 3581,
+  "gradeYear": 2018,
+  "type": "sept",
+  "studentGrade": null,
+  "subject": "제2외국어",
+  "subSubject": "독일어",
+  "rejected": {
+   "jongro": "표준점수 컷 3점 차이"
+  }
+ },
+ {
+  "id": 3583,
+  "gradeYear": 2018,
+  "type": "sept",
+  "studentGrade": null,
+  "subject": "제2외국어",
+  "subSubject": "러시아어",
+  "rejected": {
+   "jongro": "표준점수 컷 8점 차이"
+  }
+ },
+ {
+  "id": 3585,
+  "gradeYear": 2018,
+  "type": "sept",
+  "studentGrade": null,
+  "subject": "제2외국어",
+  "subSubject": "베트남어",
+  "rejected": {
+   "jongro": "표준점수 컷 3점 차이"
+  }
+ },
+ {
+  "id": 3587,
+  "gradeYear": 2018,
+  "type": "sept",
+  "studentGrade": null,
+  "subject": "제2외국어",
+  "subSubject": "스페인어",
+  "rejected": {
+   "jongro": "표준점수 컷 3점 차이"
+  }
+ },
+ {
+  "id": 3589,
+  "gradeYear": 2018,
+  "type": "sept",
+  "studentGrade": null,
+  "subject": "제2외국어",
+  "subSubject": "아랍어",
+  "rejected": {
+   "jongro": "표준점수 컷 4점 차이"
+  }
+ },
+ {
+  "id": 3591,
+  "gradeYear": 2018,
+  "type": "sept",
+  "studentGrade": null,
+  "subject": "제2외국어",
+  "subSubject": "일본어",
+  "rejected": {
+   "jongro": "표준점수 컷 2점 차이"
+  }
+ },
+ {
+  "id": 3595,
+  "gradeYear": 2018,
+  "type": "sept",
+  "studentGrade": null,
+  "subject": "제2외국어",
+  "subSubject": "프랑스어",
+  "rejected": {
+   "jongro": "표준점수 컷 6점 차이"
+  }
+ },
+ {
+  "id": 3694,
+  "gradeYear": 2018,
+  "type": "oct",
+  "studentGrade": 3,
+  "subject": "직업탐구",
+  "subSubject": "기초 제도",
+  "rejected": {
+   "ebsi": "표준점수 컷 2점 차이"
+  }
+ },
+ {
+  "id": 3742,
+  "gradeYear": 2018,
+  "type": "apr",
+  "studentGrade": 3,
+  "subject": "사회탐구",
+  "subSubject": "정치와법",
+  "rejected": {
+   "ebsi": "표준점수 컷 2점 차이",
+   "megastudy": "표준점수 컷 2점 차이",
+   "jongro": "표준점수 컷 2점 차이"
+  }
+ },
+ {
+  "id": 3755,
+  "gradeYear": 2018,
+  "type": "mar",
+  "studentGrade": 2,
+  "subject": "과학탐구",
+  "subSubject": "화학Ⅰ",
+  "rejected": {
+   "ebsi": "표준점수 컷 3점 차이",
+   "megastudy": "표준점수 컷 3점 차이"
+  }
+ },
+ {
+  "id": 3757,
+  "gradeYear": 2018,
+  "type": "mar",
+  "studentGrade": 1,
+  "subject": "국어",
+  "subSubject": null,
+  "rejected": {
+   "ebsi": "표준점수 컷 2점 차이",
+   "megastudy": "표준점수 컷 2점 차이",
+   "jongro": "표준점수 컷 2점 차이"
+  }
+ },
+ {
+  "id": 3758,
+  "gradeYear": 2018,
+  "type": "mar",
+  "studentGrade": 2,
+  "subject": "국어",
+  "subSubject": null,
+  "rejected": {
+   "ebsi": "표준점수 컷 2점 차이",
+   "megastudy": "표준점수 컷 2점 차이"
+  }
+ },
+ {
+  "id": 3767,
+  "gradeYear": 2018,
+  "type": "mar",
+  "studentGrade": 2,
+  "subject": "사회탐구",
+  "subSubject": "사회·문화",
+  "rejected": {
+   "ebsi": "표준점수 컷 2점 차이",
+   "megastudy": "표준점수 컷 2점 차이",
+   "jongro": "표준점수 컷 2점 차이"
+  }
+ },
+ {
+  "id": 3769,
+  "gradeYear": 2018,
+  "type": "mar",
+  "studentGrade": 2,
+  "subject": "사회탐구",
+  "subSubject": "생활과윤리",
+  "rejected": {
+   "ebsi": "표준점수 컷 2점 차이",
+   "megastudy": "표준점수 컷 2점 차이",
+   "jongro": "표준점수 컷 2점 차이"
+  }
+ },
+ {
+  "id": 3775,
+  "gradeYear": 2018,
+  "type": "mar",
+  "studentGrade": 2,
+  "subject": "사회탐구",
+  "subSubject": "윤리와사상",
+  "rejected": {
+   "ebsi": "표준점수 컷 3점 차이",
+   "megastudy": "표준점수 컷 3점 차이",
+   "jongro": "표준점수 컷 3점 차이"
+  }
+ },
+ {
+  "id": 3777,
+  "gradeYear": 2018,
+  "type": "mar",
+  "studentGrade": 3,
+  "subject": "사회탐구",
+  "subSubject": "정치와법",
+  "rejected": {
+   "ebsi": "표준점수 컷 2점 차이",
+   "megastudy": "표준점수 컷 2점 차이",
+   "jongro": "표준점수 컷 2점 차이"
+  }
+ },
+ {
+  "id": 3778,
+  "gradeYear": 2018,
+  "type": "mar",
+  "studentGrade": 2,
+  "subject": "사회탐구",
+  "subSubject": "한국지리",
+  "rejected": {
+   "ebsi": "표준점수 컷 3점 차이",
+   "megastudy": "표준점수 컷 3점 차이",
+   "jongro": "표준점수 컷 3점 차이"
+  }
+ },
+ {
+  "id": 3781,
+  "gradeYear": 2018,
+  "type": "mar",
+  "studentGrade": 2,
+  "subject": "수학",
+  "subSubject": "가형",
+  "rejected": {
+   "ebsi": "표준점수 컷 5점 차이"
+  }
+ },
+ {
+  "id": 3783,
+  "gradeYear": 2018,
+  "type": "mar",
+  "studentGrade": 2,
+  "subject": "수학",
+  "subSubject": "나형",
+  "rejected": {
+   "ebsi": "표준점수 컷 2점 차이"
+  }
+ },
+ {
+  "id": 4061,
+  "gradeYear": 2017,
+  "type": "oct",
+  "studentGrade": 3,
+  "subject": "수학",
+  "subSubject": "A형",
+  "rejected": {
+   "jongro": "표준점수 컷 12점 차이"
+  }
+ },
+ {
+  "id": 4062,
+  "gradeYear": 2017,
+  "type": "oct",
+  "studentGrade": 3,
+  "subject": "수학",
+  "subSubject": "B형",
+  "rejected": {
+   "jongro": "표준점수 컷 13점 차이"
+  }
+ },
+ {
+  "id": 4112,
+  "gradeYear": 2017,
+  "type": "jul",
+  "studentGrade": 3,
+  "subject": "수학",
+  "subSubject": "A형",
+  "rejected": {
+   "jongro": "표준점수 컷 14점 차이"
+  }
+ },
+ {
+  "id": 4113,
+  "gradeYear": 2017,
+  "type": "jul",
+  "studentGrade": 3,
+  "subject": "수학",
+  "subSubject": "B형",
+  "rejected": {
+   "jongro": "표준점수 컷 10점 차이"
+  }
+ },
+ {
+  "id": 4137,
+  "gradeYear": 2017,
+  "type": "apr",
+  "studentGrade": 3,
+  "subject": "사회탐구",
+  "subSubject": "정치와법",
+  "rejected": {
+   "ebsi": "표준점수 컷 2점 차이",
+   "megastudy": "표준점수 컷 2점 차이",
+   "jongro": "표준점수 컷 2점 차이"
+  }
+ },
+ {
+  "id": 4139,
+  "gradeYear": 2017,
+  "type": "apr",
+  "studentGrade": 3,
+  "subject": "수학",
+  "subSubject": "A형",
+  "rejected": {
+   "jongro": "표준점수 컷 10점 차이"
+  }
+ },
+ {
+  "id": 4140,
+  "gradeYear": 2017,
+  "type": "apr",
+  "studentGrade": 3,
+  "subject": "수학",
+  "subSubject": "B형",
+  "rejected": {
+   "jongro": "표준점수 컷 4점 차이"
+  }
+ },
+ {
+  "id": 4150,
+  "gradeYear": 2017,
+  "type": "mar",
+  "studentGrade": 2,
+  "subject": "과학탐구",
+  "subSubject": "지구과학Ⅰ",
+  "rejected": {
+   "ebsi": "표준점수 컷 2점 차이",
+   "megastudy": "표준점수 컷 2점 차이"
+  }
+ },
+ {
+  "id": 4154,
+  "gradeYear": 2017,
+  "type": "mar",
+  "studentGrade": 1,
+  "subject": "국어",
+  "subSubject": null,
+  "rejected": {
+   "ebsi": "표준점수 컷 2점 차이",
+   "megastudy": "표준점수 컷 2점 차이",
+   "jongro": "표준점수 컷 2점 차이"
+  }
+ },
+ {
+  "id": 4155,
+  "gradeYear": 2017,
+  "type": "mar",
+  "studentGrade": 2,
+  "subject": "국어",
+  "subSubject": null,
+  "rejected": {
+   "ebsi": "표준점수 컷 6점 차이",
+   "megastudy": "표준점수 컷 6점 차이"
+  }
+ },
+ {
+  "id": 4172,
+  "gradeYear": 2017,
+  "type": "mar",
+  "studentGrade": 2,
+  "subject": "사회탐구",
+  "subSubject": "세계지리",
+  "rejected": {
+   "ebsi": "표준점수 컷 4점 차이",
+   "megastudy": "표준점수 컷 3점 차이",
+   "jongro": "표준점수 컷 4점 차이"
+  }
+ },
+ {
+  "id": 4174,
+  "gradeYear": 2017,
+  "type": "mar",
+  "studentGrade": 2,
+  "subject": "사회탐구",
+  "subSubject": "윤리와사상",
+  "rejected": {
+   "ebsi": "표준점수 컷 2점 차이",
+   "megastudy": "표준점수 컷 2점 차이",
+   "jongro": "표준점수 컷 2점 차이"
+  }
+ },
+ {
+  "id": 4176,
+  "gradeYear": 2017,
+  "type": "mar",
+  "studentGrade": 3,
+  "subject": "사회탐구",
+  "subSubject": "정치와법",
+  "rejected": {
+   "ebsi": "표준점수 컷 3점 차이",
+   "megastudy": "표준점수 컷 3점 차이",
+   "etoos": "표준점수 컷 3점 차이",
+   "jongro": "표준점수 컷 3점 차이"
+  }
+ },
+ {
+  "id": 4177,
+  "gradeYear": 2017,
+  "type": "mar",
+  "studentGrade": 2,
+  "subject": "사회탐구",
+  "subSubject": "한국지리",
+  "rejected": {
+   "ebsi": "표준점수 컷 2점 차이",
+   "megastudy": "표준점수 컷 2점 차이",
+   "jongro": "표준점수 컷 2점 차이"
+  }
+ },
+ {
+  "id": 4180,
+  "gradeYear": 2017,
+  "type": "mar",
+  "studentGrade": 3,
+  "subject": "수학",
+  "subSubject": "A형",
+  "rejected": {
+   "jongro": "표준점수 컷 4점 차이"
+  }
+ },
+ {
+  "id": 4181,
+  "gradeYear": 2017,
+  "type": "mar",
+  "studentGrade": 3,
+  "subject": "수학",
+  "subSubject": "B형",
+  "rejected": {
+   "jongro": "표준점수 컷 5점 차이"
+  }
+ },
+ {
+  "id": 4182,
+  "gradeYear": 2017,
+  "type": "mar",
+  "studentGrade": 2,
+  "subject": "수학",
+  "subSubject": "가형",
+  "rejected": {
+   "ebsi": "표준점수 컷 2점 차이"
+  }
+ },
+ {
+  "id": 4184,
+  "gradeYear": 2017,
+  "type": "mar",
+  "studentGrade": 2,
+  "subject": "수학",
+  "subSubject": "나형",
+  "rejected": {
+   "ebsi": "표준점수 컷 3점 차이"
+  }
+ },
+ {
+  "id": 4230,
+  "gradeYear": 2017,
+  "type": "sep",
+  "studentGrade": 1,
+  "subject": "사회탐구",
+  "subSubject": "생활과윤리",
+  "rejected": {
+   "megastudy": "표준점수 컷 2점 차이"
+  }
+ },
+ {
+  "id": 4232,
+  "gradeYear": 2017,
+  "type": "jun",
+  "studentGrade": 1,
+  "subject": "사회탐구",
+  "subSubject": "생활과윤리",
+  "rejected": {
+   "megastudy": "표준점수 컷 5점 차이"
+  }
+ },
+ {
+  "id": 4321,
+  "gradeYear": 2016,
+  "type": "csat",
+  "studentGrade": null,
+  "subject": "제2외국어",
+  "subSubject": "아랍어",
+  "rejected": {
+   "jongro": "표준점수 컷 2점 차이"
+  }
+ },
+ {
+  "id": 4457,
+  "gradeYear": 2016,
+  "type": "oct",
+  "studentGrade": 3,
+  "subject": "직업탐구",
+  "subSubject": "가사·실업",
+  "rejected": {
+   "ebsi": "표준점수 컷 6점 차이"
+  }
+ },
+ {
+  "id": 4458,
+  "gradeYear": 2016,
+  "type": "oct",
+  "studentGrade": 3,
+  "subject": "직업탐구",
+  "subSubject": "상업 정보",
+  "rejected": {
+   "ebsi": "표준점수 컷 2점 차이"
+  }
+ },
+ {
+  "id": 4521,
+  "gradeYear": 2016,
+  "type": "mar",
+  "studentGrade": 2,
+  "subject": "과학탐구",
+  "subSubject": "지구과학Ⅰ",
+  "rejected": {
+   "ebsi": "표준점수 컷 2점 차이",
+   "megastudy": "표준점수 컷 2점 차이"
+  }
+ },
+ {
+  "id": 4532,
+  "gradeYear": 2016,
+  "type": "mar",
+  "studentGrade": 2,
+  "subject": "사회탐구",
+  "subSubject": "경제",
+  "rejected": {
+   "ebsi": "표준점수 컷 2점 차이",
+   "megastudy": "표준점수 컷 2점 차이",
+   "jongro": "표준점수 컷 2점 차이"
+  }
+ },
+ {
+  "id": 4534,
+  "gradeYear": 2016,
+  "type": "mar",
+  "studentGrade": 2,
+  "subject": "사회탐구",
+  "subSubject": "동아시아사",
+  "rejected": {
+   "ebsi": "표준점수 컷 3점 차이",
+   "megastudy": "표준점수 컷 3점 차이",
+   "jongro": "표준점수 컷 3점 차이"
+  }
+ },
+ {
+  "id": 4536,
+  "gradeYear": 2016,
+  "type": "mar",
+  "studentGrade": 2,
+  "subject": "사회탐구",
+  "subSubject": "법과정치",
+  "rejected": {
+   "ebsi": "표준점수 컷 3점 차이",
+   "megastudy": "표준점수 컷 3점 차이",
+   "jongro": "표준점수 컷 3점 차이"
+  }
+ },
+ {
+  "id": 4540,
+  "gradeYear": 2016,
+  "type": "mar",
+  "studentGrade": 2,
+  "subject": "사회탐구",
+  "subSubject": "생활과윤리",
+  "rejected": {
+   "ebsi": "표준점수 컷 2점 차이",
+   "megastudy": "표준점수 컷 2점 차이",
+   "jongro": "표준점수 컷 2점 차이"
+  }
+ },
+ {
+  "id": 4542,
+  "gradeYear": 2016,
+  "type": "mar",
+  "studentGrade": 2,
+  "subject": "사회탐구",
+  "subSubject": "세계사",
+  "rejected": {
+   "ebsi": "표준점수 컷 4점 차이",
+   "megastudy": "표준점수 컷 4점 차이",
+   "jongro": "표준점수 컷 4점 차이"
+  }
+ },
+ {
+  "id": 4544,
+  "gradeYear": 2016,
+  "type": "mar",
+  "studentGrade": 2,
+  "subject": "사회탐구",
+  "subSubject": "세계지리",
+  "rejected": {
+   "ebsi": "표준점수 컷 5점 차이",
+   "megastudy": "표준점수 컷 5점 차이",
+   "jongro": "표준점수 컷 5점 차이"
+  }
+ },
+ {
+  "id": 4546,
+  "gradeYear": 2016,
+  "type": "mar",
+  "studentGrade": 2,
+  "subject": "사회탐구",
+  "subSubject": "윤리와사상",
+  "rejected": {
+   "ebsi": "표준점수 컷 2점 차이",
+   "megastudy": "표준점수 컷 2점 차이",
+   "jongro": "표준점수 컷 2점 차이"
+  }
+ },
+ {
+  "id": 4548,
+  "gradeYear": 2016,
+  "type": "mar",
+  "studentGrade": 3,
+  "subject": "사회탐구",
+  "subSubject": "정치와법",
+  "rejected": {
+   "ebsi": "표준점수 컷 2점 차이"
+  }
+ },
+ {
+  "id": 4556,
+  "gradeYear": 2016,
+  "type": "mar",
+  "studentGrade": 2,
+  "subject": "수학",
+  "subSubject": "나형",
+  "rejected": {
+   "ebsi": "표준점수 컷 2점 차이"
+  }
+ },
+ {
+  "id": 4566,
+  "gradeYear": 2016,
+  "type": "jun",
+  "studentGrade": 1,
+  "subject": "과학탐구",
+  "subSubject": null,
+  "rejected": {
+   "jongro": "표준점수 컷 4점 차이"
+  }
+ },
+ {
+  "id": 4600,
+  "gradeYear": 2016,
+  "type": "nov",
+  "studentGrade": 1,
+  "subject": "사회탐구",
+  "subSubject": "생활과윤리",
+  "rejected": {
+   "megastudy": "표준점수 컷 2점 차이"
+  }
+ },
+ {
+  "id": 4602,
+  "gradeYear": 2016,
+  "type": "sep",
+  "studentGrade": 1,
+  "subject": "사회탐구",
+  "subSubject": "생활과윤리",
+  "rejected": {
+   "megastudy": "표준점수 컷 3점 차이"
+  }
+ },
+ {
+  "id": 4829,
+  "gradeYear": 2015,
+  "type": "oct",
+  "studentGrade": 3,
+  "subject": "직업탐구",
+  "subSubject": "가사·실업",
+  "rejected": {
+   "ebsi": "표준점수 컷 12점 차이"
+  }
+ },
+ {
+  "id": 4830,
+  "gradeYear": 2015,
+  "type": "oct",
+  "studentGrade": 3,
+  "subject": "직업탐구",
+  "subSubject": "상업 정보",
+  "rejected": {
+   "ebsi": "표준점수 컷 3점 차이"
+  }
+ },
+ {
+  "id": 4882,
+  "gradeYear": 2015,
+  "type": "apr",
+  "studentGrade": 3,
+  "subject": "사회탐구",
+  "subSubject": "정치와법",
+  "rejected": {
+   "ebsi": "표준점수 컷 4점 차이"
+  }
+ },
+ {
+  "id": 4897,
+  "gradeYear": 2015,
+  "type": "mar",
+  "studentGrade": 2,
+  "subject": "과학탐구",
+  "subSubject": "지구과학Ⅰ",
+  "rejected": {
+   "ebsi": "표준점수 컷 2점 차이"
+  }
+ },
+ {
+  "id": 4908,
+  "gradeYear": 2015,
+  "type": "mar",
+  "studentGrade": 2,
+  "subject": "사회탐구",
+  "subSubject": "경제",
+  "rejected": {
+   "ebsi": "표준점수 컷 2점 차이"
+  }
+ },
+ {
+  "id": 4910,
+  "gradeYear": 2015,
+  "type": "mar",
+  "studentGrade": 2,
+  "subject": "사회탐구",
+  "subSubject": "동아시아사",
+  "rejected": {
+   "ebsi": "표준점수 컷 5점 차이"
+  }
+ },
+ {
+  "id": 4912,
+  "gradeYear": 2015,
+  "type": "mar",
+  "studentGrade": 2,
+  "subject": "사회탐구",
+  "subSubject": "법과정치",
+  "rejected": {
+   "ebsi": "표준점수 컷 6점 차이"
+  }
+ },
+ {
+  "id": 4914,
+  "gradeYear": 2015,
+  "type": "mar",
+  "studentGrade": 2,
+  "subject": "사회탐구",
+  "subSubject": "사회·문화",
+  "rejected": {
+   "ebsi": "표준점수 컷 5점 차이"
+  }
+ },
+ {
+  "id": 4916,
+  "gradeYear": 2015,
+  "type": "mar",
+  "studentGrade": 2,
+  "subject": "사회탐구",
+  "subSubject": "생활과윤리",
+  "rejected": {
+   "ebsi": "표준점수 컷 2점 차이"
+  }
+ },
+ {
+  "id": 4920,
+  "gradeYear": 2015,
+  "type": "mar",
+  "studentGrade": 2,
+  "subject": "사회탐구",
+  "subSubject": "세계지리",
+  "rejected": {
+   "ebsi": "표준점수 컷 2점 차이"
+  }
+ },
+ {
+  "id": 4924,
+  "gradeYear": 2015,
+  "type": "mar",
+  "studentGrade": 3,
+  "subject": "사회탐구",
+  "subSubject": "정치와법",
+  "rejected": {
+   "ebsi": "표준점수 컷 6점 차이"
+  }
+ },
+ {
+  "id": 4925,
+  "gradeYear": 2015,
+  "type": "mar",
+  "studentGrade": 2,
+  "subject": "사회탐구",
+  "subSubject": "한국지리",
+  "rejected": {
+   "ebsi": "표준점수 컷 3점 차이"
+  }
+ },
+ {
+  "id": 4930,
+  "gradeYear": 2015,
+  "type": "mar",
+  "studentGrade": 2,
+  "subject": "수학",
+  "subSubject": "가형",
+  "rejected": {
+   "ebsi": "표준점수 컷 4점 차이"
+  }
+ },
+ {
+  "id": 4932,
+  "gradeYear": 2015,
+  "type": "mar",
+  "studentGrade": 2,
+  "subject": "수학",
+  "subSubject": "나형",
+  "rejected": {
+   "ebsi": "표준점수 컷 3점 차이"
+  }
+ },
+ {
+  "id": 4934,
+  "gradeYear": 2015,
+  "type": "mar",
+  "studentGrade": 1,
+  "subject": "영어",
+  "subSubject": null,
+  "rejected": {
+   "ebsi": "표준점수 컷 80점 차이"
+  }
+ },
+ {
+  "id": 4935,
+  "gradeYear": 2015,
+  "type": "mar",
+  "studentGrade": 2,
+  "subject": "영어",
+  "subSubject": null,
+  "rejected": {
+   "ebsi": "표준점수 컷 2점 차이"
+  }
+ },
+ {
+  "id": 4939,
+  "gradeYear": 2015,
+  "type": "mar",
+  "studentGrade": 1,
+  "subject": "한국사",
+  "subSubject": null,
+  "rejected": {
+   "ebsi": "표준점수 컷 69점 차이"
+  }
+ },
+ {
+  "id": 4940,
+  "gradeYear": 2015,
+  "type": "mar",
+  "studentGrade": 2,
+  "subject": "한국사",
+  "subSubject": null,
+  "rejected": {
+   "ebsi": "표준점수 컷 69점 차이"
+  }
+ },
+ {
+  "id": 5169,
+  "gradeYear": 2014,
+  "type": "mar",
+  "studentGrade": 3,
+  "subject": "국어",
+  "subSubject": "B형",
+  "rejected": {
+   "ebsi": "표준점수 컷 2점 차이"
+  }
+ },
+ {
+  "id": 5173,
+  "gradeYear": 2014,
+  "type": "mar",
+  "studentGrade": 3,
+  "subject": "수학",
+  "subSubject": "B형",
+  "rejected": {
+   "ebsi": "표준점수 컷 2점 차이"
+  }
+ }
+]

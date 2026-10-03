@@ -409,6 +409,14 @@ async function validateGradecuts() {
           || c.rawCuts.some(v => !Number.isInteger(v)))) {
       invalidReverseCalculated++;
     }
+    // 입시기관 5곳 원점수 합의 (scripts/academy-cuts/apply_consensus.py)
+    if (c.rawCutBasis === 'academy_consensus'
+        && (!String(c.source || '').includes('academy-consensus')
+          || !Array.isArray(c.rawCutSources) || c.rawCutSources.length === 0
+          || !Array.isArray(c.rawCuts) || c.rawCuts.length !== 8
+          || c.rawCuts.some(v => typeof v !== 'number'))) {
+      invalidReverseCalculated++;
+    }
     if (c.rawCutBasis === 'academy_integerized_threshold'
         && (!String(c.source || '').includes('megastudy')
           || !Array.isArray(c.rawCuts)
