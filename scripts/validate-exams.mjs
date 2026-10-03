@@ -397,6 +397,15 @@ async function validateGradecuts() {
           || c.rawCuts.some(v => !Number.isInteger(v)))) {
       invalidReverseCalculated++;
     }
+    // 공개 원점수(위키백과)를 평가원 표준점수 도수분포로 검증 (scripts/official-dist-check/apply-wiki-rawcuts.py)
+    if (c.rawCutBasis === 'public_dist_verified'
+        && (!String(c.source || '').includes('wiki-dist-verified')
+          || !String(c.rawCutSourceUrl || '').startsWith('https://ko.wikipedia.org/')
+          || !Array.isArray(c.rawCuts)
+          || c.rawCuts.length !== 8
+          || c.rawCuts.some(v => !Number.isInteger(v)))) {
+      invalidReverseCalculated++;
+    }
     if (c.rawCutBasis === 'academy_integerized_threshold'
         && (!String(c.source || '').includes('megastudy')
           || !Array.isArray(c.rawCuts)

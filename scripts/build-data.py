@@ -1387,7 +1387,7 @@ def score_stats_html(sc: dict) -> str:
     cells = []
     basis = sc.get('basis')
     kind = ('역산값' if basis == 'academy_reverse_calculated' else '추정 경계' if basis == 'academy_integerized_threshold'
-            else '추정' if basis in ('academy_consensus_estimate', 'ebsi_estimate') else '')
+            else '추정' if basis in ('academy_consensus_estimate', 'ebsi_estimate', 'public_dist_verified') else '')
     if sc['abs']:
         cells.append(('1등급 기준', f'{esc(sc["raw"])}<small>점 이상</small>', False))
         if sc.get('ratio') is not None:
@@ -1442,7 +1442,8 @@ def grade_table_html(cut: dict, absolute: bool, ratios: list | None = None) -> s
     note = ('입시기관 역산값' if basis == 'academy_reverse_calculated' else
             '입시기관 추정 정수 경계' if basis == 'academy_integerized_threshold' else
             '공식 표준점수 컷 기준 입시기관 추정 종합' if basis == 'academy_consensus_estimate' else
-            '공식 표준점수 컷 기준 EBSi 원점수 추정' if basis == 'ebsi_estimate' else '')
+            '공식 표준점수 컷 기준 EBSi 원점수 추정' if basis == 'ebsi_estimate' else
+            '공개 원점수 추정 · 평가원 표준점수 분포로 검증' if basis == 'public_dist_verified' else '')
     legend = ' · '.join(x for x in ('등급별 컷', '절대평가' if absolute else '', note,
                                     f'만점 {cut.get("fullScore")}점' if cut.get('fullScore') else '') if x)
     head = ''.join(f'<th scope="col">{lbl}</th>' for lbl, _, _ in cols)

@@ -211192,7 +211192,20 @@
       37
     ],
     "id": 5279,
-    "fullScore": 50
+    "fullScore": 50,
+    "rawCuts": [
+      43,
+      41,
+      34,
+      24,
+      16,
+      12,
+      7,
+      6
+    ],
+    "rawCutBasis": "public_dist_verified",
+    "rawCutSourceUrl": "https://ko.wikipedia.org/wiki/연도별_대학수학능력시험의_등급_구분_점수",
+    "source": "wiki-dist-verified"
   },
   {
     "curriculum": "2007개정",
@@ -211214,7 +211227,20 @@
       37
     ],
     "id": 5280,
-    "fullScore": 50
+    "fullScore": 50,
+    "rawCuts": [
+      47,
+      41,
+      34,
+      20,
+      15,
+      11,
+      7,
+      5
+    ],
+    "rawCutBasis": "public_dist_verified",
+    "rawCutSourceUrl": "https://ko.wikipedia.org/wiki/연도별_대학수학능력시험의_등급_구분_점수",
+    "source": "wiki-dist-verified"
   },
   {
     "curriculum": "2007개정",
@@ -211236,7 +211262,20 @@
       35
     ],
     "id": 5281,
-    "fullScore": 50
+    "fullScore": 50,
+    "rawCuts": [
+      45,
+      41,
+      36,
+      29,
+      21,
+      16,
+      12,
+      9
+    ],
+    "rawCutBasis": "public_dist_verified",
+    "rawCutSourceUrl": "https://ko.wikipedia.org/wiki/연도별_대학수학능력시험의_등급_구분_점수",
+    "source": "wiki-dist-verified"
   },
   {
     "curriculum": "2007개정",
@@ -211258,7 +211297,20 @@
       36
     ],
     "id": 5282,
-    "fullScore": 50
+    "fullScore": 50,
+    "rawCuts": [
+      41,
+      37,
+      31,
+      22,
+      17,
+      12,
+      9,
+      6
+    ],
+    "rawCutBasis": "public_dist_verified",
+    "rawCutSourceUrl": "https://ko.wikipedia.org/wiki/연도별_대학수학능력시험의_등급_구분_점수",
+    "source": "wiki-dist-verified"
   },
   {
     "curriculum": "2007개정",
@@ -211280,7 +211332,20 @@
       34
     ],
     "id": 5283,
-    "fullScore": 50
+    "fullScore": 50,
+    "rawCuts": [
+      50,
+      48,
+      44,
+      36,
+      25,
+      18,
+      13,
+      9
+    ],
+    "rawCutBasis": "public_dist_verified",
+    "rawCutSourceUrl": "https://ko.wikipedia.org/wiki/연도별_대학수학능력시험의_등급_구분_점수",
+    "source": "wiki-dist-verified"
   },
   {
     "curriculum": "2007개정",
@@ -211302,7 +211367,20 @@
       36
     ],
     "id": 5284,
-    "fullScore": 50
+    "fullScore": 50,
+    "rawCuts": [
+      44,
+      40,
+      32,
+      24,
+      17,
+      14,
+      9,
+      7
+    ],
+    "rawCutBasis": "public_dist_verified",
+    "rawCutSourceUrl": "https://ko.wikipedia.org/wiki/연도별_대학수학능력시험의_등급_구분_점수",
+    "source": "wiki-dist-verified"
   },
   {
     "curriculum": "2007개정",
@@ -211324,7 +211402,20 @@
       34
     ],
     "id": 5285,
-    "fullScore": 50
+    "fullScore": 50,
+    "rawCuts": [
+      46,
+      44,
+      39,
+      33,
+      22,
+      15,
+      10,
+      6
+    ],
+    "rawCutBasis": "public_dist_verified",
+    "rawCutSourceUrl": "https://ko.wikipedia.org/wiki/연도별_대학수학능력시험의_등급_구분_점수",
+    "source": "wiki-dist-verified"
   },
   {
     "curriculum": "2007개정",
@@ -211346,7 +211437,20 @@
       35
     ],
     "id": 5286,
-    "fullScore": 50
+    "fullScore": 50,
+    "rawCuts": [
+      47,
+      44,
+      38,
+      29,
+      18,
+      11,
+      8,
+      4
+    ],
+    "rawCutBasis": "public_dist_verified",
+    "rawCutSourceUrl": "https://ko.wikipedia.org/wiki/연도별_대학수학능력시험의_등급_구분_점수",
+    "source": "wiki-dist-verified"
   },
   {
     "curriculum": "2007개정",
@@ -211368,7 +211472,20 @@
       57
     ],
     "id": 5287,
-    "fullScore": 100
+    "fullScore": 100,
+    "rawCuts": [
+      98,
+      95,
+      90,
+      83,
+      73,
+      60,
+      46,
+      32
+    ],
+    "rawCutBasis": "public_dist_verified",
+    "rawCutSourceUrl": "https://ko.wikipedia.org/wiki/연도별_대학수학능력시험의_등급_구분_점수",
+    "source": "wiki-dist-verified"
   },
   {
     "curriculum": "2007개정",
@@ -211390,7 +211507,20 @@
       35
     ],
     "id": 5288,
-    "fullScore": 50
+    "fullScore": 50,
+    "rawCuts": [
+      42,
+      36,
+      29,
+      22,
+      17,
+      13,
+      10,
+      6
+    ],
+    "rawCutBasis": "public_dist_verified",
+    "rawCutSourceUrl": "https://ko.wikipedia.org/wiki/연도별_대학수학능력시험의_등급_구분_점수",
+    "source": "wiki-dist-verified"
   },
   {
     "curriculum": "2007개정",
@@ -211412,7 +211542,20 @@
       33
     ],
     "id": 5289,
-    "fullScore": 50
+    "fullScore": 50,
+    "rawCuts": [
+      44,
+      40,
+      36,
+      30,
+      23,
+      17,
+      12,
+      8
+    ],
+    "rawCutBasis": "public_dist_verified",
+    "rawCutSourceUrl": "https://ko.wikipedia.org/wiki/연도별_대학수학능력시험의_등급_구분_점수",
+    "source": "wiki-dist-verified"
   },
   {
     "curriculum": "2007개정",
@@ -211434,7 +211577,20 @@
       37
     ],
     "id": 5290,
-    "fullScore": 50
+    "fullScore": 50,
+    "rawCuts": [
+      45,
+      40,
+      30,
+      21,
+      15,
+      11,
+      8,
+      5
+    ],
+    "rawCutBasis": "public_dist_verified",
+    "rawCutSourceUrl": "https://ko.wikipedia.org/wiki/연도별_대학수학능력시험의_등급_구분_점수",
+    "source": "wiki-dist-verified"
   },
   {
     "curriculum": "2007개정",
@@ -211456,7 +211612,20 @@
       36
     ],
     "id": 5291,
-    "fullScore": 50
+    "fullScore": 50,
+    "rawCuts": [
+      44,
+      40,
+      33,
+      24,
+      17,
+      13,
+      10,
+      6
+    ],
+    "rawCutBasis": "public_dist_verified",
+    "rawCutSourceUrl": "https://ko.wikipedia.org/wiki/연도별_대학수학능력시험의_등급_구분_점수",
+    "source": "wiki-dist-verified"
   },
   {
     "curriculum": "2007개정",
@@ -211478,7 +211647,20 @@
       34
     ],
     "id": 5292,
-    "fullScore": 50
+    "fullScore": 50,
+    "rawCuts": [
+      45,
+      40,
+      35,
+      28,
+      20,
+      15,
+      11,
+      7
+    ],
+    "rawCutBasis": "public_dist_verified",
+    "rawCutSourceUrl": "https://ko.wikipedia.org/wiki/연도별_대학수학능력시험의_등급_구분_점수",
+    "source": "wiki-dist-verified"
   },
   {
     "curriculum": "2007개정",
@@ -211500,7 +211682,20 @@
       38
     ],
     "id": 5293,
-    "fullScore": 50
+    "fullScore": 50,
+    "rawCuts": [
+      45,
+      40,
+      33,
+      22,
+      14,
+      9,
+      7,
+      5
+    ],
+    "rawCutBasis": "public_dist_verified",
+    "rawCutSourceUrl": "https://ko.wikipedia.org/wiki/연도별_대학수학능력시험의_등급_구분_점수",
+    "source": "wiki-dist-verified"
   },
   {
     "curriculum": "2007개정",
@@ -211522,7 +211717,20 @@
       35
     ],
     "id": 5294,
-    "fullScore": 50
+    "fullScore": 50,
+    "rawCuts": [
+      45,
+      42,
+      38,
+      31,
+      21,
+      15,
+      10,
+      7
+    ],
+    "rawCutBasis": "public_dist_verified",
+    "rawCutSourceUrl": "https://ko.wikipedia.org/wiki/연도별_대학수학능력시험의_등급_구분_점수",
+    "source": "wiki-dist-verified"
   },
   {
     "curriculum": "2007개정",
@@ -211544,7 +211752,20 @@
       37
     ],
     "id": 5295,
-    "fullScore": 50
+    "fullScore": 50,
+    "rawCuts": [
+      48,
+      44,
+      35,
+      24,
+      17,
+      13,
+      10,
+      7
+    ],
+    "rawCutBasis": "public_dist_verified",
+    "rawCutSourceUrl": "https://ko.wikipedia.org/wiki/연도별_대학수학능력시험의_등급_구분_점수",
+    "source": "wiki-dist-verified"
   },
   {
     "curriculum": "2007개정",
@@ -211566,7 +211787,20 @@
       34
     ],
     "id": 5296,
-    "fullScore": 50
+    "fullScore": 50,
+    "rawCuts": [
+      44,
+      40,
+      34,
+      27,
+      19,
+      13,
+      9,
+      5
+    ],
+    "rawCutBasis": "public_dist_verified",
+    "rawCutSourceUrl": "https://ko.wikipedia.org/wiki/연도별_대학수학능력시험의_등급_구분_점수",
+    "source": "wiki-dist-verified"
   },
   {
     "curriculum": "2007개정",
@@ -211588,7 +211822,20 @@
       36
     ],
     "id": 5297,
-    "fullScore": 50
+    "fullScore": 50,
+    "rawCuts": [
+      45,
+      41,
+      36,
+      28,
+      18,
+      13,
+      9,
+      7
+    ],
+    "rawCutBasis": "public_dist_verified",
+    "rawCutSourceUrl": "https://ko.wikipedia.org/wiki/연도별_대학수학능력시험의_등급_구분_점수",
+    "source": "wiki-dist-verified"
   },
   {
     "curriculum": "2007개정",
@@ -211610,7 +211857,20 @@
       34
     ],
     "id": 5298,
-    "fullScore": 50
+    "fullScore": 50,
+    "rawCuts": [
+      45,
+      41,
+      36,
+      30,
+      21,
+      16,
+      11,
+      8
+    ],
+    "rawCutBasis": "public_dist_verified",
+    "rawCutSourceUrl": "https://ko.wikipedia.org/wiki/연도별_대학수학능력시험의_등급_구분_점수",
+    "source": "wiki-dist-verified"
   },
   {
     "curriculum": "2007개정",
@@ -211632,7 +211892,20 @@
       63
     ],
     "id": 5299,
-    "fullScore": 100
+    "fullScore": 100,
+    "rawCuts": [
+      92,
+      83,
+      76,
+      65,
+      52,
+      38,
+      24,
+      15
+    ],
+    "rawCutBasis": "public_dist_verified",
+    "rawCutSourceUrl": "https://ko.wikipedia.org/wiki/연도별_대학수학능력시험의_등급_구분_점수",
+    "source": "wiki-dist-verified"
   },
   {
     "curriculum": "2007개정",
@@ -211654,7 +211927,20 @@
       72
     ],
     "id": 5300,
-    "fullScore": 100
+    "fullScore": 100,
+    "rawCuts": [
+      92,
+      81,
+      70,
+      53,
+      35,
+      23,
+      17,
+      12
+    ],
+    "rawCutBasis": "public_dist_verified",
+    "rawCutSourceUrl": "https://ko.wikipedia.org/wiki/연도별_대학수학능력시험의_등급_구분_점수",
+    "source": "wiki-dist-verified"
   },
   {
     "curriculum": "2007개정",
@@ -211676,7 +211962,20 @@
       66
     ],
     "id": 5301,
-    "fullScore": 100
+    "fullScore": 100,
+    "rawCuts": [
+      93,
+      84,
+      75,
+      64,
+      52,
+      41,
+      31,
+      23
+    ],
+    "rawCutBasis": "public_dist_verified",
+    "rawCutSourceUrl": "https://ko.wikipedia.org/wiki/연도별_대학수학능력시험의_등급_구분_점수",
+    "source": "wiki-dist-verified"
   },
   {
     "curriculum": "2007개정",
@@ -211984,7 +212283,20 @@
       35
     ],
     "id": 5315,
-    "fullScore": 50
+    "fullScore": 50,
+    "rawCuts": [
+      45,
+      41,
+      36,
+      28,
+      21,
+      16,
+      12,
+      8
+    ],
+    "rawCutBasis": "public_dist_verified",
+    "rawCutSourceUrl": "https://ko.wikipedia.org/wiki/연도별_대학수학능력시험의_등급_구분_점수",
+    "source": "wiki-dist-verified"
   },
   {
     "curriculum": "2007개정",
@@ -212006,7 +212318,20 @@
       36
     ],
     "id": 5316,
-    "fullScore": 50
+    "fullScore": 50,
+    "rawCuts": [
+      47,
+      44,
+      38,
+      27,
+      16,
+      12,
+      9,
+      5
+    ],
+    "rawCutBasis": "public_dist_verified",
+    "rawCutSourceUrl": "https://ko.wikipedia.org/wiki/연도별_대학수학능력시험의_등급_구분_점수",
+    "source": "wiki-dist-verified"
   },
   {
     "curriculum": "2007개정",
@@ -212028,7 +212353,20 @@
       34
     ],
     "id": 5317,
-    "fullScore": 50
+    "fullScore": 50,
+    "rawCuts": [
+      44,
+      41,
+      35,
+      29,
+      22,
+      16,
+      13,
+      9
+    ],
+    "rawCutBasis": "public_dist_verified",
+    "rawCutSourceUrl": "https://ko.wikipedia.org/wiki/연도별_대학수학능력시험의_등급_구분_점수",
+    "source": "wiki-dist-verified"
   },
   {
     "curriculum": "2007개정",
@@ -212050,7 +212388,20 @@
       35
     ],
     "id": 5318,
-    "fullScore": 50
+    "fullScore": 50,
+    "rawCuts": [
+      44,
+      39,
+      33,
+      26,
+      20,
+      16,
+      12,
+      9
+    ],
+    "rawCutBasis": "public_dist_verified",
+    "rawCutSourceUrl": "https://ko.wikipedia.org/wiki/연도별_대학수학능력시험의_등급_구분_점수",
+    "source": "wiki-dist-verified"
   },
   {
     "curriculum": "2007개정",
@@ -212072,7 +212423,20 @@
       33
     ],
     "id": 5319,
-    "fullScore": 50
+    "fullScore": 50,
+    "rawCuts": [
+      47,
+      44,
+      40,
+      33,
+      27,
+      20,
+      15,
+      11
+    ],
+    "rawCutBasis": "public_dist_verified",
+    "rawCutSourceUrl": "https://ko.wikipedia.org/wiki/연도별_대학수학능력시험의_등급_구분_점수",
+    "source": "wiki-dist-verified"
   },
   {
     "curriculum": "2007개정",
@@ -212094,7 +212458,20 @@
       35
     ],
     "id": 5320,
-    "fullScore": 50
+    "fullScore": 50,
+    "rawCuts": [
+      50,
+      46,
+      41,
+      30,
+      21,
+      15,
+      9,
+      6
+    ],
+    "rawCutBasis": "public_dist_verified",
+    "rawCutSourceUrl": "https://ko.wikipedia.org/wiki/연도별_대학수학능력시험의_등급_구분_점수",
+    "source": "wiki-dist-verified"
   },
   {
     "curriculum": "2007개정",
@@ -212116,7 +212493,20 @@
       34
     ],
     "id": 5321,
-    "fullScore": 50
+    "fullScore": 50,
+    "rawCuts": [
+      47,
+      43,
+      38,
+      32,
+      22,
+      16,
+      11,
+      7
+    ],
+    "rawCutBasis": "public_dist_verified",
+    "rawCutSourceUrl": "https://ko.wikipedia.org/wiki/연도별_대학수학능력시험의_등급_구분_점수",
+    "source": "wiki-dist-verified"
   },
   {
     "curriculum": "2007개정",
@@ -212138,7 +212528,20 @@
       35
     ],
     "id": 5322,
-    "fullScore": 50
+    "fullScore": 50,
+    "rawCuts": [
+      46,
+      42,
+      37,
+      28,
+      18,
+      13,
+      9,
+      6
+    ],
+    "rawCutBasis": "public_dist_verified",
+    "rawCutSourceUrl": "https://ko.wikipedia.org/wiki/연도별_대학수학능력시험의_등급_구분_점수",
+    "source": "wiki-dist-verified"
   },
   {
     "curriculum": "2007개정",
@@ -212160,7 +212563,20 @@
       62
     ],
     "id": 5323,
-    "fullScore": 100
+    "fullScore": 100,
+    "rawCuts": [
+      94,
+      88,
+      81,
+      72,
+      61,
+      50,
+      40,
+      29
+    ],
+    "rawCutBasis": "public_dist_verified",
+    "rawCutSourceUrl": "https://ko.wikipedia.org/wiki/연도별_대학수학능력시험의_등급_구분_점수",
+    "source": "wiki-dist-verified"
   },
   {
     "curriculum": "2007개정",
@@ -212182,7 +212598,20 @@
       36
     ],
     "id": 5324,
-    "fullScore": 50
+    "fullScore": 50,
+    "rawCuts": [
+      47,
+      42,
+      36,
+      27,
+      18,
+      13,
+      10,
+      7
+    ],
+    "rawCutBasis": "public_dist_verified",
+    "rawCutSourceUrl": "https://ko.wikipedia.org/wiki/연도별_대학수학능력시험의_등급_구분_점수",
+    "source": "wiki-dist-verified"
   },
   {
     "curriculum": "2007개정",
@@ -212204,7 +212633,20 @@
       31
     ],
     "id": 5325,
-    "fullScore": 50
+    "fullScore": 50,
+    "rawCuts": [
+      48,
+      45,
+      41,
+      36,
+      30,
+      23,
+      16,
+      10
+    ],
+    "rawCutBasis": "public_dist_verified",
+    "rawCutSourceUrl": "https://ko.wikipedia.org/wiki/연도별_대학수학능력시험의_등급_구분_점수",
+    "source": "wiki-dist-verified"
   },
   {
     "curriculum": "2007개정",
@@ -212226,7 +212668,20 @@
       37
     ],
     "id": 5326,
-    "fullScore": 50
+    "fullScore": 50,
+    "rawCuts": [
+      48,
+      44,
+      35,
+      23,
+      16,
+      12,
+      8,
+      6
+    ],
+    "rawCutBasis": "public_dist_verified",
+    "rawCutSourceUrl": "https://ko.wikipedia.org/wiki/연도별_대학수학능력시험의_등급_구분_점수",
+    "source": "wiki-dist-verified"
   },
   {
     "curriculum": "2007개정",
@@ -212248,7 +212703,20 @@
       35
     ],
     "id": 5327,
-    "fullScore": 50
+    "fullScore": 50,
+    "rawCuts": [
+      48,
+      45,
+      39,
+      29,
+      20,
+      15,
+      11,
+      7
+    ],
+    "rawCutBasis": "public_dist_verified",
+    "rawCutSourceUrl": "https://ko.wikipedia.org/wiki/연도별_대학수학능력시험의_등급_구분_점수",
+    "source": "wiki-dist-verified"
   },
   {
     "curriculum": "2007개정",
@@ -212270,7 +212738,20 @@
       33
     ],
     "id": 5328,
-    "fullScore": 50
+    "fullScore": 50,
+    "rawCuts": [
+      47,
+      43,
+      39,
+      32,
+      24,
+      16,
+      10,
+      7
+    ],
+    "rawCutBasis": "public_dist_verified",
+    "rawCutSourceUrl": "https://ko.wikipedia.org/wiki/연도별_대학수학능력시험의_등급_구분_점수",
+    "source": "wiki-dist-verified"
   },
   {
     "curriculum": "2007개정",
@@ -212292,7 +212773,20 @@
       34
     ],
     "id": 5329,
-    "fullScore": 50
+    "fullScore": 50,
+    "rawCuts": [
+      50,
+      47,
+      42,
+      33,
+      21,
+      16,
+      10,
+      6
+    ],
+    "rawCutBasis": "public_dist_verified",
+    "rawCutSourceUrl": "https://ko.wikipedia.org/wiki/연도별_대학수학능력시험의_등급_구분_점수",
+    "source": "wiki-dist-verified"
   },
   {
     "curriculum": "2007개정",
@@ -212314,7 +212808,20 @@
       34
     ],
     "id": 5330,
-    "fullScore": 50
+    "fullScore": 50,
+    "rawCuts": [
+      48,
+      45,
+      40,
+      34,
+      25,
+      19,
+      14,
+      10
+    ],
+    "rawCutBasis": "public_dist_verified",
+    "rawCutSourceUrl": "https://ko.wikipedia.org/wiki/연도별_대학수학능력시험의_등급_구분_점수",
+    "source": "wiki-dist-verified"
   },
   {
     "curriculum": "2007개정",
@@ -212336,7 +212843,20 @@
       35
     ],
     "id": 5331,
-    "fullScore": 50
+    "fullScore": 50,
+    "rawCuts": [
+      47,
+      42,
+      36,
+      28,
+      21,
+      15,
+      11,
+      7
+    ],
+    "rawCutBasis": "public_dist_verified",
+    "rawCutSourceUrl": "https://ko.wikipedia.org/wiki/연도별_대학수학능력시험의_등급_구분_점수",
+    "source": "wiki-dist-verified"
   },
   {
     "curriculum": "2007개정",
@@ -212358,7 +212878,20 @@
       33
     ],
     "id": 5332,
-    "fullScore": 50
+    "fullScore": 50,
+    "rawCuts": [
+      47,
+      44,
+      39,
+      32,
+      24,
+      17,
+      12,
+      7
+    ],
+    "rawCutBasis": "public_dist_verified",
+    "rawCutSourceUrl": "https://ko.wikipedia.org/wiki/연도별_대학수학능력시험의_등급_구분_점수",
+    "source": "wiki-dist-verified"
   },
   {
     "curriculum": "2007개정",
@@ -212380,7 +212913,20 @@
       35
     ],
     "id": 5333,
-    "fullScore": 50
+    "fullScore": 50,
+    "rawCuts": [
+      46,
+      42,
+      37,
+      31,
+      20,
+      16,
+      12,
+      8
+    ],
+    "rawCutBasis": "public_dist_verified",
+    "rawCutSourceUrl": "https://ko.wikipedia.org/wiki/연도별_대학수학능력시험의_등급_구분_점수",
+    "source": "wiki-dist-verified"
   },
   {
     "curriculum": "2007개정",
@@ -212402,7 +212948,20 @@
       33
     ],
     "id": 5334,
-    "fullScore": 50
+    "fullScore": 50,
+    "rawCuts": [
+      50,
+      47,
+      44,
+      38,
+      29,
+      20,
+      14,
+      10
+    ],
+    "rawCutBasis": "public_dist_verified",
+    "rawCutSourceUrl": "https://ko.wikipedia.org/wiki/연도별_대학수학능력시험의_등급_구분_점수",
+    "source": "wiki-dist-verified"
   },
   {
     "curriculum": "2007개정",
@@ -212424,7 +212983,20 @@
       63
     ],
     "id": 5335,
-    "fullScore": 100
+    "fullScore": 100,
+    "rawCuts": [
+      89,
+      82,
+      74,
+      65,
+      52,
+      36,
+      21,
+      13
+    ],
+    "rawCutBasis": "public_dist_verified",
+    "rawCutSourceUrl": "https://ko.wikipedia.org/wiki/연도별_대학수학능력시험의_등급_구분_점수",
+    "source": "wiki-dist-verified"
   },
   {
     "curriculum": "2007개정",
@@ -212446,7 +213018,20 @@
       73
     ],
     "id": 5336,
-    "fullScore": 100
+    "fullScore": 100,
+    "rawCuts": [
+      96,
+      87,
+      73,
+      54,
+      33,
+      21,
+      14,
+      10
+    ],
+    "rawCutBasis": "public_dist_verified",
+    "rawCutSourceUrl": "https://ko.wikipedia.org/wiki/연도별_대학수학능력시험의_등급_구분_점수",
+    "source": "wiki-dist-verified"
   },
   {
     "curriculum": "2007개정",
@@ -212468,7 +213053,20 @@
       65
     ],
     "id": 5337,
-    "fullScore": 100
+    "fullScore": 100,
+    "rawCuts": [
+      97,
+      94,
+      87,
+      75,
+      59,
+      44,
+      32,
+      24
+    ],
+    "rawCutBasis": "public_dist_verified",
+    "rawCutSourceUrl": "https://ko.wikipedia.org/wiki/연도별_대학수학능력시험의_등급_구분_점수",
+    "source": "wiki-dist-verified"
   },
   {
     "curriculum": "2007개정",
@@ -212776,7 +213374,20 @@
       36
     ],
     "id": 5351,
-    "fullScore": 50
+    "fullScore": 50,
+    "rawCuts": [
+      44,
+      39,
+      34,
+      26,
+      19,
+      14,
+      11,
+      8
+    ],
+    "rawCutBasis": "public_dist_verified",
+    "rawCutSourceUrl": "https://ko.wikipedia.org/wiki/연도별_대학수학능력시험의_등급_구분_점수",
+    "source": "wiki-dist-verified"
   },
   {
     "curriculum": "7차",
@@ -212798,7 +213409,20 @@
       38
     ],
     "id": 5352,
-    "fullScore": 50
+    "fullScore": 50,
+    "rawCuts": [
+      45,
+      41,
+      31,
+      19,
+      14,
+      10,
+      8,
+      5
+    ],
+    "rawCutBasis": "public_dist_verified",
+    "rawCutSourceUrl": "https://ko.wikipedia.org/wiki/연도별_대학수학능력시험의_등급_구분_점수",
+    "source": "wiki-dist-verified"
   },
   {
     "curriculum": "7차",
@@ -212820,7 +213444,20 @@
       34
     ],
     "id": 5353,
-    "fullScore": 50
+    "fullScore": 50,
+    "rawCuts": [
+      45,
+      42,
+      36,
+      30,
+      22,
+      17,
+      13,
+      8
+    ],
+    "rawCutBasis": "public_dist_verified",
+    "rawCutSourceUrl": "https://ko.wikipedia.org/wiki/연도별_대학수학능력시험의_등급_구분_점수",
+    "source": "wiki-dist-verified"
   },
   {
     "curriculum": "7차",
@@ -212842,7 +213479,20 @@
       36
     ],
     "id": 5354,
-    "fullScore": 50
+    "fullScore": 50,
+    "rawCuts": [
+      44,
+      41,
+      34,
+      25,
+      17,
+      12,
+      8,
+      5
+    ],
+    "rawCutBasis": "public_dist_verified",
+    "rawCutSourceUrl": "https://ko.wikipedia.org/wiki/연도별_대학수학능력시험의_등급_구분_점수",
+    "source": "wiki-dist-verified"
   },
   {
     "curriculum": "7차",
@@ -212864,7 +213514,20 @@
       34
     ],
     "id": 5355,
-    "fullScore": 50
+    "fullScore": 50,
+    "rawCuts": [
+      45,
+      41,
+      36,
+      29,
+      22,
+      16,
+      12,
+      9
+    ],
+    "rawCutBasis": "public_dist_verified",
+    "rawCutSourceUrl": "https://ko.wikipedia.org/wiki/연도별_대학수학능력시험의_등급_구분_점수",
+    "source": "wiki-dist-verified"
   },
   {
     "curriculum": "7차",
@@ -212908,7 +213571,20 @@
       35
     ],
     "id": 5357,
-    "fullScore": 50
+    "fullScore": 50,
+    "rawCuts": [
+      47,
+      42,
+      39,
+      31,
+      21,
+      17,
+      13,
+      10
+    ],
+    "rawCutBasis": "public_dist_verified",
+    "rawCutSourceUrl": "https://ko.wikipedia.org/wiki/연도별_대학수학능력시험의_등급_구분_점수",
+    "source": "wiki-dist-verified"
   },
   {
     "curriculum": "7차",
@@ -212930,7 +213606,20 @@
       37
     ],
     "id": 5358,
-    "fullScore": 50
+    "fullScore": 50,
+    "rawCuts": [
+      42,
+      38,
+      32,
+      23,
+      16,
+      12,
+      9,
+      7
+    ],
+    "rawCutBasis": "public_dist_verified",
+    "rawCutSourceUrl": "https://ko.wikipedia.org/wiki/연도별_대학수학능력시험의_등급_구분_점수",
+    "source": "wiki-dist-verified"
   },
   {
     "curriculum": "7차",
@@ -212952,7 +213641,20 @@
       60
     ],
     "id": 5359,
-    "fullScore": 100
+    "fullScore": 100,
+    "rawCuts": [
+      90,
+      85,
+      79,
+      72,
+      62,
+      52,
+      40,
+      29
+    ],
+    "rawCutBasis": "public_dist_verified",
+    "rawCutSourceUrl": "https://ko.wikipedia.org/wiki/연도별_대학수학능력시험의_등급_구분_점수",
+    "source": "wiki-dist-verified"
   },
   {
     "curriculum": "7차",
@@ -212974,7 +213676,20 @@
       36
     ],
     "id": 5360,
-    "fullScore": 50
+    "fullScore": 50,
+    "rawCuts": [
+      44,
+      38,
+      31,
+      24,
+      17,
+      12,
+      9,
+      6
+    ],
+    "rawCutBasis": "public_dist_verified",
+    "rawCutSourceUrl": "https://ko.wikipedia.org/wiki/연도별_대학수학능력시험의_등급_구분_점수",
+    "source": "wiki-dist-verified"
   },
   {
     "curriculum": "7차",
@@ -212996,7 +213711,20 @@
       32
     ],
     "id": 5361,
-    "fullScore": 50
+    "fullScore": 50,
+    "rawCuts": [
+      42,
+      37,
+      33,
+      29,
+      24,
+      19,
+      14,
+      9
+    ],
+    "rawCutBasis": "public_dist_verified",
+    "rawCutSourceUrl": "https://ko.wikipedia.org/wiki/연도별_대학수학능력시험의_등급_구분_점수",
+    "source": "wiki-dist-verified"
   },
   {
     "curriculum": "7차",
@@ -213018,7 +213746,20 @@
       37
     ],
     "id": 5362,
-    "fullScore": 50
+    "fullScore": 50,
+    "rawCuts": [
+      45,
+      41,
+      33,
+      22,
+      15,
+      11,
+      7,
+      5
+    ],
+    "rawCutBasis": "public_dist_verified",
+    "rawCutSourceUrl": "https://ko.wikipedia.org/wiki/연도별_대학수학능력시험의_등급_구분_점수",
+    "source": "wiki-dist-verified"
   },
   {
     "curriculum": "7차",
@@ -213040,7 +213781,20 @@
       34
     ],
     "id": 5363,
-    "fullScore": 50
+    "fullScore": 50,
+    "rawCuts": [
+      43,
+      39,
+      33,
+      27,
+      21,
+      16,
+      12,
+      8
+    ],
+    "rawCutBasis": "public_dist_verified",
+    "rawCutSourceUrl": "https://ko.wikipedia.org/wiki/연도별_대학수학능력시험의_등급_구분_점수",
+    "source": "wiki-dist-verified"
   },
   {
     "curriculum": "7차",
@@ -213062,7 +213816,20 @@
       32
     ],
     "id": 5364,
-    "fullScore": 50
+    "fullScore": 50,
+    "rawCuts": [
+      47,
+      43,
+      39,
+      33,
+      26,
+      18,
+      12,
+      7
+    ],
+    "rawCutBasis": "public_dist_verified",
+    "rawCutSourceUrl": "https://ko.wikipedia.org/wiki/연도별_대학수학능력시험의_등급_구분_점수",
+    "source": "wiki-dist-verified"
   },
   {
     "curriculum": "7차",
@@ -213084,7 +213851,20 @@
       36
     ],
     "id": 5365,
-    "fullScore": 50
+    "fullScore": 50,
+    "rawCuts": [
+      50,
+      47,
+      41,
+      31,
+      20,
+      15,
+      11,
+      8
+    ],
+    "rawCutBasis": "public_dist_verified",
+    "rawCutSourceUrl": "https://ko.wikipedia.org/wiki/연도별_대학수학능력시험의_등급_구분_점수",
+    "source": "wiki-dist-verified"
   },
   {
     "curriculum": "7차",
@@ -213106,7 +213886,20 @@
       33
     ],
     "id": 5366,
-    "fullScore": 50
+    "fullScore": 50,
+    "rawCuts": [
+      47,
+      44,
+      39,
+      32,
+      24,
+      18,
+      13,
+      9
+    ],
+    "rawCutBasis": "public_dist_verified",
+    "rawCutSourceUrl": "https://ko.wikipedia.org/wiki/연도별_대학수학능력시험의_등급_구분_점수",
+    "source": "wiki-dist-verified"
   },
   {
     "curriculum": "7차",
@@ -213128,7 +213921,20 @@
       37
     ],
     "id": 5367,
-    "fullScore": 50
+    "fullScore": 50,
+    "rawCuts": [
+      47,
+      43,
+      38,
+      27,
+      19,
+      14,
+      11,
+      8
+    ],
+    "rawCutBasis": "public_dist_verified",
+    "rawCutSourceUrl": "https://ko.wikipedia.org/wiki/연도별_대학수학능력시험의_등급_구분_점수",
+    "source": "wiki-dist-verified"
   },
   {
     "curriculum": "7차",
@@ -213150,7 +213956,20 @@
       34
     ],
     "id": 5368,
-    "fullScore": 50
+    "fullScore": 50,
+    "rawCuts": [
+      38,
+      33,
+      28,
+      22,
+      17,
+      13,
+      9,
+      6
+    ],
+    "rawCutBasis": "public_dist_verified",
+    "rawCutSourceUrl": "https://ko.wikipedia.org/wiki/연도별_대학수학능력시험의_등급_구분_점수",
+    "source": "wiki-dist-verified"
   },
   {
     "curriculum": "7차",
@@ -213172,7 +213991,20 @@
       34
     ],
     "id": 5369,
-    "fullScore": 50
+    "fullScore": 50,
+    "rawCuts": [
+      50,
+      46,
+      41,
+      32,
+      21,
+      16,
+      11,
+      7
+    ],
+    "rawCutBasis": "public_dist_verified",
+    "rawCutSourceUrl": "https://ko.wikipedia.org/wiki/연도별_대학수학능력시험의_등급_구분_점수",
+    "source": "wiki-dist-verified"
   },
   {
     "curriculum": "7차",
@@ -213194,7 +214026,20 @@
       34
     ],
     "id": 5370,
-    "fullScore": 50
+    "fullScore": 50,
+    "rawCuts": [
+      47,
+      43,
+      36,
+      31,
+      23,
+      18,
+      13,
+      9
+    ],
+    "rawCutBasis": "public_dist_verified",
+    "rawCutSourceUrl": "https://ko.wikipedia.org/wiki/연도별_대학수학능력시험의_등급_구분_점수",
+    "source": "wiki-dist-verified"
   },
   {
     "curriculum": "7차",
@@ -213238,7 +214083,20 @@
       75
     ],
     "id": 5372,
-    "fullScore": 100
+    "fullScore": 100,
+    "rawCuts": [
+      89,
+      77,
+      62,
+      44,
+      27,
+      19,
+      14,
+      9
+    ],
+    "rawCutBasis": "public_dist_verified",
+    "rawCutSourceUrl": "https://ko.wikipedia.org/wiki/연도별_대학수학능력시험의_등급_구분_점수",
+    "source": "wiki-dist-verified"
   },
   {
     "curriculum": "7차",
@@ -213260,7 +214118,20 @@
       66
     ],
     "id": 5373,
-    "fullScore": 100
+    "fullScore": 100,
+    "rawCuts": [
+      90,
+      83,
+      74,
+      64,
+      51,
+      38,
+      28,
+      21
+    ],
+    "rawCutBasis": "public_dist_verified",
+    "rawCutSourceUrl": "https://ko.wikipedia.org/wiki/연도별_대학수학능력시험의_등급_구분_점수",
+    "source": "wiki-dist-verified"
   },
   {
     "curriculum": "7차",
@@ -213458,7 +214329,20 @@
       35
     ],
     "id": 5382,
-    "fullScore": 50
+    "fullScore": 50,
+    "rawCuts": [
+      43,
+      39,
+      34,
+      27,
+      19,
+      13,
+      10,
+      6
+    ],
+    "rawCutBasis": "public_dist_verified",
+    "rawCutSourceUrl": "https://ko.wikipedia.org/wiki/연도별_대학수학능력시험의_등급_구분_점수",
+    "source": "wiki-dist-verified"
   },
   {
     "curriculum": "7차",
@@ -213480,7 +214364,20 @@
       36
     ],
     "id": 5383,
-    "fullScore": 50
+    "fullScore": 50,
+    "rawCuts": [
+      40,
+      37,
+      31,
+      22,
+      15,
+      12,
+      8,
+      5
+    ],
+    "rawCutBasis": "public_dist_verified",
+    "rawCutSourceUrl": "https://ko.wikipedia.org/wiki/연도별_대학수학능력시험의_등급_구분_점수",
+    "source": "wiki-dist-verified"
   },
   {
     "curriculum": "7차",
@@ -213502,7 +214399,20 @@
       32
     ],
     "id": 5384,
-    "fullScore": 50
+    "fullScore": 50,
+    "rawCuts": [
+      47,
+      44,
+      39,
+      34,
+      27,
+      21,
+      16,
+      11
+    ],
+    "rawCutBasis": "public_dist_verified",
+    "rawCutSourceUrl": "https://ko.wikipedia.org/wiki/연도별_대학수학능력시험의_등급_구분_점수",
+    "source": "wiki-dist-verified"
   },
   {
     "curriculum": "7차",
@@ -213524,7 +214434,20 @@
       34
     ],
     "id": 5385,
-    "fullScore": 50
+    "fullScore": 50,
+    "rawCuts": [
+      46,
+      42,
+      37,
+      30,
+      22,
+      15,
+      10,
+      7
+    ],
+    "rawCutBasis": "public_dist_verified",
+    "rawCutSourceUrl": "https://ko.wikipedia.org/wiki/연도별_대학수학능력시험의_등급_구분_점수",
+    "source": "wiki-dist-verified"
   },
   {
     "curriculum": "7차",
@@ -213546,7 +214469,20 @@
       33
     ],
     "id": 5386,
-    "fullScore": 50
+    "fullScore": 50,
+    "rawCuts": [
+      48,
+      44,
+      41,
+      35,
+      26,
+      19,
+      14,
+      10
+    ],
+    "rawCutBasis": "public_dist_verified",
+    "rawCutSourceUrl": "https://ko.wikipedia.org/wiki/연도별_대학수학능력시험의_등급_구분_점수",
+    "source": "wiki-dist-verified"
   },
   {
     "curriculum": "7차",
@@ -213568,7 +214504,20 @@
       36
     ],
     "id": 5387,
-    "fullScore": 50
+    "fullScore": 50,
+    "rawCuts": [
+      47,
+      42,
+      33,
+      24,
+      18,
+      14,
+      10,
+      7
+    ],
+    "rawCutBasis": "public_dist_verified",
+    "rawCutSourceUrl": "https://ko.wikipedia.org/wiki/연도별_대학수학능력시험의_등급_구분_점수",
+    "source": "wiki-dist-verified"
   },
   {
     "curriculum": "7차",
@@ -213590,7 +214539,20 @@
       35
     ],
     "id": 5388,
-    "fullScore": 50
+    "fullScore": 50,
+    "rawCuts": [
+      42,
+      37,
+      32,
+      25,
+      19,
+      15,
+      11,
+      8
+    ],
+    "rawCutBasis": "public_dist_verified",
+    "rawCutSourceUrl": "https://ko.wikipedia.org/wiki/연도별_대학수학능력시험의_등급_구분_점수",
+    "source": "wiki-dist-verified"
   },
   {
     "curriculum": "7차",
@@ -213612,7 +214574,20 @@
       36
     ],
     "id": 5389,
-    "fullScore": 50
+    "fullScore": 50,
+    "rawCuts": [
+      42,
+      37,
+      30,
+      20,
+      15,
+      11,
+      8,
+      5
+    ],
+    "rawCutBasis": "public_dist_verified",
+    "rawCutSourceUrl": "https://ko.wikipedia.org/wiki/연도별_대학수학능력시험의_등급_구분_점수",
+    "source": "wiki-dist-verified"
   },
   {
     "curriculum": "7차",
@@ -213634,7 +214609,20 @@
       58
     ],
     "id": 5390,
-    "fullScore": 100
+    "fullScore": 100,
+    "rawCuts": [
+      94,
+      89,
+      84,
+      76,
+      67,
+      56,
+      44,
+      30
+    ],
+    "rawCutBasis": "public_dist_verified",
+    "rawCutSourceUrl": "https://ko.wikipedia.org/wiki/연도별_대학수학능력시험의_등급_구분_점수",
+    "source": "wiki-dist-verified"
   },
   {
     "curriculum": "7차",
@@ -213656,7 +214644,20 @@
       36
     ],
     "id": 5391,
-    "fullScore": 50
+    "fullScore": 50,
+    "rawCuts": [
+      39,
+      33,
+      28,
+      22,
+      17,
+      13,
+      9,
+      7
+    ],
+    "rawCutBasis": "public_dist_verified",
+    "rawCutSourceUrl": "https://ko.wikipedia.org/wiki/연도별_대학수학능력시험의_등급_구분_점수",
+    "source": "wiki-dist-verified"
   },
   {
     "curriculum": "7차",
@@ -213678,7 +214679,20 @@
       29
     ],
     "id": 5392,
-    "fullScore": 50
+    "fullScore": 50,
+    "rawCuts": [
+      44,
+      41,
+      38,
+      34,
+      29,
+      24,
+      18,
+      11
+    ],
+    "rawCutBasis": "public_dist_verified",
+    "rawCutSourceUrl": "https://ko.wikipedia.org/wiki/연도별_대학수학능력시험의_등급_구분_점수",
+    "source": "wiki-dist-verified"
   },
   {
     "curriculum": "7차",
@@ -213700,7 +214714,20 @@
       36
     ],
     "id": 5393,
-    "fullScore": 50
+    "fullScore": 50,
+    "rawCuts": [
+      44,
+      41,
+      33,
+      23,
+      16,
+      11,
+      8,
+      5
+    ],
+    "rawCutBasis": "public_dist_verified",
+    "rawCutSourceUrl": "https://ko.wikipedia.org/wiki/연도별_대학수학능력시험의_등급_구분_점수",
+    "source": "wiki-dist-verified"
   },
   {
     "curriculum": "7차",
@@ -213722,7 +214749,20 @@
       37
     ],
     "id": 5394,
-    "fullScore": 50
+    "fullScore": 50,
+    "rawCuts": [
+      42,
+      36,
+      29,
+      22,
+      16,
+      11,
+      9,
+      7
+    ],
+    "rawCutBasis": "public_dist_verified",
+    "rawCutSourceUrl": "https://ko.wikipedia.org/wiki/연도별_대학수학능력시험의_등급_구분_점수",
+    "source": "wiki-dist-verified"
   },
   {
     "curriculum": "7차",
@@ -213744,7 +214784,20 @@
       33
     ],
     "id": 5395,
-    "fullScore": 50
+    "fullScore": 50,
+    "rawCuts": [
+      44,
+      39,
+      35,
+      30,
+      24,
+      18,
+      13,
+      9
+    ],
+    "rawCutBasis": "public_dist_verified",
+    "rawCutSourceUrl": "https://ko.wikipedia.org/wiki/연도별_대학수학능력시험의_등급_구분_점수",
+    "source": "wiki-dist-verified"
   },
   {
     "curriculum": "7차",
@@ -213766,7 +214819,20 @@
       37
     ],
     "id": 5396,
-    "fullScore": 50
+    "fullScore": 50,
+    "rawCuts": [
+      47,
+      45,
+      40,
+      28,
+      18,
+      13,
+      10,
+      7
+    ],
+    "rawCutBasis": "public_dist_verified",
+    "rawCutSourceUrl": "https://ko.wikipedia.org/wiki/연도별_대학수학능력시험의_등급_구분_점수",
+    "source": "wiki-dist-verified"
   },
   {
     "curriculum": "7차",
@@ -213788,7 +214854,20 @@
       33
     ],
     "id": 5397,
-    "fullScore": 50
+    "fullScore": 50,
+    "rawCuts": [
+      47,
+      43,
+      39,
+      32,
+      26,
+      20,
+      14,
+      10
+    ],
+    "rawCutBasis": "public_dist_verified",
+    "rawCutSourceUrl": "https://ko.wikipedia.org/wiki/연도별_대학수학능력시험의_등급_구분_점수",
+    "source": "wiki-dist-verified"
   },
   {
     "curriculum": "7차",
@@ -213810,7 +214889,20 @@
       35
     ],
     "id": 5398,
-    "fullScore": 50
+    "fullScore": 50,
+    "rawCuts": [
+      47,
+      43,
+      38,
+      29,
+      22,
+      16,
+      13,
+      9
+    ],
+    "rawCutBasis": "public_dist_verified",
+    "rawCutSourceUrl": "https://ko.wikipedia.org/wiki/연도별_대학수학능력시험의_등급_구분_점수",
+    "source": "wiki-dist-verified"
   },
   {
     "curriculum": "7차",
@@ -213832,7 +214924,20 @@
       33
     ],
     "id": 5399,
-    "fullScore": 50
+    "fullScore": 50,
+    "rawCuts": [
+      44,
+      42,
+      35,
+      30,
+      23,
+      16,
+      12,
+      7
+    ],
+    "rawCutBasis": "public_dist_verified",
+    "rawCutSourceUrl": "https://ko.wikipedia.org/wiki/연도별_대학수학능력시험의_등급_구분_점수",
+    "source": "wiki-dist-verified"
   },
   {
     "curriculum": "7차",
@@ -213854,7 +214959,20 @@
       35
     ],
     "id": 5400,
-    "fullScore": 50
+    "fullScore": 50,
+    "rawCuts": [
+      48,
+      45,
+      41,
+      32,
+      20,
+      13,
+      8,
+      6
+    ],
+    "rawCutBasis": "public_dist_verified",
+    "rawCutSourceUrl": "https://ko.wikipedia.org/wiki/연도별_대학수학능력시험의_등급_구분_점수",
+    "source": "wiki-dist-verified"
   },
   {
     "curriculum": "7차",
@@ -213876,7 +214994,20 @@
       33
     ],
     "id": 5401,
-    "fullScore": 50
+    "fullScore": 50,
+    "rawCuts": [
+      42,
+      37,
+      32,
+      27,
+      21,
+      17,
+      13,
+      9
+    ],
+    "rawCutBasis": "public_dist_verified",
+    "rawCutSourceUrl": "https://ko.wikipedia.org/wiki/연도별_대학수학능력시험의_등급_구분_점수",
+    "source": "wiki-dist-verified"
   },
   {
     "curriculum": "7차",
@@ -213920,7 +215051,20 @@
       74
     ],
     "id": 5403,
-    "fullScore": 100
+    "fullScore": 100,
+    "rawCuts": [
+      91,
+      83,
+      70,
+      49,
+      30,
+      21,
+      14,
+      10
+    ],
+    "rawCutBasis": "public_dist_verified",
+    "rawCutSourceUrl": "https://ko.wikipedia.org/wiki/연도별_대학수학능력시험의_등급_구분_점수",
+    "source": "wiki-dist-verified"
   },
   {
     "curriculum": "7차",
@@ -213942,7 +215086,20 @@
       68
     ],
     "id": 5404,
-    "fullScore": 100
+    "fullScore": 100,
+    "rawCuts": [
+      92,
+      85,
+      75,
+      64,
+      50,
+      37,
+      28,
+      21
+    ],
+    "rawCutBasis": "public_dist_verified",
+    "rawCutSourceUrl": "https://ko.wikipedia.org/wiki/연도별_대학수학능력시험의_등급_구분_점수",
+    "source": "wiki-dist-verified"
   },
   {
     "curriculum": "7차",
@@ -214140,7 +215297,20 @@
       35
     ],
     "id": 5413,
-    "fullScore": 50
+    "fullScore": 50,
+    "rawCuts": [
+      50,
+      47,
+      41,
+      32,
+      22,
+      16,
+      10,
+      8
+    ],
+    "rawCutBasis": "public_dist_verified",
+    "rawCutSourceUrl": "https://ko.wikipedia.org/wiki/연도별_대학수학능력시험의_등급_구분_점수",
+    "source": "wiki-dist-verified"
   },
   {
     "curriculum": "7차",
@@ -214162,7 +215332,20 @@
       33
     ],
     "id": 5414,
-    "fullScore": 50
+    "fullScore": 50,
+    "rawCuts": [
+      45,
+      42,
+      37,
+      31,
+      23,
+      16,
+      11,
+      6
+    ],
+    "rawCutBasis": "public_dist_verified",
+    "rawCutSourceUrl": "https://ko.wikipedia.org/wiki/연도별_대학수학능력시험의_등급_구분_점수",
+    "source": "wiki-dist-verified"
   },
   {
     "curriculum": "7차",
@@ -214184,7 +215367,20 @@
       33
     ],
     "id": 5415,
-    "fullScore": 50
+    "fullScore": 50,
+    "rawCuts": [
+      44,
+      39,
+      35,
+      30,
+      24,
+      18,
+      13,
+      9
+    ],
+    "rawCutBasis": "public_dist_verified",
+    "rawCutSourceUrl": "https://ko.wikipedia.org/wiki/연도별_대학수학능력시험의_등급_구분_점수",
+    "source": "wiki-dist-verified"
   },
   {
     "curriculum": "7차",
@@ -214206,7 +215402,20 @@
       34
     ],
     "id": 5416,
-    "fullScore": 50
+    "fullScore": 50,
+    "rawCuts": [
+      44,
+      40,
+      34,
+      30,
+      22,
+      14,
+      11,
+      8
+    ],
+    "rawCutBasis": "public_dist_verified",
+    "rawCutSourceUrl": "https://ko.wikipedia.org/wiki/연도별_대학수학능력시험의_등급_구분_점수",
+    "source": "wiki-dist-verified"
   },
   {
     "curriculum": "7차",
@@ -214228,7 +215437,20 @@
       62
     ],
     "id": 5417,
-    "fullScore": 100
+    "fullScore": 100,
+    "rawCuts": [
+      92,
+      86,
+      79,
+      71,
+      61,
+      51,
+      41,
+      30
+    ],
+    "rawCutBasis": "public_dist_verified",
+    "rawCutSourceUrl": "https://ko.wikipedia.org/wiki/연도별_대학수학능력시험의_등급_구분_점수",
+    "source": "wiki-dist-verified"
   },
   {
     "curriculum": "7차",
@@ -214250,7 +215472,20 @@
       35
     ],
     "id": 5418,
-    "fullScore": 50
+    "fullScore": 50,
+    "rawCuts": [
+      37,
+      32,
+      27,
+      22,
+      17,
+      13,
+      10,
+      7
+    ],
+    "rawCutBasis": "public_dist_verified",
+    "rawCutSourceUrl": "https://ko.wikipedia.org/wiki/연도별_대학수학능력시험의_등급_구분_점수",
+    "source": "wiki-dist-verified"
   },
   {
     "curriculum": "7차",
@@ -214272,7 +215507,20 @@
       32
     ],
     "id": 5419,
-    "fullScore": 50
+    "fullScore": 50,
+    "rawCuts": [
+      42,
+      38,
+      35,
+      30,
+      26,
+      21,
+      17,
+      12
+    ],
+    "rawCutBasis": "public_dist_verified",
+    "rawCutSourceUrl": "https://ko.wikipedia.org/wiki/연도별_대학수학능력시험의_등급_구분_점수",
+    "source": "wiki-dist-verified"
   },
   {
     "curriculum": "7차",
@@ -214294,7 +215542,20 @@
       37
     ],
     "id": 5420,
-    "fullScore": 50
+    "fullScore": 50,
+    "rawCuts": [
+      47,
+      44,
+      38,
+      27,
+      17,
+      12,
+      9,
+      6
+    ],
+    "rawCutBasis": "public_dist_verified",
+    "rawCutSourceUrl": "https://ko.wikipedia.org/wiki/연도별_대학수학능력시험의_등급_구분_점수",
+    "source": "wiki-dist-verified"
   },
   {
     "curriculum": "7차",
@@ -214316,7 +215577,20 @@
       34
     ],
     "id": 5421,
-    "fullScore": 50
+    "fullScore": 50,
+    "rawCuts": [
+      45,
+      41,
+      37,
+      31,
+      24,
+      18,
+      14,
+      10
+    ],
+    "rawCutBasis": "public_dist_verified",
+    "rawCutSourceUrl": "https://ko.wikipedia.org/wiki/연도별_대학수학능력시험의_등급_구분_점수",
+    "source": "wiki-dist-verified"
   },
   {
     "curriculum": "7차",
@@ -214338,7 +215612,20 @@
       33
     ],
     "id": 5422,
-    "fullScore": 50
+    "fullScore": 50,
+    "rawCuts": [
+      42,
+      39,
+      34,
+      28,
+      22,
+      17,
+      12,
+      8
+    ],
+    "rawCutBasis": "public_dist_verified",
+    "rawCutSourceUrl": "https://ko.wikipedia.org/wiki/연도별_대학수학능력시험의_등급_구분_점수",
+    "source": "wiki-dist-verified"
   },
   {
     "curriculum": "7차",
@@ -214360,7 +215647,20 @@
       36
     ],
     "id": 5423,
-    "fullScore": 50
+    "fullScore": 50,
+    "rawCuts": [
+      44,
+      39,
+      34,
+      24,
+      14,
+      11,
+      8,
+      4
+    ],
+    "rawCutBasis": "public_dist_verified",
+    "rawCutSourceUrl": "https://ko.wikipedia.org/wiki/연도별_대학수학능력시험의_등급_구분_점수",
+    "source": "wiki-dist-verified"
   },
   {
     "curriculum": "7차",
@@ -214382,7 +215682,20 @@
       35
     ],
     "id": 5424,
-    "fullScore": 50
+    "fullScore": 50,
+    "rawCuts": [
+      42,
+      39,
+      34,
+      28,
+      19,
+      14,
+      9,
+      7
+    ],
+    "rawCutBasis": "public_dist_verified",
+    "rawCutSourceUrl": "https://ko.wikipedia.org/wiki/연도별_대학수학능력시험의_등급_구분_점수",
+    "source": "wiki-dist-verified"
   },
   {
     "curriculum": "7차",
@@ -214404,7 +215717,20 @@
       36
     ],
     "id": 5425,
-    "fullScore": 50
+    "fullScore": 50,
+    "rawCuts": [
+      42,
+      37,
+      31,
+      24,
+      18,
+      14,
+      11,
+      8
+    ],
+    "rawCutBasis": "public_dist_verified",
+    "rawCutSourceUrl": "https://ko.wikipedia.org/wiki/연도별_대학수학능력시험의_등급_구분_점수",
+    "source": "wiki-dist-verified"
   },
   {
     "curriculum": "7차",
@@ -214426,7 +215752,20 @@
       32
     ],
     "id": 5426,
-    "fullScore": 50
+    "fullScore": 50,
+    "rawCuts": [
+      45,
+      42,
+      37,
+      33,
+      26,
+      20,
+      14,
+      9
+    ],
+    "rawCutBasis": "public_dist_verified",
+    "rawCutSourceUrl": "https://ko.wikipedia.org/wiki/연도별_대학수학능력시험의_등급_구분_점수",
+    "source": "wiki-dist-verified"
   },
   {
     "curriculum": "7차",
@@ -214448,7 +215787,20 @@
       36
     ],
     "id": 5427,
-    "fullScore": 50
+    "fullScore": 50,
+    "rawCuts": [
+      45,
+      41,
+      36,
+      27,
+      19,
+      13,
+      10,
+      7
+    ],
+    "rawCutBasis": "public_dist_verified",
+    "rawCutSourceUrl": "https://ko.wikipedia.org/wiki/연도별_대학수학능력시험의_등급_구분_점수",
+    "source": "wiki-dist-verified"
   },
   {
     "curriculum": "7차",
@@ -214470,7 +215822,20 @@
       34
     ],
     "id": 5428,
-    "fullScore": 50
+    "fullScore": 50,
+    "rawCuts": [
+      44,
+      39,
+      34,
+      28,
+      22,
+      17,
+      13,
+      9
+    ],
+    "rawCutBasis": "public_dist_verified",
+    "rawCutSourceUrl": "https://ko.wikipedia.org/wiki/연도별_대학수학능력시험의_등급_구분_점수",
+    "source": "wiki-dist-verified"
   },
   {
     "curriculum": "7차",
@@ -214514,7 +215879,20 @@
       73
     ],
     "id": 5430,
-    "fullScore": 100
+    "fullScore": 100,
+    "rawCuts": [
+      79,
+      68,
+      55,
+      42,
+      28,
+      19,
+      14,
+      9
+    ],
+    "rawCutBasis": "public_dist_verified",
+    "rawCutSourceUrl": "https://ko.wikipedia.org/wiki/연도별_대학수학능력시험의_등급_구분_점수",
+    "source": "wiki-dist-verified"
   },
   {
     "curriculum": "7차",
@@ -214536,7 +215914,20 @@
       65
     ],
     "id": 5431,
-    "fullScore": 100
+    "fullScore": 100,
+    "rawCuts": [
+      95,
+      89,
+      79,
+      69,
+      55,
+      41,
+      30,
+      22
+    ],
+    "rawCutBasis": "public_dist_verified",
+    "rawCutSourceUrl": "https://ko.wikipedia.org/wiki/연도별_대학수학능력시험의_등급_구분_점수",
+    "source": "wiki-dist-verified"
   },
   {
     "curriculum": "7차",
@@ -215120,7 +216511,20 @@
       35
     ],
     "id": 5468,
-    "fullScore": 50
+    "fullScore": 50,
+    "rawCuts": [
+      43,
+      39,
+      34,
+      27,
+      20,
+      15,
+      12,
+      9
+    ],
+    "rawCutBasis": "public_dist_verified",
+    "rawCutSourceUrl": "https://ko.wikipedia.org/wiki/연도별_대학수학능력시험의_등급_구분_점수",
+    "source": "wiki-dist-verified"
   },
   {
     "curriculum": "7차",
@@ -215142,7 +216546,20 @@
       36
     ],
     "id": 5469,
-    "fullScore": 50
+    "fullScore": 50,
+    "rawCuts": [
+      37,
+      32,
+      27,
+      22,
+      16,
+      12,
+      9,
+      7
+    ],
+    "rawCutBasis": "public_dist_verified",
+    "rawCutSourceUrl": "https://ko.wikipedia.org/wiki/연도별_대학수학능력시험의_등급_구분_점수",
+    "source": "wiki-dist-verified"
   },
   {
     "curriculum": "7차",
@@ -215164,7 +216581,20 @@
       32
     ],
     "id": 5470,
-    "fullScore": 50
+    "fullScore": 50,
+    "rawCuts": [
+      47,
+      43,
+      39,
+      34,
+      29,
+      23,
+      18,
+      13
+    ],
+    "rawCutBasis": "public_dist_verified",
+    "rawCutSourceUrl": "https://ko.wikipedia.org/wiki/연도별_대학수학능력시험의_등급_구분_점수",
+    "source": "wiki-dist-verified"
   },
   {
     "curriculum": "7차",
@@ -215186,7 +216616,20 @@
       35
     ],
     "id": 5471,
-    "fullScore": 50
+    "fullScore": 50,
+    "rawCuts": [
+      41,
+      36,
+      31,
+      25,
+      19,
+      15,
+      11,
+      8
+    ],
+    "rawCutBasis": "public_dist_verified",
+    "rawCutSourceUrl": "https://ko.wikipedia.org/wiki/연도별_대학수학능력시험의_등급_구분_점수",
+    "source": "wiki-dist-verified"
   },
   {
     "curriculum": "7차",
@@ -215208,7 +216651,20 @@
       31
     ],
     "id": 5472,
-    "fullScore": 50
+    "fullScore": 50,
+    "rawCuts": [
+      47,
+      44,
+      41,
+      36,
+      29,
+      22,
+      16,
+      10
+    ],
+    "rawCutBasis": "public_dist_verified",
+    "rawCutSourceUrl": "https://ko.wikipedia.org/wiki/연도별_대학수학능력시험의_등급_구분_점수",
+    "source": "wiki-dist-verified"
   },
   {
     "curriculum": "7차",
@@ -215230,7 +216686,20 @@
       33
     ],
     "id": 5473,
-    "fullScore": 50
+    "fullScore": 50,
+    "rawCuts": [
+      45,
+      41,
+      37,
+      32,
+      26,
+      20,
+      15,
+      11
+    ],
+    "rawCutBasis": "public_dist_verified",
+    "rawCutSourceUrl": "https://ko.wikipedia.org/wiki/연도별_대학수학능력시험의_등급_구분_점수",
+    "source": "wiki-dist-verified"
   },
   {
     "curriculum": "7차",
@@ -215252,7 +216721,20 @@
       35
     ],
     "id": 5474,
-    "fullScore": 50
+    "fullScore": 50,
+    "rawCuts": [
+      40,
+      35,
+      30,
+      24,
+      17,
+      13,
+      9,
+      6
+    ],
+    "rawCutBasis": "public_dist_verified",
+    "rawCutSourceUrl": "https://ko.wikipedia.org/wiki/연도별_대학수학능력시험의_등급_구분_점수",
+    "source": "wiki-dist-verified"
   },
   {
     "curriculum": "7차",
@@ -215274,7 +216756,20 @@
       60
     ],
     "id": 5475,
-    "fullScore": 100
+    "fullScore": 100,
+    "rawCuts": [
+      95,
+      91,
+      86,
+      78,
+      67,
+      55,
+      43,
+      32
+    ],
+    "rawCutBasis": "public_dist_verified",
+    "rawCutSourceUrl": "https://ko.wikipedia.org/wiki/연도별_대학수학능력시험의_등급_구분_점수",
+    "source": "wiki-dist-verified"
   },
   {
     "curriculum": "7차",
@@ -215296,7 +216791,20 @@
       33
     ],
     "id": 5476,
-    "fullScore": 50
+    "fullScore": 50,
+    "rawCuts": [
+      46,
+      42,
+      37,
+      32,
+      26,
+      21,
+      17,
+      12
+    ],
+    "rawCutBasis": "public_dist_verified",
+    "rawCutSourceUrl": "https://ko.wikipedia.org/wiki/연도별_대학수학능력시험의_등급_구분_점수",
+    "source": "wiki-dist-verified"
   },
   {
     "curriculum": "7차",
@@ -215318,7 +216826,20 @@
       31
     ],
     "id": 5477,
-    "fullScore": 50
+    "fullScore": 50,
+    "rawCuts": [
+      44,
+      40,
+      36,
+      32,
+      27,
+      22,
+      17,
+      12
+    ],
+    "rawCutBasis": "public_dist_verified",
+    "rawCutSourceUrl": "https://ko.wikipedia.org/wiki/연도별_대학수학능력시험의_등급_구분_점수",
+    "source": "wiki-dist-verified"
   },
   {
     "curriculum": "7차",
@@ -215340,7 +216861,20 @@
       35
     ],
     "id": 5478,
-    "fullScore": 50
+    "fullScore": 50,
+    "rawCuts": [
+      47,
+      43,
+      39,
+      31,
+      20,
+      14,
+      10,
+      6
+    ],
+    "rawCutBasis": "public_dist_verified",
+    "rawCutSourceUrl": "https://ko.wikipedia.org/wiki/연도별_대학수학능력시험의_등급_구분_점수",
+    "source": "wiki-dist-verified"
   },
   {
     "curriculum": "7차",
@@ -215362,7 +216896,20 @@
       34
     ],
     "id": 5479,
-    "fullScore": 50
+    "fullScore": 50,
+    "rawCuts": [
+      47,
+      45,
+      41,
+      34,
+      26,
+      20,
+      15,
+      12
+    ],
+    "rawCutBasis": "public_dist_verified",
+    "rawCutSourceUrl": "https://ko.wikipedia.org/wiki/연도별_대학수학능력시험의_등급_구분_점수",
+    "source": "wiki-dist-verified"
   },
   {
     "curriculum": "7차",
@@ -215384,7 +216931,20 @@
       31
     ],
     "id": 5480,
-    "fullScore": 50
+    "fullScore": 50,
+    "rawCuts": [
+      42,
+      39,
+      35,
+      31,
+      26,
+      21,
+      16,
+      11
+    ],
+    "rawCutBasis": "public_dist_verified",
+    "rawCutSourceUrl": "https://ko.wikipedia.org/wiki/연도별_대학수학능력시험의_등급_구분_점수",
+    "source": "wiki-dist-verified"
   },
   {
     "curriculum": "7차",
@@ -215406,7 +216966,20 @@
       34
     ],
     "id": 5481,
-    "fullScore": 50
+    "fullScore": 50,
+    "rawCuts": [
+      46,
+      44,
+      40,
+      33,
+      23,
+      17,
+      12,
+      8
+    ],
+    "rawCutBasis": "public_dist_verified",
+    "rawCutSourceUrl": "https://ko.wikipedia.org/wiki/연도별_대학수학능력시험의_등급_구분_점수",
+    "source": "wiki-dist-verified"
   },
   {
     "curriculum": "7차",
@@ -215428,7 +217001,20 @@
       34
     ],
     "id": 5482,
-    "fullScore": 50
+    "fullScore": 50,
+    "rawCuts": [
+      43,
+      39,
+      33,
+      28,
+      21,
+      13,
+      10,
+      7
+    ],
+    "rawCutBasis": "public_dist_verified",
+    "rawCutSourceUrl": "https://ko.wikipedia.org/wiki/연도별_대학수학능력시험의_등급_구분_점수",
+    "source": "wiki-dist-verified"
   },
   {
     "curriculum": "7차",
@@ -215450,7 +217036,20 @@
       34
     ],
     "id": 5483,
-    "fullScore": 50
+    "fullScore": 50,
+    "rawCuts": [
+      39,
+      35,
+      30,
+      25,
+      20,
+      16,
+      12,
+      8
+    ],
+    "rawCutBasis": "public_dist_verified",
+    "rawCutSourceUrl": "https://ko.wikipedia.org/wiki/연도별_대학수학능력시험의_등급_구분_점수",
+    "source": "wiki-dist-verified"
   },
   {
     "curriculum": "7차",
@@ -215472,7 +217071,20 @@
       30
     ],
     "id": 5484,
-    "fullScore": 50
+    "fullScore": 50,
+    "rawCuts": [
+      45,
+      42,
+      38,
+      34,
+      28,
+      22,
+      16,
+      9
+    ],
+    "rawCutBasis": "public_dist_verified",
+    "rawCutSourceUrl": "https://ko.wikipedia.org/wiki/연도별_대학수학능력시험의_등급_구분_점수",
+    "source": "wiki-dist-verified"
   },
   {
     "curriculum": "7차",
@@ -215494,7 +217106,20 @@
       34
     ],
     "id": 5485,
-    "fullScore": 50
+    "fullScore": 50,
+    "rawCuts": [
+      48,
+      44,
+      39,
+      32,
+      23,
+      18,
+      12,
+      9
+    ],
+    "rawCutBasis": "public_dist_verified",
+    "rawCutSourceUrl": "https://ko.wikipedia.org/wiki/연도별_대학수학능력시험의_등급_구분_점수",
+    "source": "wiki-dist-verified"
   },
   {
     "curriculum": "7차",
@@ -215516,7 +217141,20 @@
       31
     ],
     "id": 5486,
-    "fullScore": 50
+    "fullScore": 50,
+    "rawCuts": [
+      42,
+      39,
+      36,
+      31,
+      26,
+      21,
+      15,
+      10
+    ],
+    "rawCutBasis": "public_dist_verified",
+    "rawCutSourceUrl": "https://ko.wikipedia.org/wiki/연도별_대학수학능력시험의_등급_구분_점수",
+    "source": "wiki-dist-verified"
   },
   {
     "curriculum": "7차",
@@ -215560,7 +217198,20 @@
       72
     ],
     "id": 5488,
-    "fullScore": 100
+    "fullScore": 100,
+    "rawCuts": [
+      96,
+      84,
+      72,
+      53,
+      34,
+      22,
+      16,
+      11
+    ],
+    "rawCutBasis": "public_dist_verified",
+    "rawCutSourceUrl": "https://ko.wikipedia.org/wiki/연도별_대학수학능력시험의_등급_구분_점수",
+    "source": "wiki-dist-verified"
   },
   {
     "curriculum": "7차",
@@ -215582,7 +217233,20 @@
       65
     ],
     "id": 5489,
-    "fullScore": 100
+    "fullScore": 100,
+    "rawCuts": [
+      96,
+      91,
+      82,
+      69,
+      56,
+      41,
+      30,
+      22
+    ],
+    "rawCutBasis": "public_dist_verified",
+    "rawCutSourceUrl": "https://ko.wikipedia.org/wiki/연도별_대학수학능력시험의_등급_구분_점수",
+    "source": "wiki-dist-verified"
   },
   {
     "curriculum": "7차",
