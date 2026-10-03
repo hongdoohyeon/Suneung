@@ -1162,6 +1162,8 @@ def compute_exam_scores(items: list[dict], cuts: list[dict] | None = None) -> di
         out[it['id']] = rec
         er = en_ratios.get(f'{it.get("gradeYear")}|{it.get("type")}') if (
             it.get('subject') == '영어' and it.get('typeGroup') == 'suneung') else None
+        if not er and absolute and it.get('subject') == '영어' and it.get('typeGroup') == 'education' and it.get('studentGrade'):
+            er = _edu_english_ratios(it)   # 학평(2022~) — 시·도교육청 공식 통계의 등급별 인원 비율
         if er:
             rec['ratios'] = er['ratios']
             rec['ratio'] = er['ratios'][0]
@@ -1382,12 +1384,17 @@ def _tier_stat_label(sc: dict) -> str:
     return f'난이도 (역대 {n}회, {b} 기준)' if n and b else '난이도'
 
 
+def _basis_kind(sc: dict) -> str:
+    """원점수컷이 공식값이 아니면 화면 표기('역산값'·'추정 경계'·'추정'), 공식값이면 빈 문자열."""
+    basis = sc.get('basis')
+    return ('역산값' if basis == 'academy_reverse_calculated' else '추정 경계' if basis == 'academy_integerized_threshold'
+            else '추정' if basis in ('academy_consensus_estimate', 'ebsi_estimate', 'public_dist_verified', 'academy_consensus') else '')
+
+
 def score_stats_html(sc: dict) -> str:
     esc = lambda v: html_escape(str(v), quote=False)
     cells = []
-    basis = sc.get('basis')
-    kind = ('역산값' if basis == 'academy_reverse_calculated' else '추정 경계' if basis == 'academy_integerized_threshold'
-            else '추정' if basis in ('academy_consensus_estimate', 'ebsi_estimate', 'public_dist_verified', 'academy_consensus') else '')
+    kind = _basis_kind(sc)
     if sc['abs']:
         cells.append(('1등급 기준', f'{esc(sc["raw"])}<small>점 이상</small>', False))
         if sc.get('ratio') is not None:
@@ -1397,7 +1404,7 @@ def score_stats_html(sc: dict) -> str:
         else:
             cells.append(('평가 방식', '절대평가', False))
     else:
-        cells.append(('1등급컷' + (f' ({kind})' if kind else ''), f'{esc(sc["raw"])}<small>원점수</small>', True))
+        cells.append((f'1등급컷 ({kind or "비공식"})', f'{esc(sc["raw"])}<small>원점수</small>', True))
         if sc.get('top') is not None:
             cells.append(('표준점수 최고점', esc(sc['top']), True))
         elif sc.get('std') is not None:
@@ -1456,7 +1463,9 @@ def grade_table_html(cut: dict, absolute: bool, ratios: list | None = None) -> s
             '공식 표준점수 컷 기준 입시기관 추정 종합' if basis == 'academy_consensus_estimate' else
             '공식 표준점수 컷 기준 EBSi 원점수 추정' if basis == 'ebsi_estimate' else
             '공개 원점수 추정 · 평가원 표준점수 분포로 검증' if basis == 'public_dist_verified' else
-            academy_consensus_note(cut) if basis == 'academy_consensus' else '')
+            academy_consensus_note(cut) if basis == 'academy_consensus' else
+            # 상대평가 원점수컷은 평가원·교육청이 내지 않는다 — 출처 표시가 없어도 EBSi·입시기관 값
+            '원점수는 EBSi·입시기관 값(비공식)' if not absolute and any(v is not None for v in cut.get('rawCuts') or []) else '')
     legend = ' · '.join(x for x in ('등급별 컷', '절대평가' if absolute else '', note,
                                     f'만점 {cut.get("fullScore")}점' if cut.get('fullScore') else '') if x)
     head = ''.join(f'<th scope="col">{lbl}</th>' for lbl, _, _ in cols)
@@ -1659,6 +1668,16 @@ def _load_edu_official() -> dict:
         p = ROOT / 'data' / 'edu-official.json'
         _EDU_OFFICIAL = json.loads(p.read_text(encoding='utf-8')) if p.exists() else {}
     return _EDU_OFFICIAL
+
+
+def _edu_english_ratios(it: dict) -> dict | None:
+    """학평 영어 등급별 인원 비율 {'ratios': [1~9등급 %]} — 원점수 등급 9개가 다 있을 때만."""
+    exam = _load_edu_official().get(f"{it.get('examYear')}_{int(it.get('month') or 0):02d}_g{it['studentGrade']}")
+    rows = ((exam or {}).get('e', {}).get('영어|') or {}).get('c') or []
+    by_grade = {r[0]: r[4] for r in rows if r[2] == 'r' and r[4] is not None}
+    if sorted(by_grade) != list(range(1, 10)):
+        return None
+    return {'ratios': [by_grade[g] for g in range(1, 10)]}
 
 
 def _load_score_dists() -> dict:
@@ -2639,10 +2658,65 @@ def set_facts_html(head: str, exams: list[dict], scores: dict, by_key: dict) -> 
             '<button type="button" class="switch" role="switch" aria-checked="true" data-spoiler-toggle>스포일러 방지'
             '<span class="switch__knob" aria-hidden="true"></span></button></div>'
             f'<p>{esc(head)} 영역별 1등급컷, 표준점수 최고점, 난이도입니다. 난이도는 같은 과목 역대 시험과 비교한 값이며 '
-            '계산 방법은 <a href="methodology.html">난이도 산정 기준</a>에 정리했습니다. 전년 대비는 같은 시험의 직전 학년도 1등급 원점수컷과의 차이입니다.</p>'
+            '계산 방법은 <a href="methodology.html">난이도 산정 기준</a>에 정리했습니다. 전년 대비는 같은 시험의 직전 학년도 1등급 원점수컷과의 차이입니다. '
+            '원점수 1등급컷은 평가원·교육청 발표값이 아니라 EBSi·입시기관 값입니다.</p>'
             '<div class="examset__facts-scroll"><table class="examset__table"><thead><tr><th scope="col">영역</th>'
             '<th scope="col">1등급컷</th><th scope="col">표준점수 최고점</th><th scope="col">난이도</th><th scope="col">전년 대비</th></tr></thead>'
             f'<tbody>{"".join(rows)}</tbody></table></div></section>')
+
+
+def set_cut_summary(head: str, exams: list[dict], scores: dict, official_src: bool) -> tuple[str, str]:
+    """회차 첫머리 직답 문장 — '{회차} 1등급컷은 국어 화법과 작문 90점… 영어 1등급 비율은 15.54%입니다.'
+    국어·수학 원점수컷과 영어(절대평가면 1등급 비율)만 — 탐구는 아래 표, 셋 다 없으면 요약하지 않는다.
+    (html, 출처 문장까지 담은 순수 텍스트 — Dataset 설명용) — 값이 없으면 ('', '')."""
+    groups: dict[str, list[tuple[str, str]]] = {}
+    ratio = None
+    estimated = False
+    order = sorted(exams, key=lambda x: (SUBJECT_ORDER.get(x.get('subject'), 99), x.get('subject') or '', sub_order_key(x.get('subSubject'))))
+    def _add(it, sc):
+        nonlocal estimated
+        kind = _basis_kind(sc)
+        estimated = estimated or bool(kind)
+        sub = pretty_sub(it.get('subSubject'))
+        sub = '' if not sub or sub == it.get('subject') else sub
+        groups.setdefault(it.get('subject') or '', []).append((sub, f'{sc["raw"]:g}점' + (f'({kind})' if kind else '')))
+    for it in order:
+        sc = scores.get(it['id'])
+        if not sc:
+            continue
+        if it.get('subject') in ('국어', '수학', '영어') and not sc['abs'] and sc['raw'] is not None:
+            _add(it, sc)
+        elif it.get('subject') == '영어' and sc['abs'] and sc.get('ratio') is not None and ratio is None:
+            ratio = sc['ratio']
+    if not groups and ratio is None:
+        return '', ''
+    sv = lambda v: f'<span class="spoil-val">{html_escape(v, quote=False)}</span>'
+    parts_h, parts_t = [], []
+    for subject, vals in groups.items():
+        hs = '·'.join(f'{html_escape(sub, quote=False)} {sv(v)}'.strip() for sub, v in vals)
+        ts = '·'.join(f'{sub} {v}'.strip() for sub, v in vals)
+        parts_h.append(f'{html_escape(subject, quote=False)} {hs}')
+        parts_t.append(f'{subject} {ts}')
+    e = html_escape(head, quote=False)
+    if parts_h and ratio is not None:
+        body_h = f'1등급컷은 {", ".join(parts_h)}이고, 영어 1등급 비율은 {sv(f"{ratio:g}%")}입니다.'
+        body_t = f'1등급컷은 {", ".join(parts_t)}이고, 영어 1등급 비율은 {ratio:g}%입니다.'
+    elif parts_h:
+        body_h = f'1등급컷은 {", ".join(parts_h)}입니다.'
+        body_t = f'1등급컷은 {", ".join(parts_t)}입니다.'
+    else:
+        body_h = f'영어 1등급 비율은 {sv(f"{ratio:g}%")}입니다.'
+        body_t = f'영어 1등급 비율은 {ratio:g}%입니다.'
+    # 상대평가 원점수컷은 평가원·교육청이 발표하지 않는다 — 이 사이트의 값은 모두 EBSi·입시기관 값
+    has_raw = bool(groups)
+    src_t = ((('표준점수 최고점과 영어 1등급 비율은' if ratio is not None else '표준점수 최고점은') + ' 평가원·시도교육청 발표값입니다. ' if official_src else '')
+             + (('원점수 1등급컷은 공식 발표값이 아니라 EBSi·입시기관 값이며, 역산·추정한 값은 따로 표시했습니다. ' if estimated
+                 else '원점수 1등급컷은 공식 발표값이 아니라 EBSi·입시기관 값입니다. ') if has_raw else ''))
+    src = (html_escape(src_t, quote=False)
+           + '과목별 값은 <a href="#examsetFactsTitle">등급컷과 난이도</a> 표, 출처 구분은 <a href="data-policy.html">데이터 원칙</a>에 있습니다.')
+    html = (f'<p class="examset__answer"><strong>{e}</strong> {body_h}</p>'
+            f'<p class="examset__answer-src">{src}</p>')
+    return html, f'{head} {body_t} {src_t}'.strip()
 
 
 def _score_key(it: dict, gy) -> tuple:
@@ -2752,6 +2826,7 @@ def build_static_set_pages(items: list[dict], template_path: Path, out_root: Pat
         if not facts_html:   # 등급컷 표가 없는 회차는 제목·설명에서 등급컷을 빼고 광고도 제외
             meta = build_set_meta(curr, year, t, sg, exams_in_set, has_cuts=False)
         canonical = f'https://kicegg.com/{fname}'
+        answer_html, answer_text = set_cut_summary(meta['head'], merged_exams, _scores, exams_in_set[0].get('typeGroup') in ('suneung', 'education')) if facts_html else ('', '')
 
         jsonld = {
             '@context': 'https://schema.org',
@@ -2780,6 +2855,25 @@ def build_static_set_pages(items: list[dict], template_path: Path, out_root: Pat
             + json.dumps(breadcrumb, ensure_ascii=False, separators=(',', ':'))
             + '</script>\n'
         )
+        if answer_text:   # 화면의 요약 문장·표와 같은 값만 — 표에 없는 값을 LD에 쓰지 않는다
+            ey, mo = exams_in_set[0].get('examYear'), exams_in_set[0].get('month')
+            dataset = {
+                '@context': 'https://schema.org',
+                '@type': 'Dataset',
+                'name': f"{meta['head']} 영역별 1등급컷·표준점수 최고점",
+                'description': answer_text + ' 영역별 1등급컷, 표준점수 최고점, 난이도, 전년 대비 차이를 표로 정리했습니다.',
+                'url': canonical,
+                'inLanguage': 'ko-KR',
+                'isAccessibleForFree': True,
+                'creator': {'@id': 'https://kicegg.com/#org'},
+                'variableMeasured': ['1등급컷', '표준점수 최고점', '난이도'],
+                'isPartOf': {'@id': canonical},
+            }
+            if ey and mo:
+                dataset['temporalCoverage'] = f'{int(ey)}-{int(mo):02d}'
+            ld_block += ('  <script type="application/ld+json">'
+                         + json.dumps(dataset, ensure_ascii=False, separators=(',', ':'))
+                         + '</script>\n')
 
         html = template
         html = _set_attr(html, pat['title'], meta['title'])
@@ -2817,6 +2911,7 @@ def build_static_set_pages(items: list[dict], template_path: Path, out_root: Pat
             '<p class="exam__seo-intro" id="examsetSeoIntro">'
             + html_escape(meta['intro'], quote=False)
             + '</p>'
+            + (f'\n      {answer_html}' if answer_html else '')
         )
         html = re.sub(
             r'<p class="examset__count" id="examsetCount"></p>',

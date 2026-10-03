@@ -887,6 +887,9 @@ body.pv-lock { overflow: hidden; }
 .examset__chips { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
 .examset__title { font-size: 30px; font-weight: 800; letter-spacing: -.04em; line-height: 1.25; }
 .examset__sub, .examset__count { font-size: 14px; color: var(--ink-4); }
+.examset__answer { margin: 10px 0 0; max-width: 720px; font-size: 15px; line-height: 1.65; color: var(--ink-2); }
+.examset__answer-src { margin: 4px 0 0; max-width: 720px; font-size: 12.5px; line-height: 1.6; color: var(--ink-4); }
+.examset__answer-src a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
 .examset__error { padding: 80px 20px; text-align: center; }
 .examset__error-title { font-size: 18px; font-weight: 700; }
 .examset__error-sub { color: var(--ink-4); margin-top: 4px; }

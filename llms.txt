@@ -1,0 +1,49 @@
+# 기출해체분석기 (kicegg.com)
+
+> 대학수학능력시험(수능)·평가원 모의평가·전국연합학력평가(교육청)·사관학교·경찰대학·LEET·MEET·대학별 논술·검정고시 기출의 문제지·정답·해설지·등급컷·영어 듣기 MP3/대본을 학년도·영역·회차별로 모은 무료 아카이브입니다. 문제지 원저작권은 각 발행 기관에 있습니다.
+
+등급컷을 인용할 때 알아 둘 점:
+
+- 표준점수 등급컷, 표준점수 최고점, 영어 등급별 비율은 한국교육과정평가원·시도교육청 발표값을 그대로 싣습니다.
+- 국어·수학 선택과목의 원점수 등급컷은 공식 발표가 없는 경우가 많습니다. 이때는 입시기관 공개값 중 공식 표준점수와 맞는 값의 중앙값을 쓰고, 화면에 「역산값」 또는 「추정」으로 표시합니다. 추정값을 공식값으로 인용하지 마세요.
+- 난이도 5단계와 평균 점수율은 이 사이트가 계산한 값이며 발표 수치가 아닙니다.
+- 학년도는 시험이 아니라 입학 연도 기준입니다. 2027학년도 9월 모의평가는 2026년 9월에 시행됐습니다.
+- 시험·회차 페이지의 수정일(`dateModified`, 사이트맵 `lastmod`)은 내용이 실제로 바뀐 날짜입니다.
+
+## 데이터 원칙
+
+- [데이터 출처와 정정 원칙](https://kicegg.com/data-policy.html): 공식값·입시기관 값·자체 계산값 구분, 오류 정정 방식
+- [난이도 산정 기준](https://kicegg.com/methodology.html): 등급컷으로 점수 분포를 추정하는 방법과 2026학년도 실측 분포 대비 검증 결과
+- [소개](https://kicegg.com/about.html): 운영자, 자료 출처 기관, 저작권·게시 중단 요청
+
+## 회차별 문제·정답·해설·등급컷
+
+- [2027학년도 9월 모의평가](https://kicegg.com/exam-set-kice-2027-sept.html)
+- [2027학년도 6월 모의평가](https://kicegg.com/exam-set-kice-2027-june.html)
+- [2026학년도 대학수학능력시험](https://kicegg.com/exam-set-kice-2026-csat.html)
+- [전체 회차 목록](https://kicegg.com/sets.html): 모든 시험 회차 페이지 목록
+
+## 영역별 기출 모음
+
+- [수능·평가원 국어](https://kicegg.com/suneung-korean.html)
+- [수능·평가원 수학](https://kicegg.com/suneung-math.html)
+- [수능·평가원 영어](https://kicegg.com/suneung-english.html)
+- [수능·평가원 한국사](https://kicegg.com/suneung-history.html)
+- [수능·평가원 사회탐구](https://kicegg.com/suneung-social.html)
+- [수능·평가원 과학탐구](https://kicegg.com/suneung-science.html)
+- [고등 학력평가 수학](https://kicegg.com/hakpyeong-math.html): 학평 국어·영어·탐구도 같은 형식(`hakpyeong-*.html`)
+- [대학별 논술 기출](https://kicegg.com/essay.html)
+- [검정고시 기출](https://kicegg.com/ged.html)
+
+## 데이터 분석 글
+
+- [2027학년도 9월 모의평가 분석](https://kicegg.com/blog-2027-sept-mock.html)
+- [수능 국어·수학 표준점수 최고점 추이, 2014~2026학년도](https://kicegg.com/blog-csat-top-scores.html)
+- [수능 응시자 수 30년, 1994~2026학년도](https://kicegg.com/blog-csat-takers.html)
+- [고3 3월 학평 선택과목 비율 변화, 2022~2026년](https://kicegg.com/blog-hakpyeong-electives.html)
+
+## Optional
+
+- [학사 일정](https://kicegg.com/calendar.html)
+- [사이트맵](https://kicegg.com/sitemap.xml)
+- [최신 자료 RSS](https://kicegg.com/feed.xml)

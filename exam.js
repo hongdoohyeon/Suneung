@@ -1,15 +1,15 @@
 'use strict';
-import { CURRICULUM_CONFIG, getTypeConf, prettySub } from './config.js?v=af2a7c9227f425f644db';
-import { escHtml as _escHtml, escAttr, safeUrl as _safeUrl, $ as _$ } from './lib/dom.js?v=af2a7c9227f425f644db';
-import { setMeta, setMetaProp, setCanonical, injectJsonLd as _injectJsonLd, STATIC_PAGE, applySeo } from './lib/seo.js?v=af2a7c9227f425f644db';
-import { renderAllAdSlots } from './lib/ads.js?v=af2a7c9227f425f644db';
-import { renderPdf, renderPreviewCover, renderUnsupported, renderEmpty, urlExtension } from './lib/exam-pdf.js?v=af2a7c9227f425f644db';
-import { LOADING_PREVIEWS } from './lib/loading-previews.js?v=af2a7c9227f425f644db';
-import { renderGradeDist } from './lib/exam-gradedist.js?v=af2a7c9227f425f644db';
-import { pushRecent } from './lib/recent.js?v=af2a7c9227f425f644db';
-import './lib/report.js?v=af2a7c9227f425f644db';
-import { shareLink } from './lib/share.js?v=af2a7c9227f425f644db';
-import { enableForcedDownloads } from './lib/download.js?v=af2a7c9227f425f644db';
+import { CURRICULUM_CONFIG, getTypeConf, prettySub } from './config.js?v=eb1e3cd1fbb40186026e';
+import { escHtml as _escHtml, escAttr, safeUrl as _safeUrl, $ as _$ } from './lib/dom.js?v=eb1e3cd1fbb40186026e';
+import { setMeta, setMetaProp, setCanonical, injectJsonLd as _injectJsonLd, STATIC_PAGE, applySeo } from './lib/seo.js?v=eb1e3cd1fbb40186026e';
+import { renderAllAdSlots } from './lib/ads.js?v=eb1e3cd1fbb40186026e';
+import { renderPdf, renderPreviewCover, renderUnsupported, renderEmpty, urlExtension } from './lib/exam-pdf.js?v=eb1e3cd1fbb40186026e';
+import { LOADING_PREVIEWS } from './lib/loading-previews.js?v=eb1e3cd1fbb40186026e';
+import { renderGradeDist } from './lib/exam-gradedist.js?v=eb1e3cd1fbb40186026e';
+import { pushRecent } from './lib/recent.js?v=eb1e3cd1fbb40186026e';
+import './lib/report.js?v=eb1e3cd1fbb40186026e';
+import { shareLink } from './lib/share.js?v=eb1e3cd1fbb40186026e';
+import { enableForcedDownloads } from './lib/download.js?v=eb1e3cd1fbb40186026e';
 
 enableForcedDownloads();
 
@@ -283,10 +283,11 @@ async function main() {
   if (examResult.status === 'fulfilled') exam = examResult.value;
   if (cutResult.status === 'fulfilled' && cutResult.value) gradecuts = [cutResult.value];
 
-  // 단건 split 미배포 환경 폴백: 통합 exams.json
-  if (!exam) {
+  // 단건 split 미배포 환경 폴백: 통합 exams.json(12MB) — 정적 상세는 본문이 HTML 에 다 있어 받지 않는다
+  // (robots.txt 가 data/exam/ 을 막아 검색엔진 렌더러가 여기로 오면 12MB 를 매 페이지 받게 된다)
+  if (!exam && !isStaticExam) {
     try {
-      const res = await fetch('data/exams.json?v=af2a7c9227f425f644db');
+      const res = await fetch('data/exams.json?v=eb1e3cd1fbb40186026e');
       if (res.ok) {
         const exams = await res.json();
         exam = exams.find(e => e.id === id) ?? null;
