@@ -1382,12 +1382,17 @@ def _tier_stat_label(sc: dict) -> str:
     return f'난이도 (역대 {n}회, {b} 기준)' if n and b else '난이도'
 
 
+def _basis_kind(sc: dict) -> str:
+    """원점수컷이 공식값이 아니면 화면 표기('역산값'·'추정 경계'·'추정'), 공식값이면 빈 문자열."""
+    basis = sc.get('basis')
+    return ('역산값' if basis == 'academy_reverse_calculated' else '추정 경계' if basis == 'academy_integerized_threshold'
+            else '추정' if basis == 'academy_consensus_estimate' else '')
+
+
 def score_stats_html(sc: dict) -> str:
     esc = lambda v: html_escape(str(v), quote=False)
     cells = []
-    basis = sc.get('basis')
-    kind = ('역산값' if basis == 'academy_reverse_calculated' else '추정 경계' if basis == 'academy_integerized_threshold'
-            else '추정' if basis == 'academy_consensus_estimate' else '')
+    kind = _basis_kind(sc)
     if sc['abs']:
         cells.append(('1등급 기준', f'{esc(sc["raw"])}<small>점 이상</small>', False))
         if sc.get('ratio') is not None:
@@ -2630,6 +2635,59 @@ def set_facts_html(head: str, exams: list[dict], scores: dict, by_key: dict) -> 
             f'<tbody>{"".join(rows)}</tbody></table></div></section>')
 
 
+def set_cut_summary(head: str, exams: list[dict], scores: dict, official_src: bool) -> tuple[str, str]:
+    """회차 첫머리 직답 문장 — '{회차} 1등급컷은 국어 화법과 작문 90점… 영어 1등급 비율은 15.54%입니다.'
+    국어·수학 원점수컷과 영어(절대평가면 1등급 비율)만 — 탐구는 아래 표, 셋 다 없으면 요약하지 않는다.
+    (html, 출처 문장까지 담은 순수 텍스트 — Dataset 설명용) — 값이 없으면 ('', '')."""
+    groups: dict[str, list[tuple[str, str]]] = {}
+    ratio = None
+    estimated = False
+    order = sorted(exams, key=lambda x: (SUBJECT_ORDER.get(x.get('subject'), 99), x.get('subject') or '', sub_order_key(x.get('subSubject'))))
+    def _add(it, sc):
+        nonlocal estimated
+        kind = _basis_kind(sc)
+        estimated = estimated or bool(kind)
+        sub = pretty_sub(it.get('subSubject'))
+        sub = '' if not sub or sub == it.get('subject') else sub
+        groups.setdefault(it.get('subject') or '', []).append((sub, f'{sc["raw"]:g}점' + (f'({kind})' if kind else '')))
+    for it in order:
+        sc = scores.get(it['id'])
+        if not sc:
+            continue
+        if it.get('subject') in ('국어', '수학', '영어') and not sc['abs'] and sc['raw'] is not None:
+            _add(it, sc)
+        elif it.get('subject') == '영어' and sc['abs'] and sc.get('ratio') is not None and ratio is None:
+            ratio = sc['ratio']
+    if not groups and ratio is None:
+        return '', ''
+    sv = lambda v: f'<span class="spoil-val">{html_escape(v, quote=False)}</span>'
+    parts_h, parts_t = [], []
+    for subject, vals in groups.items():
+        hs = '·'.join(f'{html_escape(sub, quote=False)} {sv(v)}'.strip() for sub, v in vals)
+        ts = '·'.join(f'{sub} {v}'.strip() for sub, v in vals)
+        parts_h.append(f'{html_escape(subject, quote=False)} {hs}')
+        parts_t.append(f'{subject} {ts}')
+    e = html_escape(head, quote=False)
+    if parts_h and ratio is not None:
+        body_h = f'1등급컷은 {", ".join(parts_h)}이고, 영어 1등급 비율은 {sv(f"{ratio:g}%")}입니다.'
+        body_t = f'1등급컷은 {", ".join(parts_t)}이고, 영어 1등급 비율은 {ratio:g}%입니다.'
+    elif parts_h:
+        body_h = f'1등급컷은 {", ".join(parts_h)}입니다.'
+        body_t = f'1등급컷은 {", ".join(parts_t)}입니다.'
+    else:
+        body_h = f'영어 1등급 비율은 {sv(f"{ratio:g}%")}입니다.'
+        body_t = f'영어 1등급 비율은 {ratio:g}%입니다.'
+    # 원점수컷 대부분은 입시기관 값이고 출처 표시(basis)는 역산·추정만 달려 있다 — 값마다 공식 여부를 단정하지 않고 원칙만 적는다
+    src_t = ((('표준점수 최고점과 영어 1등급 비율은' if ratio is not None else '표준점수 최고점은') + ' 평가원·시도교육청 발표값입니다. ' if official_src else '')
+             + ('원점수 1등급컷은 공식 발표가 없으면 입시기관 공개값을 쓰며, 역산·추정한 값은 따로 표시했습니다. ' if estimated
+                else '원점수 1등급컷은 공식 발표가 없으면 입시기관 공개값을 씁니다. '))
+    src = (html_escape(src_t, quote=False)
+           + '과목별 값은 <a href="#examsetFactsTitle">등급컷과 난이도</a> 표, 출처 구분은 <a href="data-policy.html">데이터 원칙</a>에 있습니다.')
+    html = (f'<p class="examset__answer"><strong>{e}</strong> {body_h}</p>'
+            f'<p class="examset__answer-src">{src}</p>')
+    return html, f'{head} {body_t} {src_t}'.strip()
+
+
 def _score_key(it: dict, gy) -> tuple:
     sg = it.get('studentGrade') if it.get('typeGroup') == 'education' else None
     return (it.get('typeGroup'), _NTYPE.get(it.get('type'), it.get('type')), sg, it.get('subject'), it.get('subSubject'), gy)
@@ -2737,6 +2795,7 @@ def build_static_set_pages(items: list[dict], template_path: Path, out_root: Pat
         if not facts_html:   # 등급컷 표가 없는 회차는 제목·설명에서 등급컷을 빼고 광고도 제외
             meta = build_set_meta(curr, year, t, sg, exams_in_set, has_cuts=False)
         canonical = f'https://kicegg.com/{fname}'
+        answer_html, answer_text = set_cut_summary(meta['head'], merged_exams, _scores, exams_in_set[0].get('typeGroup') in ('suneung', 'education')) if facts_html else ('', '')
 
         jsonld = {
             '@context': 'https://schema.org',
@@ -2765,6 +2824,25 @@ def build_static_set_pages(items: list[dict], template_path: Path, out_root: Pat
             + json.dumps(breadcrumb, ensure_ascii=False, separators=(',', ':'))
             + '</script>\n'
         )
+        if answer_text:   # 화면의 요약 문장·표와 같은 값만 — 표에 없는 값을 LD에 쓰지 않는다
+            ey, mo = exams_in_set[0].get('examYear'), exams_in_set[0].get('month')
+            dataset = {
+                '@context': 'https://schema.org',
+                '@type': 'Dataset',
+                'name': f"{meta['head']} 영역별 1등급컷·표준점수 최고점",
+                'description': answer_text + ' 영역별 1등급컷, 표준점수 최고점, 난이도, 전년 대비 차이를 표로 정리했습니다.',
+                'url': canonical,
+                'inLanguage': 'ko-KR',
+                'isAccessibleForFree': True,
+                'creator': {'@id': 'https://kicegg.com/#org'},
+                'variableMeasured': ['1등급컷', '표준점수 최고점', '난이도'],
+                'isPartOf': {'@id': canonical},
+            }
+            if ey and mo:
+                dataset['temporalCoverage'] = f'{int(ey)}-{int(mo):02d}'
+            ld_block += ('  <script type="application/ld+json">'
+                         + json.dumps(dataset, ensure_ascii=False, separators=(',', ':'))
+                         + '</script>\n')
 
         html = template
         html = _set_attr(html, pat['title'], meta['title'])
@@ -2802,6 +2880,7 @@ def build_static_set_pages(items: list[dict], template_path: Path, out_root: Pat
             '<p class="exam__seo-intro" id="examsetSeoIntro">'
             + html_escape(meta['intro'], quote=False)
             + '</p>'
+            + (f'\n      {answer_html}' if answer_html else '')
         )
         html = re.sub(
             r'<p class="examset__count" id="examsetCount"></p>',
