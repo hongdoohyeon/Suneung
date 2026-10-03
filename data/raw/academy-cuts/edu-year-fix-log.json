@@ -1,0 +1,7125 @@
+{
+ "filled": [
+  {
+   "id": 5610,
+   "slot": [
+    2025,
+    "oct",
+    2,
+    "과학탐구",
+    "물리Ⅰ"
+   ],
+   "basis": "official",
+   "source": "megastudy+edu-official"
+  },
+  {
+   "id": 5611,
+   "slot": [
+    2025,
+    "oct",
+    2,
+    "과학탐구",
+    "생명과학Ⅰ"
+   ],
+   "basis": "official",
+   "source": "megastudy+edu-official"
+  },
+  {
+   "id": 5612,
+   "slot": [
+    2025,
+    "oct",
+    2,
+    "과학탐구",
+    "지구과학Ⅰ"
+   ],
+   "basis": "official",
+   "source": "megastudy+edu-official"
+  },
+  {
+   "id": 5613,
+   "slot": [
+    2025,
+    "oct",
+    2,
+    "과학탐구",
+    "화학Ⅰ"
+   ],
+   "basis": "official",
+   "source": "megastudy+edu-official"
+  },
+  {
+   "id": 5614,
+   "slot": [
+    2025,
+    "oct",
+    2,
+    "사회탐구",
+    "경제"
+   ],
+   "basis": "official",
+   "source": "megastudy+edu-official"
+  },
+  {
+   "id": 5615,
+   "slot": [
+    2025,
+    "oct",
+    2,
+    "사회탐구",
+    "동아시아사"
+   ],
+   "basis": "official",
+   "source": "megastudy+edu-official"
+  },
+  {
+   "id": 5616,
+   "slot": [
+    2025,
+    "oct",
+    2,
+    "사회탐구",
+    "사회문화"
+   ],
+   "basis": "official",
+   "source": "megastudy+edu-official"
+  },
+  {
+   "id": 5617,
+   "slot": [
+    2025,
+    "oct",
+    2,
+    "사회탐구",
+    "생활과윤리"
+   ],
+   "basis": "official",
+   "source": "megastudy+edu-official"
+  },
+  {
+   "id": 5618,
+   "slot": [
+    2025,
+    "oct",
+    2,
+    "사회탐구",
+    "세계사"
+   ],
+   "basis": "official",
+   "source": "megastudy+edu-official"
+  },
+  {
+   "id": 5619,
+   "slot": [
+    2025,
+    "oct",
+    2,
+    "사회탐구",
+    "세계지리"
+   ],
+   "basis": "official",
+   "source": "megastudy+edu-official"
+  },
+  {
+   "id": 5620,
+   "slot": [
+    2025,
+    "oct",
+    2,
+    "사회탐구",
+    "윤리와사상"
+   ],
+   "basis": "official",
+   "source": "megastudy+edu-official"
+  },
+  {
+   "id": 5621,
+   "slot": [
+    2025,
+    "oct",
+    2,
+    "사회탐구",
+    "정치와법"
+   ],
+   "basis": "official",
+   "source": "megastudy+edu-official"
+  },
+  {
+   "id": 5622,
+   "slot": [
+    2025,
+    "oct",
+    2,
+    "사회탐구",
+    "한국지리"
+   ],
+   "basis": "official",
+   "source": "megastudy+edu-official"
+  },
+  {
+   "id": 5623,
+   "slot": [
+    2025,
+    "mar",
+    2,
+    "과학탐구",
+    "물리Ⅰ"
+   ],
+   "basis": "official",
+   "source": "ebsi-grdcut+edu-official"
+  },
+  {
+   "id": 5624,
+   "slot": [
+    2025,
+    "mar",
+    2,
+    "과학탐구",
+    "생명과학Ⅰ"
+   ],
+   "basis": "official",
+   "source": "ebsi-grdcut+edu-official"
+  },
+  {
+   "id": 5625,
+   "slot": [
+    2025,
+    "mar",
+    2,
+    "과학탐구",
+    "지구과학Ⅰ"
+   ],
+   "basis": "official",
+   "source": "ebsi-grdcut+edu-official"
+  },
+  {
+   "id": 5626,
+   "slot": [
+    2025,
+    "mar",
+    2,
+    "과학탐구",
+    "화학Ⅰ"
+   ],
+   "basis": "official",
+   "source": "ebsi-grdcut+edu-official"
+  },
+  {
+   "id": 5627,
+   "slot": [
+    2025,
+    "mar",
+    2,
+    "사회탐구",
+    "경제"
+   ],
+   "basis": "official",
+   "source": "ebsi-grdcut+edu-official"
+  },
+  {
+   "id": 5628,
+   "slot": [
+    2025,
+    "mar",
+    2,
+    "사회탐구",
+    "동아시아사"
+   ],
+   "basis": "official",
+   "source": "ebsi-grdcut+edu-official"
+  },
+  {
+   "id": 5629,
+   "slot": [
+    2025,
+    "mar",
+    2,
+    "사회탐구",
+    "사회문화"
+   ],
+   "basis": "official",
+   "source": "ebsi-grdcut+edu-official"
+  },
+  {
+   "id": 5630,
+   "slot": [
+    2025,
+    "mar",
+    2,
+    "사회탐구",
+    "생활과윤리"
+   ],
+   "basis": "official",
+   "source": "ebsi-grdcut+edu-official"
+  },
+  {
+   "id": 5631,
+   "slot": [
+    2025,
+    "mar",
+    2,
+    "사회탐구",
+    "세계사"
+   ],
+   "basis": "official",
+   "source": "ebsi-grdcut+edu-official"
+  },
+  {
+   "id": 5632,
+   "slot": [
+    2025,
+    "mar",
+    2,
+    "사회탐구",
+    "세계지리"
+   ],
+   "basis": "official",
+   "source": "ebsi-grdcut+edu-official"
+  },
+  {
+   "id": 5633,
+   "slot": [
+    2025,
+    "mar",
+    2,
+    "사회탐구",
+    "윤리와사상"
+   ],
+   "basis": "official",
+   "source": "ebsi-grdcut+edu-official"
+  },
+  {
+   "id": 5634,
+   "slot": [
+    2025,
+    "mar",
+    2,
+    "사회탐구",
+    "정치와법"
+   ],
+   "basis": "official",
+   "source": "ebsi-grdcut+edu-official"
+  },
+  {
+   "id": 5635,
+   "slot": [
+    2025,
+    "mar",
+    2,
+    "사회탐구",
+    "한국지리"
+   ],
+   "basis": "official",
+   "source": "ebsi-grdcut+edu-official"
+  },
+  {
+   "id": 5636,
+   "slot": [
+    2021,
+    "oct",
+    3,
+    "직업탐구",
+    "기초제도"
+   ],
+   "basis": "academy 1/1",
+   "source": "ebsi-grdcut"
+  },
+  {
+   "id": 5637,
+   "slot": [
+    2021,
+    "oct",
+    3,
+    "직업탐구",
+    "회계원리"
+   ],
+   "basis": "academy 1/1",
+   "source": "ebsi-grdcut"
+  },
+  {
+   "id": 5638,
+   "slot": [
+    2020,
+    "mar",
+    2,
+    "과학탐구",
+    "생명과학Ⅰ"
+   ],
+   "basis": "academy 1/1",
+   "source": "ebsi-grdcut"
+  },
+  {
+   "id": 5639,
+   "slot": [
+    2020,
+    "mar",
+    2,
+    "과학탐구",
+    "지구과학Ⅰ"
+   ],
+   "basis": "academy 1/1",
+   "source": "ebsi-grdcut"
+  },
+  {
+   "id": 5640,
+   "slot": [
+    2020,
+    "mar",
+    2,
+    "과학탐구",
+    "화학Ⅰ"
+   ],
+   "basis": "academy 1/1",
+   "source": "ebsi-grdcut"
+  },
+  {
+   "id": 5641,
+   "slot": [
+    2020,
+    "mar",
+    1,
+    "국어",
+    ""
+   ],
+   "basis": "academy 1/1",
+   "source": "ebsi-grdcut"
+  },
+  {
+   "id": 5642,
+   "slot": [
+    2020,
+    "mar",
+    2,
+    "국어",
+    ""
+   ],
+   "basis": "academy 1/1",
+   "source": "ebsi-grdcut"
+  },
+  {
+   "id": 5643,
+   "slot": [
+    2020,
+    "mar",
+    2,
+    "사회탐구",
+    "경제"
+   ],
+   "basis": "academy 1/1",
+   "source": "ebsi-grdcut"
+  },
+  {
+   "id": 5644,
+   "slot": [
+    2020,
+    "mar",
+    2,
+    "사회탐구",
+    "동아시아사"
+   ],
+   "basis": "academy 1/1",
+   "source": "ebsi-grdcut"
+  },
+  {
+   "id": 5645,
+   "slot": [
+    2020,
+    "mar",
+    2,
+    "사회탐구",
+    "정치와법"
+   ],
+   "basis": "academy 1/1",
+   "source": "ebsi-grdcut"
+  },
+  {
+   "id": 5646,
+   "slot": [
+    2020,
+    "mar",
+    2,
+    "사회탐구",
+    "사회문화"
+   ],
+   "basis": "academy 1/1",
+   "source": "ebsi-grdcut"
+  },
+  {
+   "id": 5647,
+   "slot": [
+    2020,
+    "mar",
+    2,
+    "사회탐구",
+    "생활과윤리"
+   ],
+   "basis": "academy 1/1",
+   "source": "ebsi-grdcut"
+  },
+  {
+   "id": 5648,
+   "slot": [
+    2020,
+    "mar",
+    2,
+    "사회탐구",
+    "세계사"
+   ],
+   "basis": "academy 1/1",
+   "source": "ebsi-grdcut"
+  },
+  {
+   "id": 5649,
+   "slot": [
+    2020,
+    "mar",
+    2,
+    "사회탐구",
+    "세계지리"
+   ],
+   "basis": "academy 1/1",
+   "source": "ebsi-grdcut"
+  },
+  {
+   "id": 5650,
+   "slot": [
+    2020,
+    "mar",
+    2,
+    "사회탐구",
+    "윤리와사상"
+   ],
+   "basis": "academy 1/1",
+   "source": "ebsi-grdcut"
+  },
+  {
+   "id": 5651,
+   "slot": [
+    2020,
+    "mar",
+    2,
+    "사회탐구",
+    "한국지리"
+   ],
+   "basis": "academy 1/1",
+   "source": "ebsi-grdcut"
+  },
+  {
+   "id": 5652,
+   "slot": [
+    2019,
+    "mar",
+    2,
+    "수학",
+    "가"
+   ],
+   "basis": "academy 1/1",
+   "source": "ebsi-grdcut"
+  },
+  {
+   "id": 5653,
+   "slot": [
+    2019,
+    "mar",
+    2,
+    "수학",
+    "나"
+   ],
+   "basis": "academy 1/1",
+   "source": "ebsi-grdcut"
+  },
+  {
+   "id": 5654,
+   "slot": [
+    2018,
+    "oct",
+    3,
+    "직업탐구",
+    "회계원리"
+   ],
+   "basis": "academy 1/1",
+   "source": "ebsi-grdcut"
+  },
+  {
+   "id": 5655,
+   "slot": [
+    2017,
+    "nov",
+    1,
+    "사회탐구",
+    "생활과윤리"
+   ],
+   "basis": "academy 1/1",
+   "source": "megastudy"
+  },
+  {
+   "id": 5656,
+   "slot": [
+    2016,
+    "oct",
+    3,
+    "직업탐구",
+    "가사실업"
+   ],
+   "basis": "academy 1/1",
+   "source": "ebsi-grdcut"
+  },
+  {
+   "id": 5657,
+   "slot": [
+    2016,
+    "oct",
+    3,
+    "직업탐구",
+    "상업정보"
+   ],
+   "basis": "academy 1/1",
+   "source": "ebsi-grdcut"
+  },
+  {
+   "id": 5658,
+   "slot": [
+    2016,
+    "jun",
+    1,
+    "사회탐구",
+    "생활과윤리"
+   ],
+   "basis": "academy 1/1",
+   "source": "megastudy"
+  },
+  {
+   "id": 5659,
+   "slot": [
+    2015,
+    "mar",
+    2,
+    "영어",
+    ""
+   ],
+   "basis": "academy 1/1",
+   "source": "ebsi-grdcut"
+  },
+  {
+   "id": 5660,
+   "slot": [
+    2015,
+    "mar",
+    2,
+    "한국사",
+    ""
+   ],
+   "basis": "academy 1/1",
+   "source": "ebsi-grdcut"
+  },
+  {
+   "id": 5661,
+   "slot": [
+    2014,
+    "mar",
+    3,
+    "국어",
+    "A"
+   ],
+   "basis": "academy 1/1",
+   "source": "ebsi-grdcut"
+  },
+  {
+   "id": 5662,
+   "slot": [
+    2014,
+    "mar",
+    3,
+    "국어",
+    "B"
+   ],
+   "basis": "academy 1/1",
+   "source": "ebsi-grdcut"
+  },
+  {
+   "id": 5663,
+   "slot": [
+    2014,
+    "mar",
+    3,
+    "수학",
+    "A"
+   ],
+   "basis": "academy 1/1",
+   "source": "ebsi-grdcut"
+  },
+  {
+   "id": 5664,
+   "slot": [
+    2014,
+    "mar",
+    3,
+    "수학",
+    "B"
+   ],
+   "basis": "academy 1/1",
+   "source": "ebsi-grdcut"
+  }
+ ],
+ "moved": [
+  {
+   "id": 668,
+   "from": {
+    "gradeYear": 2025,
+    "examYear": 2024,
+    "type": "oct",
+    "studentGrade": 2,
+    "subSubject": "물리학Ⅰ"
+   },
+   "to": [
+    2024,
+    "oct",
+    2,
+    "과학탐구",
+    "물리Ⅰ"
+   ],
+   "basis": "official"
+  },
+  {
+   "id": 671,
+   "from": {
+    "gradeYear": 2025,
+    "examYear": 2024,
+    "type": "oct",
+    "studentGrade": 2,
+    "subSubject": "생명과학Ⅰ"
+   },
+   "to": [
+    2024,
+    "oct",
+    2,
+    "과학탐구",
+    "생명과학Ⅰ"
+   ],
+   "basis": "official"
+  },
+  {
+   "id": 674,
+   "from": {
+    "gradeYear": 2025,
+    "examYear": 2024,
+    "type": "oct",
+    "studentGrade": 2,
+    "subSubject": "지구과학Ⅰ"
+   },
+   "to": [
+    2024,
+    "oct",
+    2,
+    "과학탐구",
+    "지구과학Ⅰ"
+   ],
+   "basis": "official"
+  },
+  {
+   "id": 677,
+   "from": {
+    "gradeYear": 2025,
+    "examYear": 2024,
+    "type": "oct",
+    "studentGrade": 2,
+    "subSubject": "화학Ⅰ"
+   },
+   "to": [
+    2024,
+    "oct",
+    2,
+    "과학탐구",
+    "화학Ⅰ"
+   ],
+   "basis": "official"
+  },
+  {
+   "id": 685,
+   "from": {
+    "gradeYear": 2025,
+    "examYear": 2024,
+    "type": "oct",
+    "studentGrade": 2,
+    "subSubject": "경제"
+   },
+   "to": [
+    2024,
+    "oct",
+    2,
+    "사회탐구",
+    "경제"
+   ],
+   "basis": "official"
+  },
+  {
+   "id": 687,
+   "from": {
+    "gradeYear": 2025,
+    "examYear": 2024,
+    "type": "oct",
+    "studentGrade": 2,
+    "subSubject": "동아시아사"
+   },
+   "to": [
+    2024,
+    "oct",
+    2,
+    "사회탐구",
+    "동아시아사"
+   ],
+   "basis": "official"
+  },
+  {
+   "id": 689,
+   "from": {
+    "gradeYear": 2025,
+    "examYear": 2024,
+    "type": "oct",
+    "studentGrade": 2,
+    "subSubject": "사회·문화"
+   },
+   "to": [
+    2024,
+    "oct",
+    2,
+    "사회탐구",
+    "사회문화"
+   ],
+   "basis": "official"
+  },
+  {
+   "id": 691,
+   "from": {
+    "gradeYear": 2025,
+    "examYear": 2024,
+    "type": "oct",
+    "studentGrade": 2,
+    "subSubject": "생활과윤리"
+   },
+   "to": [
+    2024,
+    "oct",
+    2,
+    "사회탐구",
+    "생활과윤리"
+   ],
+   "basis": "official"
+  },
+  {
+   "id": 693,
+   "from": {
+    "gradeYear": 2025,
+    "examYear": 2024,
+    "type": "oct",
+    "studentGrade": 2,
+    "subSubject": "세계사"
+   },
+   "to": [
+    2024,
+    "oct",
+    2,
+    "사회탐구",
+    "세계사"
+   ],
+   "basis": "official"
+  },
+  {
+   "id": 695,
+   "from": {
+    "gradeYear": 2025,
+    "examYear": 2024,
+    "type": "oct",
+    "studentGrade": 2,
+    "subSubject": "세계지리"
+   },
+   "to": [
+    2024,
+    "oct",
+    2,
+    "사회탐구",
+    "세계지리"
+   ],
+   "basis": "official"
+  },
+  {
+   "id": 697,
+   "from": {
+    "gradeYear": 2025,
+    "examYear": 2024,
+    "type": "oct",
+    "studentGrade": 2,
+    "subSubject": "윤리와사상"
+   },
+   "to": [
+    2024,
+    "oct",
+    2,
+    "사회탐구",
+    "윤리와사상"
+   ],
+   "basis": "official"
+  },
+  {
+   "id": 699,
+   "from": {
+    "gradeYear": 2025,
+    "examYear": 2024,
+    "type": "oct",
+    "studentGrade": 2,
+    "subSubject": "정치와법"
+   },
+   "to": [
+    2024,
+    "oct",
+    2,
+    "사회탐구",
+    "정치와법"
+   ],
+   "basis": "official"
+  },
+  {
+   "id": 701,
+   "from": {
+    "gradeYear": 2025,
+    "examYear": 2024,
+    "type": "oct",
+    "studentGrade": 2,
+    "subSubject": "한국지리"
+   },
+   "to": [
+    2024,
+    "oct",
+    2,
+    "사회탐구",
+    "한국지리"
+   ],
+   "basis": "official"
+  },
+  {
+   "id": 786,
+   "from": {
+    "gradeYear": 2025,
+    "examYear": 2024,
+    "type": "mar",
+    "studentGrade": 2,
+    "subSubject": "물리학Ⅰ"
+   },
+   "to": [
+    2024,
+    "mar",
+    2,
+    "과학탐구",
+    "물리Ⅰ"
+   ],
+   "basis": "official"
+  },
+  {
+   "id": 788,
+   "from": {
+    "gradeYear": 2025,
+    "examYear": 2024,
+    "type": "mar",
+    "studentGrade": 2,
+    "subSubject": "생명과학Ⅰ"
+   },
+   "to": [
+    2024,
+    "mar",
+    2,
+    "과학탐구",
+    "생명과학Ⅰ"
+   ],
+   "basis": "official"
+  },
+  {
+   "id": 790,
+   "from": {
+    "gradeYear": 2025,
+    "examYear": 2024,
+    "type": "mar",
+    "studentGrade": 2,
+    "subSubject": "지구과학Ⅰ"
+   },
+   "to": [
+    2024,
+    "mar",
+    2,
+    "과학탐구",
+    "지구과학Ⅰ"
+   ],
+   "basis": "official"
+  },
+  {
+   "id": 792,
+   "from": {
+    "gradeYear": 2025,
+    "examYear": 2024,
+    "type": "mar",
+    "studentGrade": 2,
+    "subSubject": "화학Ⅰ"
+   },
+   "to": [
+    2024,
+    "mar",
+    2,
+    "과학탐구",
+    "화학Ⅰ"
+   ],
+   "basis": "official"
+  },
+  {
+   "id": 799,
+   "from": {
+    "gradeYear": 2025,
+    "examYear": 2024,
+    "type": "mar",
+    "studentGrade": 2,
+    "subSubject": "경제"
+   },
+   "to": [
+    2024,
+    "mar",
+    2,
+    "사회탐구",
+    "경제"
+   ],
+   "basis": "official"
+  },
+  {
+   "id": 801,
+   "from": {
+    "gradeYear": 2025,
+    "examYear": 2024,
+    "type": "mar",
+    "studentGrade": 2,
+    "subSubject": "동아시아사"
+   },
+   "to": [
+    2024,
+    "mar",
+    2,
+    "사회탐구",
+    "동아시아사"
+   ],
+   "basis": "official"
+  },
+  {
+   "id": 803,
+   "from": {
+    "gradeYear": 2025,
+    "examYear": 2024,
+    "type": "mar",
+    "studentGrade": 2,
+    "subSubject": "사회·문화"
+   },
+   "to": [
+    2024,
+    "mar",
+    2,
+    "사회탐구",
+    "사회문화"
+   ],
+   "basis": "official"
+  },
+  {
+   "id": 805,
+   "from": {
+    "gradeYear": 2025,
+    "examYear": 2024,
+    "type": "mar",
+    "studentGrade": 2,
+    "subSubject": "생활과윤리"
+   },
+   "to": [
+    2024,
+    "mar",
+    2,
+    "사회탐구",
+    "생활과윤리"
+   ],
+   "basis": "official"
+  },
+  {
+   "id": 807,
+   "from": {
+    "gradeYear": 2025,
+    "examYear": 2024,
+    "type": "mar",
+    "studentGrade": 2,
+    "subSubject": "세계사"
+   },
+   "to": [
+    2024,
+    "mar",
+    2,
+    "사회탐구",
+    "세계사"
+   ],
+   "basis": "official"
+  },
+  {
+   "id": 809,
+   "from": {
+    "gradeYear": 2025,
+    "examYear": 2024,
+    "type": "mar",
+    "studentGrade": 2,
+    "subSubject": "세계지리"
+   },
+   "to": [
+    2024,
+    "mar",
+    2,
+    "사회탐구",
+    "세계지리"
+   ],
+   "basis": "official"
+  },
+  {
+   "id": 811,
+   "from": {
+    "gradeYear": 2025,
+    "examYear": 2024,
+    "type": "mar",
+    "studentGrade": 2,
+    "subSubject": "윤리와사상"
+   },
+   "to": [
+    2024,
+    "mar",
+    2,
+    "사회탐구",
+    "윤리와사상"
+   ],
+   "basis": "official"
+  },
+  {
+   "id": 813,
+   "from": {
+    "gradeYear": 2025,
+    "examYear": 2024,
+    "type": "mar",
+    "studentGrade": 2,
+    "subSubject": "정치와법"
+   },
+   "to": [
+    2024,
+    "mar",
+    2,
+    "사회탐구",
+    "정치와법"
+   ],
+   "basis": "official"
+  },
+  {
+   "id": 815,
+   "from": {
+    "gradeYear": 2025,
+    "examYear": 2024,
+    "type": "mar",
+    "studentGrade": 2,
+    "subSubject": "한국지리"
+   },
+   "to": [
+    2024,
+    "mar",
+    2,
+    "사회탐구",
+    "한국지리"
+   ],
+   "basis": "official"
+  },
+  {
+   "id": 1062,
+   "from": {
+    "gradeYear": 2024,
+    "examYear": 2023,
+    "type": "oct",
+    "studentGrade": 2,
+    "subSubject": "물리학Ⅰ"
+   },
+   "to": [
+    2023,
+    "nov",
+    2,
+    "과학탐구",
+    "물리Ⅰ"
+   ],
+   "basis": "official"
+  },
+  {
+   "id": 1068,
+   "from": {
+    "gradeYear": 2024,
+    "examYear": 2023,
+    "type": "oct",
+    "studentGrade": 2,
+    "subSubject": "지구과학Ⅰ"
+   },
+   "to": [
+    2023,
+    "nov",
+    2,
+    "과학탐구",
+    "지구과학Ⅰ"
+   ],
+   "basis": "official"
+  },
+  {
+   "id": 1071,
+   "from": {
+    "gradeYear": 2024,
+    "examYear": 2023,
+    "type": "oct",
+    "studentGrade": 2,
+    "subSubject": "화학Ⅰ"
+   },
+   "to": [
+    2023,
+    "nov",
+    2,
+    "과학탐구",
+    "화학Ⅰ"
+   ],
+   "basis": "official"
+  },
+  {
+   "id": 1079,
+   "from": {
+    "gradeYear": 2024,
+    "examYear": 2023,
+    "type": "oct",
+    "studentGrade": 2,
+    "subSubject": "경제"
+   },
+   "to": [
+    2023,
+    "nov",
+    2,
+    "사회탐구",
+    "경제"
+   ],
+   "basis": "official"
+  },
+  {
+   "id": 1081,
+   "from": {
+    "gradeYear": 2024,
+    "examYear": 2023,
+    "type": "oct",
+    "studentGrade": 2,
+    "subSubject": "동아시아사"
+   },
+   "to": [
+    2023,
+    "nov",
+    2,
+    "사회탐구",
+    "동아시아사"
+   ],
+   "basis": "official"
+  },
+  {
+   "id": 1083,
+   "from": {
+    "gradeYear": 2024,
+    "examYear": 2023,
+    "type": "oct",
+    "studentGrade": 2,
+    "subSubject": "사회·문화"
+   },
+   "to": [
+    2023,
+    "nov",
+    2,
+    "사회탐구",
+    "사회문화"
+   ],
+   "basis": "official"
+  },
+  {
+   "id": 1085,
+   "from": {
+    "gradeYear": 2024,
+    "examYear": 2023,
+    "type": "oct",
+    "studentGrade": 2,
+    "subSubject": "생활과윤리"
+   },
+   "to": [
+    2023,
+    "nov",
+    2,
+    "사회탐구",
+    "생활과윤리"
+   ],
+   "basis": "official"
+  },
+  {
+   "id": 1087,
+   "from": {
+    "gradeYear": 2024,
+    "examYear": 2023,
+    "type": "oct",
+    "studentGrade": 2,
+    "subSubject": "세계사"
+   },
+   "to": [
+    2023,
+    "nov",
+    2,
+    "사회탐구",
+    "세계사"
+   ],
+   "basis": "official"
+  },
+  {
+   "id": 1091,
+   "from": {
+    "gradeYear": 2024,
+    "examYear": 2023,
+    "type": "oct",
+    "studentGrade": 2,
+    "subSubject": "윤리와사상"
+   },
+   "to": [
+    2023,
+    "nov",
+    2,
+    "사회탐구",
+    "윤리와사상"
+   ],
+   "basis": "official"
+  },
+  {
+   "id": 1093,
+   "from": {
+    "gradeYear": 2024,
+    "examYear": 2023,
+    "type": "oct",
+    "studentGrade": 2,
+    "subSubject": "정치와법"
+   },
+   "to": [
+    2023,
+    "nov",
+    2,
+    "사회탐구",
+    "정치와법"
+   ],
+   "basis": "official"
+  },
+  {
+   "id": 1095,
+   "from": {
+    "gradeYear": 2024,
+    "examYear": 2023,
+    "type": "oct",
+    "studentGrade": 2,
+    "subSubject": "한국지리"
+   },
+   "to": [
+    2023,
+    "nov",
+    2,
+    "사회탐구",
+    "한국지리"
+   ],
+   "basis": "official"
+  },
+  {
+   "id": 1180,
+   "from": {
+    "gradeYear": 2024,
+    "examYear": 2023,
+    "type": "mar",
+    "studentGrade": 2,
+    "subSubject": "물리학Ⅰ"
+   },
+   "to": [
+    2023,
+    "mar",
+    2,
+    "과학탐구",
+    "물리Ⅰ"
+   ],
+   "basis": "official"
+  },
+  {
+   "id": 1182,
+   "from": {
+    "gradeYear": 2024,
+    "examYear": 2023,
+    "type": "mar",
+    "studentGrade": 2,
+    "subSubject": "생명과학Ⅰ"
+   },
+   "to": [
+    2023,
+    "mar",
+    2,
+    "과학탐구",
+    "생명과학Ⅰ"
+   ],
+   "basis": "official"
+  },
+  {
+   "id": 1184,
+   "from": {
+    "gradeYear": 2024,
+    "examYear": 2023,
+    "type": "mar",
+    "studentGrade": 2,
+    "subSubject": "지구과학Ⅰ"
+   },
+   "to": [
+    2023,
+    "mar",
+    2,
+    "과학탐구",
+    "지구과학Ⅰ"
+   ],
+   "basis": "official"
+  },
+  {
+   "id": 1186,
+   "from": {
+    "gradeYear": 2024,
+    "examYear": 2023,
+    "type": "mar",
+    "studentGrade": 2,
+    "subSubject": "화학Ⅰ"
+   },
+   "to": [
+    2023,
+    "mar",
+    2,
+    "과학탐구",
+    "화학Ⅰ"
+   ],
+   "basis": "official"
+  },
+  {
+   "id": 1193,
+   "from": {
+    "gradeYear": 2024,
+    "examYear": 2023,
+    "type": "mar",
+    "studentGrade": 2,
+    "subSubject": "경제"
+   },
+   "to": [
+    2023,
+    "mar",
+    2,
+    "사회탐구",
+    "경제"
+   ],
+   "basis": "official"
+  },
+  {
+   "id": 1195,
+   "from": {
+    "gradeYear": 2024,
+    "examYear": 2023,
+    "type": "mar",
+    "studentGrade": 2,
+    "subSubject": "동아시아사"
+   },
+   "to": [
+    2023,
+    "mar",
+    2,
+    "사회탐구",
+    "동아시아사"
+   ],
+   "basis": "official"
+  },
+  {
+   "id": 1197,
+   "from": {
+    "gradeYear": 2024,
+    "examYear": 2023,
+    "type": "mar",
+    "studentGrade": 2,
+    "subSubject": "사회·문화"
+   },
+   "to": [
+    2023,
+    "mar",
+    2,
+    "사회탐구",
+    "사회문화"
+   ],
+   "basis": "official"
+  },
+  {
+   "id": 1199,
+   "from": {
+    "gradeYear": 2024,
+    "examYear": 2023,
+    "type": "mar",
+    "studentGrade": 2,
+    "subSubject": "생활과윤리"
+   },
+   "to": [
+    2023,
+    "mar",
+    2,
+    "사회탐구",
+    "생활과윤리"
+   ],
+   "basis": "official"
+  },
+  {
+   "id": 1201,
+   "from": {
+    "gradeYear": 2024,
+    "examYear": 2023,
+    "type": "mar",
+    "studentGrade": 2,
+    "subSubject": "세계사"
+   },
+   "to": [
+    2023,
+    "mar",
+    2,
+    "사회탐구",
+    "세계사"
+   ],
+   "basis": "official"
+  },
+  {
+   "id": 1203,
+   "from": {
+    "gradeYear": 2024,
+    "examYear": 2023,
+    "type": "mar",
+    "studentGrade": 2,
+    "subSubject": "세계지리"
+   },
+   "to": [
+    2023,
+    "mar",
+    2,
+    "사회탐구",
+    "세계지리"
+   ],
+   "basis": "official"
+  },
+  {
+   "id": 1205,
+   "from": {
+    "gradeYear": 2024,
+    "examYear": 2023,
+    "type": "mar",
+    "studentGrade": 2,
+    "subSubject": "윤리와사상"
+   },
+   "to": [
+    2023,
+    "mar",
+    2,
+    "사회탐구",
+    "윤리와사상"
+   ],
+   "basis": "official"
+  },
+  {
+   "id": 1207,
+   "from": {
+    "gradeYear": 2024,
+    "examYear": 2023,
+    "type": "mar",
+    "studentGrade": 2,
+    "subSubject": "정치와법"
+   },
+   "to": [
+    2023,
+    "mar",
+    2,
+    "사회탐구",
+    "정치와법"
+   ],
+   "basis": "official"
+  },
+  {
+   "id": 1209,
+   "from": {
+    "gradeYear": 2024,
+    "examYear": 2023,
+    "type": "mar",
+    "studentGrade": 2,
+    "subSubject": "한국지리"
+   },
+   "to": [
+    2023,
+    "mar",
+    2,
+    "사회탐구",
+    "한국지리"
+   ],
+   "basis": "official"
+  },
+  {
+   "id": 1551,
+   "from": {
+    "gradeYear": 2023,
+    "examYear": 2022,
+    "type": "mar",
+    "studentGrade": 2,
+    "subSubject": "물리학Ⅰ"
+   },
+   "to": [
+    2022,
+    "mar",
+    2,
+    "과학탐구",
+    "물리Ⅰ"
+   ],
+   "basis": "official"
+  },
+  {
+   "id": 1553,
+   "from": {
+    "gradeYear": 2023,
+    "examYear": 2022,
+    "type": "mar",
+    "studentGrade": 2,
+    "subSubject": "생명과학Ⅰ"
+   },
+   "to": [
+    2022,
+    "mar",
+    2,
+    "과학탐구",
+    "생명과학Ⅰ"
+   ],
+   "basis": "official"
+  },
+  {
+   "id": 1555,
+   "from": {
+    "gradeYear": 2023,
+    "examYear": 2022,
+    "type": "mar",
+    "studentGrade": 2,
+    "subSubject": "지구과학Ⅰ"
+   },
+   "to": [
+    2022,
+    "mar",
+    2,
+    "과학탐구",
+    "지구과학Ⅰ"
+   ],
+   "basis": "official"
+  },
+  {
+   "id": 1557,
+   "from": {
+    "gradeYear": 2023,
+    "examYear": 2022,
+    "type": "mar",
+    "studentGrade": 2,
+    "subSubject": "화학Ⅰ"
+   },
+   "to": [
+    2022,
+    "mar",
+    2,
+    "과학탐구",
+    "화학Ⅰ"
+   ],
+   "basis": "official"
+  },
+  {
+   "id": 1564,
+   "from": {
+    "gradeYear": 2023,
+    "examYear": 2022,
+    "type": "mar",
+    "studentGrade": 2,
+    "subSubject": "경제"
+   },
+   "to": [
+    2022,
+    "mar",
+    2,
+    "사회탐구",
+    "경제"
+   ],
+   "basis": "official"
+  },
+  {
+   "id": 1566,
+   "from": {
+    "gradeYear": 2023,
+    "examYear": 2022,
+    "type": "mar",
+    "studentGrade": 2,
+    "subSubject": "동아시아사"
+   },
+   "to": [
+    2022,
+    "mar",
+    2,
+    "사회탐구",
+    "동아시아사"
+   ],
+   "basis": "official"
+  },
+  {
+   "id": 1568,
+   "from": {
+    "gradeYear": 2023,
+    "examYear": 2022,
+    "type": "mar",
+    "studentGrade": 2,
+    "subSubject": "사회·문화"
+   },
+   "to": [
+    2022,
+    "mar",
+    2,
+    "사회탐구",
+    "사회문화"
+   ],
+   "basis": "official"
+  },
+  {
+   "id": 1570,
+   "from": {
+    "gradeYear": 2023,
+    "examYear": 2022,
+    "type": "mar",
+    "studentGrade": 2,
+    "subSubject": "생활과윤리"
+   },
+   "to": [
+    2022,
+    "mar",
+    2,
+    "사회탐구",
+    "생활과윤리"
+   ],
+   "basis": "official"
+  },
+  {
+   "id": 1572,
+   "from": {
+    "gradeYear": 2023,
+    "examYear": 2022,
+    "type": "mar",
+    "studentGrade": 2,
+    "subSubject": "세계사"
+   },
+   "to": [
+    2022,
+    "mar",
+    2,
+    "사회탐구",
+    "세계사"
+   ],
+   "basis": "official"
+  },
+  {
+   "id": 1574,
+   "from": {
+    "gradeYear": 2023,
+    "examYear": 2022,
+    "type": "mar",
+    "studentGrade": 2,
+    "subSubject": "세계지리"
+   },
+   "to": [
+    2022,
+    "mar",
+    2,
+    "사회탐구",
+    "세계지리"
+   ],
+   "basis": "official"
+  },
+  {
+   "id": 1576,
+   "from": {
+    "gradeYear": 2023,
+    "examYear": 2022,
+    "type": "mar",
+    "studentGrade": 2,
+    "subSubject": "윤리와사상"
+   },
+   "to": [
+    2022,
+    "mar",
+    2,
+    "사회탐구",
+    "윤리와사상"
+   ],
+   "basis": "official"
+  },
+  {
+   "id": 1578,
+   "from": {
+    "gradeYear": 2023,
+    "examYear": 2022,
+    "type": "mar",
+    "studentGrade": 2,
+    "subSubject": "정치와법"
+   },
+   "to": [
+    2022,
+    "mar",
+    2,
+    "사회탐구",
+    "정치와법"
+   ],
+   "basis": "official"
+  },
+  {
+   "id": 1580,
+   "from": {
+    "gradeYear": 2023,
+    "examYear": 2022,
+    "type": "mar",
+    "studentGrade": 2,
+    "subSubject": "한국지리"
+   },
+   "to": [
+    2022,
+    "mar",
+    2,
+    "사회탐구",
+    "한국지리"
+   ],
+   "basis": "official"
+  },
+  {
+   "id": 1990,
+   "from": {
+    "gradeYear": 2022,
+    "examYear": 2021,
+    "type": "mar",
+    "studentGrade": 2,
+    "subSubject": "물리학Ⅰ"
+   },
+   "to": [
+    2021,
+    "mar",
+    2,
+    "과학탐구",
+    "물리Ⅰ"
+   ],
+   "basis": "academy 2/2"
+  },
+  {
+   "id": 2368,
+   "from": {
+    "gradeYear": 2021,
+    "examYear": 2020,
+    "type": "oct",
+    "studentGrade": 3,
+    "subSubject": "기초 제도"
+   },
+   "to": [
+    2020,
+    "oct",
+    3,
+    "직업탐구",
+    "기초제도"
+   ],
+   "basis": "academy 1/1"
+  },
+  {
+   "id": 2380,
+   "from": {
+    "gradeYear": 2021,
+    "examYear": 2020,
+    "type": "oct",
+    "studentGrade": 3,
+    "subSubject": "회계 원리"
+   },
+   "to": [
+    2020,
+    "oct",
+    3,
+    "직업탐구",
+    "회계원리"
+   ],
+   "basis": "academy 1/1"
+  },
+  {
+   "id": 2460,
+   "from": {
+    "gradeYear": 2021,
+    "examYear": 2021,
+    "type": "mar",
+    "studentGrade": 3,
+    "subSubject": "물리Ⅰ"
+   },
+   "to": [
+    2020,
+    "mar",
+    2,
+    "과학탐구",
+    "물리Ⅰ"
+   ],
+   "basis": "academy 1/1"
+  },
+  {
+   "id": 2973,
+   "from": {
+    "gradeYear": 2020,
+    "examYear": 2019,
+    "type": "mar",
+    "studentGrade": 2,
+    "subSubject": "물리Ⅰ"
+   },
+   "to": [
+    2019,
+    "mar",
+    2,
+    "과학탐구",
+    "물리Ⅰ"
+   ],
+   "basis": "academy 2/2"
+  },
+  {
+   "id": 2975,
+   "from": {
+    "gradeYear": 2020,
+    "examYear": 2019,
+    "type": "mar",
+    "studentGrade": 2,
+    "subSubject": "생명과학Ⅰ"
+   },
+   "to": [
+    2019,
+    "mar",
+    2,
+    "과학탐구",
+    "생명과학Ⅰ"
+   ],
+   "basis": "academy 2/2"
+  },
+  {
+   "id": 2977,
+   "from": {
+    "gradeYear": 2020,
+    "examYear": 2019,
+    "type": "mar",
+    "studentGrade": 2,
+    "subSubject": "지구과학Ⅰ"
+   },
+   "to": [
+    2019,
+    "mar",
+    2,
+    "과학탐구",
+    "지구과학Ⅰ"
+   ],
+   "basis": "academy 2/2"
+  },
+  {
+   "id": 2979,
+   "from": {
+    "gradeYear": 2020,
+    "examYear": 2019,
+    "type": "mar",
+    "studentGrade": 2,
+    "subSubject": "화학Ⅰ"
+   },
+   "to": [
+    2019,
+    "mar",
+    2,
+    "과학탐구",
+    "화학Ⅰ"
+   ],
+   "basis": "academy 2/2"
+  },
+  {
+   "id": 2981,
+   "from": {
+    "gradeYear": 2020,
+    "examYear": 2019,
+    "type": "mar",
+    "studentGrade": 1,
+    "subSubject": null
+   },
+   "to": [
+    2019,
+    "mar",
+    1,
+    "국어",
+    ""
+   ],
+   "basis": "academy 3/3"
+  },
+  {
+   "id": 2982,
+   "from": {
+    "gradeYear": 2020,
+    "examYear": 2019,
+    "type": "mar",
+    "studentGrade": 2,
+    "subSubject": null
+   },
+   "to": [
+    2019,
+    "mar",
+    2,
+    "국어",
+    ""
+   ],
+   "basis": "academy 2/2"
+  },
+  {
+   "id": 2985,
+   "from": {
+    "gradeYear": 2020,
+    "examYear": 2019,
+    "type": "mar",
+    "studentGrade": 2,
+    "subSubject": "경제"
+   },
+   "to": [
+    2019,
+    "mar",
+    2,
+    "사회탐구",
+    "경제"
+   ],
+   "basis": "academy 3/3"
+  },
+  {
+   "id": 2987,
+   "from": {
+    "gradeYear": 2020,
+    "examYear": 2019,
+    "type": "mar",
+    "studentGrade": 2,
+    "subSubject": "동아시아사"
+   },
+   "to": [
+    2019,
+    "mar",
+    2,
+    "사회탐구",
+    "동아시아사"
+   ],
+   "basis": "academy 3/3"
+  },
+  {
+   "id": 2989,
+   "from": {
+    "gradeYear": 2020,
+    "examYear": 2019,
+    "type": "mar",
+    "studentGrade": 2,
+    "subSubject": "법과정치"
+   },
+   "to": [
+    2019,
+    "mar",
+    2,
+    "사회탐구",
+    "정치와법"
+   ],
+   "basis": "academy 3/3"
+  },
+  {
+   "id": 2991,
+   "from": {
+    "gradeYear": 2020,
+    "examYear": 2019,
+    "type": "mar",
+    "studentGrade": 2,
+    "subSubject": "사회·문화"
+   },
+   "to": [
+    2019,
+    "mar",
+    2,
+    "사회탐구",
+    "사회문화"
+   ],
+   "basis": "academy 3/3"
+  },
+  {
+   "id": 2993,
+   "from": {
+    "gradeYear": 2020,
+    "examYear": 2019,
+    "type": "mar",
+    "studentGrade": 2,
+    "subSubject": "생활과윤리"
+   },
+   "to": [
+    2019,
+    "mar",
+    2,
+    "사회탐구",
+    "생활과윤리"
+   ],
+   "basis": "academy 3/3"
+  },
+  {
+   "id": 2995,
+   "from": {
+    "gradeYear": 2020,
+    "examYear": 2019,
+    "type": "mar",
+    "studentGrade": 2,
+    "subSubject": "세계사"
+   },
+   "to": [
+    2019,
+    "mar",
+    2,
+    "사회탐구",
+    "세계사"
+   ],
+   "basis": "academy 3/3"
+  },
+  {
+   "id": 2997,
+   "from": {
+    "gradeYear": 2020,
+    "examYear": 2019,
+    "type": "mar",
+    "studentGrade": 2,
+    "subSubject": "세계지리"
+   },
+   "to": [
+    2019,
+    "mar",
+    2,
+    "사회탐구",
+    "세계지리"
+   ],
+   "basis": "academy 3/3"
+  },
+  {
+   "id": 2999,
+   "from": {
+    "gradeYear": 2020,
+    "examYear": 2019,
+    "type": "mar",
+    "studentGrade": 2,
+    "subSubject": "윤리와사상"
+   },
+   "to": [
+    2019,
+    "mar",
+    2,
+    "사회탐구",
+    "윤리와사상"
+   ],
+   "basis": "academy 3/3"
+  },
+  {
+   "id": 3002,
+   "from": {
+    "gradeYear": 2020,
+    "examYear": 2019,
+    "type": "mar",
+    "studentGrade": 2,
+    "subSubject": "한국지리"
+   },
+   "to": [
+    2019,
+    "mar",
+    2,
+    "사회탐구",
+    "한국지리"
+   ],
+   "basis": "academy 3/3"
+  },
+  {
+   "id": 3362,
+   "from": {
+    "gradeYear": 2019,
+    "examYear": 2018,
+    "type": "mar",
+    "studentGrade": 2,
+    "subSubject": "물리Ⅰ"
+   },
+   "to": [
+    2018,
+    "mar",
+    2,
+    "과학탐구",
+    "물리Ⅰ"
+   ],
+   "basis": "academy 2/2"
+  },
+  {
+   "id": 3365,
+   "from": {
+    "gradeYear": 2019,
+    "examYear": 2018,
+    "type": "mar",
+    "studentGrade": 2,
+    "subSubject": "생명과학Ⅰ"
+   },
+   "to": [
+    2018,
+    "mar",
+    2,
+    "과학탐구",
+    "생명과학Ⅰ"
+   ],
+   "basis": "academy 2/2"
+  },
+  {
+   "id": 3367,
+   "from": {
+    "gradeYear": 2019,
+    "examYear": 2018,
+    "type": "mar",
+    "studentGrade": 2,
+    "subSubject": "지구과학Ⅰ"
+   },
+   "to": [
+    2018,
+    "mar",
+    2,
+    "과학탐구",
+    "지구과학Ⅰ"
+   ],
+   "basis": "academy 2/2"
+  },
+  {
+   "id": 3369,
+   "from": {
+    "gradeYear": 2019,
+    "examYear": 2018,
+    "type": "mar",
+    "studentGrade": 2,
+    "subSubject": "화학Ⅰ"
+   },
+   "to": [
+    2018,
+    "mar",
+    2,
+    "과학탐구",
+    "화학Ⅰ"
+   ],
+   "basis": "academy 2/2"
+  },
+  {
+   "id": 3371,
+   "from": {
+    "gradeYear": 2019,
+    "examYear": 2018,
+    "type": "mar",
+    "studentGrade": 1,
+    "subSubject": null
+   },
+   "to": [
+    2018,
+    "mar",
+    1,
+    "국어",
+    ""
+   ],
+   "basis": "academy 3/3"
+  },
+  {
+   "id": 3372,
+   "from": {
+    "gradeYear": 2019,
+    "examYear": 2018,
+    "type": "mar",
+    "studentGrade": 2,
+    "subSubject": null
+   },
+   "to": [
+    2018,
+    "mar",
+    2,
+    "국어",
+    ""
+   ],
+   "basis": "academy 2/2"
+  },
+  {
+   "id": 3375,
+   "from": {
+    "gradeYear": 2019,
+    "examYear": 2018,
+    "type": "mar",
+    "studentGrade": 2,
+    "subSubject": "경제"
+   },
+   "to": [
+    2018,
+    "mar",
+    2,
+    "사회탐구",
+    "경제"
+   ],
+   "basis": "academy 3/3"
+  },
+  {
+   "id": 3377,
+   "from": {
+    "gradeYear": 2019,
+    "examYear": 2018,
+    "type": "mar",
+    "studentGrade": 2,
+    "subSubject": "동아시아사"
+   },
+   "to": [
+    2018,
+    "mar",
+    2,
+    "사회탐구",
+    "동아시아사"
+   ],
+   "basis": "academy 3/3"
+  },
+  {
+   "id": 3379,
+   "from": {
+    "gradeYear": 2019,
+    "examYear": 2018,
+    "type": "mar",
+    "studentGrade": 2,
+    "subSubject": "법과정치"
+   },
+   "to": [
+    2018,
+    "mar",
+    2,
+    "사회탐구",
+    "정치와법"
+   ],
+   "basis": "academy 3/3"
+  },
+  {
+   "id": 3381,
+   "from": {
+    "gradeYear": 2019,
+    "examYear": 2018,
+    "type": "mar",
+    "studentGrade": 2,
+    "subSubject": "사회·문화"
+   },
+   "to": [
+    2018,
+    "mar",
+    2,
+    "사회탐구",
+    "사회문화"
+   ],
+   "basis": "academy 3/3"
+  },
+  {
+   "id": 3383,
+   "from": {
+    "gradeYear": 2019,
+    "examYear": 2018,
+    "type": "mar",
+    "studentGrade": 2,
+    "subSubject": "생활과윤리"
+   },
+   "to": [
+    2018,
+    "mar",
+    2,
+    "사회탐구",
+    "생활과윤리"
+   ],
+   "basis": "academy 3/3"
+  },
+  {
+   "id": 3385,
+   "from": {
+    "gradeYear": 2019,
+    "examYear": 2018,
+    "type": "mar",
+    "studentGrade": 2,
+    "subSubject": "세계사"
+   },
+   "to": [
+    2018,
+    "mar",
+    2,
+    "사회탐구",
+    "세계사"
+   ],
+   "basis": "academy 3/3"
+  },
+  {
+   "id": 3387,
+   "from": {
+    "gradeYear": 2019,
+    "examYear": 2018,
+    "type": "mar",
+    "studentGrade": 2,
+    "subSubject": "세계지리"
+   },
+   "to": [
+    2018,
+    "mar",
+    2,
+    "사회탐구",
+    "세계지리"
+   ],
+   "basis": "academy 3/3"
+  },
+  {
+   "id": 3389,
+   "from": {
+    "gradeYear": 2019,
+    "examYear": 2018,
+    "type": "mar",
+    "studentGrade": 2,
+    "subSubject": "윤리와사상"
+   },
+   "to": [
+    2018,
+    "mar",
+    2,
+    "사회탐구",
+    "윤리와사상"
+   ],
+   "basis": "academy 3/3"
+  },
+  {
+   "id": 3392,
+   "from": {
+    "gradeYear": 2019,
+    "examYear": 2018,
+    "type": "mar",
+    "studentGrade": 2,
+    "subSubject": "한국지리"
+   },
+   "to": [
+    2018,
+    "mar",
+    2,
+    "사회탐구",
+    "한국지리"
+   ],
+   "basis": "academy 3/3"
+  },
+  {
+   "id": 3395,
+   "from": {
+    "gradeYear": 2019,
+    "examYear": 2018,
+    "type": "mar",
+    "studentGrade": 2,
+    "subSubject": "가형"
+   },
+   "to": [
+    2018,
+    "mar",
+    2,
+    "수학",
+    "가"
+   ],
+   "basis": "academy 1/1"
+  },
+  {
+   "id": 3397,
+   "from": {
+    "gradeYear": 2019,
+    "examYear": 2018,
+    "type": "mar",
+    "studentGrade": 2,
+    "subSubject": "나형"
+   },
+   "to": [
+    2018,
+    "mar",
+    2,
+    "수학",
+    "나"
+   ],
+   "basis": "academy 1/1"
+  },
+  {
+   "id": 3700,
+   "from": {
+    "gradeYear": 2018,
+    "examYear": 2017,
+    "type": "oct",
+    "studentGrade": 3,
+    "subSubject": "회계 원리"
+   },
+   "to": [
+    2017,
+    "oct",
+    3,
+    "직업탐구",
+    "회계원리"
+   ],
+   "basis": "academy 1/1"
+  },
+  {
+   "id": 3749,
+   "from": {
+    "gradeYear": 2018,
+    "examYear": 2017,
+    "type": "mar",
+    "studentGrade": 2,
+    "subSubject": "물리Ⅰ"
+   },
+   "to": [
+    2017,
+    "mar",
+    2,
+    "과학탐구",
+    "물리Ⅰ"
+   ],
+   "basis": "academy 2/2"
+  },
+  {
+   "id": 3751,
+   "from": {
+    "gradeYear": 2018,
+    "examYear": 2017,
+    "type": "mar",
+    "studentGrade": 2,
+    "subSubject": "생명과학Ⅰ"
+   },
+   "to": [
+    2017,
+    "mar",
+    2,
+    "과학탐구",
+    "생명과학Ⅰ"
+   ],
+   "basis": "academy 2/2"
+  },
+  {
+   "id": 3753,
+   "from": {
+    "gradeYear": 2018,
+    "examYear": 2017,
+    "type": "mar",
+    "studentGrade": 2,
+    "subSubject": "지구과학Ⅰ"
+   },
+   "to": [
+    2017,
+    "mar",
+    2,
+    "과학탐구",
+    "지구과학Ⅰ"
+   ],
+   "basis": "academy 2/2"
+  },
+  {
+   "id": 3755,
+   "from": {
+    "gradeYear": 2018,
+    "examYear": 2017,
+    "type": "mar",
+    "studentGrade": 2,
+    "subSubject": "화학Ⅰ"
+   },
+   "to": [
+    2017,
+    "mar",
+    2,
+    "과학탐구",
+    "화학Ⅰ"
+   ],
+   "basis": "academy 2/2"
+  },
+  {
+   "id": 3757,
+   "from": {
+    "gradeYear": 2018,
+    "examYear": 2017,
+    "type": "mar",
+    "studentGrade": 1,
+    "subSubject": null
+   },
+   "to": [
+    2017,
+    "mar",
+    1,
+    "국어",
+    ""
+   ],
+   "basis": "academy 3/3"
+  },
+  {
+   "id": 3758,
+   "from": {
+    "gradeYear": 2018,
+    "examYear": 2017,
+    "type": "mar",
+    "studentGrade": 2,
+    "subSubject": null
+   },
+   "to": [
+    2017,
+    "mar",
+    2,
+    "국어",
+    ""
+   ],
+   "basis": "academy 2/2"
+  },
+  {
+   "id": 3761,
+   "from": {
+    "gradeYear": 2018,
+    "examYear": 2017,
+    "type": "mar",
+    "studentGrade": 2,
+    "subSubject": "경제"
+   },
+   "to": [
+    2017,
+    "mar",
+    2,
+    "사회탐구",
+    "경제"
+   ],
+   "basis": "academy 3/3"
+  },
+  {
+   "id": 3763,
+   "from": {
+    "gradeYear": 2018,
+    "examYear": 2017,
+    "type": "mar",
+    "studentGrade": 2,
+    "subSubject": "동아시아사"
+   },
+   "to": [
+    2017,
+    "mar",
+    2,
+    "사회탐구",
+    "동아시아사"
+   ],
+   "basis": "academy 3/3"
+  },
+  {
+   "id": 3765,
+   "from": {
+    "gradeYear": 2018,
+    "examYear": 2017,
+    "type": "mar",
+    "studentGrade": 2,
+    "subSubject": "법과정치"
+   },
+   "to": [
+    2017,
+    "mar",
+    2,
+    "사회탐구",
+    "정치와법"
+   ],
+   "basis": "academy 3/3"
+  },
+  {
+   "id": 3767,
+   "from": {
+    "gradeYear": 2018,
+    "examYear": 2017,
+    "type": "mar",
+    "studentGrade": 2,
+    "subSubject": "사회·문화"
+   },
+   "to": [
+    2017,
+    "mar",
+    2,
+    "사회탐구",
+    "사회문화"
+   ],
+   "basis": "academy 3/3"
+  },
+  {
+   "id": 3769,
+   "from": {
+    "gradeYear": 2018,
+    "examYear": 2017,
+    "type": "mar",
+    "studentGrade": 2,
+    "subSubject": "생활과윤리"
+   },
+   "to": [
+    2017,
+    "mar",
+    2,
+    "사회탐구",
+    "생활과윤리"
+   ],
+   "basis": "academy 3/3"
+  },
+  {
+   "id": 3771,
+   "from": {
+    "gradeYear": 2018,
+    "examYear": 2017,
+    "type": "mar",
+    "studentGrade": 2,
+    "subSubject": "세계사"
+   },
+   "to": [
+    2017,
+    "mar",
+    2,
+    "사회탐구",
+    "세계사"
+   ],
+   "basis": "academy 3/3"
+  },
+  {
+   "id": 3773,
+   "from": {
+    "gradeYear": 2018,
+    "examYear": 2017,
+    "type": "mar",
+    "studentGrade": 2,
+    "subSubject": "세계지리"
+   },
+   "to": [
+    2017,
+    "mar",
+    2,
+    "사회탐구",
+    "세계지리"
+   ],
+   "basis": "academy 2/3"
+  },
+  {
+   "id": 3775,
+   "from": {
+    "gradeYear": 2018,
+    "examYear": 2017,
+    "type": "mar",
+    "studentGrade": 2,
+    "subSubject": "윤리와사상"
+   },
+   "to": [
+    2017,
+    "mar",
+    2,
+    "사회탐구",
+    "윤리와사상"
+   ],
+   "basis": "academy 3/3"
+  },
+  {
+   "id": 3778,
+   "from": {
+    "gradeYear": 2018,
+    "examYear": 2017,
+    "type": "mar",
+    "studentGrade": 2,
+    "subSubject": "한국지리"
+   },
+   "to": [
+    2017,
+    "mar",
+    2,
+    "사회탐구",
+    "한국지리"
+   ],
+   "basis": "academy 3/3"
+  },
+  {
+   "id": 3781,
+   "from": {
+    "gradeYear": 2018,
+    "examYear": 2017,
+    "type": "mar",
+    "studentGrade": 2,
+    "subSubject": "가형"
+   },
+   "to": [
+    2017,
+    "mar",
+    2,
+    "수학",
+    "가"
+   ],
+   "basis": "academy 1/1"
+  },
+  {
+   "id": 3783,
+   "from": {
+    "gradeYear": 2018,
+    "examYear": 2017,
+    "type": "mar",
+    "studentGrade": 2,
+    "subSubject": "나형"
+   },
+   "to": [
+    2017,
+    "mar",
+    2,
+    "수학",
+    "나"
+   ],
+   "basis": "academy 1/1"
+  },
+  {
+   "id": 4146,
+   "from": {
+    "gradeYear": 2017,
+    "examYear": 2016,
+    "type": "mar",
+    "studentGrade": 2,
+    "subSubject": "물리Ⅰ"
+   },
+   "to": [
+    2016,
+    "mar",
+    2,
+    "과학탐구",
+    "물리Ⅰ"
+   ],
+   "basis": "academy 2/2"
+  },
+  {
+   "id": 4148,
+   "from": {
+    "gradeYear": 2017,
+    "examYear": 2016,
+    "type": "mar",
+    "studentGrade": 2,
+    "subSubject": "생명과학Ⅰ"
+   },
+   "to": [
+    2016,
+    "mar",
+    2,
+    "과학탐구",
+    "생명과학Ⅰ"
+   ],
+   "basis": "academy 2/2"
+  },
+  {
+   "id": 4150,
+   "from": {
+    "gradeYear": 2017,
+    "examYear": 2016,
+    "type": "mar",
+    "studentGrade": 2,
+    "subSubject": "지구과학Ⅰ"
+   },
+   "to": [
+    2016,
+    "mar",
+    2,
+    "과학탐구",
+    "지구과학Ⅰ"
+   ],
+   "basis": "academy 2/2"
+  },
+  {
+   "id": 4152,
+   "from": {
+    "gradeYear": 2017,
+    "examYear": 2016,
+    "type": "mar",
+    "studentGrade": 2,
+    "subSubject": "화학Ⅰ"
+   },
+   "to": [
+    2016,
+    "mar",
+    2,
+    "과학탐구",
+    "화학Ⅰ"
+   ],
+   "basis": "academy 2/2"
+  },
+  {
+   "id": 4160,
+   "from": {
+    "gradeYear": 2017,
+    "examYear": 2016,
+    "type": "mar",
+    "studentGrade": 2,
+    "subSubject": "경제"
+   },
+   "to": [
+    2016,
+    "mar",
+    2,
+    "사회탐구",
+    "경제"
+   ],
+   "basis": "academy 3/3"
+  },
+  {
+   "id": 4162,
+   "from": {
+    "gradeYear": 2017,
+    "examYear": 2016,
+    "type": "mar",
+    "studentGrade": 2,
+    "subSubject": "동아시아사"
+   },
+   "to": [
+    2016,
+    "mar",
+    2,
+    "사회탐구",
+    "동아시아사"
+   ],
+   "basis": "academy 3/3"
+  },
+  {
+   "id": 4164,
+   "from": {
+    "gradeYear": 2017,
+    "examYear": 2016,
+    "type": "mar",
+    "studentGrade": 2,
+    "subSubject": "법과정치"
+   },
+   "to": [
+    2016,
+    "mar",
+    2,
+    "사회탐구",
+    "정치와법"
+   ],
+   "basis": "academy 3/3"
+  },
+  {
+   "id": 4166,
+   "from": {
+    "gradeYear": 2017,
+    "examYear": 2016,
+    "type": "mar",
+    "studentGrade": 2,
+    "subSubject": "사회·문화"
+   },
+   "to": [
+    2016,
+    "mar",
+    2,
+    "사회탐구",
+    "사회문화"
+   ],
+   "basis": "academy 3/3"
+  },
+  {
+   "id": 4168,
+   "from": {
+    "gradeYear": 2017,
+    "examYear": 2016,
+    "type": "mar",
+    "studentGrade": 2,
+    "subSubject": "생활과윤리"
+   },
+   "to": [
+    2016,
+    "mar",
+    2,
+    "사회탐구",
+    "생활과윤리"
+   ],
+   "basis": "academy 3/3"
+  },
+  {
+   "id": 4170,
+   "from": {
+    "gradeYear": 2017,
+    "examYear": 2016,
+    "type": "mar",
+    "studentGrade": 2,
+    "subSubject": "세계사"
+   },
+   "to": [
+    2016,
+    "mar",
+    2,
+    "사회탐구",
+    "세계사"
+   ],
+   "basis": "academy 3/3"
+  },
+  {
+   "id": 4172,
+   "from": {
+    "gradeYear": 2017,
+    "examYear": 2016,
+    "type": "mar",
+    "studentGrade": 2,
+    "subSubject": "세계지리"
+   },
+   "to": [
+    2016,
+    "mar",
+    2,
+    "사회탐구",
+    "세계지리"
+   ],
+   "basis": "academy 3/3"
+  },
+  {
+   "id": 4174,
+   "from": {
+    "gradeYear": 2017,
+    "examYear": 2016,
+    "type": "mar",
+    "studentGrade": 2,
+    "subSubject": "윤리와사상"
+   },
+   "to": [
+    2016,
+    "mar",
+    2,
+    "사회탐구",
+    "윤리와사상"
+   ],
+   "basis": "academy 3/3"
+  },
+  {
+   "id": 4177,
+   "from": {
+    "gradeYear": 2017,
+    "examYear": 2016,
+    "type": "mar",
+    "studentGrade": 2,
+    "subSubject": "한국지리"
+   },
+   "to": [
+    2016,
+    "mar",
+    2,
+    "사회탐구",
+    "한국지리"
+   ],
+   "basis": "academy 3/3"
+  },
+  {
+   "id": 4182,
+   "from": {
+    "gradeYear": 2017,
+    "examYear": 2016,
+    "type": "mar",
+    "studentGrade": 2,
+    "subSubject": "가형"
+   },
+   "to": [
+    2016,
+    "mar",
+    2,
+    "수학",
+    "가"
+   ],
+   "basis": "academy 1/1"
+  },
+  {
+   "id": 4184,
+   "from": {
+    "gradeYear": 2017,
+    "examYear": 2016,
+    "type": "mar",
+    "studentGrade": 2,
+    "subSubject": "나형"
+   },
+   "to": [
+    2016,
+    "mar",
+    2,
+    "수학",
+    "나"
+   ],
+   "basis": "academy 1/1"
+  },
+  {
+   "id": 4457,
+   "from": {
+    "gradeYear": 2016,
+    "examYear": 2015,
+    "type": "oct",
+    "studentGrade": 3,
+    "subSubject": "가사·실업"
+   },
+   "to": [
+    2015,
+    "oct",
+    3,
+    "직업탐구",
+    "가사실업"
+   ],
+   "basis": "academy 1/1"
+  },
+  {
+   "id": 4458,
+   "from": {
+    "gradeYear": 2016,
+    "examYear": 2015,
+    "type": "oct",
+    "studentGrade": 3,
+    "subSubject": "상업 정보"
+   },
+   "to": [
+    2015,
+    "oct",
+    3,
+    "직업탐구",
+    "상업정보"
+   ],
+   "basis": "academy 1/1"
+  },
+  {
+   "id": 4517,
+   "from": {
+    "gradeYear": 2016,
+    "examYear": 2015,
+    "type": "mar",
+    "studentGrade": 2,
+    "subSubject": "물리Ⅰ"
+   },
+   "to": [
+    2015,
+    "mar",
+    2,
+    "과학탐구",
+    "물리Ⅰ"
+   ],
+   "basis": "academy 1/1"
+  },
+  {
+   "id": 4519,
+   "from": {
+    "gradeYear": 2016,
+    "examYear": 2015,
+    "type": "mar",
+    "studentGrade": 2,
+    "subSubject": "생명과학Ⅰ"
+   },
+   "to": [
+    2015,
+    "mar",
+    2,
+    "과학탐구",
+    "생명과학Ⅰ"
+   ],
+   "basis": "academy 1/1"
+  },
+  {
+   "id": 4521,
+   "from": {
+    "gradeYear": 2016,
+    "examYear": 2015,
+    "type": "mar",
+    "studentGrade": 2,
+    "subSubject": "지구과학Ⅰ"
+   },
+   "to": [
+    2015,
+    "mar",
+    2,
+    "과학탐구",
+    "지구과학Ⅰ"
+   ],
+   "basis": "academy 1/1"
+  },
+  {
+   "id": 4523,
+   "from": {
+    "gradeYear": 2016,
+    "examYear": 2015,
+    "type": "mar",
+    "studentGrade": 2,
+    "subSubject": "화학Ⅰ"
+   },
+   "to": [
+    2015,
+    "mar",
+    2,
+    "과학탐구",
+    "화학Ⅰ"
+   ],
+   "basis": "academy 1/1"
+  },
+  {
+   "id": 4532,
+   "from": {
+    "gradeYear": 2016,
+    "examYear": 2015,
+    "type": "mar",
+    "studentGrade": 2,
+    "subSubject": "경제"
+   },
+   "to": [
+    2015,
+    "mar",
+    2,
+    "사회탐구",
+    "경제"
+   ],
+   "basis": "academy 1/1"
+  },
+  {
+   "id": 4534,
+   "from": {
+    "gradeYear": 2016,
+    "examYear": 2015,
+    "type": "mar",
+    "studentGrade": 2,
+    "subSubject": "동아시아사"
+   },
+   "to": [
+    2015,
+    "mar",
+    2,
+    "사회탐구",
+    "동아시아사"
+   ],
+   "basis": "academy 1/1"
+  },
+  {
+   "id": 4536,
+   "from": {
+    "gradeYear": 2016,
+    "examYear": 2015,
+    "type": "mar",
+    "studentGrade": 2,
+    "subSubject": "법과정치"
+   },
+   "to": [
+    2015,
+    "mar",
+    2,
+    "사회탐구",
+    "정치와법"
+   ],
+   "basis": "academy 1/1"
+  },
+  {
+   "id": 4538,
+   "from": {
+    "gradeYear": 2016,
+    "examYear": 2015,
+    "type": "mar",
+    "studentGrade": 2,
+    "subSubject": "사회·문화"
+   },
+   "to": [
+    2015,
+    "mar",
+    2,
+    "사회탐구",
+    "사회문화"
+   ],
+   "basis": "academy 1/1"
+  },
+  {
+   "id": 4540,
+   "from": {
+    "gradeYear": 2016,
+    "examYear": 2015,
+    "type": "mar",
+    "studentGrade": 2,
+    "subSubject": "생활과윤리"
+   },
+   "to": [
+    2015,
+    "mar",
+    2,
+    "사회탐구",
+    "생활과윤리"
+   ],
+   "basis": "academy 1/1"
+  },
+  {
+   "id": 4542,
+   "from": {
+    "gradeYear": 2016,
+    "examYear": 2015,
+    "type": "mar",
+    "studentGrade": 2,
+    "subSubject": "세계사"
+   },
+   "to": [
+    2015,
+    "mar",
+    2,
+    "사회탐구",
+    "세계사"
+   ],
+   "basis": "academy 1/1"
+  },
+  {
+   "id": 4544,
+   "from": {
+    "gradeYear": 2016,
+    "examYear": 2015,
+    "type": "mar",
+    "studentGrade": 2,
+    "subSubject": "세계지리"
+   },
+   "to": [
+    2015,
+    "mar",
+    2,
+    "사회탐구",
+    "세계지리"
+   ],
+   "basis": "academy 1/1"
+  },
+  {
+   "id": 4546,
+   "from": {
+    "gradeYear": 2016,
+    "examYear": 2015,
+    "type": "mar",
+    "studentGrade": 2,
+    "subSubject": "윤리와사상"
+   },
+   "to": [
+    2015,
+    "mar",
+    2,
+    "사회탐구",
+    "윤리와사상"
+   ],
+   "basis": "academy 1/1"
+  },
+  {
+   "id": 4549,
+   "from": {
+    "gradeYear": 2016,
+    "examYear": 2015,
+    "type": "mar",
+    "studentGrade": 2,
+    "subSubject": "한국지리"
+   },
+   "to": [
+    2015,
+    "mar",
+    2,
+    "사회탐구",
+    "한국지리"
+   ],
+   "basis": "academy 1/1"
+  },
+  {
+   "id": 4554,
+   "from": {
+    "gradeYear": 2016,
+    "examYear": 2015,
+    "type": "mar",
+    "studentGrade": 2,
+    "subSubject": "가형"
+   },
+   "to": [
+    2015,
+    "mar",
+    2,
+    "수학",
+    "가"
+   ],
+   "basis": "academy 1/1"
+  },
+  {
+   "id": 4556,
+   "from": {
+    "gradeYear": 2016,
+    "examYear": 2015,
+    "type": "mar",
+    "studentGrade": 2,
+    "subSubject": "나형"
+   },
+   "to": [
+    2015,
+    "mar",
+    2,
+    "수학",
+    "나"
+   ],
+   "basis": "academy 1/1"
+  },
+  {
+   "id": 4805,
+   "from": {
+    "gradeYear": 2015,
+    "examYear": 2014,
+    "type": "oct",
+    "studentGrade": 3,
+    "subSubject": "정치와법"
+   },
+   "to": [
+    2014,
+    "oct",
+    3,
+    "사회탐구",
+    "정치와법"
+   ],
+   "basis": "academy 1/1"
+  },
+  {
+   "id": 4829,
+   "from": {
+    "gradeYear": 2015,
+    "examYear": 2014,
+    "type": "oct",
+    "studentGrade": 3,
+    "subSubject": "가사·실업"
+   },
+   "to": [
+    2014,
+    "oct",
+    3,
+    "직업탐구",
+    "가사실업"
+   ],
+   "basis": "academy 1/1"
+  },
+  {
+   "id": 4830,
+   "from": {
+    "gradeYear": 2015,
+    "examYear": 2014,
+    "type": "oct",
+    "studentGrade": 3,
+    "subSubject": "상업 정보"
+   },
+   "to": [
+    2014,
+    "oct",
+    3,
+    "직업탐구",
+    "상업정보"
+   ],
+   "basis": "academy 1/1"
+  },
+  {
+   "id": 4852,
+   "from": {
+    "gradeYear": 2015,
+    "examYear": 2014,
+    "type": "jul",
+    "studentGrade": 3,
+    "subSubject": "정치와법"
+   },
+   "to": [
+    2014,
+    "jul",
+    3,
+    "사회탐구",
+    "정치와법"
+   ],
+   "basis": "academy 1/1"
+  },
+  {
+   "id": 4882,
+   "from": {
+    "gradeYear": 2015,
+    "examYear": 2014,
+    "type": "apr",
+    "studentGrade": 3,
+    "subSubject": "정치와법"
+   },
+   "to": [
+    2014,
+    "apr",
+    3,
+    "사회탐구",
+    "정치와법"
+   ],
+   "basis": "academy 1/1"
+  },
+  {
+   "id": 4908,
+   "from": {
+    "gradeYear": 2015,
+    "examYear": 2014,
+    "type": "mar",
+    "studentGrade": 2,
+    "subSubject": "경제"
+   },
+   "to": [
+    2014,
+    "mar",
+    2,
+    "사회탐구",
+    "경제"
+   ],
+   "basis": "academy 1/1"
+  },
+  {
+   "id": 4910,
+   "from": {
+    "gradeYear": 2015,
+    "examYear": 2014,
+    "type": "mar",
+    "studentGrade": 2,
+    "subSubject": "동아시아사"
+   },
+   "to": [
+    2014,
+    "mar",
+    2,
+    "사회탐구",
+    "동아시아사"
+   ],
+   "basis": "academy 1/1"
+  },
+  {
+   "id": 4912,
+   "from": {
+    "gradeYear": 2015,
+    "examYear": 2014,
+    "type": "mar",
+    "studentGrade": 2,
+    "subSubject": "법과정치"
+   },
+   "to": [
+    2014,
+    "mar",
+    2,
+    "사회탐구",
+    "정치와법"
+   ],
+   "basis": "academy 1/1"
+  },
+  {
+   "id": 4914,
+   "from": {
+    "gradeYear": 2015,
+    "examYear": 2014,
+    "type": "mar",
+    "studentGrade": 2,
+    "subSubject": "사회·문화"
+   },
+   "to": [
+    2014,
+    "mar",
+    2,
+    "사회탐구",
+    "사회문화"
+   ],
+   "basis": "academy 1/1"
+  },
+  {
+   "id": 4916,
+   "from": {
+    "gradeYear": 2015,
+    "examYear": 2014,
+    "type": "mar",
+    "studentGrade": 2,
+    "subSubject": "생활과윤리"
+   },
+   "to": [
+    2014,
+    "mar",
+    2,
+    "사회탐구",
+    "생활과윤리"
+   ],
+   "basis": "academy 1/1"
+  },
+  {
+   "id": 4918,
+   "from": {
+    "gradeYear": 2015,
+    "examYear": 2014,
+    "type": "mar",
+    "studentGrade": 2,
+    "subSubject": "세계사"
+   },
+   "to": [
+    2014,
+    "mar",
+    2,
+    "사회탐구",
+    "세계사"
+   ],
+   "basis": "academy 1/1"
+  },
+  {
+   "id": 4920,
+   "from": {
+    "gradeYear": 2015,
+    "examYear": 2014,
+    "type": "mar",
+    "studentGrade": 2,
+    "subSubject": "세계지리"
+   },
+   "to": [
+    2014,
+    "mar",
+    2,
+    "사회탐구",
+    "세계지리"
+   ],
+   "basis": "academy 1/1"
+  },
+  {
+   "id": 4922,
+   "from": {
+    "gradeYear": 2015,
+    "examYear": 2014,
+    "type": "mar",
+    "studentGrade": 2,
+    "subSubject": "윤리와사상"
+   },
+   "to": [
+    2014,
+    "mar",
+    2,
+    "사회탐구",
+    "윤리와사상"
+   ],
+   "basis": "academy 1/1"
+  },
+  {
+   "id": 4925,
+   "from": {
+    "gradeYear": 2015,
+    "examYear": 2014,
+    "type": "mar",
+    "studentGrade": 2,
+    "subSubject": "한국지리"
+   },
+   "to": [
+    2014,
+    "mar",
+    2,
+    "사회탐구",
+    "한국지리"
+   ],
+   "basis": "academy 1/1"
+  }
+ ],
+ "deleted": [
+  {
+   "id": 1065,
+   "slot": [
+    2024,
+    "oct",
+    2,
+    "과학탐구",
+    "생명과학Ⅰ"
+   ],
+   "kept": 671,
+   "standardCuts": [
+    70,
+    64,
+    58,
+    52,
+    46,
+    42,
+    39,
+    35
+   ]
+  },
+  {
+   "id": 1089,
+   "slot": [
+    2024,
+    "oct",
+    2,
+    "사회탐구",
+    "세계지리"
+   ],
+   "kept": 695,
+   "standardCuts": [
+    68,
+    64,
+    58,
+    53,
+    46,
+    40,
+    38,
+    36
+   ]
+  },
+  {
+   "id": 1866,
+   "slot": [
+    2021,
+    "oct",
+    3,
+    "국어",
+    ""
+   ],
+   "kept": 2333,
+   "standardCuts": [
+    129,
+    123,
+    117,
+    109,
+    98,
+    80,
+    71,
+    68
+   ]
+  },
+  {
+   "id": 1867,
+   "slot": [
+    2021,
+    "oct",
+    3,
+    "국어",
+    ""
+   ],
+   "kept": 2333,
+   "standardCuts": [
+    129,
+    123,
+    117,
+    109,
+    98,
+    80,
+    71,
+    68
+   ]
+  },
+  {
+   "id": 1937,
+   "slot": [
+    2021,
+    "jul",
+    3,
+    "국어",
+    ""
+   ],
+   "kept": 2393,
+   "standardCuts": [
+    133,
+    125,
+    117,
+    107,
+    95,
+    82,
+    72,
+    67
+   ]
+  },
+  {
+   "id": 1938,
+   "slot": [
+    2021,
+    "jul",
+    3,
+    "국어",
+    ""
+   ],
+   "kept": 2393,
+   "standardCuts": [
+    133,
+    125,
+    117,
+    107,
+    95,
+    82,
+    72,
+    67
+   ]
+  },
+  {
+   "id": 2461,
+   "slot": [
+    2021,
+    "mar",
+    2,
+    "과학탐구",
+    "물리Ⅰ"
+   ],
+   "kept": 1990,
+   "standardCuts": [
+    67,
+    63,
+    59,
+    53,
+    47,
+    42,
+    37,
+    33
+   ]
+  },
+  {
+   "id": 1992,
+   "slot": [
+    2021,
+    "mar",
+    2,
+    "과학탐구",
+    "생명과학Ⅰ"
+   ],
+   "kept": 2464,
+   "standardCuts": [
+    66,
+    63,
+    58,
+    53,
+    48,
+    42,
+    36,
+    32
+   ]
+  },
+  {
+   "id": 1994,
+   "slot": [
+    2021,
+    "mar",
+    2,
+    "과학탐구",
+    "지구과학Ⅰ"
+   ],
+   "kept": 2468,
+   "standardCuts": [
+    67,
+    63,
+    58,
+    54,
+    48,
+    42,
+    36,
+    32
+   ]
+  },
+  {
+   "id": 1996,
+   "slot": [
+    2021,
+    "mar",
+    2,
+    "과학탐구",
+    "화학Ⅰ"
+   ],
+   "kept": 2472,
+   "standardCuts": [
+    67,
+    64,
+    58,
+    52,
+    46,
+    42,
+    37,
+    34
+   ]
+  },
+  {
+   "id": 2479,
+   "slot": [
+    2021,
+    "mar",
+    3,
+    "국어",
+    ""
+   ],
+   "kept": 2476,
+   "standardCuts": [
+    135,
+    127,
+    117,
+    106,
+    94,
+    82,
+    74,
+    69
+   ]
+  },
+  {
+   "id": 2000,
+   "slot": [
+    2021,
+    "mar",
+    3,
+    "국어",
+    ""
+   ],
+   "kept": 2476,
+   "standardCuts": [
+    129,
+    124,
+    117,
+    108,
+    97,
+    80,
+    71,
+    66
+   ]
+  },
+  {
+   "id": 2001,
+   "slot": [
+    2021,
+    "mar",
+    3,
+    "국어",
+    ""
+   ],
+   "kept": 2476,
+   "standardCuts": [
+    129,
+    124,
+    117,
+    108,
+    97,
+    80,
+    71,
+    66
+   ]
+  },
+  {
+   "id": 2005,
+   "slot": [
+    2021,
+    "mar",
+    2,
+    "사회탐구",
+    "경제"
+   ],
+   "kept": 2484,
+   "standardCuts": [
+    68,
+    63,
+    58,
+    53,
+    47,
+    41,
+    38,
+    35
+   ]
+  },
+  {
+   "id": 2007,
+   "slot": [
+    2021,
+    "mar",
+    2,
+    "사회탐구",
+    "동아시아사"
+   ],
+   "kept": 2488,
+   "standardCuts": [
+    71,
+    63,
+    57,
+    52,
+    47,
+    42,
+    39,
+    36
+   ]
+  },
+  {
+   "id": 2009,
+   "slot": [
+    2021,
+    "mar",
+    2,
+    "사회탐구",
+    "사회문화"
+   ],
+   "kept": 2494,
+   "standardCuts": [
+    65,
+    62,
+    59,
+    54,
+    49,
+    42,
+    35,
+    30
+   ]
+  },
+  {
+   "id": 2011,
+   "slot": [
+    2021,
+    "mar",
+    2,
+    "사회탐구",
+    "생활과윤리"
+   ],
+   "kept": 2498,
+   "standardCuts": [
+    64,
+    62,
+    59,
+    55,
+    50,
+    42,
+    34,
+    31
+   ]
+  },
+  {
+   "id": 2013,
+   "slot": [
+    2021,
+    "mar",
+    2,
+    "사회탐구",
+    "세계사"
+   ],
+   "kept": 2502,
+   "standardCuts": [
+    70,
+    62,
+    57,
+    51,
+    46,
+    42,
+    38,
+    35
+   ]
+  },
+  {
+   "id": 2015,
+   "slot": [
+    2021,
+    "mar",
+    2,
+    "사회탐구",
+    "세계지리"
+   ],
+   "kept": 2506,
+   "standardCuts": [
+    64,
+    61,
+    58,
+    54,
+    49,
+    43,
+    36,
+    29
+   ]
+  },
+  {
+   "id": 2017,
+   "slot": [
+    2021,
+    "mar",
+    2,
+    "사회탐구",
+    "윤리와사상"
+   ],
+   "kept": 2510,
+   "standardCuts": [
+    63,
+    61,
+    58,
+    54,
+    50,
+    42,
+    34,
+    31
+   ]
+  },
+  {
+   "id": 2019,
+   "slot": [
+    2021,
+    "mar",
+    2,
+    "사회탐구",
+    "정치와법"
+   ],
+   "kept": 2513,
+   "standardCuts": [
+    67,
+    62,
+    58,
+    53,
+    47,
+    41,
+    37,
+    33
+   ]
+  },
+  {
+   "id": 2021,
+   "slot": [
+    2021,
+    "mar",
+    2,
+    "사회탐구",
+    "한국지리"
+   ],
+   "kept": 2516,
+   "standardCuts": [
+    66,
+    62,
+    59,
+    53,
+    48,
+    41,
+    36,
+    32
+   ]
+  },
+  {
+   "id": 2898,
+   "slot": [
+    2020,
+    "oct",
+    3,
+    "사회탐구",
+    "정치와법"
+   ],
+   "kept": 2892,
+   "standardCuts": [
+    71,
+    65,
+    58,
+    50,
+    44,
+    43,
+    40,
+    38
+   ]
+  },
+  {
+   "id": 2343,
+   "slot": [
+    2020,
+    "oct",
+    3,
+    "사회탐구",
+    "정치와법"
+   ],
+   "kept": 2892,
+   "standardCuts": [
+    69,
+    65,
+    59,
+    51,
+    44,
+    41,
+    40,
+    38
+   ]
+  },
+  {
+   "id": 2918,
+   "slot": [
+    2020,
+    "oct",
+    3,
+    "직업탐구",
+    "기초제도"
+   ],
+   "kept": 2368,
+   "standardCuts": [
+    68,
+    65,
+    60,
+    49,
+    44,
+    41,
+    null,
+    38
+   ]
+  },
+  {
+   "id": 2369,
+   "slot": [
+    2020,
+    "oct",
+    3,
+    "직업탐구",
+    "기초제도"
+   ],
+   "kept": 2368,
+   "standardCuts": [
+    67,
+    65,
+    61,
+    52,
+    43,
+    40,
+    null,
+    39
+   ]
+  },
+  {
+   "id": 2371,
+   "slot": [
+    2020,
+    "oct",
+    3,
+    "직업탐구",
+    "상업경제"
+   ],
+   "kept": 2919,
+   "standardCuts": [
+    69,
+    65,
+    59,
+    51,
+    44,
+    41,
+    39,
+    37
+   ]
+  },
+  {
+   "id": 2373,
+   "slot": [
+    2020,
+    "oct",
+    3,
+    "직업탐구",
+    "생활서비스산업의이해"
+   ],
+   "kept": 2920,
+   "standardCuts": [
+    68,
+    64,
+    58,
+    54,
+    43,
+    42,
+    38,
+    37
+   ]
+  },
+  {
+   "id": 2377,
+   "slot": [
+    2020,
+    "oct",
+    3,
+    "직업탐구",
+    "인간발달"
+   ],
+   "kept": 2922,
+   "standardCuts": [
+    73,
+    64,
+    59,
+    50,
+    44,
+    43,
+    40,
+    38
+   ]
+  },
+  {
+   "id": 2379,
+   "slot": [
+    2020,
+    "oct",
+    3,
+    "직업탐구",
+    "해양의이해"
+   ],
+   "kept": 2923,
+   "standardCuts": [
+    73,
+    60,
+    52,
+    null,
+    48,
+    44,
+    40,
+    35
+   ]
+  },
+  {
+   "id": 2924,
+   "slot": [
+    2020,
+    "oct",
+    3,
+    "직업탐구",
+    "회계원리"
+   ],
+   "kept": 2380,
+   "standardCuts": [
+    73,
+    65,
+    55,
+    49,
+    46,
+    43,
+    41,
+    38
+   ]
+  },
+  {
+   "id": 2381,
+   "slot": [
+    2020,
+    "oct",
+    3,
+    "직업탐구",
+    "회계원리"
+   ],
+   "kept": 2380,
+   "standardCuts": [
+    70,
+    64,
+    59,
+    51,
+    44,
+    42,
+    39,
+    38
+   ]
+  },
+  {
+   "id": 2403,
+   "slot": [
+    2020,
+    "jul",
+    3,
+    "사회탐구",
+    "정치와법"
+   ],
+   "kept": 2937,
+   "standardCuts": [
+    70,
+    64,
+    58,
+    51,
+    45,
+    41,
+    40,
+    37
+   ]
+  },
+  {
+   "id": 2462,
+   "slot": [
+    2020,
+    "mar",
+    3,
+    "과학탐구",
+    "생명과학Ⅰ"
+   ],
+   "kept": 2976,
+   "standardCuts": [
+    72,
+    64,
+    57,
+    51,
+    45,
+    42,
+    39,
+    37
+   ]
+  },
+  {
+   "id": 2466,
+   "slot": [
+    2020,
+    "mar",
+    3,
+    "과학탐구",
+    "지구과학Ⅰ"
+   ],
+   "kept": 2978,
+   "standardCuts": [
+    71,
+    64,
+    56,
+    51,
+    46,
+    42,
+    39,
+    36
+   ]
+  },
+  {
+   "id": 2470,
+   "slot": [
+    2020,
+    "mar",
+    3,
+    "과학탐구",
+    "화학Ⅰ"
+   ],
+   "kept": 2980,
+   "standardCuts": [
+    71,
+    64,
+    58,
+    50,
+    46,
+    42,
+    39,
+    36
+   ]
+  },
+  {
+   "id": 2474,
+   "slot": [
+    2020,
+    "mar",
+    3,
+    "국어",
+    ""
+   ],
+   "kept": 2983,
+   "standardCuts": [
+    137,
+    127,
+    116,
+    104,
+    93,
+    84,
+    74,
+    69
+   ]
+  },
+  {
+   "id": 2475,
+   "slot": [
+    2020,
+    "mar",
+    3,
+    "국어",
+    ""
+   ],
+   "kept": 2983,
+   "standardCuts": [
+    137,
+    127,
+    116,
+    104,
+    93,
+    84,
+    74,
+    69
+   ]
+  },
+  {
+   "id": 2482,
+   "slot": [
+    2020,
+    "mar",
+    3,
+    "사회탐구",
+    "경제"
+   ],
+   "kept": 2986,
+   "standardCuts": [
+    73,
+    66,
+    57,
+    48,
+    46,
+    42,
+    40,
+    39
+   ]
+  },
+  {
+   "id": 2486,
+   "slot": [
+    2020,
+    "mar",
+    3,
+    "사회탐구",
+    "동아시아사"
+   ],
+   "kept": 2988,
+   "standardCuts": [
+    70,
+    65,
+    58,
+    51,
+    45,
+    43,
+    39,
+    37
+   ]
+  },
+  {
+   "id": 2492,
+   "slot": [
+    2020,
+    "mar",
+    3,
+    "사회탐구",
+    "사회문화"
+   ],
+   "kept": 2992,
+   "standardCuts": [
+    68,
+    64,
+    59,
+    52,
+    46,
+    41,
+    38,
+    35
+   ]
+  },
+  {
+   "id": 2496,
+   "slot": [
+    2020,
+    "mar",
+    3,
+    "사회탐구",
+    "생활과윤리"
+   ],
+   "kept": 2994,
+   "standardCuts": [
+    68,
+    63,
+    58,
+    53,
+    47,
+    41,
+    36,
+    35
+   ]
+  },
+  {
+   "id": 2500,
+   "slot": [
+    2020,
+    "mar",
+    3,
+    "사회탐구",
+    "세계사"
+   ],
+   "kept": 2996,
+   "standardCuts": [
+    74,
+    65,
+    56,
+    49,
+    46,
+    42,
+    41,
+    39
+   ]
+  },
+  {
+   "id": 2504,
+   "slot": [
+    2020,
+    "mar",
+    3,
+    "사회탐구",
+    "세계지리"
+   ],
+   "kept": 2998,
+   "standardCuts": [
+    70,
+    64,
+    58,
+    51,
+    45,
+    42,
+    39,
+    36
+   ]
+  },
+  {
+   "id": 2508,
+   "slot": [
+    2020,
+    "mar",
+    3,
+    "사회탐구",
+    "윤리와사상"
+   ],
+   "kept": 3000,
+   "standardCuts": [
+    70,
+    64,
+    58,
+    52,
+    45,
+    41,
+    39,
+    37
+   ]
+  },
+  {
+   "id": 3001,
+   "slot": [
+    2020,
+    "mar",
+    3,
+    "사회탐구",
+    "정치와법"
+   ],
+   "kept": 2990,
+   "standardCuts": [
+    67,
+    63,
+    58,
+    53,
+    47,
+    41,
+    37,
+    33
+   ]
+  },
+  {
+   "id": 2512,
+   "slot": [
+    2020,
+    "mar",
+    3,
+    "사회탐구",
+    "정치와법"
+   ],
+   "kept": 2990,
+   "standardCuts": [
+    71,
+    64,
+    57,
+    50,
+    45,
+    41,
+    40,
+    37
+   ]
+  },
+  {
+   "id": 2514,
+   "slot": [
+    2020,
+    "mar",
+    3,
+    "사회탐구",
+    "한국지리"
+   ],
+   "kept": 3003,
+   "standardCuts": [
+    70,
+    63,
+    58,
+    52,
+    46,
+    41,
+    38,
+    36
+   ]
+  },
+  {
+   "id": 2518,
+   "slot": [
+    2021,
+    "mar",
+    1,
+    "수학",
+    ""
+   ],
+   "kept": 2520,
+   "standardCuts": [
+    136,
+    126,
+    116,
+    105,
+    94,
+    83,
+    74,
+    69
+   ]
+  },
+  {
+   "id": 2519,
+   "slot": [
+    2021,
+    "mar",
+    1,
+    "수학",
+    ""
+   ],
+   "kept": 2520,
+   "standardCuts": [
+    136,
+    126,
+    116,
+    105,
+    94,
+    83,
+    74,
+    69
+   ]
+  },
+  {
+   "id": 2576,
+   "slot": [
+    2021,
+    "nov",
+    1,
+    "국어",
+    ""
+   ],
+   "kept": 2582,
+   "standardCuts": [
+    134,
+    126,
+    117,
+    106,
+    94,
+    83,
+    74,
+    68
+   ]
+  },
+  {
+   "id": 2577,
+   "slot": [
+    2021,
+    "nov",
+    1,
+    "국어",
+    ""
+   ],
+   "kept": 2582,
+   "standardCuts": [
+    134,
+    126,
+    117,
+    106,
+    94,
+    83,
+    74,
+    68
+   ]
+  },
+  {
+   "id": 2578,
+   "slot": [
+    2021,
+    "jun",
+    1,
+    "국어",
+    ""
+   ],
+   "kept": 2585,
+   "standardCuts": [
+    133,
+    126,
+    117,
+    106,
+    95,
+    83,
+    73,
+    65
+   ]
+  },
+  {
+   "id": 2579,
+   "slot": [
+    2021,
+    "jun",
+    1,
+    "국어",
+    ""
+   ],
+   "kept": 2585,
+   "standardCuts": [
+    133,
+    126,
+    117,
+    106,
+    95,
+    83,
+    73,
+    65
+   ]
+  },
+  {
+   "id": 2664,
+   "slot": [
+    2021,
+    "nov",
+    1,
+    "수학",
+    ""
+   ],
+   "kept": 2669,
+   "standardCuts": [
+    134,
+    127,
+    118,
+    105,
+    91,
+    82,
+    75,
+    71
+   ]
+  },
+  {
+   "id": 2665,
+   "slot": [
+    2021,
+    "nov",
+    1,
+    "수학",
+    ""
+   ],
+   "kept": 2669,
+   "standardCuts": [
+    134,
+    127,
+    118,
+    105,
+    91,
+    82,
+    75,
+    71
+   ]
+  },
+  {
+   "id": 2666,
+   "slot": [
+    2021,
+    "jun",
+    1,
+    "수학",
+    ""
+   ],
+   "kept": 2672,
+   "standardCuts": [
+    136,
+    128,
+    117,
+    105,
+    92,
+    82,
+    75,
+    72
+   ]
+  },
+  {
+   "id": 2667,
+   "slot": [
+    2021,
+    "jun",
+    1,
+    "수학",
+    ""
+   ],
+   "kept": 2672,
+   "standardCuts": [
+    136,
+    128,
+    117,
+    105,
+    92,
+    82,
+    75,
+    72
+   ]
+  },
+  {
+   "id": 2943,
+   "slot": [
+    2019,
+    "jul",
+    3,
+    "사회탐구",
+    "정치와법"
+   ],
+   "kept": 3326,
+   "standardCuts": [
+    70,
+    65,
+    59,
+    51,
+    44,
+    41,
+    39,
+    37
+   ]
+  },
+  {
+   "id": 3364,
+   "slot": [
+    2019,
+    "mar",
+    2,
+    "과학탐구",
+    "물리Ⅰ"
+   ],
+   "kept": 2973,
+   "standardCuts": [
+    68,
+    63,
+    57,
+    52,
+    48,
+    43,
+    37,
+    33
+   ]
+  },
+  {
+   "id": 3332,
+   "slot": [
+    2018,
+    "jul",
+    3,
+    "사회탐구",
+    "정치와법"
+   ],
+   "kept": 3713,
+   "standardCuts": [
+    69,
+    65,
+    58,
+    51,
+    44,
+    41,
+    40,
+    37
+   ]
+  },
+  {
+   "id": 4059,
+   "slot": [
+    2017,
+    "oct",
+    3,
+    "사회탐구",
+    "정치와법"
+   ],
+   "kept": 4053,
+   "standardCuts": [
+    66,
+    63,
+    60,
+    53,
+    45,
+    41,
+    38,
+    36
+   ]
+  },
+  {
+   "id": 3674,
+   "slot": [
+    2017,
+    "oct",
+    3,
+    "사회탐구",
+    "정치와법"
+   ],
+   "kept": 4053,
+   "standardCuts": [
+    67,
+    65,
+    60,
+    52,
+    44,
+    41,
+    39,
+    37
+   ]
+  },
+  {
+   "id": 4089,
+   "slot": [
+    2017,
+    "oct",
+    3,
+    "직업탐구",
+    "회계원리"
+   ],
+   "kept": 3700,
+   "standardCuts": [
+    71,
+    66,
+    59,
+    49,
+    44,
+    43,
+    40,
+    39
+   ]
+  },
+  {
+   "id": 3719,
+   "slot": [
+    2017,
+    "jul",
+    3,
+    "사회탐구",
+    "정치와법"
+   ],
+   "kept": 4104,
+   "standardCuts": [
+    69,
+    65,
+    59,
+    52,
+    45,
+    40,
+    39,
+    36
+   ]
+  },
+  {
+   "id": 4061,
+   "slot": [
+    2016,
+    "oct",
+    3,
+    "수학",
+    "A"
+   ],
+   "kept": 4437,
+   "standardCuts": [
+    138,
+    129,
+    119,
+    104,
+    89,
+    81,
+    77,
+    75
+   ]
+  },
+  {
+   "id": 4062,
+   "slot": [
+    2016,
+    "oct",
+    3,
+    "수학",
+    "B"
+   ],
+   "kept": 4438,
+   "standardCuts": [
+    126,
+    123,
+    117,
+    110,
+    98,
+    81,
+    69,
+    65
+   ]
+  },
+  {
+   "id": 4110,
+   "slot": [
+    2016,
+    "jul",
+    3,
+    "사회탐구",
+    "정치와법"
+   ],
+   "kept": 4474,
+   "standardCuts": [
+    69,
+    64,
+    59,
+    52,
+    45,
+    41,
+    39,
+    36
+   ]
+  },
+  {
+   "id": 4112,
+   "slot": [
+    2016,
+    "jul",
+    3,
+    "수학",
+    "A"
+   ],
+   "kept": 4482,
+   "standardCuts": [
+    141,
+    129,
+    116,
+    102,
+    89,
+    81,
+    77,
+    76
+   ]
+  },
+  {
+   "id": 4113,
+   "slot": [
+    2016,
+    "jul",
+    3,
+    "수학",
+    "B"
+   ],
+   "kept": 4483,
+   "standardCuts": [
+    130,
+    127,
+    119,
+    108,
+    94,
+    80,
+    73,
+    70
+   ]
+  },
+  {
+   "id": 4139,
+   "slot": [
+    2016,
+    "apr",
+    3,
+    "수학",
+    "A"
+   ],
+   "kept": 4510,
+   "standardCuts": [
+    141,
+    131,
+    116,
+    101,
+    90,
+    82,
+    79,
+    75
+   ]
+  },
+  {
+   "id": 4140,
+   "slot": [
+    2016,
+    "apr",
+    3,
+    "수학",
+    "B"
+   ],
+   "kept": 4511,
+   "standardCuts": [
+    136,
+    128,
+    116,
+    106,
+    93,
+    82,
+    75,
+    70
+   ]
+  },
+  {
+   "id": 4154,
+   "slot": [
+    2016,
+    "mar",
+    1,
+    "국어",
+    ""
+   ],
+   "kept": 4525,
+   "standardCuts": [
+    134,
+    127,
+    117,
+    106,
+    94,
+    83,
+    74,
+    65
+   ]
+  },
+  {
+   "id": 4155,
+   "slot": [
+    2016,
+    "mar",
+    2,
+    "국어",
+    ""
+   ],
+   "kept": 4526,
+   "standardCuts": [
+    131,
+    126,
+    118,
+    107,
+    95,
+    83,
+    71,
+    65
+   ]
+  },
+  {
+   "id": 4180,
+   "slot": [
+    2016,
+    "mar",
+    3,
+    "수학",
+    "A"
+   ],
+   "kept": 4552,
+   "standardCuts": [
+    141,
+    130,
+    115,
+    100,
+    90,
+    83,
+    79,
+    76
+   ]
+  },
+  {
+   "id": 4181,
+   "slot": [
+    2016,
+    "mar",
+    3,
+    "수학",
+    "B"
+   ],
+   "kept": 4553,
+   "standardCuts": [
+    139,
+    129,
+    117,
+    103,
+    91,
+    83,
+    76,
+    72
+   ]
+  },
+  {
+   "id": 4228,
+   "slot": [
+    2016,
+    "nov",
+    2,
+    "사회탐구",
+    "생활과윤리"
+   ],
+   "kept": 4601,
+   "standardCuts": [
+    64,
+    62,
+    59,
+    55,
+    48,
+    39,
+    36,
+    34
+   ]
+  },
+  {
+   "id": 4480,
+   "slot": [
+    2015,
+    "jul",
+    3,
+    "사회탐구",
+    "정치와법"
+   ],
+   "kept": 4846,
+   "standardCuts": [
+    69,
+    63,
+    58,
+    52,
+    46,
+    41,
+    38,
+    36
+   ]
+  },
+  {
+   "id": 4508,
+   "slot": [
+    2015,
+    "apr",
+    3,
+    "사회탐구",
+    "정치와법"
+   ],
+   "kept": 4876,
+   "standardCuts": [
+    71,
+    64,
+    57,
+    51,
+    46,
+    41,
+    39,
+    36
+   ]
+  },
+  {
+   "id": 4930,
+   "slot": [
+    2015,
+    "mar",
+    2,
+    "수학",
+    "가"
+   ],
+   "kept": 4554,
+   "standardCuts": [
+    141,
+    129,
+    115,
+    102,
+    91,
+    83,
+    77,
+    72
+   ]
+  },
+  {
+   "id": 4932,
+   "slot": [
+    2015,
+    "mar",
+    2,
+    "수학",
+    "나"
+   ],
+   "kept": 4556,
+   "standardCuts": [
+    145,
+    126,
+    112,
+    100,
+    90,
+    85,
+    80,
+    76
+   ]
+  },
+  {
+   "id": 4604,
+   "slot": [
+    2015,
+    "jun",
+    2,
+    "사회탐구",
+    "생활과윤리"
+   ],
+   "kept": 4983,
+   "standardCuts": [
+    65,
+    62,
+    57,
+    54,
+    49,
+    42,
+    35,
+    31
+   ]
+  },
+  {
+   "id": 4893,
+   "slot": [
+    2014,
+    "mar",
+    2,
+    "과학탐구",
+    "물리Ⅰ"
+   ],
+   "kept": 5163,
+   "standardCuts": [
+    70,
+    64,
+    58,
+    51,
+    46,
+    42,
+    39,
+    35
+   ]
+  },
+  {
+   "id": 4895,
+   "slot": [
+    2014,
+    "mar",
+    2,
+    "과학탐구",
+    "생명과학Ⅰ"
+   ],
+   "kept": 5164,
+   "standardCuts": [
+    69,
+    64,
+    58,
+    52,
+    46,
+    41,
+    38,
+    35
+   ]
+  },
+  {
+   "id": 4897,
+   "slot": [
+    2014,
+    "mar",
+    2,
+    "과학탐구",
+    "지구과학Ⅰ"
+   ],
+   "kept": 5165,
+   "standardCuts": [
+    65,
+    62,
+    58,
+    54,
+    48,
+    42,
+    36,
+    31
+   ]
+  },
+  {
+   "id": 4899,
+   "slot": [
+    2014,
+    "mar",
+    2,
+    "과학탐구",
+    "화학Ⅰ"
+   ],
+   "kept": 5166,
+   "standardCuts": [
+    69,
+    63,
+    58,
+    52,
+    46,
+    42,
+    38,
+    34
+   ]
+  },
+  {
+   "id": 4934,
+   "slot": [
+    2014,
+    "mar",
+    1,
+    "영어",
+    ""
+   ],
+   "kept": 5174,
+   "standardCuts": [
+    133,
+    129,
+    119,
+    105,
+    93,
+    82,
+    74,
+    68
+   ]
+  },
+  {
+   "id": 4935,
+   "slot": [
+    2014,
+    "mar",
+    2,
+    "영어",
+    ""
+   ],
+   "kept": 5175,
+   "standardCuts": [
+    136,
+    130,
+    117,
+    104,
+    92,
+    83,
+    75,
+    70
+   ]
+  },
+  {
+   "id": 4940,
+   "slot": [
+    2014,
+    "mar",
+    2,
+    "한국사",
+    ""
+   ],
+   "kept": 5179,
+   "standardCuts": [
+    69,
+    64,
+    58,
+    53,
+    46,
+    42,
+    37,
+    34
+   ]
+  },
+  {
+   "id": 5168,
+   "slot": [
+    2015,
+    "mar",
+    3,
+    "국어",
+    "A"
+   ],
+   "kept": 4902,
+   "standardCuts": [
+    126,
+    123,
+    118,
+    109,
+    98,
+    85,
+    70,
+    60
+   ]
+  },
+  {
+   "id": 5169,
+   "slot": [
+    2015,
+    "mar",
+    3,
+    "국어",
+    "B"
+   ],
+   "kept": 4903,
+   "standardCuts": [
+    129,
+    124,
+    117,
+    108,
+    97,
+    85,
+    71,
+    62
+   ]
+  },
+  {
+   "id": 5172,
+   "slot": [
+    2015,
+    "mar",
+    3,
+    "수학",
+    "A"
+   ],
+   "kept": 4928,
+   "standardCuts": [
+    145,
+    126,
+    112,
+    100,
+    90,
+    85,
+    80,
+    76
+   ]
+  },
+  {
+   "id": 5173,
+   "slot": [
+    2015,
+    "mar",
+    3,
+    "수학",
+    "B"
+   ],
+   "kept": 4929,
+   "standardCuts": [
+    141,
+    129,
+    115,
+    102,
+    91,
+    83,
+    77,
+    72
+   ]
+  },
+  {
+   "id": 1915,
+   "slot": [
+    2022,
+    "oct",
+    3,
+    "직업탐구",
+    "상업경제"
+   ],
+   "kept": 1914,
+   "standardCuts": [
+    68,
+    64,
+    58,
+    52,
+    45,
+    40,
+    39,
+    37
+   ]
+  },
+  {
+   "id": 1923,
+   "slot": [
+    2022,
+    "oct",
+    3,
+    "직업탐구",
+    "인간발달"
+   ],
+   "kept": 1922,
+   "standardCuts": [
+    72,
+    65,
+    57,
+    50,
+    45,
+    42,
+    40,
+    38
+   ]
+  },
+  {
+   "id": 2966,
+   "slot": [
+    2020,
+    "apr",
+    3,
+    "사회탐구",
+    "정치와법"
+   ],
+   "kept": 2960,
+   "standardCuts": [
+    72,
+    65,
+    56,
+    50,
+    45,
+    42,
+    40,
+    37
+   ]
+  },
+  {
+   "id": 3287,
+   "slot": [
+    2019,
+    "oct",
+    3,
+    "사회탐구",
+    "정치와법"
+   ],
+   "kept": 3281,
+   "standardCuts": [
+    67,
+    64,
+    60,
+    53,
+    44,
+    41,
+    38,
+    37
+   ]
+  },
+  {
+   "id": 3355,
+   "slot": [
+    2019,
+    "apr",
+    3,
+    "사회탐구",
+    "정치와법"
+   ],
+   "kept": 3349,
+   "standardCuts": [
+    70,
+    65,
+    58,
+    51,
+    45,
+    42,
+    39,
+    37
+   ]
+  },
+  {
+   "id": 3742,
+   "slot": [
+    2018,
+    "apr",
+    3,
+    "사회탐구",
+    "정치와법"
+   ],
+   "kept": 3736,
+   "standardCuts": [
+    70,
+    65,
+    58,
+    51,
+    45,
+    41,
+    37,
+    37
+   ]
+  },
+  {
+   "id": 4137,
+   "slot": [
+    2017,
+    "apr",
+    3,
+    "사회탐구",
+    "정치와법"
+   ],
+   "kept": 4131,
+   "standardCuts": [
+    70,
+    64,
+    57,
+    51,
+    45,
+    42,
+    39,
+    36
+   ]
+  },
+  {
+   "id": 4924,
+   "slot": [
+    2015,
+    "mar",
+    3,
+    "사회탐구",
+    "정치와법"
+   ],
+   "kept": 4913,
+   "standardCuts": [
+    64,
+    61,
+    59,
+    55,
+    49,
+    41,
+    34,
+    32
+   ]
+  },
+  {
+   "id": 2465,
+   "slot": [
+    2021,
+    "mar",
+    3,
+    "과학탐구",
+    "생명과학Ⅰ"
+   ],
+   "kept": null,
+   "standardCuts": [
+    65,
+    63,
+    59,
+    54,
+    47,
+    40,
+    36,
+    33
+   ],
+   "reason": "시험에 안 붙는 이름의 중복(뒤섞인 값)"
+  },
+  {
+   "id": 2469,
+   "slot": [
+    2021,
+    "mar",
+    3,
+    "과학탐구",
+    "지구과학Ⅰ"
+   ],
+   "kept": null,
+   "standardCuts": [
+    67,
+    63,
+    59,
+    53,
+    47,
+    42,
+    37,
+    34
+   ],
+   "reason": "시험에 안 붙는 이름의 중복(뒤섞인 값)"
+  },
+  {
+   "id": 2473,
+   "slot": [
+    2021,
+    "mar",
+    3,
+    "과학탐구",
+    "화학Ⅰ"
+   ],
+   "kept": null,
+   "standardCuts": [
+    67,
+    64,
+    59,
+    54,
+    47,
+    42,
+    38,
+    31
+   ],
+   "reason": "시험에 안 붙는 이름의 중복(뒤섞인 값)"
+  },
+  {
+   "id": 2479,
+   "slot": [
+    2021,
+    "mar",
+    3,
+    "국어",
+    ""
+   ],
+   "kept": null,
+   "standardCuts": [
+    135,
+    127,
+    117,
+    106,
+    94,
+    82,
+    74,
+    69
+   ],
+   "reason": "시험에 안 붙는 이름의 중복(뒤섞인 값)"
+  },
+  {
+   "id": 2485,
+   "slot": [
+    2021,
+    "mar",
+    3,
+    "사회탐구",
+    "경제"
+   ],
+   "kept": null,
+   "standardCuts": [
+    70,
+    64,
+    57,
+    52,
+    45,
+    42,
+    39,
+    36
+   ],
+   "reason": "시험에 안 붙는 이름의 중복(뒤섞인 값)"
+  },
+  {
+   "id": 2489,
+   "slot": [
+    2021,
+    "mar",
+    3,
+    "사회탐구",
+    "동아시아사"
+   ],
+   "kept": null,
+   "standardCuts": [
+    67,
+    64,
+    59,
+    53,
+    46,
+    41,
+    37,
+    35
+   ],
+   "reason": "시험에 안 붙는 이름의 중복(뒤섞인 값)"
+  },
+  {
+   "id": 2491,
+   "slot": [
+    2021,
+    "mar",
+    3,
+    "사회탐구",
+    "정치와법"
+   ],
+   "kept": null,
+   "standardCuts": [
+    69,
+    64,
+    58,
+    54,
+    46,
+    41,
+    38,
+    35
+   ],
+   "reason": "시험에 안 붙는 이름의 중복(뒤섞인 값)"
+  },
+  {
+   "id": 2495,
+   "slot": [
+    2021,
+    "mar",
+    3,
+    "사회탐구",
+    "사회문화"
+   ],
+   "kept": null,
+   "standardCuts": [
+    67,
+    64,
+    58,
+    52,
+    47,
+    41,
+    36,
+    32
+   ],
+   "reason": "시험에 안 붙는 이름의 중복(뒤섞인 값)"
+  },
+  {
+   "id": 2499,
+   "slot": [
+    2021,
+    "mar",
+    3,
+    "사회탐구",
+    "생활과윤리"
+   ],
+   "kept": null,
+   "standardCuts": [
+    64,
+    61,
+    58,
+    55,
+    49,
+    41,
+    35,
+    32
+   ],
+   "reason": "시험에 안 붙는 이름의 중복(뒤섞인 값)"
+  },
+  {
+   "id": 2503,
+   "slot": [
+    2021,
+    "mar",
+    3,
+    "사회탐구",
+    "세계사"
+   ],
+   "kept": null,
+   "standardCuts": [
+    69,
+    64,
+    58,
+    52,
+    46,
+    42,
+    38,
+    36
+   ],
+   "reason": "시험에 안 붙는 이름의 중복(뒤섞인 값)"
+  },
+  {
+   "id": 2507,
+   "slot": [
+    2021,
+    "mar",
+    3,
+    "사회탐구",
+    "세계지리"
+   ],
+   "kept": null,
+   "standardCuts": [
+    65,
+    62,
+    58,
+    53,
+    48,
+    42,
+    36,
+    30
+   ],
+   "reason": "시험에 안 붙는 이름의 중복(뒤섞인 값)"
+  },
+  {
+   "id": 2511,
+   "slot": [
+    2021,
+    "mar",
+    3,
+    "사회탐구",
+    "윤리와사상"
+   ],
+   "kept": null,
+   "standardCuts": [
+    69,
+    64,
+    58,
+    52,
+    46,
+    41,
+    37,
+    35
+   ],
+   "reason": "시험에 안 붙는 이름의 중복(뒤섞인 값)"
+  },
+  {
+   "id": 2517,
+   "slot": [
+    2021,
+    "mar",
+    3,
+    "사회탐구",
+    "한국지리"
+   ],
+   "kept": null,
+   "standardCuts": [
+    67,
+    63,
+    59,
+    54,
+    48,
+    41,
+    37,
+    34
+   ],
+   "reason": "시험에 안 붙는 이름의 중복(뒤섞인 값)"
+  },
+  {
+   "id": 3001,
+   "slot": [
+    2020,
+    "mar",
+    3,
+    "사회탐구",
+    "정치와법"
+   ],
+   "kept": null,
+   "standardCuts": [
+    67,
+    63,
+    58,
+    53,
+    47,
+    41,
+    37,
+    33
+   ],
+   "reason": "시험에 안 붙는 이름의 중복(뒤섞인 값)"
+  },
+  {
+   "id": 3391,
+   "slot": [
+    2019,
+    "mar",
+    3,
+    "사회탐구",
+    "정치와법"
+   ],
+   "kept": null,
+   "standardCuts": [
+    68,
+    64,
+    58,
+    53,
+    47,
+    41,
+    38,
+    35
+   ],
+   "reason": "시험에 안 붙는 이름의 중복(뒤섞인 값)"
+  },
+  {
+   "id": 3777,
+   "slot": [
+    2018,
+    "mar",
+    3,
+    "사회탐구",
+    "정치와법"
+   ],
+   "kept": null,
+   "standardCuts": [
+    68,
+    63,
+    57,
+    53,
+    47,
+    41,
+    37,
+    35
+   ],
+   "reason": "시험에 안 붙는 이름의 중복(뒤섞인 값)"
+  },
+  {
+   "id": 4176,
+   "slot": [
+    2017,
+    "mar",
+    3,
+    "사회탐구",
+    "정치와법"
+   ],
+   "kept": null,
+   "standardCuts": [
+    67,
+    63,
+    58,
+    53,
+    47,
+    41,
+    37,
+    34
+   ],
+   "reason": "시험에 안 붙는 이름의 중복(뒤섞인 값)"
+  },
+  {
+   "id": 4435,
+   "slot": [
+    2016,
+    "oct",
+    3,
+    "사회탐구",
+    "정치와법"
+   ],
+   "kept": null,
+   "standardCuts": [
+    66,
+    64,
+    60,
+    53,
+    45,
+    40,
+    38,
+    36
+   ],
+   "reason": "시험에 안 붙는 이름의 중복(뒤섞인 값)"
+  },
+  {
+   "id": 4548,
+   "slot": [
+    2016,
+    "mar",
+    3,
+    "사회탐구",
+    "정치와법"
+   ],
+   "kept": null,
+   "standardCuts": [
+    70,
+    63,
+    57,
+    52,
+    46,
+    41,
+    38,
+    36
+   ],
+   "reason": "시험에 안 붙는 이름의 중복(뒤섞인 값)"
+  }
+ ],
+ "left-empty": [
+  {
+   "slot": [
+    2022,
+    "oct",
+    3,
+    "국어",
+    ""
+   ],
+   "basis": "academy 1/1",
+   "exam": null
+  },
+  {
+   "slot": [
+    2022,
+    "jul",
+    3,
+    "국어",
+    ""
+   ],
+   "basis": "academy 1/1",
+   "exam": null
+  },
+  {
+   "slot": [
+    2017,
+    "oct",
+    3,
+    "수학",
+    "A"
+   ],
+   "basis": "academy 1/1",
+   "exam": null
+  },
+  {
+   "slot": [
+    2017,
+    "oct",
+    3,
+    "수학",
+    "B"
+   ],
+   "basis": "academy 1/1",
+   "exam": null
+  },
+  {
+   "slot": [
+    2017,
+    "jul",
+    3,
+    "수학",
+    "A"
+   ],
+   "basis": "academy 1/1",
+   "exam": null
+  },
+  {
+   "slot": [
+    2017,
+    "jul",
+    3,
+    "수학",
+    "B"
+   ],
+   "basis": "academy 1/1",
+   "exam": null
+  },
+  {
+   "slot": [
+    2017,
+    "apr",
+    3,
+    "수학",
+    "A"
+   ],
+   "basis": "academy 1/1",
+   "exam": null
+  },
+  {
+   "slot": [
+    2017,
+    "apr",
+    3,
+    "수학",
+    "B"
+   ],
+   "basis": "academy 1/1",
+   "exam": null
+  },
+  {
+   "slot": [
+    2017,
+    "mar",
+    3,
+    "수학",
+    "A"
+   ],
+   "basis": "academy 1/1",
+   "exam": null
+  },
+  {
+   "slot": [
+    2017,
+    "mar",
+    3,
+    "수학",
+    "B"
+   ],
+   "basis": "academy 1/1",
+   "exam": null
+  },
+  {
+   "slot": [
+    2015,
+    "mar",
+    1,
+    "영어",
+    ""
+   ],
+   "basis": "academy 1/1",
+   "exam": 3878
+  }
+ ],
+ "std-fixed": [
+  {
+   "id": 1494,
+   "slot": [
+    2023,
+    "oct",
+    3,
+    "직업탐구",
+    "성공적인직업생활"
+   ],
+   "before": [
+    64,
+    62,
+    59,
+    55,
+    48,
+    38,
+    37,
+    35
+   ],
+   "after": [
+    66,
+    63,
+    60,
+    54,
+    46,
+    39,
+    null,
+    35
+   ],
+   "basis": "official"
+  },
+  {
+   "id": 3307,
+   "slot": [
+    2019,
+    "oct",
+    3,
+    "직업탐구",
+    "기초제도"
+   ],
+   "before": [
+    69,
+    66,
+    59,
+    50,
+    44,
+    42,
+    40,
+    37
+   ],
+   "after": [
+    68,
+    65,
+    60,
+    49,
+    44,
+    41,
+    null,
+    38
+   ],
+   "basis": "academy 1/1"
+  },
+  {
+   "id": 3313,
+   "slot": [
+    2019,
+    "oct",
+    3,
+    "직업탐구",
+    "회계원리"
+   ],
+   "before": [
+    70,
+    65,
+    59,
+    50,
+    44,
+    42,
+    40,
+    38
+   ],
+   "after": [
+    73,
+    65,
+    55,
+    49,
+    46,
+    43,
+    41,
+    38
+   ],
+   "basis": "academy 1/1"
+  },
+  {
+   "id": 3694,
+   "slot": [
+    2018,
+    "oct",
+    3,
+    "직업탐구",
+    "기초제도"
+   ],
+   "before": [
+    67,
+    65,
+    61,
+    50,
+    43,
+    42,
+    40,
+    39
+   ],
+   "after": [
+    69,
+    66,
+    59,
+    50,
+    44,
+    42,
+    40,
+    37
+   ],
+   "basis": "academy 1/1"
+  }
+ ],
+ "official-override": [
+  {
+   "id": 2025,
+   "slot": [
+    2022,
+    "mar",
+    1,
+    "수학",
+    ""
+   ],
+   "before": [
+    139,
+    129,
+    117,
+    102,
+    89,
+    82,
+    78,
+    75
+   ],
+   "after": [
+    136,
+    126,
+    116,
+    105,
+    94,
+    83,
+    74,
+    67
+   ]
+  },
+  {
+   "id": 2026,
+   "slot": [
+    2022,
+    "mar",
+    2,
+    "수학",
+    ""
+   ],
+   "before": [
+    139,
+    129,
+    117,
+    102,
+    89,
+    82,
+    78,
+    75
+   ],
+   "after": [
+    138,
+    128,
+    117,
+    104,
+    90,
+    82,
+    77,
+    74
+   ]
+  }
+ ],
+ "held": [
+  {
+   "id": 1065,
+   "slot": [
+    2024,
+    "oct",
+    2,
+    "과학탐구",
+    "생명과학Ⅰ"
+   ],
+   "standardCuts": [
+    70,
+    64,
+    58,
+    52,
+    46,
+    42,
+    39,
+    35
+   ],
+   "reason": "후보 회차 여러 개 [[2023, 'nov', 2], [2023, 'jun', 2]]"
+  },
+  {
+   "id": 1089,
+   "slot": [
+    2024,
+    "oct",
+    2,
+    "사회탐구",
+    "세계지리"
+   ],
+   "standardCuts": [
+    68,
+    64,
+    58,
+    53,
+    46,
+    40,
+    38,
+    36
+   ],
+   "reason": "표준점수는 [[2025, 'oct', 2]] 와 같으나 원점수는 그 회차와 다름(뒤섞인 레코드)"
+  },
+  {
+   "id": 1162,
+   "slot": [
+    2024,
+    "apr",
+    3,
+    "국어",
+    "언어와매체"
+   ],
+   "standardCuts": [
+    130,
+    124,
+    117,
+    108,
+    97,
+    83,
+    71,
+    64
+   ],
+   "reason": "대상 회차 [2024, 'may', 3] 시험이 사이트에 없음"
+  },
+  {
+   "id": 1163,
+   "slot": [
+    2024,
+    "apr",
+    3,
+    "국어",
+    "화법과작문"
+   ],
+   "standardCuts": [
+    130,
+    124,
+    117,
+    108,
+    97,
+    83,
+    71,
+    64
+   ],
+   "reason": "대상 회차 [2024, 'may', 3] 시험이 사이트에 없음"
+  },
+  {
+   "id": 4230,
+   "slot": [
+    2017,
+    "sep",
+    1,
+    "사회탐구",
+    "생활과윤리"
+   ],
+   "standardCuts": [
+    66,
+    63,
+    58,
+    54,
+    47,
+    40,
+    37,
+    34
+   ],
+   "reason": "표준점수는 [[2016, 'sep', 2]] 와 같으나 원점수는 그 회차와 다름(뒤섞인 레코드)"
+  },
+  {
+   "id": 4232,
+   "slot": [
+    2017,
+    "jun",
+    1,
+    "사회탐구",
+    "생활과윤리"
+   ],
+   "standardCuts": [
+    64,
+    61,
+    58,
+    55,
+    49,
+    41,
+    35,
+    33
+   ],
+   "reason": "표준점수는 [[2016, 'jun', 2]] 와 같으나 원점수는 그 회차와 다름(뒤섞인 레코드)"
+  },
+  {
+   "id": 4600,
+   "slot": [
+    2016,
+    "nov",
+    1,
+    "사회탐구",
+    "생활과윤리"
+   ],
+   "standardCuts": [
+    64,
+    62,
+    59,
+    55,
+    49,
+    40,
+    37,
+    33
+   ],
+   "reason": "표준점수는 [[2015, 'nov', 2]] 와 같으나 원점수는 그 회차와 다름(뒤섞인 레코드)"
+  },
+  {
+   "id": 4602,
+   "slot": [
+    2016,
+    "sep",
+    1,
+    "사회탐구",
+    "생활과윤리"
+   ],
+   "standardCuts": [
+    65,
+    62,
+    59,
+    55,
+    48,
+    40,
+    35,
+    33
+   ],
+   "reason": "표준점수는 [[2015, 'sep', 2]] 와 같으나 원점수는 그 회차와 다름(뒤섞인 레코드)"
+  },
+  {
+   "id": 4939,
+   "slot": [
+    2015,
+    "mar",
+    1,
+    "한국사",
+    null
+   ],
+   "standardCuts": [
+    69,
+    65,
+    59,
+    51,
+    45,
+    42,
+    39,
+    37
+   ],
+   "reason": "표준점수는 [[2015, 'mar', 3]] 와 같으나 원점수는 그 회차와 다름(뒤섞인 레코드)"
+  },
+  {
+   "id": 3556,
+   "slot": [
+    2018,
+    "csat",
+    null,
+    "직업탐구",
+    "해양의 이해"
+   ],
+   "standardCuts": [
+    71,
+    61,
+    58,
+    48,
+    45,
+    43,
+    40,
+    40
+   ],
+   "reason": "학평 아님(수능·모평)"
+  },
+  {
+   "id": 3581,
+   "slot": [
+    2018,
+    "sept",
+    null,
+    "제2외국어",
+    "독일어"
+   ],
+   "standardCuts": [
+    63,
+    61,
+    58,
+    56,
+    49,
+    39,
+    35,
+    34
+   ],
+   "reason": "학평 아님(수능·모평)"
+  },
+  {
+   "id": 3583,
+   "slot": [
+    2018,
+    "sept",
+    null,
+    "제2외국어",
+    "러시아어"
+   ],
+   "standardCuts": [
+    64,
+    62,
+    61,
+    56,
+    43,
+    40,
+    39,
+    37
+   ],
+   "reason": "학평 아님(수능·모평)"
+  },
+  {
+   "id": 3585,
+   "slot": [
+    2018,
+    "sept",
+    null,
+    "제2외국어",
+    "베트남어"
+   ],
+   "standardCuts": [
+    70,
+    67,
+    60,
+    48,
+    44,
+    42,
+    41,
+    39
+   ],
+   "reason": "학평 아님(수능·모평)"
+  },
+  {
+   "id": 3587,
+   "slot": [
+    2018,
+    "sept",
+    null,
+    "제2외국어",
+    "스페인어"
+   ],
+   "standardCuts": [
+    62,
+    null,
+    59,
+    55,
+    48,
+    41,
+    35,
+    32
+   ],
+   "reason": "학평 아님(수능·모평)"
+  },
+  {
+   "id": 3589,
+   "slot": [
+    2018,
+    "sept",
+    null,
+    "제2외국어",
+    "아랍어"
+   ],
+   "standardCuts": [
+    74,
+    62,
+    55,
+    50,
+    46,
+    42,
+    40,
+    37
+   ],
+   "reason": "학평 아님(수능·모평)"
+  },
+  {
+   "id": 3591,
+   "slot": [
+    2018,
+    "sept",
+    null,
+    "제2외국어",
+    "일본어"
+   ],
+   "standardCuts": [
+    62,
+    61,
+    59,
+    55,
+    50,
+    42,
+    34,
+    31
+   ],
+   "reason": "학평 아님(수능·모평)"
+  },
+  {
+   "id": 3595,
+   "slot": [
+    2018,
+    "sept",
+    null,
+    "제2외국어",
+    "프랑스어"
+   ],
+   "standardCuts": [
+    64,
+    61,
+    58,
+    55,
+    50,
+    43,
+    35,
+    30
+   ],
+   "reason": "학평 아님(수능·모평)"
+  },
+  {
+   "id": 4321,
+   "slot": [
+    2016,
+    "csat",
+    null,
+    "제2외국어",
+    "아랍어"
+   ],
+   "standardCuts": [
+    66,
+    57,
+    53,
+    50,
+    47,
+    44,
+    42,
+    40
+   ],
+   "reason": "학평 아님(수능·모평)"
+  },
+  {
+   "id": 4566,
+   "slot": [
+    2016,
+    "jun",
+    1,
+    "과학탐구",
+    null
+   ],
+   "standardCuts": [
+    68,
+    62,
+    58,
+    53,
+    47,
+    42,
+    36,
+    34
+   ],
+   "reason": "기관 수집본·공식 통계 어느 회차와도 표준점수 컷 정확 일치 없음"
+  }
+ ],
+ "examYear-label": [
+  {
+   "id": 430,
+   "before": 2025,
+   "after": 2026
+  },
+  {
+   "id": 431,
+   "before": 2025,
+   "after": 2026
+  },
+  {
+   "id": 433,
+   "before": 2025,
+   "after": 2026
+  },
+  {
+   "id": 434,
+   "before": 2025,
+   "after": 2026
+  },
+  {
+   "id": 708,
+   "before": 2024,
+   "after": 2025
+  },
+  {
+   "id": 709,
+   "before": 2024,
+   "after": 2025
+  },
+  {
+   "id": 730,
+   "before": 2024,
+   "after": 2025
+  },
+  {
+   "id": 731,
+   "before": 2024,
+   "after": 2025
+  },
+  {
+   "id": 822,
+   "before": 2024,
+   "after": 2025
+  },
+  {
+   "id": 823,
+   "before": 2024,
+   "after": 2025
+  },
+  {
+   "id": 825,
+   "before": 2024,
+   "after": 2025
+  },
+  {
+   "id": 826,
+   "before": 2024,
+   "after": 2025
+  },
+  {
+   "id": 1102,
+   "before": 2023,
+   "after": 2024
+  },
+  {
+   "id": 1103,
+   "before": 2023,
+   "after": 2024
+  },
+  {
+   "id": 1124,
+   "before": 2023,
+   "after": 2024
+  },
+  {
+   "id": 1125,
+   "before": 2023,
+   "after": 2024
+  },
+  {
+   "id": 1216,
+   "before": 2023,
+   "after": 2024
+  },
+  {
+   "id": 1217,
+   "before": 2023,
+   "after": 2024
+  },
+  {
+   "id": 1219,
+   "before": 2023,
+   "after": 2024
+  },
+  {
+   "id": 1220,
+   "before": 2023,
+   "after": 2024
+  },
+  {
+   "id": 1587,
+   "before": 2022,
+   "after": 2023
+  },
+  {
+   "id": 1588,
+   "before": 2022,
+   "after": 2023
+  },
+  {
+   "id": 1590,
+   "before": 2022,
+   "after": 2023
+  },
+  {
+   "id": 1591,
+   "before": 2022,
+   "after": 2023
+  },
+  {
+   "id": 2034,
+   "before": 2021,
+   "after": 2022
+  },
+  {
+   "id": 2035,
+   "before": 2021,
+   "after": 2022
+  },
+  {
+   "id": 2037,
+   "before": 2021,
+   "after": 2022
+  },
+  {
+   "id": 2038,
+   "before": 2021,
+   "after": 2022
+  },
+  {
+   "id": 2526,
+   "before": 2021,
+   "after": 2020
+  },
+  {
+   "id": 2532,
+   "before": 2021,
+   "after": 2020
+  },
+  {
+   "id": 3008,
+   "before": 2019,
+   "after": 2020
+  },
+  {
+   "id": 3009,
+   "before": 2019,
+   "after": 2020
+  },
+  {
+   "id": 3011,
+   "before": 2019,
+   "after": 2020
+  },
+  {
+   "id": 3012,
+   "before": 2019,
+   "after": 2020
+  },
+  {
+   "id": 3399,
+   "before": 2018,
+   "after": 2019
+  },
+  {
+   "id": 3400,
+   "before": 2018,
+   "after": 2019
+  },
+  {
+   "id": 3402,
+   "before": 2018,
+   "after": 2019
+  },
+  {
+   "id": 3403,
+   "before": 2018,
+   "after": 2019
+  },
+  {
+   "id": 3785,
+   "before": 2017,
+   "after": 2018
+  },
+  {
+   "id": 3786,
+   "before": 2017,
+   "after": 2018
+  },
+  {
+   "id": 3788,
+   "before": 2017,
+   "after": 2018
+  },
+  {
+   "id": 3789,
+   "before": 2017,
+   "after": 2018
+  },
+  {
+   "id": 4186,
+   "before": 2016,
+   "after": 2017
+  },
+  {
+   "id": 4187,
+   "before": 2016,
+   "after": 2017
+  },
+  {
+   "id": 4189,
+   "before": 2016,
+   "after": 2017
+  },
+  {
+   "id": 4190,
+   "before": 2016,
+   "after": 2017
+  },
+  {
+   "id": 4558,
+   "before": 2015,
+   "after": 2016
+  },
+  {
+   "id": 4559,
+   "before": 2015,
+   "after": 2016
+  },
+  {
+   "id": 4561,
+   "before": 2015,
+   "after": 2016
+  },
+  {
+   "id": 4562,
+   "before": 2015,
+   "after": 2016
+  },
+  {
+   "id": 4904,
+   "before": 2014,
+   "after": 2015
+  },
+  {
+   "id": 4939,
+   "before": 2014,
+   "after": 2015
+  },
+  {
+   "id": 5176,
+   "before": 2014,
+   "after": 2013
+  },
+  {
+   "id": 5177,
+   "before": 2014,
+   "after": 2013
+  }
+ ]
+}
