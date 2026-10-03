@@ -1516,7 +1516,12 @@ def render_rss(items: list[dict]) -> None:
     import calendar
     from email.utils import formatdate
     base = 'https://kicegg.com'
-    recent = sorted(items, key=lambda x: x.get('id', 0), reverse=True)[:40]
+    # id 순은 옛 자료 백필이 맨 위로 와서(2026-10: 2005 수능 한문이 '최신') 시행 시점 순으로 — 아직 안 온 달(예시문항 등)은 뺀다.
+    def _when(it):
+        return (int(it.get('examYear') or 0), int(it.get('month') or 1) or 1)
+    now = datetime.date.today()
+    recent = sorted((it for it in items if _when(it) <= (now.year, now.month)),
+                    key=lambda x: (_when(x), x.get('id', 0)), reverse=True)[:40]
     today_rfc = formatdate(calendar.timegm(datetime.date.today().timetuple()))
     rows = ['<?xml version="1.0" encoding="UTF-8"?>',
             '<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">',
@@ -1531,7 +1536,7 @@ def render_rss(items: list[dict]) -> None:
         meta = bd.build_exam_meta(it)
         url = f'{base}/exam-{it["id"]}.html'
         ey = it.get('examYear') or it.get('gradeYear') or datetime.date.today().year
-        mo = it.get('month') or 1
+        mo = int(it.get('month') or 1) or 1
         try:
             pub = formatdate(calendar.timegm(datetime.date(int(ey), int(mo), 1).timetuple()))
         except (ValueError, TypeError):
