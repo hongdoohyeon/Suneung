@@ -1911,9 +1911,8 @@ def objection_panel_html(rec: dict, it: dict, key: str) -> str:
             rows.append(f'<li class="obj-q obj-q--answered"><details><summary class="obj-q__row">{top}'
                         '<span class="obj-q__more">답변 보기</span></summary>'
                         f'<div class="obj-q__body">{body}</div></details></li>')
-        partial = '' if off.get('questionsComplete') else '<p class="obj-fine">원문 표에서 읽어낸 문항만 적었어요. 전체 목록은 아래 답변자료 원문에 있어요.</p>'
         q_html = (f'<section class="obj-sec"><h3 class="obj-sec__title">문항별 이의신청 <span>{esc(name)}</span></h3>'
-                  f'<ul class="obj-qs">{"".join(rows)}</ul>{partial}</section>')
+                  f'<ul class="obj-qs">{"".join(rows)}</ul></section>')
 
     # ── 관련 보도
     news_html = ''
