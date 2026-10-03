@@ -19809,54 +19809,6 @@
     "highestStandardScore": 149
   },
   {
-    "curriculum": "사관",
-    "gradeYear": 2026,
-    "examYear": 2025,
-    "month": 7,
-    "typeGroup": "military",
-    "type": "military_annual",
-    "subject": "영어",
-    "subSubject": null,
-    "rawCuts": [
-      90,
-      80,
-      70,
-      60,
-      50,
-      40,
-      30,
-      20
-    ],
-    "absolute": true,
-    "source": "absolute-standard",
-    "fullScore": 100,
-    "id": 491
-  },
-  {
-    "curriculum": "경찰대",
-    "gradeYear": 2026,
-    "examYear": 2025,
-    "month": 7,
-    "typeGroup": "police",
-    "type": "police_annual",
-    "subject": "영어",
-    "subSubject": null,
-    "rawCuts": [
-      90,
-      80,
-      70,
-      60,
-      50,
-      40,
-      30,
-      20
-    ],
-    "absolute": true,
-    "source": "absolute-standard",
-    "fullScore": 100,
-    "id": 492
-  },
-  {
     "curriculum": "2015",
     "gradeYear": 2026,
     "examYear": 2026,
@@ -36109,54 +36061,6 @@
     ]
   },
   {
-    "curriculum": "사관",
-    "gradeYear": 2025,
-    "examYear": 2024,
-    "month": 7,
-    "typeGroup": "military",
-    "type": "military_annual",
-    "subject": "영어",
-    "subSubject": null,
-    "rawCuts": [
-      90,
-      80,
-      70,
-      60,
-      50,
-      40,
-      30,
-      20
-    ],
-    "absolute": true,
-    "source": "absolute-standard",
-    "fullScore": 100,
-    "id": 883
-  },
-  {
-    "curriculum": "경찰대",
-    "gradeYear": 2025,
-    "examYear": 2024,
-    "month": 7,
-    "typeGroup": "police",
-    "type": "police_annual",
-    "subject": "영어",
-    "subSubject": null,
-    "rawCuts": [
-      90,
-      80,
-      70,
-      60,
-      50,
-      40,
-      30,
-      20
-    ],
-    "absolute": true,
-    "source": "absolute-standard",
-    "fullScore": 100,
-    "id": 884
-  },
-  {
     "curriculum": "2015",
     "gradeYear": 2025,
     "examYear": 2025,
@@ -52289,54 +52193,6 @@
     ]
   },
   {
-    "curriculum": "사관",
-    "gradeYear": 2024,
-    "examYear": 2023,
-    "month": 7,
-    "typeGroup": "military",
-    "type": "military_annual",
-    "subject": "영어",
-    "subSubject": null,
-    "rawCuts": [
-      90,
-      80,
-      70,
-      60,
-      50,
-      40,
-      30,
-      20
-    ],
-    "absolute": true,
-    "source": "absolute-standard",
-    "fullScore": 100,
-    "id": 1277
-  },
-  {
-    "curriculum": "경찰대",
-    "gradeYear": 2024,
-    "examYear": 2023,
-    "month": 7,
-    "typeGroup": "police",
-    "type": "police_annual",
-    "subject": "영어",
-    "subSubject": null,
-    "rawCuts": [
-      90,
-      80,
-      70,
-      60,
-      50,
-      40,
-      30,
-      20
-    ],
-    "absolute": true,
-    "source": "absolute-standard",
-    "fullScore": 100,
-    "id": 1278
-  },
-  {
     "curriculum": "2015",
     "gradeYear": 2024,
     "examYear": 2024,
@@ -67466,54 +67322,6 @@
       13,
       9
     ]
-  },
-  {
-    "curriculum": "사관",
-    "gradeYear": 2023,
-    "examYear": 2022,
-    "month": 7,
-    "typeGroup": "military",
-    "type": "military_annual",
-    "subject": "영어",
-    "subSubject": null,
-    "rawCuts": [
-      90,
-      80,
-      70,
-      60,
-      50,
-      40,
-      30,
-      20
-    ],
-    "absolute": true,
-    "source": "absolute-standard",
-    "fullScore": 100,
-    "id": 1648
-  },
-  {
-    "curriculum": "경찰대",
-    "gradeYear": 2023,
-    "examYear": 2022,
-    "month": 7,
-    "typeGroup": "police",
-    "type": "police_annual",
-    "subject": "영어",
-    "subSubject": null,
-    "rawCuts": [
-      90,
-      80,
-      70,
-      60,
-      50,
-      40,
-      30,
-      20
-    ],
-    "absolute": true,
-    "source": "absolute-standard",
-    "fullScore": 100,
-    "id": 1649
   },
   {
     "curriculum": "2015",
@@ -84338,54 +84146,6 @@
       4
     ],
     "highestStandardScore": 153
-  },
-  {
-    "curriculum": "사관",
-    "gradeYear": 2022,
-    "examYear": 2021,
-    "month": 7,
-    "typeGroup": "military",
-    "type": "military_annual",
-    "subject": "영어",
-    "subSubject": null,
-    "rawCuts": [
-      90,
-      80,
-      70,
-      60,
-      50,
-      40,
-      30,
-      20
-    ],
-    "absolute": true,
-    "source": "absolute-standard",
-    "fullScore": 100,
-    "id": 2097
-  },
-  {
-    "curriculum": "경찰대",
-    "gradeYear": 2022,
-    "examYear": 2021,
-    "month": 7,
-    "typeGroup": "police",
-    "type": "police_annual",
-    "subject": "영어",
-    "subSubject": null,
-    "rawCuts": [
-      90,
-      80,
-      70,
-      60,
-      50,
-      40,
-      30,
-      20
-    ],
-    "absolute": true,
-    "source": "absolute-standard",
-    "fullScore": 100,
-    "id": 2098
   },
   {
     "curriculum": "2015",
@@ -106324,54 +106084,6 @@
     "highestStandardScore": 144
   },
   {
-    "curriculum": "사관",
-    "gradeYear": 2021,
-    "examYear": 2020,
-    "month": 7,
-    "typeGroup": "military",
-    "type": "military_annual",
-    "subject": "영어",
-    "subSubject": null,
-    "rawCuts": [
-      90,
-      80,
-      70,
-      60,
-      50,
-      40,
-      30,
-      20
-    ],
-    "absolute": true,
-    "source": "absolute-standard",
-    "fullScore": 100,
-    "id": 2676
-  },
-  {
-    "curriculum": "경찰대",
-    "gradeYear": 2021,
-    "examYear": 2020,
-    "month": 7,
-    "typeGroup": "police",
-    "type": "police_annual",
-    "subject": "영어",
-    "subSubject": null,
-    "rawCuts": [
-      90,
-      80,
-      70,
-      60,
-      50,
-      40,
-      30,
-      20
-    ],
-    "absolute": true,
-    "source": "absolute-standard",
-    "fullScore": 100,
-    "id": 2677
-  },
-  {
     "curriculum": "2009",
     "gradeYear": 2021,
     "examYear": 2021,
@@ -123044,54 +122756,6 @@
     ]
   },
   {
-    "curriculum": "사관",
-    "gradeYear": 2020,
-    "examYear": 2019,
-    "month": 7,
-    "typeGroup": "military",
-    "type": "military_annual",
-    "subject": "영어",
-    "subSubject": null,
-    "rawCuts": [
-      90,
-      80,
-      70,
-      60,
-      50,
-      40,
-      30,
-      20
-    ],
-    "absolute": true,
-    "source": "absolute-standard",
-    "fullScore": 100,
-    "id": 3083
-  },
-  {
-    "curriculum": "경찰대",
-    "gradeYear": 2020,
-    "examYear": 2019,
-    "month": 7,
-    "typeGroup": "police",
-    "type": "police_annual",
-    "subject": "영어",
-    "subSubject": null,
-    "rawCuts": [
-      90,
-      80,
-      70,
-      60,
-      50,
-      40,
-      30,
-      20
-    ],
-    "absolute": true,
-    "source": "absolute-standard",
-    "fullScore": 100,
-    "id": 3084
-  },
-  {
     "curriculum": "2009",
     "gradeYear": 2020,
     "examYear": 2020,
@@ -139422,54 +139086,6 @@
     "studentGrade": 2
   },
   {
-    "curriculum": "사관",
-    "gradeYear": 2019,
-    "examYear": 2018,
-    "month": 7,
-    "typeGroup": "military",
-    "type": "military_annual",
-    "subject": "영어",
-    "subSubject": null,
-    "rawCuts": [
-      90,
-      80,
-      70,
-      60,
-      50,
-      40,
-      30,
-      20
-    ],
-    "absolute": true,
-    "source": "absolute-standard",
-    "fullScore": 100,
-    "id": 3471
-  },
-  {
-    "curriculum": "경찰대",
-    "gradeYear": 2019,
-    "examYear": 2018,
-    "month": 7,
-    "typeGroup": "police",
-    "type": "police_annual",
-    "subject": "영어",
-    "subSubject": null,
-    "rawCuts": [
-      90,
-      80,
-      70,
-      60,
-      50,
-      40,
-      30,
-      20
-    ],
-    "absolute": true,
-    "source": "absolute-standard",
-    "fullScore": 100,
-    "id": 3472
-  },
-  {
     "curriculum": "2009",
     "gradeYear": 2019,
     "examYear": 2019,
@@ -155543,54 +155159,6 @@
     "source": "ebsi-grdcut",
     "id": 3853,
     "studentGrade": 2
-  },
-  {
-    "curriculum": "사관",
-    "gradeYear": 2018,
-    "examYear": 2017,
-    "month": 7,
-    "typeGroup": "military",
-    "type": "military_annual",
-    "subject": "영어",
-    "subSubject": null,
-    "rawCuts": [
-      90,
-      80,
-      70,
-      60,
-      50,
-      40,
-      30,
-      20
-    ],
-    "absolute": true,
-    "source": "absolute-standard",
-    "fullScore": 100,
-    "id": 3854
-  },
-  {
-    "curriculum": "경찰대",
-    "gradeYear": 2018,
-    "examYear": 2017,
-    "month": 7,
-    "typeGroup": "police",
-    "type": "police_annual",
-    "subject": "영어",
-    "subSubject": null,
-    "rawCuts": [
-      90,
-      80,
-      70,
-      60,
-      50,
-      40,
-      30,
-      20
-    ],
-    "absolute": true,
-    "source": "absolute-standard",
-    "fullScore": 100,
-    "id": 3855
   },
   {
     "curriculum": "2009",

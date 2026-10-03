@@ -328,9 +328,12 @@ async function validateGradecuts() {
   let duplicateLogicalKeys = 0;
   let leakedEstimate = 0;
   let legacyEstimateFlag = 0;
+  let absoluteOutsideSuneung = 0;
   const samples = [];
   const logicalKeys = new Set();
   for (const c of cuts) {
+    // 9등급 절대평가 고정 컷은 수능·학평에만 있다 (사관·경찰대 영어 등에 붙으면 가짜 컷)
+    if (c.absolute && !['suneung', 'education'].includes(c.typeGroup)) absoluteOutsideSuneung++;
     const logicalKey = [
       c.curriculum,
       c.gradeYear,
@@ -422,6 +425,9 @@ async function validateGradecuts() {
   }
   if (fractionalRaw > 0) {
     err(`gradecuts 확정 rawCuts에 소수 원점수 컷 ${fractionalRaw}건 존재`);
+  }
+  if (absoluteOutsideSuneung > 0) {
+    err(`gradecuts 수능·학평 밖 절대평가 컷 ${absoluteOutsideSuneung}건 (사관·경찰대 등에는 9등급 절대평가 없음)`);
   }
   if (legacyEstimateFlag > 0) {
     err(`gradecuts 폐기 필드 rawCutsEstimated ${legacyEstimateFlag}건 존재`);
