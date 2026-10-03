@@ -244,10 +244,10 @@ function renderHead(exam) {
 
   // archive 탭 복귀 링크에 curriculum 유지
   // archive 에서 진입했으면 sessionStorage 의 마지막 필터 상태를 복원 (typeGroup·gradeYear·subject·q 등 모두 유지)
-  let backHref = `archive.html?tab=${encodeURIComponent(exam.curriculum)}`;
+  let backHref = `/?tab=${encodeURIComponent(exam.curriculum)}`;
   try {
     const stored = sessionStorage.getItem('lastArchiveUrl');
-    if (stored && /^(archive|index)\.html/.test(stored)) backHref = stored;
+    if (stored && /^\/(\?|archive\.html|index\.html|$)/.test(stored)) backHref = stored;
   } catch {}
   $('backLink').href = backHref;
 }

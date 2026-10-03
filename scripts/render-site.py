@@ -260,7 +260,7 @@ def _hub_page(fname: str, h1: str, title: str, desc: str, intro: str,
   <a href="#main" class="skip-link">본문 건너뛰기</a>
   <header class="site-header">
     <div class="container site-header__inner">
-      <a href="index.html" class="brand" aria-label="기출해체분석기 홈">
+      <a href="/" class="brand" aria-label="기출해체분석기 홈">
         <span class="brand__mark" aria-hidden="true">
           <svg viewBox="0 0 32 32" width="28" height="28" fill="none">
             <rect width="32" height="32" rx="8" fill="currentColor"/>
@@ -273,7 +273,7 @@ def _hub_page(fname: str, h1: str, title: str, desc: str, intro: str,
         <span class="brand__sub">kicegg</span>
       </a>
       <nav class="header-nav" aria-label="주요 메뉴">
-        <a href="archive.html">기출검색</a>
+        <a href="/">기출검색</a>
         <a href="calendar.html">학사 일정</a>
         <a href="blog.html">블로그</a>
       </nav>
@@ -296,7 +296,7 @@ def _hub_page(fname: str, h1: str, title: str, desc: str, intro: str,
     </div>
     <nav class="mobile-nav" id="mobileNav" aria-label="모바일 메뉴" hidden>
       <div class="container">
-        <a href="archive.html">기출검색</a>
+        <a href="/">기출검색</a>
         <a href="calendar.html">학사 일정</a>
         <a href="blog.html">블로그</a>
         <a href="about.html">소개</a>
@@ -672,7 +672,7 @@ def render_sets_directory(items: list[dict], essay_hubs=None, subject_hubs=None)
   <a href="#main" class="skip-link">본문 건너뛰기</a>
   <header class="site-header">
     <div class="container site-header__inner">
-      <a href="index.html" class="brand" aria-label="기출해체분석기 홈">
+      <a href="/" class="brand" aria-label="기출해체분석기 홈">
         <span class="brand__mark" aria-hidden="true">
           <svg viewBox="0 0 32 32" width="28" height="28" fill="none">
             <rect width="32" height="32" rx="8" fill="currentColor"/>
@@ -685,7 +685,7 @@ def render_sets_directory(items: list[dict], essay_hubs=None, subject_hubs=None)
         <span class="brand__sub">kicegg</span>
       </a>
       <nav class="header-nav" aria-label="주요 메뉴">
-        <a href="archive.html">기출검색</a>
+        <a href="/">기출검색</a>
         <a href="calendar.html">학사 일정</a>
         <a href="blog.html">블로그</a>
       </nav>
@@ -708,7 +708,7 @@ def render_sets_directory(items: list[dict], essay_hubs=None, subject_hubs=None)
     </div>
     <nav class="mobile-nav" id="mobileNav" aria-label="모바일 메뉴" hidden>
       <div class="container">
-        <a href="archive.html">기출검색</a>
+        <a href="/">기출검색</a>
         <a href="calendar.html">학사 일정</a>
         <a href="blog.html">블로그</a>
         <a href="about.html">소개</a>
@@ -1098,12 +1098,12 @@ def render_home(items: list[dict]) -> None:
     def count(pred) -> str:
         return f'{sum(1 for e in items if pred(e)):,}'
     cats = [
-        ('archive.html?tab=senior', count(lambda e: e.get('typeGroup') == 'suneung'), '수능·평가원', '수능 · 6모 · 9모 · 예비시험'),
-        ('archive.html?tab=senior&amp;typeGroup=education', count(lambda e: e.get('typeGroup') == 'education'), '학력평가', '고1 · 고2 · 고3 교육청'),
-        ('archive.html?tab=essay', count(lambda e: e.get('typeGroup') == 'essay'), '대학별 논술', '대학별 본논술 · 모의논술'),
-        ('archive.html?tab=mp', count(lambda e: e.get('typeGroup') in ('military', 'police')), '사관·경찰대', '1차 시험'),
-        ('archive.html?tab=gradschool', count(lambda e: e.get('typeGroup') in ('leet', 'meet')), 'LEET·MEET', '전문대학원 적성시험'),
-        ('archive.html?tab=gedhigh', count(lambda e: e.get('typeGroup') == 'ged'), '검정고시', '초졸 · 중졸 · 고졸'),
+        ('/?tab=senior', count(lambda e: e.get('typeGroup') == 'suneung'), '수능·평가원', '수능 · 6모 · 9모 · 예비시험'),
+        ('/?tab=senior&amp;typeGroup=education', count(lambda e: e.get('typeGroup') == 'education'), '학력평가', '고1 · 고2 · 고3 교육청'),
+        ('/?tab=essay', count(lambda e: e.get('typeGroup') == 'essay'), '대학별 논술', '대학별 본논술 · 모의논술'),
+        ('/?tab=mp', count(lambda e: e.get('typeGroup') in ('military', 'police')), '사관·경찰대', '1차 시험'),
+        ('/?tab=gradschool', count(lambda e: e.get('typeGroup') in ('leet', 'meet')), 'LEET·MEET', '전문대학원 적성시험'),
+        ('/?tab=gedhigh', count(lambda e: e.get('typeGroup') == 'ged'), '검정고시', '초졸 · 중졸 · 고졸'),
     ]
     arrow = ('<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" '
              'stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>')

@@ -244,8 +244,8 @@ function buildUrlFromState() {
 function persistArchiveState() {
   try {
     const u = new URL(buildUrlFromState());
-    // 경로 + query 만 저장 (archive.html?... 그대로)
-    sessionStorage.setItem('lastArchiveUrl', (u.pathname.split('/').pop() || 'index.html') + u.search);
+    // 경로 + query 만 저장 (/?... 그대로)
+    sessionStorage.setItem('lastArchiveUrl', u.pathname + u.search);
   } catch {}
 }
 
@@ -926,7 +926,7 @@ function renderCards() {
     const allLink = $('searchAllLink');
     allLink.hidden = state.tab === 'all' || !state.query;
     allLink.style.display = allLink.hidden ? 'none' : '';
-    allLink.href = `archive.html?tab=all&q=${encodeURIComponent(state.query)}`;
+    allLink.href = `/?tab=all&q=${encodeURIComponent(state.query)}`;
     grid.style.display     = 'none';
     moreWrap.style.display = 'none';
     empty.style.display    = 'flex';

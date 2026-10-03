@@ -161,7 +161,7 @@ function renderHead(curriculum, gradeYear, type, items) {
 
   // archive 복귀 링크: curriculum이 속한 탭으로 (legacyTabKey 재사용)
   const tabKey = legacyTabKey(curriculum) || 'senior';
-  $('backLink').href = `archive.html?tab=${encodeURIComponent(tabKey)}`;
+  $('backLink').href = `/?tab=${encodeURIComponent(tabKey)}`;
 }
 
 function showError() {
@@ -173,7 +173,7 @@ function showError() {
   box.className = 'examset__error';
   box.innerHTML = '<p class="examset__error-title">시험을 찾을 수 없습니다</p>' +
     '<p class="examset__error-sub">URL이 잘못되었거나 데이터가 갱신되지 않은 상태일 수 있어요.</p>' +
-    '<a href="archive.html" class="btn btn--ghost" style="margin-top:12px;">기출 검색으로 돌아가기</a>';
+    '<a href="/" class="btn btn--ghost" style="margin-top:12px;">기출 검색으로 돌아가기</a>';
   $('examsetGrid').after(box);
   document.title = '시험을 찾을 수 없습니다 — 기출해체분석기';
 }
