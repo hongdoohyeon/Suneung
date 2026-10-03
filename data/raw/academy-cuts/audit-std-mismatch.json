@@ -1,0 +1,167 @@
+[
+ {
+  "id": 3556,
+  "gradeYear": 2018,
+  "type": "csat",
+  "studentGrade": null,
+  "subject": "직업탐구",
+  "subSubject": "해양의 이해",
+  "rejected": {
+   "ebsi": "표준점수 컷 4점 차이"
+  }
+ },
+ {
+  "id": 3581,
+  "gradeYear": 2018,
+  "type": "sept",
+  "studentGrade": null,
+  "subject": "제2외국어",
+  "subSubject": "독일어",
+  "rejected": {
+   "jongro": "표준점수 컷 3점 차이"
+  }
+ },
+ {
+  "id": 3583,
+  "gradeYear": 2018,
+  "type": "sept",
+  "studentGrade": null,
+  "subject": "제2외국어",
+  "subSubject": "러시아어",
+  "rejected": {
+   "jongro": "표준점수 컷 8점 차이"
+  }
+ },
+ {
+  "id": 3585,
+  "gradeYear": 2018,
+  "type": "sept",
+  "studentGrade": null,
+  "subject": "제2외국어",
+  "subSubject": "베트남어",
+  "rejected": {
+   "jongro": "표준점수 컷 3점 차이"
+  }
+ },
+ {
+  "id": 3587,
+  "gradeYear": 2018,
+  "type": "sept",
+  "studentGrade": null,
+  "subject": "제2외국어",
+  "subSubject": "스페인어",
+  "rejected": {
+   "jongro": "표준점수 컷 3점 차이"
+  }
+ },
+ {
+  "id": 3589,
+  "gradeYear": 2018,
+  "type": "sept",
+  "studentGrade": null,
+  "subject": "제2외국어",
+  "subSubject": "아랍어",
+  "rejected": {
+   "jongro": "표준점수 컷 4점 차이"
+  }
+ },
+ {
+  "id": 3591,
+  "gradeYear": 2018,
+  "type": "sept",
+  "studentGrade": null,
+  "subject": "제2외국어",
+  "subSubject": "일본어",
+  "rejected": {
+   "jongro": "표준점수 컷 2점 차이"
+  }
+ },
+ {
+  "id": 3595,
+  "gradeYear": 2018,
+  "type": "sept",
+  "studentGrade": null,
+  "subject": "제2외국어",
+  "subSubject": "프랑스어",
+  "rejected": {
+   "jongro": "표준점수 컷 6점 차이"
+  }
+ },
+ {
+  "id": 4230,
+  "gradeYear": 2017,
+  "type": "sep",
+  "studentGrade": 1,
+  "subject": "사회탐구",
+  "subSubject": "생활과윤리",
+  "rejected": {
+   "megastudy": "표준점수 컷 2점 차이"
+  }
+ },
+ {
+  "id": 4232,
+  "gradeYear": 2017,
+  "type": "jun",
+  "studentGrade": 1,
+  "subject": "사회탐구",
+  "subSubject": "생활과윤리",
+  "rejected": {
+   "megastudy": "표준점수 컷 5점 차이"
+  }
+ },
+ {
+  "id": 4321,
+  "gradeYear": 2016,
+  "type": "csat",
+  "studentGrade": null,
+  "subject": "제2외국어",
+  "subSubject": "아랍어",
+  "rejected": {
+   "jongro": "표준점수 컷 2점 차이"
+  }
+ },
+ {
+  "id": 4566,
+  "gradeYear": 2016,
+  "type": "jun",
+  "studentGrade": 1,
+  "subject": "과학탐구",
+  "subSubject": null,
+  "rejected": {
+   "jongro": "표준점수 컷 4점 차이"
+  }
+ },
+ {
+  "id": 4600,
+  "gradeYear": 2016,
+  "type": "nov",
+  "studentGrade": 1,
+  "subject": "사회탐구",
+  "subSubject": "생활과윤리",
+  "rejected": {
+   "megastudy": "표준점수 컷 2점 차이"
+  }
+ },
+ {
+  "id": 4602,
+  "gradeYear": 2016,
+  "type": "sep",
+  "studentGrade": 1,
+  "subject": "사회탐구",
+  "subSubject": "생활과윤리",
+  "rejected": {
+   "megastudy": "표준점수 컷 3점 차이"
+  }
+ },
+ {
+  "id": 4939,
+  "gradeYear": 2015,
+  "type": "mar",
+  "studentGrade": 1,
+  "subject": "한국사",
+  "subSubject": null,
+  "rejected": {
+   "ebsi": "표준점수 컷 69점 차이"
+  }
+ }
+]

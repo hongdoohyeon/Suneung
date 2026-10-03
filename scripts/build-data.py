@@ -1388,7 +1388,7 @@ def _basis_kind(sc: dict) -> str:
     """원점수컷이 공식값이 아니면 화면 표기('역산값'·'추정 경계'·'추정'), 공식값이면 빈 문자열."""
     basis = sc.get('basis')
     return ('역산값' if basis == 'academy_reverse_calculated' else '추정 경계' if basis == 'academy_integerized_threshold'
-            else '추정' if basis == 'academy_consensus_estimate' else '')
+            else '추정' if basis in ('academy_consensus_estimate', 'ebsi_estimate', 'public_dist_verified', 'academy_consensus') else '')
 
 
 def score_stats_html(sc: dict) -> str:
@@ -1420,6 +1420,18 @@ def score_stats_html(sc: dict) -> str:
         f'<span class="stat__value{" spoil-val" if blur else ""}">{val}</span></div>' for lbl, val, blur in cells) + '</div>'
 
 
+ACADEMY_NAMES = {'ebsi': 'EBSi', 'megastudy': '메가스터디', 'etoos': '이투스', 'jongro': '종로학원', 'daesung': '대성마이맥'}
+
+
+def academy_consensus_note(cut: dict) -> str:
+    # 입시기관 원점수 추정 종합 (scripts/academy-cuts/apply_consensus.py) — 기관 이름과 선택과목 단서
+    names = [ACADEMY_NAMES.get(s, s) for s in cut.get('rawCutSources') or []]
+    note = f'입시기관 {len(names)}곳 원점수 추정 종합({"·".join(names)})' if len(names) > 1 else f'{"".join(names)} 원점수 추정'
+    if cut.get('subject') in ('국어', '수학') and (cut.get('gradeYear') or 0) >= 2022 and cut.get('subSubject'):
+        note += ' · 공통+선택 점수 조합에 따라 다를 수 있음'
+    return note
+
+
 def grade_table_html(cut: dict, absolute: bool, ratios: list | None = None) -> str:
     """등급별 원점수·표준점수·백분위·누적 비율 표 (lib/exam-gradedist.js 와 동일 형식).
     영어(절대평가)는 등급별 인원 비율(ratios)을 곁들이고 그 열만 스포일러 대상으로 흐린다."""
@@ -1449,6 +1461,9 @@ def grade_table_html(cut: dict, absolute: bool, ratios: list | None = None) -> s
     note = ('입시기관 역산값' if basis == 'academy_reverse_calculated' else
             '입시기관 추정 정수 경계' if basis == 'academy_integerized_threshold' else
             '공식 표준점수 컷 기준 입시기관 추정 종합' if basis == 'academy_consensus_estimate' else
+            '공식 표준점수 컷 기준 EBSi 원점수 추정' if basis == 'ebsi_estimate' else
+            '공개 원점수 추정 · 평가원 표준점수 분포로 검증' if basis == 'public_dist_verified' else
+            academy_consensus_note(cut) if basis == 'academy_consensus' else
             # 상대평가 원점수컷은 평가원·교육청이 내지 않는다 — 출처 표시가 없어도 EBSi·입시기관 값
             '원점수는 EBSi·입시기관 값(비공식)' if not absolute and any(v is not None for v in cut.get('rawCuts') or []) else '')
     legend = ' · '.join(x for x in ('등급별 컷', '절대평가' if absolute else '', note,

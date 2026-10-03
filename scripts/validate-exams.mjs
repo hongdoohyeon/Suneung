@@ -328,9 +328,12 @@ async function validateGradecuts() {
   let duplicateLogicalKeys = 0;
   let leakedEstimate = 0;
   let legacyEstimateFlag = 0;
+  let absoluteOutsideSuneung = 0;
   const samples = [];
   const logicalKeys = new Set();
   for (const c of cuts) {
+    // 9등급 절대평가 고정 컷은 수능·학평에만 있다 (사관·경찰대 영어 등에 붙으면 가짜 컷)
+    if (c.absolute && !['suneung', 'education'].includes(c.typeGroup)) absoluteOutsideSuneung++;
     const logicalKey = [
       c.curriculum,
       c.gradeYear,
@@ -388,6 +391,32 @@ async function validateGradecuts() {
           || c.rawCuts.some(v => !Number.isInteger(v)))) {
       invalidReverseCalculated++;
     }
+    // 공식 표준점수 컷(평가원) + EBSi 역대 등급컷 표의 원점수 추정 (apply-ebsi-past-rawcuts.py)
+    if (c.rawCutBasis === 'ebsi_estimate'
+        && (!String(c.source || '').includes('ebsi-past-grdcut')
+          || !String(c.rawCutSourceUrl || '').startsWith('https://www.ebsi.co.kr/')
+          || !Array.isArray(c.rawCuts)
+          || c.rawCuts.length !== 8
+          || c.rawCuts.some(v => !Number.isInteger(v)))) {
+      invalidReverseCalculated++;
+    }
+    // 공개 원점수(위키백과)를 평가원 표준점수 도수분포로 검증 (scripts/official-dist-check/apply-wiki-rawcuts.py)
+    if (c.rawCutBasis === 'public_dist_verified'
+        && (!String(c.source || '').includes('wiki-dist-verified')
+          || !String(c.rawCutSourceUrl || '').startsWith('https://ko.wikipedia.org/')
+          || !Array.isArray(c.rawCuts)
+          || c.rawCuts.length !== 8
+          || c.rawCuts.some(v => !Number.isInteger(v)))) {
+      invalidReverseCalculated++;
+    }
+    // 입시기관 5곳 원점수 합의 (scripts/academy-cuts/apply_consensus.py)
+    if (c.rawCutBasis === 'academy_consensus'
+        && (!String(c.source || '').includes('academy-consensus')
+          || !Array.isArray(c.rawCutSources) || c.rawCutSources.length === 0
+          || !Array.isArray(c.rawCuts) || c.rawCuts.length !== 8
+          || c.rawCuts.some(v => typeof v !== 'number'))) {
+      invalidReverseCalculated++;
+    }
     if (c.rawCutBasis === 'academy_integerized_threshold'
         && (!String(c.source || '').includes('megastudy')
           || !Array.isArray(c.rawCuts)
@@ -404,6 +433,9 @@ async function validateGradecuts() {
   }
   if (fractionalRaw > 0) {
     err(`gradecuts 확정 rawCuts에 소수 원점수 컷 ${fractionalRaw}건 존재`);
+  }
+  if (absoluteOutsideSuneung > 0) {
+    err(`gradecuts 수능·학평 밖 절대평가 컷 ${absoluteOutsideSuneung}건 (사관·경찰대 등에는 9등급 절대평가 없음)`);
   }
   if (legacyEstimateFlag > 0) {
     err(`gradecuts 폐기 필드 rawCutsEstimated ${legacyEstimateFlag}건 존재`);
