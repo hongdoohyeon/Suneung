@@ -34,7 +34,8 @@ if (missingModernKiceSolutions.length) {
   errors.push(`2022학년도 이후 평가원 정답·해설 누락 ${missingModernKiceSolutions.length}건`);
 }
 if (modernKice.some(e => e.solutionUrl && e.solutionSource === 'EBSi'
-  && !e.solutionUrl.startsWith('https://wdown.ebsi.co.kr/'))) {
+  && !e.solutionUrl.startsWith('https://wdown.ebsi.co.kr/')
+  && !/\/ebsi-mirror-v\d+\//.test(e.solutionUrl))) {
   errors.push('EBSi 평가원 해설 출처와 URL 호스트 불일치');
 }
 const historicalKiceSolutionIds = new Set(historicalKiceSolutions.records.map(record => record.id));
