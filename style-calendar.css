@@ -5,7 +5,7 @@
 .cal-month-label { font-size: 18px; font-weight: 700; margin: 0; min-width: 140px; text-align: center; }
 .cal-nav, .cal-today {
   min-width: 44px; min-height: 44px; padding: 0 12px; border: 1px solid var(--line); background: var(--surface);
-  color: var(--ink); border-radius: 11px; font-weight: 600;
+  color: var(--ink); border-radius: 11px; font-weight: var(--ui-weight);
 }
 .cal-nav:hover, .cal-today:hover { border-color: var(--line-strong); }
 .cal-nav { font-size: 18px; line-height: 1; }

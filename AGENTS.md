@@ -33,7 +33,7 @@
 
 ## 프론트엔드 구조 (2026-09 개편)
 - **본문 글꼴 = SUITE**(2026-10, `lib/vendor/suite/`, `style.css` body 규칙 바로 위 @font-face). 가운뎃점(U+B7)만 Pretendard 글리프로 대체(SUITE 는 폭이 넓음). Pretendard CSS 는 폴백으로 계속 비동기 로드.
-- **제목 굵기·자간은 `:root` 변수 4개**(`--h1-weight/--h1-track` 페이지 h1, `--h2-weight/--h2-track` 섹션·카드 제목, 2026-10 = 700/-.02em · 650/-.01em). 새 제목 규칙도 숫자 대신 이 변수로.
+- **제목 굵기·자간은 `:root` 변수 4개**(`--h1-weight/--h1-track` 페이지 h1, `--h2-weight/--h2-track` 섹션·카드 제목, 2026-10 = 700/-.02em · 650/-.01em). 새 제목 규칙도 숫자 대신 이 변수로. 탭·버튼·칩 글자는 `--ui-weight`(600), 선택된 탭·헤더 메뉴는 `--ui-weight-strong`(650).
 - **스타일은 `style.css` 하나**(라이트/다크 토큰 · 기관 배지 `tg-{typeGroup}` · 난이도 `tier--1~5`). 학사 일정만 `style-calendar.css` 추가. 색은 반드시 토큰(`var(--…)`)으로 — 다크 모드가 깨진다.
 - **`lib/site-prefs.js`** 는 모든 페이지 `<head>` 에서 동기 로드(CSP상 인라인 불가): 테마(`kicegg:theme`), 스포일러 방지(`kicegg:spoiler`, 기본 켜짐 → `html[data-spoiler="on"]` 이면 `.spoil-val` 흑백 블러), 모바일 메뉴, `.hscroll` 가장자리 흐림.
 - **헤더·푸터 마크업**은 원본 페이지(index/archive/exam/exam-set/calendar/about/privacy/terms/404)와 `render-site.py`(허브·sets) 두 곳에 있다. 메뉴를 바꾸면 양쪽 다.
