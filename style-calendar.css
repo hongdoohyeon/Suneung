@@ -1,4 +1,4 @@
-.cal-page { width: 100%; max-width: 920px; margin: 0 auto; padding: 36px 28px 64px; }
+.cal-page { width: 100%; max-width: var(--max-w); margin: 0 auto; padding: 36px 28px 64px; }
 .cal-page h2.cal-sec { margin: 32px 0 0; font-size: 18px; font-weight: 750; letter-spacing: -.02em; }
 
 .cal-controls { display: flex; align-items: center; gap: 8px; margin-bottom: 14px; }
@@ -36,6 +36,7 @@
 .cal-dday { font-size: 11px; font-weight: 700; padding: 1px 6px; background: var(--surface-2); border-radius: 5px; color: var(--ink-2); margin-left: 4px; }
 .cal-empty { color: var(--ink-4); padding: 16px; text-align: center; list-style: none; }
 
+@media (max-width: 960px) { .cal-page { padding-left: 20px; padding-right: 20px; } }
 @media (max-width: 700px) {
   .cal-page { padding: 24px 16px 48px; }
   .cal-controls { gap: 6px; }

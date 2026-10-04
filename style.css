@@ -896,7 +896,7 @@ body.pv-lock { overflow: hidden; }
 .examset .ad-slot { margin-top: 20px; }
 
 /* ═══ 안내·허브 페이지 (about/privacy/terms/sets/논술·과목 허브) ═ */
-.legal { max-width: 800px; margin: 0 auto; padding: 36px 28px 64px; line-height: 1.75; color: var(--ink-2); }
+.legal { max-width: var(--max-w); margin: 0 auto; padding: 36px 28px 64px; line-height: 1.75; color: var(--ink-2); }
 .legal h1, .legal__title { font-size: 30px; font-weight: 800; letter-spacing: -.04em; color: var(--ink); line-height: 1.25; margin-bottom: 10px; }
 .legal__head { margin-bottom: 24px; padding-bottom: 18px; border-bottom: 1px solid var(--line); }
 .legal__sub { font-size: 13.5px; color: var(--ink-4); }
@@ -912,7 +912,8 @@ body.pv-lock { overflow: hidden; }
 .legal__section p { margin: 8px 0; }
 .legal__section ul:not(.setsdir__list):not(.hub-list) { margin: 8px 0 8px 20px; }
 .legal__section li { margin: 4px 0; }
-.legal--wide { max-width: 1080px; }
+/* 바깥 폭은 헤더와 같게(제목 왼쪽 선 정렬), 읽는 글은 줄 길이만 800px 로 */
+.legal:not(.legal--wide) > *, .legal__lead { max-width: 800px; }
 .legal--wide .setsdir__list { columns: 3; }
 .setsdir__list { columns: 2; column-gap: 24px; list-style: none; padding: 0; margin: 0; }
 .setsdir__list li { margin: 0; break-inside: avoid; }
@@ -964,6 +965,7 @@ body.pv-lock { overflow: hidden; }
 
 @media (max-width: 960px) {
   .container { padding: 0 20px; }
+  .legal { padding-left: 20px; padding-right: 20px; }
   .page-header, .curriculum-nav { padding-left: 20px; padding-right: 20px; }
   .brand__sub { display: none; }
   .header-nav a { padding: 0 9px; }
