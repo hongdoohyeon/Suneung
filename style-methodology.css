@@ -1,6 +1,5 @@
 /* methodology.html — 난이도 산정 기준 (그림은 render-site.py 가 인라인 SVG 로 생성) */
 .method .legal__section h3 { margin: 22px 0 8px; font-size: 15px; font-weight: 700; letter-spacing: -.02em; }
-.method__steps { margin: 12px 0; padding-left: 20px; display: grid; gap: 8px; line-height: 1.65; }
 .method__fig { margin: 18px 0; padding: 14px 14px 10px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--r, 14px); overflow-x: auto; }
 .method__fig figcaption { margin-top: 8px; font-size: 13px; line-height: 1.6; color: var(--ink-3); }
 .method__fig figcaption strong { color: var(--ink); }
@@ -26,24 +25,20 @@
 .mf-pt { fill: var(--ink-3); opacity: .8; }
 .mf-thr { stroke: var(--ink-4); stroke-width: 1; stroke-dasharray: 3 3; }
 .mf-t1 { fill: var(--t1); } .mf-t2 { fill: var(--t2); } .mf-t3 { fill: var(--t3); } .mf-t4 { fill: var(--t4); } .mf-t5 { fill: var(--t5); }
-.mf-dens { fill: var(--ink-3); opacity: .75; }
 
-.method__tiers { display: grid; gap: 6px; margin: 12px 0; }
-.method__tiers > div { display: flex; align-items: center; gap: 14px; }
-.method__tiers > div > span:first-child { min-width: 96px; }
 .method__table { border-collapse: collapse; margin: 10px 0; font-size: 14px; }
 .method__table th, .method__table td { padding: 7px 14px 7px 0; text-align: left; border-bottom: 1px solid var(--line); font-variant-numeric: tabular-nums; }
 .method__table th { color: var(--ink-4); font-weight: 600; font-size: 13px; }
 
 /* 블로그 */
-.blog-list { list-style: none; margin: 8px 0 0; padding: 0; display: grid; gap: 12px; }
-.blog-card a { display: block; padding: 18px 20px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--r, 14px); color: inherit; text-decoration: none; }
+.blog-list { list-style: none; margin: 8px 0 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 360px), 1fr)); gap: 12px; }
+.blog-card a { display: block; height: 100%; padding: 18px 20px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--r, 14px); color: inherit; text-decoration: none; }
 .blog-card a:hover { border-color: var(--line-strong); }
 .blog-card__tag { display: inline-block; font-size: 12px; font-weight: var(--badge-weight); color: var(--ink-3); background: var(--surface-2); border-radius: 999px; padding: 2px 10px; }
 .blog-card__title { margin: 10px 0 6px; font-size: 19px; font-weight: var(--h2-weight); letter-spacing: var(--h2-track); line-height: 1.4; }
 .blog-card__desc { margin: 0 0 10px; color: var(--ink-3); font-size: 14px; line-height: 1.65; }
 .blog-card__date, .blog-meta { font-size: 13px; color: var(--ink-4); }
-.blog-note { margin-top: 18px; font-size: 13px; color: var(--ink-4); }
+.legal .blog-note { margin-top: 18px; font-size: 13px; color: var(--ink-4); }
 .blog-crumb { font-size: 13px; color: var(--ink-4); margin: 4px 0 10px; }
 .blog-crumb a { color: var(--ink-3); }
 .blog-meta { margin: 8px 0 0; }
