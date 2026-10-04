@@ -690,6 +690,23 @@ main { flex: 1 0 auto; width: 100%; }
 .lp__ch.is-on { background: var(--ink); border-color: var(--ink); color: var(--on-ink); }
 .lp__hint { margin: -4px 0 0; font-size: 12px; color: var(--ink-4); }
 .lp__links { display: flex; flex-wrap: wrap; gap: 4px 14px; }
+/* 상세 '듣기' 탭: 왼쪽 플레이어(스크롤해도 따라옴) · 오른쪽 대본 */
+.listen-layout { display: grid; grid-template-columns: minmax(300px, 380px) minmax(0, 1fr); gap: 20px; align-items: start; margin-top: 4px; }
+.listen-layout__player { position: sticky; top: calc(var(--header-h) + 16px); }
+.listen-layout__script { display: flex; flex-direction: column; gap: 12px; min-width: 0; }
+.listen-script { padding: 16px 18px; display: flex; flex-direction: column; gap: 8px; }
+.listen-script__head { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.listen-script__head h3 { margin-right: auto; font-size: 16px; font-weight: var(--h2-weight); letter-spacing: var(--h2-track); }
+.listen-script__note { font-size: 13px; color: var(--ink-4); }
+@media (max-width: 860px) {
+  .listen-layout { grid-template-columns: minmax(0, 1fr); }
+  .listen-layout__player { position: static; }
+}
+/* 사이드바: 듣기 탭으로 가는 바로가기 */
+.exam__listen--link { padding: 0; }
+.exam__listen-go { display: flex; align-items: center; gap: 8px; min-height: 48px; padding: 0 16px; font-size: 14px; font-weight: var(--ui-weight-strong); color: var(--ink); text-decoration: none; }
+.exam__listen-go > span:nth-child(2) { flex: 1; }
+.exam__listen-go:hover { background: var(--surface-hover); border-radius: var(--r); }
 
 .exam__body { margin-top: 24px; padding: 22px 24px; line-height: 1.75; font-size: 15px; color: var(--ink-2); }
 .exam__body h2 { font-size: 18px; font-weight: var(--h2-weight); color: var(--ink); margin-bottom: 8px; letter-spacing: var(--h2-track); }
@@ -786,6 +803,8 @@ a.obj-fine { color: var(--pop); }
 .exam-tabs__n { padding: 1px 7px; border-radius: 999px; background: var(--surface-2); color: var(--ink-3); font-size: 11.5px; font-weight: var(--badge-weight); }
 .exam-tabs__n--changed { background: var(--t5-bg); color: var(--t5); }
 body:not([data-exam-tab="obj"]) #objections:not(:target) { display: none; }
+body:not([data-exam-tab="listen"]) #listening:not(:target) { display: none; }
+body[data-exam-tab="listen"] #main > :not(.exam__crumb):not(.exam__top):not(.exam__subjects):not(.exam-tabs):not(#listening) { display: none; }
 body[data-exam-tab="obj"] #main > :not(.exam__crumb):not(.exam__top):not(.exam__subjects):not(.exam-tabs):not(#objections) { display: none; }
 
 .compare__metric { margin-left: auto; }

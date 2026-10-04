@@ -2018,11 +2018,22 @@ def objection_html(it: dict) -> tuple[str, str]:
              | {d['no'] for d in (off.get('details') or []) if d.get('subject') and _obj_match(it, d)})
     badge = (f'<span class="exam-tabs__n{" exam-tabs__n--changed" if changed else ""}">'
              f'{"정답 변경" if changed else nq}</span>') if (changed or nq) else ''
-    tabs = ('<div class="exam-tabs" role="tablist" aria-label="보기 전환">'
-            '<a class="exam-tabs__tab" role="tab" id="examTabMain" href="#examMain" data-exam-tab="main" aria-selected="true">자료 · 등급컷</a>'
-            f'<a class="exam-tabs__tab" role="tab" id="examTabObj" href="#objections" data-exam-tab="obj" aria-selected="false">이의신청 및 보도{badge}</a>'
-            '</div>')
-    return tabs, objection_panel_html(rec, it, key)
+    tab = f'<a class="exam-tabs__tab" role="tab" id="examTabObj" href="#objections" data-exam-tab="obj" aria-selected="false">이의신청 및 보도{badge}</a>'
+    return tab, objection_panel_html(rec, it, key)
+
+
+def listening_tab_html(it: dict) -> tuple[str, str]:
+    """상세 페이지 '듣기' 탭 — (탭 버튼, 본문 자리). 영어 듣기 음원이 있을 때만. 플레이어·대본은 exam.js 가 채운다."""
+    if it.get('subject') != '영어' or not it.get('listenUrl'):
+        return '', ''
+    # 문항 수 = 마지막 번호(16~17 처럼 묶인 버튼도 있어서 버튼 수가 아니라 끝 번호)
+    nums = [int(n) for c in str(it.get('listenChapters') or '').split(',') for n in re.findall(r'\d+', c.split(':', 1)[-1])]
+    nq = max(nums) if nums else 0
+    badge = f'<span class="exam-tabs__n">{nq}문항</span>' if nq else ''
+    tab = f'<a class="exam-tabs__tab" role="tab" id="examTabListen" href="#listening" data-exam-tab="listen" aria-selected="false">듣기{badge}</a>'
+    panel = ('<section class="exam-section listening" id="listening" role="tabpanel" aria-labelledby="examTabListen">'
+             '<div id="examListenTab"></div></section>')
+    return tab, panel
 
 
 def preview_image_path(url, root: Path):
@@ -2406,10 +2417,18 @@ def build_static_exam_pages(items: list[dict], template_path: Path, out_root: Pa
                                 + grade_table_html(_cut, sc['abs'], sc.get('ratios')) + '</div>', 1)
 
         # 이의신청 기록 (평가원 수능·모평)
-        _obj_tabs, _obj = objection_html(it)
+        # 2차 탭: 자료 · 등급컷 | 듣기(영어) | 이의신청 및 보도(평가원)
+        _obj_tab, _obj = objection_html(it)
+        _lis_tab, _lis = listening_tab_html(it)
+        if _obj or _lis:
+            html = html.replace('<!-- exam-tabs -->',
+                '<div class="exam-tabs" role="tablist" aria-label="보기 전환">'
+                '<a class="exam-tabs__tab" role="tab" id="examTabMain" href="#examMain" data-exam-tab="main" aria-selected="true">자료 · 등급컷</a>'
+                + _lis_tab + _obj_tab + '</div>', 1)
         if _obj:
-            html = html.replace('<!-- exam-tabs -->', _obj_tabs, 1)
             html = html.replace('<!-- exam-objections -->', _obj, 1)
+        if _lis:
+            html = html.replace('<!-- exam-listening -->', _lis, 1)
         html = html.replace('<!-- exam-official -->', _off, 1)
         html = html.replace('<!-- exam-source -->', source_note_html(it), 1)
 

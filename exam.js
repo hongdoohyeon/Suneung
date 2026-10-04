@@ -214,11 +214,26 @@ function renderHead(exam) {
     const audioBlock = document.createElement('div');
     audioBlock.className = 'exam__listen';
     if (listenUrl) {
-      mountListenPlayer(actionsEl, {
+      const tabMount = $('examListenTab');
+      const opts = {
         id: exam.id, src: listenUrl, title: document.querySelector('h1')?.textContent?.trim() || '영어 듣기',
         chapters: exam.listenChapters, downloadName: exam.listenDownload,
         scriptUrl: safeUrl(exam.scriptUrl), scriptName: exam.scriptDownload,
-      });
+      };
+      if (tabMount) {
+        // '듣기' 탭: 왼쪽 플레이어 · 오른쪽 대본(펼치면 PDF 뷰어). 사이드바엔 탭으로 가는 바로가기만.
+        tabMount.className = 'listen-layout';
+        tabMount.innerHTML = '<div class="listen-layout__player"></div><div class="listen-layout__script"></div>';
+        mountListenPlayer(tabMount.firstElementChild, { ...opts, scriptUrl: null });   // 대본은 옆 카드에
+        mountListenScript(tabMount.lastElementChild, exam);
+        audioBlock.classList.add('exam__listen--link');
+        audioBlock.innerHTML = `<a class="exam__listen-go" href="#listening">
+          <span class="exam__listen-icon" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1v-7h3z"/><path d="M3 19a2 2 0 0 0 2 2h1v-7H3z"/></svg></span>
+          <span>영어 듣기 — 문항별로 듣기</span><span aria-hidden="true">→</span></a>`;
+        actionsEl.appendChild(audioBlock);
+      } else {
+        mountListenPlayer(actionsEl, opts);
+      }
     } else {
       audioBlock.classList.add('exam__listen--empty');
       audioBlock.innerHTML = `
@@ -356,3 +371,34 @@ main();
 // 광고 슬롯 자동 렌더 (lib/ads.js — Publisher ID 미설정 시 no-op)
 if (document.readyState !== 'loading') renderAllAdSlots();
 else document.addEventListener('DOMContentLoaded', renderAllAdSlots);
+
+// 듣기 탭의 대본 — '대본 펼치기'를 누르면 같은 화면에서 PDF 뷰어로 (HWP 대본은 내려받기만)
+function mountListenScript(box, exam) {
+  const url = safeUrl(exam.scriptUrl);
+  const isPdf = url && !/\.hwp(?:[?#]|$)/i.test(url);
+  box.innerHTML = `
+    <div class="listen-script card-box">
+      <div class="listen-script__head">
+        <h3>듣기 대본</h3>
+        ${isPdf ? '<button type="button" class="btn btn--primary listen-script__open">대본 펼치기</button>' : ''}
+        ${url ? `<a class="btn" href="${escHtml(url)}" ${exam.scriptDownload ? `download="${escHtml(exam.scriptDownload)}"` : 'download'}>내려받기</a>` : ''}
+      </div>
+      ${url ? `<p class="listen-script__note">${isPdf ? '들으면서 대본을 같이 볼 수 있어요. 풀기 전에는 펼치지 않는 걸 추천해요.' : '이 회차 대본은 HWP 파일이라 내려받아 열어 주세요.'}</p>`
+            : '<p class="listen-script__note">이 회차는 듣기 대본이 공개되지 않았어요.</p>'}
+    </div>
+    ${isPdf ? `<article class="preview listen-script__preview" hidden>
+      <header class="preview__head"><h2 class="preview__title">듣기 대본</h2><span class="preview__meta"></span></header>
+      <div class="preview__viewer"></div>
+    </article>` : ''}`;
+  const open = box.querySelector('.listen-script__open');
+  if (!open) return;
+  open.addEventListener('click', () => {
+    const art = box.querySelector('.listen-script__preview');
+    art.hidden = !art.hidden;
+    open.textContent = art.hidden ? '대본 펼치기' : '대본 접기';
+    if (!art.hidden && !art.dataset.loaded) {
+      art.dataset.loaded = '1';
+      renderPdf(url, art.querySelector('.preview__viewer'), art.querySelector('.preview__meta'), { inkKey: `script-${exam.id}` });
+    }
+  });
+}
