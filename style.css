@@ -118,9 +118,18 @@
 ::view-transition-old(root), ::view-transition-new(root) { animation-duration: .18s; }
 @media (prefers-reduced-motion: reduce) { @view-transition { navigation: none; } }
 
+/* 본문 글꼴 SUITE(OFL, lib/vendor/suite). 가운뎃점(·)은 SUITE 폭이 넓어 Pretendard 글리프로 대신한다.
+   Pretendard 는 SUITE 에 없는 글자(한자 등) 폴백으로 남겨 둠(site-prefs.js 가 비동기 로드). */
+@font-face { font-family: 'SUITE Variable'; font-weight: 300 900; font-style: normal; font-display: swap;
+  src: url(lib/vendor/suite/SUITE-Variable-2.0.4.woff2) format('woff2-variations'), url(lib/vendor/suite/SUITE-Variable-2.0.4.woff2) format('woff2');
+  unicode-range: U+0-B6, U+B8-10FFFF; }
+@font-face { font-family: 'SUITE Variable'; font-weight: 300 900; font-style: normal; font-display: swap;
+  src: url(lib/vendor/pretendard/woff2/PretendardVariable.subset.91.woff2) format('woff2-variations');
+  unicode-range: U+B7; }
+
 html { -webkit-text-size-adjust: 100%; overflow-x: clip; }
 body {
-  font-family: 'Pretendard Variable', 'Pretendard', -apple-system, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif;
+  font-family: 'SUITE Variable', 'Pretendard Variable', 'Pretendard', -apple-system, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif;
   background: var(--bg);
   color: var(--ink);
   font-size: 14px;
