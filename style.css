@@ -935,11 +935,8 @@ body.pv-lock { overflow: hidden; }
 .legal .hub-dl:hover { border-color: var(--ink-4); }
 
 /* 404 */
-.notfound { max-width: 640px; margin: 0 auto; padding: 80px 28px; text-align: center; }
-.notfound__code { font-size: 56px; font-weight: 800; letter-spacing: -.04em; }
-.notfound h1 { font-size: 22px; margin: 8px 0 12px; }
-.notfound p { color: var(--ink-4); line-height: 1.7; }
-.notfound__actions { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; margin-top: 24px; }
+.notfound { min-height: 50vh; }
+.notfound__actions { display: flex; gap: 8px; flex-wrap: wrap; }
 
 /* ═══ 광고 · 토스트 · 배너 ════════════════════════════════ */
 /* 광고 ID가 없으면 lib/ads.js 가 슬롯을 숨김. 채워지면 높이를 미리 확보해 화면 밀림 방지 */
