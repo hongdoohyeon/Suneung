@@ -1,15 +1,15 @@
 'use strict';
-import { CURRICULUM_CONFIG, getTypeConf, prettySub } from './config.js?v=2d9b31ac2b350e925c1e';
-import { escHtml as _escHtml, escAttr, safeUrl as _safeUrl, $ as _$ } from './lib/dom.js?v=2d9b31ac2b350e925c1e';
-import { setMeta, setMetaProp, setCanonical, injectJsonLd as _injectJsonLd, STATIC_PAGE, applySeo } from './lib/seo.js?v=2d9b31ac2b350e925c1e';
-import { renderAllAdSlots } from './lib/ads.js?v=2d9b31ac2b350e925c1e';
-import { renderPdf, renderPreviewCover, renderUnsupported, renderEmpty, urlExtension } from './lib/exam-pdf.js?v=2d9b31ac2b350e925c1e';
-import { LOADING_PREVIEWS } from './lib/loading-previews.js?v=2d9b31ac2b350e925c1e';
-import { renderGradeDist } from './lib/exam-gradedist.js?v=2d9b31ac2b350e925c1e';
-import { pushRecent } from './lib/recent.js?v=2d9b31ac2b350e925c1e';
-import './lib/report.js?v=2d9b31ac2b350e925c1e';
-import { shareLink } from './lib/share.js?v=2d9b31ac2b350e925c1e';
-import { enableForcedDownloads } from './lib/download.js?v=2d9b31ac2b350e925c1e';
+import { CURRICULUM_CONFIG, getTypeConf, prettySub } from './config.js?v=841f34a79bc0b0e4c3cc';
+import { escHtml as _escHtml, escAttr, safeUrl as _safeUrl, $ as _$ } from './lib/dom.js?v=841f34a79bc0b0e4c3cc';
+import { setMeta, setMetaProp, setCanonical, injectJsonLd as _injectJsonLd, STATIC_PAGE, applySeo } from './lib/seo.js?v=841f34a79bc0b0e4c3cc';
+import { renderAllAdSlots } from './lib/ads.js?v=841f34a79bc0b0e4c3cc';
+import { renderPdf, renderPreviewCover, renderUnsupported, renderEmpty, urlExtension } from './lib/exam-pdf.js?v=841f34a79bc0b0e4c3cc';
+import { LOADING_PREVIEWS } from './lib/loading-previews.js?v=841f34a79bc0b0e4c3cc';
+import { renderGradeDist } from './lib/exam-gradedist.js?v=841f34a79bc0b0e4c3cc';
+import { pushRecent } from './lib/recent.js?v=841f34a79bc0b0e4c3cc';
+import './lib/report.js?v=841f34a79bc0b0e4c3cc';
+import { shareLink } from './lib/share.js?v=841f34a79bc0b0e4c3cc';
+import { enableForcedDownloads } from './lib/download.js?v=841f34a79bc0b0e4c3cc';
 
 enableForcedDownloads();
 
@@ -287,7 +287,7 @@ async function main() {
   // (robots.txt 가 data/exam/ 을 막아 검색엔진 렌더러가 여기로 오면 12MB 를 매 페이지 받게 된다)
   if (!exam && !isStaticExam) {
     try {
-      const res = await fetch('data/exams.json?v=2d9b31ac2b350e925c1e');
+      const res = await fetch('data/exams.json?v=841f34a79bc0b0e4c3cc');
       if (res.ok) {
         const exams = await res.json();
         exam = exams.find(e => e.id === id) ?? null;
