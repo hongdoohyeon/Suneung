@@ -661,6 +661,35 @@ main { flex: 1 0 auto; width: 100%; }
 .exam__listen-audio { width: 100%; }
 .exam__listen-dl { font-size: 13px; color: var(--ink-3); text-decoration: underline; text-underline-offset: 3px; align-self: flex-start; min-height: 32px; display: inline-flex; align-items: center; }
 .exam__listen-empty { font-size: 13px; color: var(--ink-4); }
+/* 듣기 플레이어(lib/listen-player.js) */
+.lp { gap: 12px; }
+.lp audio { display: none; }
+.lp .exam__listen-head { min-height: 28px; }
+.lp__resume { margin-left: auto; min-height: 28px; padding: 0 10px; border-radius: 999px; background: var(--surface-2); color: var(--ink-2); font-size: 12px; font-weight: var(--ui-weight); }
+.lp__resume:hover { color: var(--ink); }
+.lp__bar { display: flex; align-items: center; gap: 12px; }
+.lp__play { flex: none; width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center; background: var(--ink); color: var(--on-ink); }
+.lp__play:hover { opacity: .9; }
+.lp__track { flex: 1; min-width: 0; }
+.lp__seek { --p: 0%; width: 100%; height: 20px; margin: 0; background: transparent; -webkit-appearance: none; appearance: none; cursor: pointer; }
+.lp__seek::-webkit-slider-runnable-track { height: 4px; border-radius: 999px; background: linear-gradient(to right, var(--ink) var(--p), var(--line-strong) var(--p)); }
+.lp__seek::-moz-range-track { height: 4px; border-radius: 999px; background: linear-gradient(to right, var(--ink) var(--p), var(--line-strong) var(--p)); }
+.lp__seek::-webkit-slider-thumb { -webkit-appearance: none; width: 14px; height: 14px; margin-top: -5px; border-radius: 50%; background: var(--ink); border: 2px solid var(--surface); }
+.lp__seek::-moz-range-thumb { width: 12px; height: 12px; border-radius: 50%; background: var(--ink); border: 2px solid var(--surface); }
+.lp__time { display: flex; justify-content: space-between; gap: 8px; font-size: 12px; color: var(--ink-4); font-variant-numeric: tabular-nums; }
+.lp__now { color: var(--ink-2); font-weight: var(--ui-weight); }
+.lp__ctrl { display: flex; flex-wrap: wrap; gap: 6px; }
+.lp__btn { display: inline-flex; align-items: center; gap: 3px; min-height: 34px; padding: 0 10px; border-radius: 9px; border: 1px solid var(--line); background: var(--surface); color: var(--ink-2); font-size: 12.5px; font-weight: var(--ui-weight); font-variant-numeric: tabular-nums; }
+.lp__btn:hover { border-color: var(--ink-4); color: var(--ink); }
+.lp__btn span { font-size: 11.5px; }
+.lp__speed { min-width: 46px; justify-content: center; }
+.lp__loop[aria-pressed="true"] { background: var(--ink); border-color: var(--ink); color: var(--on-ink); }
+.lp__chapters { display: grid; grid-template-columns: repeat(auto-fill, minmax(42px, 1fr)); gap: 5px; }
+.lp__ch { min-height: 34px; border-radius: 8px; border: 1px solid var(--line); background: var(--surface); color: var(--ink-2); font-size: 12.5px; font-weight: var(--ui-weight); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.lp__ch:hover { border-color: var(--ink-4); color: var(--ink); }
+.lp__ch.is-on { background: var(--ink); border-color: var(--ink); color: var(--on-ink); }
+.lp__hint { margin: -4px 0 0; font-size: 12px; color: var(--ink-4); }
+.lp__links { display: flex; flex-wrap: wrap; gap: 4px 14px; }
 
 .exam__body { margin-top: 24px; padding: 22px 24px; line-height: 1.75; font-size: 15px; color: var(--ink-2); }
 .exam__body h2 { font-size: 18px; font-weight: var(--h2-weight); color: var(--ink); margin-bottom: 8px; letter-spacing: var(--h2-track); }

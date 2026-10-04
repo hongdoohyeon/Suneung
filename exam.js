@@ -1,15 +1,16 @@
 'use strict';
-import { CURRICULUM_CONFIG, getTypeConf, prettySub } from './config.js?v=bbae662cb0e1eeba20f8';
-import { escHtml as _escHtml, escAttr, safeUrl as _safeUrl, $ as _$ } from './lib/dom.js?v=bbae662cb0e1eeba20f8';
-import { setMeta, setMetaProp, setCanonical, injectJsonLd as _injectJsonLd, STATIC_PAGE, applySeo } from './lib/seo.js?v=bbae662cb0e1eeba20f8';
-import { renderAllAdSlots } from './lib/ads.js?v=bbae662cb0e1eeba20f8';
-import { renderPdf, renderPreviewCover, renderUnsupported, renderEmpty, urlExtension } from './lib/exam-pdf.js?v=bbae662cb0e1eeba20f8';
-import { LOADING_PREVIEWS } from './lib/loading-previews.js?v=bbae662cb0e1eeba20f8';
-import { renderGradeDist } from './lib/exam-gradedist.js?v=bbae662cb0e1eeba20f8';
-import { pushRecent } from './lib/recent.js?v=bbae662cb0e1eeba20f8';
-import './lib/report.js?v=bbae662cb0e1eeba20f8';
-import { shareLink } from './lib/share.js?v=bbae662cb0e1eeba20f8';
-import { enableForcedDownloads } from './lib/download.js?v=bbae662cb0e1eeba20f8';
+import { CURRICULUM_CONFIG, getTypeConf, prettySub } from './config.js?v=04cb8545591d8a393023';
+import { escHtml as _escHtml, escAttr, safeUrl as _safeUrl, $ as _$ } from './lib/dom.js?v=04cb8545591d8a393023';
+import { setMeta, setMetaProp, setCanonical, injectJsonLd as _injectJsonLd, STATIC_PAGE, applySeo } from './lib/seo.js?v=04cb8545591d8a393023';
+import { renderAllAdSlots } from './lib/ads.js?v=04cb8545591d8a393023';
+import { renderPdf, renderPreviewCover, renderUnsupported, renderEmpty, urlExtension } from './lib/exam-pdf.js?v=04cb8545591d8a393023';
+import { LOADING_PREVIEWS } from './lib/loading-previews.js?v=04cb8545591d8a393023';
+import { renderGradeDist } from './lib/exam-gradedist.js?v=04cb8545591d8a393023';
+import { pushRecent } from './lib/recent.js?v=04cb8545591d8a393023';
+import './lib/report.js?v=04cb8545591d8a393023';
+import { shareLink } from './lib/share.js?v=04cb8545591d8a393023';
+import { enableForcedDownloads } from './lib/download.js?v=04cb8545591d8a393023';
+import { mountListenPlayer } from './lib/listen-player.js?v=04cb8545591d8a393023';
 
 enableForcedDownloads();
 
@@ -213,21 +214,11 @@ function renderHead(exam) {
     const audioBlock = document.createElement('div');
     audioBlock.className = 'exam__listen';
     if (listenUrl) {
-      audioBlock.innerHTML = `
-        <div class="exam__listen-head">
-          <span class="exam__listen-icon" aria-hidden="true">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                 stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M3 18v-6a9 9 0 0 1 18 0v6"/>
-              <path d="M21 19a2 2 0 0 1-2 2h-1v-7h3z"/>
-              <path d="M3 19a2 2 0 0 0 2 2h1v-7H3z"/>
-            </svg>
-          </span>
-          <span>영어 듣기 음원</span>
-        </div>
-        <audio controls preload="metadata" src="${escHtml(listenUrl)}" class="exam__listen-audio"></audio>
-        <a class="exam__listen-dl" href="${escHtml(listenUrl)}" ${dl(exam.listenDownload)}>mp3 다운로드</a>
-      `;
+      mountListenPlayer(actionsEl, {
+        id: exam.id, src: listenUrl, title: document.querySelector('h1')?.textContent?.trim() || '영어 듣기',
+        chapters: exam.listenChapters, downloadName: exam.listenDownload,
+        scriptUrl: safeUrl(exam.scriptUrl), scriptName: exam.scriptDownload,
+      });
     } else {
       audioBlock.classList.add('exam__listen--empty');
       audioBlock.innerHTML = `
@@ -239,7 +230,7 @@ function renderHead(exam) {
         </p>
       `;
     }
-    actionsEl.appendChild(audioBlock);
+    if (!listenUrl) actionsEl.appendChild(audioBlock);
   }
 
   // archive 탭 복귀 링크에 curriculum 유지
@@ -287,7 +278,7 @@ async function main() {
   // (robots.txt 가 data/exam/ 을 막아 검색엔진 렌더러가 여기로 오면 12MB 를 매 페이지 받게 된다)
   if (!exam && !isStaticExam) {
     try {
-      const res = await fetch('data/exams.json?v=bbae662cb0e1eeba20f8');
+      const res = await fetch('data/exams.json?v=04cb8545591d8a393023');
       if (res.ok) {
         const exams = await res.json();
         exam = exams.find(e => e.id === id) ?? null;
