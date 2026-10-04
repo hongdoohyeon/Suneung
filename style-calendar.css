@@ -1,7 +1,5 @@
-.cal-page { width: 100%; max-width: 920px; margin: 0 auto; padding: 28px 28px 64px; }
-.cal-page h1 { font-size: 30px; font-weight: 800; letter-spacing: -.04em; margin: 0 0 8px; }
-.cal-page p.lead { color: var(--ink-4); margin: 0 0 20px; line-height: 1.6; font-size: 14px; }
-.cal-page h2.cal-sec { margin: 32px 0 0; font-size: 18px; font-weight: 700; letter-spacing: -.02em; }
+.cal-page { width: 100%; max-width: 920px; margin: 0 auto; padding: 36px 28px 64px; }
+.cal-page h2.cal-sec { margin: 32px 0 0; font-size: 18px; font-weight: 750; letter-spacing: -.02em; }
 
 .cal-controls { display: flex; align-items: center; gap: 8px; margin-bottom: 14px; }
 .cal-month-label { font-size: 18px; font-weight: 700; margin: 0; min-width: 140px; text-align: center; }
@@ -39,8 +37,7 @@
 .cal-empty { color: var(--ink-4); padding: 16px; text-align: center; list-style: none; }
 
 @media (max-width: 700px) {
-  .cal-page { padding: 20px 16px 48px; }
-  .cal-page h1 { font-size: 24px; }
+  .cal-page { padding: 24px 16px 48px; }
   .cal-controls { gap: 6px; }
   .cal-month-label { min-width: 0; flex: 1; font-size: 17px; }
   .cal-today { margin-left: 0; }

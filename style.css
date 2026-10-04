@@ -900,9 +900,12 @@ body.pv-lock { overflow: hidden; }
 .legal h1, .legal__title { font-size: 30px; font-weight: 800; letter-spacing: -.04em; color: var(--ink); line-height: 1.25; margin-bottom: 10px; }
 .legal__head { margin-bottom: 24px; padding-bottom: 18px; border-bottom: 1px solid var(--line); }
 .legal__sub { font-size: 13.5px; color: var(--ink-4); }
+.legal__lead { font-size: 15px; color: var(--ink-2); }
+.legal__lead + .legal__sub { margin-top: 6px; }
+.legal__head .hub-crumb { margin-top: 10px; }
 .legal > p { font-size: 15px; margin: 8px 0; }
-.legal > p a, .legal__section a { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--line-strong); }
-.legal > p a:hover, .legal__section a:hover { text-decoration-color: var(--ink); }
+.legal > p a, .legal__head .hub-crumb a, .legal__section a { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--line-strong); }
+.legal > p a:hover, .legal__head .hub-crumb a:hover, .legal__section a:hover { text-decoration-color: var(--ink); }
 .legal__section { margin: 28px 0; }
 .legal__section h2 { font-size: 18px; font-weight: 750; letter-spacing: -.02em; color: var(--ink); margin-bottom: 10px; }
 .legal__section p, .legal__section li { font-size: 15px; }

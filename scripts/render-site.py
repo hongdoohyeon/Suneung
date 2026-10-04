@@ -304,10 +304,12 @@ def _hub_page(fname: str, h1: str, title: str, desc: str, intro: str,
     </nav>
   </header>
   <main id="main" class="legal legal--wide">
-    <h1>{bd.html_escape(h1, quote=False)}</h1>
-    <p>{bd.html_escape(intro, quote=False)}</p>
-    <p class="legal__sub">{bd.html_escape(stat, quote=False)}</p>
-    <p class="hub-crumb"><a href="./">기출검색</a> · <a href="sets.html">전체 회차</a><a href="methodology.html">난이도 기준</a></p>
+    <header class="legal__head">
+      <h1 class="legal__title">{bd.html_escape(h1, quote=False)}</h1>
+      <p class="legal__lead">{bd.html_escape(intro, quote=False)}</p>
+      <p class="legal__sub">{bd.html_escape(stat, quote=False)}</p>
+      <p class="hub-crumb"><a href="./">기출검색</a> · <a href="sets.html">전체 회차</a> · <a href="methodology.html">난이도 기준</a></p>
+    </header>
     {''.join(sections)}
   </main>
   <footer class="site-footer">
@@ -716,9 +718,11 @@ def render_sets_directory(items: list[dict], essay_hubs=None, subject_hubs=None)
     </nav>
   </header>
   <main id="main" class="legal legal--wide">
-    <h1>전체 회차 목록</h1>
-    <p>수능·평가원·교육청·사관학교·경찰대·LEET·MEET 기출 회차를 학년도별로 모았습니다. 각 회차에서 영역별 문제지, 정답, 해설지, 등급컷 자료로 이동할 수 있습니다.</p>
-    <p class="hub-crumb"><a href="./">기출검색</a> · <a href="calendar.html">학사 일정</a> · <a href="blog.html">블로그</a></p>
+    <header class="legal__head">
+      <h1 class="legal__title">전체 회차 목록</h1>
+      <p class="legal__lead">수능·평가원·교육청·사관학교·경찰대·LEET·MEET 기출 회차를 학년도별로 모았습니다. 각 회차에서 영역별 문제지, 정답, 해설지, 등급컷 자료로 이동할 수 있습니다.</p>
+      <p class="hub-crumb"><a href="./">기출검색</a> · <a href="calendar.html">학사 일정</a> · <a href="blog.html">블로그</a></p>
+    </header>
     {''.join(sections)}
   </main>
   <footer class="site-footer">
