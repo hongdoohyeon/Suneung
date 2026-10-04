@@ -515,7 +515,7 @@ main { flex: 1 0 auto; width: 100%; }
 /* 결과 — 회차별 표 */
 .results { display: flex; flex-direction: column; }
 .results--table { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); overflow: hidden; }
-.rgroup + .rgroup { border-top: 1px solid var(--line); }
+.rgroup ~ .rgroup { border-top: 1px solid var(--line); }   /* 사이에 광고 자리가 끼어도 선 유지 */
 .rgroup__head { display: flex; align-items: center; gap: 10px; padding: 16px 18px 12px; flex-wrap: wrap; }
 .rgroup__title { font-size: 16.5px; font-weight: 700; letter-spacing: -.03em; }
 .rgroup__title a { display: inline-block; padding: 10px 0; margin: -10px 0; }   /* 누르는 영역 44px — 모양은 그대로 */
