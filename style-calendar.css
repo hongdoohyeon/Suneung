@@ -1,5 +1,5 @@
 .cal-page { width: 100%; max-width: var(--max-w); margin: 0 auto; padding: 36px 28px 64px; }
-.cal-page h2.cal-sec { margin: 32px 0 0; font-size: 18px; font-weight: 750; letter-spacing: -.02em; }
+.cal-page h2.cal-sec { margin: 32px 0 0; font-size: 18px; font-weight: var(--h2-weight); letter-spacing: var(--h2-track); }
 
 .cal-controls { display: flex; align-items: center; gap: 8px; margin-bottom: 14px; }
 .cal-month-label { font-size: 18px; font-weight: 700; margin: 0; min-width: 140px; text-align: center; }
