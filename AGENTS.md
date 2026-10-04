@@ -23,7 +23,7 @@
 
 ## 구조·자산
 - 산출물: `exam-{id}.html`(9,390 SSG)·`exam-set-*.html`·허브(`nonsul-*`/`suneung-*`/`hakpyeong-*`)·`essay.html`·`ged.html`·`sets.html`·`sitemap*.xml`·`feed.xml`·`data/exam/{id}.json`(split, exam.js가 우선 fetch).
-- OG 폰트: `fonts/Pretendard-Regular.ttf`(OFL 동봉). build-data.py `_BUNDLED_OG_FONT`(번들 우선·시스템 폴백).
+- OG 폰트: `fonts/SUITE-Regular.ttf`(OFL 동봉 `fonts/OFL-SUITE.txt`). build-data.py `_BUNDLED_OG_FONT`(번들 우선·시스템 폴백).
 - IndexNow: `scripts/indexnow-submit.py`(인자 없으면 직전 커밋 변경분, `--all`이면 사이트맵 전수 백필). 키 = repo의 `.indexnow-key`/`{key}.txt`. 엔드포인트 `https://searchadvisor.naver.com/indexnow`.
 - 데이터 재현: 검정고시 = `data/sources/ged_*.json`(`_add_ged.py`가 repo 우선 읽음). 수능/학평 bulk = `~/Workspace/kice_archive/*.db`(from-scratch 재빌드 때만, **평소 불필요** — exams.json이 커밋된 원본).
 
@@ -32,6 +32,7 @@
 - 아카이브 탭은 `config.js` TAB_CONFIG가 아니라 **archive.html 정적 버튼**으로 하드코딩 → 새 탭은 양쪽 다 추가.
 
 ## 프론트엔드 구조 (2026-09 개편)
+- **본문 글꼴 = SUITE**(2026-10, `lib/vendor/suite/`, `style.css` body 규칙 바로 위 @font-face). 가운뎃점(U+B7)만 Pretendard 글리프로 대체(SUITE 는 폭이 넓음). Pretendard CSS 는 폴백으로 계속 비동기 로드.
 - **스타일은 `style.css` 하나**(라이트/다크 토큰 · 기관 배지 `tg-{typeGroup}` · 난이도 `tier--1~5`). 학사 일정만 `style-calendar.css` 추가. 색은 반드시 토큰(`var(--…)`)으로 — 다크 모드가 깨진다.
 - **`lib/site-prefs.js`** 는 모든 페이지 `<head>` 에서 동기 로드(CSP상 인라인 불가): 테마(`kicegg:theme`), 스포일러 방지(`kicegg:spoiler`, 기본 켜짐 → `html[data-spoiler="on"]` 이면 `.spoil-val` 흑백 블러), 모바일 메뉴, `.hscroll` 가장자리 흐림.
 - **헤더·푸터 마크업**은 원본 페이지(index/archive/exam/exam-set/calendar/about/privacy/terms/404)와 `render-site.py`(허브·sets) 두 곳에 있다. 메뉴를 바꾸면 양쪽 다.
