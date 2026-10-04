@@ -210,7 +210,6 @@ main { flex: 1 0 auto; width: 100%; }
 .header-search input::placeholder { color: var(--ink-4); }
 .header-search input::-webkit-search-cancel-button { display: none; }
 /* 기출검색 화면에는 본문 검색창이 있으니 헤더 검색창은 숨긴다 */
-.page-archive .header-search { display: none; }
 .header-search kbd { margin-left: auto; font: 500 11px inherit; border: 1px solid var(--line-strong); border-radius: 6px; padding: 1px 6px; color: var(--ink-4); }
 .icon-btn {
   width: 40px; height: 40px; flex: none; display: inline-grid; place-items: center;
