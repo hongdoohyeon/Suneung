@@ -423,10 +423,12 @@ main { flex: 1 0 auto; width: 100%; }
 
 
 /* ═══ Archive ═════════════════════════════════════════════ */
-.page-header { width: 100%; max-width: var(--max-w); margin: 0 auto; padding: 28px 28px 14px; }
-.page-header__title { font-size: 30px; font-weight: var(--h1-weight); letter-spacing: var(--h1-track); }
-.page-header__sub { margin-top: 6px; color: var(--ink-4); font-size: 13.5px; }
-.page-header__meta { display: flex; flex-wrap: wrap; gap: 4px 14px; margin-top: 4px; font-size: 13px; color: var(--ink-4); }
+/* 기출검색 머리글은 한 줄로 압축 — 검색·결과가 첫 화면에 더 많이 보이게 (폰에서는 아예 숨김) */
+.page-header { width: 100%; max-width: var(--max-w); margin: 0 auto; padding: 22px 28px 10px; }
+.page-header__inner { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 14px; }
+.page-header__title { font-size: 22px; font-weight: var(--h1-weight); letter-spacing: var(--h1-track); }
+.page-header__sub { color: var(--ink-4); font-size: 13.5px; }
+.page-header__meta { display: flex; flex-wrap: wrap; gap: 4px 14px; margin-left: auto; font-size: 13px; color: var(--ink-4); }
 .page-header__meta strong { color: var(--ink-2); font-weight: 650; }
 
 .curriculum-nav { width: 100%; max-width: var(--max-w); margin: 0 auto 24px; padding: 0 28px; }
@@ -1058,11 +1060,17 @@ body.pv-lock { overflow: hidden; }
     row-gap: 3px; column-gap: 10px; min-height: 0; padding: 10px 12px 10px 16px; }
   .rrow__subj { grid-area: s; font-size: 14.5px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
   .rrow__subj small { display: inline; margin: 0 0 0 5px; font-size: 12px; }
-  .rrow__meta { grid-area: m; display: flex; flex-wrap: wrap; align-items: center; gap: 2px 6px; min-width: 0; }
+  .rrow__meta { grid-area: m; display: flex; flex-wrap: wrap; align-items: center; gap: 2px 6px; min-width: 0; container-type: inline-size; }
   .rrow__meta:not(:has(.rrow__cut)):not(:has(.tier)) { display: none; }
   .rrow__cut { font-size: 12px; white-space: nowrap; } .rrow__cut small { font-size: 11px; }
   .rrow__cut.spoil-val::before { content: '1컷 '; font-weight: 500; color: var(--ink-4); }
-  .rrow__tier .tier { transform: scale(.88); transform-origin: left center; }
+  /* 행 높이 고정: 칸이 좁으면 난이도는 늘 둘째 줄, 넉넉하면(가장 긴 조합 = 영어 등급컷 99 + 간격 6 + 매우 쉬움 63 = 168px) 늘 한 줄
+     — 배지 글자 길이·스포일러 상태에 따라 줄바꿈이 바뀌어 행 높이가 들쭉날쭉하던 문제 */
+  .rrow__tier { flex-basis: 100%; }
+  @container (min-width: 168px) { .rrow__tier { flex-basis: auto; } }
+  .rrow__tier .tier { height: 20px; padding: 0 7px 0 6px; gap: 4px; font-size: 11px; }
+  .rrow__tier .tier::before { width: 6px; height: 6px; }
+  :root[data-spoiler="on"] .rrow__tier .tier.spoil-val { width: 46px; min-width: 46px; }
   .rrow__tier:empty, .rrow__na { display: none; }
   .rrow__acts { grid-area: a; flex-wrap: wrap; justify-content: flex-end; gap: 5px; max-width: 64vw; align-self: center; }
   .rrow__acts .btn { min-height: 36px; height: 36px; padding: 0 9px; font-size: 12.5px; border-radius: 9px; }
