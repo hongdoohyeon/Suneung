@@ -546,7 +546,7 @@ main { flex: 1 0 auto; width: 100%; }
 .rrow:hover { background: var(--sunken); }
 .rrow--head { min-height: 0; padding-top: 8px; padding-bottom: 8px; background: var(--sunken); font-size: 12px; font-weight: 600; color: var(--ink-4); }
 .rrow--head:hover { background: var(--sunken); }
-.rrow--head span:last-child { text-align: left; }
+.rrow--head span:last-child { text-align: right; }
 .rrow__link { position: absolute; inset: 0; z-index: 0; }
 .rrow__link:focus-visible { outline-offset: -2px; border-radius: 0; }
 .rrow__subj { font-size: 15px; font-weight: 650; min-width: 0; }
@@ -555,7 +555,11 @@ main { flex: 1 0 auto; width: 100%; }
 .rrow__cut small { margin-left: 4px; font-size: 12px; font-weight: 500; color: var(--ink-4); }
 .rrow__na { font-size: 13px; font-weight: 500; color: var(--ink-4); }
 .rrow__meta { display: contents; }   /* 데스크톱: 등급컷·난이도가 각자 표 칸 — 폰에서는 과목 아래 한 줄로 묶음 */
-.rrow__acts { position: relative; z-index: 1; display: flex; justify-content: flex-start; flex-wrap: wrap; gap: 6px; }   /* 왼쪽 정렬 — 버튼 수가 달라도(영어 듣기) 문제지 열이 맞게. 폰은 아래에서 오른쪽 정렬 */
+.rrow__acts { position: relative; z-index: 1; display: grid; grid-template-columns: var(--acts, auto); justify-content: end; gap: 6px; }
+/* 데스크톱: 오른쪽 정렬 + 버튼 종류별 고정 칸(app.js actsColumns) — 없는 버튼 자리는 빈칸이라 문제지 열이 맞음. 폰은 아래에서 flex */
+.rrow__acts > .btn { width: 100%; }
+.rrow__acts .act-q { grid-column: q; } .rrow__acts .act-a { grid-column: a; } .rrow__acts .act-s { grid-column: s; } .rrow__acts .act-l { grid-column: l; }
+.rrow__acts .act-all { grid-column: 1 / -1; }
 .rrow__acts .btn { min-height: 34px; padding: 0 11px; font-size: 13px; border-radius: 9px; }
 .rfold { border-top: 1px solid var(--line); }
 .rfold summary { list-style: none; display: flex; align-items: center; gap: 10px; min-height: 52px; padding: 0 18px; cursor: pointer; }
@@ -1071,7 +1075,8 @@ body.pv-lock { overflow: hidden; }
   .rrow__tier .tier::before { width: 6px; height: 6px; }
   :root[data-spoiler="on"] .rrow__tier .tier.spoil-val { width: 46px; min-width: 46px; }
   .rrow__tier:empty, .rrow__na { display: none; }
-  .rrow__acts { grid-area: a; flex-wrap: wrap; justify-content: flex-end; gap: 5px; max-width: 64vw; align-self: center; }
+  .rrow__acts { grid-area: a; display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 5px; max-width: 64vw; align-self: center; }
+  .rrow__acts > .btn { width: auto; }
   .rrow__acts .btn { min-height: 36px; height: 36px; padding: 0 9px; font-size: 12.5px; border-radius: 9px; }
   .rgroup__head { padding: 14px 16px 10px; flex-wrap: nowrap; }
   .rgroup__title { font-size: 15.5px; }

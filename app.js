@@ -1052,15 +1052,30 @@ const dlAttr = (exam, key, name) => exam[key] === 1
   ? `data-f="${key}" data-eid="${exam.id}"`   // 주소가 도착하면 loadTabUrls 가 이 링크만 제자리에서 바꾼다(다시 그리지 않음)
   : (name ? `download="${escAttr(name)}"` : 'download');
 
+// 데스크톱 자료 칸: 회차 묶음 안에 있는 버튼 종류만 고정 폭 칸으로(13px 글자 기준 실측) — actionsHTML 의 act-* 와 짝
+function actsColumns(items) {
+  const has = { q: false, a: false, s: false, l: false }, wide = { q: false, a: false };
+  for (const e of items) {
+    if (e.searchOnly) { has.q = has.a = true; continue; }
+    const sameQS = typeof e.questionUrl === 'string' && e.questionUrl === e.solutionUrl;
+    if (fileUrl(e, 'questionUrl')) { has.q = true; if (sameQS) wide.q = true; }
+    if (fileUrl(e, 'answerUrl')) { has.a = true; if (e.answerIncludesSolution) wide.a = true; }
+    if (fileUrl(e, 'solutionUrl') && !sameQS) has.s = true;
+    if (fileUrl(e, 'listenUrl')) has.l = true;
+  }
+  const w = { q: wide.q ? 73 : 58, a: wide.a ? 73 : 47, s: 47, l: 47 };
+  return ['q', 'a', 's', 'l'].filter(k => has[k]).map(k => `[${k}] ${w[k]}px`).join(' ') || 'auto';
+}
+
 function actionsHTML(exam) {
-  if (exam.searchOnly) return `<a class="btn btn--primary" href="exam-${exam.id}.html">자료 보기</a>`;
+  if (exam.searchOnly) return `<a class="btn btn--primary act-all" href="exam-${exam.id}.html">자료 보기</a>`;
   const out = [];
   const q = fileUrl(exam, 'questionUrl'), a = fileUrl(exam, 'answerUrl'), s = fileUrl(exam, 'solutionUrl'), l = fileUrl(exam, 'listenUrl');
   const sameQS = typeof exam.questionUrl === 'string' && exam.questionUrl === exam.solutionUrl;
-  if (q) out.push(`<a class="btn btn--primary" href="${escAttr(q)}" ${dlAttr(exam, 'questionUrl', exam.questionDownload)}>${sameQS ? '문제·해설' : '문제지'}</a>`);
-  if (a) out.push(`<a class="btn" href="${escAttr(a)}" ${dlAttr(exam, 'answerUrl', exam.answerDownload)}>${exam.answerIncludesSolution ? '정답·해설' : '정답'}</a>`);
-  if (s && !sameQS) out.push(`<a class="btn" href="${escAttr(s)}" ${dlAttr(exam, 'solutionUrl', exam.solutionDownload)}>해설</a>`);
-  if (l) out.push(`<a class="btn" href="${escAttr(l)}" ${dlAttr(exam, 'listenUrl', exam.listenDownload)}>듣기</a>`);
+  if (q) out.push(`<a class="btn btn--primary act-q" href="${escAttr(q)}" ${dlAttr(exam, 'questionUrl', exam.questionDownload)}>${sameQS ? '문제·해설' : '문제지'}</a>`);
+  if (a) out.push(`<a class="btn act-a" href="${escAttr(a)}" ${dlAttr(exam, 'answerUrl', exam.answerDownload)}>${exam.answerIncludesSolution ? '정답·해설' : '정답'}</a>`);
+  if (s && !sameQS) out.push(`<a class="btn act-s" href="${escAttr(s)}" ${dlAttr(exam, 'solutionUrl', exam.solutionDownload)}>해설</a>`);
+  if (l) out.push(`<a class="btn act-l" href="${escAttr(l)}" ${dlAttr(exam, 'listenUrl', exam.listenDownload)}>듣기</a>`);
   return out.join('');
 }
 
@@ -1135,7 +1150,7 @@ function tableHTML(groups) {
       return rowHTML(r.exam);
     }).join('');
     const ad = gi === 1 && groups.length > 2 ? '<div class="ad-slot ad-slot--banner" data-ad-position="archiveGrid"></div>' : '';
-    return `<section class="rgroup" aria-label="${escAttr(title)}">
+    return `<section class="rgroup" aria-label="${escAttr(title)}" style="--acts: ${actsColumns(g.items)}">
       <header class="rgroup__head">
         <span class="type-badge type-badge--lg tg-${escAttr(first.typeGroup)}">${escHtml(badgeLabel(first))}</span>
         <h2 class="rgroup__title">${setHref ? `<a href="${escAttr(setHref)}">${escHtml(title)}</a>` : escHtml(title)}</h2>
