@@ -1268,7 +1268,7 @@ function renderActiveTags() {
   if (state.query) tags.push({ label: `"${state.query}"`, key: 'query' });
 
   container.innerHTML = tags.map(t => `
-    <span class="tag"><span class="tag__t">${escHtml(t.label)}</span><button data-clear="${t.key}" aria-label="${escAttr(t.label)} 조건 빼기">×</button></span>
+    <span class="tag"><span class="tag__t">${escHtml(t.label)}</span><button data-clear="${t.key}" aria-label="${escAttr(t.label)} 조건 빼기"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button></span>
   `).join('');
 }
 

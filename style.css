@@ -429,11 +429,11 @@ main { flex: 1 0 auto; width: 100%; }
 
 .curriculum-nav { width: 100%; max-width: var(--max-w); margin: 0 auto 24px; padding: 0 28px; }
 .curriculum-nav__select { display: none; }
-.curriculum-nav__inner { display: flex; gap: 2px; border-bottom: 1px solid var(--line); padding: 0; max-width: none; }
+.curriculum-nav__inner { display: flex; gap: 28px; border-bottom: 1px solid var(--line); padding: 0; max-width: none; }
 .nav-group, .nav-group__tabs { display: contents; }
-.nav-sep { width: 1px; background: var(--line); margin: 14px 6px; flex: none; }
+.nav-sep { width: 1px; background: var(--line); margin: 14px 0; flex: none; }
 .nav-tab {
-  display: flex; flex-direction: column; align-items: flex-start; gap: 2px; padding: 10px 14px 12px; flex: none;
+  display: flex; flex-direction: column; align-items: flex-start; gap: 2px; padding: 10px 0 12px; flex: none;   /* 좌우 여백 0 — 첫 탭 글자가 제목·필터와 같은 선, 간격은 부모 gap */
   color: var(--ink-3); box-shadow: inset 0 -2px 0 transparent; text-align: left; transition: color var(--t), box-shadow var(--t);
 }
 .nav-tab__title { font-size: 15px; font-weight: var(--ui-weight); white-space: nowrap; }
@@ -498,7 +498,7 @@ main { flex: 1 0 auto; width: 100%; }
 .search__icon { flex: none; }
 .search input { flex: 1; min-width: 0; border: 0; outline: 0; background: none; font-size: 15px; font-weight: 500; color: var(--ink); }
 .search input::placeholder { color: var(--ink-4); }
-.search__clear { width: 32px; height: 32px; border-radius: 8px; display: grid; place-items: center; font-size: 18px; color: var(--ink-4); }
+.search__clear { width: 32px; height: 32px; border-radius: 8px; display: grid; place-items: center; justify-content: center; align-items: center; flex: none; color: var(--ink-4); }
 .search__clear:hover { background: var(--surface-2); color: var(--ink); }
 .filter-toggle-inline { display: none; }
 .filter-badge { min-width: 20px; height: 20px; padding: 0 5px; border-radius: 999px; background: var(--ink); color: var(--on-ink); font-size: 11.5px; display: grid; place-items: center; }
@@ -546,7 +546,7 @@ main { flex: 1 0 auto; width: 100%; }
 .rrow:hover { background: var(--sunken); }
 .rrow--head { min-height: 0; padding-top: 8px; padding-bottom: 8px; background: var(--sunken); font-size: 12px; font-weight: 600; color: var(--ink-4); }
 .rrow--head:hover { background: var(--sunken); }
-.rrow--head span:last-child { text-align: right; }
+.rrow--head span:last-child { text-align: left; }
 .rrow__link { position: absolute; inset: 0; z-index: 0; }
 .rrow__link:focus-visible { outline-offset: -2px; border-radius: 0; }
 .rrow__subj { font-size: 15px; font-weight: 650; min-width: 0; }
@@ -555,7 +555,7 @@ main { flex: 1 0 auto; width: 100%; }
 .rrow__cut small { margin-left: 4px; font-size: 12px; font-weight: 500; color: var(--ink-4); }
 .rrow__na { font-size: 13px; font-weight: 500; color: var(--ink-4); }
 .rrow__meta { display: contents; }   /* 데스크톱: 등급컷·난이도가 각자 표 칸 — 폰에서는 과목 아래 한 줄로 묶음 */
-.rrow__acts { position: relative; z-index: 1; display: flex; justify-content: flex-end; flex-wrap: wrap; gap: 6px; }
+.rrow__acts { position: relative; z-index: 1; display: flex; justify-content: flex-start; flex-wrap: wrap; gap: 6px; }   /* 왼쪽 정렬 — 버튼 수가 달라도(영어 듣기) 문제지 열이 맞게. 폰은 아래에서 오른쪽 정렬 */
 .rrow__acts .btn { min-height: 34px; padding: 0 11px; font-size: 13px; border-radius: 9px; }
 .rfold { border-top: 1px solid var(--line); }
 .rfold summary { list-style: none; display: flex; align-items: center; gap: 10px; min-height: 52px; padding: 0 18px; cursor: pointer; }
@@ -1037,7 +1037,8 @@ body.pv-lock { overflow: hidden; }
   .page-header { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; padding: 0; }
   .curriculum-nav { margin: 6px 0 12px; padding: 0; }
   .curriculum-nav__inner { padding: 0 16px; }
-  .nav-tab { padding: 8px 12px 10px; }
+  .nav-tab { padding: 8px 0 10px; }
+  .curriculum-nav__inner { gap: 22px; }
   /* 한 줄: [검색 ····][필터][표|카드] — 어떤 폭에서도 잘리지 않게 검색창만 줄어든다 */
   .toolbar { flex-wrap: nowrap; gap: 6px; margin-bottom: 8px; }
   .search { flex: 1 1 0; height: 44px; padding: 0 8px 0 12px; gap: 8px; }
