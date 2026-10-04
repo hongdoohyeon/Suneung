@@ -610,13 +610,31 @@ def generate_og_image(it: dict, head: str, out_path: Path):
     bottom_font = ImageFont.truetype(_OG_FONT_PATH, 26)
     domain_font = ImageFont.truetype(_OG_FONT_PATH, 22)
 
+    # 가운뎃점(·)은 SUITE 글리프 폭이 넓어 직접 그린다(사이트에서 Pretendard 글리프로 바꾼 것과 같은 폭 0.25em).
+    def text_w(text, font):
+        return sum(d.textlength(p, font=font) for p in text.split('·')) + text.count('·') * font.size * 0.25
+
+    def draw_text(xy, text, font, fill):
+        x, y = xy
+        size = font.size
+        baseline = y + font.getmetrics()[0]
+        parts = text.split('·')
+        for i, part in enumerate(parts):
+            if part:
+                d.text((x, y), part, fill=fill, font=font)
+                x += d.textlength(part, font=font)
+            if i < len(parts) - 1:
+                cx, cy, r = x + size * 0.125, baseline - size * 0.36, size * 0.045
+                d.ellipse([cx - r, cy - r, cx + r, cy + r], fill=fill)
+                x += size * 0.25
+
     # 좌상단 브랜드 + 차별화 슬로건 태그라인 (공유될 때마다 노출)
     d.text((60, 56), '기출해체분석기', fill='#64748b', font=brand_font)
     tagline_font = ImageFont.truetype(_OG_FONT_PATH, 22)
     tagline = ('가입 없이 · 한 페이지에서 · 등급컷까지'
                if it.get('typeGroup') in ('suneung', 'education')
                else '가입 없이 · 한 페이지에서 · 전부 무료')
-    d.text((60, 96), tagline, fill='#94a3b8', font=tagline_font)
+    draw_text((60, 96), tagline, tagline_font, '#94a3b8')
 
     # 중앙 시험명 — 너무 길면 자동 줄바꿈
     title = head
@@ -631,9 +649,8 @@ def generate_og_image(it: dict, head: str, out_path: Path):
     # 줄별 측정 + 중앙 배치
     y_cur = H / 2 - (len(title_lines) * 80) / 2 + 10
     for line in title_lines:
-        bbox = d.textbbox((0, 0), line, font=title_font)
-        tw = bbox[2] - bbox[0]
-        d.text(((W - tw) / 2, y_cur), line, fill='#0f172a', font=title_font)
+        tw = text_w(line, title_font)
+        draw_text(((W - tw) / 2, y_cur), line, title_font, '#0f172a')
         y_cur += 80
 
     # 부제 — "기출"
@@ -646,9 +663,8 @@ def generate_og_image(it: dict, head: str, out_path: Path):
     bottom = '문제지 · 정답 · 등급컷'
     if it.get('listenUrl'):
         bottom += ' · 영어 듣기 mp3'
-    bbox = d.textbbox((0, 0), bottom, font=bottom_font)
-    bw = bbox[2] - bbox[0]
-    d.text(((W - bw) / 2, H - 100), bottom, fill='#94a3b8', font=bottom_font)
+    bw = text_w(bottom, bottom_font)
+    draw_text(((W - bw) / 2, H - 100), bottom, bottom_font, '#94a3b8')
 
     # 도메인
     dom = 'kicegg.com'
