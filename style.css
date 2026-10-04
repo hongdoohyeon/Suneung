@@ -519,7 +519,8 @@ main { flex: 1 0 auto; width: 100%; }
   background: var(--ink); color: var(--on-ink); font-size: 13px; font-weight: var(--ui-weight); white-space: nowrap;
 }
 .tag__t { max-width: min(62vw, 360px); overflow: hidden; text-overflow: ellipsis; }
-.tag button { width: 28px; height: 28px; border-radius: 50%; display: grid; place-items: center; color: inherit; font-size: 14px; opacity: .75; }
+.tag button { position: relative; width: 28px; height: 28px; border-radius: 50%; display: grid; place-items: center; color: inherit; font-size: 14px; opacity: .75; }
+.tag button::after { content: ''; position: absolute; inset: -8px -3px -8px -6px; }   /* 보이는 크기는 28px, 누르는 영역은 37×44px */
 .tag button:hover { opacity: 1; background: color-mix(in srgb, var(--on-ink) 18%, transparent); }
 
 .examset-link {
