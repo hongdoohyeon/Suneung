@@ -2307,23 +2307,14 @@ def build_static_exam_pages(items: list[dict], template_path: Path, out_root: Pa
             # 'PDF' 표기는 폰에서 숨겨 버튼을 두 줄 안에 모은다 (HWP 는 형식이 달라 항상 표시)
             label_html = html_escape(label, quote=False).replace(' PDF', ' <span class="btn__tag">PDF</span>')
             return f'<a class="btn {cls}" href="{html_escape(url, quote=True)}"{dl_attr}>{label_html}</a>'
-        # 영어 듣기는 최상단 — 모바일에서 자료 접근 우선
-        if it.get('subject') == '영어' and listen:
-            btns.append(_btn('btn--primary', listen, '듣기 MP3', it.get('listenDownload')))
-            if script: btns.append(_btn('', script, '듣기 대본 PDF', it.get('scriptDownload')))
-            btns.append(_btn('', q_url, q_label, it.get('questionDownload')))
-            if qE_url: btns.append(_btn('', qE_url, '문제지 PDF (짝수형)', it.get('questionDownloadEven')))
-            btns.append(_btn('', a_url, a_label, it.get('answerDownload')))
-            if aE_url: btns.append(_btn('', aE_url, '정답 PDF (짝수형)', it.get('answerDownloadEven')))
-            if sol_url and not combined_document: btns.append(_btn('', sol_url, '해설지 PDF', it.get('solutionDownload')))
-        else:
-            btns.append(_btn('btn--primary', q_url, q_label, it.get('questionDownload')))
-            if qE_url: btns.append(_btn('', qE_url, '문제지 PDF (짝수형)', it.get('questionDownloadEven')))
-            btns.append(_btn('', a_url, a_label, it.get('answerDownload')))
-            if aE_url: btns.append(_btn('', aE_url, '정답 PDF (짝수형)', it.get('answerDownloadEven')))
-            if sol_url and not combined_document: btns.append(_btn('', sol_url, '해설지 PDF', it.get('solutionDownload')))
-            if listen: btns.append(_btn('', listen, '듣기 MP3', it.get('listenDownload')))
-            if script: btns.append(_btn('', script, '듣기 대본 PDF', it.get('scriptDownload')))
+        # 문제지가 늘 맨 앞(영어도 동일) — 듣기는 아래 플레이어에서 바로 재생
+        btns.append(_btn('btn--primary', q_url, q_label, it.get('questionDownload')))
+        if qE_url: btns.append(_btn('', qE_url, '문제지 PDF (짝수형)', it.get('questionDownloadEven')))
+        btns.append(_btn('', a_url, a_label, it.get('answerDownload')))
+        if aE_url: btns.append(_btn('', aE_url, '정답 PDF (짝수형)', it.get('answerDownloadEven')))
+        if sol_url and not combined_document: btns.append(_btn('', sol_url, '해설지 PDF', it.get('solutionDownload')))
+        if listen: btns.append(_btn('', listen, '듣기 MP3', it.get('listenDownload')))
+        if script: btns.append(_btn('', script, '듣기 대본 PDF', it.get('scriptDownload')))
         # 공유 버튼 자리까지 SSG 에서 확정 (JS 가 뒤늦게 넣으면 레이아웃이 밀림)
         btns.append(
             '<button type="button" class="btn" id="examShareBtn" aria-label="공유하기">'

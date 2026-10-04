@@ -12096,7 +12096,8 @@
     "scriptDownload": "2023년 10월 학력평가 영어 듣기 스크립트.pdf",
     "questionDownload": "2023년 10월 학력평가 영어 문제지.pdf",
     "answerDownload": "2023년 10월 학력평가 영어 정답.pdf",
-    "answerIncludesSolution": true
+    "answerIncludesSolution": true,
+    "listenChapters": "0:안내,176.8:1,239.5:2,315.4:3,388.7:4,476.3:5,552.9:6,629.4:7,714.7:8,794.6:9,872.2:10,957.6:11,997.8:12,1038.1:13,1114.1:14,1192:15,1277.4:16~17"
   },
   {
     "id": 754,
@@ -14171,7 +14172,8 @@
     "scriptDownload": "2023년 7월 학력평가 영어 듣기 스크립트.pdf",
     "questionDownload": "2023년 7월 학력평가 영어 문제지.pdf",
     "answerDownload": "2023년 7월 학력평가 영어 정답.pdf",
-    "answerIncludesSolution": true
+    "answerIncludesSolution": true,
+    "listenChapters": "0:안내,147.3:1,207.6:2,277.7:3,368.5:4,444.5:5,525.8:6,606.2:7,680.1:8,754.8:9,825.6:10,900.4:11,938.8:12,979.1:13,1052.7:14,1130.6:15,1207.2:16~17"
   },
   {
     "id": 882,
@@ -18455,7 +18457,8 @@
     "scriptDownload": "2023년 9월 학력평가 영어 듣기 스크립트.pdf",
     "questionDownload": "2023년 9월 학력평가 영어 문제지.pdf",
     "answerDownload": "2023년 9월 학력평가 영어 정답.pdf",
-    "answerIncludesSolution": true
+    "answerIncludesSolution": true,
+    "listenChapters": "0:안내,182.2:1,230.9:2,305.5:3,390.1:4,460.9:5,534.6:6,613.4:7,686.9:8,770:9,852.9:10,934.2:11,979.8:12,1017.1:13,1088.7:14,1170.5:15,1243.8:16~17"
   },
   {
     "id": 1139,
@@ -19479,7 +19482,8 @@
     "scriptDownload": "2022년 7월 학력평가 영어 듣기 스크립트.pdf",
     "questionDownload": "2022년 7월 학력평가 영어 문제지.pdf",
     "answerDownload": "2022년 7월 학력평가 영어 정답.pdf",
-    "answerIncludesSolution": true
+    "answerIncludesSolution": true,
+    "listenChapters": "0:안내,140.6:1,209.7:2,290.9:3,366.7:4,449.6:5,525.7:6,611.2:7,685.3:8,766.6:9,842.1:10,920:11,953.2:12,988.9:13,1057.7:14,1131.2:15,1204.7:16~17"
   },
   {
     "id": 1211,
@@ -25188,7 +25192,8 @@
     "scriptDownload": "2021년 7월 학력평가 영어 듣기 스크립트.pdf",
     "questionDownload": "2021년 7월 학력평가 영어 문제지.pdf",
     "answerDownload": "2021년 7월 학력평가 영어 정답.pdf",
-    "answerIncludesSolution": true
+    "answerIncludesSolution": true,
+    "listenChapters": "0:안내,128:1,182.9:2,266.6:3,356.7:4,442.6:5,529.2:6,608.7:7,692.3:8,781.7:9,867.3:10,960.4:11,999.4:12,1040.8:13,1120.1:14,1203.4:15,1272.2:16~17"
   },
   {
     "id": 1540,
@@ -32104,7 +32109,8 @@
     "scriptDownload": "2021년 3월 학력평가 영어 듣기 스크립트.pdf",
     "questionDownload": "2021년 3월 학력평가 영어 문제지.pdf",
     "answerDownload": "2021년 3월 학력평가 영어 정답.pdf",
-    "answerIncludesSolution": true
+    "answerIncludesSolution": true,
+    "listenChapters": "0:안내,142.3:1,194.9:2,274:3,351.9:4,425.3:5,508.9:6,596:7,672.9:8,744.3:9,823:10,902.5:11,942.1:12,980.2:13,1051.1:14,1131.1:15,1203.4:16~17"
   },
   {
     "id": 1913,
@@ -32818,7 +32824,7 @@
     "solutionUrl": "https://suneung-files.hdh061224.workers.dev/ebsi-mirror-v2/7b88001cf26ece96.pdf?name=2020%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EC%98%81%EC%96%B4%20%EC%A0%95%EB%8B%B5%C2%B7%ED%95%B4%EC%84%A4.pdf",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-v3/2020_csat_english_q.pdf?name=2020%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EC%98%81%EC%96%B4%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
     "answerUrl": "https://suneung-files.hdh061224.workers.dev/kice-archive-v6/2020_csat_id1708_a_odd.pdf?name=2020%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EC%98%81%EC%96%B4%20%EC%A0%95%EB%8B%B5.pdf",
-    "listenUrl": "https://suneung-files.hdh061224.workers.dev/kice-listening-v1/2020_csat_english_l.mp3?name=2020%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EC%98%81%EC%96%B4%20%EB%93%A3%EA%B8%B0.mp3",
+    "listenUrl": "https://suneung-files.hdh061224.workers.dev/kice-listening-v1/2020_csat_english_l_v2.mp3?name=2020%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EC%98%81%EC%96%B4%20%EB%93%A3%EA%B8%B0.mp3",
     "listenDownload": "2020학년도 수능 영어 듣기.mp3",
     "scriptUrl": "https://suneung-files.hdh061224.workers.dev/kice-listening-v1/2020_csat_english_t.pdf?name=2020%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EC%98%81%EC%96%B4%20%EB%93%A3%EA%B8%B0%20%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8.pdf",
     "scriptDownload": "2020학년도 수능 영어 듣기 스크립트.pdf",
@@ -32830,7 +32836,8 @@
     "questionDownload": "2020학년도 수능 영어 문제지.pdf",
     "solutionDownload": "2020학년도 수능 영어 정답·해설.pdf",
     "solutionSource": "EBSi",
-    "solutionSourcePage": "https://www.ebsi.co.kr/ebs/xip/xipc/previousPaperList.ebs?targetCd=D300"
+    "solutionSourcePage": "https://www.ebsi.co.kr/ebs/xip/xipc/previousPaperList.ebs?targetCd=D300",
+    "listenChapters": "0:안내,196.5:1,241.9:2,291.3:3,364:4,442.2:5,520.8:6,600.6:7,671.4:8,748.4:9,829.9:10,900.1:11,981.2:12,1064.9:13,1140.2:14,1224.3:15,1303.9:16~17"
   },
   {
     "id": 1952,
@@ -53788,7 +53795,7 @@
     "solutionUrl": "https://suneung-files.hdh061224.workers.dev/ebsi-mirror-v2/7d92bc46654463c5.pdf?name=2017%ED%95%99%EB%85%84%EB%8F%84%206%EC%9B%94%20%EB%AA%A8%ED%8F%89%20%EC%98%81%EC%96%B4%20%EC%A0%95%EB%8B%B5%C2%B7%ED%95%B4%EC%84%A4.pdf",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-v1/2017_mock06_english_q.pdf?name=2017%ED%95%99%EB%85%84%EB%8F%84%206%EB%AA%A8%20%EC%98%81%EC%96%B4%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
     "answerUrl": "https://suneung-files.hdh061224.workers.dev/kice-v1/2017_mock06_english_a.pdf?name=2017%ED%95%99%EB%85%84%EB%8F%84%206%EB%AA%A8%20%EC%98%81%EC%96%B4%20%EC%A0%95%EB%8B%B5.pdf",
-    "listenUrl": "https://suneung-files.hdh061224.workers.dev/kice-listening-v1/2017_mock06_english_l.mp3?name=2017%ED%95%99%EB%85%84%EB%8F%84%206%EB%AA%A8%20%EC%98%81%EC%96%B4%20%EB%93%A3%EA%B8%B0.mp3",
+    "listenUrl": "https://suneung-files.hdh061224.workers.dev/kice-listening-v1/2017_mock06_english_l_v2.mp3?name=2017%ED%95%99%EB%85%84%EB%8F%84%206%EB%AA%A8%20%EC%98%81%EC%96%B4%20%EB%93%A3%EA%B8%B0.mp3",
     "listenDownload": "2017학년도 6모 영어 듣기.mp3",
     "scriptUrl": "https://suneung-files.hdh061224.workers.dev/kice-listening-v1/2017_mock06_english_t.pdf?name=2017%ED%95%99%EB%85%84%EB%8F%84%206%EB%AA%A8%20%EC%98%81%EC%96%B4%20%EB%93%A3%EA%B8%B0%20%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8.pdf",
     "scriptDownload": "2017학년도 6모 영어 듣기 스크립트.pdf",
@@ -53796,7 +53803,8 @@
     "answerDownload": "2017학년도 6모 영어 정답.pdf",
     "solutionDownload": "2017학년도 6월 모평 영어 정답·해설.pdf",
     "solutionSource": "EBSi",
-    "solutionSourcePage": "https://www.ebsi.co.kr/ebs/xip/xipc/previousPaperList.ebs?targetCd=D300"
+    "solutionSourcePage": "https://www.ebsi.co.kr/ebs/xip/xipc/previousPaperList.ebs?targetCd=D300",
+    "listenChapters": "0:안내,190.7:1,230.6:2,274.5:3,348.8:4,425.5:5,511.2:6,587.1:7,666.7:8,740.1:9,815.4:10,897.8:11,984.9:12,1054.9:13,1132.7:14,1219.2:15,1299.5:16~17"
   },
   {
     "id": 3159,
@@ -57504,7 +57512,7 @@
     "solutionUrl": "https://suneung-files.hdh061224.workers.dev/ebsi-mirror-v3/ac75a2edd49b80d0.pdf?name=2016%ED%95%99%EB%85%84%EB%8F%84%209%EC%9B%94%20%EB%AA%A8%ED%8F%89%20%EC%98%81%EC%96%B4%20%EC%A0%95%EB%8B%B5%C2%B7%ED%95%B4%EC%84%A4.pdf",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-v2/2016_mock09_english_q.pdf?name=2016%ED%95%99%EB%85%84%EB%8F%84%209%EB%AA%A8%20%EC%98%81%EC%96%B4%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
     "answerUrl": "https://suneung-files.hdh061224.workers.dev/kice-v2/2016_mock09_english_a.pdf?name=2016%ED%95%99%EB%85%84%EB%8F%84%209%EB%AA%A8%20%EC%98%81%EC%96%B4%20%EC%A0%95%EB%8B%B5.pdf",
-    "listenUrl": "https://suneung-files.hdh061224.workers.dev/kice-listening-v1/2016_mock09_english_l.mp3?name=2016%ED%95%99%EB%85%84%EB%8F%84%209%EB%AA%A8%20%EC%98%81%EC%96%B4%20%EB%93%A3%EA%B8%B0.mp3",
+    "listenUrl": "https://suneung-files.hdh061224.workers.dev/kice-listening-v1/2016_mock09_english_l_v2.mp3?name=2016%ED%95%99%EB%85%84%EB%8F%84%209%EB%AA%A8%20%EC%98%81%EC%96%B4%20%EB%93%A3%EA%B8%B0.mp3",
     "listenDownload": "2016학년도 9모 영어 듣기.mp3",
     "scriptUrl": "https://suneung-files.hdh061224.workers.dev/kice-listening-v1/2016_mock09_english_t.pdf?name=2016%ED%95%99%EB%85%84%EB%8F%84%209%EB%AA%A8%20%EC%98%81%EC%96%B4%20%EB%93%A3%EA%B8%B0%20%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8.pdf",
     "scriptDownload": "2016학년도 9모 영어 듣기 스크립트.pdf",
@@ -57512,7 +57520,8 @@
     "answerDownload": "2016학년도 9모 영어 정답.pdf",
     "solutionDownload": "2016학년도 9월 모평 영어 정답·해설.pdf",
     "solutionSource": "EBSi",
-    "solutionSourcePage": "https://www.ebsi.co.kr/ebs/xip/xipc/previousPaperList.ebs?targetCd=D300"
+    "solutionSourcePage": "https://www.ebsi.co.kr/ebs/xip/xipc/previousPaperList.ebs?targetCd=D300",
+    "listenChapters": "0:안내,179.8:1,216.3:2,255.6:3,328.7:4,404.3:5,477.8:6,551.6:7,637.8:8,706.6:9,789.2:10,876:11,953.9:12,1036.7:13,1127.6:14,1207.6:15,1286.5:16~17"
   },
   {
     "id": 3378,
@@ -88581,7 +88590,8 @@
     "questionDownload": "2006년 9월 학력평가 고2 영어/A형 문제지.pdf",
     "solutionDownload": "2006년 9월 학력평가 고2 영어/A형 해설지.pdf",
     "listenUrl": "https://suneung-files.hdh061224.workers.dev/edu-listening-v1/2006_09_g2_english_a_l.mp3?name=2006%EB%85%84%209%EC%9B%94%20%ED%95%99%EB%A0%A5%ED%8F%89%EA%B0%80%20%EA%B3%A02%20%EC%98%81%EC%96%B4%20A%ED%98%95%20%EB%93%A3%EA%B8%B0.mp3",
-    "listenDownload": "2006년 9월 학력평가 고2 영어 A형 듣기.mp3"
+    "listenDownload": "2006년 9월 학력평가 고2 영어 A형 듣기.mp3",
+    "listenChapters": "0:안내,122.9:1,174.5:2,237.7:3,290.1:4,352.1:5,403.2:6,461.2:7,524.5:8,582.4:9,641:10,694.9:11,757.9:12,824.8:13,876.1:14,935:15,984.4:16,1042.4:17"
   },
   {
     "id": 5016,
@@ -90431,7 +90441,8 @@
     "listenUrl": "https://suneung-files.hdh061224.workers.dev/edu-listening-v1/2008_09_g2_english_a_l.mp3?name=2008%EB%85%84%209%EC%9B%94%20%ED%95%99%EB%A0%A5%ED%8F%89%EA%B0%80%20%EA%B3%A02%20%EC%98%81%EC%96%B4%20A%ED%98%95%20%EB%93%A3%EA%B8%B0.mp3",
     "listenDownload": "2008년 9월 학력평가 고2 영어 A형 듣기.mp3",
     "scriptUrl": "https://suneung-files.hdh061224.workers.dev/edu-listening-v1/2008_09_g2_english_a_t.pdf?name=2008%EB%85%84%209%EC%9B%94%20%ED%95%99%EB%A0%A5%ED%8F%89%EA%B0%80%20%EA%B3%A02%20%EC%98%81%EC%96%B4%20A%ED%98%95%20%EB%93%A3%EA%B8%B0%20%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8.pdf",
-    "scriptDownload": "2008년 9월 학력평가 고2 영어 A형 듣기 스크립트.pdf"
+    "scriptDownload": "2008년 9월 학력평가 고2 영어 A형 듣기 스크립트.pdf",
+    "listenChapters": "0:안내,106.1:1,152.3:2,217.9:3,282.2:4,353:5,425.9:6,487:7,543.8:8,607.5:9,676.2:10,743.3:11,816.3:12,881.9:13,944.7:14,1011.2:15,1080.7:16,1142.8:17"
   },
   {
     "id": 5117,
@@ -93705,7 +93716,8 @@
     "listenUrl": "https://suneung-files.hdh061224.workers.dev/edu-listening-v1/2012_11_g2_english_a_l.mp3?name=2012%EB%85%84%2011%EC%9B%94%20%ED%95%99%EB%A0%A5%ED%8F%89%EA%B0%80%20%EA%B3%A02%20%EC%98%81%EC%96%B4%20A%ED%98%95%20%EB%93%A3%EA%B8%B0.mp3",
     "listenDownload": "2012년 11월 학력평가 고2 영어 A형 듣기.mp3",
     "scriptUrl": "https://suneung-files.hdh061224.workers.dev/edu-listening-v1/2012_11_g2_english_a_t.pdf?name=2012%EB%85%84%2011%EC%9B%94%20%ED%95%99%EB%A0%A5%ED%8F%89%EA%B0%80%20%EA%B3%A02%20%EC%98%81%EC%96%B4%20A%ED%98%95%20%EB%93%A3%EA%B8%B0%20%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8.pdf",
-    "scriptDownload": "2012년 11월 학력평가 고2 영어 A형 듣기 스크립트.pdf"
+    "scriptDownload": "2012년 11월 학력평가 고2 영어 A형 듣기 스크립트.pdf",
+    "listenChapters": "0:안내,85.2:1~3,182.8:4,234:5,291.8:6,346.2:7,405.3:8,467.1:9,527.6:10,597:11,656:12,710.5:13,768:14,821.4:15,877.5:16,936.5:17,1002.1:18,1056.5:19,1122.6:20,1178.9:21~22"
   },
   {
     "id": 5297,
@@ -93940,7 +93952,8 @@
     "listenUrl": "https://suneung-files.hdh061224.workers.dev/edu-listening-v1/2012_06_g2_english_a_l.mp3?name=2012%EB%85%84%206%EC%9B%94%20%ED%95%99%EB%A0%A5%ED%8F%89%EA%B0%80%20%EA%B3%A02%20%EC%98%81%EC%96%B4%20A%ED%98%95%20%EB%93%A3%EA%B8%B0.mp3",
     "listenDownload": "2012년 6월 학력평가 고2 영어 A형 듣기.mp3",
     "scriptUrl": "https://suneung-files.hdh061224.workers.dev/edu-listening-v1/2012_06_g2_english_a_t.pdf?name=2012%EB%85%84%206%EC%9B%94%20%ED%95%99%EB%A0%A5%ED%8F%89%EA%B0%80%20%EA%B3%A02%20%EC%98%81%EC%96%B4%20A%ED%98%95%20%EB%93%A3%EA%B8%B0%20%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8.pdf",
-    "scriptDownload": "2012년 6월 학력평가 고2 영어 A형 듣기 스크립트.pdf"
+    "scriptDownload": "2012년 6월 학력평가 고2 영어 A형 듣기 스크립트.pdf",
+    "listenChapters": "0:안내,94.7:1,168.1:2,244.9:3,316.9:4,392.3:5,457.7:6,523.5:7,610:8,688:9,781.9:10~11,883.4:12,955.4:13,1040.2:14~15,1165.1:16,1237.6:17,1313.6:18,1392:19,1454:20,1535.3:21,1607:22"
   },
   {
     "id": 5309,
@@ -93962,7 +93975,8 @@
     "listenUrl": "https://suneung-files.hdh061224.workers.dev/edu-listening-v1/2012_06_g2_english_b_l.mp3?name=2012%EB%85%84%206%EC%9B%94%20%ED%95%99%EB%A0%A5%ED%8F%89%EA%B0%80%20%EA%B3%A02%20%EC%98%81%EC%96%B4%20B%ED%98%95%20%EB%93%A3%EA%B8%B0.mp3",
     "listenDownload": "2012년 6월 학력평가 고2 영어 B형 듣기.mp3",
     "scriptUrl": "https://suneung-files.hdh061224.workers.dev/edu-listening-v1/2012_06_g2_english_b_t.pdf?name=2012%EB%85%84%206%EC%9B%94%20%ED%95%99%EB%A0%A5%ED%8F%89%EA%B0%80%20%EA%B3%A02%20%EC%98%81%EC%96%B4%20B%ED%98%95%20%EB%93%A3%EA%B8%B0%20%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8.pdf",
-    "scriptDownload": "2012년 6월 학력평가 고2 영어 B형 듣기 스크립트.pdf"
+    "scriptDownload": "2012년 6월 학력평가 고2 영어 B형 듣기 스크립트.pdf",
+    "listenChapters": "0:안내,94.6:1,151.4:2,228.1:3,300.2:4,379.8:5,451.4:6,517.5:7,587.3:8,662.9:9,744.8:10~11,846.3:12,918.3:13,1003.2:14~15,1124:16,1196.5:17,1272.5:18,1337.6:19,1403.2:20,1484.5:21,1556.2:22"
   },
   {
     "id": 5310,
@@ -94020,7 +94034,8 @@
     "listenUrl": "https://suneung-files.hdh061224.workers.dev/edu-listening-v1/2012_03_g2_english_a_l.mp3?name=2012%EB%85%84%203%EC%9B%94%20%ED%95%99%EB%A0%A5%ED%8F%89%EA%B0%80%20%EA%B3%A02%20%EC%98%81%EC%96%B4%20A%ED%98%95%20%EB%93%A3%EA%B8%B0.mp3",
     "listenDownload": "2012년 3월 학력평가 고2 영어 A형 듣기.mp3",
     "scriptUrl": "https://suneung-files.hdh061224.workers.dev/edu-listening-v1/2012_03_g2_english_a_t.pdf?name=2012%EB%85%84%203%EC%9B%94%20%ED%95%99%EB%A0%A5%ED%8F%89%EA%B0%80%20%EA%B3%A02%20%EC%98%81%EC%96%B4%20A%ED%98%95%20%EB%93%A3%EA%B8%B0%20%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8.pdf",
-    "scriptDownload": "2012년 3월 학력평가 고2 영어 A형 듣기 스크립트.pdf"
+    "scriptDownload": "2012년 3월 학력평가 고2 영어 A형 듣기 스크립트.pdf",
+    "listenChapters": "0:안내,120.4:1,180.6:2,248.6:3,302.7:4,364:5,443.5:6,504.6:7,574.2:8,639.1:9,705.7:10,771.9:11,835.8:12,909.8:13,978.4:14,1045.2:15,1098:16,1172.1:17,1232.9:18,1307.8:19,1372.7:20,1448.7:21~22"
   },
   {
     "id": 5314,
@@ -94166,7 +94181,8 @@
     "questionDownload": "2006년 10월 학력평가 고3 영어 문제지.pdf",
     "solutionDownload": "2006년 10월 학력평가 고3 영어 해설지.pdf",
     "listenUrl": "https://suneung-files.hdh061224.workers.dev/edu-listening-v1/2006_10_g3_english_l.mp3?name=2006%EB%85%84%2010%EC%9B%94%20%ED%95%99%EB%A0%A5%ED%8F%89%EA%B0%80%20%EA%B3%A03%20%EC%98%81%EC%96%B4%20%EB%93%A3%EA%B8%B0.mp3",
-    "listenDownload": "2006년 10월 학력평가 고3 영어 듣기.mp3"
+    "listenDownload": "2006년 10월 학력평가 고3 영어 듣기.mp3",
+    "listenChapters": "0:안내,121.5:1,174.3:2,232.5:3,297.9:4,353.5:5,418.7:6,479.3:7,529.1:8,590.1:9,648.7:10,703.6:11,766:12,832.7:13,888.2:14,950.3:15,1011.5:16,1075.8:17"
   },
   {
     "id": 5323,
@@ -100250,7 +100266,8 @@
     "listenUrl": "https://suneung-files.hdh061224.workers.dev/edu-listening-v1/2009_04_g3_english_l.mp3?name=2009%EB%85%84%204%EC%9B%94%20%ED%95%99%EB%A0%A5%ED%8F%89%EA%B0%80%20%EA%B3%A03%20%EC%98%81%EC%96%B4%20%EB%93%A3%EA%B8%B0.mp3",
     "listenDownload": "2009년 4월 학력평가 고3 영어 듣기.mp3",
     "scriptUrl": "https://suneung-files.hdh061224.workers.dev/edu-listening-v1/2009_04_g3_english_t.pdf?name=2009%EB%85%84%204%EC%9B%94%20%ED%95%99%EB%A0%A5%ED%8F%89%EA%B0%80%20%EA%B3%A03%20%EC%98%81%EC%96%B4%20%EB%93%A3%EA%B8%B0%20%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8.pdf",
-    "scriptDownload": "2009년 4월 학력평가 고3 영어 듣기 스크립트.pdf"
+    "scriptDownload": "2009년 4월 학력평가 고3 영어 듣기 스크립트.pdf",
+    "listenChapters": "0:안내,93.1:1,157.7:2,221.7:3,277.2:4,345.9:5,398.4:6,454.2:7,512.6:8,581:9,646.3:10,705.5:11,772.9:12,832.5:13,891.8:14,951.7:15,1013.1:16,1079.7:17"
   },
   {
     "id": 5658,
@@ -167929,7 +167946,8 @@
     "listenUrl": "https://suneung-files.hdh061224.workers.dev/edu-listening-v1/2013_03_g1_english_l.mp3?name=2013%EB%85%84%203%EC%9B%94%20%ED%95%99%EB%A0%A5%ED%8F%89%EA%B0%80%20%EA%B3%A01%20%EC%98%81%EC%96%B4%20%EB%93%A3%EA%B8%B0.mp3",
     "listenDownload": "2013년 3월 학력평가 고1 영어 듣기.mp3",
     "scriptUrl": "https://suneung-files.hdh061224.workers.dev/edu-listening-v1/2013_03_g1_english_t.pdf?name=2013%EB%85%84%203%EC%9B%94%20%ED%95%99%EB%A0%A5%ED%8F%89%EA%B0%80%20%EA%B3%A01%20%EC%98%81%EC%96%B4%20%EB%93%A3%EA%B8%B0%20%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8.pdf",
-    "scriptDownload": "2013년 3월 학력평가 고1 영어 듣기 스크립트.pdf"
+    "scriptDownload": "2013년 3월 학력평가 고1 영어 듣기 스크립트.pdf",
+    "listenChapters": "0:안내,93.8:1,145:2,178.5:3,211.2:4,264.6:5,315.2:6,377.7:7,433.1:8,489.7:9,555.1:10,615.2:11,668.9:12,714.3:13,776.9:14,838.5:15,896.3:16,963.2:17,1023.2:18,1082.4:19,1139.5:20,1204.7:21~22"
   },
   {
     "id": 11833,
@@ -169117,7 +169135,8 @@
     "listenUrl": "https://suneung-files.hdh061224.workers.dev/edu-listening-v1/2013_06_g2_english_a_l.mp3?name=2013%EB%85%84%206%EC%9B%94%20%ED%95%99%EB%A0%A5%ED%8F%89%EA%B0%80%20%EA%B3%A02%20%EC%98%81%EC%96%B4%20A%ED%98%95%20%EB%93%A3%EA%B8%B0.mp3",
     "listenDownload": "2013년 6월 학력평가 고2 영어 A형 듣기.mp3",
     "scriptUrl": "https://suneung-files.hdh061224.workers.dev/edu-listening-v1/2013_06_g2_english_a_t.pdf?name=2013%EB%85%84%206%EC%9B%94%20%ED%95%99%EB%A0%A5%ED%8F%89%EA%B0%80%20%EA%B3%A02%20%EC%98%81%EC%96%B4%20A%ED%98%95%20%EB%93%A3%EA%B8%B0%20%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8.pdf",
-    "scriptDownload": "2013년 6월 학력평가 고2 영어 A형 듣기 스크립트.pdf"
+    "scriptDownload": "2013년 6월 학력평가 고2 영어 A형 듣기 스크립트.pdf",
+    "listenChapters": "0:안내,106.1:1,138.1:2,170.9:3,203.2:4,264.4:5,328.3:6,382.1:7,439.5:8,509.4:9,574.4:10,640.2:11,703.6:12,759.8:13,825.2:14,889:15,954.4:16,1027.2:17,1081.4:18,1138.8:19,1199.8:20,1261.5:21~22"
   },
   {
     "id": 11894,
@@ -198493,7 +198512,8 @@
     "listenUrl": "https://suneung-files.hdh061224.workers.dev/edu-listening-v1/2013_07_g3_english_a_l.mp3?name=2013%EB%85%84%207%EC%9B%94%20%ED%95%99%EB%A0%A5%ED%8F%89%EA%B0%80%20%EA%B3%A03%20%EC%98%81%EC%96%B4%20A%ED%98%95%20%EB%93%A3%EA%B8%B0.mp3",
     "listenDownload": "2013년 7월 학력평가 고3 영어 A형 듣기.mp3",
     "scriptUrl": "https://suneung-files.hdh061224.workers.dev/edu-listening-v1/2013_07_g3_english_a_t.pdf?name=2013%EB%85%84%207%EC%9B%94%20%ED%95%99%EB%A0%A5%ED%8F%89%EA%B0%80%20%EA%B3%A03%20%EC%98%81%EC%96%B4%20A%ED%98%95%20%EB%93%A3%EA%B8%B0%20%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8.pdf",
-    "scriptDownload": "2013년 7월 학력평가 고3 영어 A형 듣기 스크립트.pdf"
+    "scriptDownload": "2013년 7월 학력평가 고3 영어 A형 듣기 스크립트.pdf",
+    "listenChapters": "0:1,130.8:2,162.8:3,195:4,251.5:5,318.7:6,384.2:7,452.9:8,524:9,589.9:10,663.5:11,732.7:12,794.1:13,860.3:14,927.6:15,979.2:16,1051.2:17,1104.5:18,1180.8:19,1246.4:20,1313.1:21~22"
   },
   {
     "id": 13395,
@@ -200771,7 +200791,8 @@
     "listenUrl": "https://suneung-files.hdh061224.workers.dev/edu-listening-v1/2006_03_g1_english_l.mp3?name=2006%EB%85%84%203%EC%9B%94%20%ED%95%99%EB%A0%A5%ED%8F%89%EA%B0%80%20%EA%B3%A01%20%EC%98%81%EC%96%B4%20%EB%93%A3%EA%B8%B0.mp3",
     "listenDownload": "2006년 3월 학력평가 고1 영어 듣기.mp3",
     "scriptUrl": "https://suneung-files.hdh061224.workers.dev/edu-listening-v1/2006_03_g1_english_t.pdf?name=2006%EB%85%84%203%EC%9B%94%20%ED%95%99%EB%A0%A5%ED%8F%89%EA%B0%80%20%EA%B3%A01%20%EC%98%81%EC%96%B4%20%EB%93%A3%EA%B8%B0%20%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8.pdf",
-    "scriptDownload": "2006년 3월 학력평가 고1 영어 듣기 스크립트.pdf"
+    "scriptDownload": "2006년 3월 학력평가 고1 영어 듣기 스크립트.pdf",
+    "listenChapters": "0:안내,115.8:1,177.1:2,232.7:3,284:4,351.4:5,404.7:6,454.3:7,514.6:8,568.9:9,615.4:10,670:11,721.4:12,790.9:13,843.3:14,897.6:15,955.7:16,1006.7:17"
   },
   {
     "id": 13507,
@@ -201215,7 +201236,8 @@
     "listenUrl": "https://suneung-files.hdh061224.workers.dev/edu-listening-v1/2009_09_g1_english_l.mp3?name=2009%EB%85%84%209%EC%9B%94%20%ED%95%99%EB%A0%A5%ED%8F%89%EA%B0%80%20%EA%B3%A01%20%EC%98%81%EC%96%B4%20%EB%93%A3%EA%B8%B0.mp3",
     "listenDownload": "2009년 9월 학력평가 고1 영어 듣기.mp3",
     "scriptUrl": "https://suneung-files.hdh061224.workers.dev/edu-listening-v1/2009_09_g1_english_t.pdf?name=2009%EB%85%84%209%EC%9B%94%20%ED%95%99%EB%A0%A5%ED%8F%89%EA%B0%80%20%EA%B3%A01%20%EC%98%81%EC%96%B4%20%EB%93%A3%EA%B8%B0%20%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8.pdf",
-    "scriptDownload": "2009년 9월 학력평가 고1 영어 듣기 스크립트.pdf"
+    "scriptDownload": "2009년 9월 학력평가 고1 영어 듣기 스크립트.pdf",
+    "listenChapters": "0:안내,101.5:1,168.1:2,235.8:3,291.1:4,358:5,415.3:6,471.6:7,541.3:8,596.9:9,663.7:10,717.9:11,792.4:12,848:13,902.3:14,961.4:15,1021.3:16,1083.5:17"
   },
   {
     "id": 13527,
@@ -201796,7 +201818,8 @@
     "listenUrl": "https://suneung-files.hdh061224.workers.dev/edu-listening-v1/2012_06_g1_english_l.mp3?name=2012%EB%85%84%206%EC%9B%94%20%ED%95%99%EB%A0%A5%ED%8F%89%EA%B0%80%20%EA%B3%A01%20%EC%98%81%EC%96%B4%20%EB%93%A3%EA%B8%B0.mp3",
     "listenDownload": "2012년 6월 학력평가 고1 영어 듣기.mp3",
     "scriptUrl": "https://suneung-files.hdh061224.workers.dev/edu-listening-v1/2012_06_g1_english_t.pdf?name=2012%EB%85%84%206%EC%9B%94%20%ED%95%99%EB%A0%A5%ED%8F%89%EA%B0%80%20%EA%B3%A01%20%EC%98%81%EC%96%B4%20%EB%93%A3%EA%B8%B0%20%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8.pdf",
-    "scriptDownload": "2012년 6월 학력평가 고1 영어 듣기 스크립트.pdf"
+    "scriptDownload": "2012년 6월 학력평가 고1 영어 듣기 스크립트.pdf",
+    "listenChapters": "0:안내,94.9:1,152.2:2,219.7:3,297:4,369.4:5,448.8:6,506.1:7,577.4:8,639.6:9,716.3:10,803.1:11,879.7:12~13,992:14~15,1083.3:16,1149.5:17,1215.1:18,1285.2:19,1346.3:20,1420.4:21,1494.5:22"
   },
   {
     "id": 13553,
@@ -201840,7 +201863,8 @@
     "listenUrl": "https://suneung-files.hdh061224.workers.dev/edu-listening-v1/2012_03_g1_english_l.mp3?name=2012%EB%85%84%203%EC%9B%94%20%ED%95%99%EB%A0%A5%ED%8F%89%EA%B0%80%20%EA%B3%A01%20%EC%98%81%EC%96%B4%20%EB%93%A3%EA%B8%B0.mp3",
     "listenDownload": "2012년 3월 학력평가 고1 영어 듣기.mp3",
     "scriptUrl": "https://suneung-files.hdh061224.workers.dev/edu-listening-v1/2012_03_g1_english_t.pdf?name=2012%EB%85%84%203%EC%9B%94%20%ED%95%99%EB%A0%A5%ED%8F%89%EA%B0%80%20%EA%B3%A01%20%EC%98%81%EC%96%B4%20%EB%93%A3%EA%B8%B0%20%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8.pdf",
-    "scriptDownload": "2012년 3월 학력평가 고1 영어 듣기 스크립트.pdf"
+    "scriptDownload": "2012년 3월 학력평가 고1 영어 듣기 스크립트.pdf",
+    "listenChapters": "0:안내,126.8:1,176:2,249.9:3,322.3:4,385.6:5,440.9:6,505.9:7,562.6:8,628.2:9,692.3:10,752.4:11,823.3:12,888:13,955:14,1016.4:15,1072:16,1132.8:17,1195.5:18,1255.4:19,1325.8:20,1408.3:21~22"
   },
   {
     "id": 13555,
