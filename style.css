@@ -635,6 +635,9 @@ main { flex: 1 0 auto; width: 100%; }
 .exam__chips { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; min-height: 28px; }
 .exam__title { font-size: 32px; line-height: 1.22; font-weight: var(--h1-weight); letter-spacing: var(--h1-track); }
 .exam__sub { font-size: 14px; color: var(--ink-4); }
+.exam__answer { margin: 10px 0 0; max-width: 720px; font-size: 15px; line-height: 1.65; color: var(--ink-2); }
+.exam__answer-src { margin: 4px 0 0; max-width: 720px; font-size: 12.5px; line-height: 1.6; color: var(--ink-4); }
+.exam__answer-src a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
 .exam__seo-intro { font-size: 14px; color: var(--ink-3); line-height: 1.65; max-width: 720px; }
 .exam__actions { display: flex; flex-wrap: wrap; gap: 8px; justify-content: flex-end; }
 .exam__actions .btn { min-height: 46px; padding: 0 16px; font-size: 14.5px; border-radius: 12px; }

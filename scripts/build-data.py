@@ -1436,6 +1436,36 @@ def score_stats_html(sc: dict) -> str:
         f'<span class="stat__value{" spoil-val" if blur else ""}">{val}</span></div>' for lbl, val, blur in cells) + '</div>'
 
 
+def exam_cut_answer(it: dict, head: str, sc: dict | None) -> str:
+    """상세 첫머리 직답 문장 — '{시험} 1등급컷은 원점수 88점(비공식), 표준점수 최고점은 147점입니다.'
+    아래 등급컷 표와 같은 값만 쓴다(스포일러 방지 대상). 등급컷이 없으면 빈 문자열."""
+    if not sc or sc.get('raw') is None:
+        return ''
+    sv = lambda v: f'<span class="spoil-val">{html_escape(v, quote=False)}</span>'
+    official = it.get('typeGroup') in ('suneung', 'education')
+    e = html_escape(head, quote=False)
+    raw, top, ratio = sc['raw'], sc.get('top'), sc.get('ratio')
+    if sc['abs']:
+        body = f'1등급 기준은 원점수 {sv(f"{raw:g}점 이상")}(절대평가)'
+        if ratio is not None:
+            body += f'이고, 1등급 비율은 {sv(f"{ratio:g}%")}입니다.'
+            src = '1등급 비율은 평가원·시도교육청 발표값입니다. ' if official else ''
+        else:
+            body += '입니다.'
+            src = ''
+    else:
+        body = f'1등급컷은 원점수 {sv(f"{raw:g}점")}({_basis_kind(sc) or "비공식"})'
+        if top is not None:
+            body += f', 표준점수 최고점은 {sv(f"{top:g}점")}입니다.'
+        else:
+            body += '입니다.'
+        # 표점 최고점은 출처 필드가 없어(EBSi 경유 값 다수) 공식값이라고 단정하지 않는다
+        src = '원점수 1등급컷은 공식 발표값이 아니라 EBSi·입시기관 값입니다. '
+    return (f'<p class="exam__answer"><strong>{e}</strong> {body}</p>'
+            f'<p class="exam__answer-src">{src}등급별 값은 <a href="#gradeDist">등급컷 표</a>, '
+            f'출처 구분은 <a href="data-policy.html">데이터 원칙</a>에 있습니다.</p>')
+
+
 ACADEMY_NAMES = {'ebsi': 'EBSi', 'megastudy': '메가스터디', 'etoos': '이투스', 'jongro': '종로학원', 'daesung': '대성마이맥'}
 
 
@@ -2267,7 +2297,8 @@ def build_static_exam_pages(items: list[dict], template_path: Path, out_root: Pa
         html = html.replace('<div class="exam__chips" id="examChips"></div>',
                             f'<div class="exam__chips" id="examChips">{chips}</div>', 1)
         html = html.replace('<p class="exam__sub" id="examSub"></p>',
-                            f'<p class="exam__sub" id="examSub">{html_escape(exam_sub_label(it), quote=False)}</p>', 1)
+                            f'<p class="exam__sub" id="examSub">{html_escape(exam_sub_label(it), quote=False)}</p>'
+                            + exam_cut_answer(it, head, sc), 1)
 
         # 시험 정보 카드 + 소개 문장(검색엔진용 고유 설명 — 키워드 나열 없이 사실만)
         facts = ''.join(f'<dt>{k}</dt><dd>{v}</dd>' for k, v in exam_fact_rows(it))

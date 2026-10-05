@@ -46,6 +46,19 @@ ARCHIVE_TAB_RULES = {
 }
 
 
+_DIGEST_PARTS = re.compile(r'<title>.*?</title>|<script type="application/ld\+json">.*?</script>|<main\b.*?</main>', re.S)
+_DIGEST_DROP = (re.compile(r'<!--.*?-->', re.S), re.compile(r'\?v=[0-9a-f]+'),
+                re.compile(r'"dateModified":\s*"[^"]*"'))
+
+
+def content_digest(page: str) -> str:
+    """사이트맵 lastmod 판정용 본문 해시 — 제목·JSON-LD·<main> 만, 주석·캐시 토큰·수정일 제외."""
+    t = '\n'.join(_DIGEST_PARTS.findall(page)) or page
+    for r in _DIGEST_DROP:
+        t = r.sub('', t)
+    return hashlib.sha1(t.encode()).hexdigest()[:12]
+
+
 def render_sitemaps(items: list[dict], hubs=None) -> None:
     base = 'https://kicegg.com'
     today = datetime.date.today().isoformat()
@@ -82,25 +95,22 @@ def render_sitemaps(items: list[dict], hubs=None) -> None:
         if gy >= current_year - 3: return '0.6'
         return '0.5'
 
-    # 시험별 실제 수정일 — 만들어진 페이지 내용(날짜·캐시 토큰 제외)의 해시가 바뀐 날을 data/sitemap-lastmod.json 에 기억.
-    # 등급컷·틀·데이터 어느 쪽이 바뀌어도 페이지가 달라지면 잡힌다. 페이지 안 수정일 메타도 이 날짜로 맞춰
-    # (빌드할 때마다 '오늘'로 바뀌던 것 — 내용이 같으면 파일도 그대로라 매일 전 페이지가 커밋되지 않는다).
-    import hashlib, re as _re
+    # 시험별 실제 수정일 — 페이지 *본문*(제목·JSON-LD·<main>, 날짜·캐시 토큰·HTML 주석 제외)의 해시가 바뀐 날을
+    # data/sitemap-lastmod.json 에 기억. 등급컷·자료·링크가 바뀌면 잡히고, 머리글·바닥글·스크립트·주석 같은 틀만
+    # 바뀐 빌드는 날짜를 올리지 않는다(2026-10-04 주석 한 줄로 10,822건이 한꺼번에 '수정'된 적 있음).
+    # 페이지 안 수정일 메타도 이 날짜로 맞춘다 — 내용이 같으면 파일도 그대로라 매일 전 페이지가 커밋되지 않는다.
+    import re as _re
     state_path = ROOT / 'data' / 'sitemap-lastmod.json'
     try:
         state = json.loads(state_path.read_text(encoding='utf-8'))
     except Exception:
         state = {}
     MOD_RE = (_re.compile(r'(<meta property="article:modified_time" content=")[^"]*(")'), _re.compile(r'("dateModified":\s*")[^"]*(")'))
-    def _norm(t):
-        t = _re.sub(r'\?v=[0-9a-f]+', '', t)
-        for r in MOD_RE: t = r.sub(r'\1\2', t)
-        return t
     lastmod = {}
     for it in items:
         f = ROOT / f'exam-{it["id"]}.html'
         page = f.read_text(encoding='utf-8') if f.exists() else json.dumps(it, ensure_ascii=False, sort_keys=True)
-        h = hashlib.sha1(_norm(page).encode()).hexdigest()[:12]
+        h = content_digest(page)
         prev = state.get(str(it['id']))
         d = prev[1] if prev and prev[0] == h else today
         lastmod[it['id']] = d
