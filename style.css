@@ -67,9 +67,8 @@
   --header-h: 64px;
   --ease: cubic-bezier(.4,0,.2,1);
   --t: 160ms var(--ease);
-  /* 숫자·코드용 고정폭 (Geist Mono, lib/vendor/geist-mono) · 바탕 모눈 */
+  /* 숫자·코드용 고정폭 (Geist Mono, lib/vendor/geist-mono) */
   --mono: 'Geist Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
-  --grid: rgba(24,24,26,.045);
   color-scheme: light;
 }
 @media (prefers-color-scheme: dark) {
@@ -95,7 +94,6 @@
     --shadow: 0 1px 2px rgba(0,0,0,.3), 0 12px 32px -16px rgba(0,0,0,.6);
     --sh-paper: 0 5px 30px rgba(0,0,0,.5);
     --backdrop: rgba(0,0,0,.6);
-    --grid: rgba(255,255,255,.035);
     color-scheme: dark;
   }
 }
@@ -121,7 +119,6 @@
   --shadow: 0 1px 2px rgba(0,0,0,.3), 0 12px 32px -16px rgba(0,0,0,.6);
   --sh-paper: 0 5px 30px rgba(0,0,0,.5);
   --backdrop: rgba(0,0,0,.6);
-  --grid: rgba(255,255,255,.035);
   color-scheme: dark;
 }
 
@@ -148,10 +145,7 @@
 html { -webkit-text-size-adjust: 100%; overflow-x: clip; }
 body {
   font-family: 'SUITE Variable', 'Pretendard Variable', 'Pretendard', -apple-system, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif;
-  background-color: var(--bg);
-  /* 모눈종이 — 카드 아래 바탕에만 보인다 */
-  background-image: linear-gradient(var(--grid) 1px, transparent 1px), linear-gradient(90deg, var(--grid) 1px, transparent 1px);
-  background-size: 24px 24px; background-position: -1px -1px;
+  background: var(--bg);
   color: var(--ink);
   font-size: 14px;
   line-height: 1.5;
