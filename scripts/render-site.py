@@ -1056,7 +1056,7 @@ def render_home(items: list[dict]) -> None:
     esc = bd.html_escape
     previews = _loading_previews()
 
-    # 최근 시험: 평가원 + 고3 학평 회차 중 시행 시점 최신 4개
+    # 최근 시험: 평가원 + 고3 학평 회차 중 시행 시점 최신 8개
     sets: dict = {}
     for it in items:
         tg = it.get('typeGroup')
@@ -1072,10 +1072,10 @@ def render_home(items: list[dict]) -> None:
             continue
         sets.setdefault(key, {'when': when, 'exams': []})['exams'].append(it)
     latest = sorted((v for v in sets.values() if any(e['subject'] == '국어' for e in v['exams'])),
-                    key=lambda v: v['when'], reverse=True)[:4]
+                    key=lambda v: v['when'], reverse=True)[:8]
 
-    cards = []
-    for s in latest:
+    cards, more = [], []
+    for i, s in enumerate(latest):
         ex = s['exams']
         first = ex[0]
         tg, gy, t = first['typeGroup'], first['gradeYear'], first['type']
@@ -1099,6 +1099,11 @@ def render_home(items: list[dict]) -> None:
                 links.append(f'<a href="exam-{hit[0]["id"]}.html">{subj}</a>')
         if any(e['subject'] in ('사회탐구', '과학탐구', '직업탐구') for e in ex):
             links.append(f'<a href="{set_href}">탐구</a>')
+        if i >= 4:   # 5~8번째는 표지 없는 줄 — 카드 8장이면 좁은 화면에서 너무 길다
+            more.append(f'        <li><a class="latest-more__title" href="{set_href}">{esc(title, quote=False)}</a>'
+                        f'<span class="latest-more__meta">{esc(meta, quote=False)}</span>'
+                        f'<nav class="subj-links" aria-label="{esc(title, quote=True)} 과목">{"".join(links)}</nav></li>')
+            continue
         cover = (f'<img src="{esc(img, quote=True)}" alt="" loading="lazy" decoding="async" />' if img else '')
         cards.append(
             '        <article class="card-box latest-card">\n'
@@ -1108,6 +1113,8 @@ def render_home(items: list[dict]) -> None:
             f'          <nav class="subj-links" aria-label="{esc(title, quote=True)} 과목">{"".join(links)}</nav>\n'
             '        </article>')
     latest_html = '      <div class="latest-rail">\n' + '\n'.join(cards) + '\n      </div>'
+    if more:
+        latest_html += '\n      <ul class="latest-more">\n' + '\n'.join(more) + '\n      </ul>'
 
     def count(pred) -> str:
         return f'{sum(1 for e in items if pred(e)):,}'
@@ -1126,6 +1133,15 @@ def render_home(items: list[dict]) -> None:
         f'<span><span class="cat-card__name">{name}</span><span class="cat-card__sub">{sub}</span></span>{arrow}</a>'
         for href, n, name, sub in cats) + '\n      </div>'
 
+    # 과목별 기출 허브 — 홈에서 허브(시험 약 200개씩)로 바로 가는 크롤 경로
+    hub_rows = [(label, ''.join(f'<a href="{prefix}-{slug}.html">{subj}</a>' for subj, slug in bd.SUBJECT_HUB_SLUG.items()))
+                for prefix, label in (('suneung', '수능·평가원'), ('hakpyeong', '학력평가'))]
+    hub_rows.append(('그 밖의 시험', '<a href="essay.html">대학별 논술</a><a href="ged.html">검정고시</a><a href="sets.html">전체 회차</a>'))
+    hubs_html = '      <div class="hub-links">\n' + '\n'.join(
+        f'        <div class="hub-links__row"><span class="hub-links__label">{label}</span>'
+        f'<nav class="subj-links" aria-label="{label} 과목별 기출">{links}</nav></div>'
+        for label, links in hub_rows) + '\n      </div>'
+
     posts = _blog_posts()
     home_posts = '      <div class="post-cards" aria-labelledby="postsTitle">\n' + '\n'.join(
         f'        <a class="card-box post-card" href="{p["file"]}"><span class="post-card__tag">{esc(p["tag"], quote=False)}</span>'
@@ -1135,6 +1151,7 @@ def render_home(items: list[dict]) -> None:
     html = _compose_index(path.read_text(encoding='utf-8'), (ROOT / 'archive.html').read_text(encoding='utf-8'))
     html = _replace_block(html, 'latest-sets', latest_html)
     html = _replace_block(html, 'categories', cat_html)
+    html = _replace_block(html, 'subject-hubs', hubs_html)
     html = _replace_block(html, 'home-posts', home_posts)
     path.write_text(html, encoding='utf-8')
     blog = ROOT / 'blog.html'
@@ -1143,7 +1160,7 @@ def render_home(items: list[dict]) -> None:
         f'          <h2 class="blog-card__title">{esc(p["title"], quote=False)}</h2>\n          <p class="blog-card__desc">{esc(p["desc"], quote=False)}</p>\n'
         f'          <time class="blog-card__date" datetime="{p["date"]}">{int(p["date"][:4])}년 {int(p["date"][5:7])}월 {int(p["date"][8:])}일</time>\n        </a>\n      </li>'
         for p in posts)), encoding='utf-8')
-    print(f'  + index.html (기출검색 + 최근 시험 {len(cards)}개 · 시험 종류 {len(cats)}개)')
+    print(f'  + index.html (기출검색 + 최근 시험 {len(cards) + len(more)}개 · 시험 종류 {len(cats)}개)')
 
 
 # 첫 화면(/) = 기출검색. index.html 은 archive.html 을 그대로 쓰되
@@ -1165,6 +1182,11 @@ _HOME_MORE = """  <section class="container home-more" aria-label="최근 시험
       <div class="sec-head"><h2 id="catTitle">시험 종류</h2></div>
       <!-- categories:start (render-site.py 가 채움) -->
       <!-- categories:end -->
+    </div>
+    <div class="home-sec">
+      <div class="sec-head"><h2 id="hubTitle">과목별 기출</h2></div>
+      <!-- subject-hubs:start (render-site.py 가 채움) -->
+      <!-- subject-hubs:end -->
     </div>
     <div class="home-posts">
       <div class="sec-head"><h2 id="postsTitle">블로그</h2><a class="sec-head__more" href="blog.html">전체 글</a></div>
