@@ -451,8 +451,12 @@ main { flex: 1 0 auto; width: 100%; }
 .filter__title-row .filter__title { margin: 0; }
 .filter__hint { font-size: 12px; color: var(--ink-4); font-weight: 500; }
 .pill-row { display: flex; flex-wrap: wrap; gap: 6px; }
-.subtype-row { display: none; margin-top: 8px; }
+.subtype-row { display: none; margin: 10px 0 0 6px; padding: 2px 0 2px 12px; border-left: 2px solid var(--line); }
 .subtype-row.is-open { display: block; }
+/* 하위 줄: 작게 + 선택은 채우지 않고 테두리로 — 위 줄(기관, 검정 채움)과 위계 구분 */
+.subtype-row__label { margin: 0 0 6px; font-size: 11.5px; font-weight: var(--ui-weight); color: var(--ink-4); }
+.subtype-row .pill { min-height: 32px; padding: 0 11px; border-radius: 8px; font-size: 13px; }
+.subtype-row .pill.is-active { background: var(--surface); border-color: var(--ink); color: var(--ink); box-shadow: inset 0 0 0 1px var(--ink); }
 .pill {
   min-height: 36px; padding: 0 13px; border-radius: 10px; border: 1px solid var(--line); background: var(--surface);
   color: var(--ink-3); font-size: 13.5px; font-weight: var(--ui-weight); white-space: nowrap;

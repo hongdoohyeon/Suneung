@@ -588,6 +588,8 @@ function renderSubtypeChips() {
     pill('all', '전체', isTypeActive('all')),
     ...visibleTypes.map(t => pill(t.key, t.shortLabel ?? t.label, isTypeActive(t.key))),
   ].join('');
+  const label = $('subtypeLabel');
+  if (label) label.textContent = `${g.groupLabel} 세부`;   // 위 줄(기관)의 하위 선택임을 표시
   row.classList.add('is-open');
 }
 
