@@ -19,6 +19,18 @@ from urllib.parse import quote
 ROOT = Path(__file__).resolve().parents[1]            # suneung-site/
 
 # KICE archive 위치 — 우선순위: --archive=… argv > KICE_ARCHIVE env > ../kice_archive
+
+# 문제지·정답·음원은 kicegg.com/files/ 로 서빙한다(Worker kicegg-files → suneung-files, 2026-10 구글 색인 진단).
+# exams.json 에는 workers.dev 주소를 그대로 두고(미리보기 해시·검증·분할 JSON 기준), 화면 HTML 로 내보낼 때만 바꾼다.
+# 브라우저 쪽은 lib/dom.js publicFileUrl 이 같은 규칙.
+FILES_WORKER = 'https://suneung-files.hdh061224.workers.dev/'
+FILES_PUBLIC = 'https://kicegg.com/files/'
+
+
+def public_files(text: str) -> str:
+    return text.replace(FILES_WORKER, FILES_PUBLIC)
+
+
 def _resolve_archive() -> Path:
     for arg in sys.argv[1:]:
         if arg.startswith('--archive='):
@@ -2476,7 +2488,7 @@ def build_static_exam_pages(items: list[dict], template_path: Path, out_root: Pa
             if _rel:
                 html = html.replace('<!-- exam-related -->', related_cards_html(it, _rel), 1)
 
-        (out_root / f'exam-{it["id"]}.html').write_text(html, encoding='utf-8')
+        (out_root / f'exam-{it["id"]}.html').write_text(public_files(html), encoding='utf-8')
         written += 1
     print(f'  + exam-{{id}}.html SSG {written:,}건 (Naver/Bing 인덱싱)')
 
@@ -3027,7 +3039,7 @@ def build_static_set_pages(items: list[dict], template_path: Path, out_root: Pat
         if not facts_html:
             html = re.sub(r'(<body[^>]*?)(>)', r'\1 data-no-ads\2', html, count=1)
 
-        (out_root / fname).write_text(html, encoding='utf-8')
+        (out_root / fname).write_text(public_files(html), encoding='utf-8')
         written += 1
     print(f'  + {fname.split("-")[0]}-* 회차 SSG {written:,}건 (친화 URL, 정적 카드 링크 포함)')
 
