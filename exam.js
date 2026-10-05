@@ -1,16 +1,16 @@
 'use strict';
-import { CURRICULUM_CONFIG, getTypeConf, prettySub } from './config.js?v=dc85ce68c208f55fda0d';
-import { escHtml as _escHtml, escAttr, safeUrl as _safeUrl, $ as _$ } from './lib/dom.js?v=dc85ce68c208f55fda0d';
-import { setMeta, setMetaProp, setCanonical, injectJsonLd as _injectJsonLd, STATIC_PAGE, applySeo } from './lib/seo.js?v=dc85ce68c208f55fda0d';
-import { renderAllAdSlots } from './lib/ads.js?v=dc85ce68c208f55fda0d';
-import { renderPdf, renderPreviewCover, renderUnsupported, renderEmpty, urlExtension } from './lib/exam-pdf.js?v=dc85ce68c208f55fda0d';
-import { LOADING_PREVIEWS } from './lib/loading-previews.js?v=dc85ce68c208f55fda0d';
-import { renderGradeDist } from './lib/exam-gradedist.js?v=dc85ce68c208f55fda0d';
-import { pushRecent } from './lib/recent.js?v=dc85ce68c208f55fda0d';
-import './lib/report.js?v=dc85ce68c208f55fda0d';
-import { shareLink } from './lib/share.js?v=dc85ce68c208f55fda0d';
-import { enableForcedDownloads } from './lib/download.js?v=dc85ce68c208f55fda0d';
-import { mountListenPlayer } from './lib/listen-player.js?v=dc85ce68c208f55fda0d';
+import { CURRICULUM_CONFIG, getTypeConf, prettySub } from './config.js?v=2c517f6242e494b7b5bb';
+import { escHtml as _escHtml, escAttr, safeUrl as _safeUrl, $ as _$ } from './lib/dom.js?v=2c517f6242e494b7b5bb';
+import { setMeta, setMetaProp, setCanonical, injectJsonLd as _injectJsonLd, STATIC_PAGE, applySeo } from './lib/seo.js?v=2c517f6242e494b7b5bb';
+import { renderAllAdSlots } from './lib/ads.js?v=2c517f6242e494b7b5bb';
+import { renderPdf, renderPreviewCover, renderUnsupported, renderEmpty, urlExtension } from './lib/exam-pdf.js?v=2c517f6242e494b7b5bb';
+import { LOADING_PREVIEWS } from './lib/loading-previews.js?v=2c517f6242e494b7b5bb';
+import { renderGradeDist } from './lib/exam-gradedist.js?v=2c517f6242e494b7b5bb';
+import { pushRecent } from './lib/recent.js?v=2c517f6242e494b7b5bb';
+import './lib/report.js?v=2c517f6242e494b7b5bb';
+import { shareLink } from './lib/share.js?v=2c517f6242e494b7b5bb';
+import { enableForcedDownloads } from './lib/download.js?v=2c517f6242e494b7b5bb';
+import { mountListenPlayer } from './lib/listen-player.js?v=2c517f6242e494b7b5bb';
 
 enableForcedDownloads();
 
@@ -293,7 +293,7 @@ async function main() {
   // (robots.txt 가 data/exam/ 을 막아 검색엔진 렌더러가 여기로 오면 12MB 를 매 페이지 받게 된다)
   if (!exam && !isStaticExam) {
     try {
-      const res = await fetch('data/exams.json?v=dc85ce68c208f55fda0d');
+      const res = await fetch('data/exams.json?v=2c517f6242e494b7b5bb');
       if (res.ok) {
         const exams = await res.json();
         exam = exams.find(e => e.id === id) ?? null;
