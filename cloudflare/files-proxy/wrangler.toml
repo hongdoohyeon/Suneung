@@ -1,0 +1,21 @@
+# kicegg.com/files/* → 기존 PDF·MP3 프록시 Worker(suneung-files)로 넘긴다.
+# 목적: 문제지 PDF 가 kicegg.com 주소로 서빙돼 검색 점수가 이 도메인에 쌓이게 (2026-10 구글 색인 진단).
+# 기존 https://suneung-files.hdh061224.workers.dev/ 주소도 그대로 동작한다.
+name = "kicegg-files"
+main = "src/index.js"
+compatibility_date = "2026-10-01"
+workers_dev = false
+preview_urls = false
+
+[[routes]]
+pattern = "kicegg.com/files/*"
+zone_name = "kicegg.com"
+
+# 공개 인터넷을 거치지 않는 Worker 간 호출. 캐시 키도 기존과 같아 이미 쌓인 캐시를 그대로 쓴다.
+[[services]]
+binding = "FILES"
+service = "suneung-files"
+
+[observability]
+enabled = true
+head_sampling_rate = 0.01

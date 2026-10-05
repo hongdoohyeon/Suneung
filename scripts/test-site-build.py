@@ -114,6 +114,15 @@ class BuildTests(unittest.TestCase):
             finally:
                 render.ROOT = source
 
+    def test_public_files_serves_downloads_from_own_domain(self):
+        # 화면 HTML 의 문제지·음원 주소는 kicegg.com/files/ — hwp(GitHub 직링크)·다른 주소는 그대로
+        html = ('<a href="https://suneung-files.hdh061224.workers.dev/kice-v5/q.pdf?name=a.pdf">'
+                '<a href="https://github.com/hongdoohyeon/Suneung/releases/download/x/a.hwp">')
+        out = render.bd.public_files(html)
+        self.assertIn('href="https://kicegg.com/files/kice-v5/q.pdf?name=a.pdf"', out)
+        self.assertIn('href="https://github.com/hongdoohyeon/Suneung/releases/download/x/a.hwp"', out)
+        self.assertNotIn('workers.dev', out)
+
     def test_grouped_moments_recovers_known_distribution(self):
         # 표준점수 영역: 평균 100·σ 20 정규분포의 이론 등급컷 → 추정 평균·σ·왜도가 가까워야 한다
         from statistics import NormalDist

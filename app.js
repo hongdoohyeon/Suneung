@@ -1,5 +1,6 @@
 'use strict';
 import { enableForcedDownloads } from './lib/download.js?v=c68178b8401485d881f5';
+import { publicFileUrl } from './lib/dom.js?v=c68178b8401485d881f5';
 enableForcedDownloads();
 import {
   CURRICULUM_CONFIG, EXAM_TYPE_CONFIG, TAB_CONFIG,
@@ -1436,7 +1437,7 @@ function safeUrl(value) {
   if (!value) return '';
   try {
     const url = new URL(String(value), location.href);
-    return (url.protocol === 'http:' || url.protocol === 'https:') ? String(value) : '';
+    return (url.protocol === 'http:' || url.protocol === 'https:') ? publicFileUrl(String(value)) : '';
   } catch { return ''; }
 }
 

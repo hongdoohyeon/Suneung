@@ -20,6 +20,7 @@
 - **워커는 .hwp 거부** → hwp는 GitHub 릴리즈 직링크로 서빙(원본 그대로, 변환 금지 — 깨짐).
 - 자산 URL = `{WORKER}/{tag}/{asset}?name={한글파일명}`. WORKER = `https://suneung-files.hdh061224.workers.dev`.
 - 릴리즈당 1,000자산 한도.
+- **화면에 나가는 파일 주소는 `https://kicegg.com/files/{tag}/{asset}`**(2026-10, 구글이 PDF 가치를 kicegg.com 에 쌓도록). Worker `kicegg-files`(`cloudflare/files-proxy`, 라우트 `kicegg.com/files/*`)가 서비스 바인딩으로 `suneung-files` 에 그대로 넘긴다(캐시 공유). **exams.json 에는 workers.dev 주소를 그대로 둔다** — 미리보기 해시·검증·분할 JSON 기준. 내보낼 때만 바꾼다: 파이썬 `build-data.py public_files()`(상세·회차 HTML, render-site 의 허브·sets·홈·feed), 브라우저 `lib/dom.js publicFileUrl`(safeUrl 안, app.js safeUrl 도). 기존 workers.dev 주소도 계속 동작. 배포: `cd cloudflare/files-proxy && npx wrangler deploy`.
 
 ## 구조·자산
 - 산출물: `exam-{id}.html`(9,390 SSG)·`exam-set-*.html`·허브(`nonsul-*`/`suneung-*`/`hakpyeong-*`)·`essay.html`·`ged.html`·`sets.html`·`sitemap*.xml`·`feed.xml`·`data/exam/{id}.json`(split, exam.js가 우선 fetch).

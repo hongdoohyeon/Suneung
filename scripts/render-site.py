@@ -335,7 +335,7 @@ def _hub_page(fname: str, h1: str, title: str, desc: str, intro: str,
 </body>
 </html>
 '''
-    (ROOT / fname).write_text(page, encoding='utf-8')
+    (ROOT / fname).write_text(bd.public_files(page), encoding='utf-8')
 
 
 def _dl_buttons(it: dict) -> str:
@@ -748,7 +748,7 @@ def render_sets_directory(items: list[dict], essay_hubs=None, subject_hubs=None)
 </body>
 </html>
 '''
-    (ROOT / 'sets.html').write_text(page, encoding='utf-8')
+    (ROOT / 'sets.html').write_text(bd.public_files(page), encoding='utf-8')
     print(f'  + sets.html 회차 디렉토리 ({len(groups)}개 링크)')
 
 
@@ -1153,7 +1153,7 @@ def render_home(items: list[dict]) -> None:
     html = _replace_block(html, 'categories', cat_html)
     html = _replace_block(html, 'subject-hubs', hubs_html)
     html = _replace_block(html, 'home-posts', home_posts)
-    path.write_text(html, encoding='utf-8')
+    path.write_text(bd.public_files(html), encoding='utf-8')
     blog = ROOT / 'blog.html'
     blog.write_text(_replace_block(blog.read_text(encoding='utf-8'), 'blog-list', '\n'.join(
         f'      <li class="blog-card">\n        <a href="{p["file"]}">\n          <span class="blog-card__tag">{esc(p["tag"], quote=False)}</span>\n'
@@ -1467,7 +1467,7 @@ def render_methodology(items: list[dict]) -> None:
     for name, body in (('fig-bins', _fig_bins(val)), ('fig-abs', _fig_abs(items, scores)), ('fig-validate', _fig_validate(val)),
                        ('val-table', _val_table(val)), ('fig-series', _fig_series(items, scores))):
         html = _replace_block(html, name, body)
-    path.write_text(html, encoding='utf-8')
+    path.write_text(bd.public_files(html), encoding='utf-8')
     print(f'  + methodology.html 그림 5종 (검증 {len(val["rows"])}건)')
 
 
@@ -1541,7 +1541,7 @@ def render_post_2027_sept() -> None:
     html = path.read_text(encoding='utf-8')
     html = _replace_block(html, 'fig-eng', _fig_post_english(en))
     html = _replace_block(html, 'fig-top', _fig_post_top())
-    path.write_text(html, encoding='utf-8')
+    path.write_text(bd.public_files(html), encoding='utf-8')
     print('  + blog-2027-sept-mock.html 그림 2종')
 
 
@@ -1583,7 +1583,7 @@ def render_rss(items: list[dict]) -> None:
                     f'<guid isPermaLink="true">{url}</guid><pubDate>{pub}</pubDate>'
                     f'<description>{desc}</description></item>')
     rows.append('</channel></rss>')
-    (ROOT / 'feed.xml').write_text('\n'.join(rows) + '\n', encoding='utf-8')
+    (ROOT / 'feed.xml').write_text(bd.public_files('\n'.join(rows) + '\n'), encoding='utf-8')
     print(f'  + feed.xml RSS ({len(recent)}건 최신 자료)')
 
 
