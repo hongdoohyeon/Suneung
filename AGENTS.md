@@ -33,7 +33,7 @@
 - 아카이브 탭은 `config.js` TAB_CONFIG가 아니라 **archive.html 정적 버튼**으로 하드코딩 → 새 탭은 양쪽 다 추가.
 
 ## 프론트엔드 구조 (2026-09 개편)
-- **본문 글꼴 = SUITE**(2026-10, `lib/vendor/suite/`, `style.css` body 규칙 바로 위 @font-face). 가운뎃점(U+B7)만 Pretendard 글리프로 대체(SUITE 는 폭이 넓음). Pretendard CSS 는 폴백으로 계속 비동기 로드.
+- **본문 글꼴 = SUITE**(2026-10). 통째 파일(536KB) 대신 **사이트 글자 빈도순 조각** `lib/vendor/suite/subset/SUITE-{s0,h1..h5}.woff2` + 가운뎃점 한 자 `middot.woff2`(SUITE 점은 폭이 넓어 Pretendard 글리프) — `style.css` 의 `suite-subsets` 블록(unicode-range)이 페이지에 나오는 글자의 조각만 받게 한다(보통 페이지 글꼴 ~180~290KB). 다시 만들기: `python3 scripts/build-suite-subsets.py`(fonttools·brotli, 원본은 `lib/vendor/suite/SUITE-Variable-2.0.4.woff2`). 새 글자가 늘어도 안 돌리면 '나머지' 조각(h4·h5)에서 받아질 뿐 깨지지 않는다. Pretendard CSS 는 SUITE 에 없는 글자 폴백으로 계속 비동기 로드. 숫자는 Geist Mono(`lib/vendor/geist-mono`).
 - **제목 굵기·자간은 `:root` 변수 4개**(`--h1-weight/--h1-track` 페이지 h1, `--h2-weight/--h2-track` 섹션·카드 제목, 2026-10 = 700/-.02em · 650/-.01em). 새 제목 규칙도 숫자 대신 이 변수로. 탭·버튼·칩 글자는 `--ui-weight`(600), 선택된 탭·헤더 메뉴는 `--ui-weight-strong`(650), 배지·태그는 `--badge-weight`(650).
 - **스타일은 `style.css` 하나**(라이트/다크 토큰 · 기관 배지 `tg-{typeGroup}` · 난이도 `tier--1~5`). 학사 일정만 `style-calendar.css` 추가. 색은 반드시 토큰(`var(--…)`)으로 — 다크 모드가 깨진다.
 - **`lib/site-prefs.js`** 는 모든 페이지 `<head>` 에서 동기 로드(CSP상 인라인 불가): 테마(`kicegg:theme`), 스포일러 방지(`kicegg:spoiler`, 기본 켜짐 → `html[data-spoiler="on"]` 이면 `.spoil-val` 흑백 블러), 모바일 메뉴, `.hscroll` 가장자리 흐림.

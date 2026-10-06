@@ -10,7 +10,8 @@ import { pushRecent } from './lib/recent.js?v=8d17b4b78d2104b290c5';
 import './lib/report.js?v=8d17b4b78d2104b290c5';
 import { shareLink } from './lib/share.js?v=8d17b4b78d2104b290c5';
 import { enableForcedDownloads } from './lib/download.js?v=8d17b4b78d2104b290c5';
-import { mountListenPlayer } from './lib/listen-player.js?v=8d17b4b78d2104b290c5';
+// 듣기 플레이어는 듣기 음원이 있는 영어 페이지에서만 받는다(나머지 상세 페이지는 10KB 덜 받음)
+const mountListenPlayer = (el, opts) => import('./lib/listen-player.js?v=8d17b4b78d2104b290c5').then(m => m.mountListenPlayer(el, opts));
 
 enableForcedDownloads();
 

@@ -501,6 +501,7 @@ function renderFilterPanel() {
   renderYearChips();
   renderSubjectFilter();
   renderTierChips();
+  $('filterPanel')?.classList.add('is-ready');   // 칩이 다 그려진 뒤에 보인다(style.css — 첫 화면 흔들림 방지)
 }
 
 // ── 난이도 (역대 1등급컷 대비 5단계) ────────────────────────
