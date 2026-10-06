@@ -1,9 +1,9 @@
 'use strict';
-import { CURRICULUM_CONFIG, getTypeConf, prettySub, legacyTabKey } from './config.js?v=8d17b4b78d2104b290c5';
-import { $, escHtml, escAttr, safeUrl } from './lib/dom.js?v=8d17b4b78d2104b290c5';
-import { setMeta, setMetaProp, setCanonical, injectJsonLd as _injectJsonLd, STATIC_PAGE } from './lib/seo.js?v=8d17b4b78d2104b290c5';
-import { renderAllAdSlots } from './lib/ads.js?v=8d17b4b78d2104b290c5';
-import { enableForcedDownloads } from './lib/download.js?v=8d17b4b78d2104b290c5';
+import { CURRICULUM_CONFIG, getTypeConf, prettySub, legacyTabKey } from './config.js?v=8ba320bf418eeca59fde';
+import { $, escHtml, escAttr, safeUrl } from './lib/dom.js?v=8ba320bf418eeca59fde';
+import { setMeta, setMetaProp, setCanonical, injectJsonLd as _injectJsonLd, STATIC_PAGE } from './lib/seo.js?v=8ba320bf418eeca59fde';
+import { renderAllAdSlots } from './lib/ads.js?v=8ba320bf418eeca59fde';
+import { enableForcedDownloads } from './lib/download.js?v=8ba320bf418eeca59fde';
 enableForcedDownloads();
 const injectJsonLd = (p) => _injectJsonLd('jsonld-set', p);
 const SET_CURR_SLUG = {
@@ -208,7 +208,7 @@ async function main() {
   // 친화 URL은 빌드 시 완전한 카드가 SSG되어 있다. 네트워크·재렌더 없이 그대로 사용.
   if (friendlyMatch && $('examsetGrid')?.children.length) return;
   const stem = friendlyMatch?.[1] || splitStem(curriculum, yearRaw, type, studentGrade);
-  const sources = [`data/set/${stem}.json?v=20260801a`, 'data/exams.json?v=8d17b4b78d2104b290c5'];
+  const sources = [`data/set/${stem}.json?v=20260801a`, 'data/exams.json?v=8ba320bf418eeca59fde'];
   for (const source of sources) {
     try {
       const res = await fetch(source);
