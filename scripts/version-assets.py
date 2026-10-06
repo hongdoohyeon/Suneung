@@ -29,8 +29,8 @@ def asset_version(root):
     return digest.hexdigest()[:20]
 
 
-def version_assets(root, check=False):
-    version = asset_version(root)
+def version_assets(root, check=False, version=None):
+    version = version or asset_version(root)
     changed = []
     for path in [*source_files(root), *sorted(root.glob('*.html'))]:
         before = path.read_text(encoding='utf-8')
@@ -47,8 +47,10 @@ def version_assets(root, check=False):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--check', action='store_true')
+    # 2단계 배포 1단계: 렌더 결과에 '지금 라이브 토큰'을 그대로 찍는다(render-site 기본 토큰은 오래돼 CDN 에 옛 내용이 있음)
+    parser.add_argument('--version', help='해시 대신 이 토큰으로 찍는다')
     args = parser.parse_args()
-    version, changed = version_assets(ROOT, args.check)
+    version, changed = version_assets(ROOT, args.check, args.version)
     print(f'asset version {version}: {len(changed)} files {"out of date" if args.check else "updated"}')
     if args.check and changed:
         raise SystemExit(1)
