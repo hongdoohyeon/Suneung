@@ -56,21 +56,32 @@ const VIEW_KEY = 'kicegg:archive-view';
 let viewMode = (() => { try { return localStorage.getItem(VIEW_KEY) === 'cards' ? 'cards' : 'table'; } catch { return 'table'; } })();
 let cutsIndex = null;
 let cutsRequested = false;
+let cutsPromise = null;
+let firstRenderDone = false;   // 첫 그리기 전에 도착한 등급컷은 첫 그리기가 반영한다(따로 한 번 더 그리지 않음)
 function loadCuts() {
-  if (cutsRequested) return;
+  if (cutsRequested) return cutsPromise;
   cutsRequested = true;
   // site-prefs.js 가 <head> 에서 미리 시작한 요청이 있으면 이어받는다
   const pre = window.__kiceggCuts;
   window.__kiceggCuts = null;
-  (pre || fetch(`data/archive/cuts.json?v=${DATA_VERSION}`).then(res => res.ok ? res.json() : null))
-    .then(data => { if (data) { cutsIndex = data; state.cuts = data; if (!state.loading) render(); } })
+  cutsPromise = (pre || fetch(`data/archive/cuts.json?v=${DATA_VERSION}`).then(res => res.ok ? res.json() : null))
+    .then(data => { if (data) { cutsIndex = data; state.cuts = data; if (!state.loading && firstRenderDone) render(); } })
     .catch(() => {});
+  return cutsPromise;
 }
 // 첫 그리기 전에 등급컷 표를 잠깐(최대 0.8초) 기다린다 — 없는 채로 그렸다가 다시 그리지 않게
 function cutsReadyForFirstRender() {
   const pre = window.__kiceggCuts;
   if (!pre) return Promise.resolve();
+  // 빌드 때 미리 그린 표가 이미 보이면 끝까지 기다린다 — 등급컷 없이 한 번 더 그리면 첫 표시(LCP)가 늦게 잡힌다
+  if ($('cardsGrid')?.dataset.prerendered === '1' && !urlHasStateParams()) return pre.then(() => {}, () => {});
   return Promise.race([pre.then(() => {}, () => {}), new Promise(r => setTimeout(r, 800))]);
+}
+// 표 HTML 지문 — 미리 그린 표와 지금 그릴 표가 같으면 DOM 을 갈아끼우지 않는다(scripts/prerender-home.py)
+function htmlSig(html) {
+  let h = 5381;
+  for (let i = 0; i < html.length; i++) h = ((h << 5) + h + html.charCodeAt(i)) | 0;
+  return `${html.length}.${h >>> 0}`;
 }
 const TIER_LABEL = { 1: '매우 쉬움', 2: '쉬움', 3: '보통', 4: '어려움', 5: '매우 어려움' };
 // 탐구 등 접힌 영역의 펼침 상태 — 한 번 펼친 영역은 다른 회차·페이지에서도 펼쳐 둔다
@@ -386,6 +397,7 @@ async function replaceExamsForTab(tab) {
   if (requestId !== dataRequestId) return false;
   state.exams = data;
   state.loading = false;
+  prerenderShown = false;
   showSkeleton(false);
   // 첫 그리기를 막지 않게 주소 파일은 한 박자 뒤에 받는다
   setTimeout(() => loadTabUrls(tab, data), 0);
@@ -417,13 +429,16 @@ async function loadExams() {
   else if (tabConf()?.defaultTypeGroup) state.typeGroup = tabConf().defaultTypeGroup;
   renderActiveTags();
   updateFilterBadge();
+  const prerendered = $('cardsGrid')?.dataset.prerendered === '1' && !urlHasStateParams();
   if (!await replaceExamsForTab(initialTab)) return;
   await cutsReadyForFirstRender();
-  loadCuts();
+  // 미리 그린 표(등급컷 포함)가 보이는 중이면 등급컷이 반영된 뒤 첫 그리기 — 같은 내용이라 DOM 을 갈아끼우지 않는다
+  if (prerendered) await loadCuts(); else loadCuts();
 
   applyUrlTab();   // URL ?tab=... 가 있으면 해당 탭으로 진입
   renderFilterPanel();
   render();
+  firstRenderDone = true;
   persistArchiveState();
   loadArchiveMeta();
   // 헤더 검색창(/?q=…)으로 들어와도 입력창에 친 것과 똑같이 스마트 검색을 건다
@@ -948,7 +963,13 @@ function renderCards() {
     const pages = paginateGroups(groupBySet(data), PAGE_SIZE);
     state.page = Math.min(Math.max(1, state.page), pages.length);
     grid.className = 'results results--table';
-    grid.innerHTML = tableHTML(pages[state.page - 1]);
+    const html = tableHTML(pages[state.page - 1]);
+    const sig = htmlSig(html);
+    // 지금 화면(미리 그린 표 포함)과 같은 내용이면 DOM 을 갈아끼우지 않는다 — 첫 표시(LCP)가 늦게 다시 잡히지 않고,
+    // 제자리에서 바꿔 둔 다운로드 주소(loadTabUrls)도 그대로 남는다
+    if (grid.dataset.sig !== sig || !grid.firstElementChild) grid.innerHTML = html;
+    grid.dataset.sig = sig;
+    delete grid.dataset.prerendered;
     const inline = grid.querySelector('[data-ad-position]');
     if (inline) renderAdSlot(inline, inline.dataset.adPosition);
     renderPagination(state.page, pages.length, data.length);
@@ -957,6 +978,7 @@ function renderCards() {
     state.page = Math.min(Math.max(1, state.page), totalPages);
     const shown = data.slice((state.page - 1) * PAGE_SIZE, state.page * PAGE_SIZE);
     grid.className = 'grid';
+    delete grid.dataset.sig;
     grid.innerHTML = shown.map((e, i) => { try { return cardHTML(e, i); } catch(_) { return ''; } }).join('');
     renderPagination(state.page, totalPages, data.length);
   }
@@ -1363,7 +1385,19 @@ function resetAll() {
 }
 
 // ── 스켈레톤 ───────────────────────────────────────────────
+// 화면 상태를 바꾸는 주소 키 — 이게 있으면 미리 그린 기본 목록은 쓰지 않는다(lib/site-prefs.js 에도 같은 목록).
+// (?NaPm=·?utm_source= 같은 유입 꼬리표나 ?focus= 는 화면을 안 바꾸므로 미리 그린 표를 그대로 쓴다)
+const STATE_PARAMS = ['tab', 'q', 'search', 'typeGroup', 'type', 'gradeYear', 'subject', 'subjects', 'subSubject', 'subSubjects', 'has', 'cut', 'sort', 'tier', 'page'];
+function urlHasStateParams() {
+  const p = new URLSearchParams(location.search);
+  return STATE_PARAMS.some(k => p.has(k));
+}
+// 빌드 때 미리 그린 첫 화면(scripts/prerender-home.py)이 있으면, 기본 화면으로 들어온 첫 로딩에선 스켈레톤으로 가리지 않는다.
+// 검색어·필터가 붙은 주소로 들어오면 미리 그린 기본 목록은 바로 가린다.
+let prerenderShown = null;
 function showSkeleton(show) {
+  if (prerenderShown === null) prerenderShown = $('cardsGrid')?.dataset.prerendered === '1' && !urlHasStateParams();
+  if (show && prerenderShown) return;
   $('skeleton').style.display      = show ? '' : 'none';
   $('cardsGrid').style.display     = show ? 'none' : '';
   $('emptyState').style.display    = 'none';

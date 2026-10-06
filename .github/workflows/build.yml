@@ -52,6 +52,11 @@ jobs:
       - name: Render site
         run: PYTHONUTF8=1 python3 scripts/render-site.py
 
+      # 홈 첫 화면(필터·표·건수)을 헤드리스 크롬으로 실제 사이트 코드를 돌려 index.html 에 미리 그려 넣는다.
+      # 모바일 첫 표시 속도용. 실패해도 index.html 을 건드리지 않고 넘어간다(scripts/prerender-home.py).
+      - name: Prerender home first screen
+        run: PYTHONUTF8=1 python3 scripts/prerender-home.py
+
       - name: Version assets and verify generated data
         run: |
           python3 scripts/version-assets.py
