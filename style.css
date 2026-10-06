@@ -1332,3 +1332,28 @@ body.pv-lock { overflow: hidden; }
   .latest-card__title a::after { content: ""; position: absolute; inset: 0; }   /* 카드 전체를 누를 수 있게 */
   .latest-card .subj-links { position: relative; z-index: 1; }
 }
+
+/* ═══ 휴대폰: 컨트롤 높이 한 단계 낮춤 (2026-10) ═════════════
+   보이는 높이만 줄이고, 표의 자료 버튼은 투명 여백(::after)으로 누르는 영역을 40px 이상 유지한다.
+   태블릿(700px 초과)은 위 터치 규칙 그대로. */
+@media (max-width: 700px) {
+  .icon-btn { width: 38px; height: 38px; min-width: 38px; min-height: 38px; }
+  .search, .toolbar .view-toggle { height: 40px; }
+  .filter-toggle-inline { min-height: 40px; }
+  .view-toggle button { min-height: 32px; min-width: 34px; }
+  .switch--sm, .tag { height: 32px; min-height: 32px; }
+  .rrow { padding-top: 8px; padding-bottom: 8px; }
+  .rrow .btn, .card .btn, .rrow__acts .btn { min-height: 34px; height: 34px; }
+  .rrow__acts .btn { position: relative; }
+  .rrow__acts .btn::after { content: ""; position: absolute; inset: -4px 0; }   /* 누르는 영역 42px */
+  .pill { min-height: 34px; }
+  .pg-btn { min-width: 36px; min-height: 36px; }
+  .rgroup__all { min-height: 32px; }
+  .nav-tab { padding: 6px 0 8px; }
+  .exam__actions .btn { min-height: 36px; }
+  .exam__subjects a { min-height: 38px; }
+  .exam__subjects-row--subs a { min-height: 32px; }
+  .exam-tabs__tab { padding-top: 8px; padding-bottom: 8px; }
+  .report-btn { min-height: 36px; }
+}
+
