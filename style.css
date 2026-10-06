@@ -1011,6 +1011,12 @@ body[data-exam-tab="obj"] #main > :not(.exam__crumb):not(.exam__top):not(.exam__
 }
 .preview.is-full .pv-sheet { position: absolute; left: 0; top: 0; min-width: 0; transform-origin: 0 0; will-change: transform; }
 .preview.is-full .pv-viewer[data-tool="hand"] { cursor: grab; }
+.pv-pageno { display: none; }
+.preview.is-full .pv-pageno {
+  display: block; position: absolute; right: 12px; bottom: 12px; z-index: 2; padding: 4px 10px; border-radius: 999px; pointer-events: none;
+  background: color-mix(in srgb, var(--surface) 88%, transparent); box-shadow: 0 0 0 1px var(--line); font: 600 12px/1.4 var(--mono); color: var(--ink-3);
+}
+.preview.is-full { padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left); }
 .preview.is-full .pv-viewer[data-tool="pen"] { cursor: crosshair; }
 .preview.is-full .pv-viewer[data-tool="eraser"] { cursor: cell; }
 body.pv-lock { overflow: hidden; }
@@ -1244,7 +1250,13 @@ body.pv-lock { overflow: hidden; }
   .pv-btn { min-width: 34px; padding: 0 5px; }
   .pv-btn span:not(.sr-only) { display: none; }
   .pv-bar__zoom [data-act="in"], .pv-bar__zoom [data-act="out"] { display: none; }   /* 폰은 두 손가락으로 확대 */
-  .pv-pct { min-width: 44px; }
+  /* 폰: 막대가 한 줄에 다 들어가게(오른쪽 끝 풀이 모드·나가기 버튼이 잘리던 문제) — 배율은 두 번 탭, 접기는 아래 버튼 */
+  .pv-pct, .pv-bar__zoom [data-act="fold"] { display: none; }
+  .pv-btn { min-width: 31px; }
+  /* 풀이 모드: 도구 막대는 엄지가 닿는 아래로 */
+  .preview.is-full { padding-bottom: 0; }
+  .preview.is-full .pv-bar { order: 3; position: static; border-bottom: 0; border-top: 1px solid var(--line); padding-bottom: calc(6px + env(safe-area-inset-bottom)); }
+  .preview.is-full .pv-hint { bottom: auto; top: calc(64px + env(safe-area-inset-top)); }
   .preview__loading-action { min-width: 0; padding: 0 18px; }
   .stats { gap: 8px; }
   .stat { padding: 14px; }
