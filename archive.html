@@ -117,10 +117,12 @@
     <div class="page-header__inner">
       <h1 class="page-header__title" id="archive-title">기출검색</h1>
       <p class="page-header__sub">시험 문제지, 정답, 해설, 등급컷, 듣기 검색</p>
+      <!-- prerender:meta:start -->
       <div class="page-header__meta">
         <span><strong id="archiveTotalCount">—</strong>건 수록</span>
         <span>자료 갱신일 · <strong id="archiveUpdateDate">—</strong></span>
       </div>
+      <!-- prerender:meta:end -->
     </div>
   </section>
 
@@ -191,6 +193,7 @@
   <main id="main" class="container main">
 
     <!-- Sidebar / Mobile Bottom Sheet -->
+    <!-- prerender:filter:start -->
     <aside class="filter" id="filterPanel" aria-label="필터" role="region" aria-labelledby="filterSheetTitle">
 
       <!-- 모바일 바텀시트 핸들 + 닫기 (데스크톱에서는 숨김) -->
@@ -248,6 +251,7 @@
       </div>
 
     </aside>
+    <!-- prerender:filter:end -->
 
     <!-- Backdrop (모바일 시트 전용) -->
     <div class="filter-backdrop" id="filterBackdrop" hidden></div>
@@ -316,6 +320,7 @@
         <span class="examset-link__arrow" aria-hidden="true">→</span>
       </a>
 
+      <!-- prerender:results:start -->
       <!-- Skeleton -->
       <div id="skeleton" class="results results--table skel-table" aria-hidden="true">
         <div class="skel-head"><i class="skel skel--badge"></i><i class="skel skel--title"></i></div>
@@ -328,6 +333,7 @@
 
       <!-- Cards -->
       <div id="cardsGrid" class="results results--table" style="display:none;"></div>
+      <!-- prerender:results:end -->
 
       <!-- Pagination -->
       <div id="paginationWrap" class="pagination-wrap" style="display:none;"></div>

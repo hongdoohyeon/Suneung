@@ -482,7 +482,10 @@ main { flex: 1 0 auto; width: 100%; }
 
 /* 필터 — 데스크톱 사이드바 / ≤960 바텀시트 */
 .filter { display: flex; flex-direction: column; gap: 22px; }
-.filter:not(.is-ready) { visibility: hidden; }   /* JS 가 칩을 채우는 동안 높이가 바뀌어 화면이 흔들리지 않게(app.js renderFilterPanel) */
+.filter:not(.is-ready) { visibility: hidden; }
+/* 검색어·필터가 붙은 주소로 들어오면 빌드 때 미리 그린 기본 목록 대신 스켈레톤(site-prefs.js data-urlstate · scripts/prerender-home.py) */
+html[data-urlstate] #cardsGrid[data-prerendered] { display: none !important; }
+html[data-urlstate] .content:has(#cardsGrid[data-prerendered]) #skeleton { display: block !important; }   /* JS 가 칩을 채우는 동안 높이가 바뀌어 화면이 흔들리지 않게(app.js renderFilterPanel) */
 .filter__sheet-head, .filter__sheet-actions { display: none; }
 .filter__title, .filter__title-row { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 10px; font-size: 12.5px; font-weight: 650; color: var(--ink-4); }
 .filter__title-row .filter__title { margin: 0; }
