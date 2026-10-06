@@ -2696,6 +2696,7 @@ def set_facts_html(head: str, exams: list[dict], scores: dict, by_key: dict) -> 
     """이 회차 영역별 1등급컷·표준점수 최고점·난이도·전년 대비 표. 값이 하나도 없으면 빈 문자열."""
     esc = lambda v: html_escape(str(v), quote=False)
     rows = []
+    no_tier = False
     for it in sorted(exams, key=lambda x: (SUBJECT_ORDER.get(x.get('subject'), 99), x.get('subject') or '', sub_order_key(x.get('subSubject')))):
         sc = scores.get(it['id'])
         if not sc or not (sc['raw'] is not None or sc['top'] is not None or sc['tier'] or sc['ratio'] is not None):
@@ -2707,18 +2708,25 @@ def set_facts_html(head: str, exams: list[dict], scores: dict, by_key: dict) -> 
         if sc['abs'] and sc['ratio'] is None and sc['top'] is None and not sc['tier']:
             continue   # 한국사처럼 비교할 값이 없는 절대평가 과목
         if sc['abs']:
-            cut = f'{sc["ratio"]:g}%' if sc['ratio'] is not None else '절대평가'
+            # 영어: 기준 점수(90점)와 1등급 비율을 함께 — 다른 과목의 'N점'과 단위가 섞이지 않게
+            base = f'{sc["raw"]:g}점' if sc['raw'] is not None else ''
+            cut = (esc(f'{base} · 1등급 {sc["ratio"]:g}%' if base else f'1등급 {sc["ratio"]:g}%')
+                   if sc['ratio'] is not None else '절대평가')
+        elif sc['raw'] is not None:
+            kind = _basis_kind(sc)
+            cut = esc(f'{sc["raw"]:g}점') + (f'<small class="examset__est">{kind}</small>' if kind else '')
         else:
-            cut = f'{sc["raw"]:g}점' if sc['raw'] is not None else '-'
+            cut = '-'
         top = f'{sc["top"]:g}점' if sc['top'] is not None else '-'
         tier = f'<span class="tier tier--{sc["tier"]}">{TIER_LABELS[sc["tier"]]}</span>' if sc['tier'] else '-'
+        no_tier = no_tier or not sc['tier']
         delta = '-'
         if sc['raw'] is not None and not sc['abs'] and isinstance(it.get('gradeYear'), int):
             prev = by_key.get(_score_key(it, it['gradeYear'] - 1))
             if prev is not None and prev['raw'] is not None:
                 d = sc['raw'] - prev['raw']
                 delta = f'{d:+g}점' if d else '같음'
-        rows.append(f'<tr><th scope="row">{esc(name)}</th><td class="spoil-val">{esc(cut)}</td>'
+        rows.append(f'<tr><th scope="row">{esc(name)}</th><td class="spoil-val">{cut}</td>'
                     f'<td class="spoil-val">{esc(top)}</td><td class="spoil-val">{tier}</td><td class="spoil-val">{esc(delta)}</td></tr>')
     if not rows:
         return ''
@@ -2728,8 +2736,9 @@ def set_facts_html(head: str, exams: list[dict], scores: dict, by_key: dict) -> 
             '<span class="switch__knob" aria-hidden="true"></span></button></div>'
             f'<p>{esc(head)} 영역별 1등급컷, 표준점수 최고점, 난이도입니다. 난이도는 같은 과목 역대 시험과 비교한 값이며 '
             '계산 방법은 <a href="methodology.html">난이도 산정 기준</a>에 정리했습니다. 전년 대비는 같은 시험의 직전 학년도 1등급 원점수컷과의 차이입니다. '
-            '원점수 1등급컷은 평가원·교육청 발표값이 아니라 EBSi·입시기관 값입니다.</p>'
-            '<div class="examset__facts-scroll"><table class="examset__table"><thead><tr><th scope="col">영역</th>'
+            '원점수 1등급컷은 평가원·교육청 발표값이 아니라 EBSi·입시기관 값입니다.'
+            + (' 난이도 \'-\'는 비교할 역대 시험이 부족해 매기지 않은 과목입니다.' if no_tier else '') +
+            '</p><div class="examset__facts-scroll"><table class="examset__table"><thead><tr><th scope="col">영역</th>'
             '<th scope="col">1등급컷</th><th scope="col">표준점수 최고점</th><th scope="col">난이도</th><th scope="col">전년 대비</th></tr></thead>'
             f'<tbody>{"".join(rows)}</tbody></table></div></section>')
 

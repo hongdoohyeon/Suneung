@@ -51,7 +51,7 @@ let dataRequestId = 0;
 const $ = id => document.getElementById(id);
 
 // ── 보기 방식(표/카드) · 1등급컷 인덱스 ─────────────────────
-// cuts.json: { id: [원점수 1컷, 표점 1컷, 난이도 1~5|null, 절대평가 0/1] } — render-site.py 생성.
+// cuts.json: { id: [원점수 1컷, 표준점수 최고점, 난이도 1~5|null, 절대평가 0/1] } — render-site.py 생성.
 const VIEW_KEY = 'kicegg:archive-view';
 let viewMode = (() => { try { return localStorage.getItem(VIEW_KEY) === 'cards' ? 'cards' : 'table'; } catch { return 'table'; } })();
 let cutsIndex = null;
@@ -400,7 +400,7 @@ async function replaceExamsForTab(tab) {
   prerenderShown = false;
   showSkeleton(false);
   // 첫 그리기를 막지 않게 주소 파일은 한 박자 뒤에 받는다
-  setTimeout(() => loadTabUrls(tab, data), 0);
+  (window.requestIdleCallback || (f => setTimeout(f, 0)))(() => loadTabUrls(tab, data), { timeout: 2000 });
   return true;
 }
 
@@ -1061,11 +1061,11 @@ function scoreCells(e) {
     const na = loading ? '' : '—';
     return { has: false, cut: `<span class="rrow__na">${na}</span>`, tier: '', cutInline: '' };
   }
-  const [raw, std, tier, abs, ratio] = c;
+  const [raw, top, tier, abs, ratio] = c;
   // 영어(절대평가)는 90점 기준은 공개 정보, 1등급 비율과 그에 따른 난이도만 스포일러
   const cut = abs
     ? `<span class="rrow__cut">${raw}점${ratio != null ? `<small class="spoil-val">1등급 ${ratio}%</small>` : '<small>이상 1등급</small>'}</span>`
-    : `<span class="rrow__cut spoil-val">${raw}${std != null ? `<small>표점 ${std}</small>` : ''}</span>`;
+    : `<span class="rrow__cut spoil-val">${raw}${top != null ? `<small>최고표점 ${top}</small>` : ''}</span>`;
   const tierHtml = tier
     ? `<span class="tier tier--${tier} spoil-val">${TIER_LABEL[tier]}</span>`
     : (abs ? '<span class="tier tier--na">절대평가</span>' : '');
@@ -1180,7 +1180,7 @@ function tableHTML(groups) {
       <header class="rgroup__head">
         <span class="type-badge type-badge--lg tg-${escAttr(first.typeGroup)}">${escHtml(badgeLabel(first))}</span>
         <h2 class="rgroup__title">${setHref ? `<a href="${escAttr(setHref)}">${escHtml(title)}</a>` : escHtml(title)}</h2>
-        ${setHref ? `<a class="rgroup__all" href="${escAttr(setHref)}" aria-label="${escAttr(title)} 전체 과목 보기"><span>회차 전체 보기</span>${arrow}</a>` : ''}
+        ${setHref ? `<a class="rgroup__all" href="${escAttr(setHref)}" aria-label="${escAttr(title)} 전체 과목 보기"><span><span class="rgroup__all-pre">회차 </span>전체 보기</span>${arrow}</a>` : ''}
       </header>
       <div class="rrow rrow--head" aria-hidden="true"><span>과목</span><span>1등급컷</span><span>난이도</span><span>자료</span></div>
       ${body}

@@ -491,7 +491,7 @@ main { flex: 1 0 auto; width: 100%; }
 /* 검색어·필터가 붙은 주소로 들어오면 빌드 때 미리 그린 기본 목록 대신 스켈레톤(site-prefs.js data-urlstate · scripts/prerender-home.py) */
 html[data-urlstate] #cardsGrid[data-prerendered] { display: none !important; }
 html[data-urlstate] .content:has(#cardsGrid[data-prerendered]) #skeleton { display: block !important; }   /* JS 가 칩을 채우는 동안 높이가 바뀌어 화면이 흔들리지 않게(app.js renderFilterPanel) */
-.filter__sheet-head, .filter__sheet-actions { display: none; }
+.filter__sheet-head, .filter__sheet-actions, .filter__spoiler { display: none; }
 .filter__title, .filter__title-row { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 10px; font-size: 12.5px; font-weight: 650; color: var(--ink-4); }
 .filter__title-row .filter__title { margin: 0; }
 .filter__hint { font-size: 12px; color: var(--ink-4); font-weight: 500; }
@@ -1114,6 +1114,9 @@ body.pv-lock { overflow: hidden; }
   .filter__sheet-head { display: flex; align-items: center; position: sticky; top: 0; z-index: 1; min-height: 56px; background: var(--surface); }
   .filter__sheet-handle { position: absolute; top: 8px; left: 50%; width: 40px; height: 4px; margin-left: -20px; border-radius: 4px; background: var(--line-strong); }
   .filter__sheet-title { font-size: 16px; font-weight: 700; }
+  .filter__spoiler { display: flex; }
+  .subbar > [data-spoiler-toggle] { display: none; }   /* 좁은 화면: 첫 화면 한 줄을 아끼려고 필터 시트 안으로 */
+  .subbar:has(> .active-tags:empty) { display: none; }
   .filter__sheet-close { margin-left: auto; width: 40px; height: 40px; display: grid; place-items: center; border-radius: var(--r-sm); color: var(--ink-3); }
   .filter__sheet-actions { display: flex; gap: 8px; position: sticky; bottom: calc(-20px - env(safe-area-inset-bottom)); padding: 12px 0 calc(12px + env(safe-area-inset-bottom)); background: var(--surface); }
   .filter__sheet-actions .btn { min-height: 48px; }
@@ -1132,9 +1135,13 @@ body.pv-lock { overflow: hidden; }
 }
 
 @media (max-width: 860px) {
-  .header-nav, .header-search, .dday-chip { display: none; }
+  .header-nav, .header-search { display: none; }
+  .dday-chip { height: 38px; padding: 0 10px; gap: 4px; }
   .menu-toggle, .header-search--icon { display: inline-grid; }
 }
+
+@media (max-width: 420px) { .dday-chip__label { display: none; } }   /* 폰: 'D-44'만 — 제목은 title·달력 링크로 */
+@media (max-width: 359px) { .dday-chip { display: none; } }
 
 @media (max-width: 700px) {
   :root { --header-h: 56px; }
@@ -1194,8 +1201,9 @@ body.pv-lock { overflow: hidden; }
   .rrow__acts .btn { min-height: 36px; height: 36px; padding: 0 9px; font-size: 12.5px; border-radius: var(--r-sm); }
   .rgroup__head { padding: 14px 16px 10px; flex-wrap: nowrap; }
   .rgroup__title { font-size: 15.5px; }
-  .rgroup__all span { display: none; }
-  .rgroup__all { width: 36px; justify-content: center; margin-right: -6px; background: var(--surface-2); }
+  .rgroup__all-pre { display: none; }
+  .rgroup__all { flex: none; padding: 0 8px 0 10px; margin-right: -6px; font-size: 12.5px; background: var(--surface-2); }
+  .rgroup__title { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
   .rfold summary { padding: 0 16px; }
     .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
 
@@ -1315,6 +1323,7 @@ body.pv-lock { overflow: hidden; }
 .examset__table th, .examset__table td { padding: 8px 12px 8px 0; text-align: left; border-bottom: 1px solid var(--line); white-space: nowrap; }
 .examset__table thead th { font-size: 12.5px; font-weight: 600; color: var(--ink-4); }
 .examset__table tbody th { font-weight: 600; }
+.examset__est { margin-left: 4px; font-size: 11px; font-weight: 500; color: var(--ink-4); }   /* 원점수컷이 공식값이 아닐 때 '추정'·'역산값' */
 .examset__related h3 { margin: 16px 0 6px; font-size: 14px; font-weight: 700; color: var(--ink-3); }
 .examset__prevnext, .examset__links { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: 14px; line-height: 1.6; }
 .examset__prevnext li span { margin-right: 8px; color: var(--ink-4); font-size: 13px; }

@@ -447,7 +447,7 @@ export const state = {
   sort:       '',      // '' 기본(최신순) · hard · easy · old
 
   tier:       'all',   // 난이도(역대 대비) 1~5 — 다중 선택
-  cuts:       null,    // data/archive/cuts.json (app.js 가 로드) — id → [원점수컷, 표점컷, 난이도, 절대평가]
+  cuts:       null,    // data/archive/cuts.json (app.js 가 로드) — id → [원점수컷, 표준점수 최고점, 난이도, 절대평가]
 
   query: '',
   page:  1,
