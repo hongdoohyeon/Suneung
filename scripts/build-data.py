@@ -1755,26 +1755,56 @@ def _load_score_dists() -> dict:
     return _SCORE_DISTS
 
 
-def dist_svg(freq: dict, label: str) -> str:
-    """표준점수 분포 막대 그래프(인라인 SVG). freq: {점수: 인원}."""
+def dist_svg(freq: dict, label: str, cuts: list | None = None) -> str:
+    """표준점수 분포 면적 그래프(인라인 SVG). freq: {점수: 인원}, cuts: 1~8등급 구분 표준점수(내림차순, 있으면 등급 띠)."""
     pts = sorted((int(k), v) for k, v in freq.items() if v)
     if len(pts) < 3:
         return ''
     lo, hi = pts[0][0], pts[-1][0]
     peak = max(v for _, v in pts)
-    W, H, L, B = 640, 190, 8, 26
-    span = hi - lo + 1
-    bw = (W - 2 * L) / span
-    bars = ''.join(
-        f'<rect class="dist-bar" x="{L + (sc - lo) * bw:.2f}" y="{(H - B) - (H - B - 8) * v / peak:.2f}" '
-        f'width="{max(bw - 0.6, 0.6):.2f}" height="{(H - B - 8) * v / peak:.2f}"/>' for sc, v in pts)
-    mode = max(pts, key=lambda p: p[1])[0]
-    ticks = ''.join(
-        f'<text class="dist-tick" x="{L + (t - lo + .5) * bw:.1f}" y="{H - 8}" '
-        f'text-anchor="{"start" if t == lo else "end" if t == hi else "middle"}">{t}</text>'
-        for t in sorted({lo, mode, hi}))
+    total = sum(v for _, v in pts)
+    W, H, L, R, T, B = 640, 230, 10, 10, 30, 30
+    base = H - B
+    x = lambda sc: L + (sc - lo) / max(hi - lo, 1) * (W - L - R)
+    y = lambda v: base - (base - T) * v / peak
+    # 빈 점수(나올 수 없는 표점)는 건너뛰고 이어 그린다 — 0으로 떨어뜨리면 빗살 모양이 된다
+    line = ' '.join(f'{x(sc):.1f},{y(v):.1f}' for sc, v in pts)
+    area = f'M{x(lo):.1f},{base} L{line} L{x(hi):.1f},{base} Z'
+    cuts = list((cuts or [])[:8])
+    if len(cuts) != 8 or any(not isinstance(c, (int, float)) for c in cuts) or cuts != sorted(cuts, reverse=True) \
+            or not lo < cuts[0] <= hi:
+        cuts = []
+    out = []
+    if cuts:   # 등급 띠 — 짝수 등급만 옅게 칠하고 위에 등급 번호
+        edges = [hi + 1] + cuts + [lo]
+        for g in range(len(edges) - 1):
+            x0, x1 = x(max(edges[g + 1], lo)), x(min(edges[g], hi + 1) - (1 if edges[g] > hi else 0))
+            if x1 <= x0:
+                continue
+            if g % 2:
+                out.append(f'<rect class="dist-band" x="{x0:.1f}" y="{T - 22}" width="{x1 - x0:.1f}" height="{base - T + 22}"/>')
+            if x1 - x0 >= 18:
+                out.append(f'<text class="dist-grade" x="{(x0 + x1) / 2:.1f}" y="{T - 8}" text-anchor="middle">{g + 1}</text>')
+    out.append(f'<path class="dist-area" d="{area}"/>')
+    if cuts:   # 1등급 구간만 진하게
+        out.append(f'<clipPath id="distTop"><rect x="{x(cuts[0]):.1f}" y="0" width="{W:.0f}" height="{H}"/></clipPath>'
+                   f'<path class="dist-area dist-area--top" d="{area}" clip-path="url(#distTop)"/>')
+    out.append(f'<polyline class="dist-line" points="{line}"/>')
+    out.append(f'<line class="dist-axis" x1="{L}" y1="{base}" x2="{W - R}" y2="{base}"/>')
+    step = 10 if hi - lo > 30 else 5
+    for t in range((lo + step - 1) // step * step, hi + 1, step):
+        out.append(f'<line class="dist-tickmark" x1="{x(t):.1f}" y1="{base}" x2="{x(t):.1f}" y2="{base + 5}"/>'
+                   f'<text class="dist-tick" x="{x(t):.1f}" y="{H - 6}" text-anchor="middle">{t}</text>')
+    # 점수마다 투명한 칸 — 마우스를 올리면 점수·인원·상위 비율
+    above, hits = 0, []
+    half = (W - L - R) / max(hi - lo, 1) / 2
+    for sc, v in reversed(pts):
+        above += v
+        hits.append(f'<rect class="dist-hit" x="{x(sc) - half:.1f}" y="{T}" width="{2 * half:.1f}" height="{base - T}">'
+                    f'<title>{sc}점 · {v:,}명 · 상위 {above / total * 100:.1f}%</title></rect>')
+    out += hits
     return (f'<svg class="dist-chart" viewBox="0 0 {W} {H}" role="img" aria-label="{html_escape(label)}">'
-            f'<line class="dist-axis" x1="{L}" y1="{H - B}" x2="{W - L}" y2="{H - B}"/>{bars}{ticks}</svg>')
+            + ''.join(out) + '</svg>')
 
 
 def _stat_cards(cells: list) -> str:
@@ -1825,7 +1855,8 @@ def edu_official_html(it: dict) -> str:
                  f'<tbody class="spoil-val">{rows}</tbody></table>'
                  f'<p class="grade-table__legend">{scope or "시·도교육청 공개 자료"}</p></div></section>')
     if freq:
-        svg = dist_svg(freq, f'{it["subject"]} 표준점수 분포')
+        std_cuts = [sc for _, sc, k, *_ in cuts] if cuts and cuts[0][2] == 's' else None
+        svg = dist_svg(freq, f'{it["subject"]} 표준점수 분포', std_cuts)
         if svg:
             body += ('<section class="exam-card"><header class="exam-card__head"><h3 class="exam-card__title">표준점수 분포</h3></header>'
                      f'<div class="exam-card__body spoil-val">{svg}</div></section>')
@@ -1835,6 +1866,16 @@ def edu_official_html(it: dict) -> str:
     link = f'(<a href="{src}" rel="noopener" target="_blank">공개 자료 보기</a>)' if src.startswith('https://') else ''
     body += (f'<p class="exam-official__src">출처: 시·도교육청이 공개한 전국연합학력평가 성적 분석·통계자료{link}.</p>')
     return _official_section('교육청 공식 통계', body)
+
+
+_DIST_MATCH = None
+
+
+def _dist_cut_matcher():
+    global _DIST_MATCH
+    if _DIST_MATCH is None:
+        _DIST_MATCH = build_cut_matcher(_load_gradecuts())
+    return _DIST_MATCH
 
 
 def suneung_dist_html(it: dict) -> str:
@@ -1858,7 +1899,8 @@ def suneung_dist_html(it: dict) -> str:
     female = sum(v['female'] for v in dist.values())
     cells = [('응시자', f'{n:,}<small>명</small>'), ('표준점수 최고점', f'{max(freq)}'),
              ('최고점 인원', f'{freq[max(freq)]:,}<small>명</small>'), ('성비 (남 : 여)', f'{(n - female) / n * 100:.1f} : {female / n * 100:.1f}')]
-    svg = dist_svg(freq, f'{subj} 표준점수 분포')
+    cut = _dist_cut_matcher()(it)
+    svg = dist_svg(freq, f'{subj} 표준점수 분포', clean_cut_series(cut.get('standardCuts'), 1, 200) if cut else None)
     scope = f'{subj} 영역 전체 응시자 기준입니다. ' if shared else ''
     body = _stat_cards(cells)
     if svg:

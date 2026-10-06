@@ -793,9 +793,15 @@ html[data-urlstate] .content:has(#cardsGrid[data-prerendered]) #skeleton { displ
 .exam-card__title { font-size: 14px; font-weight: 700; }
 .exam-card__head .exam-card__hint { margin-left: auto; font-size: 12px; }
 .dist-chart { display: block; width: 100%; height: auto; }
-.dist-bar { fill: var(--pop); }
-.dist-axis { stroke: var(--line-strong); stroke-width: 1; }
-.dist-tick { fill: var(--ink-4); font-size: 20px; }
+.dist-band { fill: var(--ink); fill-opacity: .035; }
+.dist-grade { fill: var(--ink-4); font-family: var(--mono); font-size: 15px; }
+.dist-area { fill: var(--ink); fill-opacity: .08; }
+.dist-area--top { fill-opacity: .34; }   /* 1등급 구간 */
+.dist-line { fill: none; stroke: var(--ink); stroke-width: 1.6; stroke-linejoin: round; vector-effect: non-scaling-stroke; }
+.dist-axis, .dist-tickmark { stroke: var(--line-strong); stroke-width: 1; }
+.dist-tick { fill: var(--ink-4); font-family: var(--mono); font-size: 16px; }
+.dist-hit { fill: transparent; }
+.dist-hit:hover { fill: var(--ink); fill-opacity: .08; }
 .exam-official__src { margin-top: 12px; font-size: 13px; color: var(--ink-4); }
 .exam-card + .exam-card { margin-top: 12px; }
 .exam-card__sub { font-size: 13.5px; color: var(--ink-4); }
