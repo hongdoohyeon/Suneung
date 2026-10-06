@@ -224,12 +224,11 @@ relative_url_count: 0
 
 ### Archive 페이지 (`archive.html` + `app.js` + `state.js`)
 
-1. `app.js`가 `data/exams.json`을 fetch한다.
-2. 실패하면 `state.js`의 `buildMockData()`를 사용한다.
-3. `state` 객체가 현재 필터 상태를 가진다.
-4. `filtered()`가 curriculum/type/year/subject/subSubject/query 필터를 적용한다.
-5. 카드 목록은 `renderCards()`에서 렌더링된다.
-6. 페이지네이션은 `paginationWrap` + `.pagination` / `.pg-btn` 구조를 사용한다.
+1. `app.js`가 탭별 목록(`data/archive/{tab}.json`)을 fetch한다.
+2. `state` 객체가 현재 필터 상태를 가진다.
+3. `filtered()`가 curriculum/type/year/subject/subSubject/query 필터를 적용한다.
+4. 카드 목록은 `renderCards()`에서 렌더링된다.
+5. 페이지네이션은 `paginationWrap` + `.pagination` / `.pg-btn` 구조를 사용한다.
 7. `archive.html?tab=LEET`처럼 `tab` query param으로 curriculum을 유지한다.
 
 주의:
