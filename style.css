@@ -934,8 +934,10 @@ body[data-exam-tab="obj"] #main > :not(.exam__crumb):not(.exam__top):not(.exam__
 .preview__meta { font-size: 12px; color: var(--ink-4); }
 .preview__viewer { padding: 14px; background: var(--surface-2); display: flex; flex-direction: column; gap: 12px; min-height: 280px; overflow-x: auto; }
 .preview__page--ready { animation: preview-focus 350ms ease-out both; }
-.preview__skeleton { height: min(62vh, 640px); border-radius: var(--r-sm); background: linear-gradient(110deg, var(--surface-2) 30%, var(--surface) 50%, var(--surface-2) 70%); background-size: 200% 100%; animation: shimmer 1.4s linear infinite; }
-.preview__loading { position: relative; width: 100%; max-width: 720px; height: min(62vh, 640px); margin: 0 auto; overflow: hidden; border-radius: var(--r-sm); background: #fff; box-shadow: var(--sh-paper); }
+/* 흐린 표지·스켈레톤 = 펼친 뒤 첫 쪽과 같은 틀 — exam-viewer.js fitPage(폭 · 화면 높이-150px 안에 한 쪽). --r = 쪽 가로/세로(SSG 가 미리보기 이미지로 채움) */
+.preview__skeleton, .preview__loading { --r: .707; width: min(100%, calc(max(420px, 100vh - 150px) * var(--r))); width: min(100%, calc(max(420px, 100dvh - 150px) * var(--r))); height: auto; aspect-ratio: var(--r); margin: 0 auto; }
+.preview__skeleton { border-radius: var(--r-sm); background: linear-gradient(110deg, var(--surface-2) 30%, var(--surface) 50%, var(--surface-2) 70%); background-size: 200% 100%; animation: shimmer 1.4s linear infinite; }
+.preview__loading { position: relative; overflow: hidden; border-radius: var(--r-sm); background: #fff; box-shadow: var(--sh-paper); }
 .preview__loading-image { display: block; width: 100%; height: 100%; object-fit: cover; object-position: top; filter: blur(6px) grayscale(1); opacity: .7; transform: scale(1.04); }
 :root[data-theme="dark"] .preview__loading { background: var(--surface); }
 :root[data-theme="dark"] .preview__loading-image { filter: blur(6px) grayscale(1) invert(.9); opacity: .75; }
@@ -1243,7 +1245,6 @@ body.pv-lock { overflow: hidden; }
   .pv-btn span:not(.sr-only) { display: none; }
   .pv-bar__zoom [data-act="in"], .pv-bar__zoom [data-act="out"] { display: none; }   /* 폰은 두 손가락으로 확대 */
   .pv-pct { min-width: 44px; }
-  .preview__loading, .preview__skeleton { height: 52vh; }
   .preview__loading-action { min-width: 0; padding: 0 18px; }
   .stats { gap: 8px; }
   .stat { padding: 14px; }

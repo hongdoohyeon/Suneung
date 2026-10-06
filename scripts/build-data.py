@@ -2364,10 +2364,16 @@ def build_static_exam_pages(items: list[dict], template_path: Path, out_root: Pa
         # 흐린 표지 = 이 시험지 1쪽 (scripts/material-audit/extract.mjs 가 만든 previews/{h}.jpg 가 있을 때만)
         _pv = preview_image_path(it.get('questionUrl'), out_root)
         if _pv:
+            try:   # 표지 틀을 이 시험지 쪽 비율로 — 펼친 뒤 첫 쪽과 크기가 같도록
+                from PIL import Image
+                with Image.open(out_root / _pv) as _im:
+                    _ratio = f' style="--r:{_im.width / _im.height:.4f}"'
+            except Exception:
+                _ratio = ''
             # 표지 이미지를 HTML 에 직접 넣고 우선 로드한다(JS 가 만들면 LCP 가 1~2초 늦어짐). 버튼은 exam.js 가 붙인다.
             html = html.replace('<div class="preview__viewer" id="previewQViewer">\n            <div class="preview__skeleton" aria-hidden="true"></div>',
                                 f'<div class="preview__viewer" id="previewQViewer" data-preview="{_pv}">\n            '
-                                f'<div class="preview__loading"><img class="preview__loading-image" src="{_pv}" alt="" aria-hidden="true" '
+                                f'<div class="preview__loading"{_ratio}><img class="preview__loading-image" src="{_pv}" alt="" aria-hidden="true" '
                                 f'fetchpriority="high" decoding="async" /></div>', 1)
             html = html.replace('<div class="preview__viewer" id="previewQViewer">',
                                 f'<div class="preview__viewer" id="previewQViewer" data-preview="{_pv}">', 1)
