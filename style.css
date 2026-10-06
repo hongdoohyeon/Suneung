@@ -98,6 +98,7 @@
     --sh-paper: 0 5px 30px rgba(0,0,0,.5);
     --backdrop: rgba(0,0,0,.6);
     --chip-hover: #323235; --chip-hover-line: #56565b; --chip-sel: #3a3a3e; --chip-sel-line: #a8a8ab;
+    --paper-filter: invert(.9) hue-rotate(180deg); --paper-bg: #1a1a1a; --dark-only: inline-flex;
     color-scheme: dark;
   }
 }
@@ -124,6 +125,7 @@
   --sh-paper: 0 5px 30px rgba(0,0,0,.5);
   --backdrop: rgba(0,0,0,.6);
   --chip-hover: #323235; --chip-hover-line: #56565b; --chip-sel: #3a3a3e; --chip-sel-line: #a8a8ab;
+  --paper-filter: invert(.9) hue-rotate(180deg); --paper-bg: #1a1a1a; --dark-only: inline-flex;
   color-scheme: dark;
 }
 
@@ -981,8 +983,13 @@ body[data-exam-tab="obj"] #main > :not(.exam__crumb):not(.exam__top):not(.exam__
 
 .pv-viewer { display: block; overscroll-behavior-x: contain; }
 .pv-sheet { display: flex; flex-direction: column; align-items: center; gap: 12px; width: max-content; min-width: 100%; }
-.pv-page { position: relative; flex: none; background: #fff; border-radius: 6px; box-shadow: var(--sh-paper); overflow: hidden; }
+.pv-page { position: relative; flex: none; background: var(--paper-bg, #fff); border-radius: 6px; box-shadow: var(--sh-paper); overflow: hidden; }
 .pv-pdf, .pv-ink { position: absolute; inset: 0; width: 100%; height: 100%; display: block; pointer-events: none; }
+/* 다크 모드: 시험지 흑백 반전(hue-rotate 로 색상은 대략 유지). 사진이 있는 시험지는 '반전' 버튼으로 원래 색 */
+.pv-pdf, .pv-ink { --pf: var(--paper-filter, brightness(1)); filter: var(--pf); }
+.pv-viewer.is-original .pv-page { background: #fff; }
+.pv-viewer.is-original .pv-pdf, .pv-viewer.is-original .pv-ink { --pf: brightness(1); }
+.pv-invert { display: var(--dark-only, none); }
 .pv-viewer .preview__more { width: min(100%, 520px); flex: none; align-self: center; }
 .pv-sheet.is-folded .pv-page:not([data-page="1"]) { display: none; }
 /* 풀이 모드는 늘 전부 펼친 채 */
@@ -1013,7 +1020,7 @@ body.pv-lock { overflow: hidden; }
 .preview__error-sub, .preview__unsupported-sub { font-size: 13px; }
 .preview__empty p { font-size: 13.5px; color: var(--ink-4); }
 @keyframes preview-breathe { to { opacity: .45; } }
-@keyframes preview-focus { from { opacity: .6; filter: blur(7px); } to { opacity: 1; filter: blur(0); } }
+@keyframes preview-focus { from { opacity: .6; filter: blur(7px) var(--pf, brightness(1)); } to { opacity: 1; filter: blur(0) var(--pf, brightness(1)); } }   /* --pf: 다크 모드 시험지 반전 유지 */
 
 /* ═══ 회차 페이지 (exam-set) ══════════════════════════════ */
 .examset { padding-top: 20px; padding-bottom: 24px; }
