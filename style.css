@@ -987,6 +987,9 @@ body[data-exam-tab="obj"] #main > :not(.exam__crumb):not(.exam__top):not(.exam__
 .pv-sheet { display: flex; flex-direction: column; align-items: center; gap: 12px; width: max-content; min-width: 100%; }
 .pv-page { position: relative; flex: none; background: var(--paper-bg, #fff); border-radius: 6px; box-shadow: var(--sh-paper); overflow: hidden; }
 .pv-pdf, .pv-ink { position: absolute; inset: 0; width: 100%; height: 100%; display: block; pointer-events: none; }
+.pv-pdf--detail { right: auto; bottom: auto; }   /* 풀이 모드 확대 시 보이는 부분만 선명하게 — 위치·크기는 JS 인라인 */
+.pv-ink { overflow: visible; }
+.pv-ink path { fill: none; stroke-linecap: round; stroke-linejoin: round; }
 /* 다크 모드: 시험지 흑백 반전(hue-rotate 로 색상은 대략 유지). 사진이 있는 시험지는 '반전' 버튼으로 원래 색 */
 .pv-pdf, .pv-ink { --pf: var(--paper-filter, brightness(1)); filter: var(--pf); }
 .pv-viewer.is-original .pv-page { background: #fff; }
