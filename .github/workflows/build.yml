@@ -36,7 +36,7 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 45
     steps:
       - uses: actions/checkout@v7
         with:
@@ -57,15 +57,17 @@ jobs:
       - name: Prerender home first screen
         run: PYTHONUTF8=1 python3 scripts/prerender-home.py
 
-      - name: Version assets and verify generated data
+      - name: Verify generated data
         run: |
-          python3 scripts/version-assets.py
-          python3 scripts/version-assets.py --check
           python3 scripts/regen-exam-splits.py --check
           npm run validate
           node --test scripts/test-search.mjs
 
-      - name: Commit generated output
+      # ── 2단계 배포 (2026-10) ─────────────────────────────────────────
+      # Cloudflare 는 ?v=토큰 자산을 1년 캐시한다. 새 토큰과 새 내용이 한 번에 나가면, GitHub Pages 가 배포 직후
+      # 잠깐 내주는 옛 파일이 새 토큰 주소에 붙박일 수 있다(10-06 style.css 사고). 그래서
+      #   ① 렌더 결과를 옛 토큰 그대로 올리고 → ② 바뀐 자산이 라이브에서 새 내용인지 확인 → ③ 토큰을 바꿔 올린다.
+      - name: Commit generated output (1/2, 옛 토큰)
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -74,6 +76,23 @@ jobs:
             echo "산출물 변경 없음 — 커밋 생략"
           else
             git commit -m "build: render-site.py 산출물 자동 갱신 [skip ci]"
+            git push
+          fi
+
+      - name: Wait until changed assets are live
+        env:
+          BEFORE: ${{ github.event.before }}
+        run: python3 scripts/wait-assets-live.py "${BEFORE:-${{ github.sha }}~1}"
+
+      - name: Version assets (2/2, 새 토큰)
+        run: |
+          python3 scripts/version-assets.py
+          python3 scripts/version-assets.py --check
+          git add -A
+          if git diff --cached --quiet; then
+            echo "토큰 변경 없음 — 커밋 생략"
+          else
+            git commit -m "build: 자산 버전 토큰 갱신 [skip ci]"
             git push
           fi
 

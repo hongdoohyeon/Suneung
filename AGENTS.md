@@ -8,6 +8,7 @@
 - **갱신 플로**: source만 수정 → `git push origin main` → `.github/workflows/build.yml`이 ubuntu에서 `render-site.py` 실행 → 산출물(HTML·OG·sitemap·feed·split) 자동 커밋(`[skip ci]`) → `indexnow-submit.py`로 네이버 통보. Pages가 배포.
   - 트리거 source 경로: `data/exams.json`, `data/gradecuts.json`, `scripts/render-site.py`, `scripts/build-data.py`, `exam.html`, `exam-set.html`, `fonts/**`.
 - **봇 커밋이 푸시되므로 다음 작업 전 반드시 `git pull`.**
+- **2단계 배포(2026-10)**: Cloudflare 가 `?v=토큰` 자산을 1년(immutable) 캐시해서, 새 토큰과 새 내용이 한 번에 나가면 GitHub Pages 의 배포 직후 옛 파일이 새 토큰 주소에 붙박인다(10-06 style.css 사고 — 휴대폰 높이 조정이 라이브에 안 보임). 그래서 build.yml 은 ① 렌더 결과를 옛 토큰 그대로 커밋·푸시 → ② `scripts/wait-assets-live.py` 가 바뀐 자산이 라이브에서 저장소와 같은 내용인지 확인(+2분) → ③ `version-assets.py` 로 토큰을 바꿔 두 번째 봇 커밋. **봇 커밋이 두 개 생기는 게 정상.** 그래도 라이브가 옛 내용이면: 아무 JS 에 주석 한 줄 바꿔 푸시(토큰 재발급).
 - **`build.yml` 자체를 수정한** 커밋은 GitHub가 그 push에서 트리거하지 않는다 → `gh workflow run build --repo hongdoohyeon/Suneung --ref main`으로 1회 수동 디스패치(또는 API `POST /repos/.../actions/workflows/build.yml/dispatches {"ref":"main"}`).
 - 데이터만 GitHub 웹 UI에서 고쳐도 CI가 갱신한다(맥 불필요).
 
