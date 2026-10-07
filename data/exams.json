@@ -162225,25 +162225,6 @@
     "source": "essay-std-tail"
   },
   {
-    "id": 10944,
-    "curriculum": "논술",
-    "gradeYear": 2019,
-    "examYear": 2018,
-    "month": 12,
-    "typeGroup": "essay",
-    "type": "essay_annual",
-    "studentGrade": null,
-    "subject": "한양대학교(ERICA)",
-    "subSubject": "인문계열",
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v2/es6_erica_001.pdf?name=2019%ED%95%99%EB%85%84%EB%8F%84%20%ED%95%9C%EC%96%91%EB%8C%80%ED%95%99%EA%B5%90%28ERICA%29%20%EB%85%BC%EC%88%A0%20%EC%9D%B8%EB%AC%B8%EA%B3%84%EC%97%B4%20%ED%95%B4%EC%84%A4.pdf",
-    "answerUrl": null,
-    "solutionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v2/es6_erica_001.pdf?name=2019%ED%95%99%EB%85%84%EB%8F%84%20%ED%95%9C%EC%96%91%EB%8C%80%ED%95%99%EA%B5%90%28ERICA%29%20%EB%85%BC%EC%88%A0%20%EC%9D%B8%EB%AC%B8%EA%B3%84%EC%97%B4%20%ED%95%B4%EC%84%A4.pdf",
-    "questionDownload": "2019학년도 한양대학교(ERICA) 논술 인문계열 문제·해설.pdf",
-    "answerDownload": null,
-    "solutionDownload": "2019학년도 한양대학교(ERICA) 논술 인문계열 해설.pdf",
-    "source": "essay-std-tail"
-  },
-  {
     "id": 10945,
     "curriculum": "논술",
     "gradeYear": 2019,
@@ -162256,11 +162237,12 @@
     "subSubject": "인문계열 오전",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v2/es6_erica_002.pdf?name=2019%ED%95%99%EB%85%84%EB%8F%84%20%ED%95%9C%EC%96%91%EB%8C%80%ED%95%99%EA%B5%90%28ERICA%29%20%EB%85%BC%EC%88%A0%20%EC%9D%B8%EB%AC%B8%EA%B3%84%EC%97%B4%20%EC%98%A4%EC%A0%84%20%EB%AC%B8%EC%A0%9C.pdf",
     "answerUrl": null,
-    "solutionUrl": null,
+    "solutionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v26/sol3_10945.pdf?name=2019%ED%95%99%EB%85%84%EB%8F%84%20%ED%95%9C%EC%96%91%EB%8C%80%ED%95%99%EA%B5%90(ERICA)%20%EB%85%BC%EC%88%A0%20%EC%9D%B8%EB%AC%B8%EA%B3%84%EC%97%B4%20%EC%98%A4%EC%A0%84%20%ED%95%B4%EC%84%A4.pdf",
     "questionDownload": "2019학년도 한양대학교(ERICA) 논술 인문계열 오전 문제.pdf",
     "answerDownload": null,
-    "solutionDownload": null,
-    "source": "essay-std-tail"
+    "solutionDownload": "2019학년도 한양대학교(ERICA) 논술 인문계열 오전 해설.pdf",
+    "source": "essay-std-tail",
+    "solutionUrl_source_original": "https://goerica.hanyang.ac.kr/admission/intro.asp"
   },
   {
     "id": 10946,
@@ -162275,11 +162257,12 @@
     "subSubject": "인문계열 오후",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v2/es6_erica_003.pdf?name=2019%ED%95%99%EB%85%84%EB%8F%84%20%ED%95%9C%EC%96%91%EB%8C%80%ED%95%99%EA%B5%90%28ERICA%29%20%EB%85%BC%EC%88%A0%20%EC%9D%B8%EB%AC%B8%EA%B3%84%EC%97%B4%20%EC%98%A4%ED%9B%84%20%EB%AC%B8%EC%A0%9C.pdf",
     "answerUrl": null,
-    "solutionUrl": null,
+    "solutionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v26/sol3_10946.pdf?name=2019%ED%95%99%EB%85%84%EB%8F%84%20%ED%95%9C%EC%96%91%EB%8C%80%ED%95%99%EA%B5%90(ERICA)%20%EB%85%BC%EC%88%A0%20%EC%9D%B8%EB%AC%B8%EA%B3%84%EC%97%B4%20%EC%98%A4%ED%9B%84%20%ED%95%B4%EC%84%A4.pdf",
     "questionDownload": "2019학년도 한양대학교(ERICA) 논술 인문계열 오후 문제.pdf",
     "answerDownload": null,
-    "solutionDownload": null,
-    "source": "essay-std-tail"
+    "solutionDownload": "2019학년도 한양대학교(ERICA) 논술 인문계열 오후 해설.pdf",
+    "source": "essay-std-tail",
+    "solutionUrl_source_original": "https://goerica.hanyang.ac.kr/admission/intro.asp"
   },
   {
     "id": 10947,
@@ -162358,25 +162341,6 @@
     "source": "essay-std-tail"
   },
   {
-    "id": 10951,
-    "curriculum": "논술",
-    "gradeYear": 2020,
-    "examYear": 2019,
-    "month": 12,
-    "typeGroup": "essay",
-    "type": "essay_annual",
-    "studentGrade": null,
-    "subject": "한양대학교(ERICA)",
-    "subSubject": "인문계열",
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v2/es6_erica_012.pdf?name=2020%ED%95%99%EB%85%84%EB%8F%84%20%ED%95%9C%EC%96%91%EB%8C%80%ED%95%99%EA%B5%90%28ERICA%29%20%EB%85%BC%EC%88%A0%20%EC%9D%B8%EB%AC%B8%EA%B3%84%EC%97%B4%20%ED%95%B4%EC%84%A4.pdf",
-    "answerUrl": null,
-    "solutionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v2/es6_erica_012.pdf?name=2020%ED%95%99%EB%85%84%EB%8F%84%20%ED%95%9C%EC%96%91%EB%8C%80%ED%95%99%EA%B5%90%28ERICA%29%20%EB%85%BC%EC%88%A0%20%EC%9D%B8%EB%AC%B8%EA%B3%84%EC%97%B4%20%ED%95%B4%EC%84%A4.pdf",
-    "questionDownload": "2020학년도 한양대학교(ERICA) 논술 인문계열 문제·해설.pdf",
-    "answerDownload": null,
-    "solutionDownload": "2020학년도 한양대학교(ERICA) 논술 인문계열 해설.pdf",
-    "source": "essay-std-tail"
-  },
-  {
     "id": 10952,
     "curriculum": "논술",
     "gradeYear": 2020,
@@ -162389,11 +162353,12 @@
     "subSubject": "인문계열 오전",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v2/es6_erica_013.pdf?name=2020%ED%95%99%EB%85%84%EB%8F%84%20%ED%95%9C%EC%96%91%EB%8C%80%ED%95%99%EA%B5%90%28ERICA%29%20%EB%85%BC%EC%88%A0%20%EC%9D%B8%EB%AC%B8%EA%B3%84%EC%97%B4%20%EC%98%A4%EC%A0%84%20%EB%AC%B8%EC%A0%9C.pdf",
     "answerUrl": null,
-    "solutionUrl": null,
+    "solutionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v26/sol3_10952.pdf?name=2020%ED%95%99%EB%85%84%EB%8F%84%20%ED%95%9C%EC%96%91%EB%8C%80%ED%95%99%EA%B5%90(ERICA)%20%EB%85%BC%EC%88%A0%20%EC%9D%B8%EB%AC%B8%EA%B3%84%EC%97%B4%20%EC%98%A4%EC%A0%84%20%ED%95%B4%EC%84%A4.pdf",
     "questionDownload": "2020학년도 한양대학교(ERICA) 논술 인문계열 오전 문제.pdf",
     "answerDownload": null,
-    "solutionDownload": null,
-    "source": "essay-std-tail"
+    "solutionDownload": "2020학년도 한양대학교(ERICA) 논술 인문계열 오전 해설.pdf",
+    "source": "essay-std-tail",
+    "solutionUrl_source_original": "https://goerica.hanyang.ac.kr/admission/intro.asp"
   },
   {
     "id": 10953,
@@ -162408,30 +162373,12 @@
     "subSubject": "인문계열 오후",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v2/es6_erica_014.pdf?name=2020%ED%95%99%EB%85%84%EB%8F%84%20%ED%95%9C%EC%96%91%EB%8C%80%ED%95%99%EA%B5%90%28ERICA%29%20%EB%85%BC%EC%88%A0%20%EC%9D%B8%EB%AC%B8%EA%B3%84%EC%97%B4%20%EC%98%A4%ED%9B%84%20%EB%AC%B8%EC%A0%9C.pdf",
     "answerUrl": null,
-    "solutionUrl": null,
+    "solutionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v26/sol3_10953.pdf?name=2020%ED%95%99%EB%85%84%EB%8F%84%20%ED%95%9C%EC%96%91%EB%8C%80%ED%95%99%EA%B5%90(ERICA)%20%EB%85%BC%EC%88%A0%20%EC%9D%B8%EB%AC%B8%EA%B3%84%EC%97%B4%20%EC%98%A4%ED%9B%84%20%ED%95%B4%EC%84%A4.pdf",
     "questionDownload": "2020학년도 한양대학교(ERICA) 논술 인문계열 오후 문제.pdf",
     "answerDownload": null,
-    "solutionDownload": null,
-    "source": "essay-std-tail"
-  },
-  {
-    "id": 10954,
-    "curriculum": "논술",
-    "gradeYear": 2020,
-    "examYear": 2019,
-    "month": 12,
-    "typeGroup": "essay",
-    "type": "essay_annual",
-    "studentGrade": null,
-    "subject": "한양대학교(ERICA)",
-    "subSubject": "자연계열",
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v2/es6_erica_015.pdf?name=2020%ED%95%99%EB%85%84%EB%8F%84%20%ED%95%9C%EC%96%91%EB%8C%80%ED%95%99%EA%B5%90%28ERICA%29%20%EB%85%BC%EC%88%A0%20%EC%9E%90%EC%97%B0%EA%B3%84%EC%97%B4%20%ED%95%B4%EC%84%A4.pdf",
-    "answerUrl": null,
-    "solutionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v2/es6_erica_015.pdf?name=2020%ED%95%99%EB%85%84%EB%8F%84%20%ED%95%9C%EC%96%91%EB%8C%80%ED%95%99%EA%B5%90%28ERICA%29%20%EB%85%BC%EC%88%A0%20%EC%9E%90%EC%97%B0%EA%B3%84%EC%97%B4%20%ED%95%B4%EC%84%A4.pdf",
-    "questionDownload": "2020학년도 한양대학교(ERICA) 논술 자연계열 문제·해설.pdf",
-    "answerDownload": null,
-    "solutionDownload": "2020학년도 한양대학교(ERICA) 논술 자연계열 해설.pdf",
-    "source": "essay-std-tail"
+    "solutionDownload": "2020학년도 한양대학교(ERICA) 논술 인문계열 오후 해설.pdf",
+    "source": "essay-std-tail",
+    "solutionUrl_source_original": "https://goerica.hanyang.ac.kr/admission/intro.asp"
   },
   {
     "id": 10955,
@@ -162446,11 +162393,12 @@
     "subSubject": "자연계열 오전",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v2/es6_erica_016.pdf?name=2020%ED%95%99%EB%85%84%EB%8F%84%20%ED%95%9C%EC%96%91%EB%8C%80%ED%95%99%EA%B5%90%28ERICA%29%20%EB%85%BC%EC%88%A0%20%EC%9E%90%EC%97%B0%EA%B3%84%EC%97%B4%20%EC%98%A4%EC%A0%84%20%EB%AC%B8%EC%A0%9C.pdf",
     "answerUrl": null,
-    "solutionUrl": null,
+    "solutionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v26/sol3_10955.pdf?name=2020%ED%95%99%EB%85%84%EB%8F%84%20%ED%95%9C%EC%96%91%EB%8C%80%ED%95%99%EA%B5%90(ERICA)%20%EB%85%BC%EC%88%A0%20%EC%9E%90%EC%97%B0%EA%B3%84%EC%97%B4%20%EC%98%A4%EC%A0%84%20%ED%95%B4%EC%84%A4.pdf",
     "questionDownload": "2020학년도 한양대학교(ERICA) 논술 자연계열 오전 문제.pdf",
     "answerDownload": null,
-    "solutionDownload": null,
-    "source": "essay-std-tail"
+    "solutionDownload": "2020학년도 한양대학교(ERICA) 논술 자연계열 오전 해설.pdf",
+    "source": "essay-std-tail",
+    "solutionUrl_source_original": "https://goerica.hanyang.ac.kr/admission/intro.asp"
   },
   {
     "id": 10956,
@@ -162465,11 +162413,12 @@
     "subSubject": "자연계열 오후",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v2/es6_erica_017.pdf?name=2020%ED%95%99%EB%85%84%EB%8F%84%20%ED%95%9C%EC%96%91%EB%8C%80%ED%95%99%EA%B5%90%28ERICA%29%20%EB%85%BC%EC%88%A0%20%EC%9E%90%EC%97%B0%EA%B3%84%EC%97%B4%20%EC%98%A4%ED%9B%84%20%EB%AC%B8%EC%A0%9C.pdf",
     "answerUrl": null,
-    "solutionUrl": null,
+    "solutionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v26/sol3_10956.pdf?name=2020%ED%95%99%EB%85%84%EB%8F%84%20%ED%95%9C%EC%96%91%EB%8C%80%ED%95%99%EA%B5%90(ERICA)%20%EB%85%BC%EC%88%A0%20%EC%9E%90%EC%97%B0%EA%B3%84%EC%97%B4%20%EC%98%A4%ED%9B%84%20%ED%95%B4%EC%84%A4.pdf",
     "questionDownload": "2020학년도 한양대학교(ERICA) 논술 자연계열 오후 문제.pdf",
     "answerDownload": null,
-    "solutionDownload": null,
-    "source": "essay-std-tail"
+    "solutionDownload": "2020학년도 한양대학교(ERICA) 논술 자연계열 오후 해설.pdf",
+    "source": "essay-std-tail",
+    "solutionUrl_source_original": "https://goerica.hanyang.ac.kr/admission/intro.asp"
   },
   {
     "id": 10957,
@@ -162491,25 +162440,6 @@
     "source": "essay-std-tail"
   },
   {
-    "id": 10958,
-    "curriculum": "논술",
-    "gradeYear": 2021,
-    "examYear": 2020,
-    "month": 12,
-    "typeGroup": "essay",
-    "type": "essay_annual",
-    "studentGrade": null,
-    "subject": "한양대학교(ERICA)",
-    "subSubject": "자연계열",
-    "questionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v2/es6_erica_020.pdf?name=2021%ED%95%99%EB%85%84%EB%8F%84%20%ED%95%9C%EC%96%91%EB%8C%80%ED%95%99%EA%B5%90%28ERICA%29%20%EB%85%BC%EC%88%A0%20%EC%9E%90%EC%97%B0%EA%B3%84%EC%97%B4%20%ED%95%B4%EC%84%A4.pdf",
-    "answerUrl": null,
-    "solutionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v2/es6_erica_020.pdf?name=2021%ED%95%99%EB%85%84%EB%8F%84%20%ED%95%9C%EC%96%91%EB%8C%80%ED%95%99%EA%B5%90%28ERICA%29%20%EB%85%BC%EC%88%A0%20%EC%9E%90%EC%97%B0%EA%B3%84%EC%97%B4%20%ED%95%B4%EC%84%A4.pdf",
-    "questionDownload": "2021학년도 한양대학교(ERICA) 논술 자연계열 문제·해설.pdf",
-    "answerDownload": null,
-    "solutionDownload": "2021학년도 한양대학교(ERICA) 논술 자연계열 해설.pdf",
-    "source": "essay-std-tail"
-  },
-  {
     "id": 10959,
     "curriculum": "논술",
     "gradeYear": 2021,
@@ -162522,11 +162452,12 @@
     "subSubject": "자연계열 오후①",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v2/es6_erica_021.pdf?name=2021%ED%95%99%EB%85%84%EB%8F%84%20%ED%95%9C%EC%96%91%EB%8C%80%ED%95%99%EA%B5%90%28ERICA%29%20%EB%85%BC%EC%88%A0%20%EC%9E%90%EC%97%B0%EA%B3%84%EC%97%B4%20%EC%98%A4%ED%9B%84%E2%91%A0%20%EB%AC%B8%EC%A0%9C.pdf",
     "answerUrl": null,
-    "solutionUrl": null,
+    "solutionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v26/sol3_10959.pdf?name=2021%ED%95%99%EB%85%84%EB%8F%84%20%ED%95%9C%EC%96%91%EB%8C%80%ED%95%99%EA%B5%90(ERICA)%20%EB%85%BC%EC%88%A0%20%EC%9E%90%EC%97%B0%EA%B3%84%EC%97%B4%20%EC%98%A4%ED%9B%84%E2%91%A0%20%ED%95%B4%EC%84%A4.pdf",
     "questionDownload": "2021학년도 한양대학교(ERICA) 논술 자연계열 오후① 문제.pdf",
     "answerDownload": null,
-    "solutionDownload": null,
-    "source": "essay-std-tail"
+    "solutionDownload": "2021학년도 한양대학교(ERICA) 논술 자연계열 오후① 해설.pdf",
+    "source": "essay-std-tail",
+    "solutionUrl_source_original": "https://goerica.hanyang.ac.kr/admission/intro.asp"
   },
   {
     "id": 10960,
@@ -162541,11 +162472,12 @@
     "subSubject": "자연계열 오후②",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v2/es6_erica_022.pdf?name=2021%ED%95%99%EB%85%84%EB%8F%84%20%ED%95%9C%EC%96%91%EB%8C%80%ED%95%99%EA%B5%90%28ERICA%29%20%EB%85%BC%EC%88%A0%20%EC%9E%90%EC%97%B0%EA%B3%84%EC%97%B4%20%EC%98%A4%ED%9B%84%E2%91%A1%20%EB%AC%B8%EC%A0%9C.pdf",
     "answerUrl": null,
-    "solutionUrl": null,
+    "solutionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v26/sol3_10960.pdf?name=2021%ED%95%99%EB%85%84%EB%8F%84%20%ED%95%9C%EC%96%91%EB%8C%80%ED%95%99%EA%B5%90(ERICA)%20%EB%85%BC%EC%88%A0%20%EC%9E%90%EC%97%B0%EA%B3%84%EC%97%B4%20%EC%98%A4%ED%9B%84%E2%91%A1%20%ED%95%B4%EC%84%A4.pdf",
     "questionDownload": "2021학년도 한양대학교(ERICA) 논술 자연계열 오후② 문제.pdf",
     "answerDownload": null,
-    "solutionDownload": null,
-    "source": "essay-std-tail"
+    "solutionDownload": "2021학년도 한양대학교(ERICA) 논술 자연계열 오후② 해설.pdf",
+    "source": "essay-std-tail",
+    "solutionUrl_source_original": "https://goerica.hanyang.ac.kr/admission/intro.asp"
   },
   {
     "id": 10961,
@@ -162560,10 +162492,10 @@
     "subSubject": "사회과학계열 과학",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v2/es6_erica_023.pdf?name=2021%ED%95%99%EB%85%84%EB%8F%84%20%ED%95%9C%EC%96%91%EB%8C%80%ED%95%99%EA%B5%90%28ERICA%29%20%EB%AA%A8%EC%9D%98%EB%85%BC%EC%88%A0%20%EC%82%AC%ED%9A%8C%EA%B3%BC%ED%95%99%EA%B3%84%EC%97%B4%20%EA%B3%BC%ED%95%99%20%EB%AC%B8%EC%A0%9C.pdf",
     "answerUrl": "https://suneung-files.hdh061224.workers.dev/essay-v2/es6_erica_025.pdf?name=2021%ED%95%99%EB%85%84%EB%8F%84%20%ED%95%9C%EC%96%91%EB%8C%80%ED%95%99%EA%B5%90%28ERICA%29%20%EB%AA%A8%EC%9D%98%EB%85%BC%EC%88%A0%20%EC%82%AC%ED%9A%8C%EA%B3%BC%ED%95%99%EA%B3%84%EC%97%B4%20%EA%B3%BC%ED%95%99%20%EC%98%88%EC%8B%9C%EB%8B%B5%EC%95%88.pdf",
-    "solutionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v2/es6_erica_024.pdf?name=2021%ED%95%99%EB%85%84%EB%8F%84%20%ED%95%9C%EC%96%91%EB%8C%80%ED%95%99%EA%B5%90%28ERICA%29%20%EB%AA%A8%EC%9D%98%EB%85%BC%EC%88%A0%20%EC%82%AC%ED%9A%8C%EA%B3%BC%ED%95%99%EA%B3%84%EC%97%B4%20%EA%B3%BC%ED%95%99%20%ED%95%B4%EC%84%A4.pdf",
+    "solutionUrl": null,
     "questionDownload": "2021학년도 한양대학교(ERICA) 모의논술 사회과학계열 과학 문제.pdf",
     "answerDownload": "2021학년도 한양대학교(ERICA) 모의논술 사회과학계열 과학 예시답안.pdf",
-    "solutionDownload": "2021학년도 한양대학교(ERICA) 모의논술 사회과학계열 과학 해설.pdf",
+    "solutionDownload": null,
     "source": "essay-std-tail"
   },
   {
@@ -162579,10 +162511,10 @@
     "subSubject": "자연계열",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v2/es6_erica_026.pdf?name=2021%ED%95%99%EB%85%84%EB%8F%84%20%ED%95%9C%EC%96%91%EB%8C%80%ED%95%99%EA%B5%90%28ERICA%29%20%EB%AA%A8%EC%9D%98%EB%85%BC%EC%88%A0%20%EC%9E%90%EC%97%B0%EA%B3%84%EC%97%B4%20%EB%AC%B8%EC%A0%9C.pdf",
     "answerUrl": "https://suneung-files.hdh061224.workers.dev/essay-v2/es6_erica_028.pdf?name=2021%ED%95%99%EB%85%84%EB%8F%84%20%ED%95%9C%EC%96%91%EB%8C%80%ED%95%99%EA%B5%90%28ERICA%29%20%EB%AA%A8%EC%9D%98%EB%85%BC%EC%88%A0%20%EC%9E%90%EC%97%B0%EA%B3%84%EC%97%B4%20%EC%98%88%EC%8B%9C%EB%8B%B5%EC%95%88.pdf",
-    "solutionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v2/es6_erica_027.pdf?name=2021%ED%95%99%EB%85%84%EB%8F%84%20%ED%95%9C%EC%96%91%EB%8C%80%ED%95%99%EA%B5%90%28ERICA%29%20%EB%AA%A8%EC%9D%98%EB%85%BC%EC%88%A0%20%EC%9E%90%EC%97%B0%EA%B3%84%EC%97%B4%20%ED%95%B4%EC%84%A4.pdf",
+    "solutionUrl": null,
     "questionDownload": "2021학년도 한양대학교(ERICA) 모의논술 자연계열 문제.pdf",
     "answerDownload": "2021학년도 한양대학교(ERICA) 모의논술 자연계열 예시답안.pdf",
-    "solutionDownload": "2021학년도 한양대학교(ERICA) 모의논술 자연계열 해설.pdf",
+    "solutionDownload": null,
     "source": "essay-std-tail"
   },
   {
@@ -221416,7 +221348,7 @@
     "answerDownload": null,
     "solutionDownload": null,
     "source": "essay-v24",
-    "questionUrl_source_original": "https://erica.hanyang.ac.kr/admission/"
+    "questionUrl_source_original": "https://goerica.hanyang.ac.kr/admission/intro.asp"
   },
   {
     "id": 14513,
@@ -221436,7 +221368,7 @@
     "answerDownload": null,
     "solutionDownload": null,
     "source": "essay-v24",
-    "questionUrl_source_original": "https://erica.hanyang.ac.kr/admission/"
+    "questionUrl_source_original": "https://goerica.hanyang.ac.kr/admission/intro.asp"
   },
   {
     "id": 14514,
@@ -221456,7 +221388,7 @@
     "answerDownload": null,
     "solutionDownload": null,
     "source": "essay-v24",
-    "questionUrl_source_original": "https://erica.hanyang.ac.kr/admission/"
+    "questionUrl_source_original": "https://goerica.hanyang.ac.kr/admission/intro.asp"
   },
   {
     "id": 14515,
@@ -221476,7 +221408,7 @@
     "answerDownload": null,
     "solutionDownload": null,
     "source": "essay-v24",
-    "questionUrl_source_original": "https://erica.hanyang.ac.kr/admission/"
+    "questionUrl_source_original": "https://goerica.hanyang.ac.kr/admission/intro.asp"
   },
   {
     "id": 14516,
@@ -221496,8 +221428,8 @@
     "answerDownload": null,
     "solutionDownload": "2017학년도 한양대학교(ERICA) 논술 오전 인문상경 해설.pdf",
     "source": "essay-v24",
-    "questionUrl_source_original": "https://erica.hanyang.ac.kr/admission/",
-    "solutionUrl_source_original": "https://erica.hanyang.ac.kr/admission/"
+    "questionUrl_source_original": "https://goerica.hanyang.ac.kr/admission/intro.asp",
+    "solutionUrl_source_original": "https://goerica.hanyang.ac.kr/admission/intro.asp"
   },
   {
     "id": 14517,
@@ -221517,8 +221449,8 @@
     "answerDownload": null,
     "solutionDownload": "2017학년도 한양대학교(ERICA) 논술 오전 자연 해설.pdf",
     "source": "essay-v24",
-    "questionUrl_source_original": "https://erica.hanyang.ac.kr/admission/",
-    "solutionUrl_source_original": "https://erica.hanyang.ac.kr/admission/"
+    "questionUrl_source_original": "https://goerica.hanyang.ac.kr/admission/intro.asp",
+    "solutionUrl_source_original": "https://goerica.hanyang.ac.kr/admission/intro.asp"
   },
   {
     "id": 14518,
@@ -221538,8 +221470,8 @@
     "answerDownload": null,
     "solutionDownload": "2017학년도 한양대학교(ERICA) 논술 오후 인문상경 해설.pdf",
     "source": "essay-v24",
-    "questionUrl_source_original": "https://erica.hanyang.ac.kr/admission/",
-    "solutionUrl_source_original": "https://erica.hanyang.ac.kr/admission/"
+    "questionUrl_source_original": "https://goerica.hanyang.ac.kr/admission/intro.asp",
+    "solutionUrl_source_original": "https://goerica.hanyang.ac.kr/admission/intro.asp"
   },
   {
     "id": 14519,
@@ -221559,8 +221491,8 @@
     "answerDownload": null,
     "solutionDownload": "2017학년도 한양대학교(ERICA) 논술 오후 자연 해설.pdf",
     "source": "essay-v24",
-    "questionUrl_source_original": "https://erica.hanyang.ac.kr/admission/",
-    "solutionUrl_source_original": "https://erica.hanyang.ac.kr/admission/"
+    "questionUrl_source_original": "https://goerica.hanyang.ac.kr/admission/intro.asp",
+    "solutionUrl_source_original": "https://goerica.hanyang.ac.kr/admission/intro.asp"
   },
   {
     "id": 14520,
@@ -221580,8 +221512,8 @@
     "answerDownload": null,
     "solutionDownload": "2018학년도 한양대학교(ERICA) 논술 인문 오전 해설.pdf",
     "source": "essay-v24",
-    "questionUrl_source_original": "https://erica.hanyang.ac.kr/admission/",
-    "solutionUrl_source_original": "https://erica.hanyang.ac.kr/admission/"
+    "questionUrl_source_original": "https://goerica.hanyang.ac.kr/admission/intro.asp",
+    "solutionUrl_source_original": "https://goerica.hanyang.ac.kr/admission/intro.asp"
   },
   {
     "id": 14521,
@@ -221601,8 +221533,8 @@
     "answerDownload": null,
     "solutionDownload": "2018학년도 한양대학교(ERICA) 논술 인문 오후 해설.pdf",
     "source": "essay-v24",
-    "questionUrl_source_original": "https://erica.hanyang.ac.kr/admission/",
-    "solutionUrl_source_original": "https://erica.hanyang.ac.kr/admission/"
+    "questionUrl_source_original": "https://goerica.hanyang.ac.kr/admission/intro.asp",
+    "solutionUrl_source_original": "https://goerica.hanyang.ac.kr/admission/intro.asp"
   },
   {
     "id": 14522,
@@ -221622,8 +221554,8 @@
     "answerDownload": null,
     "solutionDownload": "2018학년도 한양대학교(ERICA) 논술 자연 오전 해설.pdf",
     "source": "essay-v24",
-    "questionUrl_source_original": "https://erica.hanyang.ac.kr/admission/",
-    "solutionUrl_source_original": "https://erica.hanyang.ac.kr/admission/"
+    "questionUrl_source_original": "https://goerica.hanyang.ac.kr/admission/intro.asp",
+    "solutionUrl_source_original": "https://goerica.hanyang.ac.kr/admission/intro.asp"
   },
   {
     "id": 14523,
@@ -221643,8 +221575,8 @@
     "answerDownload": null,
     "solutionDownload": "2018학년도 한양대학교(ERICA) 논술 자연 오후 해설.pdf",
     "source": "essay-v24",
-    "questionUrl_source_original": "https://erica.hanyang.ac.kr/admission/",
-    "solutionUrl_source_original": "https://erica.hanyang.ac.kr/admission/"
+    "questionUrl_source_original": "https://goerica.hanyang.ac.kr/admission/intro.asp",
+    "solutionUrl_source_original": "https://goerica.hanyang.ac.kr/admission/intro.asp"
   },
   {
     "id": 14524,
@@ -221664,8 +221596,8 @@
     "answerDownload": null,
     "solutionDownload": "2018학년도 한양대학교(ERICA) 모의논술 인문상경 해설.pdf",
     "source": "essay-v24",
-    "questionUrl_source_original": "https://erica.hanyang.ac.kr/admission/",
-    "solutionUrl_source_original": "https://erica.hanyang.ac.kr/admission/"
+    "questionUrl_source_original": "https://goerica.hanyang.ac.kr/admission/intro.asp",
+    "solutionUrl_source_original": "https://goerica.hanyang.ac.kr/admission/intro.asp"
   },
   {
     "id": 14525,
@@ -221685,8 +221617,8 @@
     "answerDownload": null,
     "solutionDownload": "2018학년도 한양대학교(ERICA) 모의논술 자연 해설.pdf",
     "source": "essay-v24",
-    "questionUrl_source_original": "https://erica.hanyang.ac.kr/admission/",
-    "solutionUrl_source_original": "https://erica.hanyang.ac.kr/admission/"
+    "questionUrl_source_original": "https://goerica.hanyang.ac.kr/admission/intro.asp",
+    "solutionUrl_source_original": "https://goerica.hanyang.ac.kr/admission/intro.asp"
   },
   {
     "id": 14526,
