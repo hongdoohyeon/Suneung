@@ -130,6 +130,15 @@ for (const [id, asset, original] of addSolution) {
   changed++;
 }
 
+// 2015 모의 문제지 파일에 출제의도·해설이 함께 들어 있다 → 해설 칸도 같은 파일로
+for (const id of [9517, 9518, 9519, 9520, 9522, 9523]) {
+  const e = byId.get(id);
+  if (!e || e.solutionUrl) continue;
+  e.solutionDownload = title(e, e.subSubject, '문제·출제의도');
+  e.solutionUrl = `${e.questionUrl.split('?')[0]}?name=${encodeURIComponent(e.solutionDownload)}`;
+  changed++;
+}
+
 // ── 신규 항목 ──
 // [학년도, 시행년, 월, type, 계열, 문제 자산, 해설 자산, 출처]
 const W11 = p => WB('2018', `2011/susi/Notice_Pass/nonsul/${p}`);
