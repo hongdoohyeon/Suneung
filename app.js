@@ -500,7 +500,9 @@ async function switchTab(tab) {
   pushUrl();   // 탭 전환은 history 쌓아 진정한 뒤로가기 가능
   if (!await replaceExamsForTab(state.tab)) return;
   const doRender = () => { renderFilterPanel(); render(); };
-  document.startViewTransition ? document.startViewTransition(doRender) : doRender();
+  // 숨은 탭에선 전환 효과가 바로 취소되고, 연달아 누르면 앞 전환이 취소된다 — 그때 나는 ready 거부는 무시(목록은 그대로 갱신됨)
+  if (document.startViewTransition && document.visibilityState === 'visible') document.startViewTransition(doRender).ready.catch(() => {});
+  else doRender();
 
   scrollActiveTabIntoView();
 }
