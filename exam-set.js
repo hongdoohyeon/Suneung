@@ -109,7 +109,7 @@ function renderHead(curriculum, gradeYear, type, items) {
   // examYear 모드(학평): yearChip에 월이 들어가므로 typeChip은 월 prefix 제거.
   const typeLabel = tc?.displayMode === 'examYear' ? typeLabelNoMonth(tc) : (tc?.label ?? '');
   const typeChip = tc
-    ? `<span class="type-badge type-badge--lg tg-${escAttr(sample.typeGroup)}">${escHtml(typeLabel)}</span>`
+    ? `<span class="type-badge type-badge--lg tg-${escAttr(sample.typeGroup)}${sample.type === 'csat' ? ' tg-csat' : ''}">${escHtml(typeLabel)}</span>`
     : '';
   const currChip = conf
     ? `<span class="chiplet chiplet--soft">${escHtml(conf.label)}</span>`

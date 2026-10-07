@@ -1146,6 +1146,7 @@ function groupBySet(list) {
 
 // 화면에 보이는 줄 수 — 탐구 등 3과목 이상 영역은 한 줄로 접히므로 1줄로 센다 (tableHTML 과 같은 규칙)
 function visibleRows(g) {
+  if (rgroupFolded.has(setTitle(g.items[0]))) return 1;   // 접은 회차는 머리줄 한 줄 — 뒤 회차가 앞 페이지로 당겨진다
   const folds = new Map();
   let n = 0;
   for (const e of g.items) {
@@ -1169,8 +1170,24 @@ function paginateGroups(groups, size) {
   return pages.length ? pages : [[]];
 }
 
+// 접은 회차(제목 기준) — 필터를 바꿔 다시 그려도 접힌 채로 둔다(새로고침하면 다 펼침).
+// 페이지는 보이는 줄 수로 나누므로(paginateGroups) 접고 펴면 다시 그려 뒤 회차를 당기거나 민다.
+const rgroupFolded = new Set();
+document.addEventListener('click', e => {
+  const btn = e.target.closest('.rgroup__fold');
+  if (!btn) return;
+  const title = btn.closest('.rgroup').dataset.group;
+  if (rgroupFolded.has(title)) rgroupFolded.delete(title); else rgroupFolded.add(title);
+  const top = btn.getBoundingClientRect().top;
+  renderCards();
+  // 누른 회차 머리줄이 화면에서 같은 자리에 머물게
+  const again = [...document.querySelectorAll('.rgroup')].find(x => x.dataset.group === title)?.querySelector('.rgroup__fold');
+  if (again) { scrollBy(0, again.getBoundingClientRect().top - top); again.focus({ preventScroll: true }); }
+});
+
 function tableHTML(groups) {
-  const arrow = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
+  // 회차 접기 — 회차 페이지는 제목 링크로 간다. 접힌 상태는 다시 그려도 유지(rgroupFolded, 아래 클릭 처리)
+  const foldChev = '<svg class="rgroup__fold-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 15 6-6 6 6"/></svg>';
   const chev = '<svg class="rfold__chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>';
   return groups.map((g, gi) => {
     const first = g.items[0];
@@ -1203,11 +1220,12 @@ function tableHTML(groups) {
       return rowHTML(r.exam);
     }).join('');
     const ad = gi === 1 && groups.length > 2 ? '<div class="ad-slot ad-slot--banner" data-ad-position="archiveGrid"></div>' : '';
-    return `<section class="rgroup" aria-label="${escAttr(title)}" style="--acts: ${actsColumns(g.items)}">
+    const folded = rgroupFolded.has(title);
+    return `<section class="rgroup${folded ? ' is-folded' : ''}" data-group="${escAttr(title)}" aria-label="${escAttr(title)}" style="--acts: ${actsColumns(g.items)}">
       <header class="rgroup__head">
-        <span class="type-badge type-badge--lg tg-${escAttr(first.typeGroup)}">${escHtml(badgeLabel(first))}</span>
+        <span class="type-badge type-badge--lg tg-${escAttr(first.typeGroup)}${first.type === 'csat' ? ' tg-csat' : ''}">${escHtml(badgeLabel(first))}</span>
         <h2 class="rgroup__title">${setHref ? `<a href="${escAttr(setHref)}">${escHtml(title)}</a>` : escHtml(title)}</h2>
-        ${setHref ? `<a class="rgroup__all" href="${escAttr(setHref)}" aria-label="${escAttr(title)} 전체 과목 보기"><span><span class="rgroup__all-pre">회차 </span>전체 보기</span>${arrow}</a>` : ''}
+        <button type="button" class="rgroup__all rgroup__fold" aria-expanded="${!folded}" aria-label="${escAttr(title)} ${folded ? '펼치기' : '접기'}"><span class="rgroup__fold-text">${folded ? '펼치기' : '접기'}</span>${foldChev}</button>
       </header>
       <div class="rrow rrow--head" aria-hidden="true"><span>과목</span><span>1등급컷</span><span>난이도</span><span>자료</span></div>
       ${body}
@@ -1258,7 +1276,7 @@ function cardHTML(exam, idx = 0) {
 
   const yearChip = `<span class="chiplet chiplet--ink">${dy.label}${dy.suffix ? ' ' + dy.suffix : ''}</span>`;
   const typeChip = tc
-    ? `<span class="type-badge tg-${escAttr(exam.typeGroup)}">${escHtml(typeLabel)}</span>`
+    ? `<span class="type-badge tg-${escAttr(exam.typeGroup)}${exam.type === 'csat' ? ' tg-csat' : ''}">${escHtml(typeLabel)}</span>`
     : '';
   const score = scoreCells(exam);
 

@@ -43,6 +43,7 @@
 
   /* 시험 기관 배지 (기존 EXAM_TYPE_CONFIG 색 계승) */
   --tb-suneung: #0066cc; --tb-suneung-bg: #e6f0fa;
+  --tb-csat: #0a3a75; --tb-csat-bg: #dbe3ef;   /* 수능 — 모평(밝은 파랑)과 같은 옅은 바탕 형식, 남색 */
   --tb-education: #475569; --tb-education-bg: #eef1f4;
   --tb-military: #6b4220; --tb-military-bg: #efe9df;
   --tb-police: #0c4a6e; --tb-police-bg: #e0f2fe;
@@ -82,7 +83,7 @@
     --line: #2f2f32; --line-soft: #27272a; --line-strong: #404044;
     --ink: #ededec; --ink-2: #d8d8d6; --ink-3: #b2b2b0; --ink-4: #8a8a8c; --ink-5: #8a8a8c; --ink-6: #353538;
     --pop: #d8d8d6; --on-ink: #161618;
-    --tb-suneung: #6aaeff; --tb-suneung-bg: #11243b;
+    --tb-suneung: #6aaeff; --tb-suneung-bg: #11243b; --tb-csat: #b4cdf2; --tb-csat-bg: #1c2a44;
     --tb-education: #a7b4c4; --tb-education-bg: #1e232a;
     --tb-military: #d6a877; --tb-military-bg: #2a2018;
     --tb-police: #7cc4f2; --tb-police-bg: #10222e;
@@ -109,7 +110,7 @@
   --line: #2f2f32; --line-soft: #27272a; --line-strong: #404044;
   --ink: #ededec; --ink-2: #d8d8d6; --ink-3: #b2b2b0; --ink-4: #8a8a8c; --ink-5: #8a8a8c; --ink-6: #353538;
   --pop: #d8d8d6; --on-ink: #161618;
-  --tb-suneung: #6aaeff; --tb-suneung-bg: #11243b;
+  --tb-suneung: #6aaeff; --tb-suneung-bg: #11243b; --tb-csat: #b4cdf2; --tb-csat-bg: #1c2a44;
   --tb-education: #a7b4c4; --tb-education-bg: #1e232a;
   --tb-military: #d6a877; --tb-military-bg: #2a2018;
   --tb-police: #7cc4f2; --tb-police-bg: #10222e;
@@ -298,12 +299,14 @@ main { flex: 1 0 auto; width: 100%; }
 
 /* 시험 기관 배지 (9모·6모·수능·학평…) — 기관별 색 */
 .type-badge {
-  display: inline-flex; align-items: center; height: 24px; padding: 0 8px; border-radius: var(--r-xs);
+  display: inline-flex; align-items: center; justify-content: center; height: 24px; padding: 0 8px; border-radius: var(--r-xs);
+  min-width: 3.15em;   /* '6모'·'9모'·'수능'처럼 짧은 이름은 같은 폭으로 */
   font-size: 12.5px; font-weight: var(--badge-weight); letter-spacing: -.01em; white-space: nowrap;
   color: var(--tb-suneung); background: var(--tb-suneung-bg);
 }
 .type-badge--lg { height: 28px; padding: 0 10px; font-size: 14px; border-radius: var(--r-xs); }
 .tg-suneung   { color: var(--tb-suneung) !important;   background: var(--tb-suneung-bg) !important; }
+.tg-suneung.tg-csat { color: var(--tb-csat) !important; background: var(--tb-csat-bg) !important; }
 .tg-education { color: var(--tb-education) !important; background: var(--tb-education-bg) !important; }
 .tg-military  { color: var(--tb-military) !important;  background: var(--tb-military-bg) !important; }
 .tg-police    { color: var(--tb-police) !important;    background: var(--tb-police-bg) !important; }
@@ -599,6 +602,10 @@ html[data-urlstate] .content:has(#cardsGrid[data-prerendered]) #skeleton { displ
 .rgroup__all { margin-left: auto; display: inline-flex; align-items: center; gap: 4px; min-height: 36px; padding: 0 10px; margin-right: -10px; border-radius: var(--r-sm); font-size: 13px; font-weight: var(--ui-weight); color: var(--ink-3); }
 .rgroup__all:hover { background: var(--surface-2); color: var(--ink); }
 .rgroup__all svg { width: 14px; height: 14px; }
+.rgroup__fold-chev { transition: transform var(--t); }
+.rgroup.is-folded .rgroup__fold-chev { transform: rotate(180deg); }
+.rgroup.is-folded > :not(.rgroup__head) { display: none; }
+.rgroup.is-folded .rgroup__head { padding-bottom: 16px; }
 .rrow {
   position: relative; display: grid; grid-template-columns: minmax(150px, 1.3fr) 130px 120px minmax(260px, 2fr);
   align-items: center; gap: 12px; min-height: 58px; padding: 9px 18px; border-top: 1px solid var(--line);

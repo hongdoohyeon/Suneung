@@ -1628,7 +1628,7 @@ def compare_html(it: dict, series: list[dict], scores: dict, with_toggle: bool =
         cells = ''.join(f'<td class="spoil-val{" cmp-opt" if k in ("top", "std") else ""}">{esc(sc(x, k)) if sc(x, k) is not None else "—"}{u if (sc(x, k) is not None and u == "%") else ""}</td>' for k, _, u in base)
         tier_span = f'<span class="tier tier--{t}">{TIER_LABELS[t]}</span>' if t else '—'
         tier_td = f'<td class="spoil-val">{tier_span}</td>'
-        name = f'<a href="exam-{x["id"]}.html"><span class="type-badge tg-{x.get("typeGroup")}">{esc(exam_badge_label(x))}</span>' \
+        name = f'<a href="exam-{x["id"]}.html"><span class="type-badge tg-{x.get("typeGroup")}{" tg-csat" if x.get("type") == "csat" else ""}">{esc(exam_badge_label(x))}</span>' \
                f'<span>{esc(exam_year_label(x))}</span>{"<em>이 시험</em>" if cur else ""}</a>'
         tr_cls = ' class="is-current"' if cur else ''
         rows.append(f'<tr{tr_cls}><th scope="row">{name}</th>{cells}{tier_td}</tr>')
@@ -1662,7 +1662,7 @@ def related_cards_html(it: dict, rel: list[dict]) -> str:
         r_name = (pretty_sub(r.get('subSubject')) if r.get('typeGroup') == 'essay' and r.get('subSubject')
                   else (f'{r.get("subject")} · {pretty_sub(r["subSubject"])}' if r.get('subSubject') else r.get('subject') or ''))
         cards.append(f'<a class="card-box rel-card" href="exam-{r["id"]}.html">'
-                     f'<span class="rel-card__top"><span class="type-badge tg-{r.get("typeGroup")}">{esc(exam_badge_label(r))}</span>'
+                     f'<span class="rel-card__top"><span class="type-badge tg-{r.get("typeGroup")}{" tg-csat" if r.get("type") == "csat" else ""}">{esc(exam_badge_label(r))}</span>'
                      f'<span class="rel-card__year">{esc(exam_year_label(r))}</span></span>'
                      f'<span class="rel-card__name">{esc(r_name)}</span></a>')
     return (f'<section class="exam-section exam-related" aria-labelledby="relTitle"><div class="exam-section__head">'
@@ -2451,7 +2451,7 @@ def build_static_exam_pages(items: list[dict], template_path: Path, out_root: Pa
             html, count=1)
         sc = _scores.get(it['id'])
         tier = sc['tier'] if sc else None
-        chips = (f'<span class="type-badge type-badge--lg tg-{it.get("typeGroup")}">{html_escape(exam_badge_label(it), quote=False)}</span>'
+        chips = (f'<span class="type-badge type-badge--lg tg-{it.get("typeGroup")}{" tg-csat" if it.get("type") == "csat" else ""}">{html_escape(exam_badge_label(it), quote=False)}</span>'
                  f'<span class="chiplet chiplet--ink">{html_escape(exam_year_label(it), quote=False)}</span>')
         if tier:
             chips += f'<span class="tier tier--{tier} spoil-hide">{TIER_LABELS[tier]}</span>'

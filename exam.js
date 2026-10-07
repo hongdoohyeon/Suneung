@@ -127,7 +127,7 @@ function renderHead(exam) {
       ? (tc?.label ?? '').replace(/^\d+월\s*/, '')
       : (tc?.label ?? '');
     $('examChips').innerHTML =
-      (tc ? `<span class="type-badge type-badge--lg tg-${escAttr(exam.typeGroup)}">${escHtml(typeLbl)}</span>` : '') +
+      (tc ? `<span class="type-badge type-badge--lg tg-${escAttr(exam.typeGroup)}${exam.type === 'csat' ? ' tg-csat' : ''}">${escHtml(typeLbl)}</span>` : '') +
       `<span class="chiplet chiplet--ink">${escHtml(dy.label)}${dy.suffix ? ' ' + dy.suffix : ''}</span>`;
   }
   if ($('examTitle').textContent.trim() === '자료 불러오는 중…') $('examTitle').textContent = buildTitle(exam);

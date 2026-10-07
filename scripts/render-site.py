@@ -1107,7 +1107,7 @@ def render_home(items: list[dict]) -> None:
         cover = (f'<img src="{esc(img, quote=True)}" alt="" loading="lazy" decoding="async" />' if img else '')
         cards.append(
             '        <article class="card-box latest-card">\n'
-            f'          <div class="cover">{cover}<span class="type-badge tg-{tg}">{esc(badge, quote=False)}</span></div>\n'
+            f'          <div class="cover">{cover}<span class="type-badge tg-{tg}{" tg-csat" if t == "csat" else ""}">{esc(badge, quote=False)}</span></div>\n'
             f'          <h3 class="latest-card__title"><a href="{set_href}">{esc(title, quote=False)}</a></h3>\n'
             f'          <p class="latest-card__meta">{esc(meta, quote=False)}</p>\n'
             f'          <nav class="subj-links" aria-label="{esc(title, quote=True)} 과목">{"".join(links)}</nav>\n'
