@@ -1977,11 +1977,11 @@ def exam_facts_description(it: dict, head: str, sc: dict | None, wr: list | None
 
 def wrong_rate_html(it: dict, rows: list, spoil_note: bool) -> str:
     """오답률 높은 문항 — EBSi 응답자 기준 상위 문항 표 + 요약 문장(가장 많이 틀린 문항·정답보다 많이 고른 오답)."""
-    mc = '객관식 문항 가운데 ' if it.get('subject') == '수학' else ''
     sv = lambda v: f'<span class="spoil-val">{v}</span>'
     q, w, pt, ans, ch = rows[0]
-    out = [f'EBSi 응답자 기준으로 {mc}가장 많이 틀린 문항은 <strong>{q}번</strong>({pt:g}점)이고, 오답률은 {sv(f"{w:g}%")}입니다.']
-    # 정답보다 특정 오답을 더 많이 고른 문항 — 매력적인 오답
+    out = [f'EBSi 응답자 기준으로 가장 많이 틀린 문항은 <strong>{q}번</strong>({pt:g}점{", 주관식" if ch is None else ""})이고, '
+           f'오답률은 {sv(f"{w:g}%")}입니다.']
+    # 정답보다 특정 오답을 더 많이 고른 문항 — 매력적인 오답(객관식만, 주관식은 선택률이 없다)
     lure = [(r[0], max((i for i in range(5) if i != r[3] - 1), key=lambda i: r[4][i]), r) for r in rows
             if r[4] and max(r[4]) > r[4][r[3] - 1]]
     if lure:
@@ -1995,9 +1995,9 @@ def wrong_rate_html(it: dict, rows: list, spoil_note: bool) -> str:
     trs = []
     for i, (q, w, pt, ans, ch) in enumerate(rows, 1):
         wi = max((j for j in range(5) if j != ans - 1), key=lambda j: ch[j]) if ch else None
-        lure_cell = f'{_CIRCLED[wi]} {ch[wi]:g}%' if wi is not None else '—'
+        lure_cell = f'{_CIRCLED[wi]} {ch[wi]:g}%' if wi is not None else '주관식'
         trs.append(f'<tr><td>{i}</td><td>{q}번</td><td class="is-muted">{pt:g}점</td><td>{w:g}%</td>'
-                   f'<td>{_CIRCLED[ans - 1]}</td><td class="is-muted">{lure_cell}</td></tr>')
+                   f'<td>{_CIRCLED[ans - 1] if ch else ans}</td><td class="is-muted">{lure_cell}</td></tr>')
     return ('<section class="exam-section exam-wrong" aria-labelledby="wrongTitle"><div class="exam-section__head">'
             '<h2 id="wrongTitle">오답률 높은 문항</h2></div>' + (_SPOIL_NOTE if spoil_note else '')
             + '<p class="info-card__desc">' + ' '.join(out) + '</p>'
@@ -2005,7 +2005,7 @@ def wrong_rate_html(it: dict, rows: list, spoil_note: bool) -> str:
             '<th scope="col">순위</th><th scope="col">문항</th><th scope="col">배점</th><th scope="col">오답률</th>'
             '<th scope="col">정답</th><th scope="col">많이 고른 오답</th></tr></thead>'
             f'<tbody class="spoil-val">{"".join(trs)}</tbody></table>'
-            f'<p class="grade-table__legend">EBSi 가채점 응답자 기준 · {mc or "전 문항 중 "}오답률 상위 {len(rows)}문항</p></div></section>'
+            f'<p class="grade-table__legend">EBSi 가채점 응답자 기준 · 전 문항 중 오답률 상위 {len(rows)}문항</p></div></section>'
             '<p class="exam-official__src">출처: <a href="https://www.ebsi.co.kr/" rel="noopener nofollow" target="_blank">EBSi</a> '
             '역대 등급컷·오답률 공개 화면. 가채점에 참여한 EBSi 이용자 응답이라 전체 응시자 정답률과는 다를 수 있습니다.</p></section>')
 
@@ -2919,7 +2919,7 @@ def set_wrong_html(head: str, exams: list[dict]) -> str:
         return ''
     return ('<section class="examset__facts" aria-labelledby="examsetWrongTitle">'
             '<div class="examset__facts-head"><h2 id="examsetWrongTitle">영역별 오답률 1위 문항</h2></div>'
-            f'<p>{esc(head)}에서 영역별로 가장 많이 틀린 문항입니다. EBSi 가채점 응답자 기준이며(수학은 객관식 문항만), '
+            f'<p>{esc(head)}에서 영역별로 가장 많이 틀린 문항입니다. EBSi 가채점 응답자 기준이며, '
             '과목 이름을 누르면 오답률 상위 문항과 많이 고른 오답을 볼 수 있습니다.</p>'
             '<div class="examset__facts-scroll"><table class="examset__table"><thead><tr><th scope="col">영역</th>'
             '<th scope="col">오답률 1위</th><th scope="col">오답률</th><th scope="col">오답률 50% 넘은 문항</th></tr></thead>'
