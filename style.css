@@ -17,13 +17,15 @@
   /* 배지·태그(기관 배지·난이도·개수·글 태그) */
   --badge-weight: 650;
 
-  --bg:            #f4f4f2;
-  --surface:       #fdfdfc;
+  /* 면 색은 종류별로 하나씩 — 바탕(--bg) / 흰 면: 카드·버튼·입력창·목록 행(--surface)
+     / 옅은 회색: 표 머리줄·행 호버(--sunken) / 회색 채움: 선택 칩·배지·자리표시(--surface-2) */
+  --bg:            #f1f1ee;
+  --surface:       #fafaf8;
   --surface-2:     #ebebe8;
-  --surface-hover: #f8f8f6;
+  --surface-hover: var(--sunken);
   --chip-hover: #efefec; --chip-hover-line: #c9c9c4;   /* 버튼·칩 호버 */
-  --chip-sel: #e9e9e6; --chip-sel-line: #a3a39e;       /* 하위 줄 선택 */
-  --sunken:        #f7f7f5;
+  --chip-sel: var(--surface-2); --chip-sel-line: #a3a39e;   /* 하위 줄 선택 */
+  --sunken:        #f4f4f1;
 
   --line:        #e2e2de;
   --line-soft:   #eaeae7;
@@ -631,8 +633,8 @@ html[data-urlstate] .content:has(#cardsGrid[data-prerendered]) #skeleton { displ
 .rfold__seg { display: block; height: 100%; }
 .rfold__seg--1 { background: var(--t1); } .rfold__seg--2 { background: var(--t2); } .rfold__seg--3 { background: var(--t3); } .rfold__seg--4 { background: var(--t4); } .rfold__seg--5 { background: var(--t5); }
 .rfold[open] summary { background: var(--sunken); }
-.rfold__rows .rrow { background: var(--sunken); }
-.rfold__rows .rrow:hover { background: var(--surface-2); }
+.rfold__rows .rrow { background: var(--surface); }
+.rfold__rows .rrow:hover { background: var(--sunken); }
 .rfold__rows .rrow__subj { padding-left: 14px; font-size: 14.5px; }
 .results > .ad-slot { margin: 0; border-radius: 0; border-width: 1px 0 0; }
 
