@@ -4,7 +4,9 @@
 // 표시만 다름 — gradeYear 기준 "학년도", examYear 기준 "년 X월" (교육청)
 
 // ╔══════════════════════════════════════════════════════════
-// ║  TAB_CONFIG — archive 페이지 카테고리 탭 (8개)
+// ║  TAB_CONFIG — archive 페이지 카테고리 탭
+// ║  navGroup 이 같은 탭들은 상단 nav 에서 버튼 하나로 묶이고(첫 탭이 대표),
+// ║  필터 맨 위 칩(levelLabel)으로 하나를 골라 전환한다.
 // ║  탭 = "사용자가 인지하는 카테고리" (예: 고3, 사관·경찰)
 // ║  curriculum = 데이터 단위 (2015 개정, 2009 개정, 사관, 경찰대 등)
 // ║  한 탭이 여러 curriculum을 묶을 수 있음.
@@ -22,18 +24,33 @@ export const TAB_CONFIG = [
   { key: 'gradschool', label: 'LEET·MEET', sub: '전문대학원',       curriculums: ['LEET', 'MEET'] },
   // 고1·고2: 교육청 학평만 (typeGroup=education, studentGrade=2/1)
   { key: 'junior',     label: '고2',       sub: '학평',
-    curriculums: ['2015', '2009', '2007개정', '7차'], educationGrades: [2], educationOnly: true },
+    curriculums: ['2015', '2009', '2007개정', '7차'], educationGrades: [2], educationOnly: true,
+    navGroup: { label: '고1·2', sub: '학력평가', title: '학년' }, levelLabel: '고2' },
   { key: 'freshman',   label: '고1',       sub: '학평',
-    curriculums: ['2015', '2009', '2007개정', '7차'], educationGrades: [1], educationOnly: true },
+    curriculums: ['2015', '2009', '2007개정', '7차'], educationGrades: [1], educationOnly: true,
+    navGroup: 'junior', levelLabel: '고1' },
   { key: 'essay',      label: '논술',      sub: '대학별 기출', curriculums: ['논술'] },
-  // 검정고시: 고1·고2·고3처럼 학력별 탭으로 분리 (학력마다 과목셋이 달라 혼합 방지)
-  { key: 'gedhigh',    label: '고졸',      sub: '검정고시',    curriculums: ['고졸'] },
-  { key: 'gedmid',     label: '중졸',      sub: '검정고시',    curriculums: ['중졸'] },
-  { key: 'gedelem',    label: '초졸',      sub: '검정고시',    curriculums: ['초졸'] },
+  // 검정고시: 학력별 탭으로 분리 (학력마다 과목셋이 달라 혼합 방지) — nav 에서는 한 버튼
+  { key: 'gedhigh',    label: '고졸',      sub: '검정고시',    curriculums: ['고졸'],
+    navGroup: { label: '검정고시', sub: '고졸·중졸·초졸', title: '학력' }, levelLabel: '고졸' },
+  { key: 'gedmid',     label: '중졸',      sub: '검정고시',    curriculums: ['중졸'], navGroup: 'gedhigh', levelLabel: '중졸' },
+  { key: 'gedelem',    label: '초졸',      sub: '검정고시',    curriculums: ['초졸'], navGroup: 'gedhigh', levelLabel: '초졸' },
 ];
 
 export function getTabConf(tabKey) {
   return TAB_CONFIG.find(t => t.key === tabKey) ?? null;
+}
+
+// nav 버튼이 가리키는 대표 탭 키 (묶인 탭이면 그룹 첫 탭, 아니면 자기 자신)
+export function navTabKey(tabKey) {
+  const g = getTabConf(tabKey)?.navGroup;
+  return typeof g === 'string' ? g : tabKey;
+}
+// 같은 nav 버튼에 묶인 탭들 (묶이지 않았으면 빈 배열)
+export function navSiblings(tabKey) {
+  const head = navTabKey(tabKey);
+  if (!getTabConf(head)?.navGroup) return [];
+  return TAB_CONFIG.filter(t => navTabKey(t.key) === head);
 }
 
 // 옛 URL 파라미터 (?tab=2015 등) 호환 — curriculum 키가 들어오면 새 탭으로 매핑

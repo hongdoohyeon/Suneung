@@ -4,7 +4,7 @@ import { publicFileUrl } from './lib/dom.js?v=0b17b253cee43c29acb3';
 enableForcedDownloads();
 import {
   CURRICULUM_CONFIG, EXAM_TYPE_CONFIG, TAB_CONFIG,
-  getTypeConf, getGroupConf, getTabConf, legacyTabKey, prettySub,
+  getTypeConf, getGroupConf, getTabConf, legacyTabKey, prettySub, navTabKey, navSiblings,
 } from './config.js?v=0b17b253cee43c29acb3';
 import {
   state, PAGE_SIZE,
@@ -137,11 +137,7 @@ function applyUrlState() {
     const tab = legacyTabKey(rawTab);
     if (getTabConf(tab)) state.tab = tab;
   }
-  document.querySelectorAll('.nav-tab').forEach(b => {
-    const on = b.dataset.tab === state.tab;
-    b.classList.toggle('is-active', on);
-    if (on) b.setAttribute('aria-current', 'true'); else b.removeAttribute('aria-current');
-  });
+  markActiveNavTab();
 
   // 탭 변경 후 default typeGroup 적용 — URL에 typeGroup 명시되어 있으면 곧 덮어씀
   if (tabIsSingleType()) {
@@ -460,21 +456,35 @@ function scrollActiveTabIntoView() {
   active?.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
 }
 
-$('categorySelect').innerHTML = TAB_CONFIG.filter(tab => tab.key !== 'all').map(tab =>
-  `<option value="${escAttr(tab.key)}">${escHtml(tab.label)} · ${escHtml(tab.sub)}</option>`).join('');
+// 묶인 탭(고1·2, 검정고시)은 nav 버튼 하나 — 활성 표시는 대표 탭 키로 비교
+function markActiveNavTab() {
+  const key = navTabKey(state.tab);
+  document.querySelectorAll('.nav-tab').forEach(b => {
+    const on = b.dataset.tab === key;
+    b.classList.toggle('is-active', on);
+    if (on) b.setAttribute('aria-current', 'true'); else b.removeAttribute('aria-current');
+  });
+}
+
+$('categorySelect').innerHTML = TAB_CONFIG.filter(tab => tab.key !== 'all' && typeof tab.navGroup !== 'string').map(tab => {
+  const nav = tab.navGroup ?? tab;
+  return `<option value="${escAttr(tab.key)}">${escHtml(nav.label)} · ${escHtml(nav.sub)}</option>`;
+}).join('');
 $('categorySelect').addEventListener('change', e => {
   const button = document.querySelector(`.nav-tab[data-tab="${e.target.value}"]`);
   button.click();
 });
 
-$('curriculumTabs').addEventListener('click', async e => {
+$('curriculumTabs').addEventListener('click', e => {
   const btn = e.target.closest('.nav-tab');
   if (!btn) return;
+  switchTab(btn.dataset.tab);
+});
+
+async function switchTab(tab) {
   clearTimeout(searchTimer);
-  document.querySelectorAll('.nav-tab').forEach(b => { b.classList.remove('is-active'); b.removeAttribute('aria-current'); });
-  btn.classList.add('is-active');
-  btn.setAttribute('aria-current', 'true');
-  state.tab = btn.dataset.tab;
+  state.tab = tab;
+  markActiveNavTab();
   resetFilters();
   state.yearExpanded = false;
   $('searchInput').value = '';
@@ -493,7 +503,7 @@ $('curriculumTabs').addEventListener('click', async e => {
   document.startViewTransition ? document.startViewTransition(doRender) : doRender();
 
   scrollActiveTabIntoView();
-});
+}
 
 // 페이지 로드 시 활성 탭이 모바일 가로 스크롤에서 가운데로 오도록 (잘림 인지 완화)
 addEventListener('DOMContentLoaded', () => {
@@ -504,7 +514,8 @@ addEventListener('DOMContentLoaded', () => {
 
 // ── 필터 패널 전체 재구성 ──────────────────────────────────
 function renderFilterPanel() {
-  $('categorySelect').value = state.tab;
+  $('categorySelect').value = navTabKey(state.tab);
+  renderLevelChips();
   renderTypeGroupChips();
   renderSubtypeChips();
   // '시험' 섹션은 typeGroup 칩 또는 세부유형(월) 칩이 하나라도 있을 때만 노출.
@@ -537,6 +548,20 @@ $('tierFilter')?.addEventListener('click', e => {
   renderTierChips();
   render();
   syncUrl();
+});
+
+// ── 학년·학력 (묶인 탭 안에서 하나만 고름 — 과목셋이 달라 섞지 않는다) ──
+function renderLevelChips() {
+  const sibs = navSiblings(state.tab);
+  $('levelBlock').hidden = !sibs.length;
+  if (!sibs.length) { $('levelFilter').innerHTML = ''; return; }
+  $('levelTitle').textContent = getTabConf(navTabKey(state.tab)).navGroup.title;
+  $('levelFilter').innerHTML = sibs.map(t => pill(t.key, t.levelLabel, t.key === state.tab)).join('');
+}
+$('levelFilter').addEventListener('click', e => {
+  const btn = e.target.closest('.pill');
+  if (!btn || btn.dataset.value === state.tab) return;
+  switchTab(btn.dataset.value);
 });
 
 // ── 시험 주최 (그룹 pill) ──────────────────────────────────
@@ -1538,11 +1563,7 @@ async function runSmartSearch(q) {
     // 이 탭에 없는 학년도(예: 2030학년도)면 조건을 버리지 말고 '해당 없음'으로 — 전부 보여 주면 오해
     state.gradeYear = ys.length === 1 ? ys[0] : ys.length ? ys : [String(from)];
   }
-  document.querySelectorAll('.nav-tab').forEach(b => {
-    const on = b.dataset.tab === state.tab;
-    b.classList.toggle('is-active', on);
-    if (on) b.setAttribute('aria-current', 'true'); else b.removeAttribute('aria-current');
-  });
+  markActiveNavTab();
   renderFilterPanel();
   render();
   history.replaceState({ smart: q }, '', buildUrlFromState());
