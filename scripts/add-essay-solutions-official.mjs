@@ -3,13 +3,16 @@
 // 출처: 이화여대 선행학습 영향평가 보고서 문항카드(2024~2026), 중앙대 논술가이드북 전년도 기출 해설 장
 // (2015·2021~2024)과 2025 선행학습 보고서, 한양대 입학처 계열별 출제의도·예시답안 파일(2018~2026).
 // 아주대 2020 의예(2021 논술자료집 채점기준)·2024 모의(예시답안 및 채점기준)도 함께 연결.
+// 2차(essay-v26): 가톨릭·경희·부산·아주·홍익·한양·성균관·고려 등 15개교 121건 — 대학이 공개한 출제의도·해설·예시답안.
 // 문제지 본문이 보고서·가이드북의 어느 구간에 있는지 대조해 구간을 정했다.
 // 함께: 중앙대 2023 '인문사회계열①/②'는 실제로 경영경제/인문사회 문제여서 계열명을 바로잡는다.
 
 import { readFile, writeFile } from 'node:fs/promises';
 
 const DATA_PATH = new URL('../data/exams.json', import.meta.url);
-const WORKER = 'https://suneung-files.hdh061224.workers.dev/essay-v25';
+const BASE = 'https://suneung-files.hdh061224.workers.dev';
+// 자산 경로에 'v26/' 접두어가 있으면 essay-v26 릴리즈, 없으면 essay-v25
+const assetUrl = asset => asset.startsWith('v26/') ? `${BASE}/essay-v26/${asset.slice(4)}` : `${BASE}/essay-v25/${asset}`;
 
 // [항목 id, 해설 자산, 원본 출처]
 const rows = [
@@ -79,6 +82,127 @@ const rows = [
   [10768, 'sol_10768.pdf', "https://www.iajou.ac.kr/pasttest/list.php"],
   [10769, 'sol_10769.pdf', "https://www.iajou.ac.kr/pasttest/list.php"],
   [10770, 'sol_10770.pdf', "https://www.iajou.ac.kr/pasttest/list.php"],
+  [9371, 'v26/sol2_9371.pdf', "https://oku.korea.ac.kr/"],
+  [9372, 'v26/sol2_9372.pdf', "https://oku.korea.ac.kr/"],
+  [9408, 'v26/sol2_9408.pdf', "https://go.hanyang.ac.kr/"],
+  [9422, 'v26/sol2_9422.pdf', "https://go.hanyang.ac.kr/"],
+  [9423, 'v26/sol2_9423.pdf', "https://go.hanyang.ac.kr/"],
+  [9429, 'v26/sol2_9429.pdf', "https://go.hanyang.ac.kr/"],
+  [9430, 'v26/sol2_9430.pdf', "https://go.hanyang.ac.kr/"],
+  [9434, 'v26/sol2_9434.pdf', "https://go.hanyang.ac.kr/"],
+  [9440, 'v26/sol2_9440.pdf', "https://go.hanyang.ac.kr/"],
+  [9441, 'v26/sol2_9441.pdf', "https://go.hanyang.ac.kr/"],
+  [9524, 'v26/sol2_9524.pdf', "https://admission.yonsei.ac.kr/"],
+  [9525, 'v26/sol2_9525.pdf', "https://admission.yonsei.ac.kr/"],
+  [9647, 'v26/sol2_9647.pdf', "https://admission.skku.edu/"],
+  [9648, 'v26/sol2_9648.pdf', "https://admission.skku.edu/"],
+  [9651, 'v26/sol2_9651.pdf', "https://admission.skku.edu/"],
+  [9654, 'v26/sol2_9654.pdf', "https://admission.skku.edu/"],
+  [9745, 'v26/sol2_9745.pdf', "https://iphak.khu.ac.kr/"],
+  [9746, 'v26/sol2_9746.pdf', "https://iphak.khu.ac.kr/"],
+  [9779, 'v26/sol2_9779.pdf', "https://iphak.khu.ac.kr/"],
+  [9780, 'v26/sol2_9780.pdf', "https://iphak.khu.ac.kr/"],
+  [9800, 'v26/sol2_9800.pdf', "https://iphak.khu.ac.kr/"],
+  [9806, 'v26/sol2_9806.pdf', "https://iphak.khu.ac.kr/"],
+  [9818, 'v26/sol2_9818.pdf', "https://iphak.khu.ac.kr/"],
+  [9824, 'v26/sol2_9824.pdf', "https://iphak.khu.ac.kr/"],
+  [9860, 'v26/sol2_9860.pdf', "https://iphak.khu.ac.kr/"],
+  [10039, 'v26/sol2_10039.pdf', "https://ipsi.catholic.ac.kr/"],
+  [10041, 'v26/sol2_10041.pdf', "https://ipsi.catholic.ac.kr/"],
+  [10045, 'v26/sol2_10045.pdf', "https://ipsi.catholic.ac.kr/"],
+  [10063, 'v26/sol2_10063.pdf', "https://ipsi.catholic.ac.kr/"],
+  [10064, 'v26/sol2_10064.pdf', "https://ipsi.catholic.ac.kr/"],
+  [10065, 'v26/sol2_10065.pdf', "https://ipsi.catholic.ac.kr/"],
+  [10066, 'v26/sol2_10066.pdf', "https://ipsi.catholic.ac.kr/"],
+  [10067, 'v26/sol2_10067.pdf', "https://ipsi.catholic.ac.kr/"],
+  [10068, 'v26/sol2_10068.pdf', "https://ipsi.catholic.ac.kr/"],
+  [10069, 'v26/sol2_10069.pdf', "https://ipsi.catholic.ac.kr/"],
+  [10070, 'v26/sol2_10070.pdf', "https://ipsi.catholic.ac.kr/"],
+  [10071, 'v26/sol2_10071.pdf', "https://ipsi.catholic.ac.kr/"],
+  [10072, 'v26/sol2_10072.pdf', "https://ipsi.catholic.ac.kr/"],
+  [10073, 'v26/sol2_10073.pdf', "https://ipsi.catholic.ac.kr/"],
+  [10074, 'v26/sol2_10074.pdf', "https://ipsi.catholic.ac.kr/"],
+  [10075, 'v26/sol2_10075.pdf', "https://ipsi.catholic.ac.kr/"],
+  [10076, 'v26/sol2_10076.pdf', "https://ipsi.catholic.ac.kr/"],
+  [10077, 'v26/sol2_10077.pdf', "https://ipsi.catholic.ac.kr/"],
+  [10080, 'v26/sol2_10080.pdf', "https://ipsi.catholic.ac.kr/"],
+  [10081, 'v26/sol2_10081.pdf', "https://ipsi.catholic.ac.kr/"],
+  [10082, 'v26/sol2_10082.pdf', "https://ipsi.catholic.ac.kr/"],
+  [10083, 'v26/sol2_10083.pdf', "https://ipsi.catholic.ac.kr/"],
+  [10084, 'v26/sol2_10084.pdf', "https://ipsi.catholic.ac.kr/"],
+  [10085, 'v26/sol2_10085.pdf', "https://ipsi.catholic.ac.kr/"],
+  [10086, 'v26/sol2_10086.pdf', "https://ipsi.catholic.ac.kr/"],
+  [10087, 'v26/sol2_10087.pdf', "https://ipsi.catholic.ac.kr/"],
+  [10088, 'v26/sol2_10088.pdf', "https://ipsi.catholic.ac.kr/"],
+  [10089, 'v26/sol2_10089.pdf', "https://ipsi.catholic.ac.kr/"],
+  [10090, 'v26/sol2_10090.pdf', "https://ipsi.catholic.ac.kr/"],
+  [10091, 'v26/sol2_10091.pdf', "https://ipsi.catholic.ac.kr/"],
+  [10095, 'v26/sol2_10095.pdf', "https://ipsi.catholic.ac.kr/"],
+  [10097, 'v26/sol2_10097.pdf', "https://ipsi.catholic.ac.kr/"],
+  [10124, 'v26/sol2_10124.pdf', "https://admission.konkuk.ac.kr/"],
+  [10151, 'v26/sol2_10151.pdf', "https://admission.konkuk.ac.kr/"],
+  [10166, 'v26/sol2_10166.pdf', "https://enter.kyonggi.ac.kr/"],
+  [10168, 'v26/sol2_10168.pdf', "https://enter.kyonggi.ac.kr/"],
+  [10184, 'v26/sol2_10184.pdf', "https://enter.kyonggi.ac.kr/"],
+  [10195, 'v26/sol2_10195.pdf', "https://ipsi.knu.ac.kr/"],
+  [10196, 'v26/sol2_10196.pdf', "https://ipsi.knu.ac.kr/"],
+  [10375, 'v26/sol2_10375.pdf', "https://go.pusan.ac.kr/"],
+  [10376, 'v26/sol2_10376.pdf', "https://go.pusan.ac.kr/"],
+  [10395, 'v26/sol2_10395.pdf', "https://go.pusan.ac.kr/"],
+  [10396, 'v26/sol2_10396.pdf', "https://go.pusan.ac.kr/"],
+  [10397, 'v26/sol2_10397.pdf', "https://go.pusan.ac.kr/"],
+  [10398, 'v26/sol2_10398.pdf', "https://go.pusan.ac.kr/"],
+  [10399, 'v26/sol2_10399.pdf', "https://go.pusan.ac.kr/"],
+  [10400, 'v26/sol2_10400.pdf', "https://go.pusan.ac.kr/"],
+  [10401, 'v26/sol2_10401.pdf', "https://go.pusan.ac.kr/"],
+  [10402, 'v26/sol2_10402.pdf', "https://go.pusan.ac.kr/"],
+  [10403, 'v26/sol2_10403.pdf', "https://go.pusan.ac.kr/"],
+  [10430, 'v26/sol2_10430.pdf', "https://admission.smu.ac.kr/"],
+  [10431, 'v26/sol2_10431.pdf', "https://admission.smu.ac.kr/"],
+  [10432, 'v26/sol2_10432.pdf', "https://admission.smu.ac.kr/"],
+  [10433, 'v26/sol2_10433.pdf', "https://admission.smu.ac.kr/"],
+  [10434, 'v26/sol2_10434.pdf', "https://ipsi.skuniv.ac.kr/"],
+  [10435, 'v26/sol2_10435.pdf', "https://ipsi.skuniv.ac.kr/"],
+  [10546, 'v26/sol2_10546.pdf', "https://ipsi.sungshin.ac.kr/"],
+  [10550, 'v26/sol2_10550.pdf', "https://ipsi.sejong.ac.kr/"],
+  [10752, 'v26/sol2_10752.pdf', "https://iphak.ajou.ac.kr/"],
+  [10753, 'v26/sol2_10753.pdf', "https://iphak.ajou.ac.kr/"],
+  [10754, 'v26/sol2_10754.pdf', "https://iphak.ajou.ac.kr/"],
+  [10755, 'v26/sol2_10755.pdf', "https://iphak.ajou.ac.kr/"],
+  [10756, 'v26/sol2_10756.pdf', "https://iphak.ajou.ac.kr/"],
+  [10757, 'v26/sol2_10757.pdf', "https://iphak.ajou.ac.kr/"],
+  [10761, 'v26/sol2_10761.pdf', "https://iphak.ajou.ac.kr/"],
+  [10762, 'v26/sol2_10762.pdf', "https://iphak.ajou.ac.kr/"],
+  [10763, 'v26/sol2_10763.pdf', "https://iphak.ajou.ac.kr/"],
+  [10764, 'v26/sol2_10764.pdf', "https://iphak.ajou.ac.kr/"],
+  [10765, 'v26/sol2_10765.pdf', "https://iphak.ajou.ac.kr/"],
+  [10766, 'v26/sol2_10766.pdf', "https://iphak.ajou.ac.kr/"],
+  [10767, 'v26/sol2_10767.pdf', "https://iphak.ajou.ac.kr/"],
+  [10801, 'v26/sol2_10801.pdf', "https://admission.inha.ac.kr/"],
+  [10803, 'v26/sol2_10803.pdf', "https://admission.inha.ac.kr/"],
+  [10806, 'v26/sol2_10806.pdf', "https://admission.inha.ac.kr/"],
+  [10880, 'v26/sol2_10880.pdf', "https://admission.hufs.ac.kr/"],
+  [10900, 'v26/sol2_10900.pdf', "https://admission.hufs.ac.kr/"],
+  [10971, 'v26/sol2_10971.pdf', "https://ibsi.hongik.ac.kr/"],
+  [10978, 'v26/sol2_10978.pdf', "https://ibsi.hongik.ac.kr/"],
+  [10979, 'v26/sol2_10979.pdf', "https://ibsi.hongik.ac.kr/"],
+  [10981, 'v26/sol2_10981.pdf', "https://ibsi.hongik.ac.kr/"],
+  [10984, 'v26/sol2_10984.pdf', "https://ibsi.hongik.ac.kr/"],
+  [10985, 'v26/sol2_10985.pdf', "https://ibsi.hongik.ac.kr/"],
+  [10986, 'v26/sol2_10986.pdf', "https://ibsi.hongik.ac.kr/"],
+  [10987, 'v26/sol2_10987.pdf', "https://ibsi.hongik.ac.kr/"],
+  [11001, 'v26/sol2_11001.pdf', "https://ibsi.hongik.ac.kr/"],
+  [11002, 'v26/sol2_11002.pdf', "https://ibsi.hongik.ac.kr/"],
+  [11003, 'v26/sol2_11003.pdf', "https://ibsi.hongik.ac.kr/"],
+  [11190, 'v26/sol2_11190.pdf', "https://ipsi.catholic.ac.kr/"],
+  [11191, 'v26/sol2_11191.pdf', "https://ipsi.catholic.ac.kr/"],
+  [11218, 'v26/sol2_11218.pdf', "https://admission.ssu.ac.kr/"],
+  [14363, 'v26/sol2_14363.pdf', "https://ipsi.catholic.ac.kr/"],
+  [14364, 'v26/sol2_14364.pdf', "https://ipsi.catholic.ac.kr/"],
+  [14365, 'v26/sol2_14365.pdf', "https://ipsi.catholic.ac.kr/"],
+  [14366, 'v26/sol2_14366.pdf', "https://ipsi.catholic.ac.kr/"],
+  [14367, 'v26/sol2_14367.pdf', "https://ipsi.catholic.ac.kr/"],
+  [14368, 'v26/sol2_14368.pdf', "https://ipsi.catholic.ac.kr/"],
 ];
 
 const exams = JSON.parse(await readFile(DATA_PATH, 'utf8'));
@@ -111,7 +235,7 @@ for (const [id, asset, original] of rows) {
   if (!e || e.solutionUrl) continue;
   const kind = e.type === 'essay_mock' ? '모의논술' : '논술';
   e.solutionDownload = `${e.gradeYear}학년도 ${e.subject} ${kind} ${e.subSubject} 해설.pdf`;
-  e.solutionUrl = `${WORKER}/${asset}?name=${encodeURIComponent(e.solutionDownload)}`;
+  e.solutionUrl = `${assetUrl(asset)}?name=${encodeURIComponent(e.solutionDownload)}`;
   e.solutionUrl_source_original = original;
   changed++;
 }

@@ -132290,11 +132290,12 @@
     "subSubject": "인문계",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v5/ku_2016_annual_inmun_q.pdf?name=2016%ED%95%99%EB%85%84%EB%8F%84%20%EA%B3%A0%EB%A0%A4%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EC%9D%B8%EB%AC%B8%EA%B3%84%20%EB%AC%B8%EC%A0%9C.pdf",
     "answerUrl": null,
-    "solutionUrl": null,
+    "solutionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v26/sol2_9371.pdf?name=2016%ED%95%99%EB%85%84%EB%8F%84%20%EA%B3%A0%EB%A0%A4%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EC%9D%B8%EB%AC%B8%EA%B3%84%20%ED%95%B4%EC%84%A4.pdf",
     "questionDownload": "2016학년도 고려대학교 논술 인문계 문제.pdf",
     "answerDownload": null,
-    "solutionDownload": null,
-    "source": "essay-v5"
+    "solutionDownload": "2016학년도 고려대학교 논술 인문계 해설.pdf",
+    "source": "essay-v5",
+    "solutionUrl_source_original": "https://oku.korea.ac.kr/"
   },
   {
     "id": 9372,
@@ -132309,11 +132310,12 @@
     "subSubject": "자연계",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v5/ku_2016_annual_jayeon_q.pdf?name=2016%ED%95%99%EB%85%84%EB%8F%84%20%EA%B3%A0%EB%A0%A4%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EC%9E%90%EC%97%B0%EA%B3%84%20%EB%AC%B8%EC%A0%9C.pdf",
     "answerUrl": null,
-    "solutionUrl": null,
+    "solutionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v26/sol2_9372.pdf?name=2016%ED%95%99%EB%85%84%EB%8F%84%20%EA%B3%A0%EB%A0%A4%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EC%9E%90%EC%97%B0%EA%B3%84%20%ED%95%B4%EC%84%A4.pdf",
     "questionDownload": "2016학년도 고려대학교 논술 자연계 문제.pdf",
     "answerDownload": null,
-    "solutionDownload": null,
-    "source": "essay-v5"
+    "solutionDownload": "2016학년도 고려대학교 논술 자연계 해설.pdf",
+    "source": "essay-v5",
+    "solutionUrl_source_original": "https://oku.korea.ac.kr/"
   },
   {
     "id": 9373,
@@ -133082,11 +133084,12 @@
     "subSubject": "인문계열",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v7/hy_2015_ann_in_q.pdf?name=2015%ED%95%99%EB%85%84%EB%8F%84%20%ED%95%9C%EC%96%91%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EC%9D%B8%EB%AC%B8%EA%B3%84%EC%97%B4%20%EB%AC%B8%EC%A0%9C.pdf",
     "answerUrl": "https://suneung-files.hdh061224.workers.dev/essay-v7/hy_2015_ann_in_a.pdf?name=2015%ED%95%99%EB%85%84%EB%8F%84%20%ED%95%9C%EC%96%91%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EC%9D%B8%EB%AC%B8%EA%B3%84%EC%97%B4%20%EC%98%88%EC%8B%9C%EB%8B%B5%EC%95%88.pdf",
-    "solutionUrl": null,
+    "solutionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v26/sol2_9408.pdf?name=2015%ED%95%99%EB%85%84%EB%8F%84%20%ED%95%9C%EC%96%91%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EC%9D%B8%EB%AC%B8%EA%B3%84%EC%97%B4%20%ED%95%B4%EC%84%A4.pdf",
     "questionDownload": "2015학년도 한양대학교 논술 인문계열 문제.pdf",
     "answerDownload": "2015학년도 한양대학교 논술 인문계열 예시답안.pdf",
-    "solutionDownload": null,
-    "source": "essay-std-hy"
+    "solutionDownload": "2015학년도 한양대학교 논술 인문계열 해설.pdf",
+    "source": "essay-std-hy",
+    "solutionUrl_source_original": "https://go.hanyang.ac.kr/"
   },
   {
     "id": 9409,
@@ -133348,11 +133351,12 @@
     "subSubject": "인문계열(오후1)",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v3/es7_hanyang_044.pdf?name=2016%ED%95%99%EB%85%84%EB%8F%84%20%ED%95%9C%EC%96%91%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EC%9D%B8%EB%AC%B8%EA%B3%84%EC%97%B4%28%EC%98%A4%ED%9B%841%29%20%EB%AC%B8%EC%A0%9C.pdf",
     "answerUrl": "https://suneung-files.hdh061224.workers.dev/essay-v3/es7_hanyang_045.pdf?name=2016%ED%95%99%EB%85%84%EB%8F%84%20%ED%95%9C%EC%96%91%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EC%9D%B8%EB%AC%B8%EA%B3%84%EC%97%B4%28%EC%98%A4%ED%9B%841%29%20%EC%98%88%EC%8B%9C%EB%8B%B5%EC%95%88.pdf",
-    "solutionUrl": null,
+    "solutionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v26/sol2_9422.pdf?name=2016%ED%95%99%EB%85%84%EB%8F%84%20%ED%95%9C%EC%96%91%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EC%9D%B8%EB%AC%B8%EA%B3%84%EC%97%B4(%EC%98%A4%ED%9B%841)%20%ED%95%B4%EC%84%A4.pdf",
     "questionDownload": "2016학년도 한양대학교 논술 인문계열(오후1) 문제.pdf",
     "answerDownload": "2016학년도 한양대학교 논술 인문계열(오후1) 예시답안.pdf",
-    "solutionDownload": null,
-    "source": "essay-std-hy"
+    "solutionDownload": "2016학년도 한양대학교 논술 인문계열(오후1) 해설.pdf",
+    "source": "essay-std-hy",
+    "solutionUrl_source_original": "https://go.hanyang.ac.kr/"
   },
   {
     "id": 9423,
@@ -133367,11 +133371,12 @@
     "subSubject": "인문계열(오후2)",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v3/es7_hanyang_046.pdf?name=2016%ED%95%99%EB%85%84%EB%8F%84%20%ED%95%9C%EC%96%91%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EC%9D%B8%EB%AC%B8%EA%B3%84%EC%97%B4%28%EC%98%A4%ED%9B%842%29%20%EB%AC%B8%EC%A0%9C.pdf",
     "answerUrl": "https://suneung-files.hdh061224.workers.dev/essay-v3/es7_hanyang_047.pdf?name=2016%ED%95%99%EB%85%84%EB%8F%84%20%ED%95%9C%EC%96%91%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EC%9D%B8%EB%AC%B8%EA%B3%84%EC%97%B4%28%EC%98%A4%ED%9B%842%29%20%EC%98%88%EC%8B%9C%EB%8B%B5%EC%95%88.pdf",
-    "solutionUrl": null,
+    "solutionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v26/sol2_9423.pdf?name=2016%ED%95%99%EB%85%84%EB%8F%84%20%ED%95%9C%EC%96%91%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EC%9D%B8%EB%AC%B8%EA%B3%84%EC%97%B4(%EC%98%A4%ED%9B%842)%20%ED%95%B4%EC%84%A4.pdf",
     "questionDownload": "2016학년도 한양대학교 논술 인문계열(오후2) 문제.pdf",
     "answerDownload": "2016학년도 한양대학교 논술 인문계열(오후2) 예시답안.pdf",
-    "solutionDownload": null,
-    "source": "essay-std-hy"
+    "solutionDownload": "2016학년도 한양대학교 논술 인문계열(오후2) 해설.pdf",
+    "source": "essay-std-hy",
+    "solutionUrl_source_original": "https://go.hanyang.ac.kr/"
   },
   {
     "id": 9424,
@@ -133481,11 +133486,12 @@
     "subSubject": "인문계열",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v3/es7_hanyang_068.pdf?name=2016%ED%95%99%EB%85%84%EB%8F%84%20%ED%95%9C%EC%96%91%EB%8C%80%ED%95%99%EA%B5%90%20%EB%AA%A8%EC%9D%98%EB%85%BC%EC%88%A0%20%EC%9D%B8%EB%AC%B8%EA%B3%84%EC%97%B4%20%EB%AC%B8%EC%A0%9C.pdf",
     "answerUrl": "https://suneung-files.hdh061224.workers.dev/essay-v3/es7_hanyang_069.pdf?name=2016%ED%95%99%EB%85%84%EB%8F%84%20%ED%95%9C%EC%96%91%EB%8C%80%ED%95%99%EA%B5%90%20%EB%AA%A8%EC%9D%98%EB%85%BC%EC%88%A0%20%EC%9D%B8%EB%AC%B8%EA%B3%84%EC%97%B4%20%EC%98%88%EC%8B%9C%EB%8B%B5%EC%95%88.pdf",
-    "solutionUrl": null,
+    "solutionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v26/sol2_9429.pdf?name=2016%ED%95%99%EB%85%84%EB%8F%84%20%ED%95%9C%EC%96%91%EB%8C%80%ED%95%99%EA%B5%90%20%EB%AA%A8%EC%9D%98%EB%85%BC%EC%88%A0%20%EC%9D%B8%EB%AC%B8%EA%B3%84%EC%97%B4%20%ED%95%B4%EC%84%A4.pdf",
     "questionDownload": "2016학년도 한양대학교 모의논술 인문계열 문제.pdf",
     "answerDownload": "2016학년도 한양대학교 모의논술 인문계열 예시답안.pdf",
-    "solutionDownload": null,
-    "source": "essay-std-hy"
+    "solutionDownload": "2016학년도 한양대학교 모의논술 인문계열 해설.pdf",
+    "source": "essay-std-hy",
+    "solutionUrl_source_original": "https://go.hanyang.ac.kr/"
   },
   {
     "id": 9430,
@@ -133500,11 +133506,12 @@
     "subSubject": "인문계열 2차",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v3/es7_hanyang_060.pdf?name=2016%ED%95%99%EB%85%84%EB%8F%84%20%ED%95%9C%EC%96%91%EB%8C%80%ED%95%99%EA%B5%90%20%EB%AA%A8%EC%9D%98%EB%85%BC%EC%88%A0%20%EC%9D%B8%EB%AC%B8%EA%B3%84%EC%97%B4%202%EC%B0%A8%20%EB%AC%B8%EC%A0%9C.pdf",
     "answerUrl": "https://suneung-files.hdh061224.workers.dev/essay-v3/es7_hanyang_061.pdf?name=2016%ED%95%99%EB%85%84%EB%8F%84%20%ED%95%9C%EC%96%91%EB%8C%80%ED%95%99%EA%B5%90%20%EB%AA%A8%EC%9D%98%EB%85%BC%EC%88%A0%20%EC%9D%B8%EB%AC%B8%EA%B3%84%EC%97%B4%202%EC%B0%A8%20%EC%98%88%EC%8B%9C%EB%8B%B5%EC%95%88.pdf",
-    "solutionUrl": null,
+    "solutionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v26/sol2_9430.pdf?name=2016%ED%95%99%EB%85%84%EB%8F%84%20%ED%95%9C%EC%96%91%EB%8C%80%ED%95%99%EA%B5%90%20%EB%AA%A8%EC%9D%98%EB%85%BC%EC%88%A0%20%EC%9D%B8%EB%AC%B8%EA%B3%84%EC%97%B4%202%EC%B0%A8%20%ED%95%B4%EC%84%A4.pdf",
     "questionDownload": "2016학년도 한양대학교 모의논술 인문계열 2차 문제.pdf",
     "answerDownload": "2016학년도 한양대학교 모의논술 인문계열 2차 예시답안.pdf",
-    "solutionDownload": null,
-    "source": "essay-std-hy"
+    "solutionDownload": "2016학년도 한양대학교 모의논술 인문계열 2차 해설.pdf",
+    "source": "essay-std-hy",
+    "solutionUrl_source_original": "https://go.hanyang.ac.kr/"
   },
   {
     "id": 9431,
@@ -133576,11 +133583,12 @@
     "subSubject": "인문계열",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v3/es7_hanyang_076.pdf?name=2017%ED%95%99%EB%85%84%EB%8F%84%20%ED%95%9C%EC%96%91%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EC%9D%B8%EB%AC%B8%EA%B3%84%EC%97%B4%20%EB%AC%B8%EC%A0%9C.pdf",
     "answerUrl": "https://suneung-files.hdh061224.workers.dev/essay-v3/es7_hanyang_077.pdf?name=2017%ED%95%99%EB%85%84%EB%8F%84%20%ED%95%9C%EC%96%91%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EC%9D%B8%EB%AC%B8%EA%B3%84%EC%97%B4%20%EC%98%88%EC%8B%9C%EB%8B%B5%EC%95%88.pdf",
-    "solutionUrl": null,
+    "solutionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v26/sol2_9434.pdf?name=2017%ED%95%99%EB%85%84%EB%8F%84%20%ED%95%9C%EC%96%91%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EC%9D%B8%EB%AC%B8%EA%B3%84%EC%97%B4%20%ED%95%B4%EC%84%A4.pdf",
     "questionDownload": "2017학년도 한양대학교 논술 인문계열 문제.pdf",
     "answerDownload": "2017학년도 한양대학교 논술 인문계열 예시답안.pdf",
-    "solutionDownload": null,
-    "source": "essay-std-hy"
+    "solutionDownload": "2017학년도 한양대학교 논술 인문계열 해설.pdf",
+    "source": "essay-std-hy",
+    "solutionUrl_source_original": "https://go.hanyang.ac.kr/"
   },
   {
     "id": 9435,
@@ -133690,11 +133698,12 @@
     "subSubject": "인문계열 1차",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v3/es7_hanyang_090.pdf?name=2017%ED%95%99%EB%85%84%EB%8F%84%20%ED%95%9C%EC%96%91%EB%8C%80%ED%95%99%EA%B5%90%20%EB%AA%A8%EC%9D%98%EB%85%BC%EC%88%A0%20%EC%9D%B8%EB%AC%B8%EA%B3%84%EC%97%B4%201%EC%B0%A8%20%EB%AC%B8%EC%A0%9C.pdf",
     "answerUrl": "https://suneung-files.hdh061224.workers.dev/essay-v3/es7_hanyang_091.pdf?name=2017%ED%95%99%EB%85%84%EB%8F%84%20%ED%95%9C%EC%96%91%EB%8C%80%ED%95%99%EA%B5%90%20%EB%AA%A8%EC%9D%98%EB%85%BC%EC%88%A0%20%EC%9D%B8%EB%AC%B8%EA%B3%84%EC%97%B4%201%EC%B0%A8%20%EC%98%88%EC%8B%9C%EB%8B%B5%EC%95%88.pdf",
-    "solutionUrl": null,
+    "solutionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v26/sol2_9440.pdf?name=2017%ED%95%99%EB%85%84%EB%8F%84%20%ED%95%9C%EC%96%91%EB%8C%80%ED%95%99%EA%B5%90%20%EB%AA%A8%EC%9D%98%EB%85%BC%EC%88%A0%20%EC%9D%B8%EB%AC%B8%EA%B3%84%EC%97%B4%201%EC%B0%A8%20%ED%95%B4%EC%84%A4.pdf",
     "questionDownload": "2017학년도 한양대학교 모의논술 인문계열 1차 문제.pdf",
     "answerDownload": "2017학년도 한양대학교 모의논술 인문계열 1차 예시답안.pdf",
-    "solutionDownload": null,
-    "source": "essay-std-hy"
+    "solutionDownload": "2017학년도 한양대학교 모의논술 인문계열 1차 해설.pdf",
+    "source": "essay-std-hy",
+    "solutionUrl_source_original": "https://go.hanyang.ac.kr/"
   },
   {
     "id": 9441,
@@ -133709,11 +133718,12 @@
     "subSubject": "인문계열 2차",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v3/es7_hanyang_098.pdf?name=2017%ED%95%99%EB%85%84%EB%8F%84%20%ED%95%9C%EC%96%91%EB%8C%80%ED%95%99%EA%B5%90%20%EB%AA%A8%EC%9D%98%EB%85%BC%EC%88%A0%20%EC%9D%B8%EB%AC%B8%EA%B3%84%EC%97%B4%202%EC%B0%A8%20%EB%AC%B8%EC%A0%9C.pdf",
     "answerUrl": "https://suneung-files.hdh061224.workers.dev/essay-v3/es7_hanyang_099.pdf?name=2017%ED%95%99%EB%85%84%EB%8F%84%20%ED%95%9C%EC%96%91%EB%8C%80%ED%95%99%EA%B5%90%20%EB%AA%A8%EC%9D%98%EB%85%BC%EC%88%A0%20%EC%9D%B8%EB%AC%B8%EA%B3%84%EC%97%B4%202%EC%B0%A8%20%EC%98%88%EC%8B%9C%EB%8B%B5%EC%95%88.pdf",
-    "solutionUrl": null,
+    "solutionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v26/sol2_9441.pdf?name=2017%ED%95%99%EB%85%84%EB%8F%84%20%ED%95%9C%EC%96%91%EB%8C%80%ED%95%99%EA%B5%90%20%EB%AA%A8%EC%9D%98%EB%85%BC%EC%88%A0%20%EC%9D%B8%EB%AC%B8%EA%B3%84%EC%97%B4%202%EC%B0%A8%20%ED%95%B4%EC%84%A4.pdf",
     "questionDownload": "2017학년도 한양대학교 모의논술 인문계열 2차 문제.pdf",
     "answerDownload": "2017학년도 한양대학교 모의논술 인문계열 2차 예시답안.pdf",
-    "solutionDownload": null,
-    "source": "essay-std-hy"
+    "solutionDownload": "2017학년도 한양대학교 모의논술 인문계열 2차 해설.pdf",
+    "source": "essay-std-hy",
+    "solutionUrl_source_original": "https://go.hanyang.ac.kr/"
   },
   {
     "id": 9442,
@@ -135283,11 +135293,12 @@
     "subSubject": "사회계",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v4/es7_yonsei_012.pdf?name=2016%ED%95%99%EB%85%84%EB%8F%84%20%EC%97%B0%EC%84%B8%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EC%82%AC%ED%9A%8C%EA%B3%84%20%EB%AC%B8%EC%A0%9C.pdf",
     "answerUrl": "https://suneung-files.hdh061224.workers.dev/essay-v4/es7_yonsei_013.pdf?name=2016%ED%95%99%EB%85%84%EB%8F%84%20%EC%97%B0%EC%84%B8%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EC%82%AC%ED%9A%8C%EA%B3%84%20%EC%98%88%EC%8B%9C%EB%8B%B5%EC%95%88.pdf",
-    "solutionUrl": null,
+    "solutionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v26/sol2_9524.pdf?name=2016%ED%95%99%EB%85%84%EB%8F%84%20%EC%97%B0%EC%84%B8%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EC%82%AC%ED%9A%8C%EA%B3%84%20%ED%95%B4%EC%84%A4.pdf",
     "questionDownload": "2016학년도 연세대학교 논술 사회계 문제.pdf",
     "answerDownload": "2016학년도 연세대학교 논술 사회계 예시답안.pdf",
-    "solutionDownload": null,
-    "source": "essay-std-ys"
+    "solutionDownload": "2016학년도 연세대학교 논술 사회계 해설.pdf",
+    "source": "essay-std-ys",
+    "solutionUrl_source_original": "https://admission.yonsei.ac.kr/"
   },
   {
     "id": 9525,
@@ -135302,11 +135313,12 @@
     "subSubject": "인문계",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v4/es7_yonsei_014.pdf?name=2016%ED%95%99%EB%85%84%EB%8F%84%20%EC%97%B0%EC%84%B8%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EC%9D%B8%EB%AC%B8%EA%B3%84%20%EB%AC%B8%EC%A0%9C.pdf",
     "answerUrl": "https://suneung-files.hdh061224.workers.dev/essay-v4/es7_yonsei_015.pdf?name=2016%ED%95%99%EB%85%84%EB%8F%84%20%EC%97%B0%EC%84%B8%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EC%9D%B8%EB%AC%B8%EA%B3%84%20%EC%98%88%EC%8B%9C%EB%8B%B5%EC%95%88.pdf",
-    "solutionUrl": null,
+    "solutionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v26/sol2_9525.pdf?name=2016%ED%95%99%EB%85%84%EB%8F%84%20%EC%97%B0%EC%84%B8%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EC%9D%B8%EB%AC%B8%EA%B3%84%20%ED%95%B4%EC%84%A4.pdf",
     "questionDownload": "2016학년도 연세대학교 논술 인문계 문제.pdf",
     "answerDownload": "2016학년도 연세대학교 논술 인문계 예시답안.pdf",
-    "solutionDownload": null,
-    "source": "essay-std-ys"
+    "solutionDownload": "2016학년도 연세대학교 논술 인문계 해설.pdf",
+    "source": "essay-std-ys",
+    "solutionUrl_source_original": "https://admission.yonsei.ac.kr/"
   },
   {
     "id": 9526,
@@ -137629,11 +137641,12 @@
     "subSubject": "인문계",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v10/sk_2023_ann_in_q.pdf?name=2023%ED%95%99%EB%85%84%EB%8F%84%20%EC%84%B1%EA%B7%A0%EA%B4%80%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EC%9D%B8%EB%AC%B8%EA%B3%84%20%EB%AC%B8%EC%A0%9C.pdf",
     "answerUrl": null,
-    "solutionUrl": null,
+    "solutionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v26/sol2_9647.pdf?name=2023%ED%95%99%EB%85%84%EB%8F%84%20%EC%84%B1%EA%B7%A0%EA%B4%80%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EC%9D%B8%EB%AC%B8%EA%B3%84%20%ED%95%B4%EC%84%A4.pdf",
     "questionDownload": "2023학년도 성균관대학교 논술 인문계 문제.pdf",
     "answerDownload": null,
-    "solutionDownload": null,
-    "source": "essay-std-sk"
+    "solutionDownload": "2023학년도 성균관대학교 논술 인문계 해설.pdf",
+    "source": "essay-std-sk",
+    "solutionUrl_source_original": "https://admission.skku.edu/"
   },
   {
     "id": 9648,
@@ -137648,11 +137661,12 @@
     "subSubject": "자연계",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v10/sk_2023_ann_ja_q.pdf?name=2023%ED%95%99%EB%85%84%EB%8F%84%20%EC%84%B1%EA%B7%A0%EA%B4%80%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EC%9E%90%EC%97%B0%EA%B3%84%20%EB%AC%B8%EC%A0%9C.pdf",
     "answerUrl": null,
-    "solutionUrl": null,
+    "solutionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v26/sol2_9648.pdf?name=2023%ED%95%99%EB%85%84%EB%8F%84%20%EC%84%B1%EA%B7%A0%EA%B4%80%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EC%9E%90%EC%97%B0%EA%B3%84%20%ED%95%B4%EC%84%A4.pdf",
     "questionDownload": "2023학년도 성균관대학교 논술 자연계 문제.pdf",
     "answerDownload": null,
-    "solutionDownload": null,
-    "source": "essay-std-sk"
+    "solutionDownload": "2023학년도 성균관대학교 논술 자연계 해설.pdf",
+    "source": "essay-std-sk",
+    "solutionUrl_source_original": "https://admission.skku.edu/"
   },
   {
     "id": 9649,
@@ -137705,11 +137719,12 @@
     "subSubject": "인문·자연 통합",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v1/es_skku_001.pdf?name=2024%ED%95%99%EB%85%84%EB%8F%84%20%EC%84%B1%EA%B7%A0%EA%B4%80%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EC%9D%B8%EB%AC%B8%C2%B7%EC%9E%90%EC%97%B0%20%ED%86%B5%ED%95%A9%20%EB%AC%B8%EC%A0%9C.pdf",
     "answerUrl": null,
-    "solutionUrl": null,
+    "solutionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v26/sol2_9651.pdf?name=2024%ED%95%99%EB%85%84%EB%8F%84%20%EC%84%B1%EA%B7%A0%EA%B4%80%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EC%9D%B8%EB%AC%B8%C2%B7%EC%9E%90%EC%97%B0%20%ED%86%B5%ED%95%A9%20%ED%95%B4%EC%84%A4.pdf",
     "questionDownload": "2024학년도 성균관대학교 논술 인문·자연 통합 문제.pdf",
     "answerDownload": null,
-    "solutionDownload": null,
-    "source": "essay-std-sk"
+    "solutionDownload": "2024학년도 성균관대학교 논술 인문·자연 통합 해설.pdf",
+    "source": "essay-std-sk",
+    "solutionUrl_source_original": "https://admission.skku.edu/"
   },
   {
     "id": 9652,
@@ -137762,11 +137777,12 @@
     "subSubject": "인문·자연 통합",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v1/es_skku_019.pdf?name=2025%ED%95%99%EB%85%84%EB%8F%84%20%EC%84%B1%EA%B7%A0%EA%B4%80%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EC%9D%B8%EB%AC%B8%C2%B7%EC%9E%90%EC%97%B0%20%ED%86%B5%ED%95%A9%20%EB%AC%B8%EC%A0%9C.pdf",
     "answerUrl": null,
-    "solutionUrl": null,
+    "solutionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v26/sol2_9654.pdf?name=2025%ED%95%99%EB%85%84%EB%8F%84%20%EC%84%B1%EA%B7%A0%EA%B4%80%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EC%9D%B8%EB%AC%B8%C2%B7%EC%9E%90%EC%97%B0%20%ED%86%B5%ED%95%A9%20%ED%95%B4%EC%84%A4.pdf",
     "questionDownload": "2025학년도 성균관대학교 논술 인문·자연 통합 문제.pdf",
     "answerDownload": null,
-    "solutionDownload": null,
-    "source": "essay-std-sk"
+    "solutionDownload": "2025학년도 성균관대학교 논술 인문·자연 통합 해설.pdf",
+    "source": "essay-std-sk",
+    "solutionUrl_source_original": "https://admission.skku.edu/"
   },
   {
     "id": 9655,
@@ -139522,11 +139538,12 @@
     "subSubject": "자연계 ①",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v3/es7_khu_013.pdf?name=2015%ED%95%99%EB%85%84%EB%8F%84%20%EA%B2%BD%ED%9D%AC%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EC%9E%90%EC%97%B0%EA%B3%84%20%E2%91%A0%20%EB%AC%B8%EC%A0%9C.pdf",
     "answerUrl": "https://suneung-files.hdh061224.workers.dev/essay-v3/es7_khu_020.pdf?name=2015%ED%95%99%EB%85%84%EB%8F%84%20%EA%B2%BD%ED%9D%AC%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EC%9E%90%EC%97%B0%EA%B3%84%20%E2%91%A0%20%EC%98%88%EC%8B%9C%EB%8B%B5%EC%95%88.pdf",
-    "solutionUrl": null,
+    "solutionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v26/sol2_9745.pdf?name=2015%ED%95%99%EB%85%84%EB%8F%84%20%EA%B2%BD%ED%9D%AC%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EC%9E%90%EC%97%B0%EA%B3%84%20%E2%91%A0%20%ED%95%B4%EC%84%A4.pdf",
     "questionDownload": "2015학년도 경희대학교 논술 자연계 ① 문제.pdf",
     "answerDownload": "2015학년도 경희대학교 논술 자연계 ① 예시답안.pdf",
-    "solutionDownload": null,
-    "source": "essay-std-khu"
+    "solutionDownload": "2015학년도 경희대학교 논술 자연계 ① 해설.pdf",
+    "source": "essay-std-khu",
+    "solutionUrl_source_original": "https://iphak.khu.ac.kr/"
   },
   {
     "id": 9746,
@@ -139541,11 +139558,12 @@
     "subSubject": "자연계 ②",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v3/es7_khu_023.pdf?name=2015%ED%95%99%EB%85%84%EB%8F%84%20%EA%B2%BD%ED%9D%AC%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EC%9E%90%EC%97%B0%EA%B3%84%20%E2%91%A1%20%EB%AC%B8%EC%A0%9C.pdf",
     "answerUrl": "https://suneung-files.hdh061224.workers.dev/essay-v3/es7_khu_030.pdf?name=2015%ED%95%99%EB%85%84%EB%8F%84%20%EA%B2%BD%ED%9D%AC%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EC%9E%90%EC%97%B0%EA%B3%84%20%E2%91%A1%20%EC%98%88%EC%8B%9C%EB%8B%B5%EC%95%88.pdf",
-    "solutionUrl": null,
+    "solutionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v26/sol2_9746.pdf?name=2015%ED%95%99%EB%85%84%EB%8F%84%20%EA%B2%BD%ED%9D%AC%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EC%9E%90%EC%97%B0%EA%B3%84%20%E2%91%A1%20%ED%95%B4%EC%84%A4.pdf",
     "questionDownload": "2015학년도 경희대학교 논술 자연계 ② 문제.pdf",
     "answerDownload": "2015학년도 경희대학교 논술 자연계 ② 예시답안.pdf",
-    "solutionDownload": null,
-    "source": "essay-std-khu"
+    "solutionDownload": "2015학년도 경희대학교 논술 자연계 ② 해설.pdf",
+    "source": "essay-std-khu",
+    "solutionUrl_source_original": "https://iphak.khu.ac.kr/"
   },
   {
     "id": 9747,
@@ -140168,11 +140186,12 @@
     "subSubject": "의약학계",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v3/es7_khu_108.pdf?name=2018%ED%95%99%EB%85%84%EB%8F%84%20%EA%B2%BD%ED%9D%AC%EB%8C%80%ED%95%99%EA%B5%90%20%EB%AA%A8%EC%9D%98%EB%85%BC%EC%88%A0%20%EC%9D%98%EC%95%BD%ED%95%99%EA%B3%84%20%EB%AC%B8%EC%A0%9C.pdf",
     "answerUrl": null,
-    "solutionUrl": null,
+    "solutionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v26/sol2_9779.pdf?name=2018%ED%95%99%EB%85%84%EB%8F%84%20%EA%B2%BD%ED%9D%AC%EB%8C%80%ED%95%99%EA%B5%90%20%EB%AA%A8%EC%9D%98%EB%85%BC%EC%88%A0%20%EC%9D%98%EC%95%BD%ED%95%99%EA%B3%84%20%ED%95%B4%EC%84%A4.pdf",
     "questionDownload": "2018학년도 경희대학교 모의논술 의약학계 문제.pdf",
     "answerDownload": null,
-    "solutionDownload": null,
-    "source": "essay-std-khu"
+    "solutionDownload": "2018학년도 경희대학교 모의논술 의약학계 해설.pdf",
+    "source": "essay-std-khu",
+    "solutionUrl_source_original": "https://iphak.khu.ac.kr/"
   },
   {
     "id": 9780,
@@ -140187,11 +140206,12 @@
     "subSubject": "의약학계 온라인",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v3/es7_khu_096.pdf?name=2018%ED%95%99%EB%85%84%EB%8F%84%20%EA%B2%BD%ED%9D%AC%EB%8C%80%ED%95%99%EA%B5%90%20%EB%AA%A8%EC%9D%98%EB%85%BC%EC%88%A0%20%EC%9D%98%EC%95%BD%ED%95%99%EA%B3%84%20%EC%98%A8%EB%9D%BC%EC%9D%B8%20%EB%AC%B8%EC%A0%9C.pdf",
     "answerUrl": null,
-    "solutionUrl": null,
+    "solutionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v26/sol2_9780.pdf?name=2018%ED%95%99%EB%85%84%EB%8F%84%20%EA%B2%BD%ED%9D%AC%EB%8C%80%ED%95%99%EA%B5%90%20%EB%AA%A8%EC%9D%98%EB%85%BC%EC%88%A0%20%EC%9D%98%EC%95%BD%ED%95%99%EA%B3%84%20%EC%98%A8%EB%9D%BC%EC%9D%B8%20%ED%95%B4%EC%84%A4.pdf",
     "questionDownload": "2018학년도 경희대학교 모의논술 의약학계 온라인 문제.pdf",
     "answerDownload": null,
-    "solutionDownload": null,
-    "source": "essay-std-khu"
+    "solutionDownload": "2018학년도 경희대학교 모의논술 의약학계 온라인 해설.pdf",
+    "source": "essay-std-khu",
+    "solutionUrl_source_original": "https://iphak.khu.ac.kr/"
   },
   {
     "id": 9781,
@@ -140567,11 +140587,12 @@
     "subSubject": "의약학계",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v3/es7_khu_126.pdf?name=2019%ED%95%99%EB%85%84%EB%8F%84%20%EA%B2%BD%ED%9D%AC%EB%8C%80%ED%95%99%EA%B5%90%20%EB%AA%A8%EC%9D%98%EB%85%BC%EC%88%A0%20%EC%9D%98%EC%95%BD%ED%95%99%EA%B3%84%20%EB%AC%B8%EC%A0%9C.pdf",
     "answerUrl": null,
-    "solutionUrl": null,
+    "solutionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v26/sol2_9800.pdf?name=2019%ED%95%99%EB%85%84%EB%8F%84%20%EA%B2%BD%ED%9D%AC%EB%8C%80%ED%95%99%EA%B5%90%20%EB%AA%A8%EC%9D%98%EB%85%BC%EC%88%A0%20%EC%9D%98%EC%95%BD%ED%95%99%EA%B3%84%20%ED%95%B4%EC%84%A4.pdf",
     "questionDownload": "2019학년도 경희대학교 모의논술 의약학계 문제.pdf",
     "answerDownload": null,
-    "solutionDownload": null,
-    "source": "essay-std-khu"
+    "solutionDownload": "2019학년도 경희대학교 모의논술 의약학계 해설.pdf",
+    "source": "essay-std-khu",
+    "solutionUrl_source_original": "https://iphak.khu.ac.kr/"
   },
   {
     "id": 9801,
@@ -140681,11 +140702,12 @@
     "subSubject": "자연계",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v3/es7_khu_133.pdf?name=2019%ED%95%99%EB%85%84%EB%8F%84%20%EA%B2%BD%ED%9D%AC%EB%8C%80%ED%95%99%EA%B5%90%20%EB%AA%A8%EC%9D%98%EB%85%BC%EC%88%A0%20%EC%9E%90%EC%97%B0%EA%B3%84%20%EB%AC%B8%EC%A0%9C.pdf",
     "answerUrl": null,
-    "solutionUrl": null,
+    "solutionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v26/sol2_9806.pdf?name=2019%ED%95%99%EB%85%84%EB%8F%84%20%EA%B2%BD%ED%9D%AC%EB%8C%80%ED%95%99%EA%B5%90%20%EB%AA%A8%EC%9D%98%EB%85%BC%EC%88%A0%20%EC%9E%90%EC%97%B0%EA%B3%84%20%ED%95%B4%EC%84%A4.pdf",
     "questionDownload": "2019학년도 경희대학교 모의논술 자연계 문제.pdf",
     "answerDownload": null,
-    "solutionDownload": null,
-    "source": "essay-std-khu"
+    "solutionDownload": "2019학년도 경희대학교 모의논술 자연계 해설.pdf",
+    "source": "essay-std-khu",
+    "solutionUrl_source_original": "https://iphak.khu.ac.kr/"
   },
   {
     "id": 9807,
@@ -140909,11 +140931,12 @@
     "subSubject": "의약학계",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v3/es7_khu_146.pdf?name=2020%ED%95%99%EB%85%84%EB%8F%84%20%EA%B2%BD%ED%9D%AC%EB%8C%80%ED%95%99%EA%B5%90%20%EB%AA%A8%EC%9D%98%EB%85%BC%EC%88%A0%20%EC%9D%98%EC%95%BD%ED%95%99%EA%B3%84%20%EB%AC%B8%EC%A0%9C.pdf",
     "answerUrl": null,
-    "solutionUrl": null,
+    "solutionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v26/sol2_9818.pdf?name=2020%ED%95%99%EB%85%84%EB%8F%84%20%EA%B2%BD%ED%9D%AC%EB%8C%80%ED%95%99%EA%B5%90%20%EB%AA%A8%EC%9D%98%EB%85%BC%EC%88%A0%20%EC%9D%98%EC%95%BD%ED%95%99%EA%B3%84%20%ED%95%B4%EC%84%A4.pdf",
     "questionDownload": "2020학년도 경희대학교 모의논술 의약학계 문제.pdf",
     "answerDownload": null,
-    "solutionDownload": null,
-    "source": "essay-std-khu"
+    "solutionDownload": "2020학년도 경희대학교 모의논술 의약학계 해설.pdf",
+    "source": "essay-std-khu",
+    "solutionUrl_source_original": "https://iphak.khu.ac.kr/"
   },
   {
     "id": 9819,
@@ -141023,11 +141046,12 @@
     "subSubject": "자연계",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v3/es7_khu_153.pdf?name=2020%ED%95%99%EB%85%84%EB%8F%84%20%EA%B2%BD%ED%9D%AC%EB%8C%80%ED%95%99%EA%B5%90%20%EB%AA%A8%EC%9D%98%EB%85%BC%EC%88%A0%20%EC%9E%90%EC%97%B0%EA%B3%84%20%EB%AC%B8%EC%A0%9C.pdf",
     "answerUrl": null,
-    "solutionUrl": null,
+    "solutionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v26/sol2_9824.pdf?name=2020%ED%95%99%EB%85%84%EB%8F%84%20%EA%B2%BD%ED%9D%AC%EB%8C%80%ED%95%99%EA%B5%90%20%EB%AA%A8%EC%9D%98%EB%85%BC%EC%88%A0%20%EC%9E%90%EC%97%B0%EA%B3%84%20%ED%95%B4%EC%84%A4.pdf",
     "questionDownload": "2020학년도 경희대학교 모의논술 자연계 문제.pdf",
     "answerDownload": null,
-    "solutionDownload": null,
-    "source": "essay-std-khu"
+    "solutionDownload": "2020학년도 경희대학교 모의논술 자연계 해설.pdf",
+    "source": "essay-std-khu",
+    "solutionUrl_source_original": "https://iphak.khu.ac.kr/"
   },
   {
     "id": 9825,
@@ -141707,11 +141731,12 @@
     "subSubject": "의약학계",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v1/es_khu_044.pdf?name=2023%ED%95%99%EB%85%84%EB%8F%84%20%EA%B2%BD%ED%9D%AC%EB%8C%80%ED%95%99%EA%B5%90%20%EB%AA%A8%EC%9D%98%EB%85%BC%EC%88%A0%20%EC%9D%98%EC%95%BD%ED%95%99%EA%B3%84%20%EB%AC%B8%EC%A0%9C.pdf",
     "answerUrl": null,
-    "solutionUrl": null,
+    "solutionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v26/sol2_9860.pdf?name=2023%ED%95%99%EB%85%84%EB%8F%84%20%EA%B2%BD%ED%9D%AC%EB%8C%80%ED%95%99%EA%B5%90%20%EB%AA%A8%EC%9D%98%EB%85%BC%EC%88%A0%20%EC%9D%98%EC%95%BD%ED%95%99%EA%B3%84%20%ED%95%B4%EC%84%A4.pdf",
     "questionDownload": "2023학년도 경희대학교 모의논술 의약학계 문제.pdf",
     "answerDownload": null,
-    "solutionDownload": null,
-    "source": "essay-std-khu"
+    "solutionDownload": "2023학년도 경희대학교 모의논술 의약학계 해설.pdf",
+    "source": "essay-std-khu",
+    "solutionUrl_source_original": "https://iphak.khu.ac.kr/"
   },
   {
     "id": 9861,
@@ -145108,11 +145133,12 @@
     "subSubject": "생활과학부,미디어콘텐츠",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v3/es7_catholic_002.pdf?name=2016%ED%95%99%EB%85%84%EB%8F%84%20%EA%B0%80%ED%86%A8%EB%A6%AD%EB%8C%80%ED%95%99%EA%B5%90%20%EB%AA%A8%EC%9D%98%EB%85%BC%EC%88%A0%20%EC%83%9D%ED%99%9C%EA%B3%BC%ED%95%99%EB%B6%80%2C%EB%AF%B8%EB%94%94%EC%96%B4%EC%BD%98%ED%85%90%EC%B8%A0%20%EB%AC%B8%EC%A0%9C.pdf",
     "answerUrl": null,
-    "solutionUrl": null,
+    "solutionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v26/sol2_10039.pdf?name=2016%ED%95%99%EB%85%84%EB%8F%84%20%EA%B0%80%ED%86%A8%EB%A6%AD%EB%8C%80%ED%95%99%EA%B5%90%20%EB%AA%A8%EC%9D%98%EB%85%BC%EC%88%A0%20%EC%83%9D%ED%99%9C%EA%B3%BC%ED%95%99%EB%B6%80%2C%EB%AF%B8%EB%94%94%EC%96%B4%EC%BD%98%ED%85%90%EC%B8%A0%20%ED%95%B4%EC%84%A4.pdf",
     "questionDownload": "2016학년도 가톨릭대학교 모의논술 생활과학부,미디어콘텐츠 문제.pdf",
     "answerDownload": null,
-    "solutionDownload": null,
-    "source": "essay-std-tail"
+    "solutionDownload": "2016학년도 가톨릭대학교 모의논술 생활과학부,미디어콘텐츠 해설.pdf",
+    "source": "essay-std-tail",
+    "solutionUrl_source_original": "https://ipsi.catholic.ac.kr/"
   },
   {
     "id": 10040,
@@ -145146,11 +145172,12 @@
     "subSubject": "공학계열",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v3/es7_catholic_014.pdf?name=2017%ED%95%99%EB%85%84%EB%8F%84%20%EA%B0%80%ED%86%A8%EB%A6%AD%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EA%B3%B5%ED%95%99%EA%B3%84%EC%97%B4%20%EB%AC%B8%EC%A0%9C.pdf",
     "answerUrl": null,
-    "solutionUrl": null,
+    "solutionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v26/sol2_10041.pdf?name=2017%ED%95%99%EB%85%84%EB%8F%84%20%EA%B0%80%ED%86%A8%EB%A6%AD%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EA%B3%B5%ED%95%99%EA%B3%84%EC%97%B4%20%ED%95%B4%EC%84%A4.pdf",
     "questionDownload": "2017학년도 가톨릭대학교 논술 공학계열 문제.pdf",
     "answerDownload": null,
-    "solutionDownload": null,
-    "source": "essay-std-tail"
+    "solutionDownload": "2017학년도 가톨릭대학교 논술 공학계열 해설.pdf",
+    "source": "essay-std-tail",
+    "solutionUrl_source_original": "https://ipsi.catholic.ac.kr/"
   },
   {
     "id": 10042,
@@ -145222,11 +145249,12 @@
     "subSubject": "생활과학,미디어기술콘텐츠 (3번)",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v3/es7_catholic_010.pdf?name=2017%ED%95%99%EB%85%84%EB%8F%84%20%EA%B0%80%ED%86%A8%EB%A6%AD%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EC%83%9D%ED%99%9C%EA%B3%BC%ED%95%99%2C%EB%AF%B8%EB%94%94%EC%96%B4%EA%B8%B0%EC%88%A0%EC%BD%98%ED%85%90%EC%B8%A0%20%283%EB%B2%88%29%20%EB%AC%B8%EC%A0%9C.pdf",
     "answerUrl": null,
-    "solutionUrl": null,
+    "solutionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v26/sol2_10045.pdf?name=2017%ED%95%99%EB%85%84%EB%8F%84%20%EA%B0%80%ED%86%A8%EB%A6%AD%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EC%83%9D%ED%99%9C%EA%B3%BC%ED%95%99%2C%EB%AF%B8%EB%94%94%EC%96%B4%EA%B8%B0%EC%88%A0%EC%BD%98%ED%85%90%EC%B8%A0%20(3%EB%B2%88)%20%ED%95%B4%EC%84%A4.pdf",
     "questionDownload": "2017학년도 가톨릭대학교 논술 생활과학,미디어기술콘텐츠 (3번) 문제.pdf",
     "answerDownload": null,
-    "solutionDownload": null,
-    "source": "essay-std-tail"
+    "solutionDownload": "2017학년도 가톨릭대학교 논술 생활과학,미디어기술콘텐츠 (3번) 해설.pdf",
+    "source": "essay-std-tail",
+    "solutionUrl_source_original": "https://ipsi.catholic.ac.kr/"
   },
   {
     "id": 10046,
@@ -145564,11 +145592,12 @@
     "subSubject": "공학계열",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v2/es_catholic_004.pdf?name=2019%ED%95%99%EB%85%84%EB%8F%84%20%EA%B0%80%ED%86%A8%EB%A6%AD%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EA%B3%B5%ED%95%99%EA%B3%84%EC%97%B4%20%EB%AC%B8%EC%A0%9C.pdf",
     "answerUrl": null,
-    "solutionUrl": null,
+    "solutionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v26/sol2_10063.pdf?name=2019%ED%95%99%EB%85%84%EB%8F%84%20%EA%B0%80%ED%86%A8%EB%A6%AD%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EA%B3%B5%ED%95%99%EA%B3%84%EC%97%B4%20%ED%95%B4%EC%84%A4.pdf",
     "questionDownload": "2019학년도 가톨릭대학교 논술 공학계열 문제.pdf",
     "answerDownload": null,
-    "solutionDownload": null,
-    "source": "essay-std-tail"
+    "solutionDownload": "2019학년도 가톨릭대학교 논술 공학계열 해설.pdf",
+    "source": "essay-std-tail",
+    "solutionUrl_source_original": "https://ipsi.catholic.ac.kr/"
   },
   {
     "id": 10064,
@@ -145583,11 +145612,12 @@
     "subSubject": "사회계열",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v2/es_catholic_003.pdf?name=2019%ED%95%99%EB%85%84%EB%8F%84%20%EA%B0%80%ED%86%A8%EB%A6%AD%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EC%82%AC%ED%9A%8C%EA%B3%84%EC%97%B4%20%EB%AC%B8%EC%A0%9C.pdf",
     "answerUrl": null,
-    "solutionUrl": null,
+    "solutionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v26/sol2_10064.pdf?name=2019%ED%95%99%EB%85%84%EB%8F%84%20%EA%B0%80%ED%86%A8%EB%A6%AD%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EC%82%AC%ED%9A%8C%EA%B3%84%EC%97%B4%20%ED%95%B4%EC%84%A4.pdf",
     "questionDownload": "2019학년도 가톨릭대학교 논술 사회계열 문제.pdf",
     "answerDownload": null,
-    "solutionDownload": null,
-    "source": "essay-std-tail"
+    "solutionDownload": "2019학년도 가톨릭대학교 논술 사회계열 해설.pdf",
+    "source": "essay-std-tail",
+    "solutionUrl_source_original": "https://ipsi.catholic.ac.kr/"
   },
   {
     "id": 10065,
@@ -145602,11 +145632,12 @@
     "subSubject": "생활과학,미디어기술콘텐츠",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v2/es_catholic_001.pdf?name=2019%ED%95%99%EB%85%84%EB%8F%84%20%EA%B0%80%ED%86%A8%EB%A6%AD%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EC%83%9D%ED%99%9C%EA%B3%BC%ED%95%99%2C%EB%AF%B8%EB%94%94%EC%96%B4%EA%B8%B0%EC%88%A0%EC%BD%98%ED%85%90%EC%B8%A0%20%EB%AC%B8%EC%A0%9C.pdf",
     "answerUrl": null,
-    "solutionUrl": null,
+    "solutionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v26/sol2_10065.pdf?name=2019%ED%95%99%EB%85%84%EB%8F%84%20%EA%B0%80%ED%86%A8%EB%A6%AD%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EC%83%9D%ED%99%9C%EA%B3%BC%ED%95%99%2C%EB%AF%B8%EB%94%94%EC%96%B4%EA%B8%B0%EC%88%A0%EC%BD%98%ED%85%90%EC%B8%A0%20%ED%95%B4%EC%84%A4.pdf",
     "questionDownload": "2019학년도 가톨릭대학교 논술 생활과학,미디어기술콘텐츠 문제.pdf",
     "answerDownload": null,
-    "solutionDownload": null,
-    "source": "essay-std-tail"
+    "solutionDownload": "2019학년도 가톨릭대학교 논술 생활과학,미디어기술콘텐츠 해설.pdf",
+    "source": "essay-std-tail",
+    "solutionUrl_source_original": "https://ipsi.catholic.ac.kr/"
   },
   {
     "id": 10066,
@@ -145621,11 +145652,12 @@
     "subSubject": "의약학계열(의예)",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v2/es_catholic_002.pdf?name=2019%ED%95%99%EB%85%84%EB%8F%84%20%EA%B0%80%ED%86%A8%EB%A6%AD%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EC%9D%98%EC%95%BD%ED%95%99%EA%B3%84%EC%97%B4%28%EC%9D%98%EC%98%88%29%20%EB%AC%B8%EC%A0%9C.pdf",
     "answerUrl": null,
-    "solutionUrl": null,
+    "solutionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v26/sol2_10066.pdf?name=2019%ED%95%99%EB%85%84%EB%8F%84%20%EA%B0%80%ED%86%A8%EB%A6%AD%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EC%9D%98%EC%95%BD%ED%95%99%EA%B3%84%EC%97%B4(%EC%9D%98%EC%98%88)%20%ED%95%B4%EC%84%A4.pdf",
     "questionDownload": "2019학년도 가톨릭대학교 논술 의약학계열(의예) 문제.pdf",
     "answerDownload": null,
-    "solutionDownload": null,
-    "source": "essay-std-tail"
+    "solutionDownload": "2019학년도 가톨릭대학교 논술 의약학계열(의예) 해설.pdf",
+    "source": "essay-std-tail",
+    "solutionUrl_source_original": "https://ipsi.catholic.ac.kr/"
   },
   {
     "id": 10067,
@@ -145640,11 +145672,12 @@
     "subSubject": "공학계열",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v2/es_catholic_008.pdf?name=2020%ED%95%99%EB%85%84%EB%8F%84%20%EA%B0%80%ED%86%A8%EB%A6%AD%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EA%B3%B5%ED%95%99%EA%B3%84%EC%97%B4%20%EB%AC%B8%EC%A0%9C.pdf",
     "answerUrl": null,
-    "solutionUrl": null,
+    "solutionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v26/sol2_10067.pdf?name=2020%ED%95%99%EB%85%84%EB%8F%84%20%EA%B0%80%ED%86%A8%EB%A6%AD%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EA%B3%B5%ED%95%99%EA%B3%84%EC%97%B4%20%ED%95%B4%EC%84%A4.pdf",
     "questionDownload": "2020학년도 가톨릭대학교 논술 공학계열 문제.pdf",
     "answerDownload": null,
-    "solutionDownload": null,
-    "source": "essay-std-tail"
+    "solutionDownload": "2020학년도 가톨릭대학교 논술 공학계열 해설.pdf",
+    "source": "essay-std-tail",
+    "solutionUrl_source_original": "https://ipsi.catholic.ac.kr/"
   },
   {
     "id": 10068,
@@ -145659,11 +145692,12 @@
     "subSubject": "사회계열",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v2/es_catholic_007.pdf?name=2020%ED%95%99%EB%85%84%EB%8F%84%20%EA%B0%80%ED%86%A8%EB%A6%AD%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EC%82%AC%ED%9A%8C%EA%B3%84%EC%97%B4%20%EB%AC%B8%EC%A0%9C.pdf",
     "answerUrl": null,
-    "solutionUrl": null,
+    "solutionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v26/sol2_10068.pdf?name=2020%ED%95%99%EB%85%84%EB%8F%84%20%EA%B0%80%ED%86%A8%EB%A6%AD%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EC%82%AC%ED%9A%8C%EA%B3%84%EC%97%B4%20%ED%95%B4%EC%84%A4.pdf",
     "questionDownload": "2020학년도 가톨릭대학교 논술 사회계열 문제.pdf",
     "answerDownload": null,
-    "solutionDownload": null,
-    "source": "essay-std-tail"
+    "solutionDownload": "2020학년도 가톨릭대학교 논술 사회계열 해설.pdf",
+    "source": "essay-std-tail",
+    "solutionUrl_source_original": "https://ipsi.catholic.ac.kr/"
   },
   {
     "id": 10069,
@@ -145678,11 +145712,12 @@
     "subSubject": "생활과학,미디어기술콘텐츠",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v2/es_catholic_005.pdf?name=2020%ED%95%99%EB%85%84%EB%8F%84%20%EA%B0%80%ED%86%A8%EB%A6%AD%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EC%83%9D%ED%99%9C%EA%B3%BC%ED%95%99%2C%EB%AF%B8%EB%94%94%EC%96%B4%EA%B8%B0%EC%88%A0%EC%BD%98%ED%85%90%EC%B8%A0%20%EB%AC%B8%EC%A0%9C.pdf",
     "answerUrl": null,
-    "solutionUrl": null,
+    "solutionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v26/sol2_10069.pdf?name=2020%ED%95%99%EB%85%84%EB%8F%84%20%EA%B0%80%ED%86%A8%EB%A6%AD%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EC%83%9D%ED%99%9C%EA%B3%BC%ED%95%99%2C%EB%AF%B8%EB%94%94%EC%96%B4%EA%B8%B0%EC%88%A0%EC%BD%98%ED%85%90%EC%B8%A0%20%ED%95%B4%EC%84%A4.pdf",
     "questionDownload": "2020학년도 가톨릭대학교 논술 생활과학,미디어기술콘텐츠 문제.pdf",
     "answerDownload": null,
-    "solutionDownload": null,
-    "source": "essay-std-tail"
+    "solutionDownload": "2020학년도 가톨릭대학교 논술 생활과학,미디어기술콘텐츠 해설.pdf",
+    "source": "essay-std-tail",
+    "solutionUrl_source_original": "https://ipsi.catholic.ac.kr/"
   },
   {
     "id": 10070,
@@ -145697,11 +145732,12 @@
     "subSubject": "의약학계열(의예)",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v2/es_catholic_006.pdf?name=2020%ED%95%99%EB%85%84%EB%8F%84%20%EA%B0%80%ED%86%A8%EB%A6%AD%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EC%9D%98%EC%95%BD%ED%95%99%EA%B3%84%EC%97%B4%28%EC%9D%98%EC%98%88%29%20%EB%AC%B8%EC%A0%9C.pdf",
     "answerUrl": null,
-    "solutionUrl": null,
+    "solutionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v26/sol2_10070.pdf?name=2020%ED%95%99%EB%85%84%EB%8F%84%20%EA%B0%80%ED%86%A8%EB%A6%AD%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EC%9D%98%EC%95%BD%ED%95%99%EA%B3%84%EC%97%B4(%EC%9D%98%EC%98%88)%20%ED%95%B4%EC%84%A4.pdf",
     "questionDownload": "2020학년도 가톨릭대학교 논술 의약학계열(의예) 문제.pdf",
     "answerDownload": null,
-    "solutionDownload": null,
-    "source": "essay-std-tail"
+    "solutionDownload": "2020학년도 가톨릭대학교 논술 의약학계열(의예) 해설.pdf",
+    "source": "essay-std-tail",
+    "solutionUrl_source_original": "https://ipsi.catholic.ac.kr/"
   },
   {
     "id": 10071,
@@ -145716,11 +145752,12 @@
     "subSubject": "공학계열",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v2/es_catholic_011.pdf?name=2020%ED%95%99%EB%85%84%EB%8F%84%20%EA%B0%80%ED%86%A8%EB%A6%AD%EB%8C%80%ED%95%99%EA%B5%90%20%EB%AA%A8%EC%9D%98%EB%85%BC%EC%88%A0%20%EA%B3%B5%ED%95%99%EA%B3%84%EC%97%B4%20%EB%AC%B8%EC%A0%9C.pdf",
     "answerUrl": null,
-    "solutionUrl": null,
+    "solutionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v26/sol2_10071.pdf?name=2020%ED%95%99%EB%85%84%EB%8F%84%20%EA%B0%80%ED%86%A8%EB%A6%AD%EB%8C%80%ED%95%99%EA%B5%90%20%EB%AA%A8%EC%9D%98%EB%85%BC%EC%88%A0%20%EA%B3%B5%ED%95%99%EA%B3%84%EC%97%B4%20%ED%95%B4%EC%84%A4.pdf",
     "questionDownload": "2020학년도 가톨릭대학교 모의논술 공학계열 문제.pdf",
     "answerDownload": null,
-    "solutionDownload": null,
-    "source": "essay-std-tail"
+    "solutionDownload": "2020학년도 가톨릭대학교 모의논술 공학계열 해설.pdf",
+    "source": "essay-std-tail",
+    "solutionUrl_source_original": "https://ipsi.catholic.ac.kr/"
   },
   {
     "id": 10072,
@@ -145735,11 +145772,12 @@
     "subSubject": "사회계열",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v2/es_catholic_010.pdf?name=2020%ED%95%99%EB%85%84%EB%8F%84%20%EA%B0%80%ED%86%A8%EB%A6%AD%EB%8C%80%ED%95%99%EA%B5%90%20%EB%AA%A8%EC%9D%98%EB%85%BC%EC%88%A0%20%EC%82%AC%ED%9A%8C%EA%B3%84%EC%97%B4%20%EB%AC%B8%EC%A0%9C.pdf",
     "answerUrl": null,
-    "solutionUrl": null,
+    "solutionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v26/sol2_10072.pdf?name=2020%ED%95%99%EB%85%84%EB%8F%84%20%EA%B0%80%ED%86%A8%EB%A6%AD%EB%8C%80%ED%95%99%EA%B5%90%20%EB%AA%A8%EC%9D%98%EB%85%BC%EC%88%A0%20%EC%82%AC%ED%9A%8C%EA%B3%84%EC%97%B4%20%ED%95%B4%EC%84%A4.pdf",
     "questionDownload": "2020학년도 가톨릭대학교 모의논술 사회계열 문제.pdf",
     "answerDownload": null,
-    "solutionDownload": null,
-    "source": "essay-std-tail"
+    "solutionDownload": "2020학년도 가톨릭대학교 모의논술 사회계열 해설.pdf",
+    "source": "essay-std-tail",
+    "solutionUrl_source_original": "https://ipsi.catholic.ac.kr/"
   },
   {
     "id": 10073,
@@ -145754,11 +145792,12 @@
     "subSubject": "생활과학,미디어기술콘텐츠",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v2/es_catholic_009.pdf?name=2020%ED%95%99%EB%85%84%EB%8F%84%20%EA%B0%80%ED%86%A8%EB%A6%AD%EB%8C%80%ED%95%99%EA%B5%90%20%EB%AA%A8%EC%9D%98%EB%85%BC%EC%88%A0%20%EC%83%9D%ED%99%9C%EA%B3%BC%ED%95%99%2C%EB%AF%B8%EB%94%94%EC%96%B4%EA%B8%B0%EC%88%A0%EC%BD%98%ED%85%90%EC%B8%A0%20%EB%AC%B8%EC%A0%9C.pdf",
     "answerUrl": null,
-    "solutionUrl": null,
+    "solutionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v26/sol2_10073.pdf?name=2020%ED%95%99%EB%85%84%EB%8F%84%20%EA%B0%80%ED%86%A8%EB%A6%AD%EB%8C%80%ED%95%99%EA%B5%90%20%EB%AA%A8%EC%9D%98%EB%85%BC%EC%88%A0%20%EC%83%9D%ED%99%9C%EA%B3%BC%ED%95%99%2C%EB%AF%B8%EB%94%94%EC%96%B4%EA%B8%B0%EC%88%A0%EC%BD%98%ED%85%90%EC%B8%A0%20%ED%95%B4%EC%84%A4.pdf",
     "questionDownload": "2020학년도 가톨릭대학교 모의논술 생활과학,미디어기술콘텐츠 문제.pdf",
     "answerDownload": null,
-    "solutionDownload": null,
-    "source": "essay-std-tail"
+    "solutionDownload": "2020학년도 가톨릭대학교 모의논술 생활과학,미디어기술콘텐츠 해설.pdf",
+    "source": "essay-std-tail",
+    "solutionUrl_source_original": "https://ipsi.catholic.ac.kr/"
   },
   {
     "id": 10074,
@@ -145773,11 +145812,12 @@
     "subSubject": "공학계열",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v2/es_catholic_015.pdf?name=2021%ED%95%99%EB%85%84%EB%8F%84%20%EA%B0%80%ED%86%A8%EB%A6%AD%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EA%B3%B5%ED%95%99%EA%B3%84%EC%97%B4%20%EB%AC%B8%EC%A0%9C.pdf",
     "answerUrl": null,
-    "solutionUrl": null,
+    "solutionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v26/sol2_10074.pdf?name=2021%ED%95%99%EB%85%84%EB%8F%84%20%EA%B0%80%ED%86%A8%EB%A6%AD%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EA%B3%B5%ED%95%99%EA%B3%84%EC%97%B4%20%ED%95%B4%EC%84%A4.pdf",
     "questionDownload": "2021학년도 가톨릭대학교 논술 공학계열 문제.pdf",
     "answerDownload": null,
-    "solutionDownload": null,
-    "source": "essay-std-tail"
+    "solutionDownload": "2021학년도 가톨릭대학교 논술 공학계열 해설.pdf",
+    "source": "essay-std-tail",
+    "solutionUrl_source_original": "https://ipsi.catholic.ac.kr/"
   },
   {
     "id": 10075,
@@ -145792,11 +145832,12 @@
     "subSubject": "사회계열 A형",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v2/es_catholic_013.pdf?name=2021%ED%95%99%EB%85%84%EB%8F%84%20%EA%B0%80%ED%86%A8%EB%A6%AD%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EC%82%AC%ED%9A%8C%EA%B3%84%EC%97%B4%20A%ED%98%95%20%EB%AC%B8%EC%A0%9C.pdf",
     "answerUrl": null,
-    "solutionUrl": null,
+    "solutionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v26/sol2_10075.pdf?name=2021%ED%95%99%EB%85%84%EB%8F%84%20%EA%B0%80%ED%86%A8%EB%A6%AD%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EC%82%AC%ED%9A%8C%EA%B3%84%EC%97%B4%20A%ED%98%95%20%ED%95%B4%EC%84%A4.pdf",
     "questionDownload": "2021학년도 가톨릭대학교 논술 사회계열 A형 문제.pdf",
     "answerDownload": null,
-    "solutionDownload": null,
-    "source": "essay-std-tail"
+    "solutionDownload": "2021학년도 가톨릭대학교 논술 사회계열 A형 해설.pdf",
+    "source": "essay-std-tail",
+    "solutionUrl_source_original": "https://ipsi.catholic.ac.kr/"
   },
   {
     "id": 10076,
@@ -145811,11 +145852,12 @@
     "subSubject": "사회계열 B형",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v2/es_catholic_014.pdf?name=2021%ED%95%99%EB%85%84%EB%8F%84%20%EA%B0%80%ED%86%A8%EB%A6%AD%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EC%82%AC%ED%9A%8C%EA%B3%84%EC%97%B4%20B%ED%98%95%20%EB%AC%B8%EC%A0%9C.pdf",
     "answerUrl": null,
-    "solutionUrl": null,
+    "solutionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v26/sol2_10076.pdf?name=2021%ED%95%99%EB%85%84%EB%8F%84%20%EA%B0%80%ED%86%A8%EB%A6%AD%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EC%82%AC%ED%9A%8C%EA%B3%84%EC%97%B4%20B%ED%98%95%20%ED%95%B4%EC%84%A4.pdf",
     "questionDownload": "2021학년도 가톨릭대학교 논술 사회계열 B형 문제.pdf",
     "answerDownload": null,
-    "solutionDownload": null,
-    "source": "essay-std-tail"
+    "solutionDownload": "2021학년도 가톨릭대학교 논술 사회계열 B형 해설.pdf",
+    "source": "essay-std-tail",
+    "solutionUrl_source_original": "https://ipsi.catholic.ac.kr/"
   },
   {
     "id": 10077,
@@ -145830,11 +145872,12 @@
     "subSubject": "의약학계열(의예)",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v2/es_catholic_012.pdf?name=2021%ED%95%99%EB%85%84%EB%8F%84%20%EA%B0%80%ED%86%A8%EB%A6%AD%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EC%9D%98%EC%95%BD%ED%95%99%EA%B3%84%EC%97%B4%28%EC%9D%98%EC%98%88%29%20%EB%AC%B8%EC%A0%9C.pdf",
     "answerUrl": null,
-    "solutionUrl": null,
+    "solutionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v26/sol2_10077.pdf?name=2021%ED%95%99%EB%85%84%EB%8F%84%20%EA%B0%80%ED%86%A8%EB%A6%AD%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EC%9D%98%EC%95%BD%ED%95%99%EA%B3%84%EC%97%B4(%EC%9D%98%EC%98%88)%20%ED%95%B4%EC%84%A4.pdf",
     "questionDownload": "2021학년도 가톨릭대학교 논술 의약학계열(의예) 문제.pdf",
     "answerDownload": null,
-    "solutionDownload": null,
-    "source": "essay-std-tail"
+    "solutionDownload": "2021학년도 가톨릭대학교 논술 의약학계열(의예) 해설.pdf",
+    "source": "essay-std-tail",
+    "solutionUrl_source_original": "https://ipsi.catholic.ac.kr/"
   },
   {
     "id": 10078,
@@ -145887,11 +145930,12 @@
     "subSubject": "생활과학,미디어",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v2/es_catholic_016.pdf?name=2021%ED%95%99%EB%85%84%EB%8F%84%20%EA%B0%80%ED%86%A8%EB%A6%AD%EB%8C%80%ED%95%99%EA%B5%90%20%EB%AA%A8%EC%9D%98%EB%85%BC%EC%88%A0%20%EC%83%9D%ED%99%9C%EA%B3%BC%ED%95%99%2C%EB%AF%B8%EB%94%94%EC%96%B4%20%EB%AC%B8%EC%A0%9C.pdf",
     "answerUrl": null,
-    "solutionUrl": null,
+    "solutionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v26/sol2_10080.pdf?name=2021%ED%95%99%EB%85%84%EB%8F%84%20%EA%B0%80%ED%86%A8%EB%A6%AD%EB%8C%80%ED%95%99%EA%B5%90%20%EB%AA%A8%EC%9D%98%EB%85%BC%EC%88%A0%20%EC%83%9D%ED%99%9C%EA%B3%BC%ED%95%99%2C%EB%AF%B8%EB%94%94%EC%96%B4%20%ED%95%B4%EC%84%A4.pdf",
     "questionDownload": "2021학년도 가톨릭대학교 모의논술 생활과학,미디어 문제.pdf",
     "answerDownload": null,
-    "solutionDownload": null,
-    "source": "essay-std-tail"
+    "solutionDownload": "2021학년도 가톨릭대학교 모의논술 생활과학,미디어 해설.pdf",
+    "source": "essay-std-tail",
+    "solutionUrl_source_original": "https://ipsi.catholic.ac.kr/"
   },
   {
     "id": 10081,
@@ -145906,11 +145950,12 @@
     "subSubject": "공학계열",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v2/es_catholic_022.pdf?name=2022%ED%95%99%EB%85%84%EB%8F%84%20%EA%B0%80%ED%86%A8%EB%A6%AD%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EA%B3%B5%ED%95%99%EA%B3%84%EC%97%B4%20%EB%AC%B8%EC%A0%9C.pdf",
     "answerUrl": null,
-    "solutionUrl": null,
+    "solutionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v26/sol2_10081.pdf?name=2022%ED%95%99%EB%85%84%EB%8F%84%20%EA%B0%80%ED%86%A8%EB%A6%AD%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EA%B3%B5%ED%95%99%EA%B3%84%EC%97%B4%20%ED%95%B4%EC%84%A4.pdf",
     "questionDownload": "2022학년도 가톨릭대학교 논술 공학계열 문제.pdf",
     "answerDownload": null,
-    "solutionDownload": null,
-    "source": "essay-std-tail"
+    "solutionDownload": "2022학년도 가톨릭대학교 논술 공학계열 해설.pdf",
+    "source": "essay-std-tail",
+    "solutionUrl_source_original": "https://ipsi.catholic.ac.kr/"
   },
   {
     "id": 10082,
@@ -145925,11 +145970,12 @@
     "subSubject": "사회계열 A형",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v2/es_catholic_020.pdf?name=2022%ED%95%99%EB%85%84%EB%8F%84%20%EA%B0%80%ED%86%A8%EB%A6%AD%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EC%82%AC%ED%9A%8C%EA%B3%84%EC%97%B4%20A%ED%98%95%20%EB%AC%B8%EC%A0%9C.pdf",
     "answerUrl": null,
-    "solutionUrl": null,
+    "solutionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v26/sol2_10082.pdf?name=2022%ED%95%99%EB%85%84%EB%8F%84%20%EA%B0%80%ED%86%A8%EB%A6%AD%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EC%82%AC%ED%9A%8C%EA%B3%84%EC%97%B4%20A%ED%98%95%20%ED%95%B4%EC%84%A4.pdf",
     "questionDownload": "2022학년도 가톨릭대학교 논술 사회계열 A형 문제.pdf",
     "answerDownload": null,
-    "solutionDownload": null,
-    "source": "essay-std-tail"
+    "solutionDownload": "2022학년도 가톨릭대학교 논술 사회계열 A형 해설.pdf",
+    "source": "essay-std-tail",
+    "solutionUrl_source_original": "https://ipsi.catholic.ac.kr/"
   },
   {
     "id": 10083,
@@ -145944,11 +145990,12 @@
     "subSubject": "사회계열 B형",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v2/es_catholic_021.pdf?name=2022%ED%95%99%EB%85%84%EB%8F%84%20%EA%B0%80%ED%86%A8%EB%A6%AD%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EC%82%AC%ED%9A%8C%EA%B3%84%EC%97%B4%20B%ED%98%95%20%EB%AC%B8%EC%A0%9C.pdf",
     "answerUrl": null,
-    "solutionUrl": null,
+    "solutionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v26/sol2_10083.pdf?name=2022%ED%95%99%EB%85%84%EB%8F%84%20%EA%B0%80%ED%86%A8%EB%A6%AD%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EC%82%AC%ED%9A%8C%EA%B3%84%EC%97%B4%20B%ED%98%95%20%ED%95%B4%EC%84%A4.pdf",
     "questionDownload": "2022학년도 가톨릭대학교 논술 사회계열 B형 문제.pdf",
     "answerDownload": null,
-    "solutionDownload": null,
-    "source": "essay-std-tail"
+    "solutionDownload": "2022학년도 가톨릭대학교 논술 사회계열 B형 해설.pdf",
+    "source": "essay-std-tail",
+    "solutionUrl_source_original": "https://ipsi.catholic.ac.kr/"
   },
   {
     "id": 10084,
@@ -145963,11 +146010,12 @@
     "subSubject": "의약학계열(의예)",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v2/es_catholic_019.pdf?name=2022%ED%95%99%EB%85%84%EB%8F%84%20%EA%B0%80%ED%86%A8%EB%A6%AD%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EC%9D%98%EC%95%BD%ED%95%99%EA%B3%84%EC%97%B4%28%EC%9D%98%EC%98%88%29%20%EB%AC%B8%EC%A0%9C.pdf",
     "answerUrl": null,
-    "solutionUrl": null,
+    "solutionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v26/sol2_10084.pdf?name=2022%ED%95%99%EB%85%84%EB%8F%84%20%EA%B0%80%ED%86%A8%EB%A6%AD%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EC%9D%98%EC%95%BD%ED%95%99%EA%B3%84%EC%97%B4(%EC%9D%98%EC%98%88)%20%ED%95%B4%EC%84%A4.pdf",
     "questionDownload": "2022학년도 가톨릭대학교 논술 의약학계열(의예) 문제.pdf",
     "answerDownload": null,
-    "solutionDownload": null,
-    "source": "essay-std-tail"
+    "solutionDownload": "2022학년도 가톨릭대학교 논술 의약학계열(의예) 해설.pdf",
+    "source": "essay-std-tail",
+    "solutionUrl_source_original": "https://ipsi.catholic.ac.kr/"
   },
   {
     "id": 10085,
@@ -145982,11 +146030,12 @@
     "subSubject": "공학계열",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v2/es_catholic_024.pdf?name=2022%ED%95%99%EB%85%84%EB%8F%84%20%EA%B0%80%ED%86%A8%EB%A6%AD%EB%8C%80%ED%95%99%EA%B5%90%20%EB%AA%A8%EC%9D%98%EB%85%BC%EC%88%A0%20%EA%B3%B5%ED%95%99%EA%B3%84%EC%97%B4%20%EB%AC%B8%EC%A0%9C.pdf",
     "answerUrl": null,
-    "solutionUrl": null,
+    "solutionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v26/sol2_10085.pdf?name=2022%ED%95%99%EB%85%84%EB%8F%84%20%EA%B0%80%ED%86%A8%EB%A6%AD%EB%8C%80%ED%95%99%EA%B5%90%20%EB%AA%A8%EC%9D%98%EB%85%BC%EC%88%A0%20%EA%B3%B5%ED%95%99%EA%B3%84%EC%97%B4%20%ED%95%B4%EC%84%A4.pdf",
     "questionDownload": "2022학년도 가톨릭대학교 모의논술 공학계열 문제.pdf",
     "answerDownload": null,
-    "solutionDownload": null,
-    "source": "essay-std-tail"
+    "solutionDownload": "2022학년도 가톨릭대학교 모의논술 공학계열 해설.pdf",
+    "source": "essay-std-tail",
+    "solutionUrl_source_original": "https://ipsi.catholic.ac.kr/"
   },
   {
     "id": 10086,
@@ -146001,11 +146050,12 @@
     "subSubject": "사회계열",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v2/es_catholic_023.pdf?name=2022%ED%95%99%EB%85%84%EB%8F%84%20%EA%B0%80%ED%86%A8%EB%A6%AD%EB%8C%80%ED%95%99%EA%B5%90%20%EB%AA%A8%EC%9D%98%EB%85%BC%EC%88%A0%20%EC%82%AC%ED%9A%8C%EA%B3%84%EC%97%B4%20%EB%AC%B8%EC%A0%9C.pdf",
     "answerUrl": null,
-    "solutionUrl": null,
+    "solutionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v26/sol2_10086.pdf?name=2022%ED%95%99%EB%85%84%EB%8F%84%20%EA%B0%80%ED%86%A8%EB%A6%AD%EB%8C%80%ED%95%99%EA%B5%90%20%EB%AA%A8%EC%9D%98%EB%85%BC%EC%88%A0%20%EC%82%AC%ED%9A%8C%EA%B3%84%EC%97%B4%20%ED%95%B4%EC%84%A4.pdf",
     "questionDownload": "2022학년도 가톨릭대학교 모의논술 사회계열 문제.pdf",
     "answerDownload": null,
-    "solutionDownload": null,
-    "source": "essay-std-tail"
+    "solutionDownload": "2022학년도 가톨릭대학교 모의논술 사회계열 해설.pdf",
+    "source": "essay-std-tail",
+    "solutionUrl_source_original": "https://ipsi.catholic.ac.kr/"
   },
   {
     "id": 10087,
@@ -146020,11 +146070,12 @@
     "subSubject": "공학계열",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v2/es_catholic_027.pdf?name=2023%ED%95%99%EB%85%84%EB%8F%84%20%EA%B0%80%ED%86%A8%EB%A6%AD%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EA%B3%B5%ED%95%99%EA%B3%84%EC%97%B4%20%EB%AC%B8%EC%A0%9C.pdf",
     "answerUrl": null,
-    "solutionUrl": null,
+    "solutionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v26/sol2_10087.pdf?name=2023%ED%95%99%EB%85%84%EB%8F%84%20%EA%B0%80%ED%86%A8%EB%A6%AD%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EA%B3%B5%ED%95%99%EA%B3%84%EC%97%B4%20%ED%95%B4%EC%84%A4.pdf",
     "questionDownload": "2023학년도 가톨릭대학교 논술 공학계열 문제.pdf",
     "answerDownload": null,
-    "solutionDownload": null,
-    "source": "essay-std-tail"
+    "solutionDownload": "2023학년도 가톨릭대학교 논술 공학계열 해설.pdf",
+    "source": "essay-std-tail",
+    "solutionUrl_source_original": "https://ipsi.catholic.ac.kr/"
   },
   {
     "id": 10088,
@@ -146039,11 +146090,12 @@
     "subSubject": "사회계열",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v2/es_catholic_026.pdf?name=2023%ED%95%99%EB%85%84%EB%8F%84%20%EA%B0%80%ED%86%A8%EB%A6%AD%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EC%82%AC%ED%9A%8C%EA%B3%84%EC%97%B4%20%EB%AC%B8%EC%A0%9C.pdf",
     "answerUrl": null,
-    "solutionUrl": null,
+    "solutionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v26/sol2_10088.pdf?name=2023%ED%95%99%EB%85%84%EB%8F%84%20%EA%B0%80%ED%86%A8%EB%A6%AD%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EC%82%AC%ED%9A%8C%EA%B3%84%EC%97%B4%20%ED%95%B4%EC%84%A4.pdf",
     "questionDownload": "2023학년도 가톨릭대학교 논술 사회계열 문제.pdf",
     "answerDownload": null,
-    "solutionDownload": null,
-    "source": "essay-std-tail"
+    "solutionDownload": "2023학년도 가톨릭대학교 논술 사회계열 해설.pdf",
+    "source": "essay-std-tail",
+    "solutionUrl_source_original": "https://ipsi.catholic.ac.kr/"
   },
   {
     "id": 10089,
@@ -146058,11 +146110,12 @@
     "subSubject": "의약학계열(약학)",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v2/es_catholic_025.pdf?name=2023%ED%95%99%EB%85%84%EB%8F%84%20%EA%B0%80%ED%86%A8%EB%A6%AD%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EC%9D%98%EC%95%BD%ED%95%99%EA%B3%84%EC%97%B4%28%EC%95%BD%ED%95%99%29%20%EB%AC%B8%EC%A0%9C.pdf",
     "answerUrl": null,
-    "solutionUrl": null,
+    "solutionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v26/sol2_10089.pdf?name=2023%ED%95%99%EB%85%84%EB%8F%84%20%EA%B0%80%ED%86%A8%EB%A6%AD%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EC%9D%98%EC%95%BD%ED%95%99%EA%B3%84%EC%97%B4(%EC%95%BD%ED%95%99)%20%ED%95%B4%EC%84%A4.pdf",
     "questionDownload": "2023학년도 가톨릭대학교 논술 의약학계열(약학) 문제.pdf",
     "answerDownload": null,
-    "solutionDownload": null,
-    "source": "essay-std-tail"
+    "solutionDownload": "2023학년도 가톨릭대학교 논술 의약학계열(약학) 해설.pdf",
+    "source": "essay-std-tail",
+    "solutionUrl_source_original": "https://ipsi.catholic.ac.kr/"
   },
   {
     "id": 10090,
@@ -146077,11 +146130,12 @@
     "subSubject": "공학계열",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v2/es_catholic_029.pdf?name=2023%ED%95%99%EB%85%84%EB%8F%84%20%EA%B0%80%ED%86%A8%EB%A6%AD%EB%8C%80%ED%95%99%EA%B5%90%20%EB%AA%A8%EC%9D%98%EB%85%BC%EC%88%A0%20%EA%B3%B5%ED%95%99%EA%B3%84%EC%97%B4%20%EB%AC%B8%EC%A0%9C.pdf",
     "answerUrl": null,
-    "solutionUrl": null,
+    "solutionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v26/sol2_10090.pdf?name=2023%ED%95%99%EB%85%84%EB%8F%84%20%EA%B0%80%ED%86%A8%EB%A6%AD%EB%8C%80%ED%95%99%EA%B5%90%20%EB%AA%A8%EC%9D%98%EB%85%BC%EC%88%A0%20%EA%B3%B5%ED%95%99%EA%B3%84%EC%97%B4%20%ED%95%B4%EC%84%A4.pdf",
     "questionDownload": "2023학년도 가톨릭대학교 모의논술 공학계열 문제.pdf",
     "answerDownload": null,
-    "solutionDownload": null,
-    "source": "essay-std-tail"
+    "solutionDownload": "2023학년도 가톨릭대학교 모의논술 공학계열 해설.pdf",
+    "source": "essay-std-tail",
+    "solutionUrl_source_original": "https://ipsi.catholic.ac.kr/"
   },
   {
     "id": 10091,
@@ -146096,11 +146150,12 @@
     "subSubject": "사회계열",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v2/es_catholic_028.pdf?name=2023%ED%95%99%EB%85%84%EB%8F%84%20%EA%B0%80%ED%86%A8%EB%A6%AD%EB%8C%80%ED%95%99%EA%B5%90%20%EB%AA%A8%EC%9D%98%EB%85%BC%EC%88%A0%20%EC%82%AC%ED%9A%8C%EA%B3%84%EC%97%B4%20%EB%AC%B8%EC%A0%9C.pdf",
     "answerUrl": null,
-    "solutionUrl": null,
+    "solutionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v26/sol2_10091.pdf?name=2023%ED%95%99%EB%85%84%EB%8F%84%20%EA%B0%80%ED%86%A8%EB%A6%AD%EB%8C%80%ED%95%99%EA%B5%90%20%EB%AA%A8%EC%9D%98%EB%85%BC%EC%88%A0%20%EC%82%AC%ED%9A%8C%EA%B3%84%EC%97%B4%20%ED%95%B4%EC%84%A4.pdf",
     "questionDownload": "2023학년도 가톨릭대학교 모의논술 사회계열 문제.pdf",
     "answerDownload": null,
-    "solutionDownload": null,
-    "source": "essay-std-tail"
+    "solutionDownload": "2023학년도 가톨릭대학교 모의논술 사회계열 해설.pdf",
+    "source": "essay-std-tail",
+    "solutionUrl_source_original": "https://ipsi.catholic.ac.kr/"
   },
   {
     "id": 10092,
@@ -146172,11 +146227,12 @@
     "subSubject": "공학계열",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v2/es_catholic_032.pdf?name=2024%ED%95%99%EB%85%84%EB%8F%84%20%EA%B0%80%ED%86%A8%EB%A6%AD%EB%8C%80%ED%95%99%EA%B5%90%20%EB%AA%A8%EC%9D%98%EB%85%BC%EC%88%A0%20%EA%B3%B5%ED%95%99%EA%B3%84%EC%97%B4%20%EB%AC%B8%EC%A0%9C.pdf",
     "answerUrl": null,
-    "solutionUrl": null,
+    "solutionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v26/sol2_10095.pdf?name=2024%ED%95%99%EB%85%84%EB%8F%84%20%EA%B0%80%ED%86%A8%EB%A6%AD%EB%8C%80%ED%95%99%EA%B5%90%20%EB%AA%A8%EC%9D%98%EB%85%BC%EC%88%A0%20%EA%B3%B5%ED%95%99%EA%B3%84%EC%97%B4%20%ED%95%B4%EC%84%A4.pdf",
     "questionDownload": "2024학년도 가톨릭대학교 모의논술 공학계열 문제.pdf",
     "answerDownload": null,
-    "solutionDownload": null,
-    "source": "essay-std-tail"
+    "solutionDownload": "2024학년도 가톨릭대학교 모의논술 공학계열 해설.pdf",
+    "source": "essay-std-tail",
+    "solutionUrl_source_original": "https://ipsi.catholic.ac.kr/"
   },
   {
     "id": 10096,
@@ -146210,11 +146266,12 @@
     "subSubject": "사회계열",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v2/es_catholic_030.pdf?name=2024%ED%95%99%EB%85%84%EB%8F%84%20%EA%B0%80%ED%86%A8%EB%A6%AD%EB%8C%80%ED%95%99%EA%B5%90%20%EB%AA%A8%EC%9D%98%EB%85%BC%EC%88%A0%20%EC%82%AC%ED%9A%8C%EA%B3%84%EC%97%B4%20%EB%AC%B8%EC%A0%9C.pdf",
     "answerUrl": null,
-    "solutionUrl": null,
+    "solutionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v26/sol2_10097.pdf?name=2024%ED%95%99%EB%85%84%EB%8F%84%20%EA%B0%80%ED%86%A8%EB%A6%AD%EB%8C%80%ED%95%99%EA%B5%90%20%EB%AA%A8%EC%9D%98%EB%85%BC%EC%88%A0%20%EC%82%AC%ED%9A%8C%EA%B3%84%EC%97%B4%20%ED%95%B4%EC%84%A4.pdf",
     "questionDownload": "2024학년도 가톨릭대학교 모의논술 사회계열 문제.pdf",
     "answerDownload": null,
-    "solutionDownload": null,
-    "source": "essay-std-tail"
+    "solutionDownload": "2024학년도 가톨릭대학교 모의논술 사회계열 해설.pdf",
+    "source": "essay-std-tail",
+    "solutionUrl_source_original": "https://ipsi.catholic.ac.kr/"
   },
   {
     "id": 10098,
@@ -146723,11 +146780,12 @@
     "subSubject": "자연계열",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v3/es7_konkuk_018.pdf?name=2018%ED%95%99%EB%85%84%EB%8F%84%20%EA%B1%B4%EA%B5%AD%EB%8C%80%ED%95%99%EA%B5%90%20%EB%AA%A8%EC%9D%98%EB%85%BC%EC%88%A0%20%EC%9E%90%EC%97%B0%EA%B3%84%EC%97%B4%20%EB%AC%B8%EC%A0%9C.pdf",
     "answerUrl": null,
-    "solutionUrl": null,
+    "solutionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v26/sol2_10124.pdf?name=2018%ED%95%99%EB%85%84%EB%8F%84%20%EA%B1%B4%EA%B5%AD%EB%8C%80%ED%95%99%EA%B5%90%20%EB%AA%A8%EC%9D%98%EB%85%BC%EC%88%A0%20%EC%9E%90%EC%97%B0%EA%B3%84%EC%97%B4%20%ED%95%B4%EC%84%A4.pdf",
     "questionDownload": "2018학년도 건국대학교 모의논술 자연계열 문제.pdf",
     "answerDownload": null,
-    "solutionDownload": null,
-    "source": "essay-std-tail"
+    "solutionDownload": "2018학년도 건국대학교 모의논술 자연계열 해설.pdf",
+    "source": "essay-std-tail",
+    "solutionUrl_source_original": "https://admission.konkuk.ac.kr/"
   },
   {
     "id": 10125,
@@ -147236,11 +147294,12 @@
     "subSubject": "사회계열 1번 ②",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v1/es_konkuk_042.pdf?name=2025%ED%95%99%EB%85%84%EB%8F%84%20%EA%B1%B4%EA%B5%AD%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EC%82%AC%ED%9A%8C%EA%B3%84%EC%97%B4%201%EB%B2%88%20%E2%91%A1%20%EB%AC%B8%EC%A0%9C.pdf",
     "answerUrl": null,
-    "solutionUrl": null,
+    "solutionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v26/sol2_10151.pdf?name=2025%ED%95%99%EB%85%84%EB%8F%84%20%EA%B1%B4%EA%B5%AD%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EC%82%AC%ED%9A%8C%EA%B3%84%EC%97%B4%201%EB%B2%88%20%E2%91%A1%20%ED%95%B4%EC%84%A4.pdf",
     "questionDownload": "2025학년도 건국대학교 논술 사회계열 1번 ② 문제.pdf",
     "answerDownload": null,
-    "solutionDownload": null,
-    "source": "essay-std-tail"
+    "solutionDownload": "2025학년도 건국대학교 논술 사회계열 1번 ② 해설.pdf",
+    "source": "essay-std-tail",
+    "solutionUrl_source_original": "https://admission.konkuk.ac.kr/"
   },
   {
     "id": 10152,
@@ -147521,11 +147580,12 @@
     "subSubject": "통합",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v4/es7_kyonggi_009.pdf?name=2016%ED%95%99%EB%85%84%EB%8F%84%20%EA%B2%BD%EA%B8%B0%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%ED%86%B5%ED%95%A9%20%EB%AC%B8%EC%A0%9C.pdf",
     "answerUrl": null,
-    "solutionUrl": null,
+    "solutionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v26/sol2_10166.pdf?name=2016%ED%95%99%EB%85%84%EB%8F%84%20%EA%B2%BD%EA%B8%B0%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%ED%86%B5%ED%95%A9%20%ED%95%B4%EC%84%A4.pdf",
     "questionDownload": "2016학년도 경기대학교 논술 통합 문제.pdf",
     "answerDownload": null,
-    "solutionDownload": null,
-    "source": "essay-std-tail"
+    "solutionDownload": "2016학년도 경기대학교 논술 통합 해설.pdf",
+    "source": "essay-std-tail",
+    "solutionUrl_source_original": "https://enter.kyonggi.ac.kr/"
   },
   {
     "id": 10167,
@@ -147559,11 +147619,12 @@
     "subSubject": "통합",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v4/es7_kyonggi_013.pdf?name=2017%ED%95%99%EB%85%84%EB%8F%84%20%EA%B2%BD%EA%B8%B0%EB%8C%80%ED%95%99%EA%B5%90%20%EB%AA%A8%EC%9D%98%EB%85%BC%EC%88%A0%20%ED%86%B5%ED%95%A9%20%EB%AC%B8%EC%A0%9C.pdf",
     "answerUrl": null,
-    "solutionUrl": null,
+    "solutionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v26/sol2_10168.pdf?name=2017%ED%95%99%EB%85%84%EB%8F%84%20%EA%B2%BD%EA%B8%B0%EB%8C%80%ED%95%99%EA%B5%90%20%EB%AA%A8%EC%9D%98%EB%85%BC%EC%88%A0%20%ED%86%B5%ED%95%A9%20%ED%95%B4%EC%84%A4.pdf",
     "questionDownload": "2017학년도 경기대학교 모의논술 통합 문제.pdf",
     "answerDownload": null,
-    "solutionDownload": null,
-    "source": "essay-std-tail"
+    "solutionDownload": "2017학년도 경기대학교 모의논술 통합 해설.pdf",
+    "source": "essay-std-tail",
+    "solutionUrl_source_original": "https://enter.kyonggi.ac.kr/"
   },
   {
     "id": 10169,
@@ -147863,11 +147924,12 @@
     "subSubject": "기출",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v2/es_kyonggi_013.pdf?name=2024%ED%95%99%EB%85%84%EB%8F%84%20%EA%B2%BD%EA%B8%B0%EB%8C%80%ED%95%99%EA%B5%90%20%EB%AA%A8%EC%9D%98%EB%85%BC%EC%88%A0%20%EA%B8%B0%EC%B6%9C%20%EB%AC%B8%EC%A0%9C.pdf",
     "answerUrl": null,
-    "solutionUrl": null,
+    "solutionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v26/sol2_10184.pdf?name=2024%ED%95%99%EB%85%84%EB%8F%84%20%EA%B2%BD%EA%B8%B0%EB%8C%80%ED%95%99%EA%B5%90%20%EB%AA%A8%EC%9D%98%EB%85%BC%EC%88%A0%20%EA%B8%B0%EC%B6%9C%20%ED%95%B4%EC%84%A4.pdf",
     "questionDownload": "2024학년도 경기대학교 모의논술 기출 문제.pdf",
     "answerDownload": null,
-    "solutionDownload": null,
-    "source": "essay-std-tail"
+    "solutionDownload": "2024학년도 경기대학교 모의논술 기출 해설.pdf",
+    "source": "essay-std-tail",
+    "solutionUrl_source_original": "https://enter.kyonggi.ac.kr/"
   },
   {
     "id": 10185,
@@ -148072,11 +148134,12 @@
     "subSubject": "자연계열 1번",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v3/es7_knu_015.pdf?name=2016%ED%95%99%EB%85%84%EB%8F%84%20%EA%B2%BD%EB%B6%81%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EC%9E%90%EC%97%B0%EA%B3%84%EC%97%B4%201%EB%B2%88%20%EB%AC%B8%EC%A0%9C.pdf",
     "answerUrl": null,
-    "solutionUrl": null,
+    "solutionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v26/sol2_10195.pdf?name=2016%ED%95%99%EB%85%84%EB%8F%84%20%EA%B2%BD%EB%B6%81%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EC%9E%90%EC%97%B0%EA%B3%84%EC%97%B4%201%EB%B2%88%20%ED%95%B4%EC%84%A4.pdf",
     "questionDownload": "2016학년도 경북대학교 논술 자연계열 1번 문제.pdf",
     "answerDownload": null,
-    "solutionDownload": null,
-    "source": "essay-std-tail"
+    "solutionDownload": "2016학년도 경북대학교 논술 자연계열 1번 해설.pdf",
+    "source": "essay-std-tail",
+    "solutionUrl_source_original": "https://ipsi.knu.ac.kr/"
   },
   {
     "id": 10196,
@@ -148091,11 +148154,12 @@
     "subSubject": "자연계열 2번",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v3/es7_knu_016.pdf?name=2016%ED%95%99%EB%85%84%EB%8F%84%20%EA%B2%BD%EB%B6%81%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EC%9E%90%EC%97%B0%EA%B3%84%EC%97%B4%202%EB%B2%88%20%EB%AC%B8%EC%A0%9C.pdf",
     "answerUrl": null,
-    "solutionUrl": null,
+    "solutionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v26/sol2_10196.pdf?name=2016%ED%95%99%EB%85%84%EB%8F%84%20%EA%B2%BD%EB%B6%81%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EC%9E%90%EC%97%B0%EA%B3%84%EC%97%B4%202%EB%B2%88%20%ED%95%B4%EC%84%A4.pdf",
     "questionDownload": "2016학년도 경북대학교 논술 자연계열 2번 문제.pdf",
     "answerDownload": null,
-    "solutionDownload": null,
-    "source": "essay-std-tail"
+    "solutionDownload": "2016학년도 경북대학교 논술 자연계열 2번 해설.pdf",
+    "source": "essay-std-tail",
+    "solutionUrl_source_original": "https://ipsi.knu.ac.kr/"
   },
   {
     "id": 10197,
@@ -151454,11 +151518,12 @@
     "subSubject": "국제학부 영어강의듣기1",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v4/es7_pusan_016.pdf?name=2016%ED%95%99%EB%85%84%EB%8F%84%20%EB%B6%80%EC%82%B0%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EA%B5%AD%EC%A0%9C%ED%95%99%EB%B6%80%20%EC%98%81%EC%96%B4%EA%B0%95%EC%9D%98%EB%93%A3%EA%B8%B01%20%EB%AC%B8%EC%A0%9C.pdf",
     "answerUrl": null,
-    "solutionUrl": null,
+    "solutionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v26/sol2_10375.pdf?name=2016%ED%95%99%EB%85%84%EB%8F%84%20%EB%B6%80%EC%82%B0%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EA%B5%AD%EC%A0%9C%ED%95%99%EB%B6%80%20%EC%98%81%EC%96%B4%EA%B0%95%EC%9D%98%EB%93%A3%EA%B8%B01%20%ED%95%B4%EC%84%A4.pdf",
     "questionDownload": "2016학년도 부산대학교 논술 국제학부 영어강의듣기1 문제.pdf",
     "answerDownload": null,
-    "solutionDownload": null,
-    "source": "essay-std-tail"
+    "solutionDownload": "2016학년도 부산대학교 논술 국제학부 영어강의듣기1 해설.pdf",
+    "source": "essay-std-tail",
+    "solutionUrl_source_original": "https://go.pusan.ac.kr/"
   },
   {
     "id": 10376,
@@ -151473,11 +151538,12 @@
     "subSubject": "국제학부 영어강의듣기2",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v4/es7_pusan_017.pdf?name=2016%ED%95%99%EB%85%84%EB%8F%84%20%EB%B6%80%EC%82%B0%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EA%B5%AD%EC%A0%9C%ED%95%99%EB%B6%80%20%EC%98%81%EC%96%B4%EA%B0%95%EC%9D%98%EB%93%A3%EA%B8%B02%20%EB%AC%B8%EC%A0%9C.pdf",
     "answerUrl": null,
-    "solutionUrl": null,
+    "solutionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v26/sol2_10376.pdf?name=2016%ED%95%99%EB%85%84%EB%8F%84%20%EB%B6%80%EC%82%B0%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EA%B5%AD%EC%A0%9C%ED%95%99%EB%B6%80%20%EC%98%81%EC%96%B4%EA%B0%95%EC%9D%98%EB%93%A3%EA%B8%B02%20%ED%95%B4%EC%84%A4.pdf",
     "questionDownload": "2016학년도 부산대학교 논술 국제학부 영어강의듣기2 문제.pdf",
     "answerDownload": null,
-    "solutionDownload": null,
-    "source": "essay-std-tail"
+    "solutionDownload": "2016학년도 부산대학교 논술 국제학부 영어강의듣기2 해설.pdf",
+    "source": "essay-std-tail",
+    "solutionUrl_source_original": "https://go.pusan.ac.kr/"
   },
   {
     "id": 10377,
@@ -151834,11 +151900,12 @@
     "subSubject": "사회계열 1번",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v4/es7_pusan_055.pdf?name=2019%ED%95%99%EB%85%84%EB%8F%84%20%EB%B6%80%EC%82%B0%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EC%82%AC%ED%9A%8C%EA%B3%84%EC%97%B4%201%EB%B2%88%20%EB%AC%B8%EC%A0%9C.pdf",
     "answerUrl": null,
-    "solutionUrl": null,
+    "solutionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v26/sol2_10395.pdf?name=2019%ED%95%99%EB%85%84%EB%8F%84%20%EB%B6%80%EC%82%B0%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EC%82%AC%ED%9A%8C%EA%B3%84%EC%97%B4%201%EB%B2%88%20%ED%95%B4%EC%84%A4.pdf",
     "questionDownload": "2019학년도 부산대학교 논술 사회계열 1번 문제.pdf",
     "answerDownload": null,
-    "solutionDownload": null,
-    "source": "essay-std-tail"
+    "solutionDownload": "2019학년도 부산대학교 논술 사회계열 1번 해설.pdf",
+    "source": "essay-std-tail",
+    "solutionUrl_source_original": "https://go.pusan.ac.kr/"
   },
   {
     "id": 10396,
@@ -151853,11 +151920,12 @@
     "subSubject": "사회계열 2번",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v4/es7_pusan_056.pdf?name=2019%ED%95%99%EB%85%84%EB%8F%84%20%EB%B6%80%EC%82%B0%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EC%82%AC%ED%9A%8C%EA%B3%84%EC%97%B4%202%EB%B2%88%20%EB%AC%B8%EC%A0%9C.pdf",
     "answerUrl": null,
-    "solutionUrl": null,
+    "solutionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v26/sol2_10396.pdf?name=2019%ED%95%99%EB%85%84%EB%8F%84%20%EB%B6%80%EC%82%B0%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EC%82%AC%ED%9A%8C%EA%B3%84%EC%97%B4%202%EB%B2%88%20%ED%95%B4%EC%84%A4.pdf",
     "questionDownload": "2019학년도 부산대학교 논술 사회계열 2번 문제.pdf",
     "answerDownload": null,
-    "solutionDownload": null,
-    "source": "essay-std-tail"
+    "solutionDownload": "2019학년도 부산대학교 논술 사회계열 2번 해설.pdf",
+    "source": "essay-std-tail",
+    "solutionUrl_source_original": "https://go.pusan.ac.kr/"
   },
   {
     "id": 10397,
@@ -151872,11 +151940,12 @@
     "subSubject": "사회계열 3번",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v4/es7_pusan_057.pdf?name=2019%ED%95%99%EB%85%84%EB%8F%84%20%EB%B6%80%EC%82%B0%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EC%82%AC%ED%9A%8C%EA%B3%84%EC%97%B4%203%EB%B2%88%20%EB%AC%B8%EC%A0%9C.pdf",
     "answerUrl": null,
-    "solutionUrl": null,
+    "solutionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v26/sol2_10397.pdf?name=2019%ED%95%99%EB%85%84%EB%8F%84%20%EB%B6%80%EC%82%B0%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EC%82%AC%ED%9A%8C%EA%B3%84%EC%97%B4%203%EB%B2%88%20%ED%95%B4%EC%84%A4.pdf",
     "questionDownload": "2019학년도 부산대학교 논술 사회계열 3번 문제.pdf",
     "answerDownload": null,
-    "solutionDownload": null,
-    "source": "essay-std-tail"
+    "solutionDownload": "2019학년도 부산대학교 논술 사회계열 3번 해설.pdf",
+    "source": "essay-std-tail",
+    "solutionUrl_source_original": "https://go.pusan.ac.kr/"
   },
   {
     "id": 10398,
@@ -151891,11 +151960,12 @@
     "subSubject": "의약학계열(의예) 1번",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v4/es7_pusan_052.pdf?name=2019%ED%95%99%EB%85%84%EB%8F%84%20%EB%B6%80%EC%82%B0%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EC%9D%98%EC%95%BD%ED%95%99%EA%B3%84%EC%97%B4%28%EC%9D%98%EC%98%88%29%201%EB%B2%88%20%EB%AC%B8%EC%A0%9C.pdf",
     "answerUrl": null,
-    "solutionUrl": null,
+    "solutionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v26/sol2_10398.pdf?name=2019%ED%95%99%EB%85%84%EB%8F%84%20%EB%B6%80%EC%82%B0%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EC%9D%98%EC%95%BD%ED%95%99%EA%B3%84%EC%97%B4(%EC%9D%98%EC%98%88)%201%EB%B2%88%20%ED%95%B4%EC%84%A4.pdf",
     "questionDownload": "2019학년도 부산대학교 논술 의약학계열(의예) 1번 문제.pdf",
     "answerDownload": null,
-    "solutionDownload": null,
-    "source": "essay-std-tail"
+    "solutionDownload": "2019학년도 부산대학교 논술 의약학계열(의예) 1번 해설.pdf",
+    "source": "essay-std-tail",
+    "solutionUrl_source_original": "https://go.pusan.ac.kr/"
   },
   {
     "id": 10399,
@@ -151910,11 +151980,12 @@
     "subSubject": "의약학계열(의예) 2번",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v4/es7_pusan_053.pdf?name=2019%ED%95%99%EB%85%84%EB%8F%84%20%EB%B6%80%EC%82%B0%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EC%9D%98%EC%95%BD%ED%95%99%EA%B3%84%EC%97%B4%28%EC%9D%98%EC%98%88%29%202%EB%B2%88%20%EB%AC%B8%EC%A0%9C.pdf",
     "answerUrl": null,
-    "solutionUrl": null,
+    "solutionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v26/sol2_10399.pdf?name=2019%ED%95%99%EB%85%84%EB%8F%84%20%EB%B6%80%EC%82%B0%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EC%9D%98%EC%95%BD%ED%95%99%EA%B3%84%EC%97%B4(%EC%9D%98%EC%98%88)%202%EB%B2%88%20%ED%95%B4%EC%84%A4.pdf",
     "questionDownload": "2019학년도 부산대학교 논술 의약학계열(의예) 2번 문제.pdf",
     "answerDownload": null,
-    "solutionDownload": null,
-    "source": "essay-std-tail"
+    "solutionDownload": "2019학년도 부산대학교 논술 의약학계열(의예) 2번 해설.pdf",
+    "source": "essay-std-tail",
+    "solutionUrl_source_original": "https://go.pusan.ac.kr/"
   },
   {
     "id": 10400,
@@ -151929,11 +152000,12 @@
     "subSubject": "의약학계열(의예) 3번",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v4/es7_pusan_054.pdf?name=2019%ED%95%99%EB%85%84%EB%8F%84%20%EB%B6%80%EC%82%B0%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EC%9D%98%EC%95%BD%ED%95%99%EA%B3%84%EC%97%B4%28%EC%9D%98%EC%98%88%29%203%EB%B2%88%20%EB%AC%B8%EC%A0%9C.pdf",
     "answerUrl": null,
-    "solutionUrl": null,
+    "solutionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v26/sol2_10400.pdf?name=2019%ED%95%99%EB%85%84%EB%8F%84%20%EB%B6%80%EC%82%B0%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EC%9D%98%EC%95%BD%ED%95%99%EA%B3%84%EC%97%B4(%EC%9D%98%EC%98%88)%203%EB%B2%88%20%ED%95%B4%EC%84%A4.pdf",
     "questionDownload": "2019학년도 부산대학교 논술 의약학계열(의예) 3번 문제.pdf",
     "answerDownload": null,
-    "solutionDownload": null,
-    "source": "essay-std-tail"
+    "solutionDownload": "2019학년도 부산대학교 논술 의약학계열(의예) 3번 해설.pdf",
+    "source": "essay-std-tail",
+    "solutionUrl_source_original": "https://go.pusan.ac.kr/"
   },
   {
     "id": 10401,
@@ -151948,11 +152020,12 @@
     "subSubject": "자연계열 1번",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v4/es7_pusan_058.pdf?name=2019%ED%95%99%EB%85%84%EB%8F%84%20%EB%B6%80%EC%82%B0%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EC%9E%90%EC%97%B0%EA%B3%84%EC%97%B4%201%EB%B2%88%20%EB%AC%B8%EC%A0%9C.pdf",
     "answerUrl": null,
-    "solutionUrl": null,
+    "solutionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v26/sol2_10401.pdf?name=2019%ED%95%99%EB%85%84%EB%8F%84%20%EB%B6%80%EC%82%B0%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EC%9E%90%EC%97%B0%EA%B3%84%EC%97%B4%201%EB%B2%88%20%ED%95%B4%EC%84%A4.pdf",
     "questionDownload": "2019학년도 부산대학교 논술 자연계열 1번 문제.pdf",
     "answerDownload": null,
-    "solutionDownload": null,
-    "source": "essay-std-tail"
+    "solutionDownload": "2019학년도 부산대학교 논술 자연계열 1번 해설.pdf",
+    "source": "essay-std-tail",
+    "solutionUrl_source_original": "https://go.pusan.ac.kr/"
   },
   {
     "id": 10402,
@@ -151967,11 +152040,12 @@
     "subSubject": "자연계열 2번",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v4/es7_pusan_059.pdf?name=2019%ED%95%99%EB%85%84%EB%8F%84%20%EB%B6%80%EC%82%B0%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EC%9E%90%EC%97%B0%EA%B3%84%EC%97%B4%202%EB%B2%88%20%EB%AC%B8%EC%A0%9C.pdf",
     "answerUrl": null,
-    "solutionUrl": null,
+    "solutionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v26/sol2_10402.pdf?name=2019%ED%95%99%EB%85%84%EB%8F%84%20%EB%B6%80%EC%82%B0%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EC%9E%90%EC%97%B0%EA%B3%84%EC%97%B4%202%EB%B2%88%20%ED%95%B4%EC%84%A4.pdf",
     "questionDownload": "2019학년도 부산대학교 논술 자연계열 2번 문제.pdf",
     "answerDownload": null,
-    "solutionDownload": null,
-    "source": "essay-std-tail"
+    "solutionDownload": "2019학년도 부산대학교 논술 자연계열 2번 해설.pdf",
+    "source": "essay-std-tail",
+    "solutionUrl_source_original": "https://go.pusan.ac.kr/"
   },
   {
     "id": 10403,
@@ -151986,11 +152060,12 @@
     "subSubject": "자연계열 3번",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v4/es7_pusan_060.pdf?name=2019%ED%95%99%EB%85%84%EB%8F%84%20%EB%B6%80%EC%82%B0%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EC%9E%90%EC%97%B0%EA%B3%84%EC%97%B4%203%EB%B2%88%20%EB%AC%B8%EC%A0%9C.pdf",
     "answerUrl": null,
-    "solutionUrl": null,
+    "solutionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v26/sol2_10403.pdf?name=2019%ED%95%99%EB%85%84%EB%8F%84%20%EB%B6%80%EC%82%B0%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EC%9E%90%EC%97%B0%EA%B3%84%EC%97%B4%203%EB%B2%88%20%ED%95%B4%EC%84%A4.pdf",
     "questionDownload": "2019학년도 부산대학교 논술 자연계열 3번 문제.pdf",
     "answerDownload": null,
-    "solutionDownload": null,
-    "source": "essay-std-tail"
+    "solutionDownload": "2019학년도 부산대학교 논술 자연계열 3번 해설.pdf",
+    "source": "essay-std-tail",
+    "solutionUrl_source_original": "https://go.pusan.ac.kr/"
   },
   {
     "id": 10404,
@@ -152499,11 +152574,12 @@
     "subSubject": "인문계열",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v2/es_sangmyung_001.pdf?name=2025%ED%95%99%EB%85%84%EB%8F%84%20%EC%83%81%EB%AA%85%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EC%9D%B8%EB%AC%B8%EA%B3%84%EC%97%B4%20%EB%AC%B8%EC%A0%9C.pdf",
     "answerUrl": null,
-    "solutionUrl": null,
+    "solutionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v26/sol2_10430.pdf?name=2025%ED%95%99%EB%85%84%EB%8F%84%20%EC%83%81%EB%AA%85%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EC%9D%B8%EB%AC%B8%EA%B3%84%EC%97%B4%20%ED%95%B4%EC%84%A4.pdf",
     "questionDownload": "2025학년도 상명대학교 논술 인문계열 문제.pdf",
     "answerDownload": null,
-    "solutionDownload": null,
-    "source": "essay-std-tail"
+    "solutionDownload": "2025학년도 상명대학교 논술 인문계열 해설.pdf",
+    "source": "essay-std-tail",
+    "solutionUrl_source_original": "https://admission.smu.ac.kr/"
   },
   {
     "id": 10431,
@@ -152518,11 +152594,12 @@
     "subSubject": "자연계열",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v2/es_sangmyung_002.pdf?name=2025%ED%95%99%EB%85%84%EB%8F%84%20%EC%83%81%EB%AA%85%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EC%9E%90%EC%97%B0%EA%B3%84%EC%97%B4%20%EB%AC%B8%EC%A0%9C.pdf",
     "answerUrl": null,
-    "solutionUrl": null,
+    "solutionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v26/sol2_10431.pdf?name=2025%ED%95%99%EB%85%84%EB%8F%84%20%EC%83%81%EB%AA%85%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EC%9E%90%EC%97%B0%EA%B3%84%EC%97%B4%20%ED%95%B4%EC%84%A4.pdf",
     "questionDownload": "2025학년도 상명대학교 논술 자연계열 문제.pdf",
     "answerDownload": null,
-    "solutionDownload": null,
-    "source": "essay-std-tail"
+    "solutionDownload": "2025학년도 상명대학교 논술 자연계열 해설.pdf",
+    "source": "essay-std-tail",
+    "solutionUrl_source_original": "https://admission.smu.ac.kr/"
   },
   {
     "id": 10432,
@@ -152537,11 +152614,12 @@
     "subSubject": "인문계열",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v2/es_sangmyung_003.pdf?name=2025%ED%95%99%EB%85%84%EB%8F%84%20%EC%83%81%EB%AA%85%EB%8C%80%ED%95%99%EA%B5%90%20%EB%AA%A8%EC%9D%98%EB%85%BC%EC%88%A0%20%EC%9D%B8%EB%AC%B8%EA%B3%84%EC%97%B4%20%EB%AC%B8%EC%A0%9C.pdf",
     "answerUrl": null,
-    "solutionUrl": null,
+    "solutionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v26/sol2_10432.pdf?name=2025%ED%95%99%EB%85%84%EB%8F%84%20%EC%83%81%EB%AA%85%EB%8C%80%ED%95%99%EA%B5%90%20%EB%AA%A8%EC%9D%98%EB%85%BC%EC%88%A0%20%EC%9D%B8%EB%AC%B8%EA%B3%84%EC%97%B4%20%ED%95%B4%EC%84%A4.pdf",
     "questionDownload": "2025학년도 상명대학교 모의논술 인문계열 문제.pdf",
     "answerDownload": null,
-    "solutionDownload": null,
-    "source": "essay-std-tail"
+    "solutionDownload": "2025학년도 상명대학교 모의논술 인문계열 해설.pdf",
+    "source": "essay-std-tail",
+    "solutionUrl_source_original": "https://admission.smu.ac.kr/"
   },
   {
     "id": 10433,
@@ -152556,11 +152634,12 @@
     "subSubject": "자연계열",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v2/es_sangmyung_004.pdf?name=2025%ED%95%99%EB%85%84%EB%8F%84%20%EC%83%81%EB%AA%85%EB%8C%80%ED%95%99%EA%B5%90%20%EB%AA%A8%EC%9D%98%EB%85%BC%EC%88%A0%20%EC%9E%90%EC%97%B0%EA%B3%84%EC%97%B4%20%EB%AC%B8%EC%A0%9C.pdf",
     "answerUrl": null,
-    "solutionUrl": null,
+    "solutionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v26/sol2_10433.pdf?name=2025%ED%95%99%EB%85%84%EB%8F%84%20%EC%83%81%EB%AA%85%EB%8C%80%ED%95%99%EA%B5%90%20%EB%AA%A8%EC%9D%98%EB%85%BC%EC%88%A0%20%EC%9E%90%EC%97%B0%EA%B3%84%EC%97%B4%20%ED%95%B4%EC%84%A4.pdf",
     "questionDownload": "2025학년도 상명대학교 모의논술 자연계열 문제.pdf",
     "answerDownload": null,
-    "solutionDownload": null,
-    "source": "essay-std-tail"
+    "solutionDownload": "2025학년도 상명대학교 모의논술 자연계열 해설.pdf",
+    "source": "essay-std-tail",
+    "solutionUrl_source_original": "https://admission.smu.ac.kr/"
   },
   {
     "id": 10434,
@@ -152575,11 +152654,12 @@
     "subSubject": "기출_국어",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v2/es_seokyeong_001.pdf?name=2025%ED%95%99%EB%85%84%EB%8F%84%20%EC%84%9C%EA%B2%BD%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EA%B8%B0%EC%B6%9C_%EA%B5%AD%EC%96%B4%20%EB%AC%B8%EC%A0%9C.pdf",
     "answerUrl": null,
-    "solutionUrl": null,
+    "solutionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v26/sol2_10434.pdf?name=2025%ED%95%99%EB%85%84%EB%8F%84%20%EC%84%9C%EA%B2%BD%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EA%B8%B0%EC%B6%9C_%EA%B5%AD%EC%96%B4%20%ED%95%B4%EC%84%A4.pdf",
     "questionDownload": "2025학년도 서경대학교 논술 기출_국어 문제.pdf",
     "answerDownload": null,
-    "solutionDownload": null,
-    "source": "essay-std-tail"
+    "solutionDownload": "2025학년도 서경대학교 논술 기출_국어 해설.pdf",
+    "source": "essay-std-tail",
+    "solutionUrl_source_original": "https://ipsi.skuniv.ac.kr/"
   },
   {
     "id": 10435,
@@ -152594,11 +152674,12 @@
     "subSubject": "기출_수학",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v2/es_seokyeong_002.pdf?name=2025%ED%95%99%EB%85%84%EB%8F%84%20%EC%84%9C%EA%B2%BD%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EA%B8%B0%EC%B6%9C_%EC%88%98%ED%95%99%20%EB%AC%B8%EC%A0%9C.pdf",
     "answerUrl": null,
-    "solutionUrl": null,
+    "solutionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v26/sol2_10435.pdf?name=2025%ED%95%99%EB%85%84%EB%8F%84%20%EC%84%9C%EA%B2%BD%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EA%B8%B0%EC%B6%9C_%EC%88%98%ED%95%99%20%ED%95%B4%EC%84%A4.pdf",
     "questionDownload": "2025학년도 서경대학교 논술 기출_수학 문제.pdf",
     "answerDownload": null,
-    "solutionDownload": null,
-    "source": "essay-std-tail"
+    "solutionDownload": "2025학년도 서경대학교 논술 기출_수학 해설.pdf",
+    "source": "essay-std-tail",
+    "solutionUrl_source_original": "https://ipsi.skuniv.ac.kr/"
   },
   {
     "id": 10436,
@@ -154703,11 +154784,12 @@
     "subSubject": "자연계열",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v2/es_sungshin_074.pdf?name=2026%ED%95%99%EB%85%84%EB%8F%84%20%EC%84%B1%EC%8B%A0%EC%97%AC%EC%9E%90%EB%8C%80%ED%95%99%EA%B5%90%20%EB%AA%A8%EC%9D%98%EB%85%BC%EC%88%A0%20%EC%9E%90%EC%97%B0%EA%B3%84%EC%97%B4%20%EB%AC%B8%EC%A0%9C.pdf",
     "answerUrl": null,
-    "solutionUrl": null,
+    "solutionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v26/sol2_10546.pdf?name=2026%ED%95%99%EB%85%84%EB%8F%84%20%EC%84%B1%EC%8B%A0%EC%97%AC%EC%9E%90%EB%8C%80%ED%95%99%EA%B5%90%20%EB%AA%A8%EC%9D%98%EB%85%BC%EC%88%A0%20%EC%9E%90%EC%97%B0%EA%B3%84%EC%97%B4%20%ED%95%B4%EC%84%A4.pdf",
     "questionDownload": "2026학년도 성신여자대학교 모의논술 자연계열 문제.pdf",
     "answerDownload": null,
-    "solutionDownload": null,
-    "source": "essay-std-tail"
+    "solutionDownload": "2026학년도 성신여자대학교 모의논술 자연계열 해설.pdf",
+    "source": "essay-std-tail",
+    "solutionUrl_source_original": "https://ipsi.sungshin.ac.kr/"
   },
   {
     "id": 10547,
@@ -154779,11 +154861,12 @@
     "subSubject": "인문계열",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v4/es7_sejong_007.pdf?name=2015%ED%95%99%EB%85%84%EB%8F%84%20%EC%84%B8%EC%A2%85%EB%8C%80%ED%95%99%EA%B5%90%20%EB%AA%A8%EC%9D%98%EB%85%BC%EC%88%A0%20%EC%9D%B8%EB%AC%B8%EA%B3%84%EC%97%B4%20%EB%AC%B8%EC%A0%9C.pdf",
     "answerUrl": null,
-    "solutionUrl": null,
+    "solutionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v26/sol2_10550.pdf?name=2015%ED%95%99%EB%85%84%EB%8F%84%20%EC%84%B8%EC%A2%85%EB%8C%80%ED%95%99%EA%B5%90%20%EB%AA%A8%EC%9D%98%EB%85%BC%EC%88%A0%20%EC%9D%B8%EB%AC%B8%EA%B3%84%EC%97%B4%20%ED%95%B4%EC%84%A4.pdf",
     "questionDownload": "2015학년도 세종대학교 모의논술 인문계열 문제.pdf",
     "answerDownload": null,
-    "solutionDownload": null,
-    "source": "essay-std-tail"
+    "solutionDownload": "2015학년도 세종대학교 모의논술 인문계열 해설.pdf",
+    "source": "essay-std-tail",
+    "solutionUrl_source_original": "https://ipsi.sejong.ac.kr/"
   },
   {
     "id": 10551,
@@ -158504,11 +158587,12 @@
     "subSubject": "의약학계열(의예)",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v1/es_ajou_036.pdf?name=2021%ED%95%99%EB%85%84%EB%8F%84%20%EC%95%84%EC%A3%BC%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EC%9D%98%EC%95%BD%ED%95%99%EA%B3%84%EC%97%B4%28%EC%9D%98%EC%98%88%29%20%EB%AC%B8%EC%A0%9C.pdf",
     "answerUrl": "https://suneung-files.hdh061224.workers.dev/essay-v1/es_ajou_037.pdf?name=2021%ED%95%99%EB%85%84%EB%8F%84%20%EC%95%84%EC%A3%BC%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EC%9D%98%EC%95%BD%ED%95%99%EA%B3%84%EC%97%B4%28%EC%9D%98%EC%98%88%29%20%EC%98%88%EC%8B%9C%EB%8B%B5%EC%95%88.pdf",
-    "solutionUrl": null,
+    "solutionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v26/sol2_10752.pdf?name=2021%ED%95%99%EB%85%84%EB%8F%84%20%EC%95%84%EC%A3%BC%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EC%9D%98%EC%95%BD%ED%95%99%EA%B3%84%EC%97%B4(%EC%9D%98%EC%98%88)%20%ED%95%B4%EC%84%A4.pdf",
     "questionDownload": "2021학년도 아주대학교 논술 의약학계열(의예) 문제.pdf",
     "answerDownload": "2021학년도 아주대학교 논술 의약학계열(의예) 예시답안.pdf",
-    "solutionDownload": null,
-    "source": "essay-std-tail"
+    "solutionDownload": "2021학년도 아주대학교 논술 의약학계열(의예) 해설.pdf",
+    "source": "essay-std-tail",
+    "solutionUrl_source_original": "https://iphak.ajou.ac.kr/"
   },
   {
     "id": 10753,
@@ -158523,11 +158607,12 @@
     "subSubject": "인문계열 오전",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v1/es_ajou_026.pdf?name=2021%ED%95%99%EB%85%84%EB%8F%84%20%EC%95%84%EC%A3%BC%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EC%9D%B8%EB%AC%B8%EA%B3%84%EC%97%B4%20%EC%98%A4%EC%A0%84%20%EB%AC%B8%EC%A0%9C.pdf",
     "answerUrl": "https://suneung-files.hdh061224.workers.dev/essay-v1/es_ajou_027.pdf?name=2021%ED%95%99%EB%85%84%EB%8F%84%20%EC%95%84%EC%A3%BC%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EC%9D%B8%EB%AC%B8%EA%B3%84%EC%97%B4%20%EC%98%A4%EC%A0%84%20%EC%98%88%EC%8B%9C%EB%8B%B5%EC%95%88.pdf",
-    "solutionUrl": null,
+    "solutionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v26/sol2_10753.pdf?name=2021%ED%95%99%EB%85%84%EB%8F%84%20%EC%95%84%EC%A3%BC%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EC%9D%B8%EB%AC%B8%EA%B3%84%EC%97%B4%20%EC%98%A4%EC%A0%84%20%ED%95%B4%EC%84%A4.pdf",
     "questionDownload": "2021학년도 아주대학교 논술 인문계열 오전 문제.pdf",
     "answerDownload": "2021학년도 아주대학교 논술 인문계열 오전 예시답안.pdf",
-    "solutionDownload": null,
-    "source": "essay-std-tail"
+    "solutionDownload": "2021학년도 아주대학교 논술 인문계열 오전 해설.pdf",
+    "source": "essay-std-tail",
+    "solutionUrl_source_original": "https://iphak.ajou.ac.kr/"
   },
   {
     "id": 10754,
@@ -158542,11 +158627,12 @@
     "subSubject": "인문계열 오후",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v1/es_ajou_028.pdf?name=2021%ED%95%99%EB%85%84%EB%8F%84%20%EC%95%84%EC%A3%BC%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EC%9D%B8%EB%AC%B8%EA%B3%84%EC%97%B4%20%EC%98%A4%ED%9B%84%20%EB%AC%B8%EC%A0%9C.pdf",
     "answerUrl": "https://suneung-files.hdh061224.workers.dev/essay-v1/es_ajou_029.pdf?name=2021%ED%95%99%EB%85%84%EB%8F%84%20%EC%95%84%EC%A3%BC%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EC%9D%B8%EB%AC%B8%EA%B3%84%EC%97%B4%20%EC%98%A4%ED%9B%84%20%EC%98%88%EC%8B%9C%EB%8B%B5%EC%95%88.pdf",
-    "solutionUrl": null,
+    "solutionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v26/sol2_10754.pdf?name=2021%ED%95%99%EB%85%84%EB%8F%84%20%EC%95%84%EC%A3%BC%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EC%9D%B8%EB%AC%B8%EA%B3%84%EC%97%B4%20%EC%98%A4%ED%9B%84%20%ED%95%B4%EC%84%A4.pdf",
     "questionDownload": "2021학년도 아주대학교 논술 인문계열 오후 문제.pdf",
     "answerDownload": "2021학년도 아주대학교 논술 인문계열 오후 예시답안.pdf",
-    "solutionDownload": null,
-    "source": "essay-std-tail"
+    "solutionDownload": "2021학년도 아주대학교 논술 인문계열 오후 해설.pdf",
+    "source": "essay-std-tail",
+    "solutionUrl_source_original": "https://iphak.ajou.ac.kr/"
   },
   {
     "id": 10755,
@@ -158561,11 +158647,12 @@
     "subSubject": "자연계열",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v1/es_ajou_034.pdf?name=2021%ED%95%99%EB%85%84%EB%8F%84%20%EC%95%84%EC%A3%BC%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EC%9E%90%EC%97%B0%EA%B3%84%EC%97%B4%20%EB%AC%B8%EC%A0%9C.pdf",
     "answerUrl": "https://suneung-files.hdh061224.workers.dev/essay-v1/es_ajou_035.pdf?name=2021%ED%95%99%EB%85%84%EB%8F%84%20%EC%95%84%EC%A3%BC%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EC%9E%90%EC%97%B0%EA%B3%84%EC%97%B4%20%EC%98%88%EC%8B%9C%EB%8B%B5%EC%95%88.pdf",
-    "solutionUrl": null,
+    "solutionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v26/sol2_10755.pdf?name=2021%ED%95%99%EB%85%84%EB%8F%84%20%EC%95%84%EC%A3%BC%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EC%9E%90%EC%97%B0%EA%B3%84%EC%97%B4%20%ED%95%B4%EC%84%A4.pdf",
     "questionDownload": "2021학년도 아주대학교 논술 자연계열 문제.pdf",
     "answerDownload": "2021학년도 아주대학교 논술 자연계열 예시답안.pdf",
-    "solutionDownload": null,
-    "source": "essay-std-tail"
+    "solutionDownload": "2021학년도 아주대학교 논술 자연계열 해설.pdf",
+    "source": "essay-std-tail",
+    "solutionUrl_source_original": "https://iphak.ajou.ac.kr/"
   },
   {
     "id": 10756,
@@ -158580,11 +158667,12 @@
     "subSubject": "자연계열 오전",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v1/es_ajou_030.pdf?name=2021%ED%95%99%EB%85%84%EB%8F%84%20%EC%95%84%EC%A3%BC%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EC%9E%90%EC%97%B0%EA%B3%84%EC%97%B4%20%EC%98%A4%EC%A0%84%20%EB%AC%B8%EC%A0%9C.pdf",
     "answerUrl": "https://suneung-files.hdh061224.workers.dev/essay-v1/es_ajou_031.pdf?name=2021%ED%95%99%EB%85%84%EB%8F%84%20%EC%95%84%EC%A3%BC%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EC%9E%90%EC%97%B0%EA%B3%84%EC%97%B4%20%EC%98%A4%EC%A0%84%20%EC%98%88%EC%8B%9C%EB%8B%B5%EC%95%88.pdf",
-    "solutionUrl": null,
+    "solutionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v26/sol2_10756.pdf?name=2021%ED%95%99%EB%85%84%EB%8F%84%20%EC%95%84%EC%A3%BC%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EC%9E%90%EC%97%B0%EA%B3%84%EC%97%B4%20%EC%98%A4%EC%A0%84%20%ED%95%B4%EC%84%A4.pdf",
     "questionDownload": "2021학년도 아주대학교 논술 자연계열 오전 문제.pdf",
     "answerDownload": "2021학년도 아주대학교 논술 자연계열 오전 예시답안.pdf",
-    "solutionDownload": null,
-    "source": "essay-std-tail"
+    "solutionDownload": "2021학년도 아주대학교 논술 자연계열 오전 해설.pdf",
+    "source": "essay-std-tail",
+    "solutionUrl_source_original": "https://iphak.ajou.ac.kr/"
   },
   {
     "id": 10757,
@@ -158599,11 +158687,12 @@
     "subSubject": "자연계열 오후",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v1/es_ajou_032.pdf?name=2021%ED%95%99%EB%85%84%EB%8F%84%20%EC%95%84%EC%A3%BC%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EC%9E%90%EC%97%B0%EA%B3%84%EC%97%B4%20%EC%98%A4%ED%9B%84%20%EB%AC%B8%EC%A0%9C.pdf",
     "answerUrl": "https://suneung-files.hdh061224.workers.dev/essay-v1/es_ajou_033.pdf?name=2021%ED%95%99%EB%85%84%EB%8F%84%20%EC%95%84%EC%A3%BC%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EC%9E%90%EC%97%B0%EA%B3%84%EC%97%B4%20%EC%98%A4%ED%9B%84%20%EC%98%88%EC%8B%9C%EB%8B%B5%EC%95%88.pdf",
-    "solutionUrl": null,
+    "solutionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v26/sol2_10757.pdf?name=2021%ED%95%99%EB%85%84%EB%8F%84%20%EC%95%84%EC%A3%BC%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EC%9E%90%EC%97%B0%EA%B3%84%EC%97%B4%20%EC%98%A4%ED%9B%84%20%ED%95%B4%EC%84%A4.pdf",
     "questionDownload": "2021학년도 아주대학교 논술 자연계열 오후 문제.pdf",
     "answerDownload": "2021학년도 아주대학교 논술 자연계열 오후 예시답안.pdf",
-    "solutionDownload": null,
-    "source": "essay-std-tail"
+    "solutionDownload": "2021학년도 아주대학교 논술 자연계열 오후 해설.pdf",
+    "source": "essay-std-tail",
+    "solutionUrl_source_original": "https://iphak.ajou.ac.kr/"
   },
   {
     "id": 10758,
@@ -158675,11 +158764,12 @@
     "subSubject": "의약학계열(의예)",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v1/es_ajou_050.pdf?name=2023%ED%95%99%EB%85%84%EB%8F%84%20%EC%95%84%EC%A3%BC%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EC%9D%98%EC%95%BD%ED%95%99%EA%B3%84%EC%97%B4%28%EC%9D%98%EC%98%88%29%20%EB%AC%B8%EC%A0%9C.pdf",
     "answerUrl": "https://suneung-files.hdh061224.workers.dev/essay-v1/es_ajou_051.pdf?name=2023%ED%95%99%EB%85%84%EB%8F%84%20%EC%95%84%EC%A3%BC%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EC%9D%98%EC%95%BD%ED%95%99%EA%B3%84%EC%97%B4%28%EC%9D%98%EC%98%88%29%20%EC%98%88%EC%8B%9C%EB%8B%B5%EC%95%88.pdf",
-    "solutionUrl": null,
+    "solutionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v26/sol2_10761.pdf?name=2023%ED%95%99%EB%85%84%EB%8F%84%20%EC%95%84%EC%A3%BC%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EC%9D%98%EC%95%BD%ED%95%99%EA%B3%84%EC%97%B4(%EC%9D%98%EC%98%88)%20%ED%95%B4%EC%84%A4.pdf",
     "questionDownload": "2023학년도 아주대학교 논술 의약학계열(의예) 문제.pdf",
     "answerDownload": "2023학년도 아주대학교 논술 의약학계열(의예) 예시답안.pdf",
-    "solutionDownload": null,
-    "source": "essay-std-tail"
+    "solutionDownload": "2023학년도 아주대학교 논술 의약학계열(의예) 해설.pdf",
+    "source": "essay-std-tail",
+    "solutionUrl_source_original": "https://iphak.ajou.ac.kr/"
   },
   {
     "id": 10762,
@@ -158694,11 +158784,12 @@
     "subSubject": "인문계열",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v1/es_ajou_044.pdf?name=2023%ED%95%99%EB%85%84%EB%8F%84%20%EC%95%84%EC%A3%BC%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EC%9D%B8%EB%AC%B8%EA%B3%84%EC%97%B4%20%EB%AC%B8%EC%A0%9C.pdf",
     "answerUrl": "https://suneung-files.hdh061224.workers.dev/essay-v1/es_ajou_045.pdf?name=2023%ED%95%99%EB%85%84%EB%8F%84%20%EC%95%84%EC%A3%BC%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EC%9D%B8%EB%AC%B8%EA%B3%84%EC%97%B4%20%EC%98%88%EC%8B%9C%EB%8B%B5%EC%95%88.pdf",
-    "solutionUrl": null,
+    "solutionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v26/sol2_10762.pdf?name=2023%ED%95%99%EB%85%84%EB%8F%84%20%EC%95%84%EC%A3%BC%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EC%9D%B8%EB%AC%B8%EA%B3%84%EC%97%B4%20%ED%95%B4%EC%84%A4.pdf",
     "questionDownload": "2023학년도 아주대학교 논술 인문계열 문제.pdf",
     "answerDownload": "2023학년도 아주대학교 논술 인문계열 예시답안.pdf",
-    "solutionDownload": null,
-    "source": "essay-std-tail"
+    "solutionDownload": "2023학년도 아주대학교 논술 인문계열 해설.pdf",
+    "source": "essay-std-tail",
+    "solutionUrl_source_original": "https://iphak.ajou.ac.kr/"
   },
   {
     "id": 10763,
@@ -158713,11 +158804,12 @@
     "subSubject": "자연계열 오전",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v1/es_ajou_046.pdf?name=2023%ED%95%99%EB%85%84%EB%8F%84%20%EC%95%84%EC%A3%BC%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EC%9E%90%EC%97%B0%EA%B3%84%EC%97%B4%20%EC%98%A4%EC%A0%84%20%EB%AC%B8%EC%A0%9C.pdf",
     "answerUrl": "https://suneung-files.hdh061224.workers.dev/essay-v1/es_ajou_047.pdf?name=2023%ED%95%99%EB%85%84%EB%8F%84%20%EC%95%84%EC%A3%BC%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EC%9E%90%EC%97%B0%EA%B3%84%EC%97%B4%20%EC%98%A4%EC%A0%84%20%EC%98%88%EC%8B%9C%EB%8B%B5%EC%95%88.pdf",
-    "solutionUrl": null,
+    "solutionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v26/sol2_10763.pdf?name=2023%ED%95%99%EB%85%84%EB%8F%84%20%EC%95%84%EC%A3%BC%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EC%9E%90%EC%97%B0%EA%B3%84%EC%97%B4%20%EC%98%A4%EC%A0%84%20%ED%95%B4%EC%84%A4.pdf",
     "questionDownload": "2023학년도 아주대학교 논술 자연계열 오전 문제.pdf",
     "answerDownload": "2023학년도 아주대학교 논술 자연계열 오전 예시답안.pdf",
-    "solutionDownload": null,
-    "source": "essay-std-tail"
+    "solutionDownload": "2023학년도 아주대학교 논술 자연계열 오전 해설.pdf",
+    "source": "essay-std-tail",
+    "solutionUrl_source_original": "https://iphak.ajou.ac.kr/"
   },
   {
     "id": 10764,
@@ -158732,11 +158824,12 @@
     "subSubject": "자연계열 오후",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v1/es_ajou_048.pdf?name=2023%ED%95%99%EB%85%84%EB%8F%84%20%EC%95%84%EC%A3%BC%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EC%9E%90%EC%97%B0%EA%B3%84%EC%97%B4%20%EC%98%A4%ED%9B%84%20%EB%AC%B8%EC%A0%9C.pdf",
     "answerUrl": "https://suneung-files.hdh061224.workers.dev/essay-v1/es_ajou_049.pdf?name=2023%ED%95%99%EB%85%84%EB%8F%84%20%EC%95%84%EC%A3%BC%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EC%9E%90%EC%97%B0%EA%B3%84%EC%97%B4%20%EC%98%A4%ED%9B%84%20%EC%98%88%EC%8B%9C%EB%8B%B5%EC%95%88.pdf",
-    "solutionUrl": null,
+    "solutionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v26/sol2_10764.pdf?name=2023%ED%95%99%EB%85%84%EB%8F%84%20%EC%95%84%EC%A3%BC%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EC%9E%90%EC%97%B0%EA%B3%84%EC%97%B4%20%EC%98%A4%ED%9B%84%20%ED%95%B4%EC%84%A4.pdf",
     "questionDownload": "2023학년도 아주대학교 논술 자연계열 오후 문제.pdf",
     "answerDownload": "2023학년도 아주대학교 논술 자연계열 오후 예시답안.pdf",
-    "solutionDownload": null,
-    "source": "essay-std-tail"
+    "solutionDownload": "2023학년도 아주대학교 논술 자연계열 오후 해설.pdf",
+    "source": "essay-std-tail",
+    "solutionUrl_source_original": "https://iphak.ajou.ac.kr/"
   },
   {
     "id": 10765,
@@ -158751,11 +158844,12 @@
     "subSubject": "의약학계열(의예)",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v1/es_ajou_052.pdf?name=2023%ED%95%99%EB%85%84%EB%8F%84%20%EC%95%84%EC%A3%BC%EB%8C%80%ED%95%99%EA%B5%90%20%EB%AA%A8%EC%9D%98%EB%85%BC%EC%88%A0%20%EC%9D%98%EC%95%BD%ED%95%99%EA%B3%84%EC%97%B4%28%EC%9D%98%EC%98%88%29%20%EB%AC%B8%EC%A0%9C.pdf",
     "answerUrl": "https://suneung-files.hdh061224.workers.dev/essay-v1/es_ajou_053.pdf?name=2023%ED%95%99%EB%85%84%EB%8F%84%20%EC%95%84%EC%A3%BC%EB%8C%80%ED%95%99%EA%B5%90%20%EB%AA%A8%EC%9D%98%EB%85%BC%EC%88%A0%20%EC%9D%98%EC%95%BD%ED%95%99%EA%B3%84%EC%97%B4%28%EC%9D%98%EC%98%88%29%20%EC%98%88%EC%8B%9C%EB%8B%B5%EC%95%88.pdf",
-    "solutionUrl": null,
+    "solutionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v26/sol2_10765.pdf?name=2023%ED%95%99%EB%85%84%EB%8F%84%20%EC%95%84%EC%A3%BC%EB%8C%80%ED%95%99%EA%B5%90%20%EB%AA%A8%EC%9D%98%EB%85%BC%EC%88%A0%20%EC%9D%98%EC%95%BD%ED%95%99%EA%B3%84%EC%97%B4(%EC%9D%98%EC%98%88)%20%ED%95%B4%EC%84%A4.pdf",
     "questionDownload": "2023학년도 아주대학교 모의논술 의약학계열(의예) 문제.pdf",
     "answerDownload": "2023학년도 아주대학교 모의논술 의약학계열(의예) 예시답안.pdf",
-    "solutionDownload": null,
-    "source": "essay-std-tail"
+    "solutionDownload": "2023학년도 아주대학교 모의논술 의약학계열(의예) 해설.pdf",
+    "source": "essay-std-tail",
+    "solutionUrl_source_original": "https://iphak.ajou.ac.kr/"
   },
   {
     "id": 10766,
@@ -158770,11 +158864,12 @@
     "subSubject": "인문계열",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v1/es_ajou_054.pdf?name=2023%ED%95%99%EB%85%84%EB%8F%84%20%EC%95%84%EC%A3%BC%EB%8C%80%ED%95%99%EA%B5%90%20%EB%AA%A8%EC%9D%98%EB%85%BC%EC%88%A0%20%EC%9D%B8%EB%AC%B8%EA%B3%84%EC%97%B4%20%EB%AC%B8%EC%A0%9C.pdf",
     "answerUrl": "https://suneung-files.hdh061224.workers.dev/essay-v1/es_ajou_055.pdf?name=2023%ED%95%99%EB%85%84%EB%8F%84%20%EC%95%84%EC%A3%BC%EB%8C%80%ED%95%99%EA%B5%90%20%EB%AA%A8%EC%9D%98%EB%85%BC%EC%88%A0%20%EC%9D%B8%EB%AC%B8%EA%B3%84%EC%97%B4%20%EC%98%88%EC%8B%9C%EB%8B%B5%EC%95%88.pdf",
-    "solutionUrl": null,
+    "solutionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v26/sol2_10766.pdf?name=2023%ED%95%99%EB%85%84%EB%8F%84%20%EC%95%84%EC%A3%BC%EB%8C%80%ED%95%99%EA%B5%90%20%EB%AA%A8%EC%9D%98%EB%85%BC%EC%88%A0%20%EC%9D%B8%EB%AC%B8%EA%B3%84%EC%97%B4%20%ED%95%B4%EC%84%A4.pdf",
     "questionDownload": "2023학년도 아주대학교 모의논술 인문계열 문제.pdf",
     "answerDownload": "2023학년도 아주대학교 모의논술 인문계열 예시답안.pdf",
-    "solutionDownload": null,
-    "source": "essay-std-tail"
+    "solutionDownload": "2023학년도 아주대학교 모의논술 인문계열 해설.pdf",
+    "source": "essay-std-tail",
+    "solutionUrl_source_original": "https://iphak.ajou.ac.kr/"
   },
   {
     "id": 10767,
@@ -158789,11 +158884,12 @@
     "subSubject": "자연계열",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v1/es_ajou_056.pdf?name=2023%ED%95%99%EB%85%84%EB%8F%84%20%EC%95%84%EC%A3%BC%EB%8C%80%ED%95%99%EA%B5%90%20%EB%AA%A8%EC%9D%98%EB%85%BC%EC%88%A0%20%EC%9E%90%EC%97%B0%EA%B3%84%EC%97%B4%20%EB%AC%B8%EC%A0%9C.pdf",
     "answerUrl": "https://suneung-files.hdh061224.workers.dev/essay-v1/es_ajou_057.pdf?name=2023%ED%95%99%EB%85%84%EB%8F%84%20%EC%95%84%EC%A3%BC%EB%8C%80%ED%95%99%EA%B5%90%20%EB%AA%A8%EC%9D%98%EB%85%BC%EC%88%A0%20%EC%9E%90%EC%97%B0%EA%B3%84%EC%97%B4%20%EC%98%88%EC%8B%9C%EB%8B%B5%EC%95%88.pdf",
-    "solutionUrl": null,
+    "solutionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v26/sol2_10767.pdf?name=2023%ED%95%99%EB%85%84%EB%8F%84%20%EC%95%84%EC%A3%BC%EB%8C%80%ED%95%99%EA%B5%90%20%EB%AA%A8%EC%9D%98%EB%85%BC%EC%88%A0%20%EC%9E%90%EC%97%B0%EA%B3%84%EC%97%B4%20%ED%95%B4%EC%84%A4.pdf",
     "questionDownload": "2023학년도 아주대학교 모의논술 자연계열 문제.pdf",
     "answerDownload": "2023학년도 아주대학교 모의논술 자연계열 예시답안.pdf",
-    "solutionDownload": null,
-    "source": "essay-std-tail"
+    "solutionDownload": "2023학년도 아주대학교 모의논술 자연계열 해설.pdf",
+    "source": "essay-std-tail",
+    "solutionUrl_source_original": "https://iphak.ajou.ac.kr/"
   },
   {
     "id": 10768,
@@ -159438,11 +159534,12 @@
     "subSubject": "수학과학우수자 물리(선택)",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v3/es7_inha_002.pdf?name=2015%ED%95%99%EB%85%84%EB%8F%84%20%EC%9D%B8%ED%95%98%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EC%88%98%ED%95%99%EA%B3%BC%ED%95%99%EC%9A%B0%EC%88%98%EC%9E%90%20%EB%AC%BC%EB%A6%AC%28%EC%84%A0%ED%83%9D%29%20%EB%AC%B8%EC%A0%9C.pdf",
     "answerUrl": null,
-    "solutionUrl": null,
+    "solutionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v26/sol2_10801.pdf?name=2015%ED%95%99%EB%85%84%EB%8F%84%20%EC%9D%B8%ED%95%98%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EC%88%98%ED%95%99%EA%B3%BC%ED%95%99%EC%9A%B0%EC%88%98%EC%9E%90%20%EB%AC%BC%EB%A6%AC(%EC%84%A0%ED%83%9D)%20%ED%95%B4%EC%84%A4.pdf",
     "questionDownload": "2015학년도 인하대학교 논술 수학과학우수자 물리(선택) 문제.pdf",
     "answerDownload": null,
-    "solutionDownload": null,
-    "source": "essay-std-tail"
+    "solutionDownload": "2015학년도 인하대학교 논술 수학과학우수자 물리(선택) 해설.pdf",
+    "source": "essay-std-tail",
+    "solutionUrl_source_original": "https://admission.inha.ac.kr/"
   },
   {
     "id": 10802,
@@ -159476,11 +159573,12 @@
     "subSubject": "수학과학우수자 생명과학(선택)",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v3/es7_inha_004.pdf?name=2015%ED%95%99%EB%85%84%EB%8F%84%20%EC%9D%B8%ED%95%98%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EC%88%98%ED%95%99%EA%B3%BC%ED%95%99%EC%9A%B0%EC%88%98%EC%9E%90%20%EC%83%9D%EB%AA%85%EA%B3%BC%ED%95%99%28%EC%84%A0%ED%83%9D%29%20%EB%AC%B8%EC%A0%9C.pdf",
     "answerUrl": null,
-    "solutionUrl": null,
+    "solutionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v26/sol2_10803.pdf?name=2015%ED%95%99%EB%85%84%EB%8F%84%20%EC%9D%B8%ED%95%98%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EC%88%98%ED%95%99%EA%B3%BC%ED%95%99%EC%9A%B0%EC%88%98%EC%9E%90%20%EC%83%9D%EB%AA%85%EA%B3%BC%ED%95%99(%EC%84%A0%ED%83%9D)%20%ED%95%B4%EC%84%A4.pdf",
     "questionDownload": "2015학년도 인하대학교 논술 수학과학우수자 생명과학(선택) 문제.pdf",
     "answerDownload": null,
-    "solutionDownload": null,
-    "source": "essay-std-tail"
+    "solutionDownload": "2015학년도 인하대학교 논술 수학과학우수자 생명과학(선택) 해설.pdf",
+    "source": "essay-std-tail",
+    "solutionUrl_source_original": "https://admission.inha.ac.kr/"
   },
   {
     "id": 10804,
@@ -159533,11 +159631,12 @@
     "subSubject": "수학과학우수자 화학(선택)",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v3/es7_inha_008.pdf?name=2015%ED%95%99%EB%85%84%EB%8F%84%20%EC%9D%B8%ED%95%98%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EC%88%98%ED%95%99%EA%B3%BC%ED%95%99%EC%9A%B0%EC%88%98%EC%9E%90%20%ED%99%94%ED%95%99%28%EC%84%A0%ED%83%9D%29%20%EB%AC%B8%EC%A0%9C.pdf",
     "answerUrl": null,
-    "solutionUrl": null,
+    "solutionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v26/sol2_10806.pdf?name=2015%ED%95%99%EB%85%84%EB%8F%84%20%EC%9D%B8%ED%95%98%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EC%88%98%ED%95%99%EA%B3%BC%ED%95%99%EC%9A%B0%EC%88%98%EC%9E%90%20%ED%99%94%ED%95%99(%EC%84%A0%ED%83%9D)%20%ED%95%B4%EC%84%A4.pdf",
     "questionDownload": "2015학년도 인하대학교 논술 수학과학우수자 화학(선택) 문제.pdf",
     "answerDownload": null,
-    "solutionDownload": null,
-    "source": "essay-std-tail"
+    "solutionDownload": "2015학년도 인하대학교 논술 수학과학우수자 화학(선택) 해설.pdf",
+    "source": "essay-std-tail",
+    "solutionUrl_source_original": "https://admission.inha.ac.kr/"
   },
   {
     "id": 10807,
@@ -160939,11 +161038,12 @@
     "subSubject": "통합",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v3/es7_hufs_009.pdf?name=2016%ED%95%99%EB%85%84%EB%8F%84%20%ED%95%9C%EA%B5%AD%EC%99%B8%EA%B5%AD%EC%96%B4%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%ED%86%B5%ED%95%A9%20%EB%AC%B8%EC%A0%9C.pdf",
     "answerUrl": null,
-    "solutionUrl": null,
+    "solutionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v26/sol2_10880.pdf?name=2016%ED%95%99%EB%85%84%EB%8F%84%20%ED%95%9C%EA%B5%AD%EC%99%B8%EA%B5%AD%EC%96%B4%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%ED%86%B5%ED%95%A9%20%ED%95%B4%EC%84%A4.pdf",
     "questionDownload": "2016학년도 한국외국어대학교 논술 통합 문제.pdf",
     "answerDownload": null,
-    "solutionDownload": null,
-    "source": "essay-std-tail"
+    "solutionDownload": "2016학년도 한국외국어대학교 논술 통합 해설.pdf",
+    "source": "essay-std-tail",
+    "solutionUrl_source_original": "https://admission.hufs.ac.kr/"
   },
   {
     "id": 10881,
@@ -161319,11 +161419,12 @@
     "subSubject": "인문계열",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v3/es7_hufs_043.pdf?name=2019%ED%95%99%EB%85%84%EB%8F%84%20%ED%95%9C%EA%B5%AD%EC%99%B8%EA%B5%AD%EC%96%B4%EB%8C%80%ED%95%99%EA%B5%90%20%EB%AA%A8%EC%9D%98%EB%85%BC%EC%88%A0%20%EC%9D%B8%EB%AC%B8%EA%B3%84%EC%97%B4%20%EB%AC%B8%EC%A0%9C.pdf",
     "answerUrl": null,
-    "solutionUrl": null,
+    "solutionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v26/sol2_10900.pdf?name=2019%ED%95%99%EB%85%84%EB%8F%84%20%ED%95%9C%EA%B5%AD%EC%99%B8%EA%B5%AD%EC%96%B4%EB%8C%80%ED%95%99%EA%B5%90%20%EB%AA%A8%EC%9D%98%EB%85%BC%EC%88%A0%20%EC%9D%B8%EB%AC%B8%EA%B3%84%EC%97%B4%20%ED%95%B4%EC%84%A4.pdf",
     "questionDownload": "2019학년도 한국외국어대학교 모의논술 인문계열 문제.pdf",
     "answerDownload": null,
-    "solutionDownload": null,
-    "source": "essay-std-tail"
+    "solutionDownload": "2019학년도 한국외국어대학교 모의논술 인문계열 해설.pdf",
+    "source": "essay-std-tail",
+    "solutionUrl_source_original": "https://admission.hufs.ac.kr/"
   },
   {
     "id": 10901,
@@ -162649,11 +162750,12 @@
     "subSubject": "인문계열",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v3/es7_hongik_009.pdf?name=2017%ED%95%99%EB%85%84%EB%8F%84%20%ED%99%8D%EC%9D%B5%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EC%9D%B8%EB%AC%B8%EA%B3%84%EC%97%B4%20%EB%AC%B8%EC%A0%9C.pdf",
     "answerUrl": null,
-    "solutionUrl": null,
+    "solutionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v26/sol2_10971.pdf?name=2017%ED%95%99%EB%85%84%EB%8F%84%20%ED%99%8D%EC%9D%B5%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EC%9D%B8%EB%AC%B8%EA%B3%84%EC%97%B4%20%ED%95%B4%EC%84%A4.pdf",
     "questionDownload": "2017학년도 홍익대학교 논술 인문계열 문제.pdf",
     "answerDownload": null,
-    "solutionDownload": null,
-    "source": "essay-std-tail"
+    "solutionDownload": "2017학년도 홍익대학교 논술 인문계열 해설.pdf",
+    "source": "essay-std-tail",
+    "solutionUrl_source_original": "https://ibsi.hongik.ac.kr/"
   },
   {
     "id": 10972,
@@ -162782,11 +162884,12 @@
     "subSubject": "인문계열",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v3/es7_hongik_017.pdf?name=2018%ED%95%99%EB%85%84%EB%8F%84%20%ED%99%8D%EC%9D%B5%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EC%9D%B8%EB%AC%B8%EA%B3%84%EC%97%B4%20%EB%AC%B8%EC%A0%9C.pdf",
     "answerUrl": null,
-    "solutionUrl": null,
+    "solutionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v26/sol2_10978.pdf?name=2018%ED%95%99%EB%85%84%EB%8F%84%20%ED%99%8D%EC%9D%B5%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EC%9D%B8%EB%AC%B8%EA%B3%84%EC%97%B4%20%ED%95%B4%EC%84%A4.pdf",
     "questionDownload": "2018학년도 홍익대학교 논술 인문계열 문제.pdf",
     "answerDownload": null,
-    "solutionDownload": null,
-    "source": "essay-std-tail"
+    "solutionDownload": "2018학년도 홍익대학교 논술 인문계열 해설.pdf",
+    "source": "essay-std-tail",
+    "solutionUrl_source_original": "https://ibsi.hongik.ac.kr/"
   },
   {
     "id": 10979,
@@ -162801,11 +162904,12 @@
     "subSubject": "자연계열",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v3/es7_hongik_018.pdf?name=2018%ED%95%99%EB%85%84%EB%8F%84%20%ED%99%8D%EC%9D%B5%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EC%9E%90%EC%97%B0%EA%B3%84%EC%97%B4%20%EB%AC%B8%EC%A0%9C.pdf",
     "answerUrl": null,
-    "solutionUrl": null,
+    "solutionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v26/sol2_10979.pdf?name=2018%ED%95%99%EB%85%84%EB%8F%84%20%ED%99%8D%EC%9D%B5%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EC%9E%90%EC%97%B0%EA%B3%84%EC%97%B4%20%ED%95%B4%EC%84%A4.pdf",
     "questionDownload": "2018학년도 홍익대학교 논술 자연계열 문제.pdf",
     "answerDownload": null,
-    "solutionDownload": null,
-    "source": "essay-std-tail"
+    "solutionDownload": "2018학년도 홍익대학교 논술 자연계열 해설.pdf",
+    "source": "essay-std-tail",
+    "solutionUrl_source_original": "https://ibsi.hongik.ac.kr/"
   },
   {
     "id": 10980,
@@ -162839,11 +162943,12 @@
     "subSubject": "자연계열",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v2/es_hongik_002.pdf?name=2019%ED%95%99%EB%85%84%EB%8F%84%20%ED%99%8D%EC%9D%B5%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EC%9E%90%EC%97%B0%EA%B3%84%EC%97%B4%20%EB%AC%B8%EC%A0%9C.pdf",
     "answerUrl": null,
-    "solutionUrl": null,
+    "solutionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v26/sol2_10981.pdf?name=2019%ED%95%99%EB%85%84%EB%8F%84%20%ED%99%8D%EC%9D%B5%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EC%9E%90%EC%97%B0%EA%B3%84%EC%97%B4%20%ED%95%B4%EC%84%A4.pdf",
     "questionDownload": "2019학년도 홍익대학교 논술 자연계열 문제.pdf",
     "answerDownload": null,
-    "solutionDownload": null,
-    "source": "essay-std-tail"
+    "solutionDownload": "2019학년도 홍익대학교 논술 자연계열 해설.pdf",
+    "source": "essay-std-tail",
+    "solutionUrl_source_original": "https://ibsi.hongik.ac.kr/"
   },
   {
     "id": 10982,
@@ -162896,11 +163001,12 @@
     "subSubject": "인문계열 오전",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v2/es_hongik_005.pdf?name=2021%ED%95%99%EB%85%84%EB%8F%84%20%ED%99%8D%EC%9D%B5%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EC%9D%B8%EB%AC%B8%EA%B3%84%EC%97%B4%20%EC%98%A4%EC%A0%84%20%EB%AC%B8%EC%A0%9C.pdf",
     "answerUrl": null,
-    "solutionUrl": null,
+    "solutionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v26/sol2_10984.pdf?name=2021%ED%95%99%EB%85%84%EB%8F%84%20%ED%99%8D%EC%9D%B5%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EC%9D%B8%EB%AC%B8%EA%B3%84%EC%97%B4%20%EC%98%A4%EC%A0%84%20%ED%95%B4%EC%84%A4.pdf",
     "questionDownload": "2021학년도 홍익대학교 논술 인문계열 오전 문제.pdf",
     "answerDownload": null,
-    "solutionDownload": null,
-    "source": "essay-std-tail"
+    "solutionDownload": "2021학년도 홍익대학교 논술 인문계열 오전 해설.pdf",
+    "source": "essay-std-tail",
+    "solutionUrl_source_original": "https://ibsi.hongik.ac.kr/"
   },
   {
     "id": 10985,
@@ -162915,11 +163021,12 @@
     "subSubject": "인문계열 오후",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v2/es_hongik_006.pdf?name=2021%ED%95%99%EB%85%84%EB%8F%84%20%ED%99%8D%EC%9D%B5%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EC%9D%B8%EB%AC%B8%EA%B3%84%EC%97%B4%20%EC%98%A4%ED%9B%84%20%EB%AC%B8%EC%A0%9C.pdf",
     "answerUrl": null,
-    "solutionUrl": null,
+    "solutionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v26/sol2_10985.pdf?name=2021%ED%95%99%EB%85%84%EB%8F%84%20%ED%99%8D%EC%9D%B5%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EC%9D%B8%EB%AC%B8%EA%B3%84%EC%97%B4%20%EC%98%A4%ED%9B%84%20%ED%95%B4%EC%84%A4.pdf",
     "questionDownload": "2021학년도 홍익대학교 논술 인문계열 오후 문제.pdf",
     "answerDownload": null,
-    "solutionDownload": null,
-    "source": "essay-std-tail"
+    "solutionDownload": "2021학년도 홍익대학교 논술 인문계열 오후 해설.pdf",
+    "source": "essay-std-tail",
+    "solutionUrl_source_original": "https://ibsi.hongik.ac.kr/"
   },
   {
     "id": 10986,
@@ -162934,11 +163041,12 @@
     "subSubject": "자연계열 오전",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v2/es_hongik_007.pdf?name=2021%ED%95%99%EB%85%84%EB%8F%84%20%ED%99%8D%EC%9D%B5%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EC%9E%90%EC%97%B0%EA%B3%84%EC%97%B4%20%EC%98%A4%EC%A0%84%20%EB%AC%B8%EC%A0%9C.pdf",
     "answerUrl": null,
-    "solutionUrl": null,
+    "solutionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v26/sol2_10986.pdf?name=2021%ED%95%99%EB%85%84%EB%8F%84%20%ED%99%8D%EC%9D%B5%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EC%9E%90%EC%97%B0%EA%B3%84%EC%97%B4%20%EC%98%A4%EC%A0%84%20%ED%95%B4%EC%84%A4.pdf",
     "questionDownload": "2021학년도 홍익대학교 논술 자연계열 오전 문제.pdf",
     "answerDownload": null,
-    "solutionDownload": null,
-    "source": "essay-std-tail"
+    "solutionDownload": "2021학년도 홍익대학교 논술 자연계열 오전 해설.pdf",
+    "source": "essay-std-tail",
+    "solutionUrl_source_original": "https://ibsi.hongik.ac.kr/"
   },
   {
     "id": 10987,
@@ -162953,11 +163061,12 @@
     "subSubject": "자연계열 오후",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v2/es_hongik_008.pdf?name=2021%ED%95%99%EB%85%84%EB%8F%84%20%ED%99%8D%EC%9D%B5%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EC%9E%90%EC%97%B0%EA%B3%84%EC%97%B4%20%EC%98%A4%ED%9B%84%20%EB%AC%B8%EC%A0%9C.pdf",
     "answerUrl": null,
-    "solutionUrl": null,
+    "solutionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v26/sol2_10987.pdf?name=2021%ED%95%99%EB%85%84%EB%8F%84%20%ED%99%8D%EC%9D%B5%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EC%9E%90%EC%97%B0%EA%B3%84%EC%97%B4%20%EC%98%A4%ED%9B%84%20%ED%95%B4%EC%84%A4.pdf",
     "questionDownload": "2021학년도 홍익대학교 논술 자연계열 오후 문제.pdf",
     "answerDownload": null,
-    "solutionDownload": null,
-    "source": "essay-std-tail"
+    "solutionDownload": "2021학년도 홍익대학교 논술 자연계열 오후 해설.pdf",
+    "source": "essay-std-tail",
+    "solutionUrl_source_original": "https://ibsi.hongik.ac.kr/"
   },
   {
     "id": 10988,
@@ -163219,11 +163328,12 @@
     "subSubject": "인문계열 오전",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v2/es_hongik_021.pdf?name=2025%ED%95%99%EB%85%84%EB%8F%84%20%ED%99%8D%EC%9D%B5%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EC%9D%B8%EB%AC%B8%EA%B3%84%EC%97%B4%20%EC%98%A4%EC%A0%84%20%EB%AC%B8%EC%A0%9C.pdf",
     "answerUrl": null,
-    "solutionUrl": null,
+    "solutionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v26/sol2_11001.pdf?name=2025%ED%95%99%EB%85%84%EB%8F%84%20%ED%99%8D%EC%9D%B5%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EC%9D%B8%EB%AC%B8%EA%B3%84%EC%97%B4%20%EC%98%A4%EC%A0%84%20%ED%95%B4%EC%84%A4.pdf",
     "questionDownload": "2025학년도 홍익대학교 논술 인문계열 오전 문제.pdf",
     "answerDownload": null,
-    "solutionDownload": null,
-    "source": "essay-std-tail"
+    "solutionDownload": "2025학년도 홍익대학교 논술 인문계열 오전 해설.pdf",
+    "source": "essay-std-tail",
+    "solutionUrl_source_original": "https://ibsi.hongik.ac.kr/"
   },
   {
     "id": 11002,
@@ -163238,11 +163348,12 @@
     "subSubject": "인문계열 오후",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v2/es_hongik_022.pdf?name=2025%ED%95%99%EB%85%84%EB%8F%84%20%ED%99%8D%EC%9D%B5%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EC%9D%B8%EB%AC%B8%EA%B3%84%EC%97%B4%20%EC%98%A4%ED%9B%84%20%EB%AC%B8%EC%A0%9C.pdf",
     "answerUrl": null,
-    "solutionUrl": null,
+    "solutionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v26/sol2_11002.pdf?name=2025%ED%95%99%EB%85%84%EB%8F%84%20%ED%99%8D%EC%9D%B5%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EC%9D%B8%EB%AC%B8%EA%B3%84%EC%97%B4%20%EC%98%A4%ED%9B%84%20%ED%95%B4%EC%84%A4.pdf",
     "questionDownload": "2025학년도 홍익대학교 논술 인문계열 오후 문제.pdf",
     "answerDownload": null,
-    "solutionDownload": null,
-    "source": "essay-std-tail"
+    "solutionDownload": "2025학년도 홍익대학교 논술 인문계열 오후 해설.pdf",
+    "source": "essay-std-tail",
+    "solutionUrl_source_original": "https://ibsi.hongik.ac.kr/"
   },
   {
     "id": 11003,
@@ -163257,11 +163368,12 @@
     "subSubject": "자연계열",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v2/es_hongik_023.pdf?name=2025%ED%95%99%EB%85%84%EB%8F%84%20%ED%99%8D%EC%9D%B5%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EC%9E%90%EC%97%B0%EA%B3%84%EC%97%B4%20%EB%AC%B8%EC%A0%9C.pdf",
     "answerUrl": null,
-    "solutionUrl": null,
+    "solutionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v26/sol2_11003.pdf?name=2025%ED%95%99%EB%85%84%EB%8F%84%20%ED%99%8D%EC%9D%B5%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EC%9E%90%EC%97%B0%EA%B3%84%EC%97%B4%20%ED%95%B4%EC%84%A4.pdf",
     "questionDownload": "2025학년도 홍익대학교 논술 자연계열 문제.pdf",
     "answerDownload": null,
-    "solutionDownload": null,
-    "source": "essay-std-tail"
+    "solutionDownload": "2025학년도 홍익대학교 논술 자연계열 해설.pdf",
+    "source": "essay-std-tail",
+    "solutionUrl_source_original": "https://ibsi.hongik.ac.kr/"
   },
   {
     "id": 11004,
@@ -166575,11 +166687,12 @@
     "subSubject": "의약학계열",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v18/om_catholic_2019_01_q.pdf?name=2019%ED%95%99%EB%85%84%EB%8F%84%20%EA%B0%80%ED%86%A8%EB%A6%AD%EB%8C%80%ED%95%99%EA%B5%90%20%EB%AA%A8%EC%9D%98%EB%85%BC%EC%88%A0%20%EC%9D%98%EC%95%BD%ED%95%99%EA%B3%84%EC%97%B4%20%EB%AC%B8%EC%A0%9C.pdf",
     "answerUrl": null,
-    "solutionUrl": null,
+    "solutionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v26/sol2_11190.pdf?name=2019%ED%95%99%EB%85%84%EB%8F%84%20%EA%B0%80%ED%86%A8%EB%A6%AD%EB%8C%80%ED%95%99%EA%B5%90%20%EB%AA%A8%EC%9D%98%EB%85%BC%EC%88%A0%20%EC%9D%98%EC%95%BD%ED%95%99%EA%B3%84%EC%97%B4%20%ED%95%B4%EC%84%A4.pdf",
     "questionDownload": "2019학년도 가톨릭대학교 모의논술 의약학계열 문제.pdf",
     "answerDownload": null,
-    "solutionDownload": null,
-    "source": "essay-v18"
+    "solutionDownload": "2019학년도 가톨릭대학교 모의논술 의약학계열 해설.pdf",
+    "source": "essay-v18",
+    "solutionUrl_source_original": "https://ipsi.catholic.ac.kr/"
   },
   {
     "id": 11191,
@@ -166594,11 +166707,12 @@
     "subSubject": "의약학계열 ②",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v18/om_catholic_2019_02_q.pdf?name=2019%ED%95%99%EB%85%84%EB%8F%84%20%EA%B0%80%ED%86%A8%EB%A6%AD%EB%8C%80%ED%95%99%EA%B5%90%20%EB%AA%A8%EC%9D%98%EB%85%BC%EC%88%A0%20%EC%9D%98%EC%95%BD%ED%95%99%EA%B3%84%EC%97%B4%20%E2%91%A1%20%EB%AC%B8%EC%A0%9C.pdf",
     "answerUrl": null,
-    "solutionUrl": null,
+    "solutionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v26/sol2_11191.pdf?name=2019%ED%95%99%EB%85%84%EB%8F%84%20%EA%B0%80%ED%86%A8%EB%A6%AD%EB%8C%80%ED%95%99%EA%B5%90%20%EB%AA%A8%EC%9D%98%EB%85%BC%EC%88%A0%20%EC%9D%98%EC%95%BD%ED%95%99%EA%B3%84%EC%97%B4%20%E2%91%A1%20%ED%95%B4%EC%84%A4.pdf",
     "questionDownload": "2019학년도 가톨릭대학교 모의논술 의약학계열 ② 문제.pdf",
     "answerDownload": null,
-    "solutionDownload": null,
-    "source": "essay-v18"
+    "solutionDownload": "2019학년도 가톨릭대학교 모의논술 의약학계열 ② 해설.pdf",
+    "source": "essay-v18",
+    "solutionUrl_source_original": "https://ipsi.catholic.ac.kr/"
   },
   {
     "id": 11192,
@@ -167107,11 +167221,12 @@
     "subSubject": "인문계열",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v18/om_ssu_2017_01_q.pdf?name=2017%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%AD%EC%8B%A4%EB%8C%80%ED%95%99%EA%B5%90%20%EB%AA%A8%EC%9D%98%EB%85%BC%EC%88%A0%20%EC%9D%B8%EB%AC%B8%EA%B3%84%EC%97%B4%20%EB%AC%B8%EC%A0%9C.pdf",
     "answerUrl": null,
-    "solutionUrl": null,
+    "solutionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v26/sol2_11218.pdf?name=2017%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%AD%EC%8B%A4%EB%8C%80%ED%95%99%EA%B5%90%20%EB%AA%A8%EC%9D%98%EB%85%BC%EC%88%A0%20%EC%9D%B8%EB%AC%B8%EA%B3%84%EC%97%B4%20%ED%95%B4%EC%84%A4.pdf",
     "questionDownload": "2017학년도 숭실대학교 모의논술 인문계열 문제.pdf",
     "answerDownload": null,
-    "solutionDownload": null,
-    "source": "essay-v18"
+    "solutionDownload": "2017학년도 숭실대학교 모의논술 인문계열 해설.pdf",
+    "source": "essay-v18",
+    "solutionUrl_source_original": "https://admission.ssu.ac.kr/"
   },
   {
     "id": 11219,
@@ -218169,12 +218284,13 @@
     "subSubject": "간호 인문",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v24/ls_392_4.pdf?name=2014%ED%95%99%EB%85%84%EB%8F%84%20%EA%B0%80%ED%86%A8%EB%A6%AD%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EA%B0%84%ED%98%B8%20%EC%9D%B8%EB%AC%B8%20%EB%AC%B8%EC%A0%9C.pdf",
     "answerUrl": null,
-    "solutionUrl": null,
+    "solutionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v26/sol2_14363.pdf?name=2014%ED%95%99%EB%85%84%EB%8F%84%20%EA%B0%80%ED%86%A8%EB%A6%AD%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EA%B0%84%ED%98%B8%20%EC%9D%B8%EB%AC%B8%20%ED%95%B4%EC%84%A4.pdf",
     "questionDownload": "2014학년도 가톨릭대학교 논술 간호 인문 문제.pdf",
     "answerDownload": null,
-    "solutionDownload": null,
+    "solutionDownload": "2014학년도 가톨릭대학교 논술 간호 인문 해설.pdf",
     "source": "essay-v24",
-    "questionUrl_source_original": "https://ipsi.catholic.ac.kr/"
+    "questionUrl_source_original": "https://ipsi.catholic.ac.kr/",
+    "solutionUrl_source_original": "https://ipsi.catholic.ac.kr/"
   },
   {
     "id": 14364,
@@ -218189,12 +218305,13 @@
     "subSubject": "간호 자연",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v24/ls_392_5.pdf?name=2014%ED%95%99%EB%85%84%EB%8F%84%20%EA%B0%80%ED%86%A8%EB%A6%AD%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EA%B0%84%ED%98%B8%20%EC%9E%90%EC%97%B0%20%EB%AC%B8%EC%A0%9C.pdf",
     "answerUrl": null,
-    "solutionUrl": null,
+    "solutionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v26/sol2_14364.pdf?name=2014%ED%95%99%EB%85%84%EB%8F%84%20%EA%B0%80%ED%86%A8%EB%A6%AD%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EA%B0%84%ED%98%B8%20%EC%9E%90%EC%97%B0%20%ED%95%B4%EC%84%A4.pdf",
     "questionDownload": "2014학년도 가톨릭대학교 논술 간호 자연 문제.pdf",
     "answerDownload": null,
-    "solutionDownload": null,
+    "solutionDownload": "2014학년도 가톨릭대학교 논술 간호 자연 해설.pdf",
     "source": "essay-v24",
-    "questionUrl_source_original": "https://ipsi.catholic.ac.kr/"
+    "questionUrl_source_original": "https://ipsi.catholic.ac.kr/",
+    "solutionUrl_source_original": "https://ipsi.catholic.ac.kr/"
   },
   {
     "id": 14365,
@@ -218209,12 +218326,13 @@
     "subSubject": "공통",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v24/ls_392_0.pdf?name=2014%ED%95%99%EB%85%84%EB%8F%84%20%EA%B0%80%ED%86%A8%EB%A6%AD%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EA%B3%B5%ED%86%B5%20%EB%AC%B8%EC%A0%9C.pdf",
     "answerUrl": null,
-    "solutionUrl": null,
+    "solutionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v26/sol2_14365.pdf?name=2014%ED%95%99%EB%85%84%EB%8F%84%20%EA%B0%80%ED%86%A8%EB%A6%AD%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EA%B3%B5%ED%86%B5%20%ED%95%B4%EC%84%A4.pdf",
     "questionDownload": "2014학년도 가톨릭대학교 논술 공통 문제.pdf",
     "answerDownload": null,
-    "solutionDownload": null,
+    "solutionDownload": "2014학년도 가톨릭대학교 논술 공통 해설.pdf",
     "source": "essay-v24",
-    "questionUrl_source_original": "https://ipsi.catholic.ac.kr/"
+    "questionUrl_source_original": "https://ipsi.catholic.ac.kr/",
+    "solutionUrl_source_original": "https://ipsi.catholic.ac.kr/"
   },
   {
     "id": 14366,
@@ -218229,12 +218347,13 @@
     "subSubject": "생활과학 미디어콘텐츠",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v24/ls_392_3.pdf?name=2014%ED%95%99%EB%85%84%EB%8F%84%20%EA%B0%80%ED%86%A8%EB%A6%AD%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EC%83%9D%ED%99%9C%EA%B3%BC%ED%95%99%20%EB%AF%B8%EB%94%94%EC%96%B4%EC%BD%98%ED%85%90%EC%B8%A0%20%EB%AC%B8%EC%A0%9C.pdf",
     "answerUrl": null,
-    "solutionUrl": null,
+    "solutionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v26/sol2_14366.pdf?name=2014%ED%95%99%EB%85%84%EB%8F%84%20%EA%B0%80%ED%86%A8%EB%A6%AD%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EC%83%9D%ED%99%9C%EA%B3%BC%ED%95%99%20%EB%AF%B8%EB%94%94%EC%96%B4%EC%BD%98%ED%85%90%EC%B8%A0%20%ED%95%B4%EC%84%A4.pdf",
     "questionDownload": "2014학년도 가톨릭대학교 논술 생활과학 미디어콘텐츠 문제.pdf",
     "answerDownload": null,
-    "solutionDownload": null,
+    "solutionDownload": "2014학년도 가톨릭대학교 논술 생활과학 미디어콘텐츠 해설.pdf",
     "source": "essay-v24",
-    "questionUrl_source_original": "https://ipsi.catholic.ac.kr/"
+    "questionUrl_source_original": "https://ipsi.catholic.ac.kr/",
+    "solutionUrl_source_original": "https://ipsi.catholic.ac.kr/"
   },
   {
     "id": 14367,
@@ -218249,12 +218368,13 @@
     "subSubject": "인문 문과",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v24/ls_392_1.pdf?name=2014%ED%95%99%EB%85%84%EB%8F%84%20%EA%B0%80%ED%86%A8%EB%A6%AD%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EC%9D%B8%EB%AC%B8%20%EB%AC%B8%EA%B3%BC%20%EB%AC%B8%EC%A0%9C.pdf",
     "answerUrl": null,
-    "solutionUrl": null,
+    "solutionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v26/sol2_14367.pdf?name=2014%ED%95%99%EB%85%84%EB%8F%84%20%EA%B0%80%ED%86%A8%EB%A6%AD%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EC%9D%B8%EB%AC%B8%20%EB%AC%B8%EA%B3%BC%20%ED%95%B4%EC%84%A4.pdf",
     "questionDownload": "2014학년도 가톨릭대학교 논술 인문 문과 문제.pdf",
     "answerDownload": null,
-    "solutionDownload": null,
+    "solutionDownload": "2014학년도 가톨릭대학교 논술 인문 문과 해설.pdf",
     "source": "essay-v24",
-    "questionUrl_source_original": "https://ipsi.catholic.ac.kr/"
+    "questionUrl_source_original": "https://ipsi.catholic.ac.kr/",
+    "solutionUrl_source_original": "https://ipsi.catholic.ac.kr/"
   },
   {
     "id": 14368,
@@ -218269,12 +218389,13 @@
     "subSubject": "자연 이과",
     "questionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v24/ls_392_2.pdf?name=2014%ED%95%99%EB%85%84%EB%8F%84%20%EA%B0%80%ED%86%A8%EB%A6%AD%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EC%9E%90%EC%97%B0%20%EC%9D%B4%EA%B3%BC%20%EB%AC%B8%EC%A0%9C.pdf",
     "answerUrl": null,
-    "solutionUrl": null,
+    "solutionUrl": "https://suneung-files.hdh061224.workers.dev/essay-v26/sol2_14368.pdf?name=2014%ED%95%99%EB%85%84%EB%8F%84%20%EA%B0%80%ED%86%A8%EB%A6%AD%EB%8C%80%ED%95%99%EA%B5%90%20%EB%85%BC%EC%88%A0%20%EC%9E%90%EC%97%B0%20%EC%9D%B4%EA%B3%BC%20%ED%95%B4%EC%84%A4.pdf",
     "questionDownload": "2014학년도 가톨릭대학교 논술 자연 이과 문제.pdf",
     "answerDownload": null,
-    "solutionDownload": null,
+    "solutionDownload": "2014학년도 가톨릭대학교 논술 자연 이과 해설.pdf",
     "source": "essay-v24",
-    "questionUrl_source_original": "https://ipsi.catholic.ac.kr/"
+    "questionUrl_source_original": "https://ipsi.catholic.ac.kr/",
+    "solutionUrl_source_original": "https://ipsi.catholic.ac.kr/"
   },
   {
     "id": 14369,
