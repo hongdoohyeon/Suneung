@@ -1911,6 +1911,105 @@ def suneung_dist_html(it: dict) -> str:
     return _official_section('점수 분포', body)
 
 
+_WRONG_RATES = None
+_WR_AREA_PREFIX = ('국어', '수학', '영어')
+
+
+def _wr_norm(subject: str, sub) -> str:
+    """오답률 매칭용 과목명 — EBSi('국어A형'·'수학가형'·'독일어Ⅰ'·'생활과 윤리')와 사이트('A형'·'가형'·'독일어'·'생활과윤리')를 맞춘다."""
+    s = re.sub(r'[\s·ㆍ]', '', str(sub or '')).replace('II', 'Ⅱ').replace('I', 'Ⅰ')
+    if s == subject:
+        return ''
+    if subject in _WR_AREA_PREFIX and s.startswith(subject):
+        s = s[len(subject):]
+        s = s + '형' if s in ('A', 'B') else s
+    if subject == '제2외국어':
+        s = s.removesuffix('Ⅰ')
+    # 같은 시험 안에선 한쪽 이름만 쓰인다 — 사이트·EBSi 표기 차이('물리학Ⅰ'↔'물리Ⅰ', '정치와법'↔'법과정치')
+    return s.replace('물리학', '물리').replace('생물', '생명과학').replace('정치와법', '법과정치')
+
+
+def wrong_rates_for(it: dict) -> list | None:
+    """EBSi 공개 오답률 상위 문항(data/wrong-rates.json, scripts/build-wrong-rates.py) — 수능·모평·학평만."""
+    global _WRONG_RATES
+    if _WRONG_RATES is None:
+        p = ROOT / 'data' / 'wrong-rates.json'
+        _WRONG_RATES = {}
+        if p.exists():
+            for k, rows in json.loads(p.read_text(encoding='utf-8'))['exams'].items():
+                ey, mo, g, area, sub = k.split('|')
+                _WRONG_RATES[(int(ey), int(mo), int(g), area, _wr_norm(area, sub))] = rows
+    tg = it.get('typeGroup')
+    if tg == 'suneung' and it.get('type') in ('csat', 'june', 'sept'):
+        grade = 3
+    elif tg == 'education' and it.get('studentGrade'):
+        grade = it['studentGrade']
+    else:
+        return None
+    if not it.get('examYear') or not it.get('month'):
+        return None
+    return _WRONG_RATES.get((it['examYear'], it['month'], grade, it['subject'], _wr_norm(it['subject'], it.get('subSubject'))))
+
+
+_CIRCLED = '①②③④⑤'
+
+
+def exam_facts_description(it: dict, head: str, sc: dict | None, wr: list | None) -> str:
+    """meta description — 1등급컷·표점 최고점·오답률 1위 등 이 시험의 값으로. 값이 없으면 빈 문자열(기존 설명 유지)."""
+    facts = []
+    if sc and sc.get('raw') is not None:
+        if not sc['abs']:
+            facts.append(f'1등급컷 원점수 {sc["raw"]:g}점({_basis_kind(sc) or "비공식"})')
+        elif sc.get('ratio') is not None:
+            facts.append(f'1등급 비율 {sc["ratio"]:g}%')
+        if sc.get('top') is not None and not sc['abs']:
+            facts.append(f'표준점수 최고점 {sc["top"]:g}점')
+        if sc.get('tier'):
+            facts.append(f'난이도 {TIER_LABELS[sc["tier"]]}')
+    if wr:
+        facts.append(f'오답률 1위 {wr[0][0]}번({wr[0][1]:g}%)')
+    if not facts:
+        return ''
+    docs = [x for x, k in (('문제지', 'questionUrl'), (answer_label_for(it), 'answerUrl'), ('해설지', 'solutionUrl')) if it.get(k)]
+    tail = f' {"·".join(dict.fromkeys(docs))} PDF를 무료로 내려받을 수 있습니다.' if docs else ''
+    return f'{head} {", ".join(facts)}.{tail}'
+
+
+def wrong_rate_html(it: dict, rows: list, spoil_note: bool) -> str:
+    """오답률 높은 문항 — EBSi 응답자 기준 상위 문항 표 + 요약 문장(가장 많이 틀린 문항·정답보다 많이 고른 오답)."""
+    mc = '객관식 문항 가운데 ' if it.get('subject') == '수학' else ''
+    sv = lambda v: f'<span class="spoil-val">{v}</span>'
+    q, w, pt, ans, ch = rows[0]
+    out = [f'EBSi 응답자 기준으로 {mc}가장 많이 틀린 문항은 <strong>{q}번</strong>({pt:g}점)이고, 오답률은 {sv(f"{w:g}%")}입니다.']
+    # 정답보다 특정 오답을 더 많이 고른 문항 — 매력적인 오답
+    lure = [(r[0], max((i for i in range(5) if i != r[3] - 1), key=lambda i: r[4][i]), r) for r in rows
+            if r[4] and max(r[4]) > r[4][r[3] - 1]]
+    if lure:
+        lq, li, lr = lure[0]
+        out.append(f'상위 {len(rows)}문항 중 {len(lure)}문항은 정답보다 한 오답을 고른 사람이 더 많았습니다'
+                   f'({lq}번: 정답 {sv(_CIRCLED[lr[3] - 1])} {sv(f"{lr[4][lr[3] - 1]:g}%")}, '
+                   f'{sv(_CIRCLED[li])} {sv(f"{lr[4][li]:g}%")}).')
+    n50 = sum(1 for r in rows if r[1] >= 50)
+    if n50:
+        out.append(f'오답률 50%를 넘은 문항은 {sv(f"{n50}개")}입니다.')
+    trs = []
+    for i, (q, w, pt, ans, ch) in enumerate(rows, 1):
+        wi = max((j for j in range(5) if j != ans - 1), key=lambda j: ch[j]) if ch else None
+        lure_cell = f'{_CIRCLED[wi]} {ch[wi]:g}%' if wi is not None else '—'
+        trs.append(f'<tr><td>{i}</td><td>{q}번</td><td class="is-muted">{pt:g}점</td><td>{w:g}%</td>'
+                   f'<td>{_CIRCLED[ans - 1]}</td><td class="is-muted">{lure_cell}</td></tr>')
+    return ('<section class="exam-section exam-wrong" aria-labelledby="wrongTitle"><div class="exam-section__head">'
+            '<h2 id="wrongTitle">오답률 높은 문항</h2></div>' + (_SPOIL_NOTE if spoil_note else '')
+            + '<p class="info-card__desc">' + ' '.join(out) + '</p>'
+            '<section class="exam-card"><div class="exam-card__body"><table class="grade-table"><thead><tr>'
+            '<th scope="col">순위</th><th scope="col">문항</th><th scope="col">배점</th><th scope="col">오답률</th>'
+            '<th scope="col">정답</th><th scope="col">많이 고른 오답</th></tr></thead>'
+            f'<tbody class="spoil-val">{"".join(trs)}</tbody></table>'
+            f'<p class="grade-table__legend">EBSi 가채점 응답자 기준 · {mc or "전 문항 중 "}오답률 상위 {len(rows)}문항</p></div></section>'
+            '<p class="exam-official__src">출처: <a href="https://www.ebsi.co.kr/" rel="noopener nofollow" target="_blank">EBSi</a> '
+            '역대 등급컷·오답률 공개 화면. 가채점에 참여한 EBSi 이용자 응답이라 전체 응시자 정답률과는 다를 수 있습니다.</p></section>')
+
+
 _OBJECTIONS = None
 
 
@@ -1953,17 +2052,19 @@ def _obj_result(text: str) -> tuple[str, str]:
     return t or '결과 미상', 'ok'
 
 
-def _obj_news_for(it: dict, news: dict, changes: list) -> list:
-    """이 과목 기사만 — 과목 태그가 없으면 시험 전체 기사, 있으면 이 과목(세부과목 줄기 포함) 태그가 있을 때만."""
-    out = []
+def _obj_news_for(it: dict, news: dict, changes: list) -> tuple[list, list]:
+    """(이 과목 기사, 시험 전체 기사) — 과목 태그가 있으면 이 과목(세부과목 줄기 포함) 태그가 있을 때만 이 과목 기사."""
+    mine, gen = [], []
     for n in news.get('items') or []:
         tg = n.get('subjects') or []
         # 과목명 없이 '출제 오류·복수정답'을 다룬 기사는 정답이 바뀐 과목 이야기 → 그 과목 페이지에만
         if not tg and changes and re.search(r'오류|복수\s*정답|정답\s*없음|전원\s*정답|번복|소송|사퇴|오점|신뢰', n['title']):
             tg = changes
-        if not tg or any(_obj_match(it, t) for t in tg):
-            out.append(n)
-    return out
+        if not tg:
+            gen.append(n)
+        elif any(_obj_match(it, t) for t in tg):
+            mine.append(n)
+    return mine, gen
 
 
 def objection_panel_html(rec: dict, it: dict, key: str) -> str:
@@ -2054,20 +2155,23 @@ def objection_panel_html(rec: dict, it: dict, key: str) -> str:
     # ── 관련 보도
     news_html = ''
     news = rec.get('news') or {}
-    items = _obj_news_for(it, news, off.get('changes') or [])
-    if items:
-        mine = [n for n in items if n.get('subjects')]
-        gen = [n for n in items if not n.get('subjects')]
+    mine, gen = _obj_news_for(it, news, off.get('changes') or [])
+    if mine or gen:
         lis = ''.join(f'<li>{ext(n["url"], n["title"], "obj-news__title")}'
                       f'<span class="obj-news__meta">{esc(n.get("outlet") or "")}{" · " + esc(n["date"]) if n.get("date") else ""}'
-                      f'{" · " + esc(name) + " 관련" if n.get("subjects") else ""}</span></li>' for n in mine + gen)
+                      f' · {esc(name)} 관련</span></li>' for n in mine)
         summ = news.get('summary') or ''
         summ_tags = [t for t in re.findall(r'(?<!외)국어|수학(?!능력)|영어|한국사|물리|화학|생명과학|지구과학|윤리|지리|세계사|정치|경제|문화|언어', summ)]
-        # 시험 전체 요약에 다른 과목 이야기가 섞이면 빼고, 이 과목만 말하거나 과목 언급이 없을 때만 보여 준다
-        show_summ = summ and all(_obj_norm(t) in _obj_norm(name) or _obj_norm(t) in _obj_norm(subj) or (t == '언어' and subj == '국어') for t in summ_tags)
+        # 이 과목만 말하는 요약만 — 과목 언급이 없는 시험 전체 요약은 회차 페이지에 한 번만 둔다
+        show_summ = summ and summ_tags and all(_obj_norm(t) in _obj_norm(name) or _obj_norm(t) in _obj_norm(subj) or (t == '언어' and subj == '국어') for t in summ_tags)
+        # 시험 전체 기사는 같은 회차 과목 페이지마다 똑같이 반복되므로 회차 페이지로 보낸다
+        _sg = it.get('studentGrade') if it.get('typeGroup') == 'education' else None
+        set_link = (f'<p class="obj-fine">시험 전체 관련 보도 {len(gen)}건은 <a href="'
+                    f'{set_friendly_filename(str(it["curriculum"]), str(it["gradeYear"]), it["type"], _sg)}#news">'
+                    f'{esc(exam_set_title(it))} 회차 페이지</a>에 모아 두었어요.</p>') if gen and it.get('curriculum') else ''
         news_html = (f'<section class="obj-sec"><h3 class="obj-sec__title">관련 보도</h3>'
                      + (f'<p class="obj-news__summary">{esc(summ)}</p>' if show_summ else '')
-                     + f'<ul class="obj-news">{lis}</ul></section>')
+                     + (f'<ul class="obj-news">{lis}</ul>' if lis else '') + set_link + '</section>')
 
     # ── 원문 자료 (시험 전체 기준 숫자는 여기에만, '시험 전체'로 표시)
     links = [ext(p['url'], '평가원 심사 결과 게시글') for p in (off.get('posts') or [])[-1:]]
@@ -2211,6 +2315,9 @@ def build_static_exam_pages(items: list[dict], template_path: Path, out_root: Pa
     for it in items:
         _has_cut = _scores.get(it['id']) is not None
         meta = build_exam_meta(it, has_cut=_has_cut)
+        _facts_desc = exam_facts_description(it, meta['head'], _scores.get(it['id']), wrong_rates_for(it))
+        if _facts_desc:   # 같은 틀의 설명 대신 이 시험의 실제 값으로 (검색 결과 스니펫·고유성)
+            meta['description'] = _facts_desc
         canonical = meta['canonical']
         head      = meta['head']
         answer_label = answer_label_for(it)
@@ -2487,6 +2594,9 @@ def build_static_exam_pages(items: list[dict], template_path: Path, out_root: Pa
         _off = edu_official_html(it) or suneung_dist_html(it)
         if sc is not None:   # 등급컷 섹션에 이미 스포일러 안내가 있으면 중복 표시하지 않는다(결과 보기 버튼은 전역 설정)
             _off = _off.replace(_SPOIL_NOTE, '')
+        _wr = wrong_rates_for(it)
+        if _wr:
+            _off += wrong_rate_html(it, _wr, spoil_note=sc is None and not _off)
         if sc is None and not _off:   # 등급컷·공식 통계 등 고유 정보가 없는 얇은 페이지 — 광고 슬롯을 렌더하지 않는다(lib/ads.js)
             html = html.replace('<body class="page-exam">', '<body class="page-exam" data-no-ads>', 1)
 
@@ -2791,6 +2901,53 @@ def set_facts_html(head: str, exams: list[dict], scores: dict, by_key: dict) -> 
             f'<tbody>{"".join(rows)}</tbody></table></div></section>')
 
 
+def set_wrong_html(head: str, exams: list[dict]) -> str:
+    """이 회차 영역별 오답률 1위 문항 표(EBSi 응답자 기준) — 과목 상세의 '오답률 높은 문항'으로 링크."""
+    esc = lambda v: html_escape(str(v), quote=False)
+    rows = []
+    for it in sorted(exams, key=lambda x: (SUBJECT_ORDER.get(x.get('subject'), 99), x.get('subject') or '', sub_order_key(x.get('subSubject')))):
+        wr = wrong_rates_for(it)
+        if not wr:
+            continue
+        q, w, pt, ans, ch = wr[0]
+        name = pretty_sub(it.get('subSubject')) or it.get('subject') or ''
+        if it.get('subject') and name != it['subject']:
+            name = f'{it["subject"]} {name}'
+        rows.append(f'<tr><th scope="row"><a href="exam-{it["id"]}.html">{esc(name)}</a></th><td>{q}번 ({pt:g}점)</td>'
+                    f'<td class="spoil-val">{w:g}%</td><td class="spoil-val">{sum(1 for r in wr if r[1] >= 50)}개</td></tr>')
+    if not rows:
+        return ''
+    return ('<section class="examset__facts" aria-labelledby="examsetWrongTitle">'
+            '<div class="examset__facts-head"><h2 id="examsetWrongTitle">영역별 오답률 1위 문항</h2></div>'
+            f'<p>{esc(head)}에서 영역별로 가장 많이 틀린 문항입니다. EBSi 가채점 응답자 기준이며(수학은 객관식 문항만), '
+            '과목 이름을 누르면 오답률 상위 문항과 많이 고른 오답을 볼 수 있습니다.</p>'
+            '<div class="examset__facts-scroll"><table class="examset__table"><thead><tr><th scope="col">영역</th>'
+            '<th scope="col">오답률 1위</th><th scope="col">오답률</th><th scope="col">오답률 50% 넘은 문항</th></tr></thead>'
+            f'<tbody>{"".join(rows)}</tbody></table></div></section>')
+
+
+def set_news_html(it: dict) -> str:
+    """회차 페이지 '관련 보도' — 평가원 수능·모평 시험 전체 기사(과목 상세에는 그 과목 기사만 둔다)."""
+    if it.get('typeGroup') != 'suneung' or it.get('type') not in ('csat', 'june', 'sept'):
+        return ''
+    rec = _load_objections().get(f'{it.get("gradeYear")}|{it.get("type")}') or {}
+    news = rec.get('news') or {}
+    items = news.get('items') or []
+    if not items:
+        return ''
+    esc = lambda v: html_escape(str(v), quote=False)
+    lis = ''.join(
+        f'<li><a class="obj-news__title" href="{html_escape(n["url"], quote=True)}" target="_blank" rel="noopener nofollow">{esc(n["title"])}</a>'
+        f'<span class="obj-news__meta">{esc(n.get("outlet") or "")}{" · " + esc(n["date"]) if n.get("date") else ""}'
+        + (' · ' + esc(', '.join(_obj_label(t.get('subject'), t.get('sub')) for t in n['subjects'])) + ' 관련' if n.get('subjects') else '')
+        + '</span></li>' for n in items)
+    summ = news.get('summary') or ''
+    return ('<section class="examset__facts" id="news" aria-labelledby="examsetNewsTitle">'
+            '<div class="examset__facts-head"><h2 id="examsetNewsTitle">관련 보도</h2></div>'
+            + (f'<p>{esc(summ)}</p>' if summ else '')
+            + f'<ul class="obj-news">{lis}</ul></section>')
+
+
 def set_cut_summary(head: str, exams: list[dict], scores: dict, official_src: bool) -> tuple[str, str]:
     """회차 첫머리 직답 문장 — '{회차} 1등급컷은 국어 화법과 작문 90점… 영어 1등급 비율은 15.54%입니다.'
     국어·수학 원점수컷과 영어(절대평가면 1등급 비율)만 — 탐구는 아래 표, 셋 다 없으면 요약하지 않는다.
@@ -3085,7 +3242,7 @@ def build_static_set_pages(items: list[dict], template_path: Path, out_root: Pat
             lambda m: m.group(1) + cards_html + m.group(2),
             html, count=1)
 
-        extra = facts_html
+        extra = facts_html + set_wrong_html(meta['head'], merged_exams) + set_news_html(exams_in_set[0])
         me = next((o for o in catalog if o['fname'] == fname), None)
         if me:
             extra += set_related_html(me, catalog, sorted({e['subject'] for e in merged_exams if e.get('subject')}, key=lambda x: SUBJECT_ORDER.get(x, 99)))
