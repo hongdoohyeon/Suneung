@@ -203,6 +203,7 @@ const rows = [
   [14366, 'v26/sol2_14366.pdf', "https://ipsi.catholic.ac.kr/"],
   [14367, 'v26/sol2_14367.pdf', "https://ipsi.catholic.ac.kr/"],
   [14368, 'v26/sol2_14368.pdf', "https://ipsi.catholic.ac.kr/"],
+  [10886, 'v26/sol4_10886.pdf', "https://adms.hufs.ac.kr/"],
 ];
 
 const exams = JSON.parse(await readFile(DATA_PATH, 'utf8'));
