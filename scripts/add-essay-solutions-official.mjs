@@ -2,6 +2,7 @@
 // 해설이 비어 있던 기존 논술 항목에 대학 공식 해설을 연결한다(2026-10-07). 자산은 essay-v25 릴리즈.
 // 출처: 이화여대 선행학습 영향평가 보고서 문항카드(2024~2026), 중앙대 논술가이드북 전년도 기출 해설 장
 // (2015·2021~2024)과 2025 선행학습 보고서, 한양대 입학처 계열별 출제의도·예시답안 파일(2018~2026).
+// 아주대 2020 의예(2021 논술자료집 채점기준)·2024 모의(예시답안 및 채점기준)도 함께 연결.
 // 문제지 본문이 보고서·가이드북의 어느 구간에 있는지 대조해 구간을 정했다.
 // 함께: 중앙대 2023 '인문사회계열①/②'는 실제로 경영경제/인문사회 문제여서 계열명을 바로잡는다.
 
@@ -74,6 +75,10 @@ const rows = [
   [11135, 'sol_11135.pdf', "https://admission.ewha.ac.kr/admission/html/ewharo/publication4.asp"],
   [11136, 'sol_11136.pdf', "https://admission.ewha.ac.kr/admission/html/ewharo/publication4.asp"],
   [11139, 'sol_11139.pdf', "https://admission.ewha.ac.kr/admission/html/ewharo/publication4.asp"],
+  [10745, 'sol_10745.pdf', "https://www.iajou.ac.kr/pasttest/list.php"],
+  [10768, 'sol_10768.pdf', "https://www.iajou.ac.kr/pasttest/list.php"],
+  [10769, 'sol_10769.pdf', "https://www.iajou.ac.kr/pasttest/list.php"],
+  [10770, 'sol_10770.pdf', "https://www.iajou.ac.kr/pasttest/list.php"],
 ];
 
 const exams = JSON.parse(await readFile(DATA_PATH, 'utf8'));
