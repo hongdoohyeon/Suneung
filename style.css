@@ -1475,7 +1475,8 @@ body:has(.selbar:not([hidden])) .pagination-wrap { margin-bottom: 72px; }   /* ë
   .is-selecting .rgroup__fold { width: 36px; padding: 0; justify-content: center; }
   .is-selecting .rgroup__fold-text { display: none; }
   .sel-box { left: 14px; }
-  .selbar { left: 16px; right: 16px; transform: none; max-width: none; }
+  .selbar { left: 16px; right: 16px; transform: none; max-width: none; gap: 5px; padding-left: 12px; }
+  .selbar .btn--sm { padding: 0 9px; }
   .selbar__count { flex: 1; }
   .seldlg__seg { grid-template-columns: 1fr; }
 }
