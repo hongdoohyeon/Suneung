@@ -1240,7 +1240,7 @@ function tableHTML(groups) {
         <span class="type-badge type-badge--lg tg-${escAttr(first.typeGroup)}${first.type === 'csat' ? ' tg-csat' : ''}">${escHtml(badgeLabel(first))}</span>
         <h2 class="rgroup__title">${setHref ? `<a href="${escAttr(setHref)}">${escHtml(title)}</a>` : escHtml(title)}</h2>
         ${isSelecting() ? '<button type="button" class="rgroup__all rgroup__selall" data-selall aria-label="이 회차 전체 선택"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="m8 12 3 3 5-6"/></svg><span class="rgroup__selall-text">회차 전체</span></button>' : ''}
-        <button type="button" class="rgroup__all rgroup__fold" aria-expanded="${!folded}" aria-label="${escAttr(title)} ${folded ? '펼치기' : '접기'}"><span class="rgroup__fold-text">${folded ? '펼치기' : '접기'}</span>${foldChev}</button>
+        <button type="button" class="rgroup__all rgroup__fold" aria-expanded="${!folded}" aria-label="${escAttr(title)} ${folded ? '펼치기' : '접기'}">${foldChev}</button>
       </header>
       <div class="rrow rrow--head" aria-hidden="true"><span>과목</span><span>1등급컷</span><span>난이도</span><span>자료</span></div>
       ${body}
