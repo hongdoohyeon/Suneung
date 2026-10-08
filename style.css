@@ -1494,11 +1494,30 @@ body:has(.selbar:not([hidden])) .pagination-wrap { margin-bottom: 72px; }   /* �
   .selbar__count { flex: 1; }
   .seldlg__seg { grid-template-columns: 1fr; }
 }
-/* 폰: 검색창은 한 줄을 다 쓰고 [필터 ··· 선택][표|카드]는 아랫줄로 — 버튼 넷이 한 줄이면 검색창이 '예: 2'까지 줄어든다 */
+/* 폰: 결과 위 조작 줄을 네 줄 → 세 줄로(.controls 안 .toolbar·.subbar 는 상자를 풀고 순서만 바꾼다)
+   [검색 ······][필터][표|카드]
+   [스포일러 방지][적용 필터 → 옆으로 밀기][선택]
+   [최근 본 시험] */
 @media (max-width: 560px) {
-  .toolbar { flex-wrap: wrap; }
-  .toolbar .search { flex: 1 1 100%; }
-  .filter-toggle-inline { margin-right: auto; }
+  .controls { display: flex; flex-wrap: wrap; align-items: center; gap: 0 8px; margin-bottom: 12px; }
+  .controls::before { content: ''; order: 4; flex: 0 0 100%; height: 8px; }   /* 줄바꿈 — 폭이 남아도 아래 줄 항목이 위로 올라오지 않게 */
+  .controls > .toolbar, .controls > .subbar { display: contents; }
+  .controls .search { order: 1; flex: 1 1 0; min-width: 0; }
+  .controls .filter-toggle-inline { order: 2; }
+  .controls .view-toggle { order: 3; }
+  .controls .switch { order: 5; }
+  .controls .active-tags { order: 6; flex: 1 1 0; min-width: 0; flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; }
+  .controls .active-tags::-webkit-scrollbar { display: none; }
+  .controls .active-tags { -webkit-mask-image: linear-gradient(to right, #000 82%, transparent); mask-image: linear-gradient(to right, #000 82%, transparent); }   /* 넘치면 오른쪽 끝이 흐려져 밀 수 있음을 알림 */
+  .controls .toolbar .select-toggle { order: 7; margin-left: auto; height: 32px; min-height: 32px; width: 84px; flex-direction: row; }
+  .controls .select-toggle__hint { display: none; }   /* 한 줄 높이에 맞춤 — 설명은 title 로 */
+  .controls .recent-row { order: 8; flex: 0 0 100%; margin: 8px 0 0; }
+  .controls .recent-chip { height: 32px; }
+  .controls .recent-row__clear { min-height: 32px; }
+}
+@media (max-width: 359px) {   /* 좁은 폰: '필터' 글자는 숨기고 아이콘·개수만 — 검색창 폭 확보 */
+  .controls .filter-toggle-inline { padding: 0 10px; }
+  .controls .filter-toggle-inline__label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
 }
 @media (max-width: 480px) {   /* 폰: ↑↓ 대신 ⠿ 손잡이 끌기·순서 뒤집기 — 시험 이름이 접히지 않게 */
   .seldlg__icon[data-seldlg="up"], .seldlg__icon[data-seldlg="down"] { display: none; }
