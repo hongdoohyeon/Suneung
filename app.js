@@ -149,6 +149,7 @@ function applyUrlState() {
     if (getTabConf(tab)) state.tab = tab;
   }
   markActiveNavTab();
+  centerActiveTab();
 
   // 탭 변경 후 default typeGroup 적용 — URL에 typeGroup 명시되어 있으면 곧 덮어씀
   if (tabIsSingleType()) {
@@ -518,12 +519,14 @@ async function switchTab(tab) {
   scrollActiveTabIntoView();
 }
 
-// 페이지 로드 시 활성 탭이 모바일 가로 스크롤에서 가운데로 오도록 (잘림 인지 완화)
-addEventListener('DOMContentLoaded', () => {
-  // smooth scroll보다 즉시 — 첫 진입 시 위치만 잡음
-  const active = document.querySelector('.curriculum-nav .nav-tab.is-active');
-  active?.scrollIntoView({ block: 'nearest', inline: 'center' });
-});
+// 주소의 탭이 정해진 직후 활성 탭을 모바일 가로 스크롤 가운데로 — 탭 줄만 옮기고 페이지 세로 위치는 그대로
+function centerActiveTab() {
+  const row = document.querySelector('.curriculum-nav__inner');
+  const active = row?.querySelector('.nav-tab.is-active');
+  if (!active || row.scrollWidth <= row.clientWidth) return;
+  const a = active.getBoundingClientRect(), r = row.getBoundingClientRect();
+  row.scrollLeft += (a.left + a.width / 2) - (r.left + r.width / 2);
+}
 
 // ── 필터 패널 전체 재구성 ──────────────────────────────────
 function renderFilterPanel() {
