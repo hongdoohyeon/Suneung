@@ -1447,6 +1447,12 @@ body:has(.selbar:not([hidden])) .pagination-wrap { margin-bottom: 72px; }   /* ë
 .seldlg__kind input { accent-color: var(--ink); width: 16px; height: 16px; }
 .seldlg__listhead { display: flex; align-items: baseline; gap: 8px; font-size: 13px; font-weight: 600; color: var(--ink-3); }
 .seldlg__listhead small { font-weight: 400; color: var(--ink-4); font-size: 12px; }
+.seldlg__listhead { align-items: center; }
+.seldlg__listhead > span { flex: none; white-space: nowrap; }
+.seldlg__listhead small { flex: 1; min-width: 0; }
+.seldlg__reverse { flex: none; white-space: nowrap; }
+.seldlg__reverse { margin-left: auto; gap: 5px; min-height: 32px; font-size: 12.5px; }
+.seldlg__reverse svg { width: 14px; height: 14px; }
 .seldlg__list { list-style: none; margin: 0; padding: 0; max-height: 44vh; overflow-y: auto; border: 1px solid var(--line); border-radius: var(--r-sm); }
 .seldlg__item { display: flex; align-items: center; gap: 6px; min-height: 52px; padding: 4px 6px 4px 2px; background: var(--surface); border-top: 1px solid var(--line); touch-action: pan-y; }
 .seldlg__item:first-child { border-top: 0; }
