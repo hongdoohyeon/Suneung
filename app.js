@@ -15,7 +15,7 @@ import {
 } from './state.js?v=305cede3fbee5496c794';
 import { renderAllAdSlots, renderAdSlot } from './lib/ads.js?v=305cede3fbee5496c794';
 import { recentItems, clearRecent } from './lib/recent.js?v=305cede3fbee5496c794';
-import { initSelect, isSelecting, checkboxHTML } from './lib/select.js?v=305cede3fbee5496c794';
+import { initSelect, isSelecting, checkboxHTML, refreshBar } from './lib/select.js?v=305cede3fbee5496c794';
 
 const tabConf = () => getTabConf(state.tab);
 
@@ -1011,6 +1011,7 @@ function renderCards() {
     grid.innerHTML = shown.map((e, i) => { try { return cardHTML(e, i); } catch(_) { return ''; } }).join('');
     renderPagination(state.page, totalPages, data.length);
   }
+  if (isSelecting()) refreshBar();   // 페이지가 바뀌면 '전체 선택/해제' 표시도 맞춘다
 }
 
 function renderPagination(current, total, totalItems) {
