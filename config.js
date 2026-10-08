@@ -479,21 +479,21 @@ export const EXAM_TYPE_CONFIG = [
   {
     groupKey: 'leet',
     groupLabel: 'LEET',
-    groupColor: '#0e7490',
-    groupBg: '#ecfeff',
+    groupColor: '#a3243b',
+    groupBg: '#f4dbe0',
     displayMode: 'gradeYear',
     types: [
-      { key: 'leet_annual', label: '본시험', month: 7, badgeBg: '#ecfeff', badgeColor: '#0e7490' },
+      { key: 'leet_annual', label: '본시험', month: 7, badgeBg: '#f4dbe0', badgeColor: '#a3243b' },
     ],
   },
   {
     groupKey: 'meet',
     groupLabel: 'MEET',
-    groupColor: '#059669',
-    groupBg: '#ecfdf5',
+    groupColor: '#9a4508',
+    groupBg: '#f6e2c6',
     displayMode: 'gradeYear',
     types: [
-      { key: 'meet_annual', label: '본시험', month: 8, badgeBg: '#ecfdf5', badgeColor: '#059669' },
+      { key: 'meet_annual', label: '본시험', month: 8, badgeBg: '#f6e2c6', badgeColor: '#9a4508' },
     ],
   },
   {

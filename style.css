@@ -47,8 +47,8 @@
   --tb-education: #475569; --tb-education-bg: #eef1f4;
   --tb-military: #6b4220; --tb-military-bg: #efe9df;
   --tb-police: #0c4a6e; --tb-police-bg: #e0f2fe;
-  --tb-leet: #0e7490; --tb-leet-bg: #ecfeff;
-  --tb-meet: #047857; --tb-meet-bg: #ecfdf5;
+  --tb-leet: #a3243b; --tb-leet-bg: #f4dbe0;   /* 법학 — 버건디: 흰 바탕에 묻히지 않고 경찰대 하늘색과 구분 */
+  --tb-meet: #9a4508; --tb-meet-bg: #f6e2c6;   /* 의학 — 주황: 검정고시 초록과 구분 */
   --tb-essay: #6d28d9; --tb-essay-bg: #f5f3ff;
   --tb-ged: #0e7a5f; --tb-ged-bg: #e7f5ef;
   --tb-reference: #45454c; --tb-reference-bg: #ededef;
@@ -87,8 +87,8 @@
     --tb-education: #a7b4c4; --tb-education-bg: #1e232a;
     --tb-military: #d6a877; --tb-military-bg: #2a2018;
     --tb-police: #7cc4f2; --tb-police-bg: #10222e;
-    --tb-leet: #5fd0e0; --tb-leet-bg: #0e262a;
-    --tb-meet: #5ed3a6; --tb-meet-bg: #0e261d;
+    --tb-leet: #f28b9c; --tb-leet-bg: #40202a;
+    --tb-meet: #f2ad62; --tb-meet-bg: #3a2a12;
     --tb-essay: #b79cff; --tb-essay-bg: #221a38;
     --tb-ged: #5ecfa8; --tb-ged-bg: #0f261e;
     --tb-reference: #b8b8c0; --tb-reference-bg: #25252b;
@@ -114,8 +114,8 @@
   --tb-education: #a7b4c4; --tb-education-bg: #1e232a;
   --tb-military: #d6a877; --tb-military-bg: #2a2018;
   --tb-police: #7cc4f2; --tb-police-bg: #10222e;
-  --tb-leet: #5fd0e0; --tb-leet-bg: #0e262a;
-  --tb-meet: #5ed3a6; --tb-meet-bg: #0e261d;
+  --tb-leet: #f28b9c; --tb-leet-bg: #40202a;
+  --tb-meet: #f2ad62; --tb-meet-bg: #3a2a12;
   --tb-essay: #b79cff; --tb-essay-bg: #221a38;
   --tb-ged: #5ecfa8; --tb-ged-bg: #0f261e;
   --tb-reference: #b8b8c0; --tb-reference-bg: #25252b;
