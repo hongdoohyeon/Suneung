@@ -1416,6 +1416,9 @@ body.pv-lock { overflow: hidden; }
 /* ═══ 여러 시험 선택 · 모아 받기 (lib/select.js) ═══════════════ */
 .toolbar .select-toggle { height: 46px; padding: 0 14px; }
 .select-toggle[aria-pressed="true"] { background: var(--ink); border-color: var(--ink); color: var(--on-ink); }
+.select-toggle { flex-direction: column; justify-content: center; gap: 1px; line-height: 1.15; }
+.select-toggle__hint { font-size: 10.5px; font-weight: 500; color: var(--ink-4); letter-spacing: -.01em; }   /* 처음 온 사람도 기능을 알게 — 선택 중엔 숨김 */
+.select-toggle[aria-pressed="true"] .select-toggle__hint { display: none; }
 .sel-hit { cursor: pointer; }
 .sel-hit input { position: absolute; opacity: 0; width: 1px; height: 1px; }
 .sel-box { position: absolute; top: 50%; left: 16px; width: 20px; height: 20px; margin-top: -10px; border: 1.5px solid var(--line-strong); border-radius: var(--r-xs); background: var(--surface); transition: background var(--t), border-color var(--t); }
@@ -1475,7 +1478,8 @@ body:has(.selbar:not([hidden])) .pagination-wrap { margin-bottom: 72px; }   /* �
 .seldlg__name[hidden] { display: none; }
 .seldlg.is-busy .seldlg__seg, .seldlg.is-busy .seldlg__kinds, .seldlg.is-busy .seldlg__list { pointer-events: none; opacity: .55; }
 @media (max-width: 700px) {
-  .toolbar .select-toggle { height: 40px; min-height: 40px; padding: 0 12px; flex: none; }
+  .toolbar .select-toggle { height: 40px; min-height: 40px; padding: 0 7px; flex: none; }
+  .select-toggle__hint { font-size: 10px; letter-spacing: -.03em; }
   .rrow--pick { padding-left: 44px; }
   .rgroup__selall { width: 36px; padding: 0; justify-content: center; }   /* 폰: 아이콘만 — 회차 제목이 잘리지 않게 */
   .rgroup__selall-text { display: none; }
