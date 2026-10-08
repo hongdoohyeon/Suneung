@@ -1491,7 +1491,10 @@ body:has(.selbar:not([hidden])) .pagination-wrap { margin-bottom: 72px; }   /* �
   .selbar__count { flex: 1; }
   .seldlg__seg { grid-template-columns: 1fr; }
 }
-@media (max-width: 420px) { .seldlg__icon[data-seldlg="up"], .seldlg__icon[data-seldlg="down"] { width: 30px; } }
+@media (max-width: 480px) {   /* 폰: ↑↓ 대신 ⠿ 손잡이 끌기·순서 뒤집기 — 시험 이름이 접히지 않게 */
+  .seldlg__icon[data-seldlg="up"], .seldlg__icon[data-seldlg="down"] { display: none; }
+  .seldlg__grip { width: 34px; }
+}
 
 /* 다운로드 진행 — 점 격자 로더(lib/select.js progStart, reactbits Lattice Loader orbit 패턴) */
 .ll { --ll-cell: 5px; --ll-gap: 1px; --ll-idle: .15; --ll-cycle: 864ms;
