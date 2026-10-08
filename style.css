@@ -612,7 +612,7 @@ html[data-urlstate] .content:has(#cardsGrid[data-prerendered]) #skeleton { displ
 }
 @keyframes filter-drawer-in { from { translate: -100% 0; } }
 .filter-badge { min-width: 20px; height: 20px; padding: 0 5px; border-radius: 999px; background: var(--ink); color: var(--on-ink); font-size: 11.5px; display: grid; place-items: center; }
-.toolbar__right { display: flex; align-items: center; gap: 6px; }
+.toolbar__right { display: flex; align-items: center; justify-content: flex-end; gap: 6px; min-width: 116px; }   /* 정수 폭 — 글자 폭(소수점)이 앞 버튼들을 0.x px 밀면 아이콘이 흐려진다 */
 .count { display: inline-block; min-width: 4.6em; text-align: right; font-size: 13.5px; color: var(--ink-3); white-space: nowrap; }   /* 탭마다 자릿수가 달라도 검색창·버튼 폭이 흔들리지 않게 — 99,999건까지 같은 폭 */
 .view-toggle { display: inline-flex; padding: 2px; gap: 2px; border-radius: var(--r-sm); background: var(--surface); border: 1px solid var(--line-strong); }
 .view-toggle button { min-width: 40px; min-height: 34px; display: grid; place-items: center; border-radius: var(--r-xs); color: var(--ink-4); }
