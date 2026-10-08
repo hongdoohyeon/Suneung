@@ -514,14 +514,15 @@ body { position: relative; overflow-x: clip; }   /* 빛의 기준을 body 로 �
 
 .curriculum-nav { width: 100%; max-width: var(--max-w); margin: 0 auto 24px; padding: 0 28px; }
 .curriculum-nav__select { display: none; }
-.curriculum-nav__inner { display: flex; gap: 28px; border-bottom: 1px solid var(--line); padding: 0; max-width: none; }
+.curriculum-nav__inner { --tab-gap: 28px; display: flex; gap: var(--tab-gap); border-bottom: 1px solid var(--line-strong); padding: 0; max-width: none; }
 .nav-group, .nav-group__tabs { display: contents; }
-.nav-sep { width: 1px; background: var(--line); margin: 14px 0; flex: none; }
+.nav-sep { width: 1px; background: var(--ink-4); margin: 10px 0; flex: none; }   /* 묶음 사이 — 탭 사이 선보다 진하고 길게 */
+.nav-tab + .nav-tab::before { content: ''; position: absolute; left: calc(var(--tab-gap) / -2); top: 30%; bottom: 30%; width: 1px; background: var(--line-strong); }   /* 탭 사이 */
 .curriculum-nav .nav-tab { scroll-snap-align: start; }   /* 폰에서 묶음 상자가 풀리면 구분선만 스냅 지점으로 남아 탭 줄이 끝까지 밀리던 문제 */
 .curriculum-nav .nav-sep { scroll-snap-align: none; }
 .nav-tab {
   display: flex; flex-direction: column; align-items: flex-start; gap: 2px; padding: 10px 0 12px; flex: none;   /* 좌우 여백 0 — 첫 탭 글자가 제목·필터와 같은 선, 간격은 부모 gap */
-  color: var(--ink-3); box-shadow: inset 0 -2px 0 transparent; text-align: left; transition: color var(--t), box-shadow var(--t);
+  position: relative; color: var(--ink-3); box-shadow: inset 0 -2px 0 transparent; text-align: left; transition: color var(--t), box-shadow var(--t);
 }
 .nav-tab__title { font-size: 15px; font-weight: var(--ui-weight); white-space: nowrap; }
 .nav-tab__sub { font-size: 12px; color: var(--ink-4); white-space: nowrap; }
@@ -1256,7 +1257,7 @@ body.pv-lock { overflow: hidden; }
   .curriculum-nav { margin: 6px 0 12px; padding: 0; }
   .curriculum-nav__inner { padding: 0 16px; }
   .nav-tab { padding: 8px 0 10px; }
-  .curriculum-nav__inner { gap: 22px; }
+  .curriculum-nav__inner { --tab-gap: 22px; }
   /* 한 줄: [검색 ····][필터][표|카드] — 어떤 폭에서도 잘리지 않게 검색창만 줄어든다 */
   .toolbar { flex-wrap: nowrap; gap: 6px; margin-bottom: 8px; }
   .search { flex: 1 1 0; height: 44px; padding: 0 8px 0 12px; gap: 8px; }
