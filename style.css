@@ -503,15 +503,14 @@ html::before {
 .curriculum-nav__select { display: none; }
 .curriculum-nav__inner { --tab-gap: 28px; display: flex; gap: var(--tab-gap); border-bottom: 1px solid var(--line-strong); padding: 0; max-width: none; }
 .nav-group, .nav-group__tabs { display: contents; }
-.nav-sep { width: 1px; background: var(--ink-4); margin: 10px 0; flex: none; }   /* 묶음 사이 — 탭 사이 선보다 진하고 길게 */
-.nav-tab + .nav-tab::before { content: ''; position: absolute; left: calc(var(--tab-gap) / -2); top: 30%; bottom: 30%; width: 1px; background: var(--line-strong); }   /* 탭 사이 */
+.nav-sep { display: none; }   /* 묶음 사이 큰 선 없이 — 모든 탭 사이를 같은 선으로 */
+.curriculum-nav .nav-tab::before { content: ''; position: absolute; left: calc(var(--tab-gap) / -2); top: 30%; bottom: 30%; width: 1px; background: var(--line-strong); }   /* 탭 사이 */
+.curriculum-nav .nav-group:first-of-type .nav-tab:first-child::before { content: none; }
 .curriculum-nav .nav-tab { scroll-snap-align: start; }   /* 폰에서 묶음 상자가 풀리면 구분선만 스냅 지점으로 남아 탭 줄이 끝까지 밀리던 문제 */
-.curriculum-nav .nav-sep { scroll-snap-align: none; }
 /* 넓은 화면: 탭 칸을 같은 폭·가운데 정렬로 — 글자 길이마다 칸이 달라 구분선 간격·밑줄 길이가 들쭉날쭉했다 */
 @media (min-width: 561px) {
   .curriculum-nav__inner { --tab-gap: 0px; }
   .curriculum-nav .nav-tab { width: 112px; align-items: center; text-align: center; }
-  .curriculum-nav .nav-sep { margin: 10px 16px; }
 }
 .nav-tab {
   display: flex; flex-direction: column; align-items: flex-start; gap: 2px; padding: 10px 0 12px; flex: none;   /* 좌우 여백 0 — 첫 탭 글자가 제목·필터와 같은 선, 간격은 부모 gap */
