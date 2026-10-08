@@ -1,17 +1,17 @@
 'use strict';
-import { CURRICULUM_CONFIG, getTypeConf, prettySub } from './config.js?v=737332ef61a29012a724';
-import { escHtml as _escHtml, escAttr, safeUrl as _safeUrl, $ as _$ } from './lib/dom.js?v=737332ef61a29012a724';
-import { setMeta, setMetaProp, setCanonical, injectJsonLd as _injectJsonLd, STATIC_PAGE, applySeo } from './lib/seo.js?v=737332ef61a29012a724';
-import { renderAllAdSlots } from './lib/ads.js?v=737332ef61a29012a724';
-import { renderPdf, renderPreviewCover, renderUnsupported, renderEmpty, urlExtension } from './lib/exam-pdf.js?v=737332ef61a29012a724';
-import { LOADING_PREVIEWS } from './lib/loading-previews.js?v=737332ef61a29012a724';
-import { renderGradeDist } from './lib/exam-gradedist.js?v=737332ef61a29012a724';
-import { pushRecent } from './lib/recent.js?v=737332ef61a29012a724';
-import './lib/report.js?v=737332ef61a29012a724';
-import { shareLink } from './lib/share.js?v=737332ef61a29012a724';
-import { enableForcedDownloads } from './lib/download.js?v=737332ef61a29012a724';
+import { CURRICULUM_CONFIG, getTypeConf, prettySub } from './config.js?v=204a4c3a4277b1f5df13';
+import { escHtml as _escHtml, escAttr, safeUrl as _safeUrl, $ as _$ } from './lib/dom.js?v=204a4c3a4277b1f5df13';
+import { setMeta, setMetaProp, setCanonical, injectJsonLd as _injectJsonLd, STATIC_PAGE, applySeo } from './lib/seo.js?v=204a4c3a4277b1f5df13';
+import { renderAllAdSlots } from './lib/ads.js?v=204a4c3a4277b1f5df13';
+import { renderPdf, renderPreviewCover, renderUnsupported, renderEmpty, urlExtension } from './lib/exam-pdf.js?v=204a4c3a4277b1f5df13';
+import { LOADING_PREVIEWS } from './lib/loading-previews.js?v=204a4c3a4277b1f5df13';
+import { renderGradeDist } from './lib/exam-gradedist.js?v=204a4c3a4277b1f5df13';
+import { pushRecent } from './lib/recent.js?v=204a4c3a4277b1f5df13';
+import './lib/report.js?v=204a4c3a4277b1f5df13';
+import { shareLink } from './lib/share.js?v=204a4c3a4277b1f5df13';
+import { enableForcedDownloads } from './lib/download.js?v=204a4c3a4277b1f5df13';
 // 듣기 플레이어는 듣기 음원이 있는 영어 페이지에서만 받는다(나머지 상세 페이지는 10KB 덜 받음)
-const mountListenPlayer = (el, opts) => import('./lib/listen-player.js?v=737332ef61a29012a724').then(m => m.mountListenPlayer(el, opts));
+const mountListenPlayer = (el, opts) => import('./lib/listen-player.js?v=204a4c3a4277b1f5df13').then(m => m.mountListenPlayer(el, opts));
 
 enableForcedDownloads();
 
@@ -294,7 +294,7 @@ async function main() {
   // (robots.txt 가 data/exam/ 을 막아 검색엔진 렌더러가 여기로 오면 12MB 를 매 페이지 받게 된다)
   if (!exam && !isStaticExam) {
     try {
-      const res = await fetch('data/exams.json?v=737332ef61a29012a724');
+      const res = await fetch('data/exams.json?v=204a4c3a4277b1f5df13');
       if (res.ok) {
         const exams = await res.json();
         exam = exams.find(e => e.id === id) ?? null;
