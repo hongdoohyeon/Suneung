@@ -1500,6 +1500,12 @@ body:has(.selbar:not([hidden])) .pagination-wrap { margin-bottom: 72px; }   /* �
   .selbar__count { flex: 1; }
   .seldlg__seg { grid-template-columns: 1fr; }
 }
+/* 폰: 검색창은 한 줄을 다 쓰고 [필터 ··· 선택][표|카드]는 아랫줄로 — 버튼 넷이 한 줄이면 검색창이 '예: 2'까지 줄어든다 */
+@media (max-width: 560px) {
+  .toolbar { flex-wrap: wrap; }
+  .toolbar .search { flex: 1 1 100%; }
+  .filter-toggle-inline { margin-right: auto; }
+}
 @media (max-width: 480px) {   /* 폰: ↑↓ 대신 ⠿ 손잡이 끌기·순서 뒤집기 — 시험 이름이 접히지 않게 */
   .seldlg__icon[data-seldlg="up"], .seldlg__icon[data-seldlg="down"] { display: none; }
   .seldlg__grip { width: 34px; }
