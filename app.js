@@ -15,7 +15,7 @@ import {
 } from './state.js?v=3654acfb42e9f4c44a8f';
 import { renderAllAdSlots, renderAdSlot } from './lib/ads.js?v=3654acfb42e9f4c44a8f';
 import { recentItems, clearRecent } from './lib/recent.js?v=3654acfb42e9f4c44a8f';
-import { initSelect, isSelecting, checkboxHTML, refreshBar } from './lib/select.js?v=3654acfb42e9f4c44a8f';
+import { initSelect, isSelecting, checkboxHTML } from './lib/select.js?v=3654acfb42e9f4c44a8f';
 
 const tabConf = () => getTabConf(state.tab);
 
@@ -50,7 +50,16 @@ let fullDataCache = null;
 let dataRequestId = 0;
 
 const $ = id => document.getElementById(id);
-initSelect({ version: DATA_VERSION, onMode: () => renderCards() });
+// 전체 선택 창이 쓰는 검색 결과 — 이름은 표의 줄 이름(rowHTML)과 같게
+initSelect({
+  version: DATA_VERSION,
+  onMode: () => renderCards(),
+  results: () => filtered().filter(e => !e.searchOnly).map(e => {
+    const { main, sub } = rowLabel(e);
+    return { id: e.id, label: `${setTitle(e)} ${main}${sub ? ' ' + sub : ''}`, gradeYear: e.gradeYear, examYear: e.examYear,
+             exam: getTypeConf(e.type)?.displayMode === 'examYear' };
+  }),
+});
 
 // ── 보기 방식(표/카드) · 1등급컷 인덱스 ─────────────────────
 // cuts.json: { id: [원점수 1컷, 표준점수 최고점, 난이도 1~5|null, 절대평가 0/1] } — render-site.py 생성.
@@ -1011,7 +1020,6 @@ function renderCards() {
     grid.innerHTML = shown.map((e, i) => { try { return cardHTML(e, i); } catch(_) { return ''; } }).join('');
     renderPagination(state.page, totalPages, data.length);
   }
-  if (isSelecting()) refreshBar();   // 페이지가 바뀌면 '전체 선택/해제' 표시도 맞춘다
 }
 
 function renderPagination(current, total, totalItems) {

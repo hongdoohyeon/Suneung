@@ -1437,6 +1437,8 @@ body.pv-lock { overflow: hidden; }
 body:has(.selbar:not([hidden])) .pagination-wrap { margin-bottom: 72px; }   /* 바가 페이지 번호를 가리지 않게 */
 
 .seldlg { width: min(560px, calc(100vw - 32px)); }
+.selrange__row { display: grid; grid-template-columns: auto auto; justify-content: start; align-items: center; gap: 8px 10px; font-size: 14px; color: var(--ink-3); }
+.selrange__row select { font: inherit; font-family: var(--mono); font-size: 14px; color: var(--ink); background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-sm); min-height: 44px; padding: 0 10px; }
 .seldlg fieldset { border: 0; padding: 0; margin: 0; }
 .seldlg__seg { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
 .seldlg__kinds { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 16px; }
