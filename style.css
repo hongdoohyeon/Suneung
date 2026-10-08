@@ -247,10 +247,10 @@ main { flex: 1 0 auto; width: 100%; }
 .header-search kbd { margin-left: auto; font: 500 11px inherit; border: 1px solid var(--line-strong); border-radius: 6px; padding: 1px 6px; color: var(--ink-4); }
 .icon-btn {
   width: 40px; height: 40px; flex: none; display: inline-grid; place-items: center;
-  border-radius: var(--r-sm); border: 1px solid var(--line-strong); background: var(--surface); color: var(--ink-3);
-  transition: color var(--t), border-color var(--t);
+  border-radius: var(--r-sm); border: 0; background: none; color: var(--ink-3);   /* 헤더 버튼은 테두리·박스 없이 — 눌릴 때만 옅은 바탕 */
+  transition: color var(--t), background var(--t);
 }
-.icon-btn:hover { color: var(--ink); border-color: var(--ink); }
+.icon-btn:hover { color: var(--ink); background: var(--surface-2); }
 .icon-btn svg { width: 18px; height: 18px; }
 .theme-toggle .icon-sun { display: none; }
 :root[data-theme="dark"] .theme-toggle .icon-sun { display: block; }
@@ -258,9 +258,10 @@ main { flex: 1 0 auto; width: 100%; }
 .menu-toggle, .header-search--icon { display: none; }
 .dday-chip {
   display: inline-flex; align-items: center; gap: 6px; height: 40px; padding: 0 14px;
-  border-radius: var(--r-sm); background: var(--surface); border: 1px solid var(--line-strong);
-  font-size: 13px; color: var(--ink-3); white-space: nowrap; flex: none;
+  border-radius: var(--r-sm); background: none; border: 0;
+  font-size: 13px; color: var(--ink-3); white-space: nowrap; flex: none; transition: background var(--t);
 }
+a.dday-chip:hover { background: var(--surface-2); }
 .dday-chip__value { color: var(--ink); font-family: var(--mono); font-size: 15px; font-weight: 600; letter-spacing: -.02em; }
 .mobile-nav { border-top: 1px solid var(--line); background: var(--bg); }
 .mobile-nav .container { display: flex; flex-direction: column; padding-top: 4px; padding-bottom: 10px; }
