@@ -8,5 +8,5 @@ const rows = keys.filter(k => all || !(k.metadata?.spam > 0.7)).sort((a, b) => b
 console.log(`제보 ${keys.length}건 (표시 ${rows.length})`);
 for (const k of rows) {
   const r = JSON.parse(run(`npx -y wrangler@4 kv key get --binding REPORTS --remote "${k.name}"`));
-  console.log(`${r.ts.slice(0, 16)}  https://kicegg.com/exam-${r.examId}.html  [${r.kind}${r.field ? ' · ' + r.field : ''}]${r.jev ? ` jev:${r.jev.kind} spam:${(r.jev.spam ?? 0).toFixed(2)}` : ''}\n    ${r.text || '(내용 없음)'}`);
+  console.log(`${r.ts.slice(0, 16)}  https://kicegg.com/exam-${r.examId}.html  [${r.kind}${r.field ? ' · ' + r.field : ''}]${r.jev ? ` jev:${r.jev.kind} spam:${(r.jev.spam ?? 0).toFixed(2)}` : ''}\n    ${r.text || '(내용 없음)'}${r.env ? `\n    환경: ${r.env}${r.screen ? ' · ' + r.screen : ''}${r.country ? ' · ' + r.country : ''}` : ''}`);
 }

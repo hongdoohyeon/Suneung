@@ -1,9 +1,19 @@
 // kicegg.com/api/report — 자료 오류 제보 접수. KV(REPORTS)에 90일 보관, JEV 로 유형·스팸 여부를 미리 분류해 둔다.
 // 개인정보는 받지 않는다(이름·연락처 없음). IP 는 도배 방지 상한에만 쓰고 저장하지 않는다.
+// 원인 파악용으로 브라우저(UA)·화면 크기·국가만 남긴다(앱 안 브라우저 다운로드 실패 같은 기기 탓 문제 구분).
 // 접수되면 운영자에게 메일 알림(비밀값 REPORT_TO, 스팸 판정·상한 초과는 생략).
 import { EmailMessage } from 'cloudflare:email';
 const KINDS = { broken: '파일이 안 열려요', wrong: '다른 시험·과목 파일이에요', answer: '정답·해설이 틀려요', cut: '등급컷·난이도가 이상해요', other: '기타' };
 const FIELDS = ['questionUrl', 'answerUrl', 'solutionUrl', 'listenUrl', 'scriptUrl', ''];
+// UA → 사람이 읽는 짧은 환경 이름 (예: 'Android · 카카오톡 앱 안 브라우저')
+function uaLabel(ua) {
+  const os = /iPhone|iPad|iPod/.test(ua) ? 'iOS' : /Android/.test(ua) ? 'Android' : /Mac OS X/.test(ua) ? 'macOS' : /Windows/.test(ua) ? 'Windows' : /Linux/.test(ua) ? 'Linux' : '기타';
+  const app = [[/KAKAOTALK/i, '카카오톡'], [/NAVER\(inapp/i, '네이버 앱'], [/Instagram/, '인스타그램'], [/FBAN|FBAV/, '페이스북'], [/Line\//, '라인'], [/everytimeApp/i, '에브리타임'], [/DaumApps/, '다음 앱']].find(([re]) => re.test(ua));
+  if (app) return `${os} · ${app[1]} 앱 안 브라우저`;
+  if (/; wv\)/.test(ua)) return `${os} · 앱 안 브라우저(WebView)`;
+  const br = /SamsungBrowser/.test(ua) ? '삼성 인터넷' : /Whale/.test(ua) ? '웨일' : /Edg\//.test(ua) ? 'Edge' : /Firefox|FxiOS/.test(ua) ? 'Firefox' : /CriOS|Chrome\//.test(ua) ? 'Chrome' : /Safari\//.test(ua) ? 'Safari' : '알 수 없는 브라우저';
+  return `${os} · ${br}`;
+}
 const json = (body, status = 200) => new Response(JSON.stringify(body), { status, headers: { 'content-type': 'application/json; charset=utf-8', 'cache-control': 'no-store' } });
 
 export async function handleReport(request, env, ctx) {
@@ -20,7 +30,10 @@ export async function handleReport(request, env, ctx) {
   const field = FIELDS.includes(b.field || '') ? (b.field || '') : '';
   const text = String(b.text || '').replace(/[\u0000-\u0008\u000b-\u001f]/g, ' ').trim().slice(0, 500);
   if (!Number.isInteger(examId) || examId <= 0 || examId > 1e6 || !kind) return json({ error: 'invalid' }, 400);
-  const rec = { ts: new Date().toISOString(), examId, kind, field, text, page: String(b.page || '').slice(0, 120) };
+  const ua = (request.headers.get('user-agent') || '').slice(0, 300);
+  const screen = /^\d{2,5}x\d{2,5}$/.test(String(b.screen || '')) ? String(b.screen) : '';
+  const rec = { ts: new Date().toISOString(), examId, kind, field, text, page: String(b.page || '').slice(0, 120),
+    env: uaLabel(ua), ua, screen, country: request.cf?.country || '' };
   // JEV: 스팸·무의미 여부와 실제 유형 (텍스트가 있을 때만)
   // IP 를 바꿔 가며 보내도 유료 API 호출이 무한정 늘지 않게 전체 상한 — 넘으면 분류 없이 저장만
   const jevOk = text && env.TYPESAFE_API_KEY && (await env.REPORT_JEV.limit({ key: 'all' })).success;
@@ -58,6 +71,8 @@ async function notify(env, rec) {
     `자료: ${FIELD_KO[rec.field] ?? rec.field}`,
     `내용: ${rec.text || '(없음)'}`,
     rec.jev ? `자동 분류(JEV): ${KINDS[rec.jev.kind] || rec.jev.kind || '-'} (확신 ${Math.round((rec.jev.conf || 0) * 100)}%) · 스팸 점수 ${Math.round((rec.jev.spam || 0) * 100)}%` : '',
+    `환경: ${rec.env}${rec.screen ? ` · 화면 ${rec.screen}` : ''}${rec.country ? ` · ${rec.country}` : ''}`,
+    `UA: ${rec.ua || '-'}`,
     `시각: ${rec.ts}`, ``,
     `전체 목록: node cloudflare/smart-search/reports.mjs`,
   ].filter(x => x !== null).join('\n');
