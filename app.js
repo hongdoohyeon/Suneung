@@ -15,6 +15,7 @@ import {
 } from './state.js?v=bbc511c9fa6727378e68';
 import { renderAllAdSlots, renderAdSlot } from './lib/ads.js?v=bbc511c9fa6727378e68';
 import { recentItems, clearRecent } from './lib/recent.js?v=bbc511c9fa6727378e68';
+import { initSelect, isSelecting, checkboxHTML } from './lib/select.js?v=bbc511c9fa6727378e68';
 
 const tabConf = () => getTabConf(state.tab);
 
@@ -49,6 +50,7 @@ let fullDataCache = null;
 let dataRequestId = 0;
 
 const $ = id => document.getElementById(id);
+initSelect({ version: DATA_VERSION, onMode: () => renderCards() });
 
 // ── 보기 방식(표/카드) · 1등급컷 인덱스 ─────────────────────
 // cuts.json: { id: [원점수 1컷, 표준점수 최고점, 난이도 1~5|null, 절대평가 0/1] } — render-site.py 생성.
@@ -1225,6 +1227,7 @@ function tableHTML(groups) {
       <header class="rgroup__head">
         <span class="type-badge type-badge--lg tg-${escAttr(first.typeGroup)}${first.type === 'csat' ? ' tg-csat' : ''}">${escHtml(badgeLabel(first))}</span>
         <h2 class="rgroup__title">${setHref ? `<a href="${escAttr(setHref)}">${escHtml(title)}</a>` : escHtml(title)}</h2>
+        ${isSelecting() ? '<button type="button" class="rgroup__all rgroup__selall" data-selall>회차 전체</button>' : ''}
         <button type="button" class="rgroup__all rgroup__fold" aria-expanded="${!folded}" aria-label="${escAttr(title)} ${folded ? '펼치기' : '접기'}"><span class="rgroup__fold-text">${folded ? '펼치기' : '접기'}</span>${foldChev}</button>
       </header>
       <div class="rrow rrow--head" aria-hidden="true"><span>과목</span><span>1등급컷</span><span>난이도</span><span>자료</span></div>
@@ -1236,9 +1239,10 @@ function tableHTML(groups) {
 function rowHTML(e, inFold = false) {
   const { main, sub } = inFold && e.subSubject ? { main: prettySub(e.subSubject), sub: '' } : rowLabel(e);
   const sc = scoreCells(e);
-  const label = `${setTitle(e)} ${main}${sub ? ' ' + sub : ''} 상세 보기`;
-  return `<div class="rrow">
-    <a class="rrow__link" href="exam-${e.id}.html" aria-label="${escAttr(label)}"></a>
+  const name = `${setTitle(e)} ${main}${sub ? ' ' + sub : ''}`;
+  const pick = isSelecting() && !e.searchOnly;
+  return `<div class="rrow${pick ? ' rrow--pick' : ''}">
+    ${pick ? checkboxHTML(e.id, name, 'rrow__link') : `<a class="rrow__link" href="exam-${e.id}.html" aria-label="${escAttr(name + ' 상세 보기')}"></a>`}
     <span class="rrow__subj">${escHtml(main)}${sub ? `<small>${escHtml(sub)}</small>` : ''}</span>
     <span class="rrow__meta">${sc.cut}<span class="rrow__tier">${sc.tier}</span></span>
     <span class="rrow__acts">${actionsHTML(e)}</span>
@@ -1298,7 +1302,7 @@ function cardHTML(exam, idx = 0) {
   const ariaLabel = `${yearPart} ${title} 상세 보기`;
   return `
     <div class="card${hasFile ? ' has-files' : ''}" style="animation-delay:${delay};">
-      <a class="card__link" href="exam-${exam.id}.html" aria-label="${escAttr(ariaLabel)}"></a>
+      ${isSelecting() && !exam.searchOnly ? checkboxHTML(exam.id, `${yearPart} ${title}`, 'card__link') : `<a class="card__link" href="exam-${exam.id}.html" aria-label="${escAttr(ariaLabel)}"></a>`}
       <div class="card__meta">${yearChip}${typeChip}</div>
       <h4 class="card__title" title="${escAttr(title)}">${escHtml(title)}</h4>
       <p class="card__sub">${escHtml(subtitle)}</p>
