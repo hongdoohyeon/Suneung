@@ -95,6 +95,30 @@ function htmlSig(html) {
   return `${html.length}.${h >>> 0}`;
 }
 const TIER_LABEL = { 1: '매우 쉬움', 2: '쉬움', 3: '보통', 4: '어려움', 5: '매우 어려움' };
+// 열고 닫힘·목록 갱신을 '틱' 대신 짧게 미끄러지듯 — 움직임 줄이기 설정이면 즉시
+const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)');
+const EASE_OUT = 'cubic-bezier(.2,.7,.2,1)';
+function slideHeight(el, from, to, duration = 240) {
+  if (reduceMotion.matches || from === to) return Promise.resolve();
+  el.style.overflow = 'hidden';
+  return el.animate([{ height: `${from}px` }, { height: `${to}px` }], { duration, easing: EASE_OUT }).finished
+    .catch(() => {}).finally(() => { el.style.overflow = ''; });
+}
+document.addEventListener('click', e => {
+  const sum = e.target.closest('details.rfold > summary');
+  if (!sum || reduceMotion.matches) return;
+  const d = sum.parentElement, rows = d.querySelector('.rfold__rows');
+  if (!rows || d.classList.contains('is-closing')) return;
+  e.preventDefault();
+  if (d.open) {
+    d.classList.add('is-closing');
+    slideHeight(rows, rows.offsetHeight, 0, 200).then(() => { d.open = false; d.classList.remove('is-closing'); });
+  } else {
+    d.open = true;
+    slideHeight(rows, 0, rows.offsetHeight);
+  }
+});
+
 // 탐구 등 접힌 영역의 펼침 상태 — 한 번 펼친 영역은 다른 회차·페이지에서도 펼쳐 둔다
 const FOLD_KEY = 'kicegg:open-folds';
 const openFolds = new Set((() => { try { return JSON.parse(localStorage.getItem(FOLD_KEY) || '[]'); } catch { return []; } })());
@@ -454,8 +478,13 @@ async function loadExams() {
 }
 
 // ── 렌더링 조율 ────────────────────────────────────────────
+let renderedOnce = false;
 function render(skipSubjectFilter = false) {
   renderCards();
+  if (renderedOnce && !reduceMotion.matches) {
+    $('cardsGrid').animate([{ opacity: 0, transform: 'translateY(6px)' }, { opacity: 1, transform: 'none' }], { duration: 200, easing: EASE_OUT });
+  }
+  renderedOnce = true;
   renderActiveTags();
   updateFilterBadge();
   if (!skipSubjectFilter) renderSubjectFilter();
@@ -1190,13 +1219,25 @@ const rgroupFolded = new Set();
 document.addEventListener('click', e => {
   const btn = e.target.closest('.rgroup__fold');
   if (!btn) return;
-  const title = btn.closest('.rgroup').dataset.group;
-  if (rgroupFolded.has(title)) rgroupFolded.delete(title); else rgroupFolded.add(title);
-  const top = btn.getBoundingClientRect().top;
+  const sec = btn.closest('.rgroup'), title = sec.dataset.group;
+  const folding = !rgroupFolded.has(title);
+  if (folding) rgroupFolded.add(title); else rgroupFolded.delete(title);
+  const top = btn.getBoundingClientRect().top, from = sec.offsetHeight;
   renderCards();
   // 누른 회차 머리줄이 화면에서 같은 자리에 머물게
-  const again = [...document.querySelectorAll('.rgroup')].find(x => x.dataset.group === title)?.querySelector('.rgroup__fold');
+  const ns = [...document.querySelectorAll('.rgroup')].find(x => x.dataset.group === title);
+  const again = ns?.querySelector('.rgroup__fold');
   if (again) { scrollBy(0, again.getBoundingClientRect().top - top); again.focus({ preventScroll: true }); }
+  if (!ns || reduceMotion.matches) return;
+  const to = ns.offsetHeight;
+  const spin = ns.querySelector('.rgroup__fold-chev')?.animate(
+    [{ transform: `rotate(${folding ? 0 : 180}deg)` }, { transform: `rotate(${folding ? 180 : 0}deg)` }],
+    { duration: 240, easing: EASE_OUT, fill: 'forwards' });
+  if (folding) ns.classList.remove('is-folded');   // 접히는 동안은 줄을 보여 주고 높이만 줄인다 — 끝나면 되돌림
+  slideHeight(ns, from, to).then(() => {
+    if (folding && rgroupFolded.has(title)) ns.classList.add('is-folded');
+    spin?.cancel();
+  });
 });
 
 function tableHTML(groups) {

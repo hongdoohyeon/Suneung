@@ -265,6 +265,8 @@ main { flex: 1 0 auto; width: 100%; }
 a.dday-chip:hover { background: var(--surface-2); }
 .dday-chip__value { color: var(--ink); font-family: var(--mono); font-size: 15px; font-weight: 600; letter-spacing: -.02em; }
 .mobile-nav { border-top: 1px solid var(--line); background: var(--bg); }
+.mobile-nav:not([hidden]) { animation: drop-in .2s var(--ease); }
+@keyframes drop-in { from { opacity: 0; translate: 0 -6px; } }
 .mobile-nav .container { display: flex; flex-direction: column; padding-top: 4px; padding-bottom: 10px; }
 .mobile-nav a { display: flex; align-items: center; min-height: 50px; font-size: 16px; font-weight: var(--ui-weight); border-bottom: 1px solid var(--line); }
 .mobile-nav a:last-child { border-bottom: 0; color: var(--ink-4); font-weight: 500; }
@@ -642,6 +644,7 @@ html[data-urlstate] .content:has(#cardsGrid[data-prerendered]) #skeleton { displ
 .rfold__count { font-size: 13px; color: var(--ink-4); }
 .rfold__chev { margin-left: auto; color: var(--ink-4); transition: transform .2s; }
 .rfold[open] .rfold__chev { transform: rotate(180deg); }
+.rfold.is-closing .rfold__chev { transform: none; }   /* 닫히는 동안 화살표 먼저 돌려 둠(app.js slideHeight) */
 .rfold__dist { display: flex; width: 72px; height: 8px; border-radius: 4px; overflow: hidden; gap: 1px; margin-left: 6px; }
 .rfold__seg { display: block; height: 100%; }
 .rfold__seg--1 { background: var(--t1); } .rfold__seg--2 { background: var(--t2); } .rfold__seg--3 { background: var(--t3); } .rfold__seg--4 { background: var(--t4); } .rfold__seg--5 { background: var(--t5); }
@@ -1443,6 +1446,8 @@ body.pv-lock { overflow: hidden; }
   display: flex; align-items: center; gap: 8px; max-width: calc(100vw - 32px); padding: 8px 8px 8px 16px;
   background: var(--surface); border: 1px solid var(--line-strong); border-radius: var(--r); box-shadow: var(--sh-paper); }
 .selbar[hidden] { display: none; }
+.selbar:not([hidden]) { animation: selbar-in .24s cubic-bezier(.2,.7,.2,1); }
+@keyframes selbar-in { from { opacity: 0; translate: 0 12px; } }   /* translate 속성 — 폰(transform: none)·데스크톱(-50%) 위치 지정과 겹치지 않게 */
 .selbar__count { font-size: 14px; color: var(--ink-3); white-space: nowrap; margin-right: 4px; }
 .selbar__count b { font-family: var(--mono); color: var(--ink); }
 body:has(.selbar:not([hidden])) .pagination-wrap { margin-bottom: 72px; }   /* 바가 페이지 번호를 가리지 않게 */
