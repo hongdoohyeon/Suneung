@@ -257,6 +257,7 @@ main { flex: 1 0 auto; width: 100%; }
 :root[data-theme="dark"] .theme-toggle .icon-sun { display: block; }
 :root[data-theme="dark"] .theme-toggle .icon-moon { display: none; }
 .menu-toggle, .header-search--icon { display: none; }
+.header-tools .header-search, .header-tools .header-search--icon { display: none; }   /* 헤더 검색창 뺌 — 기출검색은 본문 검색창, 다른 페이지는 로고로(넓은 화면 입력칸·좁은 화면 돋보기 모두) */
 .dday-chip {
   display: inline-flex; align-items: center; gap: 6px; height: 40px; padding: 0 14px;
   border-radius: var(--r-sm); background: none; border: 0;
