@@ -1134,7 +1134,7 @@ function scoreCells(e) {
   const [raw, top, tier, abs, ratio] = c;
   // 영어(절대평가)는 90점 기준은 공개 정보, 1등급 비율과 그에 따른 난이도만 스포일러
   const cut = abs
-    ? `<span class="rrow__cut">${raw}점${ratio != null ? `<small class="spoil-val">1등급 ${ratio}%</small>` : '<small>이상 1등급</small>'}</span>`
+    ? `<span class="rrow__cut">${raw}점${ratio != null ? `<small class="rrow__ratio spoil-val">(${ratio}%)</small>` : ''}</span>`   // 예: 90점(15.54%) — 비율은 1등급 비율
     : `<span class="rrow__cut spoil-val">${raw}${top != null ? `<small>최고표점 ${top}</small>` : ''}</span>`;
   const tierHtml = tier
     ? `<span class="tier tier--${tier} spoil-val">${TIER_LABEL[tier]}</span>`
