@@ -1230,11 +1230,13 @@ document.addEventListener('click', e => {
   if (again) { scrollBy(0, again.getBoundingClientRect().top - top); again.focus({ preventScroll: true }); }
   if (!ns || reduceMotion.matches) return;
   const to = ns.offsetHeight;
+  // 긴 회차일수록 천천히 — 600px 넘게 펼치면 약 0.5초
+  const duration = Math.min(560, 280 + Math.abs(to - from) * .35);
   const spin = ns.querySelector('.rgroup__fold-chev')?.animate(
     [{ transform: `rotate(${folding ? 0 : 180}deg)` }, { transform: `rotate(${folding ? 180 : 0}deg)` }],
-    { duration: 240, easing: EASE_OUT, fill: 'forwards' });
+    { duration, easing: EASE_OUT, fill: 'forwards' });
   if (folding) ns.classList.remove('is-folded');   // 접히는 동안은 줄을 보여 주고 높이만 줄인다 — 끝나면 되돌림
-  slideHeight(ns, from, to).then(() => {
+  slideHeight(ns, from, to, duration).then(() => {
     if (folding && rgroupFolded.has(title)) ns.classList.add('is-folded');
     spin?.cancel();
   });

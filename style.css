@@ -282,6 +282,39 @@ a.dday-chip:hover { background: var(--surface-2); }
 .site-footer__links a:hover { color: var(--ink); }
 .site-footer__sub { max-width: 720px; margin: 0 auto; }
 
+/* ═══ 배경 — 헤더 뒤 남색 빛 번짐(천천히 떠돎) + 종이 그레인 ═══════════════
+   모두 콘텐츠 뒤(z-index -1) — 표·카드처럼 바탕 있는 칸에는 비치지 않는다. 움직임은 transform 만(가벼움),
+   움직임 줄이기 설정이면 아래 전역 규칙으로 멈춘다. 시안: tmp/redesign/bg-lab2 'G 떠돌기만'·평가원 남색 */
+:root {
+  --bloom-1: rgba(0, 60, 140, .07); --bloom-2: rgba(0, 40, 100, .047); 
+  --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 .6 0'/%3E%3C/filter%3E%3Crect width='100%' height='100%' filter='url(%23n)'/%3E%3C/svg%3E"); --grain-op: .13; --grain-blend: multiply;
+}
+:root[data-theme="dark"] {
+  --bloom-1: rgba(40, 100, 200, .12); --bloom-2: rgba(20, 50, 120, .16); 
+  --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 .6 0'/%3E%3C/filter%3E%3Crect width='100%' height='100%' filter='url(%23n)'/%3E%3C/svg%3E"); --grain-op: .1; --grain-blend: screen;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bloom-1: rgba(40, 100, 200, .12); --bloom-2: rgba(20, 50, 120, .16); 
+    --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 .6 0'/%3E%3C/filter%3E%3Crect width='100%' height='100%' filter='url(%23n)'/%3E%3C/svg%3E"); --grain-op: .1; --grain-blend: screen;
+  }
+}
+body::before, body::after {
+  content: ''; position: absolute; z-index: -1; pointer-events: none; border-radius: 50%;
+  width: 55vw; height: 33vw; min-width: 420px; min-height: 260px;
+  animation: var(--bloom-anim) ease-in-out infinite alternate;
+}
+body::before { left: 0; top: -14vw; background: radial-gradient(closest-side, var(--bloom-1), transparent); --bloom-anim: bloom-a 46s; }
+body::after  { left: 45vw; top: -10vw; width: 60vw; height: 36vw; background: radial-gradient(closest-side, var(--bloom-2), transparent); --bloom-anim: bloom-b 59s; }
+@keyframes bloom-a { 0% { transform: translate(0, 0); } 33% { transform: translate(18vw, 4vw); } 66% { transform: translate(6vw, 9vw); } 100% { transform: translate(26vw, 2vw); } }
+@keyframes bloom-b { 0% { transform: translate(0, 0); } 30% { transform: translate(-20vw, 6vw); } 65% { transform: translate(-8vw, -2vw); } 100% { transform: translate(-28vw, 5vw); } }
+html::before {
+  content: ''; position: fixed; inset: 0; z-index: -1; pointer-events: none;
+  background-image: var(--grain); background-size: 200px; opacity: var(--grain-op); mix-blend-mode: var(--grain-blend);
+}
+body { position: relative; overflow-x: clip; }   /* 빛의 기준을 body 로 — 화면 밖으로 떠돌아도 잘려서 가로 스크롤이 생기지 않게 */
+@media print { html::before, body::before, body::after { display: none; } }
+
 /* ═══ Buttons · chips · badges ════════════════════════════ */
 .btn {
   display: inline-flex; align-items: center; justify-content: center; gap: 7px;
@@ -565,9 +598,29 @@ html[data-urlstate] .content:has(#cardsGrid[data-prerendered]) #skeleton { displ
 .search__clear { width: 32px; height: 32px; border-radius: var(--r-sm); display: grid; place-items: center; justify-content: center; align-items: center; flex: none; color: var(--ink-4); }
 .search__clear:hover { background: var(--surface-2); color: var(--ink); }
 .filter-toggle-inline { display: none; }
+/* 넓은 화면에도 [필터] — 사이드바 아래쪽이 화면 밖이어도 필터가 있다는 걸 알리고, 누르면 왼쪽에서 필터 창(서랍)이 열린다.
+   같은 #filterPanel 을 열린 동안만 고정 위치로 띄운다(app.js setSheetOpen — 폰 바텀시트와 같은 흐름) */
+@media (min-width: 961px) {
+  .toolbar .filter-toggle-inline { display: inline-flex; height: 46px; padding: 0 14px; gap: 6px; }
+  .main > .content { grid-column: 2; }   /* 필터가 서랍으로 빠져도 본문이 왼쪽 칸으로 밀려나지 않게 */
+  .filter.is-open {
+    position: fixed; top: 0; bottom: 0; left: 0; z-index: 100; width: 380px; overflow-y: auto; overscroll-behavior: contain;
+    padding: 0 24px; background: var(--surface); border-radius: 0 12px 12px 0; box-shadow: 16px 0 48px rgba(0,0,0,.18);
+    animation: filter-drawer-in .26s var(--ease);
+  }
+  .filter.is-open .filter__sheet-head { display: flex; align-items: center; position: sticky; top: 0; z-index: 1; min-height: 60px; background: var(--surface); }
+  .filter.is-open .filter__sheet-title { font-size: 16px; font-weight: 700; }
+  .filter.is-open .filter__sheet-close { margin-left: auto; width: 40px; height: 40px; display: grid; place-items: center; border-radius: var(--r-sm); color: var(--ink-3); }
+  .filter.is-open .filter__sheet-close:hover { background: var(--surface-2); color: var(--ink); }
+  .filter.is-open .filter__sheet-actions { display: flex; gap: 8px; position: sticky; bottom: 0; margin-top: auto; padding: 12px 0 16px; background: var(--surface); }
+  .filter.is-open .filter__sheet-actions .btn { min-height: 46px; }
+  .filter.is-open .filter__sheet-actions .btn--primary { flex: 1; }
+  body.is-sheet-open { overflow: hidden; }
+}
+@keyframes filter-drawer-in { from { translate: -100% 0; } }
 .filter-badge { min-width: 20px; height: 20px; padding: 0 5px; border-radius: 999px; background: var(--ink); color: var(--on-ink); font-size: 11.5px; display: grid; place-items: center; }
 .toolbar__right { display: flex; align-items: center; gap: 6px; }
-.count { font-size: 13.5px; color: var(--ink-3); white-space: nowrap; }
+.count { display: inline-block; min-width: 4.6em; text-align: right; font-size: 13.5px; color: var(--ink-3); white-space: nowrap; }   /* 탭마다 자릿수가 달라도 검색창·버튼 폭이 흔들리지 않게 — 99,999건까지 같은 폭 */
 .view-toggle { display: inline-flex; padding: 2px; gap: 2px; border-radius: var(--r-sm); background: var(--surface); border: 1px solid var(--line-strong); }
 .view-toggle button { min-width: 40px; min-height: 34px; display: grid; place-items: center; border-radius: var(--r-xs); color: var(--ink-4); }
 .view-toggle button svg { width: 16px; height: 16px; }
