@@ -579,9 +579,9 @@ html[data-urlstate] .content:has(#cardsGrid[data-prerendered]) #skeleton { displ
 .sub-row.is-active { background: var(--ink); border-color: var(--ink); color: var(--on-ink); box-shadow: var(--sh-pressed); }
 
 .content { min-width: 0; }
-.toolbar { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 12px; }
+.toolbar { display: flex; align-items: center; gap: 10px; flex-wrap: nowrap; margin-bottom: 12px; }   /* 한 줄 고정 — 폭이 모자라면 검색창이 줄어든다(개수·초기화가 아랫줄로 떨어지지 않게) */
 .search {
-  position: relative; flex: 1 1 280px; min-width: 0;   /* 사파리: 입력칸 기본 너비 때문에 옆 버튼이 밀려나지 않게 */ display: flex; align-items: center; gap: 10px; height: 46px; padding: 0 12px 0 14px;
+  position: relative; flex: 1 1 0; min-width: 0;   /* 사파리: 입력칸 기본 너비 때문에 옆 버튼이 밀려나지 않게 */ display: flex; align-items: center; gap: 10px; height: 46px; padding: 0 12px 0 14px;
   background: var(--surface); border: 1px solid var(--line-strong); border-radius: var(--r-sm); color: var(--ink-4);
 }
 .search:focus-within { border-color: var(--ink); box-shadow: 0 0 0 3px color-mix(in srgb, var(--ink) 10%, transparent); }
