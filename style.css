@@ -1250,7 +1250,8 @@ body.pv-lock { overflow: hidden; }
   .curriculum-nav { margin: 6px 0 12px; padding: 0; }
   .curriculum-nav__inner { padding: 0 16px; }
   .nav-tab { padding: 8px 0 10px; }
-  .curriculum-nav__inner { --tab-gap: 22px; }
+  .curriculum-nav__inner { --tab-gap: 16px; }
+  .nav-tab__title { font-size: 14.5px; }
   /* 한 줄: [검색 ····][필터][표|카드] — 어떤 폭에서도 잘리지 않게 검색창만 줄어든다 */
   .toolbar { flex-wrap: nowrap; gap: 6px; margin-bottom: 8px; }
   .search { flex: 1 1 0; height: 44px; padding: 0 8px 0 12px; gap: 8px; }

@@ -21,7 +21,7 @@ export const TAB_CONFIG = [
     curriculums: ['2015', '2009', '2007개정', '7차', '6차', '예비'], educationGrades: [3],
     defaultTypeGroup: 'suneung' },
   { key: 'mp',         label: '사관·경찰', sub: '1차 시험',         curriculums: ['사관', '경찰대'] },
-  { key: 'gradschool', label: 'LEET·MEET', sub: '전문대학원',       curriculums: ['LEET', 'MEET'] },
+  { key: 'gradschool', label: 'L/MEET', sub: '전문대학원',       curriculums: ['LEET', 'MEET'] },
   // 고1·고2: 교육청 학평만 (typeGroup=education, studentGrade=2/1)
   { key: 'junior',     label: '고2',       sub: '학평',
     curriculums: ['2015', '2009', '2007개정', '7차'], educationGrades: [2], educationOnly: true,
