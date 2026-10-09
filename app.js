@@ -1159,7 +1159,7 @@ function actsColumns(items) {
     if (fileUrl(e, 'solutionUrl') && !sameQS) has.s = true;
     if (fileUrl(e, 'listenUrl')) has.l = true;
   }
-  const w = { q: wide.q ? 73 : 58, a: wide.a ? 73 : 47, s: 47, l: 47 };
+  const w = { q: wide.q ? 73 : 58, a: wide.a ? 73 : 58, s: 58, l: 58 };   // 버튼 폭 통일 — 글자 수가 달라도 같은 크기
   return ['q', 'a', 's', 'l'].filter(k => has[k]).map(k => `[${k}] ${w[k]}px`).join(' ') || 'auto';
 }
 

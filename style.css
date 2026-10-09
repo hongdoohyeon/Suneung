@@ -535,12 +535,13 @@ html[data-urlstate] .content:has(#cardsGrid[data-prerendered]) #skeleton { displ
 .filter__title, .filter__title-row { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 10px; font-size: 12px; font-weight: 650; color: var(--ink-4); }
 .filter__title-row .filter__title { margin: 0; }
 .filter__hint { font-size: 12px; color: var(--ink-4); font-weight: 500; }
-.pill-row { display: flex; flex-wrap: wrap; gap: 6px; }
-.subtype-row { display: none; margin: 10px 0 0 6px; padding: 2px 0 2px 12px; border-left: 2px solid var(--line); }
+.pill-row { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px; }   /* 학년도 칸과 같은 4열 — 버튼 폭·세로선이 모든 필터에서 같게 */
+.pill-row .pill { padding: 0 4px; }
+.subtype-row { display: none; margin: 12px 0 0; }   /* 들여쓰기 없이 — 위아래 버튼과 같은 열에 맞춤 */
 .subtype-row.is-open { display: block; }
 /* 하위 줄: 작게 + 선택은 채우지 않고 테두리로 — 위 줄(기관, 검정 채움)과 위계 구분 */
 .subtype-row__label { margin: 0 0 6px; font-size: 12px; font-weight: var(--ui-weight); color: var(--ink-4); }
-.subtype-row .pill { min-height: 32px; padding: 0 11px; border-radius: var(--r-sm); font-size: 13px; }
+.subtype-row .pill { min-height: 32px; padding: 0 4px; border-radius: var(--r-sm); font-size: 13px; }
 .subtype-row .pill.is-active { background: var(--chip-sel); border-color: var(--chip-sel-line); color: var(--ink); box-shadow: 0 1px 2px rgba(0,0,0,.06); }
 .subtype-row .pill.is-active:hover { background: var(--chip-sel); border-color: var(--ink-4); color: var(--ink); }
 .pill {
@@ -595,7 +596,7 @@ html[data-urlstate] .content:has(#cardsGrid[data-prerendered]) #skeleton { displ
 /* 넓은 화면에도 [필터] — 사이드바 아래쪽이 화면 밖이어도 필터가 있다는 걸 알리고, 누르면 왼쪽에서 필터 창(서랍)이 열린다.
    같은 #filterPanel 을 열린 동안만 고정 위치로 띄운다(app.js setSheetOpen — 폰 바텀시트와 같은 흐름) */
 @media (min-width: 961px) {
-  .toolbar .filter-toggle-inline { display: inline-flex; height: 40px; padding: 0 14px; gap: 6px; }
+  .toolbar .filter-toggle-inline { display: inline-flex; height: 40px; min-width: 100px; justify-content: center; padding: 0 14px; gap: 6px; }   /* 옆 '선택' 버튼과 같은 폭 */
   .main > .content { grid-column: 2; }   /* 필터가 서랍으로 빠져도 본문이 왼쪽 칸으로 밀려나지 않게 */
   .filter.is-open {
     position: fixed; top: 0; bottom: 0; left: 0; z-index: 100; width: 380px; overflow-y: auto; overscroll-behavior: contain;
@@ -1214,7 +1215,7 @@ body.pv-lock { overflow: hidden; }
   .year-row { grid-template-columns: repeat(5, minmax(0, 1fr)); }
   body.is-sheet-open { overflow: hidden; }
 
-  .rrow { grid-template-columns: minmax(110px, 1fr) 110px 104px 240px; }
+  .rrow { grid-template-columns: minmax(110px, 1fr) 110px 104px 250px; }   /* 자료 버튼 58×4 + 간격 */
   .exam__grid { grid-template-columns: minmax(0, 1fr); }
   .exam__aside { position: static; display: grid; grid-template-columns: 1fr 1fr; }
   .exam__aside .ad-slot--sidebar { grid-column: 1 / -1; min-height: 100px; }
@@ -1265,7 +1266,6 @@ body.pv-lock { overflow: hidden; }
   .view-toggle button { min-width: 36px; min-height: 36px; }
   /* 조건 칩은 줄바꿈 — 가로 스크롤이면 화살표가 칩·× 버튼을 덮는다 */
   .subbar { flex-wrap: wrap; margin-bottom: 10px; }
-  .spoil-note--archive { display: none !important; }
   .examset-link { font-size: 13px; }
 
   .results--table { border-radius: var(--r); }
@@ -1289,7 +1289,7 @@ body.pv-lock { overflow: hidden; }
   .rrow__tier:empty, .rrow__na { display: none; }
   .rrow__acts { grid-area: a; display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 5px; max-width: 64vw; align-self: center; }
   .rrow__acts > .btn { width: auto; }
-  .rrow__acts .btn { min-height: 36px; height: 36px; padding: 0 9px; font-size: 12px; border-radius: var(--r-sm); }
+  .rrow__acts .btn { min-height: 36px; height: 36px; padding: 0 9px; min-width: 54px; font-size: 12px; border-radius: var(--r-sm); }
   .rgroup__head { padding: 14px 16px 10px; flex-wrap: nowrap; }
   .rgroup__title { font-size: 16px; }
   .rgroup__all-pre { display: none; }
@@ -1483,7 +1483,7 @@ body.pv-lock { overflow: hidden; }
 
 
 /* ═══ 여러 시험 선택 · 모아 받기 (lib/select.js) ═══════════════ */
-.toolbar .select-toggle { height: 40px; width: 96px; padding: 0 8px; }   /* '선택'↔'선택 끝내기'로 글자가 바뀌어도 폭 고정 */
+.toolbar .select-toggle { height: 40px; width: 100px; padding: 0 8px; }   /* '선택'↔'선택 끝내기'로 글자가 바뀌어도 폭 고정 */
 .select-toggle[aria-pressed="true"] { background: var(--ink); border-color: var(--ink); color: var(--on-ink); }
 .select-toggle { flex-direction: column; justify-content: center; gap: 1px; line-height: 1.15; }
 .select-toggle__hint { font-size: 11px; font-weight: 500; color: var(--ink-4); letter-spacing: -.01em; }   /* 처음 온 사람도 기능을 알게 — 선택 중엔 숨김 */
