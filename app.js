@@ -505,7 +505,13 @@ function render(skipSubjectFilter = false) {
   if (renderedOnce && !quietList) flipList($('cardsGrid'), { enter: '.rgroup, .rrow:not(.rrow--head), .grid > .card', key: listKey }, renderCards);
   else renderCards();
   renderedOnce = true;
+  // 칩이 늘고 줄면 같은 줄의 '최근 본 시험'이 툭 당겨지지 않고 한 번에 미끄러진다
+  const recent = $('recentRow'), rx0 = recent && !recent.hidden ? recent.getBoundingClientRect().left : null;
   flipChips($('activeTags'), { item: '.tag', key: el => el.querySelector('[data-clear]')?.dataset.clear }, renderActiveTags);
+  if (rx0 != null && !recent.hidden && !reduceMotion.matches) {
+    const dx = rx0 - recent.getBoundingClientRect().left;
+    if (Math.abs(dx) > .5) recent.animate([{ transform: `translateX(${dx}px)` }, { transform: 'none' }], { duration: 260, easing: M.move });
+  }
   updateFilterBadge();
   if (!skipSubjectFilter) renderSubjectFilter();
   renderSmartNote();

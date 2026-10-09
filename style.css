@@ -192,17 +192,6 @@ html[data-vt="xtab-next"]::view-transition-new(root) { animation-name: m-in-r; }
 html[data-vt="xtab-prev"]::view-transition-old(root) { animation-name: m-out-r; }
 html[data-vt="xtab-prev"]::view-transition-new(root) { animation-name: m-in-l; }
 
-/* 페이지 이동(문서 사이) — 보통은 위의 짧은 페이드만. 같은 회차 다른 과목(상세 과목 줄)만 그 과목이 놓인 쪽에서 들어오고,
-   과목 줄의 '현재' 표시가 옆 칸으로 옮겨 간다 */
-html[data-nav]::view-transition-old(root), html[data-nav]::view-transition-new(root) { mix-blend-mode: plus-lighter; animation-duration: .24s; animation-timing-function: var(--m-move); animation-fill-mode: both; }
-html[data-nav="right"]::view-transition-old(root) { animation-name: m-out-l; }
-html[data-nav="right"]::view-transition-new(root) { animation-name: m-in-r; }
-html[data-nav="left"]::view-transition-old(root) { animation-name: m-out-r; }
-html[data-nav="left"]::view-transition-new(root) { animation-name: m-in-l; }
-::view-transition-group(subj-current), ::view-transition-group(subj-current-sub) { animation-duration: .32s; animation-timing-function: var(--m-move); }
-.exam__subjects-row:not(.exam__subjects-row--subs) a[aria-current="page"] { view-transition-name: subj-current; }   /* 영역 줄·세부 과목 줄 각각 — 같은 이름 둘이면 전환이 취소됨 */
-.exam__subjects-row--subs a[aria-current="page"] { view-transition-name: subj-current-sub; }
-
 /* 밑줄 하나(시험 종류 탭·상세 탭) — 옆 탭으로 옮겨 간다 */
 .ink-bar { position: absolute; left: 0; bottom: 0; height: 2px; background: var(--ink); pointer-events: none; }
 .curriculum-nav__inner { position: relative; }
