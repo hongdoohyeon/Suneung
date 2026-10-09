@@ -16,7 +16,7 @@ import {
 import { renderAllAdSlots, renderAdSlot } from './lib/ads.js?v=827b9badca7d1e6b6dc8';
 import { recentItems, clearRecent } from './lib/recent.js?v=827b9badca7d1e6b6dc8';
 import { initSelect, isSelecting, checkboxHTML } from './lib/select.js?v=827b9badca7d1e6b6dc8';
-import { vt, flipList, flipChips, resize, underline, onSwipe, EASE as M } from './lib/motion.js?v=827b9badca7d1e6b6dc8';
+import { vt, flipChips, resize, underline, onSwipe, EASE as M } from './lib/motion.js?v=827b9badca7d1e6b6dc8';
 let placeTabInk = null;   // 시험 종류 탭 밑줄 옮기기(아래 markActiveNavTab) — 모듈 초기에 탭 표시가 먼저 불릴 수 있어 맨 위에 선언
 
 const tabConf = () => getTabConf(state.tab);
@@ -497,12 +497,11 @@ function selectionMotion(on) {
   $('cardsGrid').querySelectorAll('.card .sel-box').forEach(b => b.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 180, easing: M.out }));
 }
 
-// 목록 항목 열쇠 — 회차 묶음은 제목, 줄·카드는 시험 번호(선택 모드 체크 칸 포함)
-const listKey = el => el.dataset.group ?? el.querySelector('.rrow__link[href], .card__link[href]')?.getAttribute('href') ?? el.querySelector('input[data-sel]')?.dataset.sel ?? null;
 let quietList = false;   // 탭·페이지 넘김 중엔 목록 전체가 옆으로 밀리므로 줄 단위 움직임은 생략
 function render(skipSubjectFilter = false) {
-  // 필터를 바꾸면 남는 회차·줄은 그대로 두고 새로 생긴 것만 옅게(통째 페이드 X)
-  if (renderedOnce && !quietList) flipList($('cardsGrid'), { enter: '.rgroup, .rrow:not(.rrow--head), .grid > .card', key: listKey }, renderCards);
+  // 필터를 바꾸면 목록 전체가 한 번에 짧게 교차된다 — 새 줄만 따로 나타나게 했더니 군데군데 끊겨 보였다
+  const grid = () => $('cardsGrid');
+  if (renderedOnce && !quietList) vt('list', renderCards, [[grid, grid, 'results']]);
   else renderCards();
   renderedOnce = true;
   // 칩이 늘고 줄면 같은 줄의 '최근 본 시험'이 툭 당겨지지 않고 한 번에 미끄러진다

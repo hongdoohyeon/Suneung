@@ -166,6 +166,10 @@ html[data-vt="tab-prev"]::view-transition-new(archive-body), html[data-vt="page-
 @keyframes m-in-r { from { transform: translateX(16px); opacity: 0; } }
 @keyframes m-in-l { from { transform: translateX(-16px); opacity: 0; } }
 
+/* 필터로 목록이 바뀔 때 — 목록 전체가 한 번에 짧게 교차(움직임 없음, 밝기 합 유지) */
+html[data-vt="list"]::view-transition-group(results) { animation: none; }
+html[data-vt="list"]::view-transition-old(results), html[data-vt="list"]::view-transition-new(results) { mix-blend-mode: plus-lighter; animation-duration: .16s; animation-timing-function: linear; }
+
 /* 표 ↔ 카드 — 옛 목록은 빠지고 새 모양이 살짝 올라오며 자리 잡음 */
 html[data-vt="view"]::view-transition-group(results) { animation: none; }
 html[data-vt="view"]::view-transition-old(results) { animation: m-fade-out .14s var(--m-in) both; }
