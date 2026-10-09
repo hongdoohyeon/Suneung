@@ -16,8 +16,7 @@ import {
 import { renderAllAdSlots, renderAdSlot } from './lib/ads.js?v=5faffd083d7b67ebcbb1';
 import { recentItems, clearRecent } from './lib/recent.js?v=5faffd083d7b67ebcbb1';
 import { initSelect, isSelecting, checkboxHTML } from './lib/select.js?v=5faffd083d7b67ebcbb1';
-import { vt, flipList, flipChips, countTo, resize, underline, onSwipe, EASE as M } from './lib/motion.js?v=5faffd083d7b67ebcbb1';
-let placeTabInk = null;   // 시험 종류 탭 밑줄 옮기기(아래 markActiveNavTab) — 모듈 초기에 탭 표시가 먼저 불릴 수 있어 맨 위에 선언
+import { vt, flipList, flipChips, resize, onSwipe, EASE as M } from './lib/motion.js?v=5faffd083d7b67ebcbb1';
 
 const tabConf = () => getTabConf(state.tab);
 
@@ -501,8 +500,8 @@ function selectionMotion(on) {
 const listKey = el => el.dataset.group ?? el.querySelector('.rrow__link[href], .card__link[href]')?.getAttribute('href') ?? el.querySelector('input[data-sel]')?.dataset.sel ?? null;
 let quietList = false;   // 탭·페이지 넘김 중엔 목록 전체가 옆으로 밀리므로 줄 단위 움직임은 생략
 function render(skipSubjectFilter = false) {
-  // 필터를 바꾸면 남는 회차는 제자리로 미끄러지고 새 회차·줄만 위에서 내려앉는다(통째 페이드 X)
-  if (renderedOnce && !quietList) flipList($('cardsGrid'), { move: '.rgroup, .grid > .card', enter: '.rgroup, .rrow:not(.rrow--head), .grid > .card', key: listKey }, renderCards);
+  // 필터를 바꾸면 남는 회차·줄은 그대로 두고 새로 생긴 것만 옅게(통째 페이드 X)
+  if (renderedOnce && !quietList) flipList($('cardsGrid'), { enter: '.rgroup, .rrow:not(.rrow--head), .grid > .card', key: listKey }, renderCards);
   else renderCards();
   renderedOnce = true;
   flipChips($('activeTags'), { item: '.tag', key: el => el.querySelector('[data-clear]')?.dataset.clear }, renderActiveTags);
@@ -525,10 +524,7 @@ function markActiveNavTab() {
     b.classList.toggle('is-active', on);
     if (on) b.setAttribute('aria-current', 'true'); else b.removeAttribute('aria-current');
   });
-  placeTabInk?.(true);
 }
-// 탭 밑줄 하나가 옆 탭으로 옮겨 간다(placeTabInk 는 위쪽 import 아래에 선언 — 모듈 실행 중 일찍 불려도 되게)
-requestAnimationFrame(() => { placeTabInk = underline(document.querySelector('.curriculum-nav__inner'), '.nav-tab.is-active'); });
 const navOrder = () => [...document.querySelectorAll('.curriculum-nav .nav-tab')].map(b => b.dataset.tab);
 // 폰: 결과 위에서 옆으로 밀면 옆 시험 종류로
 onSwipe(document.querySelector('.content'), d => {
@@ -576,9 +572,10 @@ async function switchTab(tab) {
   if (!await replaceExamsForTab(state.tab)) return;
   const doRender = () => { quietList = true; try { renderFilterPanel(); render(); } finally { quietList = false; } };
   // 본문(필터+결과)이 통째로 옆으로 밀린다 — 오른쪽 탭이면 왼쪽으로 밀려나고 새 내용이 오른쪽에서 들어옴
-  const main = () => document.querySelector('.main');
+  // 결과 영역만 밀린다 — 사이드바까지 통째로 움직이면 화면 절반이 흔들려 어지러웠다
+  const body = () => document.querySelector('.content');
   if (same) doRender();
-  else vt(dir > 0 ? 'tab-next' : 'tab-prev', doRender, [[main, main, 'archive-body']]);
+  else vt(dir > 0 ? 'tab-next' : 'tab-prev', doRender, [[body, body, 'archive-body']]);
 
   scrollActiveTabIntoView();
 }
@@ -1063,8 +1060,7 @@ function renderCards() {
   const countEl  = $('resultCount');
   const isPlaceholder = Boolean(tabConf()?.placeholder);
 
-  if (isPlaceholder) countEl.textContent = '';
-  else countTo(countEl, data.length, n => `${n.toLocaleString()}건`);   // 옛 건수에서 새 건수로 굴러감
+  countEl.textContent = isPlaceholder ? '' : `${data.length.toLocaleString()}건`;
   // 모바일 필터 시트 "결과 N건 보기" 버튼 카운트 동기화
   const sheetCountEl = $('filterSheetCount');
   if (sheetCountEl) sheetCountEl.textContent = isPlaceholder ? '0' : data.length.toLocaleString();
@@ -1645,7 +1641,7 @@ window.addEventListener('popstate', async () => {
   if (!await replaceExamsForTab(nextTab)) return;
   const update = () => { quietList = from !== to; try { applyUrlState(); renderFilterPanel(); render(); renderSmartNote(); } finally { quietList = false; } };
   // 뒤로·앞으로 가기로 시험 종류가 바뀌어도 탭이 놓인 방향으로 밀린다
-  if (from !== to && from >= 0 && to >= 0) { const main = () => document.querySelector('.main'); vt(to > from ? 'tab-next' : 'tab-prev', update, [[main, main, 'archive-body']]); }
+  if (from !== to && from >= 0 && to >= 0) { const body = () => document.querySelector('.content'); vt(to > from ? 'tab-next' : 'tab-prev', update, [[body, body, 'archive-body']]); }
   else update();
 });
 
