@@ -16,7 +16,8 @@ import {
 import { renderAllAdSlots, renderAdSlot } from './lib/ads.js?v=30e7820c981d1e38a4df';
 import { recentItems, clearRecent } from './lib/recent.js?v=30e7820c981d1e38a4df';
 import { initSelect, isSelecting, checkboxHTML } from './lib/select.js?v=30e7820c981d1e38a4df';
-import { vt, flipList, flipChips, resize, onSwipe, EASE as M } from './lib/motion.js?v=30e7820c981d1e38a4df';
+import { vt, flipList, flipChips, resize, underline, onSwipe, EASE as M } from './lib/motion.js?v=30e7820c981d1e38a4df';
+let placeTabInk = null;   // 시험 종류 탭 밑줄 옮기기(아래 markActiveNavTab) — 모듈 초기에 탭 표시가 먼저 불릴 수 있어 맨 위에 선언
 
 const tabConf = () => getTabConf(state.tab);
 
@@ -511,10 +512,6 @@ function render(skipSubjectFilter = false) {
 }
 
 // ── 교육과정 탭 ─────────────────────────────────────────────
-function scrollActiveTabIntoView() {
-  const active = document.querySelector('.curriculum-nav .nav-tab.is-active');
-  active?.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
-}
 
 // 묶인 탭(고1·2, 검정고시)은 nav 버튼 하나 — 활성 표시는 대표 탭 키로 비교
 function markActiveNavTab() {
@@ -523,8 +520,10 @@ function markActiveNavTab() {
     const on = b.dataset.tab === key;
     b.classList.toggle('is-active', on);
     if (on) b.setAttribute('aria-current', 'true'); else b.removeAttribute('aria-current');
-  });
+  });  placeTabInk?.(true);
 }
+// 탭 밑줄 하나가 옆 탭으로 옮겨 간다
+requestAnimationFrame(() => { placeTabInk = underline(document.querySelector('.curriculum-nav__inner'), '.nav-tab.is-active'); });
 const navOrder = () => [...document.querySelectorAll('.curriculum-nav .nav-tab')].map(b => b.dataset.tab);
 // 폰: 결과 위에서 옆으로 밀면 옆 시험 종류로
 onSwipe(document.querySelector('.content'), d => {
@@ -576,8 +575,7 @@ async function switchTab(tab) {
   const body = () => document.querySelector('.content');
   if (same) doRender();
   else vt(dir > 0 ? 'tab-next' : 'tab-prev', doRender, [[body, body, 'archive-body']]);
-
-  scrollActiveTabIntoView();
+  // 탭 줄을 활성 탭 쪽으로 미끄러지듯 스크롤하던 것은 뺌 — 탭이 한 줄에 다 들어가고, 좁은 화면에서 줄이 옆으로 움직이면 어지러웠다
 }
 
 // 주소의 탭이 정해진 직후 활성 탭을 모바일 가로 스크롤 가운데로 — 탭 줄만 옮기고 페이지 세로 위치는 그대로

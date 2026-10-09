@@ -141,7 +141,7 @@
 
 /* ═══ 모션 (2026-10 시안) — lib/motion.js·site-prefs.js·exam-tabs.js 와 짝 ═══════════════════
    가로 = 같은 층위 이동(탭·페이지·상세 탭·같은 회차 과목) / 세로 = 펼침·목록 갱신
-   넓은 면적이 함께 움직이지 않게 — 결과 영역만 밀리고, 밑줄·목록은 제자리에서 바로 바뀐다 */
+   넓은 면적이 함께 움직이지 않게 — 결과 영역만 밀리고 밑줄은 옆 탭으로 옮겨 가며, 목록은 제자리에서 바뀐다 */
 :root { --m-out: cubic-bezier(.2,.7,.2,1); --m-in: cubic-bezier(.4,0,1,1); --m-move: cubic-bezier(.65,0,.35,1); }
 
 /* 같은 문서 전환 — 바뀌지 않는 바탕(root)은 즉시 새 모습, 이름 붙은 조각만 움직인다 */
@@ -203,6 +203,14 @@ html[data-nav="left"]::view-transition-new(root) { animation-name: m-in-l; }
 ::view-transition-group(subj-current), ::view-transition-group(subj-current-sub) { animation-duration: .32s; animation-timing-function: var(--m-move); }
 .exam__subjects-row:not(.exam__subjects-row--subs) a[aria-current="page"] { view-transition-name: subj-current; }   /* 영역 줄·세부 과목 줄 각각 — 같은 이름 둘이면 전환이 취소됨 */
 .exam__subjects-row--subs a[aria-current="page"] { view-transition-name: subj-current-sub; }
+
+/* 밑줄 하나(시험 종류 탭·상세 탭) — 옆 탭으로 옮겨 간다 */
+.ink-bar { position: absolute; left: 0; bottom: 0; height: 2px; background: var(--ink); pointer-events: none; }
+.curriculum-nav__inner { position: relative; }
+.curriculum-nav__inner:has(> .ink-bar) .nav-tab.is-active { box-shadow: none; }
+.exam-tabs { position: relative; }
+.exam-tabs > .ink-bar { bottom: -1px; }
+.exam-tabs:has(> .ink-bar) .exam-tabs__tab[aria-selected="true"] { border-bottom-color: transparent; }
 
 /* 스포일러 방지 끄기 — 가린 값이 위에서 아래로 차례로 걷힌다(site-prefs.js 가 --sd 지정) */
 :root:not([data-spoiler="on"]) .spoil-val { transition-duration: .45s; transition-delay: var(--sd, 0ms); }
