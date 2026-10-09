@@ -9,6 +9,7 @@ import { renderGradeDist } from './lib/exam-gradedist.js?v=d2ec8fb734d132265a02'
 import { pushRecent } from './lib/recent.js?v=d2ec8fb734d132265a02';
 import './lib/report.js?v=d2ec8fb734d132265a02';
 import { shareLink } from './lib/share.js?v=d2ec8fb734d132265a02';
+import { mountExamDock } from './lib/exam-dock.js?v=d2ec8fb734d132265a02';
 import { enableForcedDownloads } from './lib/download.js?v=d2ec8fb734d132265a02';
 // 듣기 플레이어는 듣기 음원이 있는 영어 페이지에서만 받는다(나머지 상세 페이지는 10KB 덜 받음)
 const mountListenPlayer = (el, opts) => import('./lib/listen-player.js?v=d2ec8fb734d132265a02').then(m => m.mountListenPlayer(el, opts));
@@ -192,6 +193,8 @@ function renderHead(exam) {
   } else {
     _actionsEl.innerHTML = buttons.join('');
   }
+
+  mountExamDock();
 
   // 공유 버튼 동작
   const shareBtn = document.getElementById('examShareBtn');

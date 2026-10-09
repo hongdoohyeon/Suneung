@@ -1620,3 +1620,14 @@ body:has(.selbar:not([hidden])) .pagination-wrap { margin-bottom: 72px; }   /* �
   .ll__run i { animation-delay: 0ms !important; animation-duration: 1400ms; }
   .ll__mark { transform: none; }
 }
+
+/* 폰 상세: 위 자료 버튼이 화면 밖으로 올라가면 하단에 같은 링크를 고정(lib/exam-dock.js) */
+.exam-dock { display: none; }
+@media (max-width: 720px) {
+  .exam-dock { display: grid; grid-auto-flow: column; grid-auto-columns: 1fr; gap: 8px; position: fixed; left: 0; right: 0; bottom: 0; z-index: 70; padding: 10px 16px calc(10px + env(safe-area-inset-bottom, 0px)); background: var(--surface); border-top: 1px solid var(--line); transform: translateY(110%); transition: transform .2s; }
+  .exam-dock:not(.is-on) { visibility: hidden; }
+  .exam-dock.is-on { transform: none; }
+  .exam-dock .btn { height: 46px; min-height: 46px; justify-content: center; }
+  body.has-exam-dock { padding-bottom: 72px; }
+}
+@media (prefers-reduced-motion: reduce) { .exam-dock { transition: none; } }
