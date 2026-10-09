@@ -16,6 +16,8 @@ import {
 import { renderAllAdSlots, renderAdSlot } from './lib/ads.js?v=827b9badca7d1e6b6dc8';
 import { recentItems, clearRecent } from './lib/recent.js?v=827b9badca7d1e6b6dc8';
 import { initSelect, isSelecting, checkboxHTML } from './lib/select.js?v=827b9badca7d1e6b6dc8';
+import { vt, flipChips, resize, underline, onSwipe, EASE as M } from './lib/motion.js?v=827b9badca7d1e6b6dc8';
+let placeTabInk = null;   // 시험 종류 탭 밑줄 옮기기(아래 markActiveNavTab) — 모듈 초기에 탭 표시가 먼저 불릴 수 있어 맨 위에 선언
 
 const tabConf = () => getTabConf(state.tab);
 
@@ -53,7 +55,7 @@ const $ = id => document.getElementById(id);
 // 전체 선택 창이 쓰는 검색 결과 — 이름은 표의 줄 이름(rowHTML)과 같게
 initSelect({
   version: DATA_VERSION,
-  onMode: () => renderCards(),
+  onMode: () => { renderCards(); selectionMotion(isSelecting()); },
   results: () => filtered().filter(e => !e.searchOnly).map(e => {
     const { main, sub } = rowLabel(e);
     return { id: e.id, label: `${setTitle(e)} ${main}${sub ? ' ' + sub : ''}`, gradeYear: e.gradeYear, examYear: e.examYear,
@@ -98,11 +100,12 @@ function htmlSig(html) {
 const TIER_LABEL = { 1: '매우 쉬움', 2: '쉬움', 3: '보통', 4: '어려움', 5: '매우 어려움' };
 // 열고 닫힘·목록 갱신을 '틱' 대신 짧게 미끄러지듯 — 움직임 줄이기 설정이면 즉시
 const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)');
-const EASE_OUT = 'cubic-bezier(.2,.7,.2,1)';
-function slideHeight(el, from, to, duration = 240) {
+// 펼침·접힘은 같은 시간·같은 곡선(천천히 출발해 천천히 멈춤) — 펼칠 때만 툭 튀어나오지 않게
+const EASE_FOLD = 'cubic-bezier(.65,0,.35,1)';
+function slideHeight(el, from, to, duration = 300) {
   if (reduceMotion.matches || from === to) return Promise.resolve();
   el.style.overflow = 'hidden';
-  return el.animate([{ height: `${from}px` }, { height: `${to}px` }], { duration, easing: EASE_OUT }).finished
+  return el.animate([{ height: `${from}px` }, { height: `${to}px` }], { duration, easing: EASE_FOLD }).finished
     .catch(() => {}).finally(() => { el.style.overflow = ''; });
 }
 document.addEventListener('click', e => {
@@ -113,7 +116,7 @@ document.addEventListener('click', e => {
   e.preventDefault();
   if (d.open) {
     d.classList.add('is-closing');
-    slideHeight(rows, rows.offsetHeight, 0, 200).then(() => { d.open = false; d.classList.remove('is-closing'); });
+    slideHeight(rows, rows.offsetHeight, 0).then(() => { d.open = false; d.classList.remove('is-closing'); });
   } else {
     d.open = true;
     slideHeight(rows, 0, rows.offsetHeight);
@@ -479,24 +482,36 @@ async function loadExams() {
 }
 
 // ── 렌더링 조율 ────────────────────────────────────────────
-let renderedOnce = false;
+// 선택 모드 — 체크 칸 자리만큼 줄이 오른쪽으로 비켜서고 체크 칸이 옅게 나타난다(끝내면 반대로)
+function selectionMotion(on) {
+  if (reduceMotion.matches) return;
+  const label = document.querySelector('#selectToggle .select-toggle__label');
+  label?.animate([{ opacity: 0, transform: `translateY(${on ? 8 : -8}px)` }, { opacity: 1, transform: 'none' }], { duration: 200, easing: M.out });
+  const rows = [...$('cardsGrid').querySelectorAll('.rrow:not(.rrow--head)')].filter(r => { const b = r.getBoundingClientRect(); return b.bottom > 0 && b.top < innerHeight; });
+  rows.forEach(row => {
+    const pad = parseFloat(getComputedStyle(row).paddingLeft);
+    row.animate([{ paddingLeft: `${on ? pad - 26 : pad + 26}px` }, { paddingLeft: `${pad}px` }], { duration: 220, easing: M.out });
+    row.querySelector('.sel-box')?.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 180, delay: 60, easing: M.out, fill: 'backwards' });
+  });
+  $('cardsGrid').querySelectorAll('.card .sel-box').forEach(b => b.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 180, easing: M.out }));
+}
+
 function render(skipSubjectFilter = false) {
+  // 필터로 목록이 바뀔 때는 효과 없이 바로 — 줄마다 나타나게 하면 끊겨 보이고, 전체 교차는 번쩍였다
   renderCards();
-  if (renderedOnce && !reduceMotion.matches) {
-    $('cardsGrid').animate([{ opacity: 0, transform: 'translateY(6px)' }, { opacity: 1, transform: 'none' }], { duration: 200, easing: EASE_OUT });
+  // 칩이 늘고 줄면 같은 줄의 '최근 본 시험'이 툭 당겨지지 않고 한 번에 미끄러진다
+  const recent = $('recentRow'), rx0 = recent && !recent.hidden ? recent.getBoundingClientRect().left : null;
+  flipChips($('activeTags'), { item: '.tag', key: el => el.querySelector('[data-clear]')?.dataset.clear }, renderActiveTags);
+  if (rx0 != null && !recent.hidden && !reduceMotion.matches) {
+    const dx = rx0 - recent.getBoundingClientRect().left;
+    if (Math.abs(dx) > .5) recent.animate([{ transform: `translateX(${dx}px)` }, { transform: 'none' }], { duration: 260, easing: M.move });
   }
-  renderedOnce = true;
-  renderActiveTags();
   updateFilterBadge();
   if (!skipSubjectFilter) renderSubjectFilter();
   renderSmartNote();
 }
 
 // ── 교육과정 탭 ─────────────────────────────────────────────
-function scrollActiveTabIntoView() {
-  const active = document.querySelector('.curriculum-nav .nav-tab.is-active');
-  active?.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
-}
 
 // 묶인 탭(고1·2, 검정고시)은 nav 버튼 하나 — 활성 표시는 대표 탭 키로 비교
 function markActiveNavTab() {
@@ -505,8 +520,16 @@ function markActiveNavTab() {
     const on = b.dataset.tab === key;
     b.classList.toggle('is-active', on);
     if (on) b.setAttribute('aria-current', 'true'); else b.removeAttribute('aria-current');
-  });
+  });  placeTabInk?.(true);
 }
+// 탭 밑줄 하나가 옆 탭으로 옮겨 간다
+requestAnimationFrame(() => { placeTabInk = underline(document.querySelector('.curriculum-nav__inner'), '.nav-tab.is-active'); });
+const navOrder = () => [...document.querySelectorAll('.curriculum-nav .nav-tab')].map(b => b.dataset.tab);
+// 폰: 결과 위에서 옆으로 밀면 옆 시험 종류로
+onSwipe(document.querySelector('.content'), d => {
+  const order = navOrder(), next = order[order.indexOf(navTabKey(state.tab)) + d];
+  if (next) document.querySelector(`.nav-tab[data-tab="${next}"]`)?.click();
+});
 
 $('categorySelect').innerHTML = TAB_CONFIG.filter(tab => tab.key !== 'all' && typeof tab.navGroup !== 'string').map(tab => {
   const nav = tab.navGroup ?? tab;
@@ -525,6 +548,11 @@ $('curriculumTabs').addEventListener('click', e => {
 
 async function switchTab(tab) {
   clearTimeout(searchTimer);
+  // 방향 = 탭이 놓인 순서(같은 탭 묶음 안 학년 전환은 학년 버튼 순서)
+  const order = navOrder(), from = order.indexOf(navTabKey(state.tab)), to = order.indexOf(navTabKey(tab));
+  const sibs = navSiblings(tab).map(t => t.key);
+  const same = tab === state.tab;   // 지금 탭을 다시 누름 — 필터만 초기화, 밀리는 움직임 없음
+  const dir = to !== from ? Math.sign(to - from) : Math.sign(sibs.indexOf(tab) - sibs.indexOf(state.tab)) || 1;
   state.tab = tab;
   markActiveNavTab();
   resetFilters();
@@ -542,11 +570,12 @@ async function switchTab(tab) {
   pushUrl();   // 탭 전환은 history 쌓아 진정한 뒤로가기 가능
   if (!await replaceExamsForTab(state.tab)) return;
   const doRender = () => { renderFilterPanel(); render(); };
-  // 숨은 탭에선 전환 효과가 바로 취소되고, 연달아 누르면 앞 전환이 취소된다 — 그때 나는 ready 거부는 무시(목록은 그대로 갱신됨)
-  if (document.startViewTransition && document.visibilityState === 'visible') document.startViewTransition(doRender).ready.catch(() => {});
-  else doRender();
-
-  scrollActiveTabIntoView();
+  // 본문(필터+결과)이 통째로 옆으로 밀린다 — 오른쪽 탭이면 왼쪽으로 밀려나고 새 내용이 오른쪽에서 들어옴
+  // 시험 목록(표·카드)만 밀린다 — 사이드바·검색창·필터 줄까지 움직이면 어지러웠다
+  const body = () => $('cardsGrid');
+  if (same) doRender();
+  else vt(dir > 0 ? 'tab-next' : 'tab-prev', doRender, [[body, body, 'archive-body']]);
+  // 탭 줄을 활성 탭 쪽으로 미끄러지듯 스크롤하던 것은 뺌 — 탭이 한 줄에 다 들어가고, 좁은 화면에서 줄이 옆으로 움직이면 어지러웠다
 }
 
 // 주소의 탭이 정해진 직후 활성 탭을 모바일 가로 스크롤 가운데로 — 탭 줄만 옮기고 페이지 세로 위치는 그대로
@@ -635,8 +664,8 @@ $('typeGroupFilter').addEventListener('click', e => {
   state.gradeYear  = 'all';
   state.subSubject = 'all';
   state.page       = 1;
-  renderTypeGroupChips();
-  renderSubtypeChips();
+  // 필터는 차분하게 — 버튼은 색만 바뀌고, 세부 시험 줄이 열리고 닫힐 때 아래 칸이 툭 밀리지 않게 높이만 부드럽게
+  resize($('typeGroupBlock'), () => { renderTypeGroupChips(); renderSubtypeChips(); });
   renderYearChips();
   render();
   syncUrl();
@@ -784,7 +813,8 @@ $('yearFilter').addEventListener('click', e => {
   // 더보기 버튼 토글 — 상태에 저장하여 다른 필터 재렌더 시에도 유지
   if (e.target.id === 'yearMoreBtn') {
     state.yearExpanded = !state.yearExpanded;
-    renderYearChips();
+    // 펼치면 칸이 아래로 늘어나며 새 학년도가 차례로, 접으면 칸이 줄어든다
+    resize($('yearFilter'), renderYearChips, 280);   // 펼치면 칸이 늘어나며 아래가 따라 내려감
     return;
   }
   const btn = e.target.closest('.pill:not(.pill--more)');
@@ -862,7 +892,7 @@ $('subjectFilter').addEventListener('click', e => {
     }
     if (!hasSubs) state.subSubject = 'all';
     state.page = 1;
-    renderSubjectFilter();
+    resize($('subjectFilter'), renderSubjectFilter);   // 세부 과목이 펼쳐지며 아래가 따라 내려감
     render(true);
     syncUrl();
   }
@@ -898,9 +928,13 @@ $('emptyResetBtn').addEventListener('click', resetAll);
 $('paginationWrap').addEventListener('click', e => {
   const btn = e.target.closest('.pg-btn[data-pg]');
   if (!btn || btn.disabled) return;
-  state.page = Number(btn.dataset.pg);
-  renderCards();
-  $('cardsGrid').scrollIntoView({ behavior: 'auto', block: 'start' });
+  const next = Number(btn.dataset.pg), dir = Math.sign(next - state.page) || 1;
+  state.page = next;
+  const grid = () => $('cardsGrid');
+  vt(dir > 0 ? 'page-next' : 'page-prev', () => {
+    renderCards();
+    grid().scrollIntoView({ behavior: 'auto', block: 'start' });
+  }, [[grid, grid, 'results']]);
   syncUrl();
 });
 
@@ -908,6 +942,24 @@ $('paginationWrap').addEventListener('click', e => {
 // 데스크톱에서는 sticky 사이드바 유지, 모바일(≤960px)에서만 시트로 동작
 let sheetReturnFocus = null;
 function setSheetOpen(open, trigger = null) {
+  const panel = $('filterPanel');
+  // 닫기 — 넓은 화면 서랍은 왼쪽으로, 폰 시트는 아래로 들어가며 사라진 뒤 닫는다
+  if (!open && panel.classList.contains('is-open') && !reduceMotion.matches && !panel.dataset.closing) {
+    const wide = matchMedia('(min-width: 961px)').matches;
+    panel.dataset.closing = '1';
+    $('filterBackdrop')?.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 200, fill: 'forwards' });
+    panel.animate([{ translate: '0 0' }, { translate: wide ? '-100% 0' : '0 100%' }], { duration: 220, easing: M.in, fill: 'forwards' })
+      .finished.catch(() => {}).finally(() => {
+        delete panel.dataset.closing;
+        applySheet(false, trigger);
+        panel.getAnimations().forEach(a => a.cancel());
+        $('filterBackdrop')?.getAnimations().forEach(a => a.cancel());
+      });
+    return;
+  }
+  applySheet(open, trigger);
+}
+function applySheet(open, trigger = null) {
   const panel    = $('filterPanel');
   const backdrop = $('filterBackdrop');
   panel.classList.toggle('is-open', open);
@@ -1235,7 +1287,7 @@ document.addEventListener('click', e => {
   const duration = Math.min(560, 280 + Math.abs(to - from) * .35);
   const spin = ns.querySelector('.rgroup__fold-chev')?.animate(
     [{ transform: `rotate(${folding ? 0 : 180}deg)` }, { transform: `rotate(${folding ? 180 : 0}deg)` }],
-    { duration, easing: EASE_OUT, fill: 'forwards' });
+    { duration, easing: EASE_FOLD, fill: 'forwards' });
   if (folding) ns.classList.remove('is-folded');   // 접히는 동안은 줄을 보여 주고 높이만 줄인다 — 끝나면 되돌림
   slideHeight(ns, from, to, duration).then(() => {
     if (folding && rgroupFolded.has(title)) ns.classList.add('is-folded');
@@ -1583,11 +1635,12 @@ function safeUrl(value) {
 // ── 뒤로가기/앞으로가기: URL 변경 시 상태 재적용 ────────────
 window.addEventListener('popstate', async () => {
   const nextTab = tabFromLocation();
+  const order = navOrder(), from = order.indexOf(navTabKey(state.tab)), to = order.indexOf(navTabKey(nextTab));
   if (!await replaceExamsForTab(nextTab)) return;
-  applyUrlState();
-  renderFilterPanel();
-  render();
-  renderSmartNote();
+  const update = () => { applyUrlState(); renderFilterPanel(); render(); renderSmartNote(); };
+  // 뒤로·앞으로 가기로 시험 종류가 바뀌어도 탭이 놓인 방향으로 밀린다
+  if (from !== to && from >= 0 && to >= 0) { const body = () => $('cardsGrid'); vt(to > from ? 'tab-next' : 'tab-prev', update, [[body, body, 'archive-body']]); }
+  else update();
 });
 
 // ── 스마트 검색 ─────────────────────────────────────────────
@@ -1670,8 +1723,9 @@ document.querySelector('.view-toggle')?.addEventListener('click', e => {
   if (!btn || btn.dataset.view === viewMode) return;
   viewMode = btn.dataset.view;
   try { localStorage.setItem(VIEW_KEY, viewMode); } catch {}
-  syncViewToggle();
-  renderCards();
+  // 검정 칸이 옆 버튼으로 옮겨 가고, 목록은 표 ↔ 카드로 갈아입는다
+  const ink = () => document.querySelector('.view-toggle [aria-pressed="true"]'), grid = () => $('cardsGrid');
+  vt('view', () => { syncViewToggle(); renderCards(); }, [[ink, ink, 'ink-view'], [grid, grid, 'results']]);
 });
 syncViewToggle();
 
