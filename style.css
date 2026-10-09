@@ -148,7 +148,6 @@
 html[data-vt]::view-transition-old(root) { animation: none; opacity: 0; }
 html[data-vt]::view-transition-new(root) { animation: none; }
 html[data-vt]::view-transition-group(*) { animation-duration: .34s; animation-timing-function: var(--m-move); }
-html[data-vt]::view-transition-group(root) { animation: none; }   /* 바탕 크기는 그대로 — 테마 번짐이 끝까지 같은 크기로 */
 
 /* 시험 종류 탭·페이지 넘김 — 본문이 놓인 방향으로 살짝 밀리며 옛 화면과 새 화면이 빈틈없이 겹쳐 바뀐다
    (옛 것이 먼저 사라지고 새 것이 늦게 들어오면 그 사이가 비어 깜빡였다 — 동시에 시작, 밝기 합 유지 plus-lighter) */

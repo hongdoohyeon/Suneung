@@ -571,8 +571,8 @@ async function switchTab(tab) {
   if (!await replaceExamsForTab(state.tab)) return;
   const doRender = () => { quietList = true; try { renderFilterPanel(); render(); } finally { quietList = false; } };
   // 본문(필터+결과)이 통째로 옆으로 밀린다 — 오른쪽 탭이면 왼쪽으로 밀려나고 새 내용이 오른쪽에서 들어옴
-  // 결과 영역만 밀린다 — 사이드바까지 통째로 움직이면 화면 절반이 흔들려 어지러웠다
-  const body = () => document.querySelector('.content');
+  // 시험 목록(표·카드)만 밀린다 — 사이드바·검색창·필터 줄까지 움직이면 어지러웠다
+  const body = () => $('cardsGrid');
   if (same) doRender();
   else vt(dir > 0 ? 'tab-next' : 'tab-prev', doRender, [[body, body, 'archive-body']]);
   // 탭 줄을 활성 탭 쪽으로 미끄러지듯 스크롤하던 것은 뺌 — 탭이 한 줄에 다 들어가고, 좁은 화면에서 줄이 옆으로 움직이면 어지러웠다
@@ -1639,7 +1639,7 @@ window.addEventListener('popstate', async () => {
   if (!await replaceExamsForTab(nextTab)) return;
   const update = () => { quietList = from !== to; try { applyUrlState(); renderFilterPanel(); render(); renderSmartNote(); } finally { quietList = false; } };
   // 뒤로·앞으로 가기로 시험 종류가 바뀌어도 탭이 놓인 방향으로 밀린다
-  if (from !== to && from >= 0 && to >= 0) { const body = () => document.querySelector('.content'); vt(to > from ? 'tab-next' : 'tab-prev', update, [[body, body, 'archive-body']]); }
+  if (from !== to && from >= 0 && to >= 0) { const body = () => $('cardsGrid'); vt(to > from ? 'tab-next' : 'tab-prev', update, [[body, body, 'archive-body']]); }
   else update();
 });
 
