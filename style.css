@@ -399,7 +399,8 @@ html::before {
 .smart-note svg { width: 18px; height: 18px; flex: none; color: var(--tb-suneung); }
 .smart-note span { flex: 1; min-width: 0; }
 .smart-note b { font-weight: 700; color: var(--ink); }
-:root:not([data-spoiler="on"]) .spoil-note { display: none !important; }
+/* 스포일러를 꺼도 안내 줄은 같은 자리·같은 높이 — 문구만 바뀐다(site-prefs.js syncSpoilerNotes). 줄이 사라지면 아래 등급컷 표가 위아래로 출렁였다 */
+:root:not([data-spoiler="on"]) .spoil-note { background: transparent; box-shadow: inset 0 0 0 1px var(--line); }
 .spoil-note {
   display: flex; align-items: center; gap: 10px; padding: 10px 10px 10px 14px; margin-bottom: 12px;
   border-radius: var(--r-sm); background: var(--surface-2); font-size: 13px; color: var(--ink-3);
