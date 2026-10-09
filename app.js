@@ -482,7 +482,6 @@ async function loadExams() {
 }
 
 // ── 렌더링 조율 ────────────────────────────────────────────
-let renderedOnce = false;
 // 선택 모드 — 체크 칸 자리만큼 줄이 오른쪽으로 비켜서고 체크 칸이 옅게 나타난다(끝내면 반대로)
 function selectionMotion(on) {
   if (reduceMotion.matches) return;
@@ -497,13 +496,9 @@ function selectionMotion(on) {
   $('cardsGrid').querySelectorAll('.card .sel-box').forEach(b => b.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 180, easing: M.out }));
 }
 
-let quietList = false;   // 탭·페이지 넘김 중엔 목록 전체가 옆으로 밀리므로 줄 단위 움직임은 생략
 function render(skipSubjectFilter = false) {
-  // 필터를 바꾸면 목록 전체가 한 번에 짧게 교차된다 — 새 줄만 따로 나타나게 했더니 군데군데 끊겨 보였다
-  const grid = () => $('cardsGrid');
-  if (renderedOnce && !quietList) vt('list', renderCards, [[grid, grid, 'results']]);
-  else renderCards();
-  renderedOnce = true;
+  // 필터로 목록이 바뀔 때는 효과 없이 바로 — 줄마다 나타나게 하면 끊겨 보이고, 전체 교차는 번쩍였다
+  renderCards();
   // 칩이 늘고 줄면 같은 줄의 '최근 본 시험'이 툭 당겨지지 않고 한 번에 미끄러진다
   const recent = $('recentRow'), rx0 = recent && !recent.hidden ? recent.getBoundingClientRect().left : null;
   flipChips($('activeTags'), { item: '.tag', key: el => el.querySelector('[data-clear]')?.dataset.clear }, renderActiveTags);
@@ -574,7 +569,7 @@ async function switchTab(tab) {
 
   pushUrl();   // 탭 전환은 history 쌓아 진정한 뒤로가기 가능
   if (!await replaceExamsForTab(state.tab)) return;
-  const doRender = () => { quietList = true; try { renderFilterPanel(); render(); } finally { quietList = false; } };
+  const doRender = () => { renderFilterPanel(); render(); };
   // 본문(필터+결과)이 통째로 옆으로 밀린다 — 오른쪽 탭이면 왼쪽으로 밀려나고 새 내용이 오른쪽에서 들어옴
   // 시험 목록(표·카드)만 밀린다 — 사이드바·검색창·필터 줄까지 움직이면 어지러웠다
   const body = () => $('cardsGrid');
@@ -1642,7 +1637,7 @@ window.addEventListener('popstate', async () => {
   const nextTab = tabFromLocation();
   const order = navOrder(), from = order.indexOf(navTabKey(state.tab)), to = order.indexOf(navTabKey(nextTab));
   if (!await replaceExamsForTab(nextTab)) return;
-  const update = () => { quietList = from !== to; try { applyUrlState(); renderFilterPanel(); render(); renderSmartNote(); } finally { quietList = false; } };
+  const update = () => { applyUrlState(); renderFilterPanel(); render(); renderSmartNote(); };
   // 뒤로·앞으로 가기로 시험 종류가 바뀌어도 탭이 놓인 방향으로 밀린다
   if (from !== to && from >= 0 && to >= 0) { const body = () => $('cardsGrid'); vt(to > from ? 'tab-next' : 'tab-prev', update, [[body, body, 'archive-body']]); }
   else update();
