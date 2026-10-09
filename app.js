@@ -345,8 +345,14 @@ function tabFromLocation() {
   return getTabConf(tab) ? tab : 'senior';
 }
 
-async function fetchTabData(tab) {
-  if (tabDataCache.has(tab)) return tabDataCache.get(tab);
+// 받는 중인 탭 — 탭에 손가락·마우스를 올릴 때 미리 시작한 요청을 클릭이 이어받는다(같은 파일 두 번 받지 않게)
+const tabDataPending = new Map();
+function fetchTabData(tab) {
+  if (tabDataCache.has(tab)) return Promise.resolve(tabDataCache.get(tab));
+  if (!tabDataPending.has(tab)) tabDataPending.set(tab, loadTabData(tab).finally(() => tabDataPending.delete(tab)));
+  return tabDataPending.get(tab);
+}
+async function loadTabData(tab) {
   // lib/site-prefs.js 가 <head> 에서 미리 시작한 요청이 있으면 이어받는다 (같은 버전일 때만)
   const pre = window.__kiceggArchive;
   if (pre && pre.tab === tab) {
@@ -408,10 +414,16 @@ async function loadTabUrls(tab, list) {
   } catch { /* 주소를 못 받아도 상세 페이지 링크로 쓸 수 있다 */ }
 }
 
-async function replaceExamsForTab(tab) {
+// deferSkeleton: 탭 전환처럼 옛 목록을 잠깐 두는 게 나은 경우 — 0.35초 안에 오면 스켈레톤 없이 바로 바꾸고,
+// 늦으면 그때 스켈레톤(lastLoadSlow = true → 호출한 쪽은 옆으로 미는 전환을 생략)
+let lastLoadSlow = false;
+async function replaceExamsForTab(tab, { deferSkeleton = false } = {}) {
   const requestId = ++dataRequestId;
   state.loading = true;
-  showSkeleton(true);
+  lastLoadSlow = false;
+  let slowTimer = 0;
+  if (deferSkeleton && !tabDataCache.has(tab)) slowTimer = setTimeout(() => { if (requestId === dataRequestId) { lastLoadSlow = true; showSkeleton(true); } }, 350);
+  else if (!deferSkeleton) showSkeleton(true);
   let data;
   try {
     data = await fetchTabData(tab);
@@ -421,6 +433,7 @@ async function replaceExamsForTab(tab) {
     try {
       data = await fetchFullData();
     } catch {
+      clearTimeout(slowTimer);
       if (requestId === dataRequestId) {
         state.exams = [];
         state.loading = false;
@@ -430,6 +443,7 @@ async function replaceExamsForTab(tab) {
       return false;
     }
   }
+  clearTimeout(slowTimer);
   if (requestId !== dataRequestId) return false;
   state.exams = data;
   state.loading = false;
@@ -540,6 +554,13 @@ $('categorySelect').addEventListener('change', e => {
   button.click();
 });
 
+// 탭에 마우스를 올리거나 손가락을 대면 그 탭 목록을 미리 받는다 — 누를 때 기다림(과 스켈레톤)을 줄임
+for (const ev of ['pointerenter', 'pointerdown']) {
+  $('curriculumTabs').addEventListener(ev, e => {
+    const btn = e.target.closest?.('.nav-tab');
+    if (btn) fetchTabData(btn.dataset.tab).catch(() => {});
+  }, { capture: true, passive: true });
+}
 $('curriculumTabs').addEventListener('click', e => {
   const btn = e.target.closest('.nav-tab');
   if (!btn) return;
@@ -568,12 +589,13 @@ async function switchTab(tab) {
   }
 
   pushUrl();   // 탭 전환은 history 쌓아 진정한 뒤로가기 가능
-  if (!await replaceExamsForTab(state.tab)) return;
+  if (!await replaceExamsForTab(state.tab, { deferSkeleton: true })) return;
   const doRender = () => { renderFilterPanel(); render(); };
   // 본문(필터+결과)이 통째로 옆으로 밀린다 — 오른쪽 탭이면 왼쪽으로 밀려나고 새 내용이 오른쪽에서 들어옴
   // 시험 목록(표·카드)만 밀린다 — 사이드바·검색창·필터 줄까지 움직이면 어지러웠다
   const body = () => $('cardsGrid');
-  if (same) doRender();
+  // 늦게 와서 스켈레톤이 떴으면 스켈레톤을 밀지 않고 바로 바꾼다
+  if (same || lastLoadSlow) doRender();
   else vt(dir > 0 ? 'tab-next' : 'tab-prev', doRender, [[body, body, 'archive-body']]);
   // 탭 줄을 활성 탭 쪽으로 미끄러지듯 스크롤하던 것은 뺌 — 탭이 한 줄에 다 들어가고, 좁은 화면에서 줄이 옆으로 움직이면 어지러웠다
 }
@@ -1636,10 +1658,10 @@ function safeUrl(value) {
 window.addEventListener('popstate', async () => {
   const nextTab = tabFromLocation();
   const order = navOrder(), from = order.indexOf(navTabKey(state.tab)), to = order.indexOf(navTabKey(nextTab));
-  if (!await replaceExamsForTab(nextTab)) return;
+  if (!await replaceExamsForTab(nextTab, { deferSkeleton: from !== to })) return;
   const update = () => { applyUrlState(); renderFilterPanel(); render(); renderSmartNote(); };
   // 뒤로·앞으로 가기로 시험 종류가 바뀌어도 탭이 놓인 방향으로 밀린다
-  if (from !== to && from >= 0 && to >= 0) { const body = () => $('cardsGrid'); vt(to > from ? 'tab-next' : 'tab-prev', update, [[body, body, 'archive-body']]); }
+  if (from !== to && from >= 0 && to >= 0 && !lastLoadSlow) { const body = () => $('cardsGrid'); vt(to > from ? 'tab-next' : 'tab-prev', update, [[body, body, 'archive-body']]); }
   else update();
 });
 
