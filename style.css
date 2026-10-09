@@ -587,8 +587,22 @@ html::before {
 /* 넓은 화면: 탭 칸은 같은 폭(밑줄·구분선 간격 일정), 글자는 왼쪽 — 첫 탭 글자가 제목·필터와 같은 선 */
 @media (min-width: 561px) {
   .curriculum-nav__inner { --tab-gap: 0px; }
-  .curriculum-nav .nav-tab { width: 112px; padding-left: 16px; }
-  .curriculum-nav .nav-group:first-of-type .nav-tab:first-child { width: 96px; padding-left: 0; }
+  /* 폭이 모자라면 칸이 같이 줄어든다(가로 스크롤 없이 한 줄) — 넓으면 112px 그대로 */
+  .curriculum-nav .nav-tab { flex: 1 1 0; min-width: 0; max-width: 112px; padding-left: 16px; }
+  .curriculum-nav .nav-group:first-of-type .nav-tab:first-child { max-width: 96px; padding-left: 0; }
+}
+/* 칸이 좁아지는 폭에선 설명 줄(평가원·교육청 등)을 숨겨 제목만 */
+@media (max-width: 720px) { .nav-tab__sub { display: none; } }
+/* 폰: 탭 6개가 한 줄에 다 보이게 — 스크롤 대신 남는 폭을 칸마다 나눠 갖고 글자는 칸 가운데 */
+@media (max-width: 560px) {
+  .curriculum-nav .curriculum-nav__inner { overflow: visible; --tab-gap: 0px; }   /* 아래 ≤700 의 --tab-gap:16px 보다 우선 */
+  .curriculum-nav .nav-tab { flex: 1 1 auto; align-items: center; text-align: center; padding-left: 6px; padding-right: 6px; }
+  .curriculum-nav .nav-group:first-of-type .nav-tab:first-child { padding-left: 0; }
+  .curriculum-nav .nav-group:last-of-type .nav-tab:last-child { padding-right: 0; }
+}
+@media (max-width: 374px) {
+  .curriculum-nav .nav-tab { padding-left: 4px; padding-right: 4px; }
+  .curriculum-nav .nav-tab__title { font-size: 13px; }
 }
 .nav-tab {
   display: flex; flex-direction: column; align-items: flex-start; gap: 2px; padding: 10px 0 12px; flex: none;   /* 좌우 여백 0 — 첫 탭 글자가 제목·필터와 같은 선, 간격은 부모 gap */
@@ -1576,8 +1590,6 @@ body.pv-lock { overflow: hidden; }
 .rrow--pick:has(input:checked) { background: var(--sunken); }
 .card__link.sel-hit .sel-box { top: 14px; left: auto; right: 14px; margin-top: 0; }
 .card:has(.sel-hit input:checked) { border-color: var(--ink); box-shadow: inset 0 0 0 1px var(--ink); }
-.rgroup__selall { margin-right: 0; }
-.rgroup__selall + .rgroup__fold { margin-left: 0; }
 
 .selbar { position: fixed; left: 50%; bottom: calc(16px + env(safe-area-inset-bottom)); z-index: 90; transform: translateX(-50%);
   display: flex; align-items: center; gap: 8px; max-width: calc(100vw - 32px); padding: 8px 8px 8px 16px;
@@ -1630,8 +1642,6 @@ body:has(.selbar:not([hidden])) .pagination-wrap { margin-bottom: 72px; }   /* �
   .toolbar .select-toggle { height: 40px; min-height: 40px; width: 76px; padding: 0 4px; flex: none; }
   .select-toggle__hint { font-size: 10px; letter-spacing: -.03em; }
   .rrow--pick { padding-left: 44px; }
-  .rgroup__selall { width: 36px; padding: 0; justify-content: center; }   /* 폰: 아이콘만 — 회차 제목이 잘리지 않게 */
-  .rgroup__selall-text { display: none; }
   .sel-box { left: 14px; }
   .selbar { left: 16px; right: 16px; transform: none; max-width: none; gap: 5px; padding-left: 12px; }
   .selbar .btn--sm { padding: 0 9px; }
