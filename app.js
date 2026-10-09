@@ -556,6 +556,7 @@ async function switchTab(tab) {
   // 방향 = 탭이 놓인 순서(같은 탭 묶음 안 학년 전환은 학년 버튼 순서)
   const order = navOrder(), from = order.indexOf(navTabKey(state.tab)), to = order.indexOf(navTabKey(tab));
   const sibs = navSiblings(tab).map(t => t.key);
+  const same = tab === state.tab;   // 지금 탭을 다시 누름 — 필터만 초기화, 밀리는 움직임 없음
   const dir = to !== from ? Math.sign(to - from) : Math.sign(sibs.indexOf(tab) - sibs.indexOf(state.tab)) || 1;
   state.tab = tab;
   markActiveNavTab();
@@ -576,7 +577,8 @@ async function switchTab(tab) {
   const doRender = () => { quietList = true; try { renderFilterPanel(); render(); } finally { quietList = false; } };
   // 본문(필터+결과)이 통째로 옆으로 밀린다 — 오른쪽 탭이면 왼쪽으로 밀려나고 새 내용이 오른쪽에서 들어옴
   const main = () => document.querySelector('.main');
-  vt(dir > 0 ? 'tab-next' : 'tab-prev', doRender, [[main, main, 'archive-body']]);
+  if (same) doRender();
+  else vt(dir > 0 ? 'tab-next' : 'tab-prev', doRender, [[main, main, 'archive-body']]);
 
   scrollActiveTabIntoView();
 }

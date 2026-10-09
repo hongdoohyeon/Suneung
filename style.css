@@ -150,17 +150,22 @@ html[data-vt]::view-transition-new(root) { animation: none; }
 html[data-vt]::view-transition-group(*) { animation-duration: .34s; animation-timing-function: var(--m-move); }
 html[data-vt]::view-transition-group(root) { animation: none; }   /* 바탕 크기는 그대로 — 테마 번짐이 끝까지 같은 크기로 */
 
-/* 시험 종류 탭·페이지 넘김 — 본문이 통째로 옆으로 밀린다(오른쪽 탭/다음 쪽이면 왼쪽으로 밀려남) */
+/* 시험 종류 탭·페이지 넘김 — 본문이 놓인 방향으로 살짝 밀리며 옛 화면과 새 화면이 빈틈없이 겹쳐 바뀐다
+   (옛 것이 먼저 사라지고 새 것이 늦게 들어오면 그 사이가 비어 깜빡였다 — 동시에 시작, 밝기 합 유지 plus-lighter) */
 html[data-vt^="tab"]::view-transition-group(archive-body),
 html[data-vt^="page"]::view-transition-group(results) { animation: none; }
-html[data-vt="tab-next"]::view-transition-old(archive-body), html[data-vt="page-next"]::view-transition-old(results) { animation: m-out-l .12s var(--m-in) both; }
-html[data-vt="tab-next"]::view-transition-new(archive-body), html[data-vt="page-next"]::view-transition-new(results) { animation: m-in-r .34s var(--m-out) 100ms both; }
-html[data-vt="tab-prev"]::view-transition-old(archive-body), html[data-vt="page-prev"]::view-transition-old(results) { animation: m-out-r .12s var(--m-in) both; }
-html[data-vt="tab-prev"]::view-transition-new(archive-body), html[data-vt="page-prev"]::view-transition-new(results) { animation: m-in-l .34s var(--m-out) 100ms both; }
-@keyframes m-out-l { to { transform: translateX(-32px); opacity: 0; } }
-@keyframes m-out-r { to { transform: translateX(32px); opacity: 0; } }
-@keyframes m-in-r { from { transform: translateX(48px); opacity: 0; } }
-@keyframes m-in-l { from { transform: translateX(-48px); opacity: 0; } }
+html[data-vt^="tab"]::view-transition-image-pair(archive-body),
+html[data-vt^="page"]::view-transition-image-pair(results) { isolation: isolate; }
+html[data-vt^="tab"]::view-transition-old(archive-body), html[data-vt^="tab"]::view-transition-new(archive-body),
+html[data-vt^="page"]::view-transition-old(results), html[data-vt^="page"]::view-transition-new(results) { mix-blend-mode: plus-lighter; animation-duration: .24s; animation-timing-function: var(--m-move); animation-fill-mode: both; }
+html[data-vt="tab-next"]::view-transition-old(archive-body), html[data-vt="page-next"]::view-transition-old(results) { animation-name: m-out-l; }
+html[data-vt="tab-next"]::view-transition-new(archive-body), html[data-vt="page-next"]::view-transition-new(results) { animation-name: m-in-r; }
+html[data-vt="tab-prev"]::view-transition-old(archive-body), html[data-vt="page-prev"]::view-transition-old(results) { animation-name: m-out-r; }
+html[data-vt="tab-prev"]::view-transition-new(archive-body), html[data-vt="page-prev"]::view-transition-new(results) { animation-name: m-in-l; }
+@keyframes m-out-l { to { transform: translateX(-16px); opacity: 0; } }
+@keyframes m-out-r { to { transform: translateX(16px); opacity: 0; } }
+@keyframes m-in-r { from { transform: translateX(16px); opacity: 0; } }
+@keyframes m-in-l { from { transform: translateX(-16px); opacity: 0; } }
 
 /* 표 ↔ 카드 — 옛 목록은 빠지고 새 모양이 살짝 올라오며 자리 잡음 */
 html[data-vt="view"]::view-transition-group(results) { animation: none; }
@@ -181,21 +186,20 @@ html[data-vt^="xtab"] .exam__crumb { view-transition-name: x-crumb; }
 html[data-vt^="xtab"] .exam__top { view-transition-name: x-top; }
 html[data-vt^="xtab"] .exam__subjects { view-transition-name: x-subjects; }
 html[data-vt^="xtab"] .exam-tabs { view-transition-name: x-tabs; }
-html[data-vt="xtab-next"]::view-transition-old(root) { opacity: 1; animation: m-out-l-s .18s var(--m-in) both; }
-html[data-vt="xtab-next"]::view-transition-new(root) { animation: m-in-r-s .3s var(--m-out) 40ms both; }
-html[data-vt="xtab-prev"]::view-transition-old(root) { opacity: 1; animation: m-out-r-s .18s var(--m-in) both; }
-html[data-vt="xtab-prev"]::view-transition-new(root) { animation: m-in-l-s .3s var(--m-out) 40ms both; }
-@keyframes m-out-l-s { to { transform: translateX(-24px); opacity: 0; } }
-@keyframes m-out-r-s { to { transform: translateX(24px); opacity: 0; } }
-@keyframes m-in-r-s { from { transform: translateX(32px); opacity: 0; } }
-@keyframes m-in-l-s { from { transform: translateX(-32px); opacity: 0; } }
+html[data-vt^="xtab"]::view-transition-old(root) { opacity: 1; }
+html[data-vt^="xtab"]::view-transition-old(root), html[data-vt^="xtab"]::view-transition-new(root) { mix-blend-mode: plus-lighter; animation-duration: .24s; animation-timing-function: var(--m-move); animation-fill-mode: both; }
+html[data-vt="xtab-next"]::view-transition-old(root) { animation-name: m-out-l; }
+html[data-vt="xtab-next"]::view-transition-new(root) { animation-name: m-in-r; }
+html[data-vt="xtab-prev"]::view-transition-old(root) { animation-name: m-out-r; }
+html[data-vt="xtab-prev"]::view-transition-new(root) { animation-name: m-in-l; }
 
 /* 페이지 이동(문서 사이) — 보통은 위의 짧은 페이드만. 같은 회차 다른 과목(상세 과목 줄)만 그 과목이 놓인 쪽에서 들어오고,
    과목 줄의 '현재' 표시가 옆 칸으로 옮겨 간다 */
-html[data-nav="right"]::view-transition-old(root) { animation: m-out-l-s .18s var(--m-in) both; }
-html[data-nav="right"]::view-transition-new(root) { animation: m-in-r-s .3s var(--m-out) 30ms both; }
-html[data-nav="left"]::view-transition-old(root) { animation: m-out-r-s .18s var(--m-in) both; }
-html[data-nav="left"]::view-transition-new(root) { animation: m-in-l-s .3s var(--m-out) 30ms both; }
+html[data-nav]::view-transition-old(root), html[data-nav]::view-transition-new(root) { mix-blend-mode: plus-lighter; animation-duration: .24s; animation-timing-function: var(--m-move); animation-fill-mode: both; }
+html[data-nav="right"]::view-transition-old(root) { animation-name: m-out-l; }
+html[data-nav="right"]::view-transition-new(root) { animation-name: m-in-r; }
+html[data-nav="left"]::view-transition-old(root) { animation-name: m-out-r; }
+html[data-nav="left"]::view-transition-new(root) { animation-name: m-in-l; }
 ::view-transition-group(subj-current), ::view-transition-group(subj-current-sub) { animation-duration: .32s; animation-timing-function: var(--m-move); }
 .exam__subjects-row:not(.exam__subjects-row--subs) a[aria-current="page"] { view-transition-name: subj-current; }   /* 영역 줄·세부 과목 줄 각각 — 같은 이름 둘이면 전환이 취소됨 */
 .exam__subjects-row--subs a[aria-current="page"] { view-transition-name: subj-current-sub; }
