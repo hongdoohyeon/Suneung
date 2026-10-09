@@ -1717,6 +1717,7 @@ $('smartNote')?.addEventListener('click', e => {
 function syncViewToggle() {
   document.querySelectorAll('.view-toggle [data-view]').forEach(b =>
     b.setAttribute('aria-pressed', String(b.dataset.view === viewMode)));
+  document.documentElement.dataset.view = viewMode;   // 표 보기면 탭 전환 중에도 흰 카드 판을 남긴다(style.css)
 }
 document.querySelector('.view-toggle')?.addEventListener('click', e => {
   const btn = e.target.closest('[data-view]');
