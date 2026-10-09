@@ -431,7 +431,7 @@ html::before {
 /* 스위치 (스포일러 방지) */
 .switch {
   display: inline-flex; align-items: center; gap: 10px; min-height: 40px; padding: 0 6px 0 12px;
-  border-radius: var(--r-sm); border: 1px solid var(--line); background: var(--surface);
+  border-radius: var(--r-sm); border: 1px solid var(--line-strong); background: var(--surface);
   font-size: 13px; font-weight: var(--ui-weight); white-space: nowrap; user-select: none; flex: none;
 }
 .switch__knob { position: relative; width: 36px; height: 22px; border-radius: 999px; background: var(--line-strong); transition: background .2s; flex: none; }
@@ -488,7 +488,7 @@ html::before {
 .hscroll-wrap { position: relative; min-width: 0; }
 .hscroll-btn {
   position: absolute; top: 50%; z-index: 2; width: 32px; height: 32px; margin-top: -16px; display: none; place-items: center;
-  border-radius: 50%; border: 1px solid var(--line); background: var(--surface); color: var(--ink-2); box-shadow: var(--shadow);
+  border-radius: var(--r-sm); border: 1px solid var(--line-strong); background: var(--surface); color: var(--ink-2);   /* 옆 칩·버튼과 같은 각진 테두리(동그라미·그림자 X) */
 }
 .hscroll-btn svg { width: 16px; height: 16px; }
 .hscroll-btn:hover { border-color: var(--ink-4); color: var(--ink); }
@@ -680,7 +680,7 @@ html[data-urlstate] .content:has(#cardsGrid[data-prerendered]) #skeleton { displ
 /* 넓은 화면에도 [필터] — 사이드바 아래쪽이 화면 밖이어도 필터가 있다는 걸 알리고, 누르면 왼쪽에서 필터 창(서랍)이 열린다.
    같은 #filterPanel 을 열린 동안만 고정 위치로 띄운다(app.js setSheetOpen — 폰 바텀시트와 같은 흐름) */
 @media (min-width: 961px) {
-  .toolbar .filter-toggle-inline { display: inline-flex; height: 40px; min-width: 100px; justify-content: center; padding: 0 14px; gap: 6px; }   /* 옆 '선택' 버튼과 같은 폭 */
+  .toolbar .filter-toggle-inline { display: inline-flex; height: 40px; min-width: 104px; justify-content: center; padding: 0 14px; gap: 6px; }   /* 옆 '선택' 버튼과 같은 폭 */
   .main > .content { grid-column: 2; }   /* 필터가 서랍으로 빠져도 본문이 왼쪽 칸으로 밀려나지 않게 */
   .filter.is-open {
     position: fixed; top: 0; bottom: 0; left: 0; z-index: 100; width: 380px; overflow-y: auto; overscroll-behavior: contain;
@@ -1461,12 +1461,15 @@ body.pv-lock { overflow: hidden; }
 .recent-row__label { flex: none; font-size: 12px; font-weight: 650; color: var(--ink-4); }
 .recent-row .hscroll-wrap { flex: 1; min-width: 0; }
 .recent-row__list { gap: 6px; }
-.recent-chip { display: inline-flex; align-items: center; gap: 5px; height: 32px; padding: 0 12px; border-radius: var(--r-sm); border: 1px solid var(--line);
+.recent-chip { display: inline-flex; align-items: center; gap: 5px; height: 32px; padding: 0 12px; border-radius: var(--r-sm); border: 1px solid var(--line-strong);
   background: var(--surface); color: var(--ink); font-size: 13px; font-weight: var(--ui-weight); white-space: nowrap; }
 .recent-chip span { color: var(--ink-4); font-weight: 500; }
 .recent-chip:hover { border-color: var(--line-strong); }
 .recent-row__clear { flex: none; min-height: 32px; padding: 0 6px; font-size: 12px; color: var(--ink-4); }
 .recent-row__clear:hover { color: var(--ink); }
+/* 글자 버튼(초기화·지우기) 한 모양 — 13px 회색, 밑줄은 올렸을 때만 */
+.controls .btn-text, .recent-row__clear { font-size: 13px; color: var(--ink-4); text-decoration: none; }
+.controls .btn-text:hover, .recent-row__clear:hover { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
 /* 넓은 화면: [스포일러 방지][적용 필터] | [최근 본 시험 ······] 를 한 줄로 — 결과 위 조작 줄을 3줄 → 2줄.
    필터 태그가 많아 자리가 모자라면 최근 본 시험이 아랫줄로 내려간다(flex-basis 280px) */
 @media (min-width: 561px) {
@@ -1567,11 +1570,9 @@ body.pv-lock { overflow: hidden; }
 
 
 /* ═══ 여러 시험 선택 · 모아 받기 (lib/select.js) ═══════════════ */
-.toolbar .select-toggle { height: 40px; width: 100px; padding: 0 8px; }   /* '선택'↔'선택 끝내기'로 글자가 바뀌어도 폭 고정 */
+.toolbar .select-toggle { height: 40px; width: 104px; padding: 0 8px; }   /* '선택'↔'선택 끝내기'로 글자가 바뀌어도 폭 고정 */
 .select-toggle[aria-pressed="true"] { background: var(--ink); border-color: var(--ink); color: var(--on-ink); }
-.select-toggle { flex-direction: column; justify-content: center; gap: 1px; line-height: 1.15; }
-.select-toggle__hint { font-size: 11px; font-weight: 500; color: var(--ink-4); letter-spacing: -.01em; }   /* 처음 온 사람도 기능을 알게 — 선택 중엔 숨김 */
-.select-toggle[aria-pressed="true"] .select-toggle__hint { display: none; }
+.select-toggle { justify-content: center; }   /* 한 줄 — 옆 [필터]와 같은 모양(설명은 title) */
 .sel-hit { cursor: pointer; }
 .sel-hit input { position: absolute; opacity: 0; width: 1px; height: 1px; }
 .sel-box { position: absolute; top: 50%; left: 16px; width: 20px; height: 20px; margin-top: -10px; border: 1.5px solid var(--line-strong); border-radius: var(--r-xs); background: var(--surface); transition: background var(--t), border-color var(--t); }
@@ -1632,7 +1633,6 @@ body:has(.selbar:not([hidden])) .pagination-wrap { margin-bottom: 72px; }   /* �
 .seldlg.is-busy .seldlg__seg, .seldlg.is-busy .seldlg__kinds, .seldlg.is-busy .seldlg__list { pointer-events: none; opacity: .55; }
 @media (max-width: 700px) {
   .toolbar .select-toggle { height: 40px; min-height: 40px; width: 76px; padding: 0 4px; flex: none; }
-  .select-toggle__hint { font-size: 10px; letter-spacing: -.03em; }
   .rrow--pick { padding-left: 44px; }
   .sel-box { left: 14px; }
   .selbar { left: 16px; right: 16px; transform: none; max-width: none; gap: 5px; padding-left: 12px; }
@@ -1650,14 +1650,13 @@ body:has(.selbar:not([hidden])) .pagination-wrap { margin-bottom: 72px; }   /* �
   .controls > .toolbar, .controls > .subbar { display: contents; }
   .controls .search { order: 1; flex: 1 1 0; min-width: 0; }
   .controls .filter-toggle-inline { order: 2; }
-  .controls .filter-toggle-inline, .controls .toolbar .select-toggle { min-width: 88px; justify-content: center; }   /* [필터]·[선택] 같은 폭 */
+  .controls .filter-toggle-inline, .controls .toolbar .select-toggle { width: 92px; min-width: 0; justify-content: center; }   /* [필터]·[선택] 같은 폭(필터 숫자 배지 포함) */
   .controls .view-toggle { display: none; }
   .controls .switch { order: 5; }
   .controls .active-tags { order: 6; flex: 1 1 0; min-width: 0; flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; }
   .controls .active-tags::-webkit-scrollbar { display: none; }
   .controls .active-tags { -webkit-mask-image: linear-gradient(to right, #000 82%, transparent); mask-image: linear-gradient(to right, #000 82%, transparent); }   /* 넘치면 오른쪽 끝이 흐려져 밀 수 있음을 알림 */
-  .controls .toolbar .select-toggle { order: 3; height: 40px; min-height: 40px; width: auto; padding: 0 11px; flex: none; flex-direction: row; }   /* 옆 [필터]와 같은 모양 */
-  .controls .select-toggle__hint { display: none; }   /* 한 줄 높이에 맞춤 — 설명은 title 로 */
+  .controls .toolbar .select-toggle { order: 3; height: 40px; min-height: 40px; width: 92px; padding: 0 11px; flex: none; }   /* 옆 [필터]와 같은 모양 */
   .controls .recent-row { order: 8; flex: 0 0 100%; margin: 8px 0 0; }
   .controls .recent-chip { height: 32px; }
   .controls .recent-row__clear { min-height: 32px; }
@@ -1675,6 +1674,7 @@ body:has(.selbar:not([hidden])) .pagination-wrap { margin-bottom: 72px; }   /* �
 @media (max-width: 359px) {   /* 좁은 폰: '필터' 글자는 숨기고 아이콘·개수만 — 검색창 폭 확보 */
   .controls .filter-toggle-inline { padding: 0 10px; }
   .controls .filter-toggle-inline__label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+  .controls .filter-toggle-inline, .controls .toolbar .select-toggle { width: 72px; }   /* 아주 좁은 폰: 필터 글자가 빠진 만큼 둘 다 줄여 검색창 폭 확보 */
 }
 @media (max-width: 480px) {   /* 폰: ↑↓ 대신 ⠿ 손잡이 끌기·순서 뒤집기 — 시험 이름이 접히지 않게 */
   .seldlg__icon[data-seldlg="up"], .seldlg__icon[data-seldlg="down"] { display: none; }
