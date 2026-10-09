@@ -511,8 +511,22 @@ html::before {
 /* 넓은 화면: 탭 칸은 같은 폭(밑줄·구분선 간격 일정), 글자는 왼쪽 — 첫 탭 글자가 제목·필터와 같은 선 */
 @media (min-width: 561px) {
   .curriculum-nav__inner { --tab-gap: 0px; }
-  .curriculum-nav .nav-tab { width: 112px; padding-left: 16px; }
-  .curriculum-nav .nav-group:first-of-type .nav-tab:first-child { width: 96px; padding-left: 0; }
+  /* 폭이 모자라면 칸이 같이 줄어든다(가로 스크롤 없이 한 줄) — 넓으면 112px 그대로 */
+  .curriculum-nav .nav-tab { flex: 1 1 0; min-width: 0; max-width: 112px; padding-left: 16px; }
+  .curriculum-nav .nav-group:first-of-type .nav-tab:first-child { max-width: 96px; padding-left: 0; }
+}
+/* 칸이 좁아지는 폭에선 설명 줄(평가원·교육청 등)을 숨겨 제목만 */
+@media (max-width: 720px) { .nav-tab__sub { display: none; } }
+/* 폰: 탭 6개가 한 줄에 다 보이게 — 스크롤 대신 남는 폭을 칸마다 나눠 갖고 글자는 칸 가운데 */
+@media (max-width: 560px) {
+  .curriculum-nav .curriculum-nav__inner { overflow: visible; --tab-gap: 0px; }   /* 아래 ≤700 의 --tab-gap:16px 보다 우선 */
+  .curriculum-nav .nav-tab { flex: 1 1 auto; align-items: center; text-align: center; padding-left: 6px; padding-right: 6px; }
+  .curriculum-nav .nav-group:first-of-type .nav-tab:first-child { padding-left: 0; }
+  .curriculum-nav .nav-group:last-of-type .nav-tab:last-child { padding-right: 0; }
+}
+@media (max-width: 374px) {
+  .curriculum-nav .nav-tab { padding-left: 4px; padding-right: 4px; }
+  .curriculum-nav .nav-tab__title { font-size: 13px; }
 }
 .nav-tab {
   display: flex; flex-direction: column; align-items: flex-start; gap: 2px; padding: 10px 0 12px; flex: none;   /* 좌우 여백 0 — 첫 탭 글자가 제목·필터와 같은 선, 간격은 부모 gap */
