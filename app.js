@@ -17,6 +17,7 @@ import { renderAllAdSlots, renderAdSlot } from './lib/ads.js?v=5faffd083d7b67ebc
 import { recentItems, clearRecent } from './lib/recent.js?v=5faffd083d7b67ebcbb1';
 import { initSelect, isSelecting, checkboxHTML } from './lib/select.js?v=5faffd083d7b67ebcbb1';
 import { vt, flipList, flipChips, countTo, resize, underline, onSwipe, EASE as M } from './lib/motion.js?v=5faffd083d7b67ebcbb1';
+let placeTabInk = null;   // 시험 종류 탭 밑줄 옮기기(아래 markActiveNavTab) — 모듈 초기에 탭 표시가 먼저 불릴 수 있어 맨 위에 선언
 
 const tabConf = () => getTabConf(state.tab);
 
@@ -526,8 +527,7 @@ function markActiveNavTab() {
   });
   placeTabInk?.(true);
 }
-// 탭 밑줄 하나가 옆 탭으로 옮겨 간다
-let placeTabInk = null;
+// 탭 밑줄 하나가 옆 탭으로 옮겨 간다(placeTabInk 는 위쪽 import 아래에 선언 — 모듈 실행 중 일찍 불려도 되게)
 requestAnimationFrame(() => { placeTabInk = underline(document.querySelector('.curriculum-nav__inner'), '.nav-tab.is-active'); });
 const navOrder = () => [...document.querySelectorAll('.curriculum-nav .nav-tab')].map(b => b.dataset.tab);
 // 폰: 결과 위에서 옆으로 밀면 옆 시험 종류로
