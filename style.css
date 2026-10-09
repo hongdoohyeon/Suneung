@@ -620,7 +620,7 @@ html[data-urlstate] .content:has(#cardsGrid[data-prerendered]) #skeleton { displ
 .filter__hint { font-size: 12px; color: var(--ink-4); font-weight: 500; }
 .pill-row { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px; }   /* 학년도 칸과 같은 4열 — 버튼 폭·세로선이 모든 필터에서 같게 */
 .pill-row .pill { padding: 0 4px; }
-#tierFilter { grid-template-columns: repeat(3, minmax(0, 1fr)); }   /* 난이도는 '매우 어려움'+색 점이 4열 칸(58px)을 넘침 → 3열 */
+#tierFilter { grid-template-columns: repeat(2, minmax(0, 1fr)); }   /* 난이도는 '매우 어려움'+색 점이 4열 칸에 안 들어감 → 2열(위 4열 칸의 세로선과 맞음) */
 .subtype-row { display: none; margin: 12px 0 0; }   /* 들여쓰기 없이 — 위아래 버튼과 같은 열에 맞춤 */
 .subtype-row.is-open { display: block; }
 /* 하위 줄: 작게 + 선택은 채우지 않고 테두리로 — 위 줄(기관, 검정 채움)과 위계 구분 */
@@ -637,8 +637,9 @@ html[data-urlstate] .content:has(#cardsGrid[data-prerendered]) #skeleton { displ
 .pill:active { transform: scale(.96); }
 .pill.is-active { background: var(--ink); border-color: var(--ink); color: var(--on-ink); box-shadow: var(--sh-pressed); }
 .pill.is-active:hover, .sub-row.is-active:hover, .pg-btn.is-active:hover { background: color-mix(in srgb, var(--ink) 86%, var(--bg)); border-color: transparent; color: var(--on-ink); }
-.pill--tier::before { content: ""; display: inline-block; width: 8px; height: 8px; margin-right: 6px; border-radius: 50%; vertical-align: 0; background: currentColor; }
-.pill--t1 { color: var(--t1); } .pill--t2 { color: var(--t2); } .pill--t3 { color: var(--t3); } .pill--t4 { color: var(--t4); } .pill--t5 { color: var(--t5); }
+/* 글자는 다른 필터 버튼과 같은 회색, 난이도 색은 앞의 점에만 */
+.pill--tier::before { content: ""; display: inline-block; width: 8px; height: 8px; margin-right: 6px; border-radius: 50%; vertical-align: 0; background: var(--tc, currentColor); }
+.pill--t1 { --tc: var(--t1); } .pill--t2 { --tc: var(--t2); } .pill--t3 { --tc: var(--t3); } .pill--t4 { --tc: var(--t4); } .pill--t5 { --tc: var(--t5); }
 .pill--tier.is-active::before { background: var(--on-ink); }
 .year-row { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px; }
 .year-row .pill { padding: 0 4px; font-family: var(--mono); font-weight: 500; }
@@ -1573,6 +1574,7 @@ body.pv-lock { overflow: hidden; }
 .toolbar .select-toggle { height: 40px; width: 104px; padding: 0 8px; }   /* '선택'↔'선택 끝내기'로 글자가 바뀌어도 폭 고정 */
 .select-toggle[aria-pressed="true"] { background: var(--ink); border-color: var(--ink); color: var(--on-ink); }
 .select-toggle { justify-content: center; }   /* 한 줄 — 옆 [필터]와 같은 모양(설명은 title) */
+.select-toggle__hint { display: none; }   /* 예전 마크업(캐시된 index.html)에 남은 '병합 다운로드' 글자 — 한 줄 버튼 옆에 붙어 깨지지 않게 */
 .sel-hit { cursor: pointer; }
 .sel-hit input { position: absolute; opacity: 0; width: 1px; height: 1px; }
 .sel-box { position: absolute; top: 50%; left: 16px; width: 20px; height: 20px; margin-top: -10px; border: 1.5px solid var(--line-strong); border-radius: var(--r-xs); background: var(--surface); transition: background var(--t), border-color var(--t); }
@@ -1723,3 +1725,10 @@ body:has(.selbar:not([hidden])) .pagination-wrap { margin-bottom: 72px; }   /* �
   body.has-exam-dock { padding-bottom: 72px; }
 }
 @media (prefers-reduced-motion: reduce) { .exam-dock { transition: none; } }
+
+/* 기출검색 조작 줄 높이 통일(2026-10) — 윗줄(검색·필터·선택·보기)과 아랫줄(스포일러·적용 필터·최근 본 시험)을 모든 폭에서 36px 하나로.
+   위 미디어 쿼리들에 흩어진 40/44/32 보다 뒤에 두어 이 값이 이긴다 */
+.controls .search, .controls .toolbar .view-toggle, .controls .toolbar .filter-toggle-inline, .controls .toolbar .select-toggle,
+.controls .toolbar .btn-text, .controls .switch--sm, .controls .tag, .controls .recent-chip, .controls .recent-row__clear { height: 36px; min-height: 36px; }
+.controls .view-toggle button { min-height: 0; }
+.controls .recent-row .hscroll-btn { width: 36px; height: 36px; margin-top: -18px; }
