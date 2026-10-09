@@ -64,7 +64,8 @@ initSelect({
 // ── 보기 방식(표/카드) · 1등급컷 인덱스 ─────────────────────
 // cuts.json: { id: [원점수 1컷, 표준점수 최고점, 난이도 1~5|null, 절대평가 0/1] } — render-site.py 생성.
 const VIEW_KEY = 'kicegg:archive-view';
-let viewMode = (() => { try { return localStorage.getItem(VIEW_KEY) === 'cards' ? 'cards' : 'table'; } catch { return 'table'; } })();
+// 폰(≤560)은 보기 전환 버튼이 없어 늘 표 — 넓은 화면에서 고른 카드 보기가 폰에 따라오지 않게
+let viewMode = (() => { try { return !matchMedia('(max-width: 560px)').matches && localStorage.getItem(VIEW_KEY) === 'cards' ? 'cards' : 'table'; } catch { return 'table'; } })();
 let cutsIndex = null;
 let cutsRequested = false;
 let cutsPromise = null;
@@ -1159,7 +1160,7 @@ function actsColumns(items) {
     if (fileUrl(e, 'solutionUrl') && !sameQS) has.s = true;
     if (fileUrl(e, 'listenUrl')) has.l = true;
   }
-  const w = { q: wide.q ? 73 : 58, a: wide.a ? 73 : 47, s: 47, l: 47 };
+  const w = { q: wide.q ? 73 : 58, a: wide.a ? 73 : 58, s: 58, l: 58 };   // 버튼 폭 통일 — 글자 수가 달라도 같은 크기
   return ['q', 'a', 's', 'l'].filter(k => has[k]).map(k => `[${k}] ${w[k]}px`).join(' ') || 'auto';
 }
 
