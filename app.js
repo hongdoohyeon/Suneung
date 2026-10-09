@@ -482,19 +482,18 @@ async function loadExams() {
 
 // ── 렌더링 조율 ────────────────────────────────────────────
 let renderedOnce = false;
-// 선택 모드 — 체크 칸이 줄 왼쪽에서 밀고 들어와 과목 글자를 오른쪽으로 민다(끝내면 반대로)
+// 선택 모드 — 체크 칸 자리만큼 줄이 오른쪽으로 비켜서고 체크 칸이 옅게 나타난다(끝내면 반대로)
 function selectionMotion(on) {
   if (reduceMotion.matches) return;
   const label = document.querySelector('#selectToggle .select-toggle__label');
   label?.animate([{ opacity: 0, transform: `translateY(${on ? 8 : -8}px)` }, { opacity: 1, transform: 'none' }], { duration: 200, easing: M.out });
   const rows = [...$('cardsGrid').querySelectorAll('.rrow:not(.rrow--head)')].filter(r => { const b = r.getBoundingClientRect(); return b.bottom > 0 && b.top < innerHeight; });
-  rows.forEach((row, i) => {
+  rows.forEach(row => {
     const pad = parseFloat(getComputedStyle(row).paddingLeft);
-    const from = on ? pad - 26 : pad + 26;
-    row.animate([{ paddingLeft: `${from}px` }, { paddingLeft: `${pad}px` }], { duration: 260, delay: i * 14, easing: M.out, fill: 'backwards' });
-    row.querySelector('.sel-box')?.animate([{ opacity: 0, transform: 'scale(.4) translateX(-12px)' }, { opacity: 1, transform: 'none' }], { duration: 240, delay: i * 14 + 40, easing: M.out, fill: 'backwards' });
+    row.animate([{ paddingLeft: `${on ? pad - 26 : pad + 26}px` }, { paddingLeft: `${pad}px` }], { duration: 220, easing: M.out });
+    row.querySelector('.sel-box')?.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 180, delay: 60, easing: M.out, fill: 'backwards' });
   });
-  $('cardsGrid').querySelectorAll('.card .sel-box').forEach((b, i) => b.animate([{ opacity: 0, transform: 'scale(.4)' }, { opacity: 1, transform: 'none' }], { duration: 220, delay: Math.min(i, 12) * 16, easing: M.out, fill: 'backwards' }));
+  $('cardsGrid').querySelectorAll('.card .sel-box').forEach(b => b.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 180, easing: M.out }));
 }
 
 // 목록 항목 열쇠 — 회차 묶음은 제목, 줄·카드는 시험 번호(선택 모드 체크 칸 포함)

@@ -157,10 +157,10 @@ html[data-vt="tab-next"]::view-transition-old(archive-body), html[data-vt="page-
 html[data-vt="tab-next"]::view-transition-new(archive-body), html[data-vt="page-next"]::view-transition-new(results) { animation: m-in-r .34s var(--m-out) 100ms both; }
 html[data-vt="tab-prev"]::view-transition-old(archive-body), html[data-vt="page-prev"]::view-transition-old(results) { animation: m-out-r .12s var(--m-in) both; }
 html[data-vt="tab-prev"]::view-transition-new(archive-body), html[data-vt="page-prev"]::view-transition-new(results) { animation: m-in-l .34s var(--m-out) 100ms both; }
-@keyframes m-out-l { to { transform: translateX(-64px); opacity: 0; } }
-@keyframes m-out-r { to { transform: translateX(64px); opacity: 0; } }
-@keyframes m-in-r { from { transform: translateX(96px); opacity: 0; } }
-@keyframes m-in-l { from { transform: translateX(-96px); opacity: 0; } }
+@keyframes m-out-l { to { transform: translateX(-32px); opacity: 0; } }
+@keyframes m-out-r { to { transform: translateX(32px); opacity: 0; } }
+@keyframes m-in-r { from { transform: translateX(48px); opacity: 0; } }
+@keyframes m-in-l { from { transform: translateX(-48px); opacity: 0; } }
 
 /* 표 ↔ 카드 — 옛 목록은 빠지고 새 모양이 살짝 올라오며 자리 잡음 */
 html[data-vt="view"]::view-transition-group(results) { animation: none; }
@@ -171,7 +171,7 @@ html[data-vt="view"]::view-transition-new(results) { animation: m-rise .3s var(-
 
 /* 테마 — 누른 버튼 자리에서 새 색이 동그랗게 번진다(site-prefs.js 가 --vt-x/--vt-y 지정) */
 html[data-vt="theme"]::view-transition-old(root) { opacity: 1; }
-html[data-vt="theme"]::view-transition-new(root) { animation: m-reveal .6s var(--m-move) both; }
+html[data-vt="theme"]::view-transition-new(root) { animation: m-reveal .42s var(--m-move) both; }
 html[data-vt="theme"] .site-header { view-transition-name: none; }
 html[data-vt="theme"] *, html[data-vt="theme"] *::before, html[data-vt="theme"] *::after { transition: none !important; }   /* 새 색이 바로 그려져야 번지는 원 안이 처음부터 새 테마 */
 @keyframes m-reveal { from { clip-path: circle(0 at var(--vt-x, 100%) var(--vt-y, 0)); } to { clip-path: circle(var(--vt-r, 150vmax) at var(--vt-x, 100%) var(--vt-y, 0)); } }
@@ -190,15 +190,13 @@ html[data-vt="xtab-prev"]::view-transition-new(root) { animation: m-in-l-s .3s v
 @keyframes m-in-r-s { from { transform: translateX(32px); opacity: 0; } }
 @keyframes m-in-l-s { from { transform: translateX(-32px); opacity: 0; } }
 
-/* 페이지 이동(문서 사이) — 앞으로 가면 새 페이지가 오른쪽에서, 뒤로 가면 왼쪽에서.
-   같은 회차 다른 과목은 그 과목이 놓인 쪽에서. 누른 목록 줄의 과목명·기관 배지는 상세 제목·배지로 커진다 */
-html[data-nav="push"]::view-transition-old(root), html[data-nav="right"]::view-transition-old(root) { animation: m-out-l-s .2s var(--m-in) both; }
-html[data-nav="push"]::view-transition-new(root), html[data-nav="right"]::view-transition-new(root) { animation: m-in-r-s .34s var(--m-out) 30ms both; }
-html[data-nav="back"]::view-transition-old(root), html[data-nav="left"]::view-transition-old(root) { animation: m-out-r-s .2s var(--m-in) both; }
-html[data-nav="back"]::view-transition-new(root), html[data-nav="left"]::view-transition-new(root) { animation: m-in-l-s .34s var(--m-out) 30ms both; }
-::view-transition-group(exam-title), ::view-transition-group(exam-badge), ::view-transition-group(subj-current), ::view-transition-group(subj-current-sub) { animation-duration: .38s; animation-timing-function: var(--m-move); }
-.exam__title { view-transition-name: exam-title; }
-.exam__chips > .type-badge { view-transition-name: exam-badge; }
+/* 페이지 이동(문서 사이) — 보통은 위의 짧은 페이드만. 같은 회차 다른 과목(상세 과목 줄)만 그 과목이 놓인 쪽에서 들어오고,
+   과목 줄의 '현재' 표시가 옆 칸으로 옮겨 간다 */
+html[data-nav="right"]::view-transition-old(root) { animation: m-out-l-s .18s var(--m-in) both; }
+html[data-nav="right"]::view-transition-new(root) { animation: m-in-r-s .3s var(--m-out) 30ms both; }
+html[data-nav="left"]::view-transition-old(root) { animation: m-out-r-s .18s var(--m-in) both; }
+html[data-nav="left"]::view-transition-new(root) { animation: m-in-l-s .3s var(--m-out) 30ms both; }
+::view-transition-group(subj-current), ::view-transition-group(subj-current-sub) { animation-duration: .32s; animation-timing-function: var(--m-move); }
 .exam__subjects-row:not(.exam__subjects-row--subs) a[aria-current="page"] { view-transition-name: subj-current; }   /* 영역 줄·세부 과목 줄 각각 — 같은 이름 둘이면 전환이 취소됨 */
 .exam__subjects-row--subs a[aria-current="page"] { view-transition-name: subj-current-sub; }
 
