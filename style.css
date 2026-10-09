@@ -537,6 +537,7 @@ html[data-urlstate] .content:has(#cardsGrid[data-prerendered]) #skeleton { displ
 .filter__hint { font-size: 12px; color: var(--ink-4); font-weight: 500; }
 .pill-row { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px; }   /* 학년도 칸과 같은 4열 — 버튼 폭·세로선이 모든 필터에서 같게 */
 .pill-row .pill { padding: 0 4px; }
+#tierFilter { grid-template-columns: repeat(3, minmax(0, 1fr)); }   /* 난이도는 '매우 어려움'+색 점이 4열 칸(58px)을 넘침 → 3열 */
 .subtype-row { display: none; margin: 12px 0 0; }   /* 들여쓰기 없이 — 위아래 버튼과 같은 열에 맞춤 */
 .subtype-row.is-open { display: block; }
 /* 하위 줄: 작게 + 선택은 채우지 않고 테두리로 — 위 줄(기관, 검정 채움)과 위계 구분 */
