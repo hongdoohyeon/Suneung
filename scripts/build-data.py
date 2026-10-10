@@ -2953,7 +2953,7 @@ _SET_ARTICLES = None
 
 
 def set_article_html(fname: str) -> str:
-    """회차 페이지 '회차 해설' — data/set-articles.json(키 = 회차 파일명)에 사람이 쓴 글. 없으면 ''."""
+    """회차 페이지 '회차 해설' — data/set-articles.json(키 = 회차 파일명)의 글. 없으면 ''."""
     global _SET_ARTICLES
     if _SET_ARTICLES is None:
         p = ROOT / 'data' / 'set-articles.json'
@@ -2965,16 +2965,10 @@ def set_article_html(fname: str) -> str:
     body = ''.join(
         f'<h3>{esc(s["h"])}</h3>' + ''.join(f'<p>{esc(p)}</p>' for p in s.get('p') or [])
         for s in art.get('sections') or [])
-    srcs = ''.join(
-        f'<li><a href="{html_escape(s["url"], quote=True)}" target="_blank" rel="noopener nofollow">{esc(s["title"])}</a></li>'
-        if s.get('url') else f'<li>{esc(s["title"])}</li>'
-        for s in art.get('sources') or [])
     return ('<section class="examset__facts examset__article" id="review" aria-labelledby="examsetReviewTitle">'
             '<div class="examset__facts-head"><h2 id="examsetReviewTitle">회차 해설</h2>'
             + (f'<time datetime="{esc(art["updated"])}">{esc(art["updated"])} 작성</time>' if art.get('updated') else '')
-            + '</div>' + body
-            + (f'<h3>참고한 자료</h3><ul class="examset__article-src">{srcs}</ul>' if srcs else '')
-            + '</section>')
+            + '</div>' + body + '</section>')
 
 
 def set_cut_summary(head: str, exams: list[dict], scores: dict, official_src: bool) -> tuple[str, str]:
