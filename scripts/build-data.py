@@ -2435,7 +2435,8 @@ def build_static_exam_pages(items: list[dict], template_path: Path, out_root: Pa
         html = _set_attr(html, pat['twd'],   meta['description'])
         html = _set_attr(html, pat['twi'],   og_url)
         html = _set_attr(html, pat['twa'],   head + ' — 기출해체분석기')
-        html = _set_attr(html, pat['robots'], 'index,follow')   # 템플릿의 noindex 덮어씀
+        # 템플릿의 noindex 덮어씀 — 직업탐구는 색인 제외(사용자 결정 2026-10-10)
+        html = _set_attr(html, pat['robots'], 'noindex,follow' if it.get('subject') == '직업탐구' else 'index,follow')
         pub_date = meta['datePublished']
         html = _set_attr(html, pat['pub'], pub_date)
         html = _set_attr(html, pat['mod'], TODAY_ISO)  # SSG 생성일 = 최종 수정일

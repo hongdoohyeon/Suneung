@@ -147,6 +147,8 @@ def render_sitemaps(items: list[dict], hubs=None) -> None:
     parts = ['<?xml version="1.0" encoding="UTF-8"?>',
              '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
     for it in items:
+        if it.get('subject') == '직업탐구':   # noindex 페이지 — 사이트맵 제외
+            continue
         parts.append(f'  <url><loc>{base}/exam-{it["id"]}.html</loc><lastmod>{lastmod[it["id"]]}</lastmod>'
                      f'<changefreq>monthly</changefreq><priority>{exam_priority(it)}</priority></url>')
     parts.append('</urlset>')
