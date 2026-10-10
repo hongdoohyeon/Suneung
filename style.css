@@ -1518,6 +1518,7 @@ body.pv-lock { overflow: hidden; }
 .report-form textarea { resize: vertical; min-height: 72px; }
 .report-form__status { min-height: 1.2em; font-size: 13px; font-weight: 600; color: var(--ink-2); }
 .report-form__status:empty { display: none; }
+.seldlg__save { display: flex; width: 100%; justify-content: center; margin-top: 8px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .report-form__actions { display: flex; justify-content: flex-end; gap: 8px; }
 
 /* 회차 페이지: 등급컷·난이도 요약, 관련 기출 링크 */
