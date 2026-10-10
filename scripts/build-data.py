@@ -2597,7 +2597,7 @@ def build_static_exam_pages(items: list[dict], template_path: Path, out_root: Pa
         _wr = wrong_rates_for(it)
         if _wr:
             _off += wrong_rate_html(it, _wr, spoil_note=sc is None and not _off)
-        if sc is None and not _off:   # 등급컷·공식 통계 등 고유 정보가 없는 얇은 페이지 — 광고 슬롯을 렌더하지 않는다(lib/ads.js)
+        if sc is None and not _off and not _note.exists():   # 등급컷·공식 통계 등 고유 정보가 없는 얇은 페이지 — 광고 슬롯을 렌더하지 않는다(lib/ads.js)
             html = html.replace('<body class="page-exam">', '<body class="page-exam" data-no-ads>', 1)
 
         # 등급컷·난이도 — 매칭 컷이 있을 때만 섹션 공개 (검정고시 등은 숨김 유지)
@@ -3271,10 +3271,11 @@ def build_static_set_pages(items: list[dict], template_path: Path, out_root: Pat
             html, count=1)
 
         article_html = set_article_html(fname)
-        extra = article_html + facts_html + set_wrong_html(meta['head'], merged_exams) + set_news_html(exams_in_set[0])
+        extra = facts_html + set_wrong_html(meta['head'], merged_exams) + set_news_html(exams_in_set[0])
         me = next((o for o in catalog if o['fname'] == fname), None)
         if me:
             extra += set_related_html(me, catalog, sorted({e['subject'] for e in merged_exams if e.get('subject')}, key=lambda x: SUBJECT_ORDER.get(x, 99)))
+        extra += article_html   # 회차 해설은 맨 아래 — 자료·표를 먼저 보게
         if extra:
             html = re.sub(r'(<div class="ad-slot ad-slot--banner" data-ad-position="examsetBottom"></div>)',
                           lambda m: m.group(1) + '\n\n    ' + extra, html, count=1)
