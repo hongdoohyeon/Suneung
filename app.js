@@ -510,9 +510,11 @@ function selectionMotion(on) {
   $('cardsGrid').querySelectorAll('.card .sel-box').forEach(b => b.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 180, easing: M.out }));
 }
 
-function render(skipSubjectFilter = false) {
+function render(skipSubjectFilter = false, still = false) {
   // 필터로 목록이 바뀔 때는 효과 없이 바로 — 줄마다 나타나게 하면 끊겨 보이고, 전체 교차는 번쩍였다
   renderCards();
+  // 탭 전환(still) 때는 칩·'최근 본 시험'도 제자리에서 바로 — 목록 창만 움직이고 위 줄이 같이 밀리면 어지러웠다
+  if (still) { renderActiveTags(); updateFilterBadge(); if (!skipSubjectFilter) renderSubjectFilter(); renderSmartNote(); return; }
   // 칩이 늘고 줄면 같은 줄의 '최근 본 시험'이 툭 당겨지지 않고 한 번에 미끄러진다
   const recent = $('recentRow'), rx0 = recent && !recent.hidden ? recent.getBoundingClientRect().left : null;
   flipChips($('activeTags'), { item: '.tag', key: el => el.querySelector('[data-clear]')?.dataset.clear }, renderActiveTags);
@@ -590,7 +592,7 @@ async function switchTab(tab) {
 
   pushUrl();   // 탭 전환은 history 쌓아 진정한 뒤로가기 가능
   if (!await replaceExamsForTab(state.tab, { deferSkeleton: true })) return;
-  const doRender = () => { renderFilterPanel(); render(); };
+  const doRender = () => { renderFilterPanel(); render(false, true); };
   // 본문(필터+결과)이 통째로 옆으로 밀린다 — 오른쪽 탭이면 왼쪽으로 밀려나고 새 내용이 오른쪽에서 들어옴
   // 시험 목록(표·카드)만 밀린다 — 사이드바·검색창·필터 줄까지 움직이면 어지러웠다
   const body = () => $('cardsGrid');
@@ -1659,7 +1661,7 @@ window.addEventListener('popstate', async () => {
   const nextTab = tabFromLocation();
   const order = navOrder(), from = order.indexOf(navTabKey(state.tab)), to = order.indexOf(navTabKey(nextTab));
   if (!await replaceExamsForTab(nextTab, { deferSkeleton: from !== to })) return;
-  const update = () => { applyUrlState(); renderFilterPanel(); render(); renderSmartNote(); };
+  const update = () => { applyUrlState(); renderFilterPanel(); render(false, from !== to); renderSmartNote(); };
   // 뒤로·앞으로 가기로 시험 종류가 바뀌어도 탭이 놓인 방향으로 밀린다
   if (from !== to && from >= 0 && to >= 0 && !lastLoadSlow) { const body = () => $('cardsGrid'); vt(to > from ? 'tab-next' : 'tab-prev', update, [[body, body, 'archive-body']]); }
   else update();
