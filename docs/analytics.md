@@ -30,10 +30,10 @@
 
 ## GA 관리 화면에서 할 일 (코드로 못 하는 것)
 
-1. **맞춤 정의 › 맞춤 측정기준 만들기** — 범위 '이벤트': file_kind, file_ext, click_area, exam_id, exam_group, exam_type, grade_year, subject, curriculum, filters, matched, viewer, tab, control, article, mode, kinds, kind, field, message, source.
-   범위 '사용자': theme_pref, spoiler, in_app, standalone.
-   **맞춤 측정항목**(이벤트): result_count, position, engaged_sec, exam_count, file_count.
-   (search_term · content_group 은 기본 제공이라 등록 불필요. 등록 전에 쌓인 데이터는 보고서에 소급되지 않는다.)
+1. ~~맞춤 정의 등록~~ — 2026-10-11 완료(측정기준 26 · 측정항목 5). 이벤트 범위 측정기준은 매개변수 이름 그대로 등록했고,
+   예외만 이름이 다르다: kind→`report_kind`, field→`report_field`, message→`error_message`, source→`error_source`.
+   사용자 범위: theme_pref · spoiler · in_app · standalone. 측정항목: result_count · position · engaged_sec · exam_count · file_count.
+   **새 매개변수를 추가하면 여기에도 등록**해야 보고서에 나온다(등록 전 데이터는 소급 안 됨).
 2. **데이터 보존 기간 14개월**(데이터 수집 및 수정 › 데이터 보존).
 3. **향상된 측정**: '파일 다운로드'는 꺼도 된다(material_download 가 대신). '브라우저 기록 이벤트 기반 페이지 변경'은 끄기 권장 — 기출검색은 필터를 바꿀 때마다 주소를 바꿔서 페이지뷰가 부풀려진다(filter_apply 로 따로 잡음).
 4. **내부 트래픽 제외**: 데이터 스트림 › 태그 설정 › 내부 트래픽 정의(내 IP) → 데이터 필터 활성화.
