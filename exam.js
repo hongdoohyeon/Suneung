@@ -1,18 +1,18 @@
 'use strict';
-import { CURRICULUM_CONFIG, getTypeConf, prettySub } from './config.js?v=fc750be54f94735fcd1b';
-import { escHtml as _escHtml, escAttr, safeUrl as _safeUrl, $ as _$ } from './lib/dom.js?v=fc750be54f94735fcd1b';
-import { setMeta, setMetaProp, setCanonical, injectJsonLd as _injectJsonLd, STATIC_PAGE, applySeo } from './lib/seo.js?v=fc750be54f94735fcd1b';
-import { renderAllAdSlots } from './lib/ads.js?v=fc750be54f94735fcd1b';
-import { renderPdf, renderPreviewCover, renderUnsupported, renderEmpty, urlExtension } from './lib/exam-pdf.js?v=fc750be54f94735fcd1b';
-import { LOADING_PREVIEWS } from './lib/loading-previews.js?v=fc750be54f94735fcd1b';
-import { renderGradeDist } from './lib/exam-gradedist.js?v=fc750be54f94735fcd1b';
-import { pushRecent } from './lib/recent.js?v=fc750be54f94735fcd1b';
-import './lib/report.js?v=fc750be54f94735fcd1b';
-import { shareLink } from './lib/share.js?v=fc750be54f94735fcd1b';
-import { mountExamDock } from './lib/exam-dock.js?v=fc750be54f94735fcd1b';
-import { enableForcedDownloads } from './lib/download.js?v=fc750be54f94735fcd1b';
+import { CURRICULUM_CONFIG, getTypeConf, prettySub } from './config.js?v=e0e7edd83eaaee569edc';
+import { escHtml as _escHtml, escAttr, safeUrl as _safeUrl, $ as _$ } from './lib/dom.js?v=e0e7edd83eaaee569edc';
+import { setMeta, setMetaProp, setCanonical, injectJsonLd as _injectJsonLd, STATIC_PAGE, applySeo } from './lib/seo.js?v=e0e7edd83eaaee569edc';
+import { renderAllAdSlots } from './lib/ads.js?v=e0e7edd83eaaee569edc';
+import { renderPdf, renderPreviewCover, renderUnsupported, renderEmpty, urlExtension } from './lib/exam-pdf.js?v=e0e7edd83eaaee569edc';
+import { LOADING_PREVIEWS } from './lib/loading-previews.js?v=e0e7edd83eaaee569edc';
+import { renderGradeDist } from './lib/exam-gradedist.js?v=e0e7edd83eaaee569edc';
+import { pushRecent } from './lib/recent.js?v=e0e7edd83eaaee569edc';
+import './lib/report.js?v=e0e7edd83eaaee569edc';
+import { shareLink } from './lib/share.js?v=e0e7edd83eaaee569edc';
+import { mountExamDock } from './lib/exam-dock.js?v=e0e7edd83eaaee569edc';
+import { enableForcedDownloads } from './lib/download.js?v=e0e7edd83eaaee569edc';
 // 듣기 플레이어는 듣기 음원이 있는 영어 페이지에서만 받는다(나머지 상세 페이지는 10KB 덜 받음)
-const mountListenPlayer = (el, opts) => import('./lib/listen-player.js?v=fc750be54f94735fcd1b').then(m => m.mountListenPlayer(el, opts));
+const mountListenPlayer = (el, opts) => import('./lib/listen-player.js?v=e0e7edd83eaaee569edc').then(m => m.mountListenPlayer(el, opts));
 
 enableForcedDownloads();
 
@@ -297,7 +297,7 @@ async function main() {
   // (robots.txt 가 data/exam/ 을 막아 검색엔진 렌더러가 여기로 오면 12MB 를 매 페이지 받게 된다)
   if (!exam && !isStaticExam) {
     try {
-      const res = await fetch('data/exams.json?v=fc750be54f94735fcd1b');
+      const res = await fetch('data/exams.json?v=e0e7edd83eaaee569edc');
       if (res.ok) {
         const exams = await res.json();
         exam = exams.find(e => e.id === id) ?? null;
