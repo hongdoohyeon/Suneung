@@ -17,7 +17,7 @@ const y4 = n => (n < 100 ? (n <= 40 ? 2000 + n : 1900 + n) : n);
 // 확실한 단어는 규칙으로 — [정규식, 적용] 순서대로. 잡힌 부분은 검색어에서 지운다.
 const TAB_RULES = [
   [/고\s*1|(?<!\d)1\s*학년(?!도)/, 'freshman'], [/고\s*2|(?<!\d)2\s*학년(?!도)/, 'junior'], [/고\s*3|(?<!\d)3\s*학년(?!도)/, 'senior'],
-  [/경찰(대학?(교)?)?|사관(학교)?/, 'mp'], [/leet|meet|리트|미트/i, 'gradschool'], [/논술/, 'essay'],
+  [/경찰(대학?(교)?)?|사관(학교)?/, 'mp'], [/leet|meet|peet|리트|미트|피트/i, 'gradschool'], [/논술/, 'essay'],
   [/초졸|초등(학교)?\s*(졸업\s*)?(학력\s*)?검정/, 'gedelem'], [/중졸|중학교\s*(졸업\s*)?(학력\s*)?검정/, 'gedmid'],
   [/고졸|검정\s*고시|검고/, 'gedhigh'],
 ];
@@ -197,7 +197,7 @@ const noul = instructions => ({ type: 'noul', instructions });
 export const JEV_QUESTIONS = {
   tab: choice('검색어가 찾는 시험 대상은?', {
     senior: '수능·평가원 모의평가·고3 학력평가', junior: '고2 학력평가', freshman: '고1 학력평가', mp: '사관학교·경찰대 1차 시험',
-    gradschool: 'LEET·MEET(전문대학원)', essay: '대학별 논술', gedhigh: '고졸 검정고시', gedmid: '중졸 검정고시', gedelem: '초졸 검정고시',
+    gradschool: 'LEET·MEET·PEET(전문대학원)', essay: '대학별 논술', gedhigh: '고졸 검정고시', gedmid: '중졸 검정고시', gedelem: '초졸 검정고시',
   }),
   exam: choice('검색어가 찾는 시험 종류는?', {
     csat: '수능 본시험만', june: '평가원 6월 모의평가(6모·6평)', sept: '평가원 9월 모의평가(9모·9평)', mock: '평가원 6모와 9모 둘 다(모평)',

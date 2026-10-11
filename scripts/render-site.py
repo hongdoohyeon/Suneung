@@ -38,7 +38,7 @@ ARCHIVE_TAB_RULES = {
     'junior':     {'curriculums': {'2015', '2009', '2007개정', '7차'}, 'education_grade': 2, 'education_only': True},
     'freshman':   {'curriculums': {'2015', '2009', '2007개정', '7차'}, 'education_grade': 1, 'education_only': True},
     'mp':         {'curriculums': {'사관', '경찰대'}},
-    'gradschool': {'curriculums': {'LEET', 'MEET'}},
+    'gradschool': {'curriculums': {'LEET', 'MEET', 'PEET'}},
     'essay':      {'curriculums': {'논술'}},
     'gedhigh':    {'curriculums': {'고졸'}},
     'gedmid':     {'curriculums': {'중졸'}},
@@ -974,6 +974,7 @@ def _summary_sub_from_exam(e: dict) -> str:
     if e.get('typeGroup') == 'police':   return f"{e.get('gradeYear')}학년도 경찰대"
     if e.get('typeGroup') == 'leet':     return f"{e.get('gradeYear')}학년도 LEET"
     if e.get('typeGroup') == 'meet':     return f"{e.get('gradeYear')}학년도 MEET"
+    if e.get('typeGroup') == 'peet':     return f"{e.get('gradeYear')}학년도 PEET"
     return ''
 
 
@@ -1125,7 +1126,7 @@ def render_home(items: list[dict]) -> None:
         ('/?tab=senior&amp;typeGroup=education', count(lambda e: e.get('typeGroup') == 'education'), '학력평가', '고1 · 고2 · 고3 교육청'),
         ('/?tab=essay', count(lambda e: e.get('typeGroup') == 'essay'), '대학별 논술', '대학별 본논술 · 모의논술'),
         ('/?tab=mp', count(lambda e: e.get('typeGroup') in ('military', 'police')), '사관·경찰대', '1차 시험'),
-        ('/?tab=gradschool', count(lambda e: e.get('typeGroup') in ('leet', 'meet')), 'LEET·MEET', '전문대학원 적성시험'),
+        ('/?tab=gradschool', count(lambda e: e.get('typeGroup') in ('leet', 'meet', 'peet')), 'LEET·MEET·PEET', '전문대학원 적성시험'),
         ('/?tab=gedhigh', count(lambda e: e.get('typeGroup') == 'ged'), '검정고시', '초졸 · 중졸 · 고졸'),
     ]
     arrow = ('<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" '

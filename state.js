@@ -206,6 +206,9 @@ function buildHay(e) {
     case 'meet':
       items.push('meet', '의치학', '의예', '의대', '치대');
       break;
+    case 'peet':
+      items.push('peet', '피트', '약학', '약대', '약학대학입문자격시험');
+      break;
   }
 
   // 자료 타입 키워드 — 검색에 "듣기", "대본", "mp3", "스크립트" 직접 입력해도 잡히게

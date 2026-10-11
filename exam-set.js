@@ -8,7 +8,7 @@ enableForcedDownloads();
 const injectJsonLd = (p) => _injectJsonLd('jsonld-set', p);
 const SET_CURR_SLUG = {
   '2015':'kice','2009':'kice','예비':'kice','2007개정':'pre2009','7차':'pre2009','6차':'pre2009','pre2009':'pre2009',
-  '사관':'mil','경찰대':'police','LEET':'leet','MEET':'meet','논술':'essay','초졸':'gedelem','중졸':'gedmid','고졸':'gedhigh',
+  '사관':'mil','경찰대':'police','LEET':'leet','MEET':'meet','PEET':'peet','논술':'essay','초졸':'gedelem','중졸':'gedmid','고졸':'gedhigh',
 };
 function splitStem(curriculum, year, type, grade) {
   const slug = SET_CURR_SLUG[curriculum] || String(curriculum).toLowerCase();

@@ -13,7 +13,7 @@
 // ╚══════════════════════════════════════════════════════════
 export const TAB_CONFIG = [
   { key: 'all', label: '전체', sub: '모든 시험',
-    curriculums: ['2015', '2009', '2007개정', '7차', '6차', '예비', '사관', '경찰대', 'LEET', 'MEET', '논술', '고졸', '중졸', '초졸'] },
+    curriculums: ['2015', '2009', '2007개정', '7차', '6차', '예비', '사관', '경찰대', 'LEET', 'MEET', 'PEET', '논술', '고졸', '중졸', '초졸'] },
   // ── 데이터 있는 탭 ──────────────────────────────────────
   // senior 탭: 평가원(전 학년) + 교육청 고3 학평만 표시 (educationGrades:[3]).
   // 첫 진입 시 평가원이 default — 학평을 보려면 사용자가 명시 클릭.
@@ -21,7 +21,7 @@ export const TAB_CONFIG = [
     curriculums: ['2015', '2009', '2007개정', '7차', '6차', '예비'], educationGrades: [3],
     defaultTypeGroup: 'suneung' },
   { key: 'mp',         label: '사관·경찰', sub: '1차 시험',         curriculums: ['사관', '경찰대'] },
-  { key: 'gradschool', label: 'L/MEET', sub: '전문대학원',       curriculums: ['LEET', 'MEET'] },
+  { key: 'gradschool', label: 'L/MEET', sub: '전문대학원',       curriculums: ['LEET', 'MEET', 'PEET'] },
   // 고1·고2: 교육청 학평만 (typeGroup=education, studentGrade=2/1)
   { key: 'junior',     label: '고2',       sub: '학평',
     curriculums: ['2015', '2009', '2007개정', '7차'], educationGrades: [2], educationOnly: true,
@@ -59,7 +59,7 @@ const LEGACY_CURRICULUM_TO_TAB = {
   'pre2009': 'senior', '6차': 'senior', '7차': 'senior', '2007개정': 'senior',
   '예비': 'senior',
   '사관': 'mp', '경찰대': 'mp',
-  'LEET': 'gradschool', 'MEET': 'gradschool',
+  'LEET': 'gradschool', 'MEET': 'gradschool', 'PEET': 'gradschool',
   '고졸': 'gedhigh', '중졸': 'gedmid', '초졸': 'gedelem',
 };
 export function legacyTabKey(maybeOld) {
@@ -344,6 +344,22 @@ export const CURRICULUM_CONFIG = {
     subjectsByTypeGroup: {},
   },
 
+  // ── 피트 (PEET) ──────────────────────────────────────────
+  // 약학대학입문자격시험, 2011~2023학년도(통합 6년제 전환으로 폐지). 사이트엔 언어추론만 —
+  // 언어추론은 2011·2012학년도 두 번만 시행(2013부터 국어 공인시험으로 대체)
+  'PEET': {
+    id: 'PEET',
+    label: '피트 (PEET)',
+    rangeLabel: '약학대학입문자격시험',
+    gradeYearRange: [2011, 2012],
+    availableTypeGroups: ['peet'],
+    singleType: true,
+    subjects: {
+      '언어추론': { icon: '📖', bg: '#fff0e8', color: '#c44b00', subs: [] },
+    },
+    subjectsByTypeGroup: {},
+  },
+
   // ── 검정고시 (KICE 위탁출제, 전국 공통, 연 2회) ────────────
   // curriculum = 학력(초·중·고졸). subject = 과목, subSubject 없음. 2018~2026 공식.
   '고졸': {
@@ -497,6 +513,16 @@ export const EXAM_TYPE_CONFIG = [
     ],
   },
   {
+    groupKey: 'peet',
+    groupLabel: 'PEET',
+    groupColor: '#5b6410',
+    groupBg: '#eceed2',
+    displayMode: 'gradeYear',
+    types: [
+      { key: 'peet_annual', label: '본시험', month: 8, badgeBg: '#eceed2', badgeColor: '#5b6410' },
+    ],
+  },
+  {
     groupKey: 'essay',
     groupLabel: '대학 논술',
     groupColor: '#7c3aed',
@@ -619,6 +645,10 @@ const SEARCH_ALIASES = {
   '치대': ['meet'],
   '의치': ['meet'],
   '의예': ['meet'],
+  'peet': ['peet', '약학'],
+  '피트': ['peet', '약학'],
+  '약대': ['peet'],
+  '약학': ['peet'],
   '언이': ['언어이해'],
   '언어이해': ['언어이해'],
   '추리': ['추리논증'],

@@ -1177,6 +1177,7 @@ function setTitle(e) {
     case 'police':    return `${e.gradeYear}학년도 경찰대학 1차 시험`;
     case 'leet':      return `${e.gradeYear}학년도 LEET${e.type === 'prelim' ? ' 예비시험' : ''}`;
     case 'meet':      return `${e.gradeYear}학년도 MEET${e.type === 'prelim' ? ' 예비시험' : ''}`;
+    case 'peet':      return `${e.gradeYear}학년도 PEET`;
     case 'essay':     return `${e.gradeYear}학년도 ${String(e.subject).replace('학교', '')} ${e.type === 'essay_mock' ? '모의논술' : '논술'}`;
     case 'ged':       return `${e.examYear ?? e.gradeYear}년 제${e.type === 'ged_2' ? 2 : 1}회 ${e.curriculum} 검정고시`;
     default:          return `${e.gradeYear}학년도 ${e.subject}`;
@@ -1190,6 +1191,7 @@ function badgeLabel(e) {
   if (e.typeGroup === 'police') return '경찰대';
   if (e.typeGroup === 'leet') return 'LEET';
   if (e.typeGroup === 'meet') return 'MEET';
+  if (e.typeGroup === 'peet') return 'PEET';
   if (e.typeGroup === 'ged') return '검정고시';
   return tc?.label ?? e.type;
 }
@@ -1592,7 +1594,7 @@ const SET_CURR_SLUG = {
   '2015': 'kice', '2009': 'kice', '예비': 'kice',
   // 7차 이전 분리 키는 모두 기존 exam-set-pre2009-*.html 정적 페이지로 매핑 (SEO·링크 호환)
   '2007개정': 'pre2009', '7차': 'pre2009', '6차': 'pre2009', 'pre2009': 'pre2009',
-  '사관': 'mil', '경찰대': 'police', 'LEET': 'leet', 'MEET': 'meet',
+  '사관': 'mil', '경찰대': 'police', 'LEET': 'leet', 'MEET': 'meet', 'PEET': 'peet',
   '논술': 'essay', '초졸': 'gedelem', '중졸': 'gedmid', '고졸': 'gedhigh',
 };
 function setFriendlyURL(curr, year, type, grade) {

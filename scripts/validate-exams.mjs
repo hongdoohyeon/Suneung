@@ -219,6 +219,7 @@ function validateBusinessRules(data) {
     police:      new Set(['police_annual']),
     leet:        new Set(['leet_annual', 'prelim']),
     meet:        new Set(['meet_annual', 'prelim']),
+    peet:        new Set(['peet_annual']),
     essay:       new Set(['essay_annual', 'essay_mock']),
     reference:   new Set(['stat']),
     ged:         new Set(['ged_1', 'ged_2']),

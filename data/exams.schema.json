@@ -42,6 +42,7 @@
             "경찰대",
             "LEET",
             "MEET",
+            "PEET",
             "예비",
             "pre2009",
             "논술",
@@ -79,6 +80,7 @@
             "police",
             "leet",
             "meet",
+            "peet",
             "essay",
             "reference",
             "ged"
@@ -104,6 +106,7 @@
             "stat",
             "leet_annual",
             "meet_annual",
+            "peet_annual",
             "essay_annual",
             "essay_mock",
             "military_annual",

@@ -49,6 +49,7 @@
   --tb-police: #0c4a6e; --tb-police-bg: #e0f2fe;
   --tb-leet: #a3243b; --tb-leet-bg: #f4dbe0;   /* 법학 — 버건디: 흰 바탕에 묻히지 않고 경찰대 하늘색과 구분 */
   --tb-meet: #9a4508; --tb-meet-bg: #f6e2c6;   /* 의학 — 주황: 검정고시 초록과 구분 */
+  --tb-peet: #5b6410; --tb-peet-bg: #eceed2;   /* 약학 — 올리브: 검정고시 초록·MEET 주황과 구분 */
   --tb-essay: #6d28d9; --tb-essay-bg: #f5f3ff;
   --tb-ged: #0e7a5f; --tb-ged-bg: #e7f5ef;
   --tb-reference: #45454c; --tb-reference-bg: #ededef;
@@ -89,6 +90,7 @@
     --tb-police: #7cc4f2; --tb-police-bg: #10222e;
     --tb-leet: #f28b9c; --tb-leet-bg: #40202a;
     --tb-meet: #f2ad62; --tb-meet-bg: #3a2a12;
+    --tb-peet: #c9d36e; --tb-peet-bg: #272a10;
     --tb-essay: #b79cff; --tb-essay-bg: #221a38;
     --tb-ged: #5ecfa8; --tb-ged-bg: #0f261e;
     --tb-reference: #b8b8c0; --tb-reference-bg: #25252b;
@@ -116,6 +118,7 @@
   --tb-police: #7cc4f2; --tb-police-bg: #10222e;
   --tb-leet: #f28b9c; --tb-leet-bg: #40202a;
   --tb-meet: #f2ad62; --tb-meet-bg: #3a2a12;
+  --tb-peet: #c9d36e; --tb-peet-bg: #272a10;
   --tb-essay: #b79cff; --tb-essay-bg: #221a38;
   --tb-ged: #5ecfa8; --tb-ged-bg: #0f261e;
   --tb-reference: #b8b8c0; --tb-reference-bg: #25252b;
@@ -416,6 +419,7 @@ html::before {
 .tg-police    { color: var(--tb-police) !important;    background: var(--tb-police-bg) !important; }
 .tg-leet      { color: var(--tb-leet) !important;      background: var(--tb-leet-bg) !important; }
 .tg-meet      { color: var(--tb-meet) !important;      background: var(--tb-meet-bg) !important; }
+.tg-peet      { color: var(--tb-peet) !important;      background: var(--tb-peet-bg) !important; }
 .tg-essay     { color: var(--tb-essay) !important;     background: var(--tb-essay-bg) !important; }
 .tg-ged       { color: var(--tb-ged) !important;       background: var(--tb-ged-bg) !important; }
 .tg-reference { color: var(--tb-reference) !important; background: var(--tb-reference-bg) !important; }
@@ -1750,3 +1754,8 @@ body:has(.selbar:not([hidden])) .pagination-wrap { margin-bottom: 72px; }   /* �
 .controls .toolbar .btn-text, .controls .switch--sm, .controls .tag, .controls .recent-chip, .controls .recent-row__clear { height: 36px; min-height: 36px; }
 .controls .view-toggle button { min-height: 0; }
 .controls .recent-row .hscroll-btn { width: 36px; height: 36px; margin-top: -18px; }
+
+/* LEET·MEET·PEET 점수 분포 — 5점 급간 막대(build-data.py bin_svg) */
+.dist-bar { fill: var(--ink); fill-opacity: .14; }
+.dist-bar--mode { fill-opacity: .34; }
+.dist-bar:hover { fill-opacity: .45; }

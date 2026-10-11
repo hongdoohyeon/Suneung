@@ -55,6 +55,7 @@ KICE_RELEASES: list[str] = []
 FUTURE_RELEASE = {
     'leet':     'leet-v1',
     'meet':     'meet-v1',
+    'peet':     'peet-v1',
     'military': 'military-v1',
     'police':   'police-v1',
 }
@@ -121,7 +122,7 @@ def discover_release_tags() -> list[str]:
         print(f'[warn] gh release list failed: {r.stderr.strip()}', file=sys.stderr)
         return ['kice-v1', 'kice-v2', 'kice-v3', 'kice-v4', 'kice-v5',
                 'edu-v1', 'edu-v2', 'edu-v3', 'edu-v4', 'edu-listening-v1',
-                'leet-v1', 'meet-v1', 'military-v1', 'police-v1',
+                'leet-v1', 'meet-v1', 'peet-v1', 'military-v1', 'police-v1',
                 'ged-v1', 'ged-v2']
     return [t for t in r.stdout.strip().split('\n') if t]
 
@@ -612,6 +613,7 @@ def generate_og_image(it: dict, head: str, out_path: Path):
         'police':    '#2e3a5f',
         'leet':      '#7c2d12',
         'meet':      '#581c87',
+        'peet':      '#5b6410',
         'ged':       '#0e7a5f',
     }.get(it.get('typeGroup'), '#1f6feb')
     d.rectangle([0, 0, W, 12], fill=color)
@@ -826,6 +828,9 @@ def _exam_date(it: dict) -> str:
     elif tg in ('leet', 'meet'):
         # LEET/MEET: July
         return f'{gy - 1}-07-27'
+    elif tg == 'peet':
+        # PEET: 8월 말
+        return f'{gy - 1}-08-28'
     elif tg == 'essay':
         # 대학별 논술: October–November
         return f'{gy - 1}-10-15'
@@ -890,6 +895,10 @@ def build_exam_meta(it: dict, has_cut: bool = True) -> dict:
         head  = f'{gy}학년도 MEET{prelim} {sub}'
         seo_kw = f'{gy2}학년도 미트{prelim} {sub} 기출'
         full_phrase = f'{gy}학년도 MEET(의·치학교육입문검사){prelim} {sub}'
+    elif tg == 'peet':
+        head  = f'{gy}학년도 PEET {sub}'
+        seo_kw = f'{gy2}학년도 피트 {sub} 기출'
+        full_phrase = f'{gy}학년도 PEET(약학대학입문자격시험) {sub}'
     elif tg == 'essay':
         lbl = '모의논술' if typ == 'essay_mock' else '논술'
         uni_short = sub.replace('학교', '')          # '연세대학교' → '연세대'
@@ -1240,6 +1249,7 @@ def compute_exam_scores(items: list[dict], cuts: list[dict] | None = None) -> di
 _ORG_LABEL = {
     'suneung': '한국교육과정평가원', 'education': '시·도교육청', 'military': '육·해·공군사관학교',
     'police': '경찰대학', 'leet': '법학전문대학원협의회', 'meet': '의·치학교육입문검사 관리위원회',
+    'peet': '한국약학교육협의회',
     'essay': '각 대학교', 'ged': '한국교육과정평가원·시도교육청', 'reference': '한국교육과정평가원',
 }
 _CURR_LABEL = {'2015': '2015 개정', '2009': '2009 개정', '2007개정': '2007 개정', '7차': '7차 교육과정',
@@ -1283,7 +1293,7 @@ def exam_badge_label(it: dict) -> str:
         return KOREAN_TYPE_LABEL.get(t, t or '')
     if tg == 'education':
         return f'{it.get("month")}월 학평'
-    return {'military': '사관학교', 'police': '경찰대', 'leet': 'LEET', 'meet': 'MEET',
+    return {'military': '사관학교', 'police': '경찰대', 'leet': 'LEET', 'meet': 'MEET', 'peet': 'PEET',
             'essay': '모의논술' if t == 'essay_mock' else '논술', 'ged': '검정고시',
             'reference': '통계'}.get(tg, t or '')
 
@@ -1322,7 +1332,7 @@ def exam_set_title(it: dict) -> str:
         return f'{gy}학년도 사관학교 1차'
     if tg == 'police':
         return f'{gy}학년도 경찰대학 1차'
-    if tg in ('leet', 'meet'):
+    if tg in ('leet', 'meet', 'peet'):
         return f'{gy}학년도 {tg.upper()}' + (' 예비시험' if t == 'prelim' else '')
     if tg == 'essay':
         return f'{gy}학년도 {"모의논술" if t == "essay_mock" else "논술"} 전체'
@@ -1676,6 +1686,7 @@ _PUBLISHERS = {
     'police': ('경찰대학', None),
     'leet': ('법학전문대학원협의회(LEET)', 'https://www.leet.or.kr'),
     'meet': ('의·치학교육입문검사 관리위원회(MEET)', None),
+    'peet': ('한국약학교육협의회(PEET)', 'https://ikape.or.kr'),
     'essay': ('각 대학교 입학처', None),
     'ged': ('시·도교육청(검정고시)', None),
 }
@@ -1908,6 +1919,117 @@ def suneung_dist_html(it: dict) -> str:
                  f'<span class="exam-card__hint">가장 많은 점수 {mode}점</span></header>'
                  f'<div class="exam-card__body spoil-val">{svg}</div></section>')
     body += (f'<p class="exam-official__src">{scope}한국교육과정평가원이 교육부 보도자료로 공개한 표준점수 도수분포로 계산했습니다.</p>')
+    return _official_section('점수 분포', body)
+
+
+_ENTRANCE_DISTS = None
+_ENTRANCE_SRC = {
+    'LEET': '법학전문대학원협의회가 발표한 법학적성시험 채점결과',
+    'MEET': '의·치의학교육입문검사 관리위원회(mdeet.org)가 발표한 채점 결과',
+    'PEET': '한국약학교육협의회가 발표한 약학대학입문자격시험 채점결과',
+}
+_TRACK_LABEL = {'med': '의학 계열', 'dent': '치의학 계열', 'common': '의·치의학 공통', '': ''}
+
+
+def _load_entrance_dists() -> dict:
+    """LEET·MEET·PEET 표준점수 5점 급간 분포(data/entrance-score-dist.json, scripts/build-entrance-dist.py)."""
+    global _ENTRANCE_DISTS
+    if _ENTRANCE_DISTS is None:
+        p = ROOT / 'data' / 'entrance-score-dist.json'
+        _ENTRANCE_DISTS = json.loads(p.read_text(encoding='utf-8')) if p.exists() else {}
+    return _ENTRANCE_DISTS
+
+
+def _bins(raw: list) -> list:
+    """[[lo, n] | [lo, n, hi]] → [(lo, hi, n)]"""
+    return [(b[0], b[2] if len(b) > 2 else b[0] + 5, b[1]) for b in raw]
+
+
+def bin_svg(bins: list, label: str) -> str:
+    """급간 막대 그래프(인라인 SVG). 가장 많은 급간을 진하게, 막대마다 인원·상위 비율 툴팁."""
+    total = sum(n for *_, n in bins)
+    if total < 50 or len(bins) < 3:
+        return ''
+    lo, hi, peak = bins[0][0], bins[-1][1], max(n for *_, n in bins)
+    W, H, L, R, T, B = 640, 230, 10, 10, 18, 30
+    base = H - B
+    x = lambda sc: L + (sc - lo) / max(hi - lo, 1) * (W - L - R)
+    out, above = [], 0
+    for a, b, n in reversed(bins):
+        above += n
+        h = (base - T) * n / peak
+        cls = 'dist-bar dist-bar--mode' if n == peak else 'dist-bar'
+        top = above / total * 100
+        top = f'상위 {top:.1f}%' if top >= .1 else '상위 0.1% 미만'
+        out.append(f'<rect class="{cls}" x="{x(a) + 1:.1f}" y="{base - h:.1f}" width="{x(b) - x(a) - 2:.1f}" height="{h:.1f}">'
+                   f'<title>{a}~{b}점 · {n:,}명 · {top}</title></rect>')
+    out.append(f'<line class="dist-axis" x1="{L}" y1="{base}" x2="{W - R}" y2="{base}"/>')
+    step = 10 if hi - lo > 30 else 5
+    for t in range((lo + step - 1) // step * step, hi + 1, step):
+        out.append(f'<line class="dist-tickmark" x1="{x(t):.1f}" y1="{base}" x2="{x(t):.1f}" y2="{base + 5}"/>'
+                   f'<text class="dist-tick" x="{x(t):.1f}" y="{H - 6}" text-anchor="middle">{t}</text>')
+    return (f'<svg class="dist-chart" viewBox="0 0 {W} {H}" role="img" aria-label="{html_escape(label)}">'
+            + ''.join(out) + '</svg>')
+
+
+def _bin_facts(bins: list) -> tuple:
+    """(응시자, 최다 급간, 최다 비율, 최고 급간)"""
+    total = sum(n for *_, n in bins)
+    mode = max(bins, key=lambda b: b[2])
+    return total, f'{mode[0]}~{mode[1]}', mode[2] / total * 100, f'{bins[-1][0]}~{bins[-1][1]}'
+
+
+def entrance_dist_html(it: dict) -> str:
+    """LEET·MEET·PEET — 시행기관이 공개한 표준점수 급간별 인원으로 응시자·최다 구간·분포 그래프, 같은 해 다른 영역 요약."""
+    exam = it.get('curriculum')
+    if exam not in _ENTRANCE_SRC or not str(it.get('type', '')).endswith('_annual'):
+        return ''
+    year = _load_entrance_dists().get(exam, {}).get(str(it.get('gradeYear')), {})
+    tracks = year.get(it.get('subject'))
+    if not tracks:
+        return ''
+    subj = it['subject']
+    if 'partial' in tracks:   # 2015학년도 LEET — 원문 미공개, 보도된 수치만
+        p = tracks['partial']
+        body = _stat_cards([('가장 많은 구간', f'{p["mode"]}~{p["mode"] + 5}<small>점</small>'),
+                            ('그 구간 인원', f'{p["modeN"]:,}<small>명</small>'),
+                            ('55점 이상', f'{p["ge55"]:,}<small>명</small>'),
+                            ('55점 이상 비율', f'{p["ge55Pct"]:g}<small>%</small>')])
+        body += ('<p class="exam-official__src">이 해 채점결과 원문은 협의회 게시판에 남아 있지 않아, '
+                 f'<a href="{p["src"]}" rel="noopener" target="_blank">발표 당일 보도</a>에 실린 수치만 옮겼습니다.</p>')
+        return _official_section('점수 분포', body)
+    order = [t for t in ('', 'common', 'med', 'dent') if t in tracks]
+    facts = {t: _bin_facts(_bins(tracks[t])) for t in order}
+    if len(order) == 1:
+        n, mode, mode_pct, top = facts[order[0]]
+        cells = [('응시자', f'{n:,}<small>명</small>'), ('가장 많은 구간', f'{mode}<small>점</small>'),
+                 ('그 구간 비율', f'{mode_pct:.1f}<small>%</small>'), ('최고 구간', f'{top}<small>점</small>')]
+    else:
+        cells = [(f'{_TRACK_LABEL[t]} 응시자', f'{facts[t][0]:,}<small>명</small>') for t in order] + \
+                [(f'{_TRACK_LABEL[t]} 최다 구간', f'{facts[t][1]}<small>점</small>') for t in order]
+    body = _stat_cards(cells)
+    for t in order:
+        svg = bin_svg(_bins(tracks[t]), f'{subj} 표준점수 분포 {_TRACK_LABEL[t]}'.strip())
+        if not svg:
+            continue
+        title = '표준점수 분포' + (f' · {_TRACK_LABEL[t]}' if _TRACK_LABEL[t] and len(order) > 1 else '')
+        body += (f'<section class="exam-card"><header class="exam-card__head"><h3 class="exam-card__title">{title}</h3>'
+                 f'<span class="exam-card__hint">5점 구간 · 가장 많은 구간 {facts[t][1]}점</span></header>'
+                 f'<div class="exam-card__body spoil-val">{svg}</div></section>')
+    _rank = {'': 0, 'common': 0, 'med': 1, 'dent': 2}
+    others = [(a, t, _bin_facts(_bins(tr[t]))) for a, tr in year.items() if a != subj
+              for t in sorted(tr, key=lambda k: _rank.get(k, 9)) if t != 'partial']
+    if others:
+        multi = any(t for _, t, _ in others)
+        head = '<th scope="col">영역</th>' + ('<th scope="col">계열</th>' if multi else '') + \
+               '<th scope="col">응시자</th><th scope="col">가장 많은 구간</th><th scope="col">최고 구간</th>'
+        rows = ''.join(f'<tr><td>{html_escape(a)}</td>' + (f'<td>{_TRACK_LABEL[t] or "—"}</td>' if multi else '')
+                       + f'<td>{f[0]:,}</td><td>{f[1]}</td><td>{f[3]}</td></tr>' for a, t, f in others)
+        body += ('<section class="exam-card"><header class="exam-card__head"><h3 class="exam-card__title">같은 해 다른 영역</h3></header>'
+                 f'<div class="exam-card__body"><table class="grade-table"><thead><tr>{head}</tr></thead>'
+                 f'<tbody class="spoil-val">{rows}</tbody></table></div></section>')
+    body += (f'<p class="exam-official__src">{_ENTRANCE_SRC[exam]}의 표준점수 급간별 인원으로 계산했습니다. '
+             '구간은 아래 점수 이상, 위 점수 미만입니다.</p>')
     return _official_section('점수 분포', body)
 
 
@@ -2353,7 +2475,7 @@ def build_static_exam_pages(items: list[dict], template_path: Path, out_root: Pa
               'learningResourceType': '기출문제',
               'dateModified': TODAY_ISO,
               'educationalLevel': (
-                  '대학원' if it.get('typeGroup') in ('leet', 'meet')
+                  '대학원' if it.get('typeGroup') in ('leet', 'meet', 'peet')
                   else {'초졸': '초등학교', '중졸': '중학교'}.get(it.get('curriculum'), '고등학교')
                   if it.get('typeGroup') == 'ged'
                   else '고등학교'),   # 수능·학평·논술·사관·경찰=고등학교, 검정고시=학력별, LEET/MEET=대학원
@@ -2592,7 +2714,7 @@ def build_static_exam_pages(items: list[dict], template_path: Path, out_root: Pa
                                 '<section class="card-box exam__body" id="examBody">'
                                 + _note.read_text(encoding='utf-8').strip() + '</section>', 1)
 
-        _off = edu_official_html(it) or suneung_dist_html(it)
+        _off = edu_official_html(it) or suneung_dist_html(it) or entrance_dist_html(it)
         if sc is not None:   # 등급컷 섹션에 이미 스포일러 안내가 있으면 중복 표시하지 않는다(결과 보기 버튼은 전역 설정)
             _off = _off.replace(_SPOIL_NOTE, '')
         _wr = wrong_rates_for(it)
@@ -2746,6 +2868,11 @@ def build_set_meta(curr: str, year: str, t: str, sg: int | None, exams_in_set: l
         aliases = [f'{gy2}학년도 미트', f'{gy} MEET', f'{gy} 미트']
         if is_prelim:
             aliases.extend([f'{gy} MEET 예비', f'{gy} 미트 예비시험'])
+    elif curr == 'PEET':
+        head = f'{gy}학년도 PEET'
+        short = 'PEET'
+        full = f'{gy}학년도 PEET(약학대학입문자격시험)'
+        aliases = [f'{gy2}학년도 피트', f'{gy} PEET', f'{gy} 피트']
     elif curr == '논술':
         lbl = '모의논술' if t == 'essay_mock' else '논술'
         head = f'{gy}학년도 대학별 {lbl}'
@@ -2808,7 +2935,7 @@ def build_set_meta(curr: str, year: str, t: str, sg: int | None, exams_in_set: l
         more = ' 등' if len(subjects) > 6 else ''
         intro_parts = [f'{full} 기출 자료입니다.',
                        f'{subj_phrase}{more} 대학별 논술 문제지와 해설을 확인할 수 있습니다.']
-    elif curr in ('사관', '경찰대', 'LEET', 'MEET'):
+    elif curr in ('사관', '경찰대', 'LEET', 'MEET', 'PEET'):
         intro_parts = [f'{full} 기출 자료입니다.',
                        f'{subj_phrase} 문제지와 정답, 해설지를 확인할 수 있습니다.']
     else:
@@ -2834,7 +2961,7 @@ def set_friendly_filename(curr: str, year: str, t: str, sg: int | None) -> str:
         '2015':'kice','2009':'kice','예비':'kice',
         # 7차 이전 분리 키는 모두 기존 pre2009 슬러그로 통일 — SEO·이력 호환
         '2007개정':'pre2009','7차':'pre2009','6차':'pre2009','pre2009':'pre2009',
-        '사관':'mil','경찰대':'police','LEET':'leet','MEET':'meet','논술':'essay',
+        '사관':'mil','경찰대':'police','LEET':'leet','MEET':'meet','PEET':'peet','논술':'essay',
         '초졸':'gedelem','중졸':'gedmid','고졸':'gedhigh',
     }.get(curr, curr.lower())
     grade_part = f'-g{sg}' if sg else ''
@@ -3035,7 +3162,7 @@ def set_related_html(me: dict, catalog: list[dict], subjects: list[str]) -> str:
     a = lambda o: f'<a href="{o["fname"]}">{html_escape(o["head"], quote=False)} 기출</a>'
     fam = [o for o in catalog if o['typeGroup'] == me['typeGroup'] and o['sg'] == me['sg'] and o['fname'] != me['fname']]
     blocks = []
-    if me['typeGroup'] in ('suneung', 'education', 'military', 'police', 'leet', 'meet'):
+    if me['typeGroup'] in ('suneung', 'education', 'military', 'police', 'leet', 'meet', 'peet'):
         seq = [o for o in fam if o['ntype'] not in ('prelim', 'prelim_edu')]   # 예비시험은 이전·다음에서 제외
         past = [o for o in seq if _set_chrono(o) < _set_chrono(me)]
         fut = [o for o in seq if _set_chrono(o) > _set_chrono(me)]
