@@ -318,6 +318,7 @@ async function main() {
   renderHead(exam);
   if (renderGradeDist(exam, gradecuts)) $('gradeDist')?.removeAttribute('hidden');
   pushRecent(exam);  // localStorage 최근 본 시험 기록 (메인 페이지 chip 용)
+  window.kgTrack?.exam?.(exam);  // GA: 이후 이벤트에 과목·학년도 붙이기 (lib/measure.js)
 
   // PDF는 사용자가 미리보기를 요청할 때만 내려받는다.
   // 큰 시험지는 수 MB라 진입 즉시 로드하면 본문 표시와 모바일 데이터 사용을 크게 악화시킨다.

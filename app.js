@@ -294,6 +294,7 @@ function persistArchiveState() {
     const u = new URL(buildUrlFromState());
     // 경로 + query 만 저장 (/?... 그대로)
     sessionStorage.setItem('lastArchiveUrl', u.pathname + u.search);
+    window.kgTrack?.archive?.(u.search, filtered().length);  // GA 검색·필터 이벤트 (lib/measure.js)
   } catch {}
 }
 
@@ -1689,6 +1690,7 @@ async function runSmartSearch(q) {
   } catch { return; }
   if (!f || state.query !== q) return;                       // 그새 검색어가 바뀜
   const keys = ['tab', 'typeGroup', 'type', 'tier', 'subjects', 'subSubjects', 'subSubject', 'years', 'parity', 'has', 'cut', 'sort'].filter(k => f[k]);
+  window.kgTrack?.('smart_search', { search_term: q.slice(0, 100), matched: keys.join(',') || 'none' });
   if (!keys.length) return;
 
   const tab = f.tab && getTabConf(f.tab) ? f.tab : state.tab;
