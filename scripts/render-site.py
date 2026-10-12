@@ -17,6 +17,7 @@ import importlib.util
 import json
 import re
 import hashlib
+import html
 import subprocess
 from pathlib import Path
 from urllib.parse import parse_qsl, urlsplit
@@ -51,12 +52,30 @@ _DIGEST_DROP = (re.compile(r'<!--.*?-->', re.S), re.compile(r'\?v=[0-9a-f]+'),
                 re.compile(r'"dateModified":\s*"[^"]*"'))
 
 
+_DIGEST_CODE = re.compile(r'<(script|style)\b.*?</\1>', re.S)
+_DIGEST_LINK = re.compile(r'\b(?:href|src)="([^"]*)"')
+
+
 def content_digest(page: str) -> str:
-    """사이트맵 lastmod 판정용 본문 해시 — 제목·JSON-LD·<main> 만, 주석·캐시 토큰·수정일 제외."""
+    """사이트맵 lastmod 판정용 본문 해시 — 제목·JSON-LD·<main> 만, 주석·캐시 토큰·수정일 제외.
+    마크업이 아니라 보이는 글자·링크 주소·JSON-LD 값만 센다 — 2026-10-10 빈 hidden 섹션 위치 이동 하나로
+    7,999건이 '수정'된 적 있음."""
     t = '\n'.join(_DIGEST_PARTS.findall(page)) or page
     for r in _DIGEST_DROP:
         t = r.sub('', t)
-    return hashlib.sha1(t.encode()).hexdigest()[:12]
+    out = []
+    for part in _DIGEST_PARTS.findall(t) or [t]:
+        if part.startswith('<script'):
+            body = part[part.index('>') + 1:-len('</script>')]
+            try:
+                out.append(json.dumps(json.loads(body), ensure_ascii=False, sort_keys=True))
+            except ValueError:
+                out.append(' '.join(body.split()))
+            continue
+        part = _DIGEST_CODE.sub(' ', part)
+        out.append(' '.join(_DIGEST_LINK.findall(part)))
+        out.append(' '.join(html.unescape(re.sub(r'<[^>]+>', ' ', part)).split()))
+    return hashlib.sha1('\n'.join(out).encode()).hexdigest()[:12]
 
 
 def render_sitemaps(items: list[dict], hubs=None) -> None:
