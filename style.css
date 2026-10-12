@@ -974,8 +974,6 @@ html[data-urlstate] .content:has(#cardsGrid[data-prerendered]) #skeleton { displ
 .dist-line { fill: none; stroke: var(--ink); stroke-width: 1.6; stroke-linejoin: round; vector-effect: non-scaling-stroke; }
 .dist-axis, .dist-tickmark { stroke: var(--line-strong); stroke-width: 1; }
 .dist-tick { fill: var(--ink-4); font-family: var(--mono); font-size: 16px; }
-.dist-hit { fill: transparent; }
-.dist-hit:hover { fill: var(--ink); fill-opacity: .08; }
 .exam-official__src { margin-top: 12px; font-size: 13px; color: var(--ink-4); }
 .exam-card + .exam-card { margin-top: 12px; }
 .exam-card__sub { font-size: 13.5px; color: var(--ink-4); }
@@ -1758,4 +1756,21 @@ body:has(.selbar:not([hidden])) .pagination-wrap { margin-bottom: 72px; }   /* �
 /* LEET·MEET·PEET 점수 분포 — 5점 급간 막대(build-data.py bin_svg) */
 .dist-bar { fill: var(--ink); fill-opacity: .14; }
 .dist-bar--mode { fill-opacity: .34; }
-.dist-bar:hover { fill-opacity: .45; }
+.dist-bar.is-active { fill-opacity: .55; }
+
+/* 그래프 수치 툴팁(lib/chart-tip.js) — svg[data-chart] 위에 마우스·손가락을 대면 안내선·점·수치 카드 */
+svg[data-chart] { touch-action: pan-y; cursor: crosshair; }
+svg[data-chart="hit"] { cursor: pointer; }
+svg[data-chart]:focus { outline: none; }
+svg[data-chart].is-kb:focus { outline: 2px solid var(--ink-4); outline-offset: 4px; border-radius: var(--r-sm); }   /* 키보드로 옮겨 왔을 때만 */
+.chart-guide { stroke: var(--ink-3); stroke-width: 1; stroke-dasharray: 3 3; vector-effect: non-scaling-stroke; pointer-events: none; }
+.chart-dot { fill: var(--surface); stroke: var(--ink); stroke-width: 2; vector-effect: non-scaling-stroke; pointer-events: none; }
+.chart-tip { position: absolute; left: 0; top: 0; z-index: 5; min-width: 128px; max-width: 240px; padding: 8px 10px;
+  background: var(--surface); border: 1px solid var(--line-strong); border-radius: var(--r-sm); box-shadow: var(--shadow);
+  font-size: 12.5px; line-height: 1.45; color: var(--ink-3); pointer-events: none; white-space: nowrap; }
+.chart-tip[hidden] { display: none; }
+.chart-tip__title { margin-bottom: 4px; font-weight: var(--ui-weight-strong); color: var(--ink); }
+.chart-tip__row { display: flex; justify-content: space-between; gap: 14px; }
+.chart-tip__row b { font-family: var(--mono); font-weight: 600; color: var(--ink); }
+.mf-bar.is-active, [class^="mf-s"].is-active { opacity: .7; }
+.mf-dot.is-active { stroke: var(--ink); stroke-width: 2; }

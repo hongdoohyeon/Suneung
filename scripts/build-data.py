@@ -1806,15 +1806,16 @@ def dist_svg(freq: dict, label: str, cuts: list | None = None) -> str:
     for t in range((lo + step - 1) // step * step, hi + 1, step):
         out.append(f'<line class="dist-tickmark" x1="{x(t):.1f}" y1="{base}" x2="{x(t):.1f}" y2="{base + 5}"/>'
                    f'<text class="dist-tick" x="{x(t):.1f}" y="{H - 6}" text-anchor="middle">{t}</text>')
-    # 점수마다 투명한 칸 — 마우스를 올리면 점수·인원·상위 비율
-    above, hits = 0, []
-    half = (W - L - R) / max(hi - lo, 1) / 2
+    # 점수마다 툴팁 데이터 — lib/chart-tip.js 가 포인터 x 에서 가장 가까운 점수의 인원·비율·상위 누적을 띄운다
+    above, tips = 0, []
     for sc, v in reversed(pts):
         above += v
-        hits.append(f'<rect class="dist-hit" x="{x(sc) - half:.1f}" y="{T}" width="{2 * half:.1f}" height="{base - T}">'
-                    f'<title>{sc}점 · {v:,}명 · 상위 {above / total * 100:.1f}%</title></rect>')
-    out += hits
-    return (f'<svg class="dist-chart" viewBox="0 0 {W} {H}" role="img" aria-label="{html_escape(label)}">'
+        rows = [['인원', f'{v:,}명'], ['비율', _pct(v / total * 100)], ['상위 누적', _pct(above / total * 100)]]
+        if cuts:
+            rows.append(['등급', f'{next((g + 1 for g, c in enumerate(cuts) if sc >= c), 9)}등급'])
+        tips.append([round(x(sc), 1), round(y(v), 1), f'표준점수 {sc}점', rows, None])
+    return (f'<svg class="dist-chart" viewBox="0 0 {W} {H}" role="img" aria-label="{html_escape(label)}" '
+            f'data-chart data-tips="{html_escape(json.dumps(tips[::-1], ensure_ascii=False, separators=(",", ":")))}">'
             + ''.join(out) + '</svg>')
 
 
@@ -1824,9 +1825,15 @@ def _stat_cards(cells: list) -> str:
         for lbl, val in cells) + '</div>'
 
 
+_SPOIL_TOGGLE = ('<button type="button" class="switch" role="switch" aria-checked="true" data-spoiler-toggle>'
+                 '스포일러 방지<span class="switch__knob" aria-hidden="true"></span></button>')
+
+
 def _official_section(title: str, body: str) -> str:
+    # 등급컷 섹션이 없는 시험(LEET·MEET·PEET 등)은 여기가 첫 가림 섹션 — 스위치를 둬서 다시 가릴 수 있게 한다.
+    # 등급컷 섹션이 있으면 그쪽 스위치·안내를 쓰므로 상세 조립 때 _SPOIL_NOTE·_SPOIL_TOGGLE 를 지운다.
     return (f'<section class="exam-section exam-official" aria-labelledby="offTitle"><div class="exam-section__head">'
-            f'<h2 id="offTitle">{title}</h2></div>{_SPOIL_NOTE}{body}</section>')
+            f'<h2 id="offTitle">{title}</h2>{_SPOIL_TOGGLE}</div>{_SPOIL_NOTE}{body}</section>')
 
 
 def edu_official_html(it: dict) -> str:
@@ -1954,22 +1961,27 @@ def bin_svg(bins: list, label: str) -> str:
     W, H, L, R, T, B = 640, 230, 10, 10, 18, 30
     base = H - B
     x = lambda sc: L + (sc - lo) / max(hi - lo, 1) * (W - L - R)
-    out, above = [], 0
-    for a, b, n in reversed(bins):
+    out, tips, above = [], [], 0
+    for i, (a, b, n) in enumerate(reversed(bins)):
         above += n
         h = (base - T) * n / peak
         cls = 'dist-bar dist-bar--mode' if n == peak else 'dist-bar'
-        top = above / total * 100
-        top = f'상위 {top:.1f}%' if top >= .1 else '상위 0.1% 미만'
-        out.append(f'<rect class="{cls}" x="{x(a) + 1:.1f}" y="{base - h:.1f}" width="{x(b) - x(a) - 2:.1f}" height="{h:.1f}">'
-                   f'<title>{a}~{b}점 · {n:,}명 · {top}</title></rect>')
+        out.append(f'<rect class="{cls}" data-i="{i}" x="{x(a) + 1:.1f}" y="{base - h:.1f}" width="{x(b) - x(a) - 2:.1f}" height="{h:.1f}"/>')
+        tips.append([round((x(a) + x(b)) / 2, 1), round(base - h, 1), f'표준점수 {a} 이상 {b} 미만',
+                     [['인원', f'{n:,}명'], ['비율', _pct(n / total * 100)], ['상위 누적', _pct(above / total * 100)]], i])
     out.append(f'<line class="dist-axis" x1="{L}" y1="{base}" x2="{W - R}" y2="{base}"/>')
     step = 10 if hi - lo > 30 else 5
     for t in range((lo + step - 1) // step * step, hi + 1, step):
         out.append(f'<line class="dist-tickmark" x1="{x(t):.1f}" y1="{base}" x2="{x(t):.1f}" y2="{base + 5}"/>'
                    f'<text class="dist-tick" x="{x(t):.1f}" y="{H - 6}" text-anchor="middle">{t}</text>')
-    return (f'<svg class="dist-chart" viewBox="0 0 {W} {H}" role="img" aria-label="{html_escape(label)}">'
+    return (f'<svg class="dist-chart" viewBox="0 0 {W} {H}" role="img" aria-label="{html_escape(label)}" '
+            f'data-chart data-tips="{html_escape(json.dumps(tips[::-1], ensure_ascii=False, separators=(",", ":")))}">'
             + ''.join(out) + '</svg>')
+
+
+def _pct(v: float) -> str:
+    """툴팁 비율 — 0.1% 미만은 '0.1% 미만', 그 밖은 소수 둘째 자리까지."""
+    return '0.1% 미만' if 0 < v < .1 else f'{v:.2f}%'.replace('.00%', '%')
 
 
 def _bin_facts(bins: list) -> tuple:
@@ -2716,7 +2728,7 @@ def build_static_exam_pages(items: list[dict], template_path: Path, out_root: Pa
 
         _off = edu_official_html(it) or suneung_dist_html(it) or entrance_dist_html(it)
         if sc is not None:   # 등급컷 섹션에 이미 스포일러 안내가 있으면 중복 표시하지 않는다(결과 보기 버튼은 전역 설정)
-            _off = _off.replace(_SPOIL_NOTE, '')
+            _off = _off.replace(_SPOIL_NOTE, '').replace(_SPOIL_TOGGLE, '')
         _wr = wrong_rates_for(it)
         if _wr:
             _off += wrong_rate_html(it, _wr, spoil_note=sc is None and not _off)
@@ -2761,7 +2773,8 @@ def build_static_exam_pages(items: list[dict], template_path: Path, out_root: Pa
         _series = _trend.get(_k, []) if _k else []
         _cmp = ''
         if (not (sc and sc['abs']) or (sc and sc.get('ratio') is not None)) and sum(1 for x in _series if x['id'] != it['id']) >= 2:
-            _cmp = compare_html(it, _series, _scores, with_toggle='class="page-exam has-gradecut"' not in html)
+            _cmp = compare_html(it, _series, _scores, with_toggle='class="page-exam has-gradecut"' not in html
+                                and _SPOIL_TOGGLE not in _off)   # 점수 분포 섹션에 이미 스위치가 있으면 하나만
         if _cmp:
             html = html.replace('<!-- exam-related -->', _cmp, 1)
         else:

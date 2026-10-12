@@ -41,15 +41,19 @@ def top(y, subject, sub=None):
 
 
 # ── SVG 도구 ───────────────────────────────────────────────
-def svg(w, h, label, body):
-    return f'<svg viewBox="0 0 {w} {h}" role="img" aria-label="{escape(label, quote=True)}" xmlns="http://www.w3.org/2000/svg">{body}</svg>'
+def svg(w, h, label, body, tips=None, mode=""):
+    """tips 가 있으면 lib/chart-tip.js 가 마우스·손가락 위치의 정확한 수치를 띄운다(형식은 그 파일 머리말)."""
+    attr = ""
+    if tips:
+        attr = f' data-chart{"=" + chr(34) + mode + chr(34) if mode else ""} data-tips="{escape(json.dumps(tips, ensure_ascii=False, separators=(",", ":")), quote=True)}"'
+    return f'<svg viewBox="0 0 {w} {h}" role="img" aria-label="{escape(label, quote=True)}"{attr} xmlns="http://www.w3.org/2000/svg">{body}</svg>'
 
 
 def txt(x, y, t, cls="mf-txt", anchor="middle"):
     return f'<text class="{cls}" x="{x:.1f}" y="{y:.1f}" text-anchor="{anchor}">{escape(str(t), quote=False)}</text>'
 
 
-def line_chart(label, years, series, lo, hi, step, divider=None, note=""):
+def line_chart(label, years, series, lo, hi, step, divider=None, note="", unit="점"):
     """series: [(이름, {년: 값}, 클래스번호)]. 선은 값이 있는 해끼리만 잇는다."""
     W, H, L, R, T, B = 480, 300, 40, 14, 34, 40
     X = lambda i: L + i * (W - L - R) / (len(years) - 1)
@@ -67,17 +71,19 @@ def line_chart(label, years, series, lo, hi, step, divider=None, note=""):
         pts = [(X(i), Y(data[y]), data[y], y) for i, y in enumerate(years) if y in data]
         b.append(f'<polyline class="mf-line mf-line--{n}" points="' + " ".join(f"{x:.1f},{yy:.1f}" for x, yy, _, _ in pts) + '"/>')
         for x, yy, v, y in pts:
-            b.append(f'<circle class="mf-dot mf-dot--{n}" cx="{x:.1f}" cy="{yy:.1f}" r="3.6"/>')
+            b.append(f'<circle class="mf-dot mf-dot--{n}" data-i="{years.index(y)}" cx="{x:.1f}" cy="{yy:.1f}" r="3.6"/>')
             others = [d[y] for nm, d, m in series if m != n and y in d]
             above = (not others) or v >= max(others) if len(series) > 1 else True   # 같은 해에 값이 더 큰 쪽 라벨은 위, 작은 쪽은 아래
             b.append(txt(x, yy - 9 if above else yy + 17, v, f"mf-txt mf-txt--sm mf-txt--c{n}"))
         b.append(f'<circle class="mf-dot mf-dot--{n}" cx="{L + 8}" cy="{12 + k * 16}" r="4"/>' + txt(L + 16, 16 + k * 16, name, "mf-txt", "start"))
     if note:
         b.append(txt(W / 2, H - 4, note, "mf-txt mf-txt--sm"))
-    return f'<div>{svg(W, H, label, "".join(b))}</div>'
+    tips = [[round(X(i), 1), None, f"{y}학년도", [[name, f"{data[y]}{unit}"] for name, data, _ in series if y in data], i]
+            for i, y in enumerate(years) if any(y in d for _, d, _ in series)]
+    return f'<div>{svg(W, H, label, "".join(b), tips)}</div>'
 
 
-def bar_chart(label, data, lo_label_years, unit_fmt):
+def bar_chart(label, data, lo_label_years, unit_fmt, tip_name="응시자", tip_unit="명"):
     W, H, L, R, T, B = 480, 280, 40, 12, 26, 34
     ys = sorted(data)
     mx = max(data.values())
@@ -90,13 +96,15 @@ def bar_chart(label, data, lo_label_years, unit_fmt):
     mn = min(data, key=data.get)
     for i, y in enumerate(ys):
         cls = "mf-bar mf-bar--now" if y in (max(data, key=data.get), mn, ys[-1]) else "mf-bar"
-        b.append(f'<rect class="{cls}" x="{L + i * bw + 1:.1f}" y="{Y(data[y]):.1f}" width="{bw - 2:.1f}" height="{Y(0) - Y(data[y]):.1f}"/>')
+        b.append(f'<rect class="{cls}" data-i="{i}" x="{L + i * bw + 1:.1f}" y="{Y(data[y]):.1f}" width="{bw - 2:.1f}" height="{Y(0) - Y(data[y]):.1f}"/>')
         if y in lo_label_years:
             b.append(txt(L + (i + .5) * bw, H - B + 15, y, "mf-txt mf-txt--sm"))
     for y in (max(data, key=data.get), mn, ys[-1]):
         i = ys.index(y)
         b.append(txt(L + (i + .5) * bw, Y(data[y]) - 6, unit_fmt(data[y]), "mf-txt mf-txt--sm mf-txt--strong"))
-    return f'<div>{svg(W, H, label, "".join(b))}</div>'
+    tips = [[round(L + (i + .5) * bw, 1), round(Y(data[y]), 1), f"{y}학년도", [[tip_name, f"{data[y]:,}{tip_unit}"]], i]
+            for i, y in enumerate(ys)]
+    return f'<div>{svg(W, H, label, "".join(b), tips)}</div>'
 
 
 def share_chart(label, rows, names):
@@ -104,7 +112,7 @@ def share_chart(label, rows, names):
     W, L, R = 480, 50, 12
     rh = 44
     H = 30 + rh * len(rows) + 30
-    b = []
+    b, tips = [], []
     for r, (lab, vals) in enumerate(rows):
         tot = sum(vals)
         y0 = 30 + r * rh
@@ -112,7 +120,8 @@ def share_chart(label, rows, names):
         x = L
         for k, v in enumerate(vals):
             w = (W - L - R) * v / tot
-            b.append(f'<rect class="mf-s{k + 1}" x="{x:.1f}" y="{y0}" width="{w:.1f}" height="28"/>')
+            b.append(f'<rect class="mf-s{k + 1}" data-i="{len(tips)}" data-tip-i="{len(tips)}" x="{x:.1f}" y="{y0}" width="{w:.1f}" height="28"/>')
+            tips.append([round(x + w / 2, 1), y0, f"{lab} · {names[k]}", [["인원", f"{v:,}명"], ["비율", f"{v / tot * 100:.2f}%"]], len(tips)])
             if w > 34:
                 b.append(txt(x + w / 2, y0 + 19, f"{v / tot * 100:.1f}%", "mf-txt mf-txt--sm mf-txt--strong"))
             x += w
@@ -120,7 +129,7 @@ def share_chart(label, rows, names):
     for k, n in enumerate(names):
         b.append(f'<rect class="mf-s{k + 1}" x="{lx}" y="8" width="12" height="12"/>' + txt(lx + 18, 18, n, "mf-txt", "start"))
         lx += 26 + 13 * len(n)
-    return f'<div>{svg(W, H, label, "".join(b))}</div>'
+    return f'<div>{svg(W, H, label, "".join(b), tips, "hit")}</div>'
 
 
 def table(head, rows, cls="method__table"):
