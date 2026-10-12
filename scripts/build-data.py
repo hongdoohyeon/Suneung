@@ -2820,7 +2820,7 @@ def build_set_meta(curr: str, year: str, t: str, sg: int | None, exams_in_set: l
         if t not in month_map:
             raise ValueError(f'알 수 없는 교육청 시험 유형: {t}')
         month = month_map[t]
-        cy = gy - 1
+        cy = gy - 1 if sg == 3 else gy  # 고3만 gradeYear=시행+1, 고1·2는 gradeYear=시행년(시험지 'YYYY학년도 N월 고2')
         head = f'{cy}년 {month}월 고{sg} 학력평가'
         short = f'{month}모'
         full = f'{cy}년 {month}월 고{sg} 학력평가(={gy}학년도 {month}월 학평)'

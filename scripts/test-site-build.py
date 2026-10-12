@@ -24,8 +24,8 @@ class BuildTests(unittest.TestCase):
         grade2 = render.bd.build_set_meta('2015', '2022', 'jun', 2, items)
         kice = render.bd.build_set_meta('2015', '2022', 'june', None, items)
 
-        self.assertIn('2021년 6월 고1 학력평가', grade1['title'])
-        self.assertIn('2021년 6월 고2 학력평가', grade2['title'])
+        self.assertIn('2022년 6월 고1 학력평가', grade1['title'])
+        self.assertIn('2022년 6월 고2 학력평가', grade2['title'])
         self.assertIn('2022학년도 6월 모의평가', kice['title'])
         self.assertEqual(len({grade1['title'], grade2['title'], kice['title']}), 3)
 
