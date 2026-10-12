@@ -869,24 +869,30 @@ $('yearFilter').addEventListener('click', e => {
 });
 
 // ── 영역 (subject list) ────────────────────────────────────
+// 고른 영역 — 하나면 state.subject(세부 과목 펼침), 둘 이상이면 state.subjects
+function pickedSubjects() {
+  return state.subject !== 'all' ? [state.subject] : state.subjects;
+}
+
 function renderSubjectFilter() {
   const container = $('subjectFilter');
   const subjects  = tabSubjects();   // 탭의 모든 curriculum 영역 union
   const counts    = subjectCounts();
+  const picked    = pickedSubjects();
 
   const inner = Object.entries(subjects)
-    .filter(([key]) => state.tab !== 'all' || !state.query || counts[key] > 0 || state.subject === key)
+    .filter(([key]) => state.tab !== 'all' || !state.query || counts[key] > 0 || picked.includes(key))
     .map(([key, conf]) => {
     const hasSubs  = conf.subs.length > 0;
-    const isActive = state.subject === key;
-    const isOpen   = isActive && hasSubs;
+    const isActive = picked.includes(key);
+    const isOpen   = isActive && hasSubs && picked.length === 1;
     const cnt      = counts[key] ?? 0;
 
     const subList = conf.subs.map(s => `
       <button class="sub-row${state.subSubject === s ? ' is-active' : ''}" data-sub="${escAttr(s)}">${escHtml(prettySub(s))}</button>
     `).join('');
 
-    return `<div class="subject-item"><button class="subject-row${hasSubs ? ' has-subs' : ''}${isActive ? ' is-active' : ''}${isOpen ? ' is-open' : ''}" data-subject="${escAttr(key)}" style="--subject-color:${conf.color};"><span class="subject-row__dot"></span><span class="subject-row__name">${escHtml(key)}</span><span class="subject-row__count">${cnt > 0 ? cnt : ''}</span><span class="subject-row__caret">›</span></button>${(hasSubs && isOpen) ? `<div class="subject-subs is-open"><div class="subject-subs__inner">${subList}</div></div>` : ''}</div>`;
+    return `<div class="subject-item"><button class="subject-row${hasSubs ? ' has-subs' : ''}${isActive ? ' is-active' : ''}${isOpen ? ' is-open' : ''}" data-subject="${escAttr(key)}" aria-pressed="${isActive}" style="--subject-color:${conf.color};"><span class="subject-row__dot"></span><span class="subject-row__name">${escHtml(key)}</span><span class="subject-row__count">${cnt > 0 ? cnt : ''}</span><span class="subject-row__caret">›</span></button>${(hasSubs && isOpen) ? `<div class="subject-subs is-open"><div class="subject-subs__inner">${subList}</div></div>` : ''}</div>`;
   }).join('');
 
   container.innerHTML = `<div class="subject-list">${inner}</div>`;
@@ -906,16 +912,15 @@ $('subjectFilter').addEventListener('click', e => {
     return;
   }
   if (subjBtn) {
-    state.subjects = [];   // 옆 목록에서 영역을 고르면 스마트 검색의 여러 영역 선택을 대체
-    const key     = subjBtn.dataset.subject;
-    const hasSubs = (tabSubjects()[key]?.subs.length ?? 0) > 0;
-    if (state.subject === key) {
-      state.subject = state.subSubject = 'all';
-    } else {
-      state.subject    = key;
-      state.subSubject = 'all';
-    }
-    if (!hasSubs) state.subSubject = 'all';
+    // 누를 때마다 넣고 빼기 — 여러 영역을 함께 고를 수 있다(스마트 검색의 여러 영역 선택과 같은 상태)
+    const key   = subjBtn.dataset.subject;
+    const order = Object.keys(tabSubjects());
+    const picked = pickedSubjects().includes(key)
+      ? pickedSubjects().filter(s => s !== key)
+      : [...pickedSubjects(), key].sort((a, b) => order.indexOf(a) - order.indexOf(b));
+    state.subject    = picked.length === 1 ? picked[0] : 'all';
+    state.subjects   = picked.length > 1 ? picked : [];
+    state.subSubject = 'all';
     state.page = 1;
     resize($('subjectFilter'), renderSubjectFilter);   // 세부 과목이 펼쳐지며 아래가 따라 내려감
     render(true);
@@ -1273,7 +1278,7 @@ function visibleRows(g) {
   const folds = new Map();
   let n = 0;
   for (const e of g.items) {
-    if (FOLD_SUBJECTS.has(e.subject) && state.subject !== e.subject && e.subSubject) folds.set(e.subject, (folds.get(e.subject) || 0) + 1);
+    if (FOLD_SUBJECTS.has(e.subject) && !pickedSubjects().includes(e.subject) && e.subSubject) folds.set(e.subject, (folds.get(e.subject) || 0) + 1);
     else n++;
   }
   for (const c of folds.values()) n += c >= 3 ? 1 : c;
@@ -1334,7 +1339,7 @@ function tableHTML(groups) {
     const rows = [];
     const folds = new Map();
     for (const e of g.items) {
-      if (FOLD_SUBJECTS.has(e.subject) && state.subject !== e.subject && e.subSubject) {
+      if (FOLD_SUBJECTS.has(e.subject) && !pickedSubjects().includes(e.subject) && e.subSubject) {
         if (!folds.has(e.subject)) { folds.set(e.subject, []); rows.push({ fold: e.subject }); }
         folds.get(e.subject).push(e);
       } else rows.push({ exam: e });
@@ -1529,6 +1534,7 @@ $('activeTags').addEventListener('click', e => {
     renderSubjectFilter();
   } else if (key === 'subjects') {
     state.subjects = [];
+    renderSubjectFilter();
   } else if (key === 'has') {
     state.has = [];
   } else if (key === 'subSubjects') {
