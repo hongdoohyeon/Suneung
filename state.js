@@ -2,7 +2,7 @@
 import {
   CURRICULUM_CONFIG, EXAM_TYPE_CONFIG, TAB_CONFIG,
   getTypeConf, getTabConf, prettySub, searchAliasOf, ALIAS_KEYS_DESC,
-} from './config.js?v=f50b1ca04e9919e40b09';
+} from './config.js?v=f748f39767a6b0ab6bf3';
 
 // ── 검색 정규화 ─────────────────────────────────────────────
 // 로마자 숫자(Ⅰ/Ⅱ/Ⅲ) → 아라비아, 한자(一/二/三) → 아라비아, 소문자, 공백 제거.
