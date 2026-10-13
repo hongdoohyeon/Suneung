@@ -209,15 +209,20 @@ function applyUrlState() {
     const subject = params.get('subject') || 'all';
     state.subject = subject === 'all' || tabSubjects()[subject] ? subject : 'all';
   }
-  if (params.has('subSubject')) {
-    const sub = params.get('subSubject') || 'all';
-    const allSubs = new Set(Object.values(tabSubjects()).flatMap(s => s.subs || []).map(String));
-    state.subSubject = sub === 'all' || allSubs.has(sub) ? sub : 'all';
-  }
-
   if (params.has('subjects')) {
     const known = tabSubjects();
     state.subjects = (params.get('subjects') || '').split(',').filter(s => known[s]);
+  }
+  // 세부 과목 — '영역:세부'(여러 영역일 때) 또는 세부 이름만(영역 하나 또는 전체 공통, 예: 논술 인문·자연)
+  if (params.has('subSubject')) {
+    const conf = tabSubjects();
+    const picked = pickedSubjects();
+    state.subSubject = (params.get('subSubject') || '').split(',').filter(Boolean).flatMap(p => {
+      const i = p.indexOf(':');
+      if (i > 0) return conf[p.slice(0, i)]?.subs.includes(p.slice(i + 1)) ? [p] : [];
+      if (picked.length === 1 && conf[picked[0]]?.subs.includes(p)) return [`${picked[0]}:${p}`];
+      return Object.values(conf).some(c => c.subs.includes(p)) ? [p] : [];
+    });
   }
 
   if (params.has('has')) state.has = (params.get('has') || '').split(',').filter(k => HAS_LABEL[k]);
@@ -274,7 +279,10 @@ function buildUrlFromState() {
   if (gy) url.searchParams.set('gradeYear', gy);
 
   if (state.subject    && state.subject    !== 'all') url.searchParams.set('subject', state.subject);
-  if (state.subSubject && state.subSubject !== 'all') url.searchParams.set('subSubject', state.subSubject);
+  if (state.subSubject.length) {
+    const one = state.subject !== 'all' ? `${state.subject}:` : null;   // 영역이 하나면 세부 이름만
+    url.searchParams.set('subSubject', state.subSubject.map(p => one && p.startsWith(one) ? p.slice(one.length) : p).join(','));
+  }
   if (state.subjects.length) url.searchParams.set('subjects', state.subjects.join(','));
   if (state.has.length) url.searchParams.set('has', state.has.join(','));
   if (state.subSubjects.length) url.searchParams.set('subSubjects', state.subSubjects.join(','));
@@ -687,7 +695,7 @@ $('typeGroupFilter').addEventListener('click', e => {
   state.typeGroup  = btn.dataset.value;
   state.type       = 'all';
   state.gradeYear  = 'all';
-  state.subSubject = 'all';
+  state.subSubject = [];
   state.page       = 1;
   // 필터는 차분하게 — 버튼은 색만 바뀌고, 세부 시험 줄이 열리고 닫힐 때 아래 칸이 툭 밀리지 않게 높이만 부드럽게
   resize($('typeGroupBlock'), () => { renderTypeGroupChips(); renderSubtypeChips(); });
@@ -885,11 +893,11 @@ function renderSubjectFilter() {
     .map(([key, conf]) => {
     const hasSubs  = conf.subs.length > 0;
     const isActive = picked.includes(key);
-    const isOpen   = isActive && hasSubs && picked.length === 1;
+    const isOpen   = isActive && hasSubs;
     const cnt      = counts[key] ?? 0;
 
     const subList = conf.subs.map(s => `
-      <button class="sub-row${state.subSubject === s ? ' is-active' : ''}" data-sub="${escAttr(s)}">${escHtml(prettySub(s))}</button>
+      <button class="sub-row${state.subSubject.includes(`${key}:${s}`) || state.subSubject.includes(s) ? ' is-active' : ''}" data-subject="${escAttr(key)}" data-sub="${escAttr(s)}">${escHtml(prettySub(s))}</button>
     `).join('');
 
     return `<div class="subject-item"><button class="subject-row${hasSubs ? ' has-subs' : ''}${isActive ? ' is-active' : ''}${isOpen ? ' is-open' : ''}" data-subject="${escAttr(key)}" aria-pressed="${isActive}" style="--subject-color:${conf.color};"><span class="subject-row__dot"></span><span class="subject-row__name">${escHtml(key)}</span><span class="subject-row__count">${cnt > 0 ? cnt : ''}</span><span class="subject-row__caret">›</span></button>${(hasSubs && isOpen) ? `<div class="subject-subs is-open"><div class="subject-subs__inner">${subList}</div></div>` : ''}</div>`;
@@ -903,8 +911,11 @@ $('subjectFilter').addEventListener('click', e => {
   const subjBtn = e.target.closest('.subject-row');
 
   if (subRow) {
-    const sub = subRow.dataset.sub;
-    state.subSubject = state.subSubject === sub ? 'all' : sub;
+    // 세부 과목도 넣고 빼기 — 같은 이름(A형 등)이 여러 영역에 있어 '영역:세부'로 담는다
+    const sub = subRow.dataset.sub, k = `${subRow.dataset.subject}:${sub}`;
+    state.subSubject = state.subSubject.includes(k) || state.subSubject.includes(sub)
+      ? state.subSubject.filter(p => p !== k && p !== sub)
+      : [...state.subSubject, k];
     state.page = 1;
     renderSubjectFilter();
     render(true);
@@ -920,7 +931,7 @@ $('subjectFilter').addEventListener('click', e => {
       : [...pickedSubjects(), key].sort((a, b) => order.indexOf(a) - order.indexOf(b));
     state.subject    = picked.length === 1 ? picked[0] : 'all';
     state.subjects   = picked.length > 1 ? picked : [];
-    state.subSubject = 'all';
+    state.subSubject = state.subSubject.filter(p => picked.includes(p.split(':')[0]));   // 뺀 영역의 세부 과목만 정리
     state.page = 1;
     resize($('subjectFilter'), renderSubjectFilter);   // 세부 과목이 펼쳐지며 아래가 따라 내려감
     render(true);
@@ -1487,7 +1498,7 @@ function renderActiveTags() {
   if (state.subSubjects.length) tags.push({ label: [...new Set(state.subSubjects.map(prettySub))].slice(0, 3).join('·'), key: 'subSubjects' });
   if (state.cut) tags.push({ label: `1등급컷 ${state.cut.min != null ? state.cut.min + '점 이상' : ''}${state.cut.min != null && state.cut.max != null ? ' ' : ''}${state.cut.max != null ? state.cut.max + '점 이하' : ''}`, key: 'cut' });
   if (state.sort) tags.push({ label: SORT_LABEL[state.sort], key: 'sort' });
-  if (state.subSubject !== 'all') tags.push({ label: prettySub(state.subSubject), key: 'subSubject' });
+  if (state.subSubject.length) tags.push({ label: [...new Set(state.subSubject.map(p => prettySub(p.slice(p.indexOf(':') + 1))))].join('·'), key: 'subSubject' });
   if (state.tier !== 'all') {
     const tiers = Array.isArray(state.tier) ? state.tier : [state.tier];
     if (tiers.length) tags.push({ label: tiers.map(t => TIER_LABEL[t]).join('·'), key: 'tier' });
@@ -1530,10 +1541,12 @@ $('activeTags').addEventListener('click', e => {
     renderYearChips();
     renderSubtypeChips();
   } else if (key === 'subject') {
-    state.subject = state.subSubject = 'all';
+    state.subject = 'all';
+    state.subSubject = [];
     renderSubjectFilter();
   } else if (key === 'subjects') {
     state.subjects = [];
+    state.subSubject = [];
     renderSubjectFilter();
   } else if (key === 'has') {
     state.has = [];
@@ -1544,7 +1557,7 @@ $('activeTags').addEventListener('click', e => {
   } else if (key === 'sort') {
     state.sort = '';
   } else if (key === 'subSubject') {
-    state.subSubject = 'all';
+    state.subSubject = [];
     renderSubjectFilter();
   } else if (key === 'tier') {
     state.tier = 'all';

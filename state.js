@@ -442,7 +442,7 @@ export const state = {
   gradeYear:  'all',
 
   subject:    'all',
-  subSubject: 'all',
+  subSubject: [],      // 고른 세부 과목 — '영역:세부', 영역 없이 '세부'만이면 모든 영역에 적용
   subjects:   [],      // 여러 영역 동시(스마트 검색 "국어랑 수학") — subject 와 따로
   has:        [],      // 딸린 자료 조건 — listen(듣기) · script(대본) · solution(해설) · even(짝수형)
   subSubjects: [],     // 세부 과목 여러 이름(교육과정마다 다른 옛 이름 포함) — 스마트 검색
@@ -466,7 +466,7 @@ export function resetFilters() {
   state.type       = 'all';
   state.gradeYear  = 'all';
   state.subject    = 'all';
-  state.subSubject = 'all';
+  state.subSubject = [];
   state.subjects   = [];
   state.has        = [];
   state.subSubjects = [];
@@ -636,11 +636,15 @@ export function filtered() {
       const raw = state.cuts?.[e.id]?.[0];
       if (raw == null || (state.cut.min != null && raw < state.cut.min) || (state.cut.max != null && raw > state.cut.max)) return false;
     }
-    if (state.subSubject !== 'all') {
+    if (state.subSubject.length) {
+      // 세부 과목을 고른 영역만 거른다 — 세부를 안 고른 영역은 전부, 영역 없는 '세부'는 모든 영역에 적용
+      const want = state.subSubject.flatMap(p => {
+        const i = p.indexOf(':');
+        return i < 0 ? [p] : p.slice(0, i) === e.subject ? [p.slice(i + 1)] : [];
+      });
       // 논술은 계열 버킷(인문/자연) 필터 — 세부 트랙명('자연1 수학' 등)을 키워드로 분류
-      if (e.typeGroup === 'essay' && (state.subSubject === '인문' || state.subSubject === '자연')) {
-        if (essayTrack(e.subSubject) !== state.subSubject)                     return false;
-      } else if (e.subSubject !== state.subSubject)                            return false;
+      if (want.length && !want.some(w => e.typeGroup === 'essay' && (w === '인문' || w === '자연')
+        ? essayTrack(e.subSubject) === w : e.subSubject === w))                 return false;
     }
     if (state.tier !== 'all' && !(Array.isArray(state.tier) && state.tier.length === 0)) {
       const t = state.cuts?.[e.id]?.[2];
