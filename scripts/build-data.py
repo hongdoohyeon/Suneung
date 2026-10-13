@@ -2082,7 +2082,18 @@ def wrong_rates_for(it: dict) -> list | None:
         return None
     if not it.get('examYear') or not it.get('month'):
         return None
-    return _WRONG_RATES.get((it['examYear'], it['month'], grade, it['subject'], _wr_norm(it['subject'], it.get('subSubject'))))
+    base = (it['examYear'], it['month'], grade, it['subject'])
+    sub = _wr_norm(it['subject'], it.get('subSubject'))
+    rows = _WRONG_RATES.get(base + (sub,))
+    if rows is None and sub in ('가형', '나형'):
+        # 2015 고2 학평 수학: 시험지는 가/나형인데 EBSi 키는 '수학A/B'로 남음(정답표 대조: A=가형, B=나형)
+        rows = _WRONG_RATES.get(base + ({'가형': 'A형', '나형': 'B형'}[sub],))
+    if rows is None and not sub:
+        # 단일 시험지인데 EBSi 키에만 유형이 붙은 경우(2015 고2 국어 = '국어A형') — 그 영역 키가 하나뿐일 때만
+        cand = [v for k, v in _WRONG_RATES.items() if k[:4] == base]
+        if len(cand) == 1:
+            rows = cand[0]
+    return rows
 
 
 _CIRCLED = '①②③④⑤'
@@ -3544,6 +3555,8 @@ def main():
         (2015, 'csat', '수학', '가형'): 'B형',
         (2015, 'csat', '수학', '나형'): 'A형',
         (2014, 'csat', '사회탐구', '한국사'): '한국근현대사',
+        # 2014-09 고2 학평 국어: 시험지 표지 '국어영역(A형)' (atype→가형 정규화로 잘못 붙음)
+        (2014, 'sep', '국어', '가형'): 'A형',
     }
     # 잘못된 subSubject 라벨 제거 (None 으로 → 단일 영역)
     # 1995~98 csat 영어: 실제는 계열 통합 시험지. sqlite '인문계' 라벨은 오류.
@@ -3552,17 +3565,26 @@ def main():
         (1996, 'csat', '영어', '인문계'),
         (1997, 'csat', '영어', '인문계'),
         (1998, 'csat', '영어', '인문계'),
+        # 2015 고2 학평 국어: 2017 수능 통합 국어 세대라 단일 시험지(표지 '국어 영역'). '가형'은 atype 정규화 오류.
+        (2015, 'mar', '국어', '가형'),
+        (2015, 'jun', '국어', '가형'),
+        (2015, 'sep', '국어', '가형'),
+        (2015, 'nov', '국어', '가형'),
     }
     fixed = 0
     cleared = 0
     for it in items:
         k = (it.get('gradeYear'), it.get('type'), it.get('subject'), it.get('subSubject'))
-        if k in NAME_FIX:
-            it['subSubject'] = NAME_FIX[k]
-            fixed += 1
-        elif k in BAD_LABEL:
-            it['subSubject'] = None
-            cleared += 1
+        if k in NAME_FIX or k in BAD_LABEL:
+            old = it.get('subSubject')
+            new = NAME_FIX.get(k)
+            it['subSubject'] = new
+            # 다운로드 파일명도 같은 라벨로 맞춘다 ('국어(가형)' → '국어(A형)' / '국어')
+            for f in ('questionDownload', 'answerDownload'):
+                if it.get(f):
+                    it[f] = it[f].replace(f'({old})', f'({new})' if new else '')
+            if new: fixed += 1
+            else:   cleared += 1
     if fixed:   print(f'  + subSubject 정정: {fixed}건 (학년도별 명명 룰)')
     if cleared: print(f'  + subSubject 제거: {cleared}건 (잘못된 계열 라벨)')
 
