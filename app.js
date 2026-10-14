@@ -1240,9 +1240,9 @@ function scoreCells(e) {
 
 // 목록 데이터에는 파일 주소 대신 "있음(1)" 표시만 들어 있다 — 실제 주소(.urls.json)가 도착하기 전에는 상세 페이지로 연결한다.
 const fileUrl = (exam, key) => exam[key] === 1 ? `exam-${exam.id}.html` : safeUrl(exam[key]);
-const dlAttr = (exam, key, name) => exam[key] === 1
+const dlAttr = (exam, key, name) => `data-ga-subject="${escAttr(exam.subSubject || exam.subject || '')}" ` + (exam[key] === 1
   ? `data-f="${key}" data-eid="${exam.id}"`   // 주소가 도착하면 loadTabUrls 가 이 링크만 제자리에서 바꾼다(다시 그리지 않음)
-  : (name ? `download="${escAttr(name)}"` : 'download');
+  : (name ? `download="${escAttr(name)}"` : 'download'));
 
 // 데스크톱 자료 칸: 회차 묶음 안에 있는 버튼 종류만 고정 폭 칸으로(13px 글자 기준 실측) — actionsHTML 의 act-* 와 짝
 function actsColumns(items) {

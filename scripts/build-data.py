@@ -2793,6 +2793,8 @@ def build_static_exam_pages(items: list[dict], template_path: Path, out_root: Pa
             if _rel:
                 html = html.replace('<!-- exam-related -->', related_cards_html(it, _rel), 1)
 
+        ga_subject = html_escape(it.get('subSubject') or it.get('subject') or '', quote=True)
+        html = re.sub(r'(<body\b[^>]*)(>)', lambda m: m.group(1) + f' data-ga-subject="{ga_subject}"' + m.group(2), html, count=1)
         (out_root / f'exam-{it["id"]}.html').write_text(public_files(html), encoding='utf-8')
         written += 1
     print(f'  + exam-{{id}}.html SSG {written:,}건 (Naver/Bing 인덱싱)')
@@ -3399,7 +3401,7 @@ def build_static_set_pages(items: list[dict], template_path: Path, out_root: Pat
             ]))
             card_cls = 'card has-files' if has_files else 'card'
             return (
-                f'<article class="{card_cls}">'
+                f'<article class="{card_cls}" data-ga-subject="{html_escape(it2.get("subSubject") or subject2, quote=True)}">'
                 f'<a class="card__link" href="exam-{it2["id"]}.html"'
                 f' aria-label="{html_escape(title2, quote=True)} 상세 보기"></a>'
                 + (f'<p class="card__sub">{html_escape(subject2, quote=False)}</p>' if title2 != subject2 else '')

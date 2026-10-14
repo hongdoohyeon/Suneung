@@ -182,6 +182,29 @@ class BuildTests(unittest.TestCase):
         self.assertNotIn('href="exam-set-kice-2025-sept.html"', html)     # 자기 자신은 제외
         self.assertIn('suneung-korean.html', html)
 
+    def test_static_download_subject_attributes(self):
+        # 실제 카드/상세 주입 코드만 실행해 전체 렌더와 OG 재생성을 피한다.
+        import ast
+        tree = ast.parse(Path(__file__).with_name('build-data.py').read_text())
+        card = next(n for n in ast.walk(tree) if isinstance(n, ast.FunctionDef) and n.name == '_static_card')
+        ns = dict(vars(render.bd))
+        exec(compile(ast.Module(body=[card], type_ignores=[]), '<static-card>', 'exec'), ns)
+        builder = next(n for n in tree.body if isinstance(n, ast.FunctionDef) and n.name == 'build_static_exam_pages')
+        statements = [n for n in ast.walk(builder) if isinstance(n, ast.Assign)]
+        ga = next(n for n in statements if any(isinstance(t, ast.Name) and t.id == 'ga_subject' for t in n.targets))
+        body = next(n for n in statements if isinstance(n.value, ast.Call)
+                    and any(isinstance(x, ast.Name) and x.id == 'ga_subject' for x in ast.walk(n.value)))
+        for subject, sub in [('수학', '확률과통계'), ('영어', None), ('국어', 'A"<형>')]:
+            item = {'id': 1, 'subject': subject, 'subSubject': sub,
+                    'questionUrl': 'https://example.com/q.pdf'}
+            attr = 'data-ga-subject="' + ns['html_escape'](sub or subject, quote=True) + '"'
+            self.assertIn(attr, ns['_static_card'](item))
+            ns.update(it=item, html='<body class="page-exam has-gradecut" data-no-ads></body>')
+            exec(compile(ast.Module(body=[ga, body], type_ignores=[]), '<static-body>', 'exec'), ns)
+            self.assertIn(attr, ns['html'])
+            self.assertIn('has-gradecut', ns['html'])
+            self.assertIn('data-no-ads', ns['html'])
+
     def test_set_titles_include_student_search_terms(self):
         exams = [{'subject': '국어'}]
         edu = render.bd.build_set_meta('2015', '2027', 'mar', 3, exams)

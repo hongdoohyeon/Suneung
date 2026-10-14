@@ -72,7 +72,7 @@ function cardHTML(exam) {
   const subtitle = exam.subSubject ? exam.subject : '';
 
 
-  const dl = name => name ? `download="${escAttr(name)}"` : 'download';
+  const dl = name => `data-ga-subject="${escAttr(exam.subSubject || exam.subject || '')}" ` + (name ? `download="${escAttr(name)}"` : 'download');
   const qUrl = safeUrl(exam.questionUrl);
   const aUrl = safeUrl(exam.answerUrl);
   const sUrl = safeUrl(exam.solutionUrl);

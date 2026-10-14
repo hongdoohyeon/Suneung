@@ -8,7 +8,7 @@
 |---|---|---|
 | `page_view` | 모든 페이지 | `content_group` = home · exam · exam_set · hub · blog · calendar · info · 404 |
 | `exam_view` | 과목 상세가 시험 정보를 받았을 때 | exam_id · exam_group · exam_type · grade_year · subject |
-| `material_download` | 자료 다운로드 클릭 | file_kind(question·answer·solution·listening·script·other) · file_ext · file_name · click_area |
+| `material_download` | 자료 다운로드 클릭 | file_kind(question·answer·solution·listening·script·other) · file_ext · file_name · click_area · subject |
 | `bulk_download` | 여러 시험 선택 → 받기 | mode(merge·zip·each) · exam_count · file_count · kinds |
 | `search` / `search_no_results` | 기출검색 검색어(입력 멈추고 1.5초) | search_term · result_count |
 | `filter_apply` | 필터 변경(처음 열린 상태는 제외) | filters · result_count |
@@ -25,6 +25,8 @@
 | `js_error` | 사이트 스크립트 오류(페이지당 3건) | message · source |
 
 회차 페이지의 이벤트에는 exam_type · grade_year · curriculum 이, 과목 상세에는 `exam_view` 이후 exam_* · subject 가 자동으로 붙는다.
+
+다운로드의 `subject`는 클릭한 자료의 `data-ga-subject`를 우선하고, 없으면 상세 페이지의 시험 정보를 사용한다. 선택과목(`subSubject`)이 있으면 그 값을, 없으면 영역(`subject`)을 보낸다. 검색 목록(주소 지연 로딩 포함)·회차 카드·정적 상세/회차에도 같은 속성을 넣는다. 과목이 없던 기존 다운로드 통계는 소급 복구되지 않는다.
 
 사용자 속성: theme_pref · spoiler · in_app · standalone.
 
