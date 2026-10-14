@@ -81,10 +81,10 @@ if (leet2027.records.some(record => {
 
 const military2027Keys = military2027.records.map(record => `${record.subject}|${record.subSubject ?? ''}`);
 if (military2027.gradeYear !== 2027 || military2027.examYear !== 2026
-  || military2027.releaseTag !== 'military-v1' || military2027.records.length !== 5
-  || new Set(military2027.records.map(record => record.id)).size !== 5
-  || new Set(military2027Keys).size !== 5
-  || military2027Keys.sort().join(',') !== '국어|,수학|기하,수학|미적분,수학|확률과통계,영어|') {
+  || military2027.releaseTag !== 'military-v1' || military2027.records.length !== 3
+  || new Set(military2027.records.map(record => record.id)).size !== 3
+  || new Set(military2027Keys).size !== 3
+  || military2027Keys.sort().join(',') !== '국어|,수학|,영어|') {
   errors.push('2027학년도 사관학교 공식 자료 구성 불일치');
 }
 if (military2027.answerStatus !== 'official_objection_period'
@@ -108,7 +108,7 @@ if (military2027.records.some(record => {
     || exam.source !== military2027.officialPublisher || exam.sourcePage !== military2027.officialPage
     || !exam.questionUrl?.startsWith(`https://suneung-files.hdh061224.workers.dev/${military2027.releaseTag}/${question.asset}`)
     || !exam.answerUrl?.startsWith(`https://suneung-files.hdh061224.workers.dev/${military2027.releaseTag}/${answer.asset}`)
-    || JSON.stringify(answers[String(record.id)]) !== JSON.stringify(record.answers);
+    || JSON.stringify(answers[String(record.id)] ?? null) !== JSON.stringify(record.answers ?? null);
 })) {
   errors.push('2027학년도 사관학교 공식 자료와 exams.json 또는 answers.json 불일치');
 }

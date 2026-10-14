@@ -22,8 +22,9 @@ for (const record of source.records) {
   const key = `${record.subject}|${record.subSubject ?? ''}`;
   if (logicalKeys.has(key)) throw new Error(`중복된 과목 조합: ${key}`);
   logicalKeys.add(key);
-  if (!Array.isArray(record.answers) || record.answers.length !== 30
-      || record.answers.some(value => !/^\d+(,\d+)*$/.test(value))) {
+  // 선택과목이 나뉜 수학은 정답 배열 없이 PDF만 연결(electiveAnswers 는 원자료 보존용)
+  if (record.answers !== undefined && (!Array.isArray(record.answers) || record.answers.length !== 30
+      || record.answers.some(value => !/^\d+(,\d+)*$/.test(value)))) {
     throw new Error(`id=${record.id} 공식 정답 배열이 유효하지 않습니다.`);
   }
   if (!source.documents[record.questionDocument] || !source.documents[record.answerDocument]) {
@@ -87,7 +88,7 @@ if (!WRITE) {
 }
 
 for (const record of source.records) {
-  if (additions.some(exam => exam.id === record.id)) {
+  if (record.answers && additions.some(exam => exam.id === record.id)) {
     answers[String(record.id)] = record.answers;
   }
 }
