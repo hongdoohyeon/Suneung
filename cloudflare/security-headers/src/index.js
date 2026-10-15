@@ -21,11 +21,12 @@ const SECURITY_HEADERS = {
   // CSP: mirrors the meta CSP but at HTTP level (stronger enforcement)
   'content-security-policy': [
     "default-src 'self'",
-    "script-src 'self' https://static.cloudflareinsights.com https://www.googletagmanager.com",
+    "script-src 'self' https://static.cloudflareinsights.com https://www.googletagmanager.com https://pagead2.googlesyndication.com https://*.googlesyndication.com https://*.doubleclick.net https://*.google.com https://*.gstatic.com https://*.adtrafficquality.google",
     "style-src 'self' 'unsafe-inline'",
     "font-src 'self' data:",
     "img-src 'self' data: https:",
-    "connect-src 'self' https://suneung-files.hdh061224.workers.dev https://wdown.ebsi.co.kr https://cloudflareinsights.com https://www.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com https://www.googletagmanager.com https://www.google.com",
+    "connect-src 'self' https://suneung-files.hdh061224.workers.dev https://wdown.ebsi.co.kr https://cloudflareinsights.com https://www.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com https://www.googletagmanager.com https://www.google.com https://*.googlesyndication.com https://*.doubleclick.net https://*.adtrafficquality.google",
+    "frame-src https://*.googlesyndication.com https://*.doubleclick.net https://*.google.com https://*.adtrafficquality.google",
     "media-src 'self' https://suneung-files.hdh061224.workers.dev",
     "worker-src 'self' blob:",
     "object-src 'none'",
