@@ -28,7 +28,7 @@ const SUNEUNG_LENGTH = {
   '국어': 45, '영어': 45, '수학': 30, '한국사': 20, '사회탐구': 20, '과학탐구': 20,
 };
 const PRELIM_LENGTH = {
-  '국어': 45, '수학': 30, '통합사회': 25, '통합과학': 24,
+  '국어': 45, '수학': 30, '통합사회': 25, '통합과학': 25,
 };
 function expectedAnswerLength(exam) {
   // 평가원 예비(prelim) 는 typeGroup='suneung' 이지만 문항수가 다름 → type 우선 분기
