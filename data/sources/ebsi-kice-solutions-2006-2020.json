@@ -2,7 +2,7 @@
   "source": "EBSi 공개 기출문제 아카이브",
   "sourcePage": "https://www.ebsi.co.kr/ebs/xip/xipc/previousPaperList.ebs?targetCd=D300",
   "fetchedAt": "2026-07-25T10:28:34.841Z",
-  "count": 1573,
+  "count": 1585,
   "records": [
     {
       "id": 4539,
@@ -616,6 +616,18 @@
       "solutionSourcePage": "https://www.ebsi.co.kr/ebs/xip/xipc/previousPaperList.ebs?targetCd=D300"
     },
     {
+      "id": 6889,
+      "gradeYear": 2007,
+      "type": "sept",
+      "subject": "직업탐구",
+      "subSubject": "농업이해",
+      "solutionUrl": "https://suneung-files.hdh061224.workers.dev/ebsi-mirror-v2/855548f3b2c20550.pdf?name=2007%ED%95%99%EB%85%84%EB%8F%84%209%EC%9B%94%20%EB%AA%A8%ED%8F%89%20%EC%A7%81%EC%97%85%ED%83%90%EA%B5%AC%28%EB%86%8D%EC%97%85%EC%9D%B4%ED%95%B4%29%20%EC%A0%95%EB%8B%B5%C2%B7%ED%95%B4%EC%84%A4.pdf",
+      "solutionDownload": "2007학년도 9월 모평 직업탐구(농업이해) 정답·해설.pdf",
+      "solutionSource": "EBSi",
+      "solutionSourcePage": "https://www.ebsi.co.kr/ebs/xip/xipc/previousPaperList.ebs?targetCd=D300",
+      "ebsiUrl": "https://wdown.ebsi.co.kr/W61001/01exam/20060906/J_nsmsup_hsj.pdf"
+    },
+    {
       "id": 6896,
       "gradeYear": 2007,
       "type": "sept",
@@ -806,6 +818,18 @@
       "solutionSource": "EBSi",
       "solutionSourcePage": "https://www.ebsi.co.kr/ebs/xip/xipc/previousPaperList.ebs?targetCd=D300",
       "ebsiUrl": "https://wdown.ebsi.co.kr/W61001/01exam/20060906/2nd_ru1_hsj.pdf"
+    },
+    {
+      "id": 4591,
+      "gradeYear": 2007,
+      "type": "sept",
+      "subject": "제2외국어",
+      "subSubject": "아랍어",
+      "solutionUrl": "https://suneung-files.hdh061224.workers.dev/ebsi-mirror-v1/2b669f0d20b1993b.pdf?name=2007%ED%95%99%EB%85%84%EB%8F%84%209%EC%9B%94%20%EB%AA%A8%ED%8F%89%20%EC%A0%9C2%EC%99%B8%EA%B5%AD%EC%96%B4%28%EC%95%84%EB%9E%8D%EC%96%B4%29%20%EC%A0%95%EB%8B%B5%C2%B7%ED%95%B4%EC%84%A4.pdf",
+      "solutionDownload": "2007학년도 9월 모평 제2외국어(아랍어) 정답·해설.pdf",
+      "solutionSource": "EBSi",
+      "solutionSourcePage": "https://www.ebsi.co.kr/ebs/xip/xipc/previousPaperList.ebs?targetCd=D300",
+      "ebsiUrl": "https://wdown.ebsi.co.kr/W61001/01exam/20060906/2nd_ar1_hsj.pdf"
     },
     {
       "id": 6902,
@@ -1609,6 +1633,18 @@
       "solutionSource": "EBSi",
       "solutionSourcePage": "https://www.ebsi.co.kr/ebs/xip/xipc/previousPaperList.ebs?targetCd=D300",
       "ebsiUrl": "https://wdown.ebsi.co.kr/W61001/01exam/20071115/j_jic10_hsj.pdf"
+    },
+    {
+      "id": 4515,
+      "gradeYear": 2008,
+      "type": "csat",
+      "subject": "직업탐구",
+      "subSubject": "농업 이해",
+      "solutionUrl": "https://suneung-files.hdh061224.workers.dev/ebsi-mirror-v3/b3a2a3b63eea71c5.pdf?name=2008%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EC%A7%81%EC%97%85%ED%83%90%EA%B5%AC%28%EB%86%8D%EC%97%85%20%EC%9D%B4%ED%95%B4%29%20%EC%A0%95%EB%8B%B5%C2%B7%ED%95%B4%EC%84%A4.pdf",
+      "solutionDownload": "2008학년도 수능 직업탐구(농업 이해) 정답·해설.pdf",
+      "solutionSource": "EBSi",
+      "solutionSourcePage": "https://www.ebsi.co.kr/ebs/xip/xipc/previousPaperList.ebs?targetCd=D300",
+      "ebsiUrl": "https://wdown.ebsi.co.kr/W61001/01exam/20071115/J_nsmsup_hsj.pdf"
     },
     {
       "id": 4513,
@@ -3829,6 +3865,18 @@
       "solutionSourcePage": "https://www.ebsi.co.kr/ebs/xip/xipc/previousPaperList.ebs?targetCd=D300"
     },
     {
+      "id": 6723,
+      "gradeYear": 2009,
+      "type": "june",
+      "subject": "직업탐구",
+      "subSubject": "농업이해",
+      "solutionUrl": "https://suneung-files.hdh061224.workers.dev/ebsi-mirror-v1/217936554c62c3a7.pdf?name=2009%ED%95%99%EB%85%84%EB%8F%84%206%EC%9B%94%20%EB%AA%A8%ED%8F%89%20%EC%A7%81%EC%97%85%ED%83%90%EA%B5%AC%28%EB%86%8D%EC%97%85%EC%9D%B4%ED%95%B4%29%20%EC%A0%95%EB%8B%B5%C2%B7%ED%95%B4%EC%84%A4.pdf",
+      "solutionDownload": "2009학년도 6월 모평 직업탐구(농업이해) 정답·해설.pdf",
+      "solutionSource": "EBSi",
+      "solutionSourcePage": "https://www.ebsi.co.kr/ebs/xip/xipc/previousPaperList.ebs?targetCd=D300",
+      "ebsiUrl": "https://wdown.ebsi.co.kr/W61001/01exam/20080604/J_nsmsup_hsj.pdf"
+    },
+    {
       "id": 6730,
       "gradeYear": 2009,
       "type": "june",
@@ -3839,6 +3887,30 @@
       "solutionSource": "EBSi",
       "solutionSourcePage": "https://www.ebsi.co.kr/ebs/xip/xipc/previousPaperList.ebs?targetCd=D300",
       "ebsiUrl": "https://wdown.ebsi.co.kr/W61001/01exam/20080604/j_jic05_hsj.pdf"
+    },
+    {
+      "id": 6721,
+      "gradeYear": 2009,
+      "type": "june",
+      "subject": "직업탐구",
+      "subSubject": "기초제도",
+      "solutionUrl": "https://suneung-files.hdh061224.workers.dev/ebsi-mirror-v1/099d3ff9c43d35c0.pdf?name=2009%ED%95%99%EB%85%84%EB%8F%84%206%EC%9B%94%20%EB%AA%A8%ED%8F%89%20%EC%A7%81%EC%97%85%ED%83%90%EA%B5%AC%28%EA%B8%B0%EC%B4%88%EC%A0%9C%EB%8F%84%29%20%EC%A0%95%EB%8B%B5%C2%B7%ED%95%B4%EC%84%A4.pdf",
+      "solutionDownload": "2009학년도 6월 모평 직업탐구(기초제도) 정답·해설.pdf",
+      "solutionSource": "EBSi",
+      "solutionSourcePage": "https://www.ebsi.co.kr/ebs/xip/xipc/previousPaperList.ebs?targetCd=D300",
+      "ebsiUrl": "https://wdown.ebsi.co.kr/W61001/01exam/20080604/j_jic11_hsj.pdf"
+    },
+    {
+      "id": 6735,
+      "gradeYear": 2009,
+      "type": "june",
+      "subject": "직업탐구",
+      "subSubject": "회계원리",
+      "solutionUrl": "https://suneung-files.hdh061224.workers.dev/ebsi-mirror-v4/f48b319190030c56.pdf?name=2009%ED%95%99%EB%85%84%EB%8F%84%206%EC%9B%94%20%EB%AA%A8%ED%8F%89%20%EC%A7%81%EC%97%85%ED%83%90%EA%B5%AC%28%ED%9A%8C%EA%B3%84%EC%9B%90%EB%A6%AC%29%20%EC%A0%95%EB%8B%B5%C2%B7%ED%95%B4%EC%84%A4.pdf",
+      "solutionDownload": "2009학년도 6월 모평 직업탐구(회계원리) 정답·해설.pdf",
+      "solutionSource": "EBSi",
+      "solutionSourcePage": "https://www.ebsi.co.kr/ebs/xip/xipc/previousPaperList.ebs?targetCd=D300",
+      "ebsiUrl": "https://wdown.ebsi.co.kr/W61001/01exam/20080604/j_jic12_hsj.pdf"
     },
     {
       "id": 6726,
@@ -3877,6 +3949,18 @@
       "ebsiUrl": "https://wdown.ebsi.co.kr/W61001/01exam/20080604/J_ssnw_hsj.pdf"
     },
     {
+      "id": 6729,
+      "gradeYear": 2009,
+      "type": "june",
+      "subject": "직업탐구",
+      "subSubject": "인간발달",
+      "solutionUrl": "https://suneung-files.hdh061224.workers.dev/ebsi-mirror-v2/425ea38682a633ae.pdf?name=2009%ED%95%99%EB%85%84%EB%8F%84%206%EC%9B%94%20%EB%AA%A8%ED%8F%89%20%EC%A7%81%EC%97%85%ED%83%90%EA%B5%AC%28%EC%9D%B8%EA%B0%84%EB%B0%9C%EB%8B%AC%29%20%EC%A0%95%EB%8B%B5%C2%B7%ED%95%B4%EC%84%A4.pdf",
+      "solutionDownload": "2009학년도 6월 모평 직업탐구(인간발달) 정답·해설.pdf",
+      "solutionSource": "EBSi",
+      "solutionSourcePage": "https://www.ebsi.co.kr/ebs/xip/xipc/previousPaperList.ebs?targetCd=D300",
+      "ebsiUrl": "https://wdown.ebsi.co.kr/W61001/01exam/20080604/J_gsnsup_hsj.pdf"
+    },
+    {
       "id": 6728,
       "gradeYear": 2009,
       "type": "june",
@@ -3887,6 +3971,30 @@
       "solutionSource": "EBSi",
       "solutionSourcePage": "https://www.ebsi.co.kr/ebs/xip/xipc/previousPaperList.ebs?targetCd=D300",
       "ebsiUrl": "https://wdown.ebsi.co.kr/W61001/01exam/20080604/j_jic04_hsj.pdf"
+    },
+    {
+      "id": 6725,
+      "gradeYear": 2009,
+      "type": "june",
+      "subject": "직업탐구",
+      "subSubject": "디자인일반",
+      "solutionUrl": "https://suneung-files.hdh061224.workers.dev/ebsi-mirror-v2/564123eede799487.pdf?name=2009%ED%95%99%EB%85%84%EB%8F%84%206%EC%9B%94%20%EB%AA%A8%ED%8F%89%20%EC%A7%81%EC%97%85%ED%83%90%EA%B5%AC%28%EB%94%94%EC%9E%90%EC%9D%B8%EC%9D%BC%EB%B0%98%29%20%EC%A0%95%EB%8B%B5%C2%B7%ED%95%B4%EC%84%A4.pdf",
+      "solutionDownload": "2009학년도 6월 모평 직업탐구(디자인일반) 정답·해설.pdf",
+      "solutionSource": "EBSi",
+      "solutionSourcePage": "https://www.ebsi.co.kr/ebs/xip/xipc/previousPaperList.ebs?targetCd=D300",
+      "ebsiUrl": "https://wdown.ebsi.co.kr/W61001/01exam/20080604/j_jic02_hsj.pdf"
+    },
+    {
+      "id": 6732,
+      "gradeYear": 2009,
+      "type": "june",
+      "subject": "직업탐구",
+      "subSubject": "프로그래밍",
+      "solutionUrl": "https://suneung-files.hdh061224.workers.dev/ebsi-mirror-v1/19b1924cf0f05350.pdf?name=2009%ED%95%99%EB%85%84%EB%8F%84%206%EC%9B%94%20%EB%AA%A8%ED%8F%89%20%EC%A7%81%EC%97%85%ED%83%90%EA%B5%AC%28%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D%29%20%EC%A0%95%EB%8B%B5%C2%B7%ED%95%B4%EC%84%A4.pdf",
+      "solutionDownload": "2009학년도 6월 모평 직업탐구(프로그래밍) 정답·해설.pdf",
+      "solutionSource": "EBSi",
+      "solutionSourcePage": "https://www.ebsi.co.kr/ebs/xip/xipc/previousPaperList.ebs?targetCd=D300",
+      "ebsiUrl": "https://wdown.ebsi.co.kr/W61001/01exam/20080604/j_jic06_hsj.pdf"
     },
     {
       "id": 6736,
@@ -6631,6 +6739,18 @@
       "solutionSource": "EBSi",
       "solutionSourcePage": "https://www.ebsi.co.kr/ebs/xip/xipc/previousPaperList.ebs?targetCd=D300",
       "ebsiUrl": "https://wdown.ebsi.co.kr/W61001/01exam/20100610/2nd_ru1_hsj.pdf"
+    },
+    {
+      "id": 4379,
+      "gradeYear": 2011,
+      "type": "june",
+      "subject": "제2외국어",
+      "subSubject": "아랍어",
+      "solutionUrl": "https://suneung-files.hdh061224.workers.dev/ebsi-mirror-v4/d6a8de811c18ec5d.pdf?name=2011%ED%95%99%EB%85%84%EB%8F%84%206%EC%9B%94%20%EB%AA%A8%ED%8F%89%20%EC%A0%9C2%EC%99%B8%EA%B5%AD%EC%96%B4%28%EC%95%84%EB%9E%8D%EC%96%B4%29%20%EC%A0%95%EB%8B%B5%C2%B7%ED%95%B4%EC%84%A4.pdf",
+      "solutionDownload": "2011학년도 6월 모평 제2외국어(아랍어) 정답·해설.pdf",
+      "solutionSource": "EBSi",
+      "solutionSourcePage": "https://www.ebsi.co.kr/ebs/xip/xipc/previousPaperList.ebs?targetCd=D300",
+      "ebsiUrl": "https://wdown.ebsi.co.kr/W61001/01exam/20100610/2nd_ar1_hsj.pdf"
     },
     {
       "id": 4383,
@@ -10617,6 +10737,18 @@
       "ebsiUrl": "https://wdown.ebsi.co.kr/W61001/01exam/201409033/yYI7GVHA_h3_2nd_ch1_hsj_1.pdf"
     },
     {
+      "id": 3737,
+      "gradeYear": 2015,
+      "type": "sept",
+      "subject": "제2외국어",
+      "subSubject": "일본어",
+      "solutionUrl": "https://suneung-files.hdh061224.workers.dev/ebsi-mirror-v1/124d85d7747024a1.pdf?name=2015%ED%95%99%EB%85%84%EB%8F%84%209%EC%9B%94%20%EB%AA%A8%ED%8F%89%20%EC%A0%9C2%EC%99%B8%EA%B5%AD%EC%96%B4%28%EC%9D%BC%EB%B3%B8%EC%96%B4%29%20%EC%A0%95%EB%8B%B5%C2%B7%ED%95%B4%EC%84%A4.pdf",
+      "solutionDownload": "2015학년도 9월 모평 제2외국어(일본어) 정답·해설.pdf",
+      "solutionSource": "EBSi",
+      "solutionSourcePage": "https://www.ebsi.co.kr/ebs/xip/xipc/previousPaperList.ebs?targetCd=D300",
+      "ebsiUrl": "https://wdown.ebsi.co.kr/W61001/01exam/201409033/ryEuJcau_h3_2nd_ja1_hsj.pdf"
+    },
+    {
       "id": 3733,
       "gradeYear": 2015,
       "type": "sept",
@@ -11263,6 +11395,18 @@
       "solutionSource": "EBSi",
       "solutionSourcePage": "https://www.ebsi.co.kr/ebs/xip/xipc/previousPaperList.ebs?targetCd=D300",
       "ebsiUrl": "https://wdown.ebsi.co.kr/W61001/01exam/20151112/go3/JXrRjbDt_g_ear2_hsj.pdf"
+    },
+    {
+      "id": 3339,
+      "gradeYear": 2016,
+      "type": "csat",
+      "subject": "제2외국어",
+      "subSubject": "베트남어",
+      "solutionUrl": "https://suneung-files.hdh061224.workers.dev/ebsi-mirror-v1/014666b231919ced.pdf?name=2016%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EC%A0%9C2%EC%99%B8%EA%B5%AD%EC%96%B4%28%EB%B2%A0%ED%8A%B8%EB%82%A8%EC%96%B4%29%20%EC%A0%95%EB%8B%B5%C2%B7%ED%95%B4%EC%84%A4.pdf",
+      "solutionDownload": "2016학년도 수능 제2외국어(베트남어) 정답·해설.pdf",
+      "solutionSource": "EBSi",
+      "solutionSourcePage": "https://www.ebsi.co.kr/ebs/xip/xipc/previousPaperList.ebs?targetCd=D300",
+      "ebsiUrl": "https://wdown.ebsi.co.kr/W61001/01exam/20151112/go3/tMVhEUse_2nd_vit_hsj.pdf"
     },
     {
       "id": 3337,
