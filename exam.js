@@ -13,6 +13,8 @@ import { mountExamDock } from './lib/exam-dock.js?v=ac59a11b875ac567b42c';
 import { enableForcedDownloads } from './lib/download.js?v=ac59a11b875ac567b42c';
 // 듣기 플레이어는 듣기 음원이 있는 영어 페이지에서만 받는다(나머지 상세 페이지는 10KB 덜 받음)
 const mountListenPlayer = (el, opts) => import('./lib/listen-player.js?v=ac59a11b875ac567b42c').then(m => m.mountListenPlayer(el, opts));
+// 동적 split 주소도 CI 자산 버전을 따라야 이전 PDF 연결이 브라우저 캐시에 남지 않는다.
+const DATA_VERSION = 'ac59a11b875ac567b42c';
 
 enableForcedDownloads();
 
@@ -285,7 +287,7 @@ async function main() {
   const isStaticExam = /\/exam-\d+\.html$/.test(location.pathname);
   const shouldFetchGradecut = !isStaticExam || document.body.classList.contains('has-gradecut');
   const [examResult, cutResult] = await Promise.allSettled([
-    fetch(`data/exam/${id}.json?v=20260801a`).then(async res => res.ok ? res.json() : null),
+    fetch(`data/exam/${id}.json?v=${DATA_VERSION}`).then(async res => res.ok ? res.json() : null),
     shouldFetchGradecut
       ? fetch(`data/gradecut/${id}.json?v=20260801a`).then(async res => res.ok ? res.json() : null)
       : Promise.resolve(null),

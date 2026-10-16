@@ -1,5 +1,7 @@
 import importlib.util
 import json
+import re
+import subprocess
 import tempfile
 import unittest
 from unittest.mock import patch
@@ -18,6 +20,26 @@ render = load('render-site')
 
 
 class BuildTests(unittest.TestCase):
+    def test_exam_split_request_version_changes_with_its_data(self):
+        source = (Path(__file__).parents[1] / 'exam.js').read_text()
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            (root / 'data/exam').mkdir(parents=True)
+            (root / 'exam.js').write_text(source)
+            data = root / 'data/exam/3581.json'
+            urls = []
+            for kind in ('A형', 'B형'):
+                data.write_text(json.dumps({'subSubject': kind}))
+                version, _ = versions.version_assets(root)
+                stamped = (root / 'exam.js').read_text()
+                declaration = re.search(r"const DATA_VERSION = '[^']*';", stamped)
+                request = re.search(r'fetch\((`data/exam/\$\{id\}\.json[^`]*`)\)', stamped)[1]
+                code = 'const id = 3581;\n' + (declaration[0] if declaration else '')
+                url = subprocess.check_output(['node', '-e', code + f'\nconsole.log({request});'], text=True).strip()
+                self.assertEqual(url, f'data/exam/3581.json?v={version}')
+                urls.append(url)
+            self.assertNotEqual(*urls)
+
     def test_set_meta_distinguishes_education_grades_from_kice_month_types(self):
         items = [{'subject': '국어'}, {'subject': '영어', 'listenUrl': 'https://example.com/a.mp3'}]
         grade1 = render.bd.build_set_meta('2015', '2022', 'jun', 1, items)
