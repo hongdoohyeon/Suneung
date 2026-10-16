@@ -1168,7 +1168,10 @@ body[data-exam-tab="obj"] #main > :not(.exam__crumb):not(.exam__top):not(.exam__
 .pv-viewer .preview__more { width: min(100%, 520px); flex: none; align-self: center; }
 .pv-sheet.is-folded .pv-page:not([data-page="1"]) { display: none; }
 /* 풀이 모드는 늘 전부 펼친 채 */
-.preview.is-full .preview__more, .preview.is-full .pv-btn[data-act="fold"] { display: none; }
+.preview.is-full .preview__more:not(.is-error), .preview.is-full .pv-btn[data-act="fold"] { display: none; }
+.preview.is-full .preview__more.is-error { position: fixed; z-index: 4; left: 50%; bottom: 80px; transform: translateX(-50%); }
+.pv-retry { position: absolute; z-index: 3; top: 50%; left: 50%; transform: translate(-50%, -50%); padding: 12px 18px; border: 1px solid var(--line-strong); border-radius: var(--r-sm); color: var(--ink); background: var(--surface); cursor: pointer; }
+.pv-retry:disabled { cursor: wait; opacity: .7; }
 .pv-hint {
   position: absolute; left: 50%; bottom: 18px; transform: translateX(-50%); z-index: 3; margin: 0;
   padding: 8px 14px; border-radius: var(--r-sm); background: var(--ink); color: var(--on-ink); font-size: 12.5px; font-weight: 600;

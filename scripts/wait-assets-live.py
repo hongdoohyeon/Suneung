@@ -7,7 +7,7 @@ GitHub Pages 가 배포 직후 잠깐 옛 파일을 내주면, 옛 내용이 새
 확인한 뒤 ③ 토큰을 바꿔 올린다. 확인용 요청은 매번 다른 쿼리를 붙여 Cloudflare 캐시를 건너뛴다.
 
   python3 scripts/wait-assets-live.py <비교 기준 커밋>      # 그 커밋 이후 바뀐 자산만 확인
-시간 안에 다 안 맞으면 경고만 하고 0 으로 끝난다(배포를 막지 않는다).
+시간 안에 다 안 맞거나 추가 대기 뒤 재확인에 실패하면 1 로 끝낸다(새 토큰 발급을 막는다).
 """
 from __future__ import annotations
 
@@ -64,13 +64,14 @@ def main() -> int:
         if pending:
             time.sleep(15)
     if pending:
-        print(f'  ! wait-assets-live: {int(time.time() - start)}초 지나도 옛 내용 {len(pending)}개 — 그래도 진행: {sorted(pending)[:5]}')
-        return 0
+        print(f'  ! wait-assets-live: {int(time.time() - start)}초 지나도 새 내용 확인 실패 {len(pending)}개 — 토큰 변경 중단: {sorted(pending)[:5]}', file=sys.stderr)
+        return 1
     print(f'  + 모두 새 내용({int(time.time() - start)}초). {SETTLE}초 더 기다린 뒤 토큰을 바꾼다')
     time.sleep(SETTLE)
     still = [f for f in files if live_digest(f) != want[f]]
     if still:
-        print(f'  ! 다시 확인했더니 옛 내용 {len(still)}개: {still[:5]}')
+        print(f'  ! wait-assets-live: 추가 대기 뒤 새 내용 확인 실패 {len(still)}개 — 토큰 변경 중단: {still[:5]}', file=sys.stderr)
+        return 1
     return 0
 
 

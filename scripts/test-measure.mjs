@@ -44,6 +44,17 @@ function setup(pathname = '/exam-1.html') {
   return { track: window.kgTrack, click, events };
 }
 
+test('처리된 PDF 오류는 고정 코드만 기록하고 페이지당 3건으로 제한한다', () => {
+  const page = setup();
+  page.track.error('private user text or URL', 'download.js');
+  page.track.error('pdf_download', 'https://private.invalid/name');
+  assert.equal(page.events('js_error').length, 0);
+  for (let i = 0; i < 5; i++) page.track.error('pdf_preview_document', 'exam-pdf.js');
+  assert.equal(page.events('js_error').length, 3);
+  assert.equal(page.events('js_error')[0].message, 'pdf_preview_document');
+  assert.equal(page.events('js_error')[0].source, 'exam-pdf.js');
+});
+
 const exam = { id: 1, typeGroup: 'suneung', type: 'sept', gradeYear: 2027,
   subject: '수학', subSubject: '확률과통계' };
 
