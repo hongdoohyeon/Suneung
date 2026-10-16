@@ -75,6 +75,26 @@ test('96 page frames stay accessible; only nearby canvases survive, fold release
   assert.ok(p.pdfCanvas); h.api.fold(); assert.equal(p.pdfCanvas, null);
   h.dispose?.();
 });
+test('header fold exits solving mode, keeps the first page and preserves saved ink', async () => {
+  const stored = '{"2":[{"c":"black","w":0.0032,"p":[0.1,0.2,0.3,0.4]}]}';
+  const h = await setup({ stored }); await h.api.expandAll(); h.api.enterFull();
+  const bar = h.container.parentElement.children.find(el => el.className === 'pv-bar');
+  const button = bar.queries['[data-act="fold"]'];
+  assert.equal(button.parentElement, h.container.parentElement.children[0]);
+  assert.equal(button.hidden, false);
+  const before = JSON.stringify(h.api.getInk());
+  await button.listeners.click[0]();
+  assert.equal(h.api.getMore().getAttribute('aria-expanded'), 'false');
+  assert.equal(button.hidden, true);
+  assert.equal(bar.queries['[data-act="full"]'].getAttribute('aria-label'), '풀이 모드');
+  assert.equal(JSON.stringify(h.api.getInk()), before);
+  assert.ok(h.api.pages.slice(1).every(p => p.pdfCanvas === null));
+  await h.api.expandAll();
+  assert.equal(button.hidden, false);
+  assert.equal(h.api.getMore().getAttribute('aria-expanded'), 'true');
+  h.dispose();
+  assert.equal(button.parentElement, null);
+});
 test('same-scale render is deduplicated; cancellation/stale completion cannot attach canvas', async () => {
   const h = await setup({ manual: true }); const p = h.api.pages[0];
   p.renderedScale = 0;

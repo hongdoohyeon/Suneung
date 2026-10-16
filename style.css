@@ -1146,6 +1146,8 @@ body[data-exam-tab="obj"] #main > :not(.exam__crumb):not(.exam__top):not(.exam__
   border-radius: var(--r-sm); font-size: 13px; font-weight: var(--ui-weight); color: var(--ink-3); transition: background var(--t), color var(--t);
 }
 .pv-btn svg { width: 18px; height: 18px; flex: none; }
+.pv-fold { margin-left: auto; }
+.preview__head .pv-fold span:not(.sr-only) { display: inline; }
 .pv-btn:hover:not(:disabled) { color: var(--ink); background: var(--surface); }
 .pv-btn[aria-pressed="true"] { background: var(--surface); color: var(--ink); box-shadow: 0 0 0 1px var(--line-strong), 0 1px 2px rgba(0,0,0,.08); }
 .pv-btn:disabled { opacity: .35; cursor: default; }
@@ -1168,7 +1170,7 @@ body[data-exam-tab="obj"] #main > :not(.exam__crumb):not(.exam__top):not(.exam__
 .pv-viewer .preview__more { width: min(100%, 520px); flex: none; align-self: center; }
 .pv-sheet.is-folded .pv-page:not([data-page="1"]) { display: none; }
 /* 풀이 모드는 늘 전부 펼친 채 */
-.preview.is-full .preview__more:not(.is-error), .preview.is-full .pv-btn[data-act="fold"] { display: none; }
+.preview.is-full .preview__more:not(.is-error) { display: none; }
 .preview.is-full .preview__more.is-error { position: fixed; z-index: 4; left: 50%; bottom: 80px; transform: translateX(-50%); }
 .pv-retry { position: absolute; z-index: 3; top: 50%; left: 50%; transform: translate(-50%, -50%); padding: 12px 18px; border: 1px solid var(--line-strong); border-radius: var(--r-sm); color: var(--ink); background: var(--surface); cursor: pointer; }
 .pv-retry:disabled { cursor: wait; opacity: .7; }
@@ -1438,8 +1440,8 @@ body.pv-lock { overflow: hidden; }
   .pv-btn { min-width: 34px; padding: 0 5px; }
   .pv-btn span:not(.sr-only) { display: none; }
   .pv-bar__zoom [data-act="in"], .pv-bar__zoom [data-act="out"] { display: none; }   /* 폰은 두 손가락으로 확대 */
-  /* 폰: 막대가 한 줄에 다 들어가게(오른쪽 끝 풀이 모드·나가기 버튼이 잘리던 문제) — 배율은 두 번 탭, 접기는 아래 버튼 */
-  .pv-pct, .pv-bar__zoom [data-act="fold"] { display: none; }
+  /* 폰: 막대가 한 줄에 다 들어가게 — 배율은 두 번 탭 */
+  .pv-pct { display: none; }
   .pv-btn { min-width: 31px; }
   /* 풀이 모드: 도구 막대는 엄지가 닿는 아래로 */
   .preview.is-full { padding-bottom: 0; }
