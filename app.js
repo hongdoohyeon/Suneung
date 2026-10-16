@@ -1,22 +1,22 @@
 'use strict';
-import { enableForcedDownloads } from './lib/download.js?v=e6defcbe20082ccf7e80';
-import { publicFileUrl } from './lib/dom.js?v=e6defcbe20082ccf7e80';
+import { enableForcedDownloads } from './lib/download.js?v=c82633ab88c2a3e94fcb';
+import { publicFileUrl } from './lib/dom.js?v=c82633ab88c2a3e94fcb';
 enableForcedDownloads();
 import {
   CURRICULUM_CONFIG, EXAM_TYPE_CONFIG, TAB_CONFIG,
   getTypeConf, getGroupConf, getTabConf, legacyTabKey, prettySub, navTabKey, navSiblings,
-} from './config.js?v=e6defcbe20082ccf7e80';
+} from './config.js?v=c82633ab88c2a3e94fcb';
 import {
   state, PAGE_SIZE,
   resetFilters, toggleMulti,
   getDisplayYear, availableGradeYears,
   filtered, subjectCounts,
   tabCurriculums, tabCurriculumConfs, tabSubjects, curriculumOfGradeYear,
-} from './state.js?v=e6defcbe20082ccf7e80';
-import { renderAllAdSlots, renderAdSlot } from './lib/ads.js?v=e6defcbe20082ccf7e80';
-import { recentItems, clearRecent } from './lib/recent.js?v=e6defcbe20082ccf7e80';
-import { initSelect, isSelecting, checkboxHTML } from './lib/select.js?v=e6defcbe20082ccf7e80';
-import { vt, flipChips, resize, underline, onSwipe, EASE as M } from './lib/motion.js?v=e6defcbe20082ccf7e80';
+} from './state.js?v=c82633ab88c2a3e94fcb';
+import { renderAllAdSlots, renderAdSlot } from './lib/ads.js?v=c82633ab88c2a3e94fcb';
+import { recentItems, clearRecent } from './lib/recent.js?v=c82633ab88c2a3e94fcb';
+import { initSelect, isSelecting, checkboxHTML } from './lib/select.js?v=c82633ab88c2a3e94fcb';
+import { vt, flipChips, resize, underline, onSwipe, EASE as M } from './lib/motion.js?v=c82633ab88c2a3e94fcb';
 let placeTabInk = null;   // 시험 종류 탭 밑줄 옮기기(아래 markActiveNavTab) — 모듈 초기에 탭 표시가 먼저 불릴 수 있어 맨 위에 선언
 
 const tabConf = () => getTabConf(state.tab);
@@ -45,7 +45,7 @@ const tabIsSingleType = () => {
 
 // 검색 첫 진입에서 9MB 전체 목록을 받지 않고 현재 탭 split만 로드한다.
 // CI render-site.py가 data/archive/{tab}.json을 exams.json에서 생성한다.
-const DATA_VERSION = 'e6defcbe20082ccf7e80';
+const DATA_VERSION = 'c82633ab88c2a3e94fcb';
 const FULL_DATA_URL = `data/exams.json?v=${DATA_VERSION}`;
 const tabDataCache = new Map();
 let fullDataCache = null;
