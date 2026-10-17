@@ -65,7 +65,7 @@ def run(cmd: list[str], cwd: Path | None = ROOT, check: bool = True) -> subproce
 
 # ── 1. 오늘 시험 감지 ────────────────────────────────────────────────
 def today_kst() -> dt.date:
-    return (dt.datetime.utcnow() + dt.timedelta(hours=9)).date()
+    return (dt.datetime.now(dt.timezone.utc) + dt.timedelta(hours=9)).date()
 
 
 def today_targets(day: dt.date) -> list[dict]:
