@@ -28,6 +28,7 @@
   <link rel="stylesheet" href="style.css?v=60d4e47821686c04933a" />
   <script src="lib/site-prefs.js?v=60d4e47821686c04933a"></script>
   <link rel="stylesheet" href="style-calendar.css?v=60d4e47821686c04933a" />
+  <noscript><style>.pl-toolbar,.pl-layout{display:none!important}</style></noscript>
   <script src="lib/measure.js?v=60d4e47821686c04933a" defer></script>
 </head>
 <body class="page-default">
@@ -84,23 +85,81 @@
       <p class="legal__sub">주요 시험 시행일 및 입시 일정</p>
     </header>
 
-    <div class="cal-controls">
-      <button id="prevMonth" class="cal-nav" aria-label="이전 달">‹</button>
-      <h2 id="monthLabel" class="cal-month-label" aria-live="polite"></h2>
-      <button id="nextMonth" class="cal-nav" aria-label="다음 달">›</button>
-      <button id="todayBtn" class="cal-today" aria-label="오늘로 이동">오늘</button>
+    <section class="pl-toolbar" aria-label="달력 도구">
+      <div class="pl-toolbar__row">
+        <div class="pl-monthnav">
+          <button type="button" class="pl-navbtn" id="prevMonth" aria-label="이전 달">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 5-7 7 7 7"/></svg>
+          </button>
+          <h2 class="pl-month" id="monthLabel">2026년 10월</h2>
+          <button type="button" class="pl-navbtn" id="nextMonth" aria-label="다음 달">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 5 7 7-7 7"/></svg>
+          </button>
+          <span class="pl-todaywrap">
+            <span class="pl-vsep" aria-hidden="true"></span>
+            <button type="button" class="pl-today" id="todayBtn">오늘</button>
+          </span>
+        </div>
+        <div class="pl-tools">
+          <div class="pl-filterwrap">
+            <button type="button" class="pl-filter" id="filterBtn" aria-haspopup="listbox" aria-expanded="false" aria-controls="filterMenu">
+              <span class="pl-filter__label">일정 종류</span>
+              <span class="pl-filter__value"><span class="pl-filter__dot" id="filterDot" hidden></span><span id="filterLabel">전체</span></span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+            </button>
+            <div class="pl-menu" id="filterMenu" role="listbox" aria-label="일정 종류" hidden></div>
+          </div>
+          <div class="pl-views" role="tablist" aria-label="보기 방식">
+            <button type="button" class="pl-view" role="tab" id="viewMonthTab" aria-selected="true" aria-controls="monthView" data-view="month">
+              <svg class="pl-view__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4.5" width="18" height="16" rx="2"/><path d="M3 9h18M8 2.8v3.4M16 2.8v3.4"/></svg>
+              <span class="pl-view__text">달력</span>
+            </button>
+            <button type="button" class="pl-view" role="tab" id="viewListTab" aria-selected="false" aria-controls="listView" data-view="list" tabindex="-1">
+              <svg class="pl-view__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M8 6h13M8 12h13M8 18h13"/><path d="M3.5 6h.01M3.5 12h.01M3.5 18h.01" stroke-width="2.4"/></svg>
+              <span class="pl-view__text">목록</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="pl-layout" id="calendar">
+      <div class="pl-monthwrap">
+        <section id="monthView" role="tabpanel" aria-labelledby="viewMonthTab">
+          <div class="pl-cal" id="cal">
+            <div class="pl-dow" aria-hidden="true">
+              <div class="pl-dow__c" data-wd="0">일</div>
+              <div class="pl-dow__c" data-wd="1">월</div>
+              <div class="pl-dow__c" data-wd="2">화</div>
+              <div class="pl-dow__c" data-wd="3">수</div>
+              <div class="pl-dow__c" data-wd="4">목</div>
+              <div class="pl-dow__c" data-wd="5">금</div>
+              <div class="pl-dow__c" data-wd="6">토</div>
+            </div>
+            <div id="grid" role="grid" aria-labelledby="monthLabel" aria-multiselectable="false"></div>
+            <div class="pl-daypanel" id="dayPanel" hidden aria-label="선택한 날짜 일정"></div>
+          </div>
+        </section>
+        <section id="listView" role="tabpanel" aria-labelledby="viewListTab" hidden>
+          <div class="pl-list" id="list"></div>
+        </section>
+      </div>
+
+      <aside class="pl-rail" aria-label="일정 요약">
+        <section class="pl-railsec" id="ongoingSec" hidden>
+          <div class="pl-railsec__head"><h2>진행 중</h2><span id="ongoingCount"></span></div>
+          <div class="pl-up" id="ongoingList"></div>
+        </section>
+        <section class="pl-railsec">
+          <div class="pl-railsec__head"><h2>다가오는 일정 <span class="pl-railsec__now">오늘 기준</span></h2><span id="upcomingCount"></span></div>
+          <div class="pl-up" id="upcomingList"></div>
+        </section>
+        <p class="pl-source">일정 출처 · 한국교육과정평가원, 17개 시·도교육청, EBSi<br><a href="data-policy.html">데이터 원칙</a></p>
+      </aside>
     </div>
 
-    <div id="calendar" class="cal-grid" aria-hidden="true"></div>
-    <ul id="calLegend" class="cal-legend" aria-label="색 설명"></ul>
-
-    <h2 class="cal-sec">이번 달 일정</h2>  <!-- 달력은 보기용(aria-hidden), 같은 내용을 이 목록이 읽어 준다 -->
-    <ul id="monthList" class="cal-list"></ul>
-
-    <h2 class="cal-sec">다가오는 시험·일정</h2>
-    <ul id="upcomingList" class="cal-list"></ul>
-
-    <!-- calendar-all:start (render-site.py 가 채움) -->
+    <section class="cal-all-fallback" id="allEventsFallback" aria-label="전체 시험·입시 일정">
+<!-- calendar-all:start (render-site.py 가 채움) -->
     <h2 class="cal-sec">전체 시험·입시 일정</h2>
     <h3 class="cal-sec-month">2025년 12월</h3>
     <ul class="cal-list">
@@ -201,6 +260,9 @@
       <li class="cal-item"><div class="cal-item__date"><time datetime="2027-02-19">2027년 2월 19일</time> ~ <time datetime="2027-02-26">2027년 2월 26일</time></div><div class="cal-item__body"><div class="cal-item__title">추가모집 원서접수·전형 (2.26 마감)</div></div></li>
     </ul>
       <!-- calendar-all:end -->
+    </section>
+
+    <p class="sr-only" id="liveStatus" aria-live="polite"></p>
   </main>
 
   <footer class="site-footer">
