@@ -163,6 +163,8 @@
 .pl-dayitem__title{display:block;font-size:13px;font-weight:600;line-height:1.45;letter-spacing:-.01em}
 .pl-dayitem__tag{display:inline-flex;align-items:center;height:15px;padding:0 4px;margin-left:4px;border-radius:2px;background:color-mix(in srgb,var(--c) 18%,transparent);color:color-mix(in srgb,var(--c) 62%,var(--ink));font-size:8.5px;font-weight:700;vertical-align:1px}
 .pl-dayitem__meta{display:block;margin-top:2px;font-size:10.5px;line-height:1.5;color:var(--ink-4)}
+.pl-dayitem__link{color:var(--ink-3);text-decoration:underline;text-underline-offset:2px;text-decoration-color:var(--line-strong);white-space:nowrap}
+.pl-dayitem__link:hover{color:var(--ink)}
 .pl-daypanel__empty{padding:15px 0 2px;font-size:12px;line-height:1.6;color:var(--ink-4)}
 
 /* ---------- 오른쪽 레일 ---------- */

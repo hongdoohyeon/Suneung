@@ -6,20 +6,20 @@
   <meta name="google-adsense-account" content="ca-pub-8873636777236181" />
   <meta name="theme-color" content="#f1f1ee" />
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://static.cloudflareinsights.com https://www.googletagmanager.com https://pagead2.googlesyndication.com https://*.googlesyndication.com https://*.doubleclick.net https://*.google.com https://*.gstatic.com https://*.adtrafficquality.google; style-src 'self' 'unsafe-inline'; font-src 'self' data:; img-src 'self' data: https:; connect-src 'self' https://suneung-files.hdh061224.workers.dev https://cloudflareinsights.com https://www.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com https://www.googletagmanager.com https://www.google.com https://*.googlesyndication.com https://*.doubleclick.net https://*.adtrafficquality.google; frame-src https://*.googlesyndication.com https://*.doubleclick.net https://*.google.com https://*.adtrafficquality.google; media-src 'self' https://suneung-files.hdh061224.workers.dev; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'self'" />
-  <meta name="description" content="학평·평가원·수능·사관·경찰·LEET·MDEET·검정고시 시행일 + 수시·정시 원서접수·합격자 발표 일정 한눈에." />
+  <meta name="description" content="학평·평가원·수능·사관·경찰·LEET·MDEET·검정고시 시행일 + 수시·정시 원서접수·합격자 발표 + 주요 대학 수시 논술·면접·등록 일정 한눈에." />
 
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <link rel="canonical" href="https://kicegg.com/calendar.html" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="기출해체분석기" />
   <meta property="og:title" content="학사 일정 · 입시 캘린더 — 기출해체분석기" />
-  <meta property="og:description" content="학평·평가원·수능·사관·경찰·LEET·MDEET·검정고시 + 수시·정시 일정." />
+  <meta property="og:description" content="학평·평가원·수능·사관·경찰·LEET·MDEET·검정고시 + 수시·정시 + 대학별 논술·면접 일정." />
   <meta property="og:url" content="https://kicegg.com/calendar.html" />
   <meta property="og:image" content="https://kicegg.com/og-image.png" />
   <meta property="og:locale" content="ko_KR" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="학사 일정 · 입시 캘린더 — 기출해체분석기" />
-  <meta name="twitter:description" content="학평·평가원·수능·사관·경찰·LEET·MDEET·검정고시 + 수시·정시 일정." />
+  <meta name="twitter:description" content="학평·평가원·수능·사관·경찰·LEET·MDEET·검정고시 + 수시·정시 + 대학별 논술·면접 일정." />
   <meta name="twitter:image" content="https://kicegg.com/og-image.png" />
   <meta name="referrer" content="strict-origin-when-cross-origin" />
 
@@ -82,7 +82,7 @@
   <main id="main" class="cal-page">
     <header class="legal__head legal__head--compact">
       <h1 class="legal__title">학사 일정</h1>
-      <p class="legal__sub">주요 시험 시행일 및 입시 일정</p>
+      <p class="legal__sub">주요 시험 시행일 및 대학별 입시 일정</p>
     </header>
 
     <section class="pl-toolbar" aria-label="달력 도구">
@@ -108,6 +108,14 @@
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
             </button>
             <div class="pl-menu" id="filterMenu" role="listbox" aria-label="일정 종류" hidden></div>
+          </div>
+          <div class="pl-filterwrap" id="uniFilterWrap">
+            <button type="button" class="pl-filter" id="uniFilterBtn" aria-haspopup="listbox" aria-expanded="false" aria-controls="uniFilterMenu">
+              <span class="pl-filter__label">대학</span>
+              <span class="pl-filter__value"><span class="pl-filter__dot" id="uniDot" hidden></span><span id="uniFilterLabel">전체</span></span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+            </button>
+            <div class="pl-menu" id="uniFilterMenu" role="listbox" aria-label="대학" hidden></div>
           </div>
           <div class="pl-views" role="tablist" aria-label="보기 방식">
             <button type="button" class="pl-view" role="tab" id="viewMonthTab" aria-selected="true" aria-controls="monthView" data-view="month">
@@ -154,7 +162,7 @@
           <div class="pl-railsec__head"><h2>다가오는 일정 <span class="pl-railsec__now">오늘 기준</span></h2><span id="upcomingCount"></span></div>
           <div class="pl-up" id="upcomingList"></div>
         </section>
-        <p class="pl-source">일정 출처 · 한국교육과정평가원, 17개 시·도교육청, EBSi<br><a href="data-policy.html">데이터 원칙</a></p>
+        <p class="pl-source">일정 출처 · 한국교육과정평가원, 17개 시·도교육청, EBSi, 각 대학 입학처<br><a href="data-policy.html">데이터 원칙</a></p>
       </aside>
     </div>
 
