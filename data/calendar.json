@@ -342,6 +342,32 @@
     {
       "type": "admission",
       "category": "대학별",
+      "title": "가천대 수시 원서접수",
+      "uni": "가천대",
+      "org": "가천대학교 입학처",
+      "scoreYear": 2027,
+      "source": "https://admission.gachon.ac.kr/upload/BBS0021/20260522154511HBZYTW.PDF#page=34",
+      "dateRange": [
+        "2026-09-07",
+        "2026-09-11"
+      ]
+    },
+    {
+      "type": "admission",
+      "category": "대학별",
+      "title": "가톨릭대 수시 원서접수",
+      "uni": "가톨릭대",
+      "org": "가톨릭대학교 입학처",
+      "scoreYear": 2027,
+      "source": "https://ipsi.catholic.ac.kr/file/download.do?sfn=20260612090132470_2027%ED%95%99%EB%85%84%EB%8F%84+%EA%B0%80%ED%86%A8%EB%A6%AD%EB%8C%80%ED%95%99%EA%B5%90_%EC%88%98%EC%8B%9C%EB%AA%A8%EC%A7%91%EC%9A%94%EA%B0%95(%EC%B5%9C%EC%A2%85).pdf&ofn=2027%ED%95%99%EB%85%84%EB%8F%84+%EA%B0%80%ED%86%A8%EB%A6%AD%EB%8C%80%ED%95%99%EA%B5%90_%EC%88%98%EC%8B%9C%EB%AA%A8%EC%A7%91%EC%9A%94%EA%B0%95(%EC%B5%9C%EC%A2%85).pdf#page=13",
+      "dateRange": [
+        "2026-09-07",
+        "2026-09-11"
+      ]
+    },
+    {
+      "type": "admission",
+      "category": "대학별",
       "title": "고려대 수시 원서접수",
       "uni": "고려대",
       "org": "고려대학교 입학처",
@@ -364,6 +390,32 @@
         "2026-09-11"
       ],
       "source": "https://admission.kookmin.ac.kr/datafiles/contents/국민대학교_2027학년도_수시_모집요강(2026.09.09).pdf#page=14"
+    },
+    {
+      "type": "admission",
+      "category": "대학별",
+      "title": "명지대 수시 원서접수",
+      "uni": "명지대",
+      "org": "명지대학교 입학처",
+      "scoreYear": 2027,
+      "source": "https://iphak.mju.ac.kr/_common/new_download_file.php?menu=boardfile&file_no=10641#page=27",
+      "dateRange": [
+        "2026-09-07",
+        "2026-09-11"
+      ]
+    },
+    {
+      "type": "admission",
+      "category": "대학별",
+      "title": "상명대(서울) 수시 원서접수",
+      "uni": "상명대(서울)",
+      "org": "상명대학교 입학처",
+      "scoreYear": 2027,
+      "source": "https://admission.smu.ac.kr/bbs/filedown.php?bbsid=seoul_notice&file_seq=8575#page=16",
+      "dateRange": [
+        "2026-09-07",
+        "2026-09-11"
+      ]
     },
     {
       "type": "admission",
@@ -450,6 +502,19 @@
         "2026-09-11"
       ],
       "source": "https://kr.object.gov-ncloudstorage.com/khuiphakstorage/upload/20260826010106889_2027학년도 경희대학교 수시 모집요강-최종_20260826.pdf#page=23"
+    },
+    {
+      "type": "admission",
+      "category": "대학별",
+      "title": "광운대 수시 원서접수",
+      "uni": "광운대",
+      "org": "광운대학교 입학처",
+      "scoreYear": 2027,
+      "source": "https://iphak.kw.ac.kr/upload_data/mojib/20260526155135_27.pdf#page=18",
+      "dateRange": [
+        "2026-09-08",
+        "2026-09-11"
+      ]
     },
     {
       "type": "admission",
@@ -635,12 +700,42 @@
     {
       "type": "admission",
       "category": "대학별",
+      "title": "가천대 수시 서류제출 마감",
+      "uni": "가천대",
+      "org": "가천대학교 입학처",
+      "scoreYear": 2027,
+      "source": "https://admission.gachon.ac.kr/upload/BBS0021/20260522154511HBZYTW.PDF#page=34",
+      "date": "2026-09-12"
+    },
+    {
+      "type": "admission",
+      "category": "대학별",
       "title": "성균관대 수시 서류제출 마감",
       "uni": "성균관대",
       "org": "성균관대학교 입학처",
       "scoreYear": 2027,
       "date": "2026-09-12",
       "source": "https://admission.skku.edu/upload/guide/20260529115520H43SMR.pdf#page=10"
+    },
+    {
+      "type": "admission",
+      "category": "대학별",
+      "title": "가톨릭대 수시 서류제출 마감",
+      "uni": "가톨릭대",
+      "org": "가톨릭대학교 입학처",
+      "scoreYear": 2027,
+      "source": "https://ipsi.catholic.ac.kr/file/download.do?sfn=20260612090132470_2027%ED%95%99%EB%85%84%EB%8F%84+%EA%B0%80%ED%86%A8%EB%A6%AD%EB%8C%80%ED%95%99%EA%B5%90_%EC%88%98%EC%8B%9C%EB%AA%A8%EC%A7%91%EC%9A%94%EA%B0%95(%EC%B5%9C%EC%A2%85).pdf&ofn=2027%ED%95%99%EB%85%84%EB%8F%84+%EA%B0%80%ED%86%A8%EB%A6%AD%EB%8C%80%ED%95%99%EA%B5%90_%EC%88%98%EC%8B%9C%EB%AA%A8%EC%A7%91%EC%9A%94%EA%B0%95(%EC%B5%9C%EC%A2%85).pdf#page=13",
+      "date": "2026-09-14"
+    },
+    {
+      "type": "admission",
+      "category": "대학별",
+      "title": "광운대 수시 서류제출 마감",
+      "uni": "광운대",
+      "org": "광운대학교 입학처",
+      "scoreYear": 2027,
+      "source": "https://iphak.kw.ac.kr/upload_data/mojib/20260526155135_27.pdf#page=18",
+      "date": "2026-09-14"
     },
     {
       "type": "admission",
@@ -661,6 +756,16 @@
       "scoreYear": 2027,
       "date": "2026-09-14",
       "source": "https://ipsi.dongguk.edu/upload/file/20260715140521FRWQXB.PDF#page=22"
+    },
+    {
+      "type": "admission",
+      "category": "대학별",
+      "title": "명지대 수시 서류제출 마감",
+      "uni": "명지대",
+      "org": "명지대학교 입학처",
+      "scoreYear": 2027,
+      "source": "https://iphak.mju.ac.kr/_common/new_download_file.php?menu=boardfile&file_no=10641#page=27",
+      "date": "2026-09-14"
     },
     {
       "type": "admission",
@@ -755,6 +860,16 @@
     {
       "type": "admission",
       "category": "대학별",
+      "title": "상명대(서울) 수시 서류제출 마감",
+      "uni": "상명대(서울)",
+      "org": "상명대학교 입학처",
+      "scoreYear": 2027,
+      "source": "https://admission.smu.ac.kr/bbs/filedown.php?bbsid=seoul_notice&file_seq=8575#page=16",
+      "date": "2026-09-15"
+    },
+    {
+      "type": "admission",
+      "category": "대학별",
       "title": "서강대 수시 서류제출 마감",
       "uni": "서강대",
       "org": "서강대학교 입학처",
@@ -771,6 +886,42 @@
       "scoreYear": 2027,
       "date": "2026-09-15",
       "source": "https://admission.cau.ac.kr/file/download.do?sfn=20260727012327971_2151656fa5b541bd87edea17a6755f39.pdf&ofn=중앙대학교_2027학년도 수시모집요강.pdf#page=13"
+    },
+    {
+      "type": "admission",
+      "category": "대학별",
+      "title": "가천대 기회균형·농어촌·특성화고교 1단계 발표",
+      "uni": "가천대",
+      "org": "가천대학교 입학처",
+      "scoreYear": 2027,
+      "source": "https://admission.gachon.ac.kr/upload/BBS0021/20260522154511HBZYTW.PDF#page=34",
+      "date": "2026-09-30"
+    },
+    {
+      "type": "admission",
+      "category": "대학별",
+      "title": "가천대 음악·체육 실기",
+      "uni": "가천대",
+      "org": "가천대학교 입학처",
+      "scoreYear": 2027,
+      "source": "https://admission.gachon.ac.kr/upload/BBS0021/20260522154511HBZYTW.PDF#page=34",
+      "dateRange": [
+        "2026-10-02",
+        "2026-10-05"
+      ]
+    },
+    {
+      "type": "admission",
+      "category": "대학별",
+      "title": "가천대 기회균형·농어촌·특성화고교 면접",
+      "uni": "가천대",
+      "org": "가천대학교 입학처",
+      "scoreYear": 2027,
+      "source": "https://admission.gachon.ac.kr/upload/BBS0021/20260522154511HBZYTW.PDF#page=34",
+      "dateRange": [
+        "2026-10-03",
+        "2026-10-04"
+      ]
     },
     {
       "type": "admission",
@@ -815,6 +966,19 @@
     {
       "type": "admission",
       "category": "대학별",
+      "title": "가천대 미술·디자인 실기",
+      "uni": "가천대",
+      "org": "가천대학교 입학처",
+      "scoreYear": 2027,
+      "source": "https://admission.gachon.ac.kr/upload/BBS0021/20260522154511HBZYTW.PDF#page=34",
+      "dateRange": [
+        "2026-10-09",
+        "2026-10-10"
+      ]
+    },
+    {
+      "type": "admission",
+      "category": "대학별",
       "title": "연세대 논술시험",
       "uni": "연세대",
       "org": "연세대학교 입학처",
@@ -825,12 +989,42 @@
     {
       "type": "admission",
       "category": "대학별",
+      "title": "가톨릭대 논술고사",
+      "uni": "가톨릭대",
+      "org": "가톨릭대학교 입학처",
+      "scoreYear": 2027,
+      "source": "https://ipsi.catholic.ac.kr/file/download.do?sfn=20260612090132470_2027%ED%95%99%EB%85%84%EB%8F%84+%EA%B0%80%ED%86%A8%EB%A6%AD%EB%8C%80%ED%95%99%EA%B5%90_%EC%88%98%EC%8B%9C%EB%AA%A8%EC%A7%91%EC%9A%94%EA%B0%95(%EC%B5%9C%EC%A2%85).pdf&ofn=2027%ED%95%99%EB%85%84%EB%8F%84+%EA%B0%80%ED%86%A8%EB%A6%AD%EB%8C%80%ED%95%99%EA%B5%90_%EC%88%98%EC%8B%9C%EB%AA%A8%EC%A7%91%EC%9A%94%EA%B0%95(%EC%B5%9C%EC%A2%85).pdf#page=13",
+      "date": "2026-10-11"
+    },
+    {
+      "type": "admission",
+      "category": "대학별",
       "title": "중앙대 창의형 논술",
       "uni": "중앙대",
       "org": "중앙대학교 입학처",
       "scoreYear": 2027,
       "date": "2026-10-11",
       "source": "https://admission.cau.ac.kr/file/download.do?sfn=20260727012327971_2151656fa5b541bd87edea17a6755f39.pdf&ofn=중앙대학교_2027학년도 수시모집요강.pdf#page=13"
+    },
+    {
+      "type": "admission",
+      "category": "대학별",
+      "title": "상명대(서울) 국가안보학과 체력검정",
+      "uni": "상명대(서울)",
+      "org": "상명대학교 입학처",
+      "scoreYear": 2027,
+      "source": "https://admission.smu.ac.kr/bbs/filedown.php?bbsid=seoul_notice&file_seq=8575#page=16",
+      "date": "2026-10-15"
+    },
+    {
+      "type": "admission",
+      "category": "대학별",
+      "title": "명지대 교과면접·특기자 1단계 발표",
+      "uni": "명지대",
+      "org": "명지대학교 입학처",
+      "scoreYear": 2027,
+      "source": "https://iphak.mju.ac.kr/_common/new_download_file.php?menu=boardfile&file_no=10641#page=27",
+      "date": "2026-10-16"
     },
     {
       "type": "admission",
@@ -907,12 +1101,35 @@
     {
       "type": "admission",
       "category": "대학별",
+      "title": "가톨릭대 신학과 1단계 발표",
+      "uni": "가톨릭대",
+      "org": "가톨릭대학교 입학처",
+      "scoreYear": 2027,
+      "source": "https://ipsi.catholic.ac.kr/file/download.do?sfn=20260612090132470_2027%ED%95%99%EB%85%84%EB%8F%84+%EA%B0%80%ED%86%A8%EB%A6%AD%EB%8C%80%ED%95%99%EA%B5%90_%EC%88%98%EC%8B%9C%EB%AA%A8%EC%A7%91%EC%9A%94%EA%B0%95(%EC%B5%9C%EC%A2%85).pdf&ofn=2027%ED%95%99%EB%85%84%EB%8F%84+%EA%B0%80%ED%86%A8%EB%A6%AD%EB%8C%80%ED%95%99%EA%B5%90_%EC%88%98%EC%8B%9C%EB%AA%A8%EC%A7%91%EC%9A%94%EA%B0%95(%EC%B5%9C%EC%A2%85).pdf#page=14",
+      "date": "2026-10-23"
+    },
+    {
+      "type": "admission",
+      "category": "대학별",
       "title": "고려대 사이버국방 1단계 합격자 발표",
       "uni": "고려대",
       "org": "고려대학교 입학처",
       "scoreYear": 2027,
       "date": "2026-10-23",
       "source": "https://oku.korea.ac.kr/ajaxfile/FR_SVC/FileDown.do?GBN=X01&BOARD_SEQ=5&SITE_NO=2&BBS_SEQ=1793&FILE_SEQ=5#page=9"
+    },
+    {
+      "type": "admission",
+      "category": "대학별",
+      "title": "가톨릭대 음악과 실기",
+      "uni": "가톨릭대",
+      "org": "가톨릭대학교 입학처",
+      "scoreYear": 2027,
+      "source": "https://ipsi.catholic.ac.kr/file/download.do?sfn=20260612090132470_2027%ED%95%99%EB%85%84%EB%8F%84+%EA%B0%80%ED%86%A8%EB%A6%AD%EB%8C%80%ED%95%99%EA%B5%90_%EC%88%98%EC%8B%9C%EB%AA%A8%EC%A7%91%EC%9A%94%EA%B0%95(%EC%B5%9C%EC%A2%85).pdf&ofn=2027%ED%95%99%EB%85%84%EB%8F%84+%EA%B0%80%ED%86%A8%EB%A6%AD%EB%8C%80%ED%95%99%EA%B5%90_%EC%88%98%EC%8B%9C%EB%AA%A8%EC%A7%91%EC%9A%94%EA%B0%95(%EC%B5%9C%EC%A2%85).pdf#page=13",
+      "dateRange": [
+        "2026-10-24",
+        "2026-10-25"
+      ]
     },
     {
       "type": "admission",
@@ -987,6 +1204,36 @@
     {
       "type": "admission",
       "category": "대학별",
+      "title": "광운대 광운참빛인재Ⅰ·SW 1단계 발표",
+      "uni": "광운대",
+      "org": "광운대학교 입학처",
+      "scoreYear": 2027,
+      "source": "https://iphak.kw.ac.kr/upload_data/mojib/20260526155135_27.pdf#page=18",
+      "date": "2026-10-28"
+    },
+    {
+      "type": "admission",
+      "category": "대학별",
+      "title": "가천대 가천바람개비 1단계 발표",
+      "uni": "가천대",
+      "org": "가천대학교 입학처",
+      "scoreYear": 2027,
+      "source": "https://admission.gachon.ac.kr/upload/BBS0021/20260522154511HBZYTW.PDF#page=34",
+      "date": "2026-10-29"
+    },
+    {
+      "type": "admission",
+      "category": "대학별",
+      "title": "가톨릭대 신학과 교리문답",
+      "uni": "가톨릭대",
+      "org": "가톨릭대학교 입학처",
+      "scoreYear": 2027,
+      "source": "https://ipsi.catholic.ac.kr/file/download.do?sfn=20260612090132470_2027%ED%95%99%EB%85%84%EB%8F%84+%EA%B0%80%ED%86%A8%EB%A6%AD%EB%8C%80%ED%95%99%EA%B5%90_%EC%88%98%EC%8B%9C%EB%AA%A8%EC%A7%91%EC%9A%94%EA%B0%95(%EC%B5%9C%EC%A2%85).pdf&ofn=2027%ED%95%99%EB%85%84%EB%8F%84+%EA%B0%80%ED%86%A8%EB%A6%AD%EB%8C%80%ED%95%99%EA%B5%90_%EC%88%98%EC%8B%9C%EB%AA%A8%EC%A7%91%EC%9A%94%EA%B0%95(%EC%B5%9C%EC%A2%85).pdf#page=13",
+      "date": "2026-10-30"
+    },
+    {
+      "type": "admission",
+      "category": "대학별",
       "title": "고려대 계열적합 1단계 발표",
       "uni": "고려대",
       "org": "고려대학교 입학처",
@@ -997,12 +1244,45 @@
     {
       "type": "admission",
       "category": "대학별",
+      "title": "상명대(서울) 상명인재 1단계 발표",
+      "uni": "상명대(서울)",
+      "org": "상명대학교 입학처",
+      "scoreYear": 2027,
+      "source": "https://admission.smu.ac.kr/bbs/filedown.php?bbsid=seoul_notice&file_seq=8575#page=16",
+      "date": "2026-10-30"
+    },
+    {
+      "type": "admission",
+      "category": "대학별",
+      "title": "상명대(서울) 인문 논술",
+      "uni": "상명대(서울)",
+      "org": "상명대학교 입학처",
+      "scoreYear": 2027,
+      "source": "https://admission.smu.ac.kr/bbs/filedown.php?bbsid=seoul_notice&file_seq=8575#page=16",
+      "date": "2026-10-30"
+    },
+    {
+      "type": "admission",
+      "category": "대학별",
       "title": "숭실대 예체능우수인재 최초합격 발표",
       "uni": "숭실대",
       "org": "숭실대학교 입학처",
       "scoreYear": 2027,
       "date": "2026-10-30",
       "source": "https://iphak.ssu.ac.kr/upload/SSU(1)_26092812337.pdf#page=12"
+    },
+    {
+      "type": "admission",
+      "category": "대학별",
+      "title": "가천대 가천바람개비 1차 면접",
+      "uni": "가천대",
+      "org": "가천대학교 입학처",
+      "scoreYear": 2027,
+      "source": "https://admission.gachon.ac.kr/upload/BBS0021/20260522154511HBZYTW.PDF#page=34",
+      "dateRange": [
+        "2026-10-31",
+        "2026-11-01"
+      ]
     },
     {
       "type": "admission",
@@ -1047,12 +1327,55 @@
     {
       "type": "admission",
       "category": "대학별",
+      "title": "광운대 광운참빛인재Ⅰ 면접",
+      "uni": "광운대",
+      "org": "광운대학교 입학처",
+      "scoreYear": 2027,
+      "source": "https://iphak.kw.ac.kr/upload_data/mojib/20260526155135_27.pdf#page=18",
+      "dateRange": [
+        "2026-10-31",
+        "2026-11-01"
+      ]
+    },
+    {
+      "type": "admission",
+      "category": "대학별",
+      "title": "명지대 교과면접",
+      "uni": "명지대",
+      "org": "명지대학교 입학처",
+      "scoreYear": 2027,
+      "source": "https://iphak.mju.ac.kr/_common/new_download_file.php?menu=boardfile&file_no=10641#page=27",
+      "date": "2026-10-31"
+    },
+    {
+      "type": "admission",
+      "category": "대학별",
+      "title": "상명대(서울) 자연 논술",
+      "uni": "상명대(서울)",
+      "org": "상명대학교 입학처",
+      "scoreYear": 2027,
+      "source": "https://admission.smu.ac.kr/bbs/filedown.php?bbsid=seoul_notice&file_seq=8575#page=16",
+      "date": "2026-10-31"
+    },
+    {
+      "type": "admission",
+      "category": "대학별",
       "title": "연세대 체육인재 면접",
       "uni": "연세대",
       "org": "연세대학교 입학처",
       "scoreYear": 2027,
       "date": "2026-10-31",
       "source": "https://admission.yonsei.ac.kr/seoul/upload/bbs/20260901101555635F26.PDF#page=1"
+    },
+    {
+      "type": "admission",
+      "category": "대학별",
+      "title": "명지대 만학도·재직자·특수교육 면접",
+      "uni": "명지대",
+      "org": "명지대학교 입학처",
+      "scoreYear": 2027,
+      "source": "https://iphak.mju.ac.kr/_common/new_download_file.php?menu=boardfile&file_no=10641#page=27",
+      "date": "2026-11-01"
     },
     {
       "type": "admission",
@@ -1110,6 +1433,16 @@
     {
       "type": "admission",
       "category": "대학별",
+      "title": "상명대(서울) 조형예술 실기",
+      "uni": "상명대(서울)",
+      "org": "상명대학교 입학처",
+      "scoreYear": 2027,
+      "source": "https://admission.smu.ac.kr/bbs/filedown.php?bbsid=seoul_notice&file_seq=8575#page=16",
+      "date": "2026-11-04"
+    },
+    {
+      "type": "admission",
+      "category": "대학별",
       "title": "세종대 사이버국방 면접",
       "uni": "세종대",
       "org": "세종대학교 입학처",
@@ -1131,6 +1464,26 @@
     {
       "type": "admission",
       "category": "대학별",
+      "title": "상명대(서울) 생활예술 실기",
+      "uni": "상명대(서울)",
+      "org": "상명대학교 입학처",
+      "scoreYear": 2027,
+      "source": "https://admission.smu.ac.kr/bbs/filedown.php?bbsid=seoul_notice&file_seq=8575#page=16",
+      "date": "2026-11-05"
+    },
+    {
+      "type": "admission",
+      "category": "대학별",
+      "title": "광운대 수시 최초합격 발표(교과·종합)",
+      "uni": "광운대",
+      "org": "광운대학교 입학처",
+      "scoreYear": 2027,
+      "source": "https://iphak.kw.ac.kr/upload_data/mojib/20260526155135_27.pdf#page=18",
+      "date": "2026-11-06"
+    },
+    {
+      "type": "admission",
+      "category": "대학별",
       "title": "세종대 실기·예체능 최초합격 발표",
       "uni": "세종대",
       "org": "세종대학교 입학처",
@@ -1141,12 +1494,35 @@
     {
       "type": "admission",
       "category": "대학별",
+      "title": "가천대 가천바람개비 2차 면접",
+      "uni": "가천대",
+      "org": "가천대학교 입학처",
+      "scoreYear": 2027,
+      "source": "https://admission.gachon.ac.kr/upload/BBS0021/20260522154511HBZYTW.PDF#page=34",
+      "dateRange": [
+        "2026-11-07",
+        "2026-11-08"
+      ]
+    },
+    {
+      "type": "admission",
+      "category": "대학별",
       "title": "고려대 계열적합 인문 면접",
       "uni": "고려대",
       "org": "고려대학교 입학처",
       "scoreYear": 2027,
       "date": "2026-11-07",
       "source": "https://oku.korea.ac.kr/ajaxfile/FR_SVC/FileDown.do?GBN=X01&BOARD_SEQ=5&SITE_NO=2&BBS_SEQ=1793&FILE_SEQ=5#page=15"
+    },
+    {
+      "type": "admission",
+      "category": "대학별",
+      "title": "상명대(서울) 상명인재 면접",
+      "uni": "상명대(서울)",
+      "org": "상명대학교 입학처",
+      "scoreYear": 2027,
+      "source": "https://admission.smu.ac.kr/bbs/filedown.php?bbsid=seoul_notice&file_seq=8575#page=16",
+      "date": "2026-11-07"
     },
     {
       "type": "admission",
@@ -1221,6 +1597,16 @@
     {
       "type": "admission",
       "category": "대학별",
+      "title": "가천대 논술 1단계 발표",
+      "uni": "가천대",
+      "org": "가천대학교 입학처",
+      "scoreYear": 2027,
+      "source": "https://admission.gachon.ac.kr/upload/BBS0021/20260522154511HBZYTW.PDF#page=34",
+      "date": "2026-11-12"
+    },
+    {
+      "type": "admission",
+      "category": "대학별",
       "title": "동국대(서울) 학종 1단계 발표",
       "uni": "동국대(서울)",
       "org": "동국대학교 입학처",
@@ -1257,6 +1643,16 @@
       "scoreYear": 2027,
       "date": "2026-11-13",
       "source": "https://go.hanyang.ac.kr/resources/upload_data/mojib/20260908092452487_.pdf#page=8"
+    },
+    {
+      "type": "admission",
+      "category": "대학별",
+      "title": "가천대 수시 최초합격 발표(1차)",
+      "uni": "가천대",
+      "org": "가천대학교 입학처",
+      "scoreYear": 2027,
+      "source": "https://admission.gachon.ac.kr/upload/BBS0021/20260522154511HBZYTW.PDF#page=34",
+      "date": "2026-11-14"
     },
     {
       "type": "admission",
@@ -1409,6 +1805,16 @@
       "scoreYear": 2027,
       "date": "2026-11-20",
       "source": "https://ipsi.dankook.ac.kr/bbs/fileview.php?bbsid=juk_paper&file_seq=6869#page=53"
+    },
+    {
+      "type": "admission",
+      "category": "대학별",
+      "title": "명지대 명지인재면접·크리스천리더 1단계 발표",
+      "uni": "명지대",
+      "org": "명지대학교 입학처",
+      "scoreYear": 2027,
+      "source": "https://iphak.mju.ac.kr/_common/new_download_file.php?menu=boardfile&file_no=10641#page=27",
+      "date": "2026-11-20"
     },
     {
       "type": "admission",
@@ -1572,6 +1978,16 @@
       "scoreYear": 2027,
       "date": "2026-11-21",
       "source": "https://adms.hufs.ac.kr/ajaxfile/FileCpnt/fileView.do?BBS_SEQ=83&BOARD_SEQ=6&SITE_NO=2&gbn=b02&requestId=1780378686455_0.7244544560643216#page=21"
+    },
+    {
+      "type": "admission",
+      "category": "대학별",
+      "title": "가톨릭대 약학·의예 논술",
+      "uni": "가톨릭대",
+      "org": "가톨릭대학교 입학처",
+      "scoreYear": 2027,
+      "source": "https://ipsi.catholic.ac.kr/file/download.do?sfn=20260612090132470_2027%ED%95%99%EB%85%84%EB%8F%84+%EA%B0%80%ED%86%A8%EB%A6%AD%EB%8C%80%ED%95%99%EA%B5%90_%EC%88%98%EC%8B%9C%EB%AA%A8%EC%A7%91%EC%9A%94%EA%B0%95(%EC%B5%9C%EC%A2%85).pdf&ofn=2027%ED%95%99%EB%85%84%EB%8F%84+%EA%B0%80%ED%86%A8%EB%A6%AD%EB%8C%80%ED%95%99%EA%B5%90_%EC%88%98%EC%8B%9C%EB%AA%A8%EC%A7%91%EC%9A%94%EA%B0%95(%EC%B5%9C%EC%A2%85).pdf#page=13",
+      "date": "2026-11-22"
     },
     {
       "type": "admission",
@@ -1756,12 +2172,42 @@
     {
       "type": "admission",
       "category": "대학별",
+      "title": "가톨릭대 1단계 합격자 발표",
+      "uni": "가톨릭대",
+      "org": "가톨릭대학교 입학처",
+      "scoreYear": 2027,
+      "source": "https://ipsi.catholic.ac.kr/file/download.do?sfn=20260612090132470_2027%ED%95%99%EB%85%84%EB%8F%84+%EA%B0%80%ED%86%A8%EB%A6%AD%EB%8C%80%ED%95%99%EA%B5%90_%EC%88%98%EC%8B%9C%EB%AA%A8%EC%A7%91%EC%9A%94%EA%B0%95(%EC%B5%9C%EC%A2%85).pdf&ofn=2027%ED%95%99%EB%85%84%EB%8F%84+%EA%B0%80%ED%86%A8%EB%A6%AD%EB%8C%80%ED%95%99%EA%B5%90_%EC%88%98%EC%8B%9C%EB%AA%A8%EC%A7%91%EC%9A%94%EA%B0%95(%EC%B5%9C%EC%A2%85).pdf#page=14",
+      "date": "2026-11-27"
+    },
+    {
+      "type": "admission",
+      "category": "대학별",
+      "title": "가톨릭대 최초합격 발표(서류·실기)",
+      "uni": "가톨릭대",
+      "org": "가톨릭대학교 입학처",
+      "scoreYear": 2027,
+      "source": "https://ipsi.catholic.ac.kr/file/download.do?sfn=20260612090132470_2027%ED%95%99%EB%85%84%EB%8F%84+%EA%B0%80%ED%86%A8%EB%A6%AD%EB%8C%80%ED%95%99%EA%B5%90_%EC%88%98%EC%8B%9C%EB%AA%A8%EC%A7%91%EC%9A%94%EA%B0%95(%EC%B5%9C%EC%A2%85).pdf&ofn=2027%ED%95%99%EB%85%84%EB%8F%84+%EA%B0%80%ED%86%A8%EB%A6%AD%EB%8C%80%ED%95%99%EA%B5%90_%EC%88%98%EC%8B%9C%EB%AA%A8%EC%A7%91%EC%9A%94%EA%B0%95(%EC%B5%9C%EC%A2%85).pdf#page=14",
+      "date": "2026-11-27"
+    },
+    {
+      "type": "admission",
+      "category": "대학별",
       "title": "단국대 실기·체육 최초합격 발표",
       "uni": "단국대",
       "org": "단국대학교 입학처",
       "scoreYear": 2027,
       "date": "2026-11-27",
       "source": "https://ipsi.dankook.ac.kr/bbs/fileview.php?bbsid=juk_paper&file_seq=6869#page=26"
+    },
+    {
+      "type": "admission",
+      "category": "대학별",
+      "title": "명지대 크리스천리더 면접",
+      "uni": "명지대",
+      "org": "명지대학교 입학처",
+      "scoreYear": 2027,
+      "source": "https://iphak.mju.ac.kr/_common/new_download_file.php?menu=boardfile&file_no=10641#page=27",
+      "date": "2026-11-27"
     },
     {
       "type": "admission",
@@ -1796,12 +2242,42 @@
     {
       "type": "admission",
       "category": "대학별",
+      "title": "가톨릭대 의예과 인·적성면접",
+      "uni": "가톨릭대",
+      "org": "가톨릭대학교 입학처",
+      "scoreYear": 2027,
+      "source": "https://ipsi.catholic.ac.kr/file/download.do?sfn=20260612090132470_2027%ED%95%99%EB%85%84%EB%8F%84+%EA%B0%80%ED%86%A8%EB%A6%AD%EB%8C%80%ED%95%99%EA%B5%90_%EC%88%98%EC%8B%9C%EB%AA%A8%EC%A7%91%EC%9A%94%EA%B0%95(%EC%B5%9C%EC%A2%85).pdf&ofn=2027%ED%95%99%EB%85%84%EB%8F%84+%EA%B0%80%ED%86%A8%EB%A6%AD%EB%8C%80%ED%95%99%EA%B5%90_%EC%88%98%EC%8B%9C%EB%AA%A8%EC%A7%91%EC%9A%94%EA%B0%95(%EC%B5%9C%EC%A2%85).pdf#page=13",
+      "date": "2026-11-28"
+    },
+    {
+      "type": "admission",
+      "category": "대학별",
+      "title": "광운대 자연 논술",
+      "uni": "광운대",
+      "org": "광운대학교 입학처",
+      "scoreYear": 2027,
+      "source": "https://iphak.kw.ac.kr/upload_data/mojib/20260526155135_27.pdf#page=18",
+      "date": "2026-11-28"
+    },
+    {
+      "type": "admission",
+      "category": "대학별",
       "title": "단국대 천안 의학·약학 면접",
       "uni": "단국대",
       "org": "단국대학교 입학처",
       "scoreYear": 2027,
       "date": "2026-11-28",
       "source": "https://ipsi.dankook.ac.kr/bbs/fileview.php?bbsid=juk_paper&file_seq=6869#page=53"
+    },
+    {
+      "type": "admission",
+      "category": "대학별",
+      "title": "명지대 명지인재면접 자연",
+      "uni": "명지대",
+      "org": "명지대학교 입학처",
+      "scoreYear": 2027,
+      "source": "https://iphak.mju.ac.kr/_common/new_download_file.php?menu=boardfile&file_no=10641#page=27",
+      "date": "2026-11-28"
     },
     {
       "type": "admission",
@@ -1922,12 +2398,42 @@
     {
       "type": "admission",
       "category": "대학별",
+      "title": "가천대 의예·한의예·약학 논술",
+      "uni": "가천대",
+      "org": "가천대학교 입학처",
+      "scoreYear": 2027,
+      "source": "https://admission.gachon.ac.kr/upload/BBS0021/20260522154511HBZYTW.PDF#page=34",
+      "date": "2026-11-29"
+    },
+    {
+      "type": "admission",
+      "category": "대학별",
+      "title": "광운대 인문 논술",
+      "uni": "광운대",
+      "org": "광운대학교 입학처",
+      "scoreYear": 2027,
+      "source": "https://iphak.kw.ac.kr/upload_data/mojib/20260526155135_27.pdf#page=18",
+      "date": "2026-11-29"
+    },
+    {
+      "type": "admission",
+      "category": "대학별",
       "title": "단국대 천안 문예창작·군사 면접",
       "uni": "단국대",
       "org": "단국대학교 입학처",
       "scoreYear": 2027,
       "date": "2026-11-29",
       "source": "https://ipsi.dankook.ac.kr/bbs/fileview.php?bbsid=juk_paper&file_seq=6869#page=53"
+    },
+    {
+      "type": "admission",
+      "category": "대학별",
+      "title": "명지대 명지인재면접 인문",
+      "uni": "명지대",
+      "org": "명지대학교 입학처",
+      "scoreYear": 2027,
+      "source": "https://iphak.mju.ac.kr/_common/new_download_file.php?menu=boardfile&file_no=10641#page=27",
+      "date": "2026-11-29"
     },
     {
       "type": "admission",
@@ -1990,12 +2496,32 @@
       "source": "https://go.hanyang.ac.kr/resources/upload_data/mojib/20260908092452487_.pdf#page=8"
     },
     {
+      "type": "admission",
+      "category": "대학별",
+      "title": "가천대 인문·간호 등 논술",
+      "uni": "가천대",
+      "org": "가천대학교 입학처",
+      "scoreYear": 2027,
+      "source": "https://admission.gachon.ac.kr/upload/BBS0021/20260522154511HBZYTW.PDF#page=34",
+      "date": "2026-11-30"
+    },
+    {
       "date": "2026-12-01",
       "type": "admission",
       "category": "csat",
       "title": "수능 정답 확정",
       "org": "한국교육과정평가원",
       "source": "https://www.suneung.re.kr/main.do?s=suneung"
+    },
+    {
+      "type": "admission",
+      "category": "대학별",
+      "title": "가천대 자연 논술",
+      "uni": "가천대",
+      "org": "가천대학교 입학처",
+      "scoreYear": 2027,
+      "source": "https://admission.gachon.ac.kr/upload/BBS0021/20260522154511HBZYTW.PDF#page=34",
+      "date": "2026-12-01"
     },
     {
       "type": "admission",
@@ -2030,6 +2556,16 @@
     {
       "type": "admission",
       "category": "대학별",
+      "title": "상명대(서울) 수시 최초합격 발표",
+      "uni": "상명대(서울)",
+      "org": "상명대학교 입학처",
+      "scoreYear": 2027,
+      "source": "https://admission.smu.ac.kr/bbs/filedown.php?bbsid=seoul_notice&file_seq=8575#page=17",
+      "date": "2026-12-03"
+    },
+    {
+      "type": "admission",
+      "category": "대학별",
       "title": "서울대 기회균형(사회통합) 면접",
       "uni": "서울대",
       "org": "서울대학교 입학처",
@@ -2046,6 +2582,29 @@
       "scoreYear": 2027,
       "date": "2026-12-04",
       "source": "https://admission.snu.ac.kr/webdata/admission/files/2027susi.pdf#page=5"
+    },
+    {
+      "type": "admission",
+      "category": "대학별",
+      "title": "가천대 지역균형 면접",
+      "uni": "가천대",
+      "org": "가천대학교 입학처",
+      "scoreYear": 2027,
+      "source": "https://admission.gachon.ac.kr/upload/BBS0021/20260522154511HBZYTW.PDF#page=34",
+      "dateRange": [
+        "2026-12-05",
+        "2026-12-07"
+      ]
+    },
+    {
+      "type": "admission",
+      "category": "대학별",
+      "title": "가톨릭대 면접평가(잠재면접·학교장 등)",
+      "uni": "가톨릭대",
+      "org": "가톨릭대학교 입학처",
+      "scoreYear": 2027,
+      "source": "https://ipsi.catholic.ac.kr/file/download.do?sfn=20260612090132470_2027%ED%95%99%EB%85%84%EB%8F%84+%EA%B0%80%ED%86%A8%EB%A6%AD%EB%8C%80%ED%95%99%EA%B5%90_%EC%88%98%EC%8B%9C%EB%AA%A8%EC%A7%91%EC%9A%94%EA%B0%95(%EC%B5%9C%EC%A2%85).pdf&ofn=2027%ED%95%99%EB%85%84%EB%8F%84+%EA%B0%80%ED%86%A8%EB%A6%AD%EB%8C%80%ED%95%99%EA%B5%90_%EC%88%98%EC%8B%9C%EB%AA%A8%EC%A7%91%EC%9A%94%EA%B0%95(%EC%B5%9C%EC%A2%85).pdf#page=13",
+      "date": "2026-12-05"
     },
     {
       "type": "admission",
@@ -2224,6 +2783,26 @@
       "source": "https://go.hanyang.ac.kr/resources/upload_data/mojib/20260908092452487_.pdf#page=8"
     },
     {
+      "type": "admission",
+      "category": "대학별",
+      "title": "가천대 지역균형 1단계 발표",
+      "uni": "가천대",
+      "org": "가천대학교 입학처",
+      "scoreYear": 2027,
+      "source": "https://admission.gachon.ac.kr/upload/BBS0021/20260522154511HBZYTW.PDF#page=34",
+      "date": "2026-12-09"
+    },
+    {
+      "type": "admission",
+      "category": "대학별",
+      "title": "명지대 수시 최초합격 발표",
+      "uni": "명지대",
+      "org": "명지대학교 입학처",
+      "scoreYear": 2027,
+      "source": "https://iphak.mju.ac.kr/_common/new_download_file.php?menu=boardfile&file_no=10641#page=27",
+      "date": "2026-12-09"
+    },
+    {
       "date": "2026-12-11",
       "type": "admission",
       "category": "csat",
@@ -2272,11 +2851,51 @@
     },
     {
       "type": "admission",
+      "category": "대학별",
+      "title": "가천대 의예과 면접",
+      "uni": "가천대",
+      "org": "가천대학교 입학처",
+      "scoreYear": 2027,
+      "source": "https://admission.gachon.ac.kr/upload/BBS0021/20260522154511HBZYTW.PDF#page=34",
+      "date": "2026-12-14"
+    },
+    {
+      "type": "admission",
+      "category": "대학별",
+      "title": "가천대 약학과 면접",
+      "uni": "가천대",
+      "org": "가천대학교 입학처",
+      "scoreYear": 2027,
+      "source": "https://admission.gachon.ac.kr/upload/BBS0021/20260522154511HBZYTW.PDF#page=34",
+      "date": "2026-12-15"
+    },
+    {
+      "type": "admission",
       "category": "수시",
       "title": "2027학년도 수시 합격자 발표",
       "scoreYear": 2027,
       "date": "2026-12-18",
       "source": "https://www.ebsi.co.kr/ebs/xip/xipa/retrieveExmSchedRngNext.ebs?targetCd=D300"
+    },
+    {
+      "type": "admission",
+      "category": "대학별",
+      "title": "가천대 수시 최초합격 발표(2차)",
+      "uni": "가천대",
+      "org": "가천대학교 입학처",
+      "scoreYear": 2027,
+      "source": "https://admission.gachon.ac.kr/upload/BBS0021/20260522154511HBZYTW.PDF#page=34",
+      "date": "2026-12-18"
+    },
+    {
+      "type": "admission",
+      "category": "대학별",
+      "title": "가톨릭대 최초합격 발표(논술·교과 등)",
+      "uni": "가톨릭대",
+      "org": "가톨릭대학교 입학처",
+      "scoreYear": 2027,
+      "source": "https://ipsi.catholic.ac.kr/file/download.do?sfn=20260612090132470_2027%ED%95%99%EB%85%84%EB%8F%84+%EA%B0%80%ED%86%A8%EB%A6%AD%EB%8C%80%ED%95%99%EA%B5%90_%EC%88%98%EC%8B%9C%EB%AA%A8%EC%A7%91%EC%9A%94%EA%B0%95(%EC%B5%9C%EC%A2%85).pdf&ofn=2027%ED%95%99%EB%85%84%EB%8F%84+%EA%B0%80%ED%86%A8%EB%A6%AD%EB%8C%80%ED%95%99%EA%B5%90_%EC%88%98%EC%8B%9C%EB%AA%A8%EC%A7%91%EC%9A%94%EA%B0%95(%EC%B5%9C%EC%A2%85).pdf#page=14",
+      "date": "2026-12-18"
     },
     {
       "type": "admission",
@@ -2307,6 +2926,16 @@
       "scoreYear": 2027,
       "date": "2026-12-18",
       "source": "https://oku.korea.ac.kr/ajaxfile/FR_SVC/FileDown.do?GBN=X01&BOARD_SEQ=5&SITE_NO=2&BBS_SEQ=1793&FILE_SEQ=5#page=9"
+    },
+    {
+      "type": "admission",
+      "category": "대학별",
+      "title": "광운대 최초합격 발표(논술·농어촌 등)",
+      "uni": "광운대",
+      "org": "광운대학교 입학처",
+      "scoreYear": 2027,
+      "source": "https://iphak.kw.ac.kr/upload_data/mojib/20260526155135_27.pdf#page=18",
+      "date": "2026-12-18"
     },
     {
       "type": "admission",
@@ -2472,6 +3101,32 @@
     {
       "type": "admission",
       "category": "대학별",
+      "title": "가천대 수시 문서등록",
+      "uni": "가천대",
+      "org": "가천대학교 입학처",
+      "scoreYear": 2027,
+      "source": "https://admission.gachon.ac.kr/upload/BBS0021/20260522154511HBZYTW.PDF#page=34",
+      "dateRange": [
+        "2026-12-21",
+        "2026-12-23"
+      ]
+    },
+    {
+      "type": "admission",
+      "category": "대학별",
+      "title": "가톨릭대 수시 문서등록",
+      "uni": "가톨릭대",
+      "org": "가톨릭대학교 입학처",
+      "scoreYear": 2027,
+      "source": "https://ipsi.catholic.ac.kr/file/download.do?sfn=20260612090132470_2027%ED%95%99%EB%85%84%EB%8F%84+%EA%B0%80%ED%86%A8%EB%A6%AD%EB%8C%80%ED%95%99%EA%B5%90_%EC%88%98%EC%8B%9C%EB%AA%A8%EC%A7%91%EC%9A%94%EA%B0%95(%EC%B5%9C%EC%A2%85).pdf&ofn=2027%ED%95%99%EB%85%84%EB%8F%84+%EA%B0%80%ED%86%A8%EB%A6%AD%EB%8C%80%ED%95%99%EA%B5%90_%EC%88%98%EC%8B%9C%EB%AA%A8%EC%A7%91%EC%9A%94%EA%B0%95(%EC%B5%9C%EC%A2%85).pdf#page=14",
+      "dateRange": [
+        "2026-12-21",
+        "2026-12-23"
+      ]
+    },
+    {
+      "type": "admission",
+      "category": "대학별",
       "title": "건국대(서울) 수시 문서등록",
       "uni": "건국대(서울)",
       "org": "건국대학교 입학처",
@@ -2511,6 +3166,19 @@
     {
       "type": "admission",
       "category": "대학별",
+      "title": "광운대 수시 문서등록",
+      "uni": "광운대",
+      "org": "광운대학교 입학처",
+      "scoreYear": 2027,
+      "source": "https://iphak.kw.ac.kr/upload_data/mojib/20260526155135_27.pdf#page=18",
+      "dateRange": [
+        "2026-12-21",
+        "2026-12-23"
+      ]
+    },
+    {
+      "type": "admission",
+      "category": "대학별",
       "title": "국민대 수시 문서등록",
       "uni": "국민대",
       "org": "국민대학교 입학처",
@@ -2546,6 +3214,32 @@
         "2026-12-23"
       ],
       "source": "https://ipsi.dongguk.edu/upload/file/20260715140521FRWQXB.PDF#page=110"
+    },
+    {
+      "type": "admission",
+      "category": "대학별",
+      "title": "명지대 수시 문서등록",
+      "uni": "명지대",
+      "org": "명지대학교 입학처",
+      "scoreYear": 2027,
+      "source": "https://iphak.mju.ac.kr/_common/new_download_file.php?menu=boardfile&file_no=10641#page=28",
+      "dateRange": [
+        "2026-12-21",
+        "2026-12-23"
+      ]
+    },
+    {
+      "type": "admission",
+      "category": "대학별",
+      "title": "상명대(서울) 수시 문서등록",
+      "uni": "상명대(서울)",
+      "org": "상명대학교 입학처",
+      "scoreYear": 2027,
+      "source": "https://admission.smu.ac.kr/bbs/filedown.php?bbsid=seoul_notice&file_seq=8575#page=17",
+      "dateRange": [
+        "2026-12-21",
+        "2026-12-23"
+      ]
     },
     {
       "type": "admission",
