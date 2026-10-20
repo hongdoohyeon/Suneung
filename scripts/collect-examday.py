@@ -27,6 +27,7 @@ import re
 import subprocess
 import sys
 import time
+import unicodedata
 import urllib.error
 import urllib.parse
 import urllib.request
@@ -94,9 +95,23 @@ def ebsi_cards(year: int, grade: int) -> list[dict]:
 SUBJECT_FIX = [('언어와 매체', '언어와매체'), ('화법과 작문', '화법과작문')]
 
 
+SOCIAL_SUBS = ['생활과윤리', '윤리와사상', '한국지리', '세계지리', '동아시아사',
+               '세계사', '경제', '정치와법', '사회·문화']
+SCIENCE_SUBS = ['물리학Ⅰ', '화학Ⅰ', '생명과학Ⅰ', '지구과학Ⅰ',
+                '물리학Ⅱ', '화학Ⅱ', '생명과학Ⅱ', '지구과학Ⅱ']
+FOREIGN_SUBS = ['독일어', '러시아어', '스페인어', '일본어', '중국어', '프랑스어', '한문']
+VOC_SUBS = ['공업 일반', '농업기초기술', '상업 경제', '성공적인 직업 생활',
+            '수산·해운 산업 기초', '인간 발달']
+
+
+def _norm_sub(text: str) -> str:
+    return re.sub(r'[\s·ᆞㆍ()/]+', '', text)
+
+
 def split_subject(title: str) -> tuple[str, str | None]:
-    """카드 제목 → (과목, 세부과목). 예: '고3 9월 모평(평원) 화법과 작문'."""
+    """카드 제목 → (과목, 세부과목). 예: '고3 9월 모평(평원) 화법과 작문', '고3 10월 학평(서울) 경제'."""
     tail = title.split(')', 1)[-1].strip()
+    flat = _norm_sub(tail)
     for raw, norm in SUBJECT_FIX:
         if raw in tail:
             return '국어', norm
@@ -108,6 +123,12 @@ def split_subject(title: str) -> tuple[str, str | None]:
         return '수학', '미적분'
     if '언어이해' in tail:
         return '언어이해', None
+    # 고3 학평은 사회·과학·제2외국어·직업탐구가 선택과목 단위 카드로 온다.
+    for group, subs in (('사회탐구', SOCIAL_SUBS), ('과학탐구', SCIENCE_SUBS),
+                        ('제2외국어', FOREIGN_SUBS), ('직업탐구', VOC_SUBS)):
+        for sub in subs:
+            if flat.startswith(_norm_sub(sub)):
+                return group, sub
     return tail, None
 
 
@@ -117,12 +138,35 @@ SUBJECT_SLUG = {
     '통합사회': 'social', '사회탐구': 'social', '통합과학': 'science', '과학탐구': 'science',
     '제2외국어': 'foreign', '직업탐구': 'vocational',
 }
+# 선택과목 → 자산 이름 조각 (ASCII). 여기 없으면 로마자 변환, 그것도 안 되면 해시.
+SUB_SLUG = {
+    '화법과작문': 'hwajak', '언어와매체': 'eonmae',
+    '미적분': 'mijeok', '기하': 'giha', '확률과통계': 'hwangtong',
+    '생활과윤리': 'saengyung', '윤리와사상': 'yunsa',
+    '한국지리': 'hangukji', '세계지리': 'segyeji', '동아시아사': 'dongsasia',
+    '세계사': 'segyesa', '경제': 'gyeongje', '정치와법': 'jeongchi', '사회·문화': 'sahoe',
+    '물리학Ⅰ': 'mulli1', '화학Ⅰ': 'hwahak1', '생명과학Ⅰ': 'saengmyeong1', '지구과학Ⅰ': 'jigu1',
+    '물리학Ⅱ': 'mulli2', '화학Ⅱ': 'hwahak2', '생명과학Ⅱ': 'saengmyeong2', '지구과학Ⅱ': 'jigu2',
+    '독일어': 'dokil', '러시아어': 'russia', '스페인어': 'spain', '일본어': 'japan',
+    '중국어': 'china', '프랑스어': 'france', '한문': 'hanmun',
+    '공업 일반': 'gongup', '농업기초기술': 'nongeop', '상업 경제': 'sangeop',
+    '성공적인 직업 생활': 'jikup', '수산·해운 산업 기초': 'susan', '인간 발달': 'ingan',
+}
 # 학평 정답은 EBSi '정답 및 해설' PDF(H). 모바일 정답 이미지(J)는 사이트 규칙(정답·해설 PDF)에 맞지 않아 쓰지 않는다.
 ANSWER_TEXT_KEYS = ('정답', '정답 및 해설')
 
 
-def slug(subject: str, grade: int, day: 'dt.date') -> str:
+def slug(subject: str, grade: int, day: 'dt.date', sub: str | None = None) -> str:
     core = SUBJECT_SLUG.get(subject, re.sub(r'[^a-z0-9]+', '', subject.lower())[:8] or 'subject')
+    if sub:
+        # 선택과목이 있는 과목(국어·수학·사탐·과탐 등)은 세부과목까지 자산 이름에 넣는다.
+        # 안 넣으면 같은 회차·과목의 여러 선택과목이 같은 자산명으로 충돌한다.
+        code = SUB_SLUG.get(sub)
+        if code is None:
+            code = re.sub(r'[^a-z0-9]+', '', unicodedata.normalize('NFKD', sub).encode('ascii', 'ignore').decode())[:10]
+        if not code:
+            code = hashlib.sha1(sub.encode('utf-8')).hexdigest()[:8]
+        core += '_' + code
     return f'{day.year}_{day.month:02d}_g{grade}_{core}'
 
 
@@ -286,6 +330,32 @@ def verify_live(day: dt.date, ids: list[int], timeout_min: int = 25) -> str:
     return f'{state} · 라이브 반영 확인 실패(수동 확인 필요)'
 
 
+def drop_merged_mirror(exams: list[dict], have: set, day: 'dt.date', grade: int,
+                       cards: list[dict], remove_files: bool = True) -> list[int]:
+    """EBSi 가 선택과목별 카드를 내면, 미러로 먼저 올린 통합본(subSubject 없음)을 대체한다.
+
+    미러 PDF 는 국어(공통+화법과작문+언어와매체), 수학(공통+확통·미적분·기하)처럼 합본이라
+    subSubject 없이 1건으로 들어가 있다. EBSi 정식 카드가 오면 그 통합본을 지우고
+    선택과목별 항목으로 갈아끼운다(문제지·해설도 EBSi 원본으로 바뀜).
+    """
+    targets = {s for s, sub in (split_subject(c['title']) for c in cards) if sub}
+    if not targets:
+        return []
+    dropped = []
+    for e in list(exams):
+        if (e.get('source') == 'manual-mirror' and e.get('typeGroup') == 'education'
+                and e.get('examYear') == day.year and e.get('month') == day.month
+                and e.get('studentGrade') == grade and e.get('subject') in targets
+                and not e.get('subSubject')):
+            exams.remove(e)
+            have.discard((e.get('gradeYear'), e.get('month'), e.get('studentGrade'),
+                          e.get('subject'), e.get('subSubject'), e.get('type')))
+            if remove_files:
+                (ROOT / 'data' / 'exam' / f"{e['id']}.json").unlink(missing_ok=True)
+            dropped.append(e['id'])
+    return dropped
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument('--date', help='YYYY-MM-DD (기본: 한국 오늘)')
@@ -323,6 +393,7 @@ def main() -> int:
             for e in exams}
     maxid = max(e['id'] for e in exams)
     published, held, done = [], [], 0
+    replaced: list[int] = []
     stamp = day.strftime('%Y%m%d')
     stage = WORK / stamp
     stage.mkdir(exist_ok=True)
@@ -335,6 +406,10 @@ def main() -> int:
         for grade in grades:
             cards = [c for c in ebsi_cards(day.year, grade) if c['month'] == day.month]
             print(f'[정보] {day.year}년 {day.month}월 고{grade}: 카드 {len(cards)}장', file=sys.stderr)
+            dropped = drop_merged_mirror(exams, have, day, grade, cards, remove_files=not args.dry_run)
+            if dropped:
+                replaced.extend(dropped)
+                print(f'[정보] 미러 통합본 대체: {dropped}', file=sys.stderr)
             for card in cards:
                 subject, sub = split_subject(card['title'])
                 etype = TYPE_BY_MONTH.get(day.month)
@@ -349,7 +424,7 @@ def main() -> int:
                 if not q_url or not a_url:
                     held.append({'card': card['title'], 'why': '문제지/정답 링크 없음'})
                     continue
-                name = slug(subject, grade, day)
+                name = slug(subject, grade, day, sub)
                 qfile, afile = stage / f'{name}_q.pdf', stage / f'{name}_a.pdf'
                 try:
                     qi = fetch_pdf(q_url, qfile)
@@ -400,11 +475,18 @@ def main() -> int:
                 except Exception as e:  # noqa: BLE001
                     held.append({**rec, 'why': f'게시 실패 {type(e).__name__}: {str(e)[:150]}'})
 
-    if published and not args.dry_run:
+    if (published or replaced) and not args.dry_run:
         EXAMS.write_text(json.dumps(exams, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
         run(['node', 'scripts/validate-exams.mjs'])
         run(['git', 'add', 'data/exams.json'])
-        msg = f'{day.month}월 학평 자동 수집 — {len(published)}건 (자료·검증: collect-examday.py)'
+        if replaced:
+            run(['git', 'add', '-A', 'data/exam'])
+        parts = []
+        if published:
+            parts.append(f'{day.month}월 학평 자동 수집 {len(published)}건')
+        if replaced:
+            parts.append(f'미러 통합본 {len(replaced)}건을 EBSi 선택과목별 자료로 교체')
+        msg = ' · '.join(parts) + ' (자료·검증: collect-examday.py)'
         run(['git', 'commit', '-q', '-m', msg])
         if not args.no_push:
             run(['git', 'pull', '--rebase', '-q', 'origin', 'main'])
@@ -417,7 +499,7 @@ def main() -> int:
             print(f'[게시] {len(published)}건 커밋만 함(--no-push)')
 
     report = {'date': day.isoformat(), 'targets': [t['title'] for t in targets],
-              'published': published, 'held': held}
+              'published': published, 'replaced': replaced, 'held': held}
     (WORK / f'report-{stamp}.json').write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding='utf-8')
 
     def hkey(h: dict) -> str:
@@ -425,14 +507,17 @@ def main() -> int:
 
     new_pub = [p for p in published if f"pub:{p.get('id')}" not in said]
     new_held = [h for h in held if hkey(h) not in said]
-    if not new_pub and not new_held:
+    new_rep = [i for i in replaced if f'rep:{i}' not in said]
+    if not new_pub and not new_held and not new_rep:
         return 0  # 새 소식 없음 → 조용히(10분마다 같은 알림 반복 금지)
-    said |= {f"pub:{p.get('id')}" for p in new_pub} | {hkey(h) for h in new_held}
+    said |= {f"pub:{p.get('id')}" for p in new_pub} | {hkey(h) for h in new_held} | {f'rep:{i}' for i in new_rep}
     seen_path.write_text(json.dumps(sorted(said), ensure_ascii=False), encoding='utf-8')
 
     lines = [f'시험 자료 자동 수집 — {day.isoformat()}']
     for t in targets:
         lines.append(f'• {t["title"]}')
+    if new_rep:
+        lines.append(f'미러 통합본 대체 {len(new_rep)}건 → 선택과목별 EBSi 자료로 교체 (id {", ".join(map(str, new_rep))})')
     if new_pub:
         lines.append(f'게시 {len(new_pub)}건:')
         for p in new_pub[:20]:

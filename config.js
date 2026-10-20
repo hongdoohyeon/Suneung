@@ -16,10 +16,9 @@ export const TAB_CONFIG = [
     curriculums: ['2015', '2009', '2007개정', '7차', '6차', '예비', '사관', '경찰대', 'LEET', 'MEET', 'PEET', '논술', '고졸', '중졸', '초졸'] },
   // ── 데이터 있는 탭 ──────────────────────────────────────
   // senior 탭: 평가원(전 학년) + 교육청 고3 학평만 표시 (educationGrades:[3]).
-  // 첫 진입 시 평가원이 default — 학평을 보려면 사용자가 명시 클릭.
+  // 기본은 typeGroup 전체 — 평가원만 기본으로 걸면 당일 학평이 첫 화면에서 가려진다.
   { key: 'senior',     label: '고3',       sub: '평가원·교육청',
-    curriculums: ['2015', '2009', '2007개정', '7차', '6차', '예비'], educationGrades: [3],
-    defaultTypeGroup: 'suneung' },
+    curriculums: ['2015', '2009', '2007개정', '7차', '6차', '예비'], educationGrades: [3] },
   { key: 'mp',         label: '사관·경찰', sub: '1차 시험',         curriculums: ['사관', '경찰대'] },
   { key: 'gradschool', label: 'L/MEET', sub: '전문대학원',       curriculums: ['LEET', 'MEET', 'PEET'] },
   // 고1·고2: 교육청 학평만 (typeGroup=education, studentGrade=2/1)
