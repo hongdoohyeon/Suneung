@@ -260,7 +260,7 @@ SUB_SLUG = {
     '성공적인 직업 생활': 'jikup', '수산·해운 산업 기초': 'susan', '인간 발달': 'ingan',
 }
 # 학평 정답은 EBSi '정답 및 해설' PDF(H). 모바일 정답 이미지(J)는 사이트 규칙(정답·해설 PDF)에 맞지 않아 쓰지 않는다.
-ANSWER_TEXT_KEYS = ('정답', '정답 및 해설')
+ANSWER_TEXT_KEYS = ('정답', '정답 및 해설', '출제의도', '오답풀이')
 
 
 def slug(subject: str, grade: int, day: 'dt.date', sub: str | None = None) -> str:
@@ -301,6 +301,10 @@ def inspect_pdf(dest: Path) -> dict:
         full = run(['pdftotext', str(dest), '-'], check=False).stdout
         info['full_text_len'] = len(full)
         info['text'] = re.sub(r'\s+', ' ', full)[:8000]
+        pages = info.get('pages') or 0
+        if pages:
+            tail = run(['pdftotext', '-f', str(pages), '-l', str(pages), str(dest), '-'], check=False).stdout
+            info['tail'] = re.sub(r'\s+', ' ', tail)[:900]
     except Exception as e:  # noqa: BLE001
         info['error'] = f'{type(e).__name__}: {e}'
     return info
@@ -328,8 +332,10 @@ def code_checks(day: dt.date, grade: int, subject: str, q: dict, a: dict) -> lis
         bad.append('문항 번호를 찾지 못함')
     if not any(k in a.get('text', '') for k in ANSWER_TEXT_KEYS):
         bad.append('정답·해설 파일에 "정답" 표기 없음')
-    if f'고{grade}' not in a.get('head', '') and f'고{grade}' not in a.get('text', '')[:400]:
-        bad.append(f'정답·해설에 고{grade} 표기 없음')
+    # 선택과목 해설지는 1쪽에 학년 표기가 없고 해설만 시작한다 — 표지(문제지)와 본문 전체로 확인한다.
+    if f'고{grade}' not in a.get('head', '') and f'고{grade}' not in a.get('text', ''):
+        if f'고{grade}' not in head:
+            bad.append(f'정답·해설에 고{grade} 표기 없음')
     if q.get('sha256') == a.get('sha256'):
         bad.append('문제지와 정답 파일이 동일')
     return bad
@@ -342,6 +348,7 @@ def model_verdict(payload: dict) -> dict:
         '너는 한국 시험 자료 검수자다. 아래는 자동 수집한 회차 자료의 실측 정보다.\n'
         '기대값: ' + json.dumps(payload['expected'], ensure_ascii=False) + '\n'
         '문제지 1~2쪽 텍스트: ' + payload['question_head'][:1500] + '\n'
+        '문제지 마지막 쪽(선택과목 구간): ' + payload.get('question_tail', '')[:700] + '\n'
         '정답·해설 1~2쪽 텍스트: ' + payload['answer_head'][:800] + '\n'
         '코드 검사 결과(실패 사유): ' + json.dumps(payload['code_issues'], ensure_ascii=False) + '\n\n'
         '이 파일들이 기대한 학년도·시행월·학년·과목의 "문제지"와 "정답"이 맞는지 판단하라.\n'
@@ -571,7 +578,8 @@ def main() -> int:
                         verdict = model_verdict({
                             'expected': {'시행일': day.isoformat(), '학년도': day.year, '월': day.month,
                                          '학년': grade, '과목': subject, '세부과목': sub, '제목': card['title']},
-                            'question_head': qi.get('head', ''), 'answer_head': ai.get('head', ''),
+                            'question_head': qi.get('head', ''), 'question_tail': qi.get('tail', ''),
+                            'answer_head': ai.get('head', ''),
                             'code_issues': issues,
                         })
                     except Exception as e:  # noqa: BLE001
