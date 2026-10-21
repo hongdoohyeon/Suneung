@@ -2805,15 +2805,22 @@ def build_static_exam_pages(items: list[dict], template_path: Path, out_root: Pa
         live = {it['id'] for it in items}
         n_red = 0
         for old_id, new_id in json.loads(red_path.read_text(encoding='utf-8'))['redirects'].items():
-            if int(old_id) in live or new_id not in live:
+            if int(old_id) in live:
                 continue
+            # 값이 숫자면 exam-{id}.html, 문자열이면 그 파일명(예: 회차 페이지)으로 보낸다.
+            if str(new_id).isdigit():
+                if int(new_id) not in live:
+                    continue
+                target = f'exam-{new_id}.html'
+            else:
+                target = str(new_id)
             (out_root / f'exam-{old_id}.html').write_text(
                 '<!DOCTYPE html>\n<html lang="ko">\n<head>\n  <meta charset="UTF-8" />\n'
                 '  <meta name="robots" content="noindex,follow" />\n'
-                f'  <link rel="canonical" href="https://kicegg.com/exam-{new_id}.html" />\n'
-                f'  <meta http-equiv="refresh" content="0;url=exam-{new_id}.html" />\n'
+                f'  <link rel="canonical" href="https://kicegg.com/{target}" />\n'
+                f'  <meta http-equiv="refresh" content="0;url={target}" />\n'
                 '  <title>같은 시험으로 이동 — 기출해체분석기</title>\n</head>\n<body>\n'
-                f'  <p>같은 자료가 다른 페이지로 합쳐졌습니다. <a href="exam-{new_id}.html">이동하기</a></p>\n</body>\n</html>\n',
+                f'  <p>같은 자료가 다른 페이지로 합쳐졌습니다. <a href="{target}">이동하기</a></p>\n</body>\n</html>\n',
                 encoding='utf-8')
             n_red += 1
         print(f'  + 이동 안내 페이지 {n_red}건 (삭제된 중복 항목)')
