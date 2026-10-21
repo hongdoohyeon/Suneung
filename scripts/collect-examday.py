@@ -21,6 +21,7 @@ import argparse
 import datetime as dt
 import fcntl
 import hashlib
+import io
 import json
 import os
 import re
@@ -31,6 +32,7 @@ import unicodedata
 import urllib.error
 import urllib.parse
 import urllib.request
+import zipfile
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -90,6 +92,111 @@ def today_targets(day: dt.date) -> list[dict]:
 def ebsi_cards(year: int, grade: int) -> list[dict]:
     p = run(['node', 'scripts/fetch-ebsi-paper-list.mjs', '--year', str(year), '--grade', str(grade)])
     return json.loads(p.stdout)['cards']
+
+
+# ── 2b. EBSi 학평 풀서비스 (기출목록보다 먼저 열리는 원본 링크) ────────────
+POOL_API = 'https://www.ebsi.co.kr/ebs/xip/xipt/RetrieveSCVMainTop.ajax?irecord={rec}'
+AREA_SUBJECT = {'국어': '국어', '수학': '수학', '영어': '영어', '한국사': '한국사',
+                '사회': '사회탐구', '과학': '과학탐구', '직업': '직업탐구', '제2외/한문': '제2외국어'}
+SCI_NORM = {'물리학1': '물리학Ⅰ', '물리학2': '물리학Ⅱ', '화학1': '화학Ⅰ', '화학2': '화학Ⅱ',
+            '생명과학1': '생명과학Ⅰ', '생명과학2': '생명과학Ⅱ', '지구과학1': '지구과학Ⅰ', '지구과학2': '지구과학Ⅱ'}
+SOC_NORM = {'생활과윤리': '생활과윤리', '윤리와사상': '윤리와사상', '한국지리': '한국지리',
+            '세계지리': '세계지리', '동아시아사': '동아시아사', '세계사': '세계사',
+            '경제': '경제', '정치와법': '정치와법', '사회문화': '사회·문화'}
+JOB_NORM = {'성공적인직업생활': '성공적인 직업 생활', '농업기초기술': '농업기초기술',
+            '공업일반': '공업 일반', '상업경제': '상업 경제', '수산해운산업기초': '수산·해운 산업 기초',
+            '인간발달': '인간 발달'}
+FOREIGN_NAMES = ('독일어', '프랑스어', '스페인어', '중국어', '일본어', '러시아어', '한문')
+
+
+def pool_links(day: dt.date, grade: int) -> dict:
+    """풀서비스 페이지 HTML 에서 문제(P)·해설(H) 링크를 영역 이름으로 묶는다."""
+    rec = f'{day.year}{day.month:02d}{day.day:02d}{grade}'
+    req = urllib.request.Request(POOL_API.format(rec=rec),
+                                 headers={'User-Agent': UA, 'Referer': 'https://www.ebsi.co.kr/'})
+    html = urllib.request.urlopen(req, timeout=60).read().decode('utf-8', 'replace')
+    out: dict[str, dict] = {}
+    for m in re.finditer(r"goDownMain([PH])\('([^']+)'\);[^>]*>([^<]+)</a>", html):
+        kind, url, label = m.group(1), m.group(2), m.group(3).strip()
+        out.setdefault(label, {})[kind] = url
+    return out
+
+
+def zip_subject(filename: str) -> tuple[str, str | None] | None:
+    """'10월_고3_사회(경제).pdf' → ('사회탐구','경제'). 모르면 None."""
+    if '영어' in filename:
+        return '영어', None
+    m = re.search(r'\(([^)]+)\)', filename)
+    if not m:
+        return None
+    token = re.sub(r'\s+', '', m.group(1))
+    if token in SCI_NORM:
+        return '과학탐구', SCI_NORM[token]
+    if token in SOC_NORM:
+        return '사회탐구', SOC_NORM[token]
+    if token in JOB_NORM:
+        return '직업탐구', JOB_NORM[token]
+    base = re.sub(r'\d+$', '', token)
+    if base in FOREIGN_NAMES:
+        return '제2외국어', base
+    return None
+
+
+def unzip_pdfs(url: str, dest: Path, answer: bool) -> dict:
+    """zip 안 PDF 를 (과목, 세부과목) 별 경로로 푼다. 영어 zip 은 문제지만."""
+    dest.mkdir(parents=True, exist_ok=True)
+    req = urllib.request.Request(url, headers={'User-Agent': UA, 'Referer': 'https://www.ebsi.co.kr/'})
+    blob = urllib.request.urlopen(req, timeout=180).read()
+    z = zipfile.ZipFile(io.BytesIO(blob))
+    out = {}
+    for n in z.namelist():
+        try:
+            name = n.encode('cp437').decode('cp949')
+        except Exception:  # noqa: BLE001
+            name = n
+        if not name.lower().endswith('.pdf'):
+            continue
+        if answer and '정답' not in name:
+            continue
+        if not answer and ('문제지' not in name and '문제' not in name):
+            continue
+        parsed = zip_subject(name)
+        if not parsed:
+            continue
+        subject, sub = parsed
+        path = dest / f'{subject}_{sub or ""}_{"a" if answer else "q"}.pdf'.replace(' ', '')
+        path.write_bytes(z.read(n))
+        out[(subject, sub)] = path
+    return out
+
+
+def pool_items(day: dt.date, grade: int, stage: Path) -> list[dict]:
+    """풀서비스 원본으로 수집 항목을 만든다(로컬 파일 경로 포함)."""
+    links = pool_links(day, grade)
+    items: list[dict] = []
+    for label, d in links.items():
+        if label not in AREA_SUBJECT:
+            continue
+        q, a = d.get('P'), d.get('H')
+        if not q or not a:
+            continue
+        subject = AREA_SUBJECT[label]
+        if q.lower().endswith('.zip'):
+            qs = unzip_pdfs(q, stage / f'pool{grade}_{label}_q', answer=False)
+            as_ = unzip_pdfs(a, stage / f'pool{grade}_{label}_a', answer=True)
+            for (subj, sub), qp in qs.items():
+                ap = as_.get((subj, sub))
+                if not ap:
+                    continue
+                items.append({'title': f'{day.year}년 {day.month}월 고{grade} {subj}({sub}) [풀서비스]',
+                              'subject': subj, 'sub': sub, 'q_local': qp, 'a_local': ap})
+            continue
+        name = slug(subject, grade, day, None)
+        qp, ap = stage / f'{name}_q.pdf', stage / f'{name}_a.pdf'
+        fetch_pdf(q, qp), fetch_pdf(a, ap)  # noqa: B018
+        items.append({'title': f'{day.year}년 {day.month}월 고{grade} {subject} [풀서비스]',
+                      'subject': subject, 'sub': None, 'q_local': qp, 'a_local': ap})
+    return items
 
 
 SUBJECT_FIX = [('언어와 매체', '언어와매체'), ('화법과 작문', '화법과작문')]
@@ -175,6 +282,11 @@ def fetch_pdf(url: str, dest: Path) -> dict:
     with urllib.request.urlopen(req, timeout=90) as r:
         body = r.read()
     dest.write_bytes(body)
+    return inspect_pdf(dest)
+
+
+def inspect_pdf(dest: Path) -> dict:
+    body = dest.read_bytes()
     info = {'bytes': len(body), 'sha256': hashlib.sha256(body).hexdigest()[:16]}
     if body[:5] != b'%PDF-':
         info['kind'] = 'not-pdf'
@@ -331,24 +443,23 @@ def verify_live(day: dt.date, ids: list[int], timeout_min: int = 25) -> str:
 
 
 def drop_merged_mirror(exams: list[dict], have: set, day: 'dt.date', grade: int,
-                       cards: list[dict], remove_files: bool = True) -> list[int]:
+                       targets: set[str], remove_files: bool = True) -> list[int]:
     """EBSi 가 선택과목별 카드를 내면, 미러로 먼저 올린 통합본(subSubject 없음)을 대체한다.
 
     미러 PDF 는 국어(공통+화법과작문+언어와매체), 수학(공통+확통·미적분·기하)처럼 합본이라
     subSubject 없이 1건으로 들어가 있다. EBSi 정식 카드가 오면 그 통합본을 지우고
     선택과목별 항목으로 갈아끼운다(문제지·해설도 EBSi 원본으로 바뀜).
     """
-    targets = {s for s, sub in (split_subject(c['title']) for c in cards) if sub}
     if not targets:
         return []
     dropped = []
     for e in list(exams):
-        if (e.get('source') == 'manual-mirror' and e.get('typeGroup') == 'education'
+        if (e.get('source') in ('manual-mirror', 'ebsi-poolservice') and e.get('typeGroup') == 'education'
                 and e.get('examYear') == day.year and e.get('month') == day.month
                 and e.get('studentGrade') == grade and e.get('subject') in targets
                 and not e.get('subSubject')):
             exams.remove(e)
-            have.discard((e.get('gradeYear'), e.get('month'), e.get('studentGrade'),
+            have.discard((e.get('examYear'), e.get('month'), e.get('studentGrade'),
                           e.get('subject'), e.get('subSubject'), e.get('type')))
             if remove_files:
                 (ROOT / 'data' / 'exam' / f"{e['id']}.json").unlink(missing_ok=True)
@@ -389,7 +500,7 @@ def main() -> int:
         said = set()
 
     exams = json.loads(EXAMS.read_text(encoding='utf-8'))
-    have = {(e.get('gradeYear'), e.get('month'), e.get('studentGrade'), e.get('subject'), e.get('subSubject'), e.get('type'))
+    have = {(e.get('examYear'), e.get('month'), e.get('studentGrade'), e.get('subject'), e.get('subSubject'), e.get('type'))
             for e in exams}
     maxid = max(e['id'] for e in exams)
     published, held, done = [], [], 0
@@ -406,12 +517,30 @@ def main() -> int:
         for grade in grades:
             cards = [c for c in ebsi_cards(day.year, grade) if c['month'] == day.month]
             print(f'[정보] {day.year}년 {day.month}월 고{grade}: 카드 {len(cards)}장', file=sys.stderr)
-            dropped = drop_merged_mirror(exams, have, day, grade, cards, remove_files=not args.dry_run)
+            items: list[dict] = []
+            for card in cards:
+                subject, sub = split_subject(card['title'])
+                items.append({'title': card['title'], 'subject': subject, 'sub': sub,
+                              'q_url': card['downloads'].get('P'),
+                              'a_url': card['downloads'].get('H') or card['downloads'].get('J')})
+            if not items:
+                # 기출목록은 시험일 밤~다음 날 늦게 열린다. 학평 풀서비스에는 당일 원본이 먼저 올라온다.
+                try:
+                    items = pool_items(day, grade, stage)
+                except Exception as e:  # noqa: BLE001
+                    held.append({'card': f'{day.year}년 {day.month}월 고{grade} 풀서비스',
+                                 'why': f'풀서비스 조회 실패 {type(e).__name__}: {str(e)[:100]}'})
+                    items = []
+                if items:
+                    print(f'[정보] 기출목록 0장 → 풀서비스 원본 {len(items)}건', file=sys.stderr)
+            dropped = drop_merged_mirror(exams, have, day, grade,
+                                         {it['subject'] for it in items if it['sub']},
+                                         remove_files=not args.dry_run)
             if dropped:
                 replaced.extend(dropped)
                 print(f'[정보] 미러 통합본 대체: {dropped}', file=sys.stderr)
-            for card in cards:
-                subject, sub = split_subject(card['title'])
+            for card in items:
+                subject, sub = card['subject'], card['sub']
                 etype = TYPE_BY_MONTH.get(day.month)
                 key = (day.year, day.month, grade if t['category'] == 'edu' else None, subject, sub, etype)
                 if key in have and not args.force:
@@ -419,16 +548,19 @@ def main() -> int:
                 if args.limit and done >= args.limit:
                     break
                 done += 1
-                q_url = card['downloads'].get('P')
-                a_url = card['downloads'].get('H') or card['downloads'].get('J')
-                if not q_url or not a_url:
-                    held.append({'card': card['title'], 'why': '문제지/정답 링크 없음'})
-                    continue
                 name = slug(subject, grade, day, sub)
                 qfile, afile = stage / f'{name}_q.pdf', stage / f'{name}_a.pdf'
                 try:
-                    qi = fetch_pdf(q_url, qfile)
-                    ai = fetch_pdf(a_url, afile)
+                    if card.get('q_local'):
+                        qfile, afile = card['q_local'], card['a_local']
+                        qi, ai = inspect_pdf(qfile), inspect_pdf(afile)
+                    else:
+                        q_url, a_url = card.get('q_url'), card.get('a_url')
+                        if not q_url or not a_url:
+                            held.append({'card': card['title'], 'why': '문제지/정답 링크 없음'})
+                            continue
+                        qi = fetch_pdf(q_url, qfile)
+                        ai = fetch_pdf(a_url, afile)
                 except Exception as e:  # noqa: BLE001
                     held.append({'card': card['title'], 'why': f'다운로드 실패 {type(e).__name__}'})
                     continue
@@ -461,7 +593,8 @@ def main() -> int:
                     maxid += 1
                     label = f'{day.year}년 {day.month}월 학력평가 {subject}'
                     exams.append({
-                        'curriculum': '2015', 'gradeYear': day.year, 'examYear': day.year, 'month': day.month,
+                        'curriculum': '2015', 'gradeYear': day.year + 1 if grade == 3 else day.year,
+                        'examYear': day.year, 'month': day.month,
                         'studentGrade': grade, 'typeGroup': 'education', 'type': etype,
                         'subject': subject, 'subSubject': sub,
                         'solutionUrl': None, 'answerIncludesSolution': True,
