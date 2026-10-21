@@ -221449,7 +221449,12 @@
     "questionDownload": "2026년 10월 학력평가 영어 문제지.pdf",
     "answerDownload": "2026년 10월 학력평가 영어 정답 및 해설.pdf",
     "source": "ebsi-poolservice",
-    "sourcePage": "https://www.ebsi.co.kr/ebs/xip/xipa/retrieveSCVMainInfo.ebs?irecord=202610203&targetCd=D300"
+    "sourcePage": "https://www.ebsi.co.kr/ebs/xip/xipa/retrieveSCVMainInfo.ebs?irecord=202610203&targetCd=D300",
+    "listenUrl": "https://suneung-files.hdh061224.workers.dev/edu-listening-v1/2026_10_g3_english_l.mp3?name=2026%EB%85%84%2010%EC%9B%94%20%ED%95%99%EB%A0%A5%ED%8F%89%EA%B0%80%20%EA%B3%A03%20%EC%98%81%EC%96%B4%20%EB%93%A3%EA%B8%B0.mp3",
+    "listenDownload": "2026년 10월 학력평가 고3 영어 듣기.mp3",
+    "scriptUrl": "https://suneung-files.hdh061224.workers.dev/edu-listening-v1/2026_10_g3_english_t.pdf?name=2026%EB%85%84%2010%EC%9B%94%20%ED%95%99%EB%A0%A5%ED%8F%89%EA%B0%80%20%EA%B3%A03%20%EC%98%81%EC%96%B4%20%EB%93%A3%EA%B8%B0%20%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8.pdf",
+    "scriptDownload": "2026년 10월 학력평가 고3 영어 듣기 스크립트.pdf",
+    "listenChapters": "0:안내,132.8:1,235.1:2,315.1:3,399.8:4,495.3:5,584.3:6,676.4:7,767.3:8,853.6:9,932.9:10,1016.4:11,1058.6:12,1108.3:13,1191.2:14,1273.5:15,1357.5:16~17"
   },
   {
     "id": 14537,
@@ -222129,7 +222134,12 @@
     "questionDownload": "2026년 10월 학력평가 영어 문제지.pdf",
     "answerDownload": "2026년 10월 학력평가 영어 정답.pdf",
     "source": "ebsi-poolservice",
-    "sourcePage": "https://www.ebsi.co.kr/ebs/xip/xipa/retrieveSCVMainInfo.ebs?irecord=202610201&targetCd=D100"
+    "sourcePage": "https://www.ebsi.co.kr/ebs/xip/xipa/retrieveSCVMainInfo.ebs?irecord=202610201&targetCd=D100",
+    "listenUrl": "https://suneung-files.hdh061224.workers.dev/edu-listening-v1/2026_10_g1_english_l.mp3?name=2026%EB%85%84%2010%EC%9B%94%20%ED%95%99%EB%A0%A5%ED%8F%89%EA%B0%80%20%EA%B3%A01%20%EC%98%81%EC%96%B4%20%EB%93%A3%EA%B8%B0.mp3",
+    "listenDownload": "2026년 10월 학력평가 고1 영어 듣기.mp3",
+    "scriptUrl": "https://suneung-files.hdh061224.workers.dev/edu-listening-v1/2026_10_g1_english_t.pdf?name=2026%EB%85%84%2010%EC%9B%94%20%ED%95%99%EB%A0%A5%ED%8F%89%EA%B0%80%20%EA%B3%A01%20%EC%98%81%EC%96%B4%20%EB%93%A3%EA%B8%B0%20%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8.pdf",
+    "scriptDownload": "2026년 10월 학력평가 고1 영어 듣기 스크립트.pdf",
+    "listenChapters": "0:안내,136.2:1,199.3:2,277.5:3,347:4,427.7:5,500.5:6,574.3:7,648.4:8,730.4:9,815.6:10,894.4:11,936.6:12,987.8:13,1063.4:14,1147.8:15,1226.4:16~17"
   },
   {
     "id": 14571,
@@ -222249,7 +222259,12 @@
     "questionDownload": "2026년 10월 학력평가 영어 문제지.pdf",
     "answerDownload": "2026년 10월 학력평가 영어 정답.pdf",
     "source": "ebsi-poolservice",
-    "sourcePage": "https://www.ebsi.co.kr/ebs/xip/xipa/retrieveSCVMainInfo.ebs?irecord=202610202&targetCd=D200"
+    "sourcePage": "https://www.ebsi.co.kr/ebs/xip/xipa/retrieveSCVMainInfo.ebs?irecord=202610202&targetCd=D200",
+    "listenUrl": "https://suneung-files.hdh061224.workers.dev/edu-listening-v1/2026_10_g2_english_l.mp3?name=2026%EB%85%84%2010%EC%9B%94%20%ED%95%99%EB%A0%A5%ED%8F%89%EA%B0%80%20%EA%B3%A02%20%EC%98%81%EC%96%B4%20%EB%93%A3%EA%B8%B0.mp3",
+    "listenDownload": "2026년 10월 학력평가 고2 영어 듣기.mp3",
+    "scriptUrl": "https://suneung-files.hdh061224.workers.dev/edu-listening-v1/2026_10_g2_english_t.pdf?name=2026%EB%85%84%2010%EC%9B%94%20%ED%95%99%EB%A0%A5%ED%8F%89%EA%B0%80%20%EA%B3%A02%20%EC%98%81%EC%96%B4%20%EB%93%A3%EA%B8%B0%20%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8.pdf",
+    "scriptDownload": "2026년 10월 학력평가 고2 영어 듣기 스크립트.pdf",
+    "listenChapters": "0:안내,136.1:1,213.3:2,301.8:3,382.9:4,471.9:5,554.7:6,647.6:7,731.8:8,818.1:9,892:10,967.4:11,1009:12,1052:13,1133.5:14,1215.2:15,1294.5:16~17"
   },
   {
     "id": 14577,
