@@ -1687,3 +1687,10 @@ svg[data-chart].is-kb:focus { outline: 2px solid var(--ink-4); outline-offset: 4
 /* 상세: 점수 분포 칸 — 값 자리 높이를 같게 */
 .stat { min-height: 92px; justify-content: space-between; }
 :root[data-spoiler="on"] .stat__value.spoil-val { height: 28px; min-height: 28px; }
+
+/* ── 4차: PC·패드도 검색 막대가 스크롤을 따라온다 ──
+   막대 뒤 띠를 바탕색으로 채워(아래 가장자리만 살짝 흐림) 탭·목록이 밑으로 지나가도 비쳐 겹쳐 보이지 않게 */
+@media (min-width: 701px) {
+  .topbar-wrap { position: sticky; top: 0; z-index: 40; padding-top: 12px; padding-bottom: 10px; background: linear-gradient(var(--bg) 82%, color-mix(in srgb, var(--bg) 0%, transparent)); }
+  .curriculum-nav__inner { padding-top: 8px; }
+}
