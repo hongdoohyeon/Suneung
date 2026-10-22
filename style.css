@@ -911,6 +911,18 @@ body:has(.selbar:not([hidden])) .pagination-wrap { margin-bottom: 72px; }
 .seldlg__name[hidden] { display: none; }
 .seldlg.is-busy .seldlg__seg, .seldlg.is-busy .seldlg__kinds, .seldlg.is-busy .seldlg__list { pointer-events: none; opacity: .55; }
 
+/* 학년(고1·고2)·학력(고졸·중졸·초졸)도 시험 기관처럼 세그먼트 */
+#levelFilter { display: grid; grid-template-columns: repeat(auto-fit, minmax(0, 1fr)); gap: 3px; padding: 3px; border-radius: var(--r-md); background: var(--fill); }
+#levelFilter .pill { background: none; color: var(--ink-3); }
+#levelFilter .pill:hover { background: var(--fill); color: var(--ink); }
+#levelFilter .pill.is-active { background: var(--surface); color: var(--ink); font-weight: var(--ui-weight-strong); box-shadow: var(--sh-lift); }
+#typeGroupFilter:empty { display: none; }
+#typeGroupFilter:empty + .subtype-row { margin-top: 0; }
+/* 검정고시 회차(전체·1회·2회)는 세그먼트 */
+#typeGroupFilter:empty + .subtype-row #typeFilter:has(> :nth-child(3):last-child) { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 3px; padding: 3px; border-radius: var(--r-md); background: var(--fill); }
+#typeGroupFilter:empty + .subtype-row #typeFilter:has(> :nth-child(3):last-child) .pill { background: none; color: var(--ink-3); }
+#typeGroupFilter:empty + .subtype-row #typeFilter:has(> :nth-child(3):last-child) .pill.is-active { background: var(--surface); color: var(--ink); font-weight: var(--ui-weight-strong); box-shadow: var(--sh-lift); }
+
 /* ═══ 시험 상세 ════════════════════════════════════════════
    PC: 왼쪽 = 머리·과목 세그먼트·탭·시험지 / 오른쪽 기둥(따라옴) = 받기 카드·등급컷 카드·시험 정보
    아래 = 점수 분포·오답률·비교·출처 카드. 폰: 한 줄로 쌓고, 받기는 아래 글래스 막대(exam-dock) */
@@ -1709,3 +1721,18 @@ svg[data-chart].is-kb:focus { outline: 2px solid var(--ink-4); outline-offset: 4
   .topbar-wrap { pointer-events: none; }
   .topbar { pointer-events: auto; background: color-mix(in srgb, var(--surface) 72%, transparent); -webkit-backdrop-filter: blur(22px) saturate(1.8); backdrop-filter: blur(22px) saturate(1.8); }
 }
+
+/* ── 6차 ── 스포일러 스위치는 html[data-spoiler](머리에서 곧바로 정해짐) 기준으로 그려 새 페이지에서 손잡이가 움직이며 깜빡이지 않게 */
+:root[data-spoiler="off"] [data-spoiler-toggle] .switch__knob { background: var(--line-strong); }
+:root[data-spoiler="off"] [data-spoiler-toggle] .switch__knob::after { transform: none; background: #fff; }
+:root[data-spoiler="on"] [data-spoiler-toggle] .switch__knob { background: var(--ink); }
+:root[data-spoiler="on"] [data-spoiler-toggle] .switch__knob::after { transform: translateX(14px); background: var(--surface); }
+:root[data-spoiler="on"] [data-spoiler-toggle].switch--sm .switch__knob::after { transform: translateX(12px); }
+html:not(.is-ready-motion) .switch__knob, html:not(.is-ready-motion) .switch__knob::after { transition: none; }
+/* 상세 PC: 오른쪽 기둥(등급컷·시험 정보)이 스크롤을 따라온다 — 길면 기둥 안에서만 스크롤 */
+@media (min-width: 1180px) {
+  .page-exam .exam__aside { position: sticky; top: 16px; max-height: calc(100vh - 32px); overflow-y: auto; overscroll-behavior: contain; scrollbar-width: thin; scrollbar-color: var(--line-strong) transparent; border-radius: var(--r); }
+}
+/* D-day 는 스크립트가 늦게 넣는다 — 테마 버튼은 늘 끝자리에 두어 들어올 때 옆으로 튀지 않게 */
+.header-tools > .theme-toggle { margin-left: auto; }
+@media (min-width: 701px) and (max-width: 1179px) { .header-tools > .theme-toggle { margin: 0 auto; } .header-tools { justify-content: flex-end; min-height: 96px; } }

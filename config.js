@@ -539,8 +539,8 @@ export const EXAM_TYPE_CONFIG = [
     groupBg: '#e7f5ef',
     displayMode: 'examYear',
     types: [
-      { key: 'ged_1', label: '제1회', month: 4, badgeBg: '#e7f5ef', badgeColor: '#0e7a5f' },
-      { key: 'ged_2', label: '제2회', month: 8, badgeBg: '#e7f5ef', badgeColor: '#0e7a5f' },
+      { key: 'ged_1', label: '제1회', shortLabel: '1회', month: 4, badgeBg: '#e7f5ef', badgeColor: '#0e7a5f' },
+      { key: 'ged_2', label: '제2회', shortLabel: '2회', month: 8, badgeBg: '#e7f5ef', badgeColor: '#0e7a5f' },
     ],
   },
 ];

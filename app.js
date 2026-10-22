@@ -36,6 +36,8 @@ const tabAvailableTypeGroups = () => {
 };
 // 탭이 단일 typeGroup + 모든 curriculum 이 singleType 일 때 → typeGroup 칩 숨김
 // educationOnly 탭도 단일 typeGroup이므로 칩 숨김.
+// 탭에 기관(typeGroup)이 하나뿐(고1·2=교육청, 검정고시) — 기관 칩 대신 그 기관의 세부(월·회차)만 보여 준다
+const tabIsSingleGroup = () => tabAvailableTypeGroups().length === 1;
 const tabIsSingleType = () => {
   const tgs = tabAvailableTypeGroups();
   if (tgs.length !== 1) return false;
@@ -180,7 +182,7 @@ function applyUrlState() {
   centerActiveTab();
 
   // 탭 변경 후 default typeGroup 적용 — URL에 typeGroup 명시되어 있으면 곧 덮어씀
-  if (tabIsSingleType()) {
+  if (tabIsSingleGroup()) {
     state.typeGroup = tabAvailableTypeGroups()[0];
     state.type      = 'all';
   } else if (tabConf()?.defaultTypeGroup) {
@@ -484,7 +486,7 @@ async function loadExams() {
   const initialTab = tabFromLocation();
   state.tab = initialTab;
   // 데이터 도착 전에 기본 필터 칩·배지를 먼저 그려 늦게 튀어나오는 흔들림을 없앤다
-  if (tabIsSingleType()) state.typeGroup = tabAvailableTypeGroups()[0];
+  if (tabIsSingleGroup()) state.typeGroup = tabAvailableTypeGroups()[0];
   else if (tabConf()?.defaultTypeGroup) state.typeGroup = tabConf().defaultTypeGroup;
   renderActiveTags();
   updateFilterBadge();
@@ -592,7 +594,7 @@ async function switchTab(tab) {
   $('searchInput').value = '';
   $('clearSearch').style.display = 'none';
 
-  if (tabIsSingleType()) {
+  if (tabIsSingleGroup()) {
     state.typeGroup = tabAvailableTypeGroups()[0];
     state.type      = 'all';
   } else if (tabConf()?.defaultTypeGroup) {
@@ -628,7 +630,7 @@ function renderFilterPanel() {
   renderSubtypeChips();
   // '시험' 섹션은 typeGroup 칩 또는 세부유형(월) 칩이 하나라도 있을 때만 노출.
   // 종전에는 educationOnly 탭(고1/고2)에서 블록째 숨겨 월 필터까지 사라졌음.
-  const hasGroupChips = !tabIsSingleType();
+  const hasGroupChips = !tabIsSingleGroup();
   const hasTypeChips  = $('subtypeRow').classList.contains('is-open');
   $('typeGroupBlock').style.display = (hasGroupChips || hasTypeChips) ? '' : 'none';
 
@@ -664,7 +666,8 @@ function renderLevelChips() {
   $('levelBlock').hidden = !sibs.length;
   if (!sibs.length) { $('levelFilter').innerHTML = ''; return; }
   $('levelTitle').textContent = getTabConf(navTabKey(state.tab)).navGroup.title;
-  $('levelFilter').innerHTML = sibs.map(t => pill(t.key, t.levelLabel, t.key === state.tab)).join('');
+  const order = sibs[0]?.levelLabel?.startsWith('고') && /\d/.test(sibs[0].levelLabel) ? [...sibs].sort((a, b) => a.levelLabel.localeCompare(b.levelLabel)) : sibs;   // 고1 → 고2
+  $('levelFilter').innerHTML = order.map(t => pill(t.key, t.levelLabel, t.key === state.tab)).join('');
 }
 $('levelFilter').addEventListener('click', e => {
   const btn = e.target.closest('.pill');
@@ -675,7 +678,7 @@ $('levelFilter').addEventListener('click', e => {
 // ── 시험 주최 (그룹 pill) ──────────────────────────────────
 function renderTypeGroupChips() {
   const container = $('typeGroupFilter');
-  if (tabIsSingleType()) { container.innerHTML = ''; return; }
+  if (tabIsSingleGroup()) { container.innerHTML = ''; return; }
 
   const allowed = tabAvailableTypeGroups();
   const groups = EXAM_TYPE_CONFIG.filter(g => allowed.includes(g.groupKey));
@@ -1483,7 +1486,7 @@ function renderActiveTags() {
   const isSingle = tabIsSingleType();
 
   // singleType 탭에서는 타입그룹/타입이 자동 선택이므로 태그 노출 생략
-  if (state.typeGroup !== 'all' && !isSingle) {
+  if (state.typeGroup !== 'all' && !isSingle && !tabIsSingleGroup()) {
     const g = getGroupConf(state.typeGroup);
     tags.push({ label: g?.groupLabel ?? state.typeGroup, key: 'typeGroup' });
   }
@@ -1589,7 +1592,7 @@ function resetAll() {
   $('searchInput').value = '';
   $('clearSearch').style.display = 'none';
 
-  if (tabIsSingleType()) {
+  if (tabIsSingleGroup()) {
     state.typeGroup = tabAvailableTypeGroups()[0];
     state.type      = 'all';
   }
