@@ -1694,3 +1694,12 @@ svg[data-chart].is-kb:focus { outline: 2px solid var(--ink-4); outline-offset: 4
   .topbar-wrap { position: sticky; top: 0; z-index: 40; padding-top: 12px; padding-bottom: 10px; background: linear-gradient(var(--bg) 82%, color-mix(in srgb, var(--bg) 0%, transparent)); }
   .curriculum-nav__inner { padding-top: 8px; }
 }
+/* 검색 막대 뒤 띠: 폭을 화면 끝까지 늘려 옆에 네모 경계가 생기지 않게(띠는 ::before 로, 바탕 종이 결도 같이) */
+@media (min-width: 701px) {
+  .topbar-wrap { background: none; isolation: isolate; }
+  .topbar-wrap::before { content: ''; position: absolute; z-index: -1; top: 0; bottom: 0; left: -100vw; right: -100vw;
+    background: linear-gradient(var(--bg) 82%, transparent); }
+  .topbar-wrap::after { content: ''; position: absolute; z-index: -1; top: 0; bottom: 0; left: -100vw; right: -100vw;
+    background-image: var(--grain); background-size: 200px; background-attachment: fixed; opacity: var(--grain-op); mix-blend-mode: var(--grain-blend);
+    -webkit-mask-image: linear-gradient(#000 82%, transparent); mask-image: linear-gradient(#000 82%, transparent); }
+}
