@@ -1019,7 +1019,7 @@ function applySheet(open, trigger = null) {
     panel.setAttribute('role', 'region');
     panel.removeAttribute('aria-modal');
   }
-  for (const el of [document.querySelector('.site-header'), document.querySelector('.curriculum-nav'), document.querySelector('.content')]) {
+  for (const el of [document.querySelector('.site-header'), document.querySelector('.topbar-wrap'), document.querySelector('.curriculum-nav'), document.querySelector('.content')]) {
     if (el) el.inert = open;
   }
 
@@ -1035,7 +1035,15 @@ function applySheet(open, trigger = null) {
 function isSheetOpen() {
   return $('filterPanel').classList.contains('is-open');
 }
-function toggleFilter(e) { setSheetOpen(!isSheetOpen(), e?.currentTarget); }
+function toggleFilter(e) {
+  // 넓은 화면: 왼쪽 필터를 접고 펴기(시트 없음). 좁은 화면: 바텀시트
+  if (window.matchMedia('(min-width: 961px)').matches) {
+    const hidden = document.querySelector('.main')?.classList.toggle('filters-hidden');
+    $('filterToggleInline')?.setAttribute('aria-expanded', String(!hidden));
+    return;
+  }
+  setSheetOpen(!isSheetOpen(), e?.currentTarget);
+}
 
 $('filterToggle')?.addEventListener('click', toggleFilter);
 $('filterToggleInline')?.addEventListener('click', toggleFilter);
