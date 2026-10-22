@@ -1019,7 +1019,7 @@ function applySheet(open, trigger = null) {
     panel.setAttribute('role', 'region');
     panel.removeAttribute('aria-modal');
   }
-  for (const el of [document.querySelector('.site-header'), document.querySelector('.curriculum-nav'), document.querySelector('.content')]) {
+  for (const el of [document.querySelector('.site-header'), document.querySelector('.topbar-wrap'), document.querySelector('.curriculum-nav'), document.querySelector('.content')]) {
     if (el) el.inert = open;
   }
 
@@ -1035,10 +1035,19 @@ function applySheet(open, trigger = null) {
 function isSheetOpen() {
   return $('filterPanel').classList.contains('is-open');
 }
-function toggleFilter(e) { setSheetOpen(!isSheetOpen(), e?.currentTarget); }
+function toggleFilter(e) {
+  // 넓은 화면(≥961): 왼쪽 필터 카드를 접고 편다(서랍 없음). 좁은 화면: 바텀시트
+  if (window.matchMedia('(min-width: 961px)').matches) {
+    const hidden = document.querySelector('.main')?.classList.toggle('filters-hidden');
+    $('filterToggleInline')?.setAttribute('aria-expanded', String(!hidden));
+    return;
+  }
+  setSheetOpen(!isSheetOpen(), e?.currentTarget);
+}
 
 $('filterToggle')?.addEventListener('click', toggleFilter);
 $('filterToggleInline')?.addEventListener('click', toggleFilter);
+if (window.matchMedia('(min-width: 961px)').matches) $('filterToggleInline')?.setAttribute('aria-expanded', 'true');   // 넓은 화면은 필터가 펼쳐진 채로 시작
 $('filterSheetClose')?.addEventListener('click', () => setSheetOpen(false));
 $('filterBackdrop')?.addEventListener('click',  () => setSheetOpen(false));
 $('filterSheetApply')?.addEventListener('click', () => setSheetOpen(false));
@@ -1225,17 +1234,18 @@ function scoreCells(e) {
   const loading = !cutsIndex && cutsRequested;
   if (!c) {
     const na = loading ? '' : '—';
-    return { has: false, cut: `<span class="rrow__na">${na}</span>`, tier: '', cutInline: '' };
+    return { has: false, cut: `<span class="rrow__na">${na}</span>`, top: `<span class="rrow__na">${na}</span>`, tier: '', cutInline: '' };
   }
   const [raw, top, tier, abs, ratio] = c;
   // 영어(절대평가)는 90점 기준은 공개 정보, 1등급 비율과 그에 따른 난이도만 스포일러
   const cut = abs
     ? `<span class="rrow__cut">${raw}점${ratio != null ? `<small class="rrow__ratio spoil-val">(${ratio}%)</small>` : ''}</span>`   // 예: 90점(15.54%) — 비율은 1등급 비율
-    : `<span class="rrow__cut spoil-val">${raw}${top != null ? `<small>최고표점 ${top}</small>` : ''}</span>`;
+    : `<span class="rrow__cut spoil-val">${raw}</span>`;
+  const topHtml = top != null ? `<span class="rrow__top spoil-val">${top}</span>` : '<span class="rrow__na">—</span>';
   const tierHtml = tier
     ? `<span class="tier tier--${tier} spoil-val">${TIER_LABEL[tier]}</span>`
     : (abs ? '<span class="tier tier--na">절대평가</span>' : '');
-  return { has: true, cut, tier: tierHtml, cutInline: `<span class="card__sub spoil-val">1컷 ${raw}</span>` };
+  return { has: true, cut, top: topHtml, tier: tierHtml, cutInline: `<span class="card__sub spoil-val">1컷 ${raw}</span>` };
 }
 
 // 목록 데이터에는 파일 주소 대신 "있음(1)" 표시만 들어 있다 — 실제 주소(.urls.json)가 도착하기 전에는 상세 페이지로 연결한다.
@@ -1255,16 +1265,17 @@ function actsColumns(items) {
     if (fileUrl(e, 'solutionUrl') && !sameQS) has.s = true;
     if (fileUrl(e, 'listenUrl')) has.l = true;
   }
-  const w = { q: wide.q ? 73 : 58, a: wide.a ? 73 : 58, s: 58, l: 58 };   // 버튼 폭 통일 — 글자 수가 달라도 같은 크기
-  return ['q', 'a', 's', 'l'].filter(k => has[k]).map(k => `[${k}] ${w[k]}px`).join(' ') || 'auto';
+  const w = { q: 32, a: wide.a ? 72 : 48, s: 48, l: 48 };   // 문제지 = 아이콘 칸, 나머지는 글자 버튼 — 같은 종류는 같은 폭
+  return ['l', 'a', 's', 'q'].filter(k => has[k]).map(k => `[${k}] ${w[k]}px`).join(' ') || 'auto';
 }
 
+const DL_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11m-5-5 5 5 5-5M5 20h14"/></svg>';
 function actionsHTML(exam) {
   if (exam.searchOnly) return `<a class="btn btn--primary act-all" href="exam-${exam.id}.html">자료 보기</a>`;
   const out = [];
   const q = fileUrl(exam, 'questionUrl'), a = fileUrl(exam, 'answerUrl'), s = fileUrl(exam, 'solutionUrl'), l = fileUrl(exam, 'listenUrl');
   const sameQS = typeof exam.questionUrl === 'string' && exam.questionUrl === exam.solutionUrl;
-  if (q) out.push(`<a class="btn btn--primary act-q" href="${escAttr(q)}" ${dlAttr(exam, 'questionUrl', exam.questionDownload)}>${sameQS ? '문제·해설' : '문제지'}</a>`);
+  if (q) out.push(`<a class="btn btn--primary act-q" href="${escAttr(q)}" title="${sameQS ? '문제·해설' : '문제지'} 받기" ${dlAttr(exam, 'questionUrl', exam.questionDownload)}>${DL_ICON}<span class="sr">${sameQS ? '문제·해설' : '문제지'}</span></a>`);
   if (a) out.push(`<a class="btn act-a" href="${escAttr(a)}" ${dlAttr(exam, 'answerUrl', exam.answerDownload)}>${exam.answerIncludesSolution ? '정답·해설' : '정답'}</a>`);
   if (s && !sameQS) out.push(`<a class="btn act-s" href="${escAttr(s)}" ${dlAttr(exam, 'solutionUrl', exam.solutionDownload)}>해설</a>`);
   if (l) out.push(`<a class="btn act-l" href="${escAttr(l)}" ${dlAttr(exam, 'listenUrl', exam.listenDownload)}>듣기</a>`);
@@ -1378,9 +1389,10 @@ function tableHTML(groups) {
       <header class="rgroup__head">
         <span class="type-badge type-badge--lg tg-${escAttr(first.typeGroup)}${first.type === 'csat' ? ' tg-csat' : ''}">${escHtml(badgeLabel(first))}</span>
         <h2 class="rgroup__title">${setHref ? `<a href="${escAttr(setHref)}">${escHtml(title)}</a>` : escHtml(title)}</h2>
+        ${first.examYear && first.month ? `<span class="rgroup__date">${first.examYear}.${String(first.month).padStart(2, '0')}</span>` : ''}
         <button type="button" class="rgroup__all rgroup__fold" aria-expanded="${!folded}" aria-label="${escAttr(title)} ${folded ? '펼치기' : '접기'}">${foldChev}</button>
       </header>
-      <div class="rrow rrow--head" aria-hidden="true"><span>과목</span><span>1등급컷</span><span>난이도</span><span>자료</span></div>
+      <div class="rrow rrow--head" aria-hidden="true"><span>과목</span><span>1등급컷</span><span>최고 표점</span><span>난이도</span><span></span></div>
       ${body}
     </section>${ad}`;
   }).join('');
@@ -1394,7 +1406,7 @@ function rowHTML(e, inFold = false) {
   return `<div class="rrow${pick ? ' rrow--pick' : ''}">
     ${pick ? checkboxHTML(e.id, name, 'rrow__link') : `<a class="rrow__link" href="exam-${e.id}.html" aria-label="${escAttr(name + ' 상세 보기')}"></a>`}
     <span class="rrow__subj">${escHtml(main)}${sub ? `<small>${escHtml(sub)}</small>` : ''}</span>
-    <span class="rrow__meta">${sc.cut}<span class="rrow__tier">${sc.tier}</span></span>
+    <span class="rrow__meta"><span class="rrow__k">${e.subject === '영어' || e.subject === '한국사' ? '1등급' : '1컷'}</span>${sc.cut}<span class="rrow__k">최고</span>${sc.top}<span class="rrow__tier">${sc.tier}</span></span>
     <span class="rrow__acts">${actionsHTML(e)}</span>
   </div>`;
 }
