@@ -1703,3 +1703,9 @@ svg[data-chart].is-kb:focus { outline: 2px solid var(--ink-4); outline-offset: 4
     background-image: var(--grain); background-size: 200px; background-attachment: fixed; opacity: var(--grain-op); mix-blend-mode: var(--grain-blend);
     -webkit-mask-image: linear-gradient(#000 82%, transparent); mask-image: linear-gradient(#000 82%, transparent); }
 }
+/* 5차: 막대 뒤 띠 없앰 — 막대 위·옆으로 지나가는 목록이 그대로 보이고, 막대만 글래스로 떠 있다 */
+@media (min-width: 701px) {
+  .topbar-wrap::before, .topbar-wrap::after { content: none; }
+  .topbar-wrap { pointer-events: none; }
+  .topbar { pointer-events: auto; background: color-mix(in srgb, var(--surface) 72%, transparent); -webkit-backdrop-filter: blur(22px) saturate(1.8); backdrop-filter: blur(22px) saturate(1.8); }
+}
