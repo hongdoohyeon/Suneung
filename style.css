@@ -1370,9 +1370,10 @@ svg[data-chart].is-kb:focus { outline: 2px solid var(--ink-4); outline-offset: 4
   .page-exam #examShareBtn { flex: 0 0 44px; padding: 0; }
   .page-exam .exam__grid { display: contents; }
   .page-exam .exam__paper { grid-column: 1; }
-  .page-exam .exam__aside { grid-column: 2; grid-row: 3 / span 4; position: sticky; top: 16px; max-height: calc(100vh - 32px); overflow-y: auto; scrollbar-width: none; }
+  .page-exam .exam__aside { grid-column: 2; grid-row: 3 / span 30; align-self: start; }
   .page-exam .exam__aside::-webkit-scrollbar { display: none; }
-  .page-exam .exam > .ad-slot, .page-exam .exam > .exam-section, .page-exam .exam > section, .page-exam .exam > .exam-related { grid-column: 1 / -1; }
+  /* 아래 구역은 왼쪽 칸에만 — 오른쪽 기둥(따라옴)이 끝까지 자기 칸을 지켜 글 위로 겹치지 않는다 */
+  .page-exam .exam > .ad-slot, .page-exam .exam > .exam-section, .page-exam .exam > section, .page-exam .exam > .exam-related { grid-column: 1; }
 }
 
 /* ═══ 안내·허브 페이지 (소개·약관·전체 회차·논술·과목 허브·블로그 목록·준비 중) ═══ */
@@ -1668,3 +1669,21 @@ svg[data-chart].is-kb:focus { outline: 2px solid var(--ink-4); outline-offset: 4
   .exam__head { flex: none; }
   .exam__actions { justify-content: flex-start; }
 }
+
+/* ── 3차: 검색 막대와 탭이 겹쳐 보이던 문제 ──
+   PC·패드: 검색 막대는 따라오지 않고 제자리(탭 위에 떠서 겹치지 않게), 탭과 간격 확보.
+   폰: 검색 막대+탭을 머리줄 아래 한 덩어리로 붙인다(탭만 붙으면 검색창이 탭 밑으로 지나가 겹쳐 보였다) */
+@media (min-width: 701px) {
+  .topbar-wrap { position: static; padding-top: 16px; }
+  .curriculum-nav__inner { padding-top: 18px; }
+}
+@media (max-width: 700px) {
+  .topbar-wrap { position: sticky; top: var(--header-h); z-index: 80; background: var(--bg); padding-bottom: 2px; }
+  .curriculum-nav { top: calc(var(--header-h) + 50px); }
+}
+/* 상세: 비교 지표 전환은 탭 크기에 맞게(오른쪽으로 넘치던 것) */
+.compare__metric { display: inline-flex; width: auto; flex-wrap: nowrap; }
+.compare__metric button { width: auto; min-width: 0; padding: 0 10px; }
+/* 상세: 점수 분포 칸 — 값 자리 높이를 같게 */
+.stat { min-height: 92px; justify-content: space-between; }
+:root[data-spoiler="on"] .stat__value.spoil-val { height: 28px; min-height: 28px; }
