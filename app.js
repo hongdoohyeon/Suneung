@@ -1255,8 +1255,8 @@ function actsColumns(items) {
     if (fileUrl(e, 'solutionUrl') && !sameQS) has.s = true;
     if (fileUrl(e, 'listenUrl')) has.l = true;
   }
-  const w = { q: wide.q ? 73 : 58, a: wide.a ? 73 : 58, s: 58, l: 58 };   // 버튼 폭 통일 — 글자 수가 달라도 같은 크기
-  return ['q', 'a', 's', 'l'].filter(k => has[k]).map(k => `[${k}] ${w[k]}px`).join(' ') || 'auto';
+  const w = { q: 32, a: wide.a ? 73 : 48, s: 48, l: 48 };   // 버튼 폭 통일 — 문제지는 아이콘 칸(32), 나머지는 글자 버튼
+  return ['l', 'a', 's', 'q'].filter(k => has[k]).map(k => `[${k}] ${w[k]}px`).join(' ') || 'auto';
 }
 
 function actionsHTML(exam) {
@@ -1264,7 +1264,7 @@ function actionsHTML(exam) {
   const out = [];
   const q = fileUrl(exam, 'questionUrl'), a = fileUrl(exam, 'answerUrl'), s = fileUrl(exam, 'solutionUrl'), l = fileUrl(exam, 'listenUrl');
   const sameQS = typeof exam.questionUrl === 'string' && exam.questionUrl === exam.solutionUrl;
-  if (q) out.push(`<a class="btn btn--primary act-q" href="${escAttr(q)}" ${dlAttr(exam, 'questionUrl', exam.questionDownload)}>${sameQS ? '문제·해설' : '문제지'}</a>`);
+  if (q) out.push(`<a class="btn btn--primary act-q" href="${escAttr(q)}" title="${sameQS ? '문제·해설' : '문제지'} 받기" ${dlAttr(exam, 'questionUrl', exam.questionDownload)}><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11m-5-5 5 5 5-5M5 20h14"/></svg><span class="sr">${sameQS ? '문제·해설' : '문제지'}</span></a>`);
   if (a) out.push(`<a class="btn act-a" href="${escAttr(a)}" ${dlAttr(exam, 'answerUrl', exam.answerDownload)}>${exam.answerIncludesSolution ? '정답·해설' : '정답'}</a>`);
   if (s && !sameQS) out.push(`<a class="btn act-s" href="${escAttr(s)}" ${dlAttr(exam, 'solutionUrl', exam.solutionDownload)}>해설</a>`);
   if (l) out.push(`<a class="btn act-l" href="${escAttr(l)}" ${dlAttr(exam, 'listenUrl', exam.listenDownload)}>듣기</a>`);

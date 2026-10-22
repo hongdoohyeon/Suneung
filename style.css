@@ -1789,3 +1789,98 @@ svg[data-chart].is-kb:focus { outline: 2px solid var(--ink-4); outline-offset: 4
 .chart-tip__row b { font-family: var(--mono); font-weight: 600; color: var(--ink); }
 .mf-bar.is-active, [class^="mf-s"].is-active { opacity: .7; }
 .mf-dot.is-active { stroke: var(--ink); stroke-width: 2; }
+
+/* ===== 앱형 껍데기 (2026-10, design/app-shell) =====
+   PC(≥1180): 헤더를 왼쪽에 떠 있는 글래스 사이드바로. 폰(≤700): 메뉴를 아래쪽 글래스 탭바로.
+   기출검색: 회차마다 카드, 정답·해설·듣기는 옅은 채움 버튼, 문제지는 검정 다운로드 아이콘. */
+:root { --fill: color-mix(in srgb, var(--ink) 6%, transparent); --fill-hover: color-mix(in srgb, var(--ink) 11%, transparent);
+  --glass: color-mix(in srgb, var(--surface) 62%, transparent); --glass-line: color-mix(in srgb, #fff 85%, transparent);
+  --glass-shadow: 0 1px 2px rgba(0,0,0,.04), 0 6px 20px -14px rgba(0,0,0,.2); }
+html[data-theme="dark"] { --glass-line: rgba(255,255,255,.1); --glass-shadow: 0 6px 20px -14px rgba(0,0,0,.6); }
+@media (prefers-color-scheme: dark) { html:not([data-theme="light"]) { --glass-line: rgba(255,255,255,.1); --glass-shadow: 0 6px 20px -14px rgba(0,0,0,.6); } }
+
+/* 하얀 테두리 버튼 → 옅은 채움 */
+.btn:not(.btn--primary) { background: var(--fill); border-color: transparent; }
+.btn:not(.btn--primary):hover { background: var(--fill-hover); border-color: transparent; }
+
+/* 메뉴 아이콘 (주소별) */
+.header-nav a::before { content: ''; width: 20px; height: 20px; flex: none; background: currentColor; display: none;
+  -webkit-mask: var(--ic) center / contain no-repeat; mask: var(--ic) center / contain no-repeat; }
+.header-nav a[href="/"] { --ic: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='1.9' stroke-linejoin='round' stroke-linecap='round'%3E%3Crect x='5' y='3' width='13' height='17' rx='2.5'/%3E%3Cpath d='M8.5 8h6M8.5 11.5h6M8.5 15h3.5M18 6.5h1a1.5 1.5 0 0 1 1.5 1.5v12a1.5 1.5 0 0 1-1.5 1.5H8'/%3E%3C/svg%3E"); }
+.header-nav a[href="calendar.html"] { --ic: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='1.9' stroke-linejoin='round' stroke-linecap='round'%3E%3Crect x='3.5' y='5' width='17' height='15.5' rx='2.5'/%3E%3Cpath d='M3.5 10h17M8 3v4M16 3v4'/%3E%3Crect x='13' y='13.5' width='4' height='3.5' rx='.8' fill='%23000' stroke='none'/%3E%3C/svg%3E"); }
+.header-nav a[href="blog.html"] { --ic: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='1.9' stroke-linejoin='round' stroke-linecap='round'%3E%3Cpath d='M4 20h4L19 9l-4-4L4 16z'/%3E%3Cpath d='m13.5 6.5 4 4'/%3E%3C/svg%3E"); }
+
+/* PC: 왼쪽 글래스 사이드바 */
+@media (min-width: 1180px) {
+  body { padding-left: 248px; }
+  .site-header, .site-header.is-scrolled { position: fixed; left: 16px; top: 16px; bottom: 16px; width: 216px; z-index: 60;
+    border: 1px solid var(--glass-line); border-radius: 18px; background: var(--glass); box-shadow: var(--glass-shadow);
+    backdrop-filter: blur(20px) saturate(1.8); -webkit-backdrop-filter: blur(20px) saturate(1.8); }
+  .site-header__inner { flex-direction: column; align-items: stretch; height: 100%; max-width: none; padding: 16px 10px 12px; gap: 2px; }
+  .site-header .brand { padding: 2px 8px 18px; }
+  .site-header .brand__sub { display: none; }
+  .header-nav { flex-direction: column; gap: 2px; }
+  .header-nav a { justify-content: flex-start; gap: 10px; height: 40px; padding: 0 10px; border-radius: 10px; font-size: 14px; }
+  .header-nav a::before { display: block; }
+  .header-nav a[aria-current="page"], .header-nav a.is-active { background: var(--fill); }
+  .header-tools { margin: auto 0 0; padding: 12px 6px 0 10px; border-top: 1px solid var(--line-soft); justify-content: space-between; }
+  .header-tools > .dday-chip { order: 0; margin: 0; padding: 0; background: none; }
+  .page-archive .controls { position: sticky; top: 12px; z-index: 30; margin: 0 -10px 12px; padding: 10px; border-radius: 16px;
+    border: 1px solid var(--glass-line); background: var(--glass); box-shadow: var(--glass-shadow);
+    backdrop-filter: blur(20px) saturate(1.8); -webkit-backdrop-filter: blur(20px) saturate(1.8); }
+}
+
+/* 폰: 아래쪽 글래스 탭바 */
+@media (max-width: 700px) {
+  body { padding-bottom: 96px; }
+  .menu-toggle { display: none !important; }
+  .header-nav { display: grid !important; grid-template-columns: repeat(3, 1fr); position: fixed; left: 12px; right: 12px; bottom: calc(14px + env(safe-area-inset-bottom)); z-index: 70;
+    height: 62px; padding: 5px; border-radius: 18px; border: 1px solid var(--glass-line); background: var(--glass); box-shadow: var(--glass-shadow);
+    backdrop-filter: blur(20px) saturate(1.8); -webkit-backdrop-filter: blur(20px) saturate(1.8); }
+  .header-nav a { flex-direction: column; justify-content: center; gap: 3px; height: auto; padding: 0; border-radius: 13px; font-size: 11px; color: var(--ink-4); }
+  .header-nav a::before { display: block; width: 22px; height: 22px; }
+  .header-nav a[aria-current="page"], .header-nav a.is-active { background: var(--fill); color: var(--ink); }
+}
+
+/* 기출검색: 큰 제목은 화면에서만 숨김(검색엔진용 h1 유지) */
+.page-archive .page-header__title, .page-archive .page-header__sub { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+/* 검색창: AI 서비스처럼 색이 도는 테두리 */
+.toolbar .search { border: 1.5px solid transparent; background: linear-gradient(var(--surface), var(--surface)) padding-box, linear-gradient(115deg, var(--ink) 0%, #3d6bd6 38%, #2aa198 70%, var(--ink-4) 100%) border-box; }
+
+/* 회차 = 카드 한 장씩 */
+.results--table { background: none; border: 0; border-radius: 0; overflow: visible; gap: 12px; }
+.results--table > .rgroup { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; }
+.rgroup ~ .rgroup { border-top: 1px solid var(--line); }
+
+/* 과목 줄 버튼: 정답·해설·듣기 = 옅은 채움, 문제지 = 검정 아이콘 */
+.rrow__acts .btn:not(.btn--primary) { background: var(--fill); border-color: transparent; color: var(--ink-2); }
+.rrow__acts .act-q { width: 32px; padding: 0; justify-content: center; }
+.rrow__acts .act-q svg { width: 16px; height: 16px; }
+.act-q .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+/* 필터: 영역 옆 숫자 숨김 */
+.subject-row__count { display: none; }
+.rrow__acts { grid-auto-flow: row dense; }   /* 문제지(아이콘)가 맨 오른쪽 칸이라 앞 버튼이 다음 줄로 밀리지 않게 */
+@media (max-width: 700px) {
+  .rrow__acts .act-q { order: 9; flex: 0 0 32px !important; width: 32px; min-width: 32px; }
+}
+/* 필터 칩·스위치·보기 전환·최근 본 시험도 하얀 테두리 대신 옅은 채움 */
+.pill:not(.is-active), .switch, .tag, .pg-btn:not(.is-active) { background: var(--fill); border-color: transparent; }
+.pill:not(.is-active):hover, .switch:hover, .tag:hover, .pg-btn:not(.is-active):hover { background: var(--fill-hover); border-color: transparent; }
+.pill--more { border-style: solid !important; }
+@media (max-width: 700px) { .rrow__acts .act-l { order: -1; } }   /* 폰도 PC처럼 듣기 · 정답 · 해설 · 받기 순서 */
+.view-toggle { background: var(--fill); border-color: transparent; }
+
+/* 시험 상세: 과목 탭 + 선택과목을 하나로 이어진 세그먼트로 */
+.exam__subjects { background: var(--fill); border-radius: 12px; padding: 3px; }
+.exam__subjects-row, .exam__subjects-row--subs { gap: 3px; border-bottom: 0; margin: 0 !important; padding: 0 !important; }
+.exam__subjects-row--subs { margin-top: 3px !important; padding-top: 3px !important; border-top: 1px solid var(--line); }
+.exam__subjects a, .exam__subjects-row--subs a { flex: 1 0 auto; justify-content: center; min-height: 36px; padding: 0 12px; border: 0; border-radius: 9px; background: none; box-shadow: none; color: var(--ink-3); }
+.exam__subjects-row--subs a { min-height: 32px; font-size: 13px; }
+.exam__subjects a[aria-current="page"], .exam__subjects .exam__subjects-row--subs a[aria-current="page"] { background: var(--surface); color: var(--ink); font-weight: 700; box-shadow: 0 1px 3px rgba(0,0,0,.1); }
+
+/* 학사 일정: 큰 제목은 화면에서 숨김(검색엔진용 h1 유지), 진행 중은 달력 아래 */
+body:has(#calendar) .legal__head .legal__title { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.pl-monthwrap > #ongoingSec { margin-top: 14px; }
+body:has(#calendar) .legal__head { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
