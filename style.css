@@ -1638,3 +1638,33 @@ svg[data-chart].is-kb:focus { outline: 2px solid var(--ink-4); outline-offset: 4
   .exam-dock { transition: none; }
 }
 @media print { html::before { display: none; } .site-header, .more-sheet, .exam-dock, .selbar { display: none !important; } body { padding: 0 !important; } }
+
+/* ── 2차 점검(좁은 미리보기 창에서 발견) ── */
+/* 떠 있는 탭바·막대: 폰에서는 뒤 글자가 비쳐 지저분 → 거의 불투명 */
+@media (max-width: 700px) {
+  .header-nav, .exam-dock, .selbar { background: color-mix(in srgb, var(--surface) 88%, transparent); -webkit-backdrop-filter: blur(24px) saturate(1.8); backdrop-filter: blur(24px) saturate(1.8); }
+  /* 검색 막대: 필터·선택은 아이콘+짧은 글자, 검색창이 가장 넓게 */
+  .topbar { gap: 6px; }
+  .topbar .btn { padding: 0 11px; gap: 5px; font-size: 13.5px; }
+  .select-toggle { min-width: 0; }
+  /* 과목 줄: 지표가 없으면 과목 이름을 버튼과 같은 세로 가운데로 */
+  .rrow { align-items: center; }
+  .rrow:not(:has(.rrow__cut)) .rrow__subj { grid-row: 1 / span 2; }
+  .rrow__subj { align-self: end; }
+  .rrow__meta { align-self: start; }
+  .rrow:not(:has(.rrow__cut)) .rrow__subj { align-self: center; }
+  /* 회차 머리: 제목 한 줄(날짜는 제목에 이미 있음) */
+  .rgroup__date { display: none; }
+  .rgroup__title { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .rgroup__head > .rgroup__title + .rgroup__all, .rgroup__date + .rgroup__all { margin-left: 0; }
+}
+@media (max-width: 400px) {
+  .topbar .filter-toggle-inline__label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+  .topbar .filter-toggle-inline { width: 44px; padding: 0; }
+}
+/* 상세(1179 이하): 받기 버튼은 머리 아래 한 줄로(문단 옆에 떠 있지 않게) */
+@media (max-width: 1179px) {
+  .exam__top { flex-direction: column; align-items: stretch; gap: 12px; }
+  .exam__head { flex: none; }
+  .exam__actions { justify-content: flex-start; }
+}
