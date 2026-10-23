@@ -84,7 +84,6 @@
   --glass-clear-shadow: inset 1.5px 1.5px 1px -.5px rgba(255,255,255,.95), inset -1px -1px 1px -.5px rgba(255,255,255,.7), inset 0 0 14px rgba(255,255,255,.35), inset 0 -8px 16px -10px rgba(0,0,0,.08), 0 0 0 .5px rgba(0,0,0,.08), 0 6px 18px -6px rgba(0,0,0,.16), 0 20px 40px -24px rgba(30,50,110,.3);
   --glass-chip: rgba(255, 255, 255, .64); --glass-chip-hover: rgba(255, 255, 255, .86);
   --glass-chip-shadow: inset 0 1px 0 rgba(255,255,255,.9), inset 0 0 0 .5px rgba(255,255,255,.6), 0 1px 3px rgba(0,0,0,.08);
-  --glass-glow: radial-gradient(38% 90% at 22% 55%, rgba(61,107,214,.30), transparent 70%), radial-gradient(34% 90% at 52% 40%, rgba(42,161,152,.22), transparent 70%), radial-gradient(32% 90% at 82% 60%, rgba(124,92,214,.22), transparent 70%);
   --glass-well-shadow: inset 0 1px 2px rgba(0,0,0,.07), inset 0 0 0 .5px rgba(0,0,0,.06), 0 1px 0 rgba(255,255,255,.85);
 
   --shadow: 0 1px 2px rgba(20,20,20,.04), 0 8px 24px -14px rgba(20,20,20,.16);
@@ -133,7 +132,6 @@
      --glass-clear: rgba(255,255,255,.05); --glass-clear-focus: rgba(255,255,255,.1); --glass-clear-blur: blur(6px) saturate(1.6) brightness(.95);
     --glass-clear-shadow: inset 1.5px 1.5px 1px -.5px rgba(255,255,255,.35), inset -1px -1px 1px -.5px rgba(255,255,255,.18), inset 0 0 14px rgba(255,255,255,.05), 0 0 0 .5px rgba(0,0,0,.6), 0 10px 30px -10px rgba(0,0,0,.7);
     --glass-chip: rgba(52,52,58,.72); --glass-chip-hover: rgba(66,66,72,.8); --glass-chip-shadow: inset 0 1px 0 rgba(255,255,255,.12), inset 0 0 0 .5px rgba(255,255,255,.06);
-    --glass-glow: radial-gradient(38% 90% at 22% 55%, rgba(80,130,255,.32), transparent 70%), radial-gradient(34% 90% at 52% 40%, rgba(42,180,165,.22), transparent 70%), radial-gradient(32% 90% at 82% 60%, rgba(150,110,255,.26), transparent 70%);
    --glass-well: rgba(0,0,0,.28); --glass-well-shadow: inset 0 1px 2px rgba(0,0,0,.35), inset 0 0 0 .5px rgba(255,255,255,.06), 0 1px 0 rgba(255,255,255,.05);
     --shadow: 0 1px 2px rgba(0,0,0,.3), 0 12px 32px -16px rgba(0,0,0,.6);
     --sh-paper: 0 5px 30px rgba(0,0,0,.5); --sh-lift: 0 1px 3px rgba(0,0,0,.4);
@@ -169,7 +167,6 @@
      --glass-clear: rgba(255,255,255,.05); --glass-clear-focus: rgba(255,255,255,.1); --glass-clear-blur: blur(6px) saturate(1.6) brightness(.95);
     --glass-clear-shadow: inset 1.5px 1.5px 1px -.5px rgba(255,255,255,.35), inset -1px -1px 1px -.5px rgba(255,255,255,.18), inset 0 0 14px rgba(255,255,255,.05), 0 0 0 .5px rgba(0,0,0,.6), 0 10px 30px -10px rgba(0,0,0,.7);
     --glass-chip: rgba(52,52,58,.72); --glass-chip-hover: rgba(66,66,72,.8); --glass-chip-shadow: inset 0 1px 0 rgba(255,255,255,.12), inset 0 0 0 .5px rgba(255,255,255,.06);
-    --glass-glow: radial-gradient(38% 90% at 22% 55%, rgba(80,130,255,.32), transparent 70%), radial-gradient(34% 90% at 52% 40%, rgba(42,180,165,.22), transparent 70%), radial-gradient(32% 90% at 82% 60%, rgba(150,110,255,.26), transparent 70%);
    --glass-well: rgba(0,0,0,.28); --glass-well-shadow: inset 0 1px 2px rgba(0,0,0,.35), inset 0 0 0 .5px rgba(255,255,255,.06), 0 1px 0 rgba(255,255,255,.05);
   --shadow: 0 1px 2px rgba(0,0,0,.3), 0 12px 32px -16px rgba(0,0,0,.6);
   --sh-paper: 0 5px 30px rgba(0,0,0,.5); --sh-lift: 0 1px 3px rgba(0,0,0,.4);
@@ -1833,12 +1830,6 @@ html:not(.is-ready-motion) .switch__knob, html:not(.is-ready-motion) .switch__kn
 @media (min-width: 701px) {
   .site-header__inner { padding-top: 11px; }
 }
-@media (min-width: 701px) {
-  /* 막대 뒤 빛 — 맑은 유리가 휘고 비칠 거리를 준다(5차에서 없앤 띠 자리를 빛으로) */
-  .topbar-wrap::before { content: ''; position: absolute; z-index: -1; left: 2%; right: 2%; top: -6px; bottom: auto; height: 96px; border-radius: 48px; pointer-events: none;
-    background: var(--glass-glow); filter: blur(28px); opacity: .85; }
-}
 @media (min-width: 1180px) {
   .topbar-wrap { padding-top: 16px; }
-  .topbar-wrap::before { top: -2px; }
 }
