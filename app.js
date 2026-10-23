@@ -1792,11 +1792,11 @@ document.querySelector('.view-toggle')?.addEventListener('click', e => {
 });
 syncViewToggle();
 
-// 아주 좁은 화면(360px 미만)에선 검색 안내 문구가 잘리므로 짧게
+// 좁은 화면에선 검색 안내 문구가 잘리므로 짧게(폰은 한 가지 예만, 360px 미만은 '검색')
 {
-  const mq = matchMedia('(max-width: 359px)'), full = $('searchInput').placeholder;
-  const apply = () => { $('searchInput').placeholder = mq.matches ? '검색' : full; };
-  mq.addEventListener?.('change', apply); apply();
+  const tiny = matchMedia('(max-width: 359px)'), phone = matchMedia('(max-width: 700px)'), full = $('searchInput').placeholder;
+  const apply = () => { $('searchInput').placeholder = tiny.matches ? '검색' : phone.matches ? '예: 26수능 수학, 9모 언매' : full; };
+  tiny.addEventListener?.('change', apply); phone.addEventListener?.('change', apply); apply();
 }
 
 // ── 최근 본 시험 (이 기기에 저장된 것만) ─────────────────────

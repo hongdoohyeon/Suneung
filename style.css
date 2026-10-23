@@ -96,7 +96,6 @@
   --ease: cubic-bezier(.4,0,.2,1);
   --t: 160ms var(--ease);
   --mono: 'Geist Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
-  --ai-ring-soft: linear-gradient(115deg, rgba(61,107,214,.85), rgba(42,161,152,.75) 55%, rgba(61,107,214,.2));
   --ai-ring: linear-gradient(115deg, var(--ink) 0%, #3d6bd6 38%, #2aa198 70%, var(--ink-4) 100%);
   color-scheme: light;
 }
@@ -595,7 +594,7 @@ a.dday-chip:hover { background: var(--fill); }
 #archiveUpdateDate { min-width: 6.1em; }
 
 /* 검색 막대 — 글래스 판 위에 오목하게 판 입력 우물. 판과 같은 중심의 둥근 모서리(판 18 − 안쪽 여백 8 = 10).
-   AI 검색 느낌은 우물 테두리에만 얇게 도는 빛으로 */
+   우물 테두리에는 다른 유리와 같은 비스듬한 빛 테(--glass-spec)만 */
 .topbar-wrap { width: 100%; max-width: var(--max-w); margin: 0 auto; padding: 14px 28px 0; }
 .topbar { position: relative; display: flex; align-items: center; gap: 8px; }
 .search {
@@ -603,10 +602,9 @@ a.dday-chip:hover { background: var(--fill); }
   border-radius: var(--r-md); color: var(--ink-4); background: var(--glass-well); box-shadow: var(--glass-well-shadow);
   transition: background-color .18s, box-shadow .18s;
 }
-.search::before { content: ''; position: absolute; inset: 0; border-radius: inherit; padding: 1.25px; background: var(--ai-ring-soft); opacity: .7; pointer-events: none;
-  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0); transition: opacity .18s; }
+.search::before { content: ''; position: absolute; inset: 0; border-radius: inherit; padding: 1px; background: var(--glass-spec); pointer-events: none;
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0); }
 .search:focus-within { background: var(--surface); box-shadow: var(--glass-well-shadow), 0 0 0 4px color-mix(in srgb, #3d6bd6 14%, transparent); }
-.search:focus-within::before { opacity: 1; }
 .search__icon { flex: none; color: var(--ink); }
 .search input { flex: 1; min-width: 0; height: 100%; border: 0; outline: 0; background: none; font-size: 15px; font-weight: 500; color: var(--ink); }
 .search input::placeholder { color: var(--ink-4); }
@@ -1793,4 +1791,18 @@ html:not(.is-ready-motion) .switch__knob, html:not(.is-ready-motion) .switch__kn
 .selbar, .exam-dock, .preview__loading-action { border-color: transparent; }
 @media (prefers-reduced-transparency: reduce) {
   :root { --glass: var(--surface); }
+}
+
+/* ── 폰 위쪽 유리 ──
+   머리줄·검색·탭을 한 장의 유리로 덮는다(목록이 밑으로 지나가면 흐리게 비친다). 유리는 검색 막대의 ::before 한 장이
+   위로 머리줄, 아래로 탭 줄까지 뻗어 이음매가 없다. 머리줄에 직접 흐림을 주면 안의 고정 탭바가 머리줄에 갇혀서 이렇게 한다 */
+@media (max-width: 700px) {
+  body:has(.topbar-wrap) .site-header { background: transparent; z-index: 82; }
+  .topbar-wrap { background: transparent; isolation: isolate; }
+  .curriculum-nav { background: transparent; z-index: 81; }
+  .topbar-wrap::before { content: ''; position: absolute; z-index: -1; left: 0; right: 0; top: calc(-1 * var(--header-h)); bottom: -43px;
+    background: color-mix(in srgb, var(--bg) 80%, transparent); -webkit-backdrop-filter: blur(20px) saturate(1.8); backdrop-filter: blur(20px) saturate(1.8); }
+  .curriculum-nav::before { background: color-mix(in srgb, var(--ink) 10%, transparent); }
+  /* 검색 우물·버튼: 유리 위에 얹힌 같은 높이의 알 */
+  .topbar .btn { box-shadow: var(--glass-btn-shadow); }
 }
