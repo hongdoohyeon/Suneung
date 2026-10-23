@@ -79,8 +79,8 @@
   --glass-btn-hover: rgba(255, 255, 255, .92);
   --glass-btn-shadow: inset 0 1px 0 rgba(255,255,255,.95), 0 0 0 .5px rgba(0,0,0,.05), 0 1px 3px rgba(0,0,0,.06);
   --glass-well: rgba(255, 255, 255, .66);
-  --glass-clear: rgba(255, 255, 255, .24); --glass-clear-focus: rgba(255, 255, 255, .5);
-  --glass-clear-blur: blur(6px) saturate(1.8) brightness(1.06);
+  --glass-clear: rgba(255, 255, 255, .44); --glass-clear-focus: rgba(255, 255, 255, .62);
+  --glass-clear-blur: blur(14px) saturate(1.8) brightness(1.05);
   --glass-clear-shadow: inset 1.5px 1.5px 1px -.5px rgba(255,255,255,.95), inset -1px -1px 1px -.5px rgba(255,255,255,.7), inset 0 0 14px rgba(255,255,255,.35), inset 0 -8px 16px -10px rgba(0,0,0,.08), 0 0 0 .5px rgba(0,0,0,.08), 0 6px 18px -6px rgba(0,0,0,.16), 0 20px 40px -24px rgba(30,50,110,.3);
   --glass-chip: rgba(255, 255, 255, .64); --glass-chip-hover: rgba(255, 255, 255, .86);
   --glass-chip-shadow: inset 0 1px 0 rgba(255,255,255,.9), inset 0 0 0 .5px rgba(255,255,255,.6), 0 1px 3px rgba(0,0,0,.08);
@@ -129,7 +129,7 @@
     --glass-blur: blur(12px) saturate(1.7) brightness(.92);
     --glass-spec: linear-gradient(135deg, rgba(255,255,255,.3) 0%, rgba(255,255,255,.05) 22%, rgba(255,255,255,0) 45%, rgba(255,255,255,0) 72%, rgba(255,255,255,.16) 100%);
     --glass-btn: rgba(70,70,76,.72); --glass-btn-hover: rgba(84,84,90,.8); --glass-btn-shadow: inset 0 1px 0 rgba(255,255,255,.1), 0 0 0 .5px rgba(0,0,0,.4);
-     --glass-clear: rgba(255,255,255,.05); --glass-clear-focus: rgba(255,255,255,.1); --glass-clear-blur: blur(6px) saturate(1.6) brightness(.95);
+     --glass-clear: rgba(34,34,38,.42); --glass-clear-focus: rgba(44,44,48,.52); --glass-clear-blur: blur(14px) saturate(1.6) brightness(.95);
     --glass-clear-shadow: inset 1.5px 1.5px 1px -.5px rgba(255,255,255,.35), inset -1px -1px 1px -.5px rgba(255,255,255,.18), inset 0 0 14px rgba(255,255,255,.05), 0 0 0 .5px rgba(0,0,0,.6), 0 10px 30px -10px rgba(0,0,0,.7);
     --glass-chip: rgba(52,52,58,.72); --glass-chip-hover: rgba(66,66,72,.8); --glass-chip-shadow: inset 0 1px 0 rgba(255,255,255,.12), inset 0 0 0 .5px rgba(255,255,255,.06);
    --glass-well: rgba(0,0,0,.28); --glass-well-shadow: inset 0 1px 2px rgba(0,0,0,.35), inset 0 0 0 .5px rgba(255,255,255,.06), 0 1px 0 rgba(255,255,255,.05);
@@ -164,7 +164,7 @@
     --glass-blur: blur(12px) saturate(1.7) brightness(.92);
     --glass-spec: linear-gradient(135deg, rgba(255,255,255,.3) 0%, rgba(255,255,255,.05) 22%, rgba(255,255,255,0) 45%, rgba(255,255,255,0) 72%, rgba(255,255,255,.16) 100%);
     --glass-btn: rgba(70,70,76,.72); --glass-btn-hover: rgba(84,84,90,.8); --glass-btn-shadow: inset 0 1px 0 rgba(255,255,255,.1), 0 0 0 .5px rgba(0,0,0,.4);
-     --glass-clear: rgba(255,255,255,.05); --glass-clear-focus: rgba(255,255,255,.1); --glass-clear-blur: blur(6px) saturate(1.6) brightness(.95);
+     --glass-clear: rgba(34,34,38,.42); --glass-clear-focus: rgba(44,44,48,.52); --glass-clear-blur: blur(14px) saturate(1.6) brightness(.95);
     --glass-clear-shadow: inset 1.5px 1.5px 1px -.5px rgba(255,255,255,.35), inset -1px -1px 1px -.5px rgba(255,255,255,.18), inset 0 0 14px rgba(255,255,255,.05), 0 0 0 .5px rgba(0,0,0,.6), 0 10px 30px -10px rgba(0,0,0,.7);
     --glass-chip: rgba(52,52,58,.72); --glass-chip-hover: rgba(66,66,72,.8); --glass-chip-shadow: inset 0 1px 0 rgba(255,255,255,.12), inset 0 0 0 .5px rgba(255,255,255,.06);
    --glass-well: rgba(0,0,0,.28); --glass-well-shadow: inset 0 1px 2px rgba(0,0,0,.35), inset 0 0 0 .5px rgba(255,255,255,.06), 0 1px 0 rgba(255,255,255,.05);
@@ -629,7 +629,7 @@ a.dday-chip:hover { background: var(--fill); }
 @media (min-width: 701px) {
   .topbar-wrap { position: sticky; top: 12px; z-index: 40; padding-top: 12px; }
   /* PC·패드 검색 막대 = 맑은 유리 한 장. 우물·버튼 바탕 없이 판 하나에 검색과 버튼이 얹힌다.
-     흐림은 아주 약하게(뒤가 비친다), 가장자리 굴절(lib/site-prefs.js)과 빛 테가 유리를 만든다 */
+     뒤는 흐리게 비치고, 빛 테와 안쪽 하이라이트가 유리 두께를 만든다 */
   .topbar { padding: 8px; border-radius: var(--r-xl); background: var(--glass-clear); box-shadow: var(--glass-clear-shadow); -webkit-backdrop-filter: var(--glass-clear-blur); backdrop-filter: var(--glass-clear-blur); transition: background-color .18s; }
   .topbar:focus-within { background: var(--glass-clear-focus); }
   .topbar .search { height: 40px; background: none; box-shadow: none; }
@@ -1788,7 +1788,7 @@ html:not(.is-ready-motion) .switch__knob, html:not(.is-ready-motion) .switch__kn
 @media (min-width: 701px) and (max-width: 1179px) { .header-tools > .theme-toggle { margin: 0 auto; } .header-tools { justify-content: flex-end; min-height: 96px; } }
 
 /* ── 리퀴드 글래스 공통 ──
-   떠 있는 판마다 비스듬한 빛 테(--glass-spec)를 1px 고리로 얹는다. 크롬 계열은 lib/site-prefs.js 가 가장자리 굴절(렌즈)까지 더한다 */
+   떠 있는 판마다 비스듬한 빛 테(--glass-spec)를 1px 고리로 얹는다. (SVG 굴절 렌즈는 크롬 155 backdrop 에서 feImage 가 막혀 흐림까지 사라지므로 쓰지 않는다) */
 .topbar::after, .selbar::before, .exam-dock::before, .preview__loading-action::before { content: ''; position: absolute; inset: 0; border-radius: inherit; padding: 1px; background: var(--glass-spec); pointer-events: none;
   -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0); }
 @media (max-width: 700px) {
