@@ -36,6 +36,8 @@ const tabAvailableTypeGroups = () => {
 };
 // 탭이 단일 typeGroup + 모든 curriculum 이 singleType 일 때 → typeGroup 칩 숨김
 // educationOnly 탭도 단일 typeGroup이므로 칩 숨김.
+// 탭에 기관(typeGroup)이 하나뿐(고1·2=교육청, 검정고시) — 기관 칩 대신 그 기관의 세부(월·회차)만 보여 준다
+const tabIsSingleGroup = () => tabAvailableTypeGroups().length === 1;
 const tabIsSingleType = () => {
   const tgs = tabAvailableTypeGroups();
   if (tgs.length !== 1) return false;
@@ -180,7 +182,7 @@ function applyUrlState() {
   centerActiveTab();
 
   // 탭 변경 후 default typeGroup 적용 — URL에 typeGroup 명시되어 있으면 곧 덮어씀
-  if (tabIsSingleType()) {
+  if (tabIsSingleGroup()) {
     state.typeGroup = tabAvailableTypeGroups()[0];
     state.type      = 'all';
   } else if (tabConf()?.defaultTypeGroup) {
@@ -418,7 +420,7 @@ async function loadTabUrls(tab, list) {
       a.setAttribute('download', name || '');
       a.removeAttribute('data-f');
       if (key === 'solutionUrl' && e.questionUrl === e.solutionUrl) a.remove();              // 문제지와 해설이 한 파일이면 해설 버튼은 없앤다
-      if (key === 'questionUrl' && e.questionUrl === e.solutionUrl) a.textContent = '문제·해설';
+      if (key === 'questionUrl' && e.questionUrl === e.solutionUrl) { a.title = '문제·해설 받기'; a.querySelector('.sr').textContent = '문제·해설'; }   // 아이콘은 그대로
     });
   } catch { /* 주소를 못 받아도 상세 페이지 링크로 쓸 수 있다 */ }
 }
@@ -484,7 +486,7 @@ async function loadExams() {
   const initialTab = tabFromLocation();
   state.tab = initialTab;
   // 데이터 도착 전에 기본 필터 칩·배지를 먼저 그려 늦게 튀어나오는 흔들림을 없앤다
-  if (tabIsSingleType()) state.typeGroup = tabAvailableTypeGroups()[0];
+  if (tabIsSingleGroup()) state.typeGroup = tabAvailableTypeGroups()[0];
   else if (tabConf()?.defaultTypeGroup) state.typeGroup = tabConf().defaultTypeGroup;
   renderActiveTags();
   updateFilterBadge();
@@ -592,7 +594,7 @@ async function switchTab(tab) {
   $('searchInput').value = '';
   $('clearSearch').style.display = 'none';
 
-  if (tabIsSingleType()) {
+  if (tabIsSingleGroup()) {
     state.typeGroup = tabAvailableTypeGroups()[0];
     state.type      = 'all';
   } else if (tabConf()?.defaultTypeGroup) {
@@ -628,7 +630,7 @@ function renderFilterPanel() {
   renderSubtypeChips();
   // '시험' 섹션은 typeGroup 칩 또는 세부유형(월) 칩이 하나라도 있을 때만 노출.
   // 종전에는 educationOnly 탭(고1/고2)에서 블록째 숨겨 월 필터까지 사라졌음.
-  const hasGroupChips = !tabIsSingleType();
+  const hasGroupChips = !tabIsSingleGroup();
   const hasTypeChips  = $('subtypeRow').classList.contains('is-open');
   $('typeGroupBlock').style.display = (hasGroupChips || hasTypeChips) ? '' : 'none';
 
@@ -664,7 +666,8 @@ function renderLevelChips() {
   $('levelBlock').hidden = !sibs.length;
   if (!sibs.length) { $('levelFilter').innerHTML = ''; return; }
   $('levelTitle').textContent = getTabConf(navTabKey(state.tab)).navGroup.title;
-  $('levelFilter').innerHTML = sibs.map(t => pill(t.key, t.levelLabel, t.key === state.tab)).join('');
+  const order = sibs[0]?.levelLabel?.startsWith('고') && /\d/.test(sibs[0].levelLabel) ? [...sibs].sort((a, b) => a.levelLabel.localeCompare(b.levelLabel)) : sibs;   // 고1 → 고2
+  $('levelFilter').innerHTML = order.map(t => pill(t.key, t.levelLabel, t.key === state.tab)).join('');
 }
 $('levelFilter').addEventListener('click', e => {
   const btn = e.target.closest('.pill');
@@ -675,7 +678,7 @@ $('levelFilter').addEventListener('click', e => {
 // ── 시험 주최 (그룹 pill) ──────────────────────────────────
 function renderTypeGroupChips() {
   const container = $('typeGroupFilter');
-  if (tabIsSingleType()) { container.innerHTML = ''; return; }
+  if (tabIsSingleGroup()) { container.innerHTML = ''; return; }
 
   const allowed = tabAvailableTypeGroups();
   const groups = EXAM_TYPE_CONFIG.filter(g => allowed.includes(g.groupKey));
@@ -1019,7 +1022,7 @@ function applySheet(open, trigger = null) {
     panel.setAttribute('role', 'region');
     panel.removeAttribute('aria-modal');
   }
-  for (const el of [document.querySelector('.site-header'), document.querySelector('.curriculum-nav'), document.querySelector('.content')]) {
+  for (const el of [document.querySelector('.site-header'), document.querySelector('.topbar-wrap'), document.querySelector('.curriculum-nav'), document.querySelector('.content')]) {
     if (el) el.inert = open;
   }
 
@@ -1035,10 +1038,19 @@ function applySheet(open, trigger = null) {
 function isSheetOpen() {
   return $('filterPanel').classList.contains('is-open');
 }
-function toggleFilter(e) { setSheetOpen(!isSheetOpen(), e?.currentTarget); }
+function toggleFilter(e) {
+  // 넓은 화면(≥961): 왼쪽 필터 카드를 접고 편다(서랍 없음). 좁은 화면: 바텀시트
+  if (window.matchMedia('(min-width: 961px)').matches) {
+    const hidden = document.querySelector('.main')?.classList.toggle('filters-hidden');
+    $('filterToggleInline')?.setAttribute('aria-expanded', String(!hidden));
+    return;
+  }
+  setSheetOpen(!isSheetOpen(), e?.currentTarget);
+}
 
 $('filterToggle')?.addEventListener('click', toggleFilter);
 $('filterToggleInline')?.addEventListener('click', toggleFilter);
+if (window.matchMedia('(min-width: 961px)').matches) $('filterToggleInline')?.setAttribute('aria-expanded', 'true');   // 넓은 화면은 필터가 펼쳐진 채로 시작
 $('filterSheetClose')?.addEventListener('click', () => setSheetOpen(false));
 $('filterBackdrop')?.addEventListener('click',  () => setSheetOpen(false));
 $('filterSheetApply')?.addEventListener('click', () => setSheetOpen(false));
@@ -1225,17 +1237,18 @@ function scoreCells(e) {
   const loading = !cutsIndex && cutsRequested;
   if (!c) {
     const na = loading ? '' : '—';
-    return { has: false, cut: `<span class="rrow__na">${na}</span>`, tier: '', cutInline: '' };
+    return { has: false, cut: `<span class="rrow__na">${na}</span>`, top: `<span class="rrow__na">${na}</span>`, tier: '', cutInline: '' };
   }
   const [raw, top, tier, abs, ratio] = c;
   // 영어(절대평가)는 90점 기준은 공개 정보, 1등급 비율과 그에 따른 난이도만 스포일러
   const cut = abs
     ? `<span class="rrow__cut">${raw}점${ratio != null ? `<small class="rrow__ratio spoil-val">(${ratio}%)</small>` : ''}</span>`   // 예: 90점(15.54%) — 비율은 1등급 비율
-    : `<span class="rrow__cut spoil-val">${raw}${top != null ? `<small>최고표점 ${top}</small>` : ''}</span>`;
+    : `<span class="rrow__cut spoil-val">${raw}</span>`;
+  const topHtml = top != null ? `<span class="rrow__top spoil-val">${top}</span>` : '<span class="rrow__na">—</span>';
   const tierHtml = tier
     ? `<span class="tier tier--${tier} spoil-val">${TIER_LABEL[tier]}</span>`
     : (abs ? '<span class="tier tier--na">절대평가</span>' : '');
-  return { has: true, cut, tier: tierHtml, cutInline: `<span class="card__sub spoil-val">1컷 ${raw}</span>` };
+  return { has: true, cut, top: topHtml, tier: tierHtml, cutInline: `<span class="card__sub spoil-val">1컷 ${raw}</span>` };
 }
 
 // 목록 데이터에는 파일 주소 대신 "있음(1)" 표시만 들어 있다 — 실제 주소(.urls.json)가 도착하기 전에는 상세 페이지로 연결한다.
@@ -1246,25 +1259,26 @@ const dlAttr = (exam, key, name) => `data-ga-subject="${escAttr(exam.subSubject 
 
 // 데스크톱 자료 칸: 회차 묶음 안에 있는 버튼 종류만 고정 폭 칸으로(13px 글자 기준 실측) — actionsHTML 의 act-* 와 짝
 function actsColumns(items) {
-  const has = { q: false, a: false, s: false, l: false }, wide = { q: false, a: false };
+  const has = { q: false, a: false, s: false, l: false }, wide = { a: false };
   for (const e of items) {
     if (e.searchOnly) { has.q = has.a = true; continue; }
     const sameQS = typeof e.questionUrl === 'string' && e.questionUrl === e.solutionUrl;
-    if (fileUrl(e, 'questionUrl')) { has.q = true; if (sameQS) wide.q = true; }
+    if (fileUrl(e, 'questionUrl')) has.q = true;
     if (fileUrl(e, 'answerUrl')) { has.a = true; if (e.answerIncludesSolution) wide.a = true; }
     if (fileUrl(e, 'solutionUrl') && !sameQS) has.s = true;
     if (fileUrl(e, 'listenUrl')) has.l = true;
   }
-  const w = { q: wide.q ? 73 : 58, a: wide.a ? 73 : 58, s: 58, l: 58 };   // 버튼 폭 통일 — 글자 수가 달라도 같은 크기
-  return ['q', 'a', 's', 'l'].filter(k => has[k]).map(k => `[${k}] ${w[k]}px`).join(' ') || 'auto';
+  const w = { q: 32, a: wide.a ? 72 : 48, s: 48, l: 48 };   // 문제지 = 아이콘 칸, 나머지는 글자 버튼 — 같은 종류는 같은 폭
+  return ['l', 'a', 's', 'q'].filter(k => has[k]).map(k => `[${k}] ${w[k]}px`).join(' ') || 'auto';
 }
 
+const DL_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11m-5-5 5 5 5-5M5 20h14"/></svg>';
 function actionsHTML(exam) {
   if (exam.searchOnly) return `<a class="btn btn--primary act-all" href="exam-${exam.id}.html">자료 보기</a>`;
   const out = [];
   const q = fileUrl(exam, 'questionUrl'), a = fileUrl(exam, 'answerUrl'), s = fileUrl(exam, 'solutionUrl'), l = fileUrl(exam, 'listenUrl');
   const sameQS = typeof exam.questionUrl === 'string' && exam.questionUrl === exam.solutionUrl;
-  if (q) out.push(`<a class="btn btn--primary act-q" href="${escAttr(q)}" ${dlAttr(exam, 'questionUrl', exam.questionDownload)}>${sameQS ? '문제·해설' : '문제지'}</a>`);
+  if (q) out.push(`<a class="btn btn--primary act-q" href="${escAttr(q)}" title="${sameQS ? '문제·해설' : '문제지'} 받기" ${dlAttr(exam, 'questionUrl', exam.questionDownload)}>${DL_ICON}<span class="sr">${sameQS ? '문제·해설' : '문제지'}</span></a>`);
   if (a) out.push(`<a class="btn act-a" href="${escAttr(a)}" ${dlAttr(exam, 'answerUrl', exam.answerDownload)}>${exam.answerIncludesSolution ? '정답·해설' : '정답'}</a>`);
   if (s && !sameQS) out.push(`<a class="btn act-s" href="${escAttr(s)}" ${dlAttr(exam, 'solutionUrl', exam.solutionDownload)}>해설</a>`);
   if (l) out.push(`<a class="btn act-l" href="${escAttr(l)}" ${dlAttr(exam, 'listenUrl', exam.listenDownload)}>듣기</a>`);
@@ -1378,9 +1392,10 @@ function tableHTML(groups) {
       <header class="rgroup__head">
         <span class="type-badge type-badge--lg tg-${escAttr(first.typeGroup)}${first.type === 'csat' ? ' tg-csat' : ''}">${escHtml(badgeLabel(first))}</span>
         <h2 class="rgroup__title">${setHref ? `<a href="${escAttr(setHref)}">${escHtml(title)}</a>` : escHtml(title)}</h2>
+        ${first.examYear && first.month ? `<span class="rgroup__date">${first.examYear}.${String(first.month).padStart(2, '0')}</span>` : ''}
         <button type="button" class="rgroup__all rgroup__fold" aria-expanded="${!folded}" aria-label="${escAttr(title)} ${folded ? '펼치기' : '접기'}">${foldChev}</button>
       </header>
-      <div class="rrow rrow--head" aria-hidden="true"><span>과목</span><span>1등급컷</span><span>난이도</span><span>자료</span></div>
+      <div class="rrow rrow--head" aria-hidden="true"><span>과목</span><span>1등급컷</span><span>최고 표점</span><span>난이도</span><span></span></div>
       ${body}
     </section>${ad}`;
   }).join('');
@@ -1394,7 +1409,7 @@ function rowHTML(e, inFold = false) {
   return `<div class="rrow${pick ? ' rrow--pick' : ''}">
     ${pick ? checkboxHTML(e.id, name, 'rrow__link') : `<a class="rrow__link" href="exam-${e.id}.html" aria-label="${escAttr(name + ' 상세 보기')}"></a>`}
     <span class="rrow__subj">${escHtml(main)}${sub ? `<small>${escHtml(sub)}</small>` : ''}</span>
-    <span class="rrow__meta">${sc.cut}<span class="rrow__tier">${sc.tier}</span></span>
+    <span class="rrow__meta"><span class="rrow__k">${e.subject === '영어' || e.subject === '한국사' ? '1등급' : '1컷'}</span>${sc.cut}<span class="rrow__k">최고</span>${sc.top}<span class="rrow__tier">${sc.tier}</span></span>
     <span class="rrow__acts">${actionsHTML(e)}</span>
   </div>`;
 }
@@ -1471,7 +1486,7 @@ function renderActiveTags() {
   const isSingle = tabIsSingleType();
 
   // singleType 탭에서는 타입그룹/타입이 자동 선택이므로 태그 노출 생략
-  if (state.typeGroup !== 'all' && !isSingle) {
+  if (state.typeGroup !== 'all' && !isSingle && !tabIsSingleGroup()) {
     const g = getGroupConf(state.typeGroup);
     tags.push({ label: g?.groupLabel ?? state.typeGroup, key: 'typeGroup' });
   }
@@ -1577,7 +1592,7 @@ function resetAll() {
   $('searchInput').value = '';
   $('clearSearch').style.display = 'none';
 
-  if (tabIsSingleType()) {
+  if (tabIsSingleGroup()) {
     state.typeGroup = tabAvailableTypeGroups()[0];
     state.type      = 'all';
   }
@@ -1777,11 +1792,11 @@ document.querySelector('.view-toggle')?.addEventListener('click', e => {
 });
 syncViewToggle();
 
-// 아주 좁은 화면(360px 미만)에선 검색 안내 문구가 잘리므로 짧게
+// 좁은 화면에선 검색 안내 문구가 잘리므로 짧게(폰은 한 가지 예만, 360px 미만은 '검색')
 {
-  const mq = matchMedia('(max-width: 359px)'), full = $('searchInput').placeholder;
-  const apply = () => { $('searchInput').placeholder = mq.matches ? '검색' : full; };
-  mq.addEventListener?.('change', apply); apply();
+  const tiny = matchMedia('(max-width: 359px)'), phone = matchMedia('(max-width: 700px)'), full = $('searchInput').placeholder;
+  const apply = () => { $('searchInput').placeholder = tiny.matches ? '검색' : phone.matches ? '예: 26수능 수학, 9모 언매' : full; };
+  tiny.addEventListener?.('change', apply); phone.addEventListener?.('change', apply); apply();
 }
 
 // ── 최근 본 시험 (이 기기에 저장된 것만) ─────────────────────
