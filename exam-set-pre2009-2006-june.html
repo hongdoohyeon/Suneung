@@ -48,7 +48,7 @@
 
   <!-- ── Header ─────────────────────────────────────────── -->
   <header class="site-header">
-    <div class="container site-header__inner">
+    <div class="site-header__inner">
       <a href="/" class="brand" aria-label="기출해체분석기 홈">
         <span class="brand__mark" aria-hidden="true">
           <svg viewBox="0 0 32 32" width="28" height="28" fill="none">
@@ -59,39 +59,34 @@
           </svg>
         </span>
         <span class="brand__name">기출해체분석기</span>
-        <span class="brand__sub">kicegg</span>
       </a>
       <nav class="header-nav" aria-label="주요 메뉴">
-        <a href="/">기출검색</a>
-        <a href="calendar.html">학사 일정</a>
-        <a href="blog.html">블로그</a>
+        <a href="/" aria-current="page"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><rect x="5" y="3" width="13" height="17" rx="2.5"/><path d="M8.5 8h6M8.5 11.5h6M8.5 15h3.5M18 6.5h1a1.5 1.5 0 0 1 1.5 1.5v12a1.5 1.5 0 0 1-1.5 1.5H8"/></svg><span>기출검색</span></a>
+        <a href="soon.html#items" class="is-soon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><rect x="3.5" y="5" width="17" height="14" rx="2.5"/><path d="M7.5 9.5h1.5M11.5 9.5h5M7.5 13.5h9"/></svg><span>문항 검색</span><em>준비 중</em></a>
+        <a href="soon.html#builder" class="is-soon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><rect x="4" y="3.5" width="11" height="13" rx="2"/><path d="M9 9.5v-.5a2 2 0 0 1 2-2h7a2 2 0 0 1 2 2v9.5a2 2 0 0 1-2 2h-7a2 2 0 0 1-2-2"/><path d="M14.5 12v5M12 14.5h5"/></svg><span>시험지 만들기</span><em>준비 중</em></a>
+        <a href="calendar.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15.5" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/><rect x="13" y="13.5" width="4" height="3.5" rx=".8" fill="currentColor" stroke="none"/></svg><span>학사 일정</span></a>
+        <button type="button" class="menu-toggle header-nav__more" aria-controls="moreSheet" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="5" cy="12" r="1.3"/><circle cx="12" cy="12" r="1.3"/><circle cx="19" cy="12" r="1.3"/></svg><span>더보기</span></button>
+      </nav>
+      <nav class="side-links" aria-label="더 보기">
+        <p class="side-links__label">더 보기</p>
+        <a href="blog.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><path d="M4 20h4L19 9l-4-4L4 16z"/><path d="m13.5 6.5 4 4"/></svg><span>블로그</span></a>
+        <a href="about.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 11v5.5M12 7.8v.2"/></svg><span>소개</span></a>
       </nav>
       <div class="header-tools">
-        <form class="header-search" action="./" method="get" role="search">
-          <button type="submit" class="header-search__btn" aria-label="기출 검색"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></button>
-          <input type="search" name="q" placeholder="기출 검색" aria-label="기출 검색어" autocomplete="off" enterkeyhint="search" />
-        </form>
-        <a class="icon-btn header-search--icon" href="./?focus=search" aria-label="기출 검색">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
-        </a>
         <button type="button" class="icon-btn theme-toggle" aria-label="다크 모드로 전환">
           <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z"/></svg>
           <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
         </button>
-        <button type="button" class="icon-btn menu-toggle" aria-label="메뉴" aria-expanded="false" aria-controls="mobileNav">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
-        </button>
       </div>
     </div>
-    <nav class="mobile-nav" id="mobileNav" aria-label="모바일 메뉴" hidden>
-      <div class="container">
-        <a href="/">기출검색</a>
-        <a href="calendar.html">학사 일정</a>
-        <a href="blog.html">블로그</a>
-        <a href="about.html">소개</a>
-      </div>
-    </nav>
   </header>
+  <div class="more-sheet" id="moreSheet" hidden>
+      <div class="more-sheet__panel" role="dialog" aria-label="더보기">
+        <span class="more-sheet__grab" aria-hidden="true"></span>
+        <nav class="more-sheet__list" aria-label="더보기 메뉴"><a href="blog.html">블로그<small>데이터로 보는 수능</small><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></a><a href="about.html">소개<small>무엇을 하는 곳인가요</small><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></a><a href="data-policy.html">데이터 원칙<small>등급컷·난이도 출처</small><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></a><a href="sets.html">전체 회차<small>학년도별 모든 회차</small><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></a></nav>
+        <p class="more-sheet__soon"><b>문항 검색 · 시험지 만들기</b>준비하고 있어요. 열리면 아래 탭에서 바로 쓸 수 있어요.</p>
+      </div>
+  </div><!-- /more-sheet -->
 
   <main id="main" class="container examset">
 
@@ -119,7 +114,7 @@
     <!-- 광고: 회차 영역 카드 하단 -->
     <div class="ad-slot ad-slot--banner" data-ad-position="examsetBottom"></div>
 
-    <nav class="examset__related" aria-label="관련 시험"><h2>관련 기출</h2><ul class="examset__prevnext"><li><span>이전 시험</span><a href="exam-set-pre2009-2005-csat.html">2005학년도 대학수학능력시험 기출</a></li><li><span>다음 시험</span><a href="exam-set-pre2009-2006-sept.html">2006학년도 9월 모의평가 기출</a></li></ul><h3>같은 시험의 다른 연도</h3><ul class="examset__links"><li><a href="exam-set-kice-2014-june.html">2014학년도 6월 모의평가 기출</a></li><li><a href="exam-set-pre2009-2013-june.html">2013학년도 6월 모의평가 기출</a></li><li><a href="exam-set-pre2009-2012-june.html">2012학년도 6월 모의평가 기출</a></li><li><a href="exam-set-pre2009-2011-june.html">2011학년도 6월 모의평가 기출</a></li><li><a href="exam-set-pre2009-2010-june.html">2010학년도 6월 모의평가 기출</a></li><li><a href="exam-set-pre2009-2009-june.html">2009학년도 6월 모의평가 기출</a></li><li><a href="exam-set-pre2009-2008-june.html">2008학년도 6월 모의평가 기출</a></li><li><a href="exam-set-pre2009-2007-june.html">2007학년도 6월 모의평가 기출</a></li><li><a href="exam-set-pre2009-2005-june.html">2005학년도 6월 모의평가 기출</a></li><li><a href="exam-set-pre2009-2004-june.html">2004학년도 6월 모의평가 기출</a></li></ul><h3>같은 학년도의 다른 시험</h3><ul class="examset__links"><li><a href="exam-set-pre2009-2006-sept.html">2006학년도 9월 모의평가 기출</a></li><li><a href="exam-set-pre2009-2006-csat.html">2006학년도 대학수학능력시험 기출</a></li></ul><h3>과목별 기출 전체</h3><ul class="examset__links"><li><a href="suneung-korean.html">수능·평가원 국어 기출 전체</a></li><li><a href="suneung-math.html">수능·평가원 수학 기출 전체</a></li><li><a href="suneung-english.html">수능·평가원 영어 기출 전체</a></li><li><a href="suneung-science.html">수능·평가원 과학탐구 기출 전체</a></li><li><a href="suneung-social.html">수능·평가원 사회탐구 기출 전체</a></li><li><a href="suneung-foreign.html">수능·평가원 제2외국어 기출 전체</a></li><li><a href="suneung-vocational.html">수능·평가원 직업탐구 기출 전체</a></li></ul></nav><section class="examset__facts examset__article" id="review" aria-labelledby="examsetReviewTitle"><div class="examset__facts-head"><h2 id="examsetReviewTitle">회차 해설</h2><time datetime="2026-10-14">2026-10-14 작성</time></div><h3>선택형 수능 2년차의 첫 모의평가</h3><p>2006학년도 6월 모의평가는 2005년 6월 1일에 치러졌습니다. 탐구 영역을 과목별로 골라 보는 선택형 수능이 도입된 지 2년째였고, 선택 과목에 따른 유불리가 여전히 관심사였습니다. 선택 과목 원점수 만점자의 표준점수 차이는 사회탐구 26점, 과학탐구 11점, 수리 가·나형 5점으로 보도되었습니다.</p><p>평가원 도수분포 기준으로 표준점수 최고점은 언어 140점, 수리 가형 148점, 수리 나형 153점, 외국어 148점이었습니다. 최고점을 받은 수험생이 언어 43명, 수리 가형 2명에 그칠 만큼 매우 어려운 시험이었고(나형 1,131명, 외국어 1,279명), 1등급은 언어 128점, 수리 가형 136점, 나형 139점, 외국어 138점부터였습니다.</p><h3>최고점자 43명에서 1만 명으로</h3><p>언어와 외국어는 9월에 조금 쉬워졌고, 수능에서는 언어 만점자가 1.88%에 이를 만큼 쉬워졌습니다. 6월의 언어(최고점 140점, 최고점자 43명)와 수능 언어(127점, 10,363명)는 같은 해 평가원 시험이라고 보기 어려울 만큼 난이도 차가 컸습니다.</p><h3>「바다와 나비」와 「서동지전」, 트리즈와 분청사기</h3><p>최고점자가 언어 43명뿐이었던 이 시험의 언어 문학은 '아무도 그에게 수심을 일러 준 일이 없기에'로 시작하는 김기림 「바다와 나비」를 (가)로 한 시 세트, 백호산군이 등장하는 우화 소설 「서동지전」, 이조년의 시조를 비롯한 고전 시가였습니다.</p><p>독서는 청소년 문화를 하위문화로 보는 성인들의 시각과 지원·여건 조성 차원의 접근, 전통 도자 양식인 분청사기, 기술적 모순 밑에 깔린 물리적 모순을 찾아 해결하는 발명 기법 트리즈(TRIZ), 한 대학 총장의 '여성은 선천적으로 수학에 약하다'는 발언에서 시작한 성별 차이 논쟁, 과학적 지식이 생성되는 과정을 다뤘습니다.</p></section>
+    <nav class="examset__related" aria-label="관련 시험"><h2>관련 기출</h2><ul class="examset__prevnext"><li><span>이전 시험</span><a href="exam-set-pre2009-2005-csat.html">2005학년도 대학수학능력시험 기출</a></li><li><span>다음 시험</span><a href="exam-set-pre2009-2006-sept.html">2006학년도 9월 모의평가 기출</a></li></ul><h3>같은 시험의 다른 연도</h3><ul class="examset__links"><li><a href="exam-set-kice-2014-june.html">2014학년도 6월 모의평가 기출</a></li><li><a href="exam-set-pre2009-2013-june.html">2013학년도 6월 모의평가 기출</a></li><li><a href="exam-set-pre2009-2012-june.html">2012학년도 6월 모의평가 기출</a></li><li><a href="exam-set-pre2009-2011-june.html">2011학년도 6월 모의평가 기출</a></li><li><a href="exam-set-pre2009-2010-june.html">2010학년도 6월 모의평가 기출</a></li><li><a href="exam-set-pre2009-2009-june.html">2009학년도 6월 모의평가 기출</a></li><li><a href="exam-set-pre2009-2008-june.html">2008학년도 6월 모의평가 기출</a></li><li><a href="exam-set-pre2009-2007-june.html">2007학년도 6월 모의평가 기출</a></li><li><a href="exam-set-pre2009-2005-june.html">2005학년도 6월 모의평가 기출</a></li><li><a href="exam-set-pre2009-2004-june.html">2004학년도 6월 모의평가 기출</a></li></ul><h3>같은 학년도의 다른 시험</h3><ul class="examset__links"><li><a href="exam-set-pre2009-2006-sept.html">2006학년도 9월 모의평가 기출</a></li><li><a href="exam-set-pre2009-2006-csat.html">2006학년도 대학수학능력시험 기출</a></li></ul><h3>과목별 기출 전체</h3><ul class="examset__links"><li><a href="suneung-korean.html">수능·평가원 국어 기출 전체</a></li><li><a href="suneung-math.html">수능·평가원 수학 기출 전체</a></li><li><a href="suneung-english.html">수능·평가원 영어 기출 전체</a></li><li><a href="suneung-science.html">수능·평가원 과학탐구 기출 전체</a></li><li><a href="suneung-social.html">수능·평가원 사회탐구 기출 전체</a></li><li><a href="suneung-vocational.html">수능·평가원 직업탐구 기출 전체</a></li><li><a href="suneung-foreign.html">수능·평가원 제2외국어 기출 전체</a></li></ul></nav><section class="examset__facts examset__article" id="review" aria-labelledby="examsetReviewTitle"><div class="examset__facts-head"><h2 id="examsetReviewTitle">회차 해설</h2><time datetime="2026-10-14">2026-10-14 작성</time></div><h3>선택형 수능 2년차의 첫 모의평가</h3><p>2006학년도 6월 모의평가는 2005년 6월 1일에 치러졌습니다. 탐구 영역을 과목별로 골라 보는 선택형 수능이 도입된 지 2년째였고, 선택 과목에 따른 유불리가 여전히 관심사였습니다. 선택 과목 원점수 만점자의 표준점수 차이는 사회탐구 26점, 과학탐구 11점, 수리 가·나형 5점으로 보도되었습니다.</p><p>평가원 도수분포 기준으로 표준점수 최고점은 언어 140점, 수리 가형 148점, 수리 나형 153점, 외국어 148점이었습니다. 최고점을 받은 수험생이 언어 43명, 수리 가형 2명에 그칠 만큼 매우 어려운 시험이었고(나형 1,131명, 외국어 1,279명), 1등급은 언어 128점, 수리 가형 136점, 나형 139점, 외국어 138점부터였습니다.</p><h3>최고점자 43명에서 1만 명으로</h3><p>언어와 외국어는 9월에 조금 쉬워졌고, 수능에서는 언어 만점자가 1.88%에 이를 만큼 쉬워졌습니다. 6월의 언어(최고점 140점, 최고점자 43명)와 수능 언어(127점, 10,363명)는 같은 해 평가원 시험이라고 보기 어려울 만큼 난이도 차가 컸습니다.</p><h3>「바다와 나비」와 「서동지전」, 트리즈와 분청사기</h3><p>최고점자가 언어 43명뿐이었던 이 시험의 언어 문학은 '아무도 그에게 수심을 일러 준 일이 없기에'로 시작하는 김기림 「바다와 나비」를 (가)로 한 시 세트, 백호산군이 등장하는 우화 소설 「서동지전」, 이조년의 시조를 비롯한 고전 시가였습니다.</p><p>독서는 청소년 문화를 하위문화로 보는 성인들의 시각과 지원·여건 조성 차원의 접근, 전통 도자 양식인 분청사기, 기술적 모순 밑에 깔린 물리적 모순을 찾아 해결하는 발명 기법 트리즈(TRIZ), 한 대학 총장의 '여성은 선천적으로 수학에 약하다'는 발언에서 시작한 성별 차이 논쟁, 과학적 지식이 생성되는 과정을 다뤘습니다.</p></section>
 
 
   </main>

@@ -48,7 +48,7 @@
 
   <!-- ── Header ─────────────────────────────────────────── -->
   <header class="site-header">
-    <div class="container site-header__inner">
+    <div class="site-header__inner">
       <a href="/" class="brand" aria-label="기출해체분석기 홈">
         <span class="brand__mark" aria-hidden="true">
           <svg viewBox="0 0 32 32" width="28" height="28" fill="none">
@@ -59,39 +59,34 @@
           </svg>
         </span>
         <span class="brand__name">기출해체분석기</span>
-        <span class="brand__sub">kicegg</span>
       </a>
       <nav class="header-nav" aria-label="주요 메뉴">
-        <a href="/">기출검색</a>
-        <a href="calendar.html">학사 일정</a>
-        <a href="blog.html">블로그</a>
+        <a href="/" aria-current="page"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><rect x="5" y="3" width="13" height="17" rx="2.5"/><path d="M8.5 8h6M8.5 11.5h6M8.5 15h3.5M18 6.5h1a1.5 1.5 0 0 1 1.5 1.5v12a1.5 1.5 0 0 1-1.5 1.5H8"/></svg><span>기출검색</span></a>
+        <a href="soon.html#items" class="is-soon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><rect x="3.5" y="5" width="17" height="14" rx="2.5"/><path d="M7.5 9.5h1.5M11.5 9.5h5M7.5 13.5h9"/></svg><span>문항 검색</span><em>준비 중</em></a>
+        <a href="soon.html#builder" class="is-soon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><rect x="4" y="3.5" width="11" height="13" rx="2"/><path d="M9 9.5v-.5a2 2 0 0 1 2-2h7a2 2 0 0 1 2 2v9.5a2 2 0 0 1-2 2h-7a2 2 0 0 1-2-2"/><path d="M14.5 12v5M12 14.5h5"/></svg><span>시험지 만들기</span><em>준비 중</em></a>
+        <a href="calendar.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15.5" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/><rect x="13" y="13.5" width="4" height="3.5" rx=".8" fill="currentColor" stroke="none"/></svg><span>학사 일정</span></a>
+        <button type="button" class="menu-toggle header-nav__more" aria-controls="moreSheet" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="5" cy="12" r="1.3"/><circle cx="12" cy="12" r="1.3"/><circle cx="19" cy="12" r="1.3"/></svg><span>더보기</span></button>
+      </nav>
+      <nav class="side-links" aria-label="더 보기">
+        <p class="side-links__label">더 보기</p>
+        <a href="blog.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><path d="M4 20h4L19 9l-4-4L4 16z"/><path d="m13.5 6.5 4 4"/></svg><span>블로그</span></a>
+        <a href="about.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 11v5.5M12 7.8v.2"/></svg><span>소개</span></a>
       </nav>
       <div class="header-tools">
-        <form class="header-search" action="./" method="get" role="search">
-          <button type="submit" class="header-search__btn" aria-label="기출 검색"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></button>
-          <input type="search" name="q" placeholder="기출 검색" aria-label="기출 검색어" autocomplete="off" enterkeyhint="search" />
-        </form>
-        <a class="icon-btn header-search--icon" href="./?focus=search" aria-label="기출 검색">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
-        </a>
         <button type="button" class="icon-btn theme-toggle" aria-label="다크 모드로 전환">
           <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z"/></svg>
           <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
         </button>
-        <button type="button" class="icon-btn menu-toggle" aria-label="메뉴" aria-expanded="false" aria-controls="mobileNav">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
-        </button>
       </div>
     </div>
-    <nav class="mobile-nav" id="mobileNav" aria-label="모바일 메뉴" hidden>
-      <div class="container">
-        <a href="/">기출검색</a>
-        <a href="calendar.html">학사 일정</a>
-        <a href="blog.html">블로그</a>
-        <a href="about.html">소개</a>
-      </div>
-    </nav>
   </header>
+  <div class="more-sheet" id="moreSheet" hidden>
+      <div class="more-sheet__panel" role="dialog" aria-label="더보기">
+        <span class="more-sheet__grab" aria-hidden="true"></span>
+        <nav class="more-sheet__list" aria-label="더보기 메뉴"><a href="blog.html">블로그<small>데이터로 보는 수능</small><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></a><a href="about.html">소개<small>무엇을 하는 곳인가요</small><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></a><a href="data-policy.html">데이터 원칙<small>등급컷·난이도 출처</small><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></a><a href="sets.html">전체 회차<small>학년도별 모든 회차</small><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></a></nav>
+        <p class="more-sheet__soon"><b>문항 검색 · 시험지 만들기</b>준비하고 있어요. 열리면 아래 탭에서 바로 쓸 수 있어요.</p>
+      </div>
+  </div><!-- /more-sheet -->
 
   <main id="main" class="container examset">
 
@@ -119,7 +114,7 @@
     <!-- 광고: 회차 영역 카드 하단 -->
     <div class="ad-slot ad-slot--banner" data-ad-position="examsetBottom"></div>
 
-    <section class="examset__facts" id="news" aria-labelledby="examsetNewsTitle"><div class="examset__facts-head"><h2 id="examsetNewsTitle">관련 보도</h2></div><ul class="obj-news"><li><a class="obj-news__title" href="http://news20.busan.com/news/newsController.jsp?subSectionId=1010010000&amp;amp;newsId=20110614000189" target="_blank" rel="noopener nofollow">[브리핑] 6월 모평 이의신청 '이상없음'</a><span class="obj-news__meta">부산일보 · 2011-06-15</span></li></ul></section><nav class="examset__related" aria-label="관련 시험"><h2>관련 기출</h2><ul class="examset__prevnext"><li><span>이전 시험</span><a href="exam-set-pre2009-2011-csat.html">2011학년도 대학수학능력시험 기출</a></li><li><span>다음 시험</span><a href="exam-set-pre2009-2012-sept.html">2012학년도 9월 모의평가 기출</a></li></ul><h3>같은 시험의 다른 연도</h3><ul class="examset__links"><li><a href="exam-set-kice-2017-june.html">2017학년도 6월 모의평가 기출</a></li><li><a href="exam-set-kice-2016-june.html">2016학년도 6월 모의평가 기출</a></li><li><a href="exam-set-kice-2015-june.html">2015학년도 6월 모의평가 기출</a></li><li><a href="exam-set-kice-2014-june.html">2014학년도 6월 모의평가 기출</a></li><li><a href="exam-set-pre2009-2014-june.html">2014학년도 6월 모의평가 기출</a></li><li><a href="exam-set-pre2009-2013-june.html">2013학년도 6월 모의평가 기출</a></li><li><a href="exam-set-pre2009-2011-june.html">2011학년도 6월 모의평가 기출</a></li><li><a href="exam-set-pre2009-2010-june.html">2010학년도 6월 모의평가 기출</a></li><li><a href="exam-set-pre2009-2009-june.html">2009학년도 6월 모의평가 기출</a></li><li><a href="exam-set-pre2009-2008-june.html">2008학년도 6월 모의평가 기출</a></li></ul><h3>같은 학년도의 다른 시험</h3><ul class="examset__links"><li><a href="exam-set-pre2009-2012-sept.html">2012학년도 9월 모의평가 기출</a></li><li><a href="exam-set-pre2009-2012-csat.html">2012학년도 대학수학능력시험 기출</a></li></ul><h3>과목별 기출 전체</h3><ul class="examset__links"><li><a href="suneung-korean.html">수능·평가원 국어 기출 전체</a></li><li><a href="suneung-math.html">수능·평가원 수학 기출 전체</a></li><li><a href="suneung-english.html">수능·평가원 영어 기출 전체</a></li><li><a href="suneung-science.html">수능·평가원 과학탐구 기출 전체</a></li><li><a href="suneung-social.html">수능·평가원 사회탐구 기출 전체</a></li><li><a href="suneung-foreign.html">수능·평가원 제2외국어 기출 전체</a></li><li><a href="suneung-vocational.html">수능·평가원 직업탐구 기출 전체</a></li></ul></nav><section class="examset__facts examset__article" id="review" aria-labelledby="examsetReviewTitle"><div class="examset__facts-head"><h2 id="examsetReviewTitle">회차 해설</h2><time datetime="2026-10-14">2026-10-14 작성</time></div><h3>언수외 만점자 733명의 '아주 쉬운' 6월</h3><p>2011년 6월 치러진 이 시험은 정부가 그해 초 'EBS 연계 강화'와 '영역별 만점자 1%' 방침을 발표한 뒤 처음 치른 평가원 모의평가였습니다.</p><p>결과는 매우 쉬웠습니다. 언어·수리·외국어 세 영역을 모두 만점 받은 수험생이 733명으로, 평이했던 전년 6월 모의평가보다도 쉬웠습니다. 표준점수 최고점과 만점자 비율은 언어 123점(2.18%), 수리 가형 133점(3.34%), 수리 나형 141점(3.10%)으로 목표를 크게 넘었고, 외국어만 141점(0.72%)으로 1%에 못 미쳤습니다.</p><h3>한 문제 실수가 곧 2등급이던 언어</h3><p>언어는 1등급 구분 표준점수가 122점으로 최고점과 1점 차이뿐이어서, 한 문제 실수가 곧 2등급이었습니다. 수리 가형은 130점, 나형은 138점, 외국어는 136점이 1등급 경계였습니다.</p><p>9월에는 수리 만점자가 크게 줄고 외국어가 더 어려워졌으며, 수능에서는 외국어가 가장 쉽고 언어·수리가 가장 어려운 시험이 되었습니다. 6월의 결과가 그해 수능과 거의 반대였던 셈입니다.</p><h3>혁신의 확산과 진공관의 전류, 「대장금」 시나리오</h3><p>쉬웠던 언어의 독서는 인과 관계에 대한 사람들의 믿음, 한 사회의 문화·기술·아이디어가 다른 곳으로 퍼지는 혁신의 확산, 1883년 백열전구를 개발하던 에디슨이 우연히 발견한 진공 속 전류에서 출발한 플레밍의 2극 진공관, 18세기부터 본격화한 음악의 '연주' 개념, 가볍게 걷다가 빠르게 뛸 때 몸에서 일어나는 운동 생리를 다뤘고, 문법은 높임의 정도에 따라 구별되는 비슷한 의미의 단어들이었습니다.</p><p>문학은 김동명 「파초」와 윤선도 「견회요」, 아들을 찾아 도시에 온 시골 노인을 그린 오영수 「화산댁이」, 보쌈당한 나인이 등장하는 김영현의 드라마 대본 「대장금」, 완판본 「심청전」의 수궁 대목이었습니다. 외국어에서는 1870년대 타자기 제조사 숄스가 받은 불만에서 시작된 자판 배열 이야기(32번), 얼음이 얼면 바다표범이 헤엄치는 구멍 근처에서 기다린다는 문장 삽입 44번, 혀를 적셔 맛 수용체가 따로 있음을 확인하는 실험을 요약하는 45번이 출제되었습니다.</p></section>
+    <section class="examset__facts" id="news" aria-labelledby="examsetNewsTitle"><div class="examset__facts-head"><h2 id="examsetNewsTitle">관련 보도</h2></div><ul class="obj-news"><li><a class="obj-news__title" href="http://news20.busan.com/news/newsController.jsp?subSectionId=1010010000&amp;amp;newsId=20110614000189" target="_blank" rel="noopener nofollow">[브리핑] 6월 모평 이의신청 '이상없음'</a><span class="obj-news__meta">부산일보 · 2011-06-15</span></li></ul></section><nav class="examset__related" aria-label="관련 시험"><h2>관련 기출</h2><ul class="examset__prevnext"><li><span>이전 시험</span><a href="exam-set-pre2009-2011-csat.html">2011학년도 대학수학능력시험 기출</a></li><li><span>다음 시험</span><a href="exam-set-pre2009-2012-sept.html">2012학년도 9월 모의평가 기출</a></li></ul><h3>같은 시험의 다른 연도</h3><ul class="examset__links"><li><a href="exam-set-kice-2017-june.html">2017학년도 6월 모의평가 기출</a></li><li><a href="exam-set-kice-2016-june.html">2016학년도 6월 모의평가 기출</a></li><li><a href="exam-set-kice-2015-june.html">2015학년도 6월 모의평가 기출</a></li><li><a href="exam-set-kice-2014-june.html">2014학년도 6월 모의평가 기출</a></li><li><a href="exam-set-pre2009-2014-june.html">2014학년도 6월 모의평가 기출</a></li><li><a href="exam-set-pre2009-2013-june.html">2013학년도 6월 모의평가 기출</a></li><li><a href="exam-set-pre2009-2011-june.html">2011학년도 6월 모의평가 기출</a></li><li><a href="exam-set-pre2009-2010-june.html">2010학년도 6월 모의평가 기출</a></li><li><a href="exam-set-pre2009-2009-june.html">2009학년도 6월 모의평가 기출</a></li><li><a href="exam-set-pre2009-2008-june.html">2008학년도 6월 모의평가 기출</a></li></ul><h3>같은 학년도의 다른 시험</h3><ul class="examset__links"><li><a href="exam-set-pre2009-2012-sept.html">2012학년도 9월 모의평가 기출</a></li><li><a href="exam-set-pre2009-2012-csat.html">2012학년도 대학수학능력시험 기출</a></li></ul><h3>과목별 기출 전체</h3><ul class="examset__links"><li><a href="suneung-korean.html">수능·평가원 국어 기출 전체</a></li><li><a href="suneung-math.html">수능·평가원 수학 기출 전체</a></li><li><a href="suneung-english.html">수능·평가원 영어 기출 전체</a></li><li><a href="suneung-science.html">수능·평가원 과학탐구 기출 전체</a></li><li><a href="suneung-social.html">수능·평가원 사회탐구 기출 전체</a></li><li><a href="suneung-vocational.html">수능·평가원 직업탐구 기출 전체</a></li><li><a href="suneung-foreign.html">수능·평가원 제2외국어 기출 전체</a></li></ul></nav><section class="examset__facts examset__article" id="review" aria-labelledby="examsetReviewTitle"><div class="examset__facts-head"><h2 id="examsetReviewTitle">회차 해설</h2><time datetime="2026-10-14">2026-10-14 작성</time></div><h3>언수외 만점자 733명의 '아주 쉬운' 6월</h3><p>2011년 6월 치러진 이 시험은 정부가 그해 초 'EBS 연계 강화'와 '영역별 만점자 1%' 방침을 발표한 뒤 처음 치른 평가원 모의평가였습니다.</p><p>결과는 매우 쉬웠습니다. 언어·수리·외국어 세 영역을 모두 만점 받은 수험생이 733명으로, 평이했던 전년 6월 모의평가보다도 쉬웠습니다. 표준점수 최고점과 만점자 비율은 언어 123점(2.18%), 수리 가형 133점(3.34%), 수리 나형 141점(3.10%)으로 목표를 크게 넘었고, 외국어만 141점(0.72%)으로 1%에 못 미쳤습니다.</p><h3>한 문제 실수가 곧 2등급이던 언어</h3><p>언어는 1등급 구분 표준점수가 122점으로 최고점과 1점 차이뿐이어서, 한 문제 실수가 곧 2등급이었습니다. 수리 가형은 130점, 나형은 138점, 외국어는 136점이 1등급 경계였습니다.</p><p>9월에는 수리 만점자가 크게 줄고 외국어가 더 어려워졌으며, 수능에서는 외국어가 가장 쉽고 언어·수리가 가장 어려운 시험이 되었습니다. 6월의 결과가 그해 수능과 거의 반대였던 셈입니다.</p><h3>혁신의 확산과 진공관의 전류, 「대장금」 시나리오</h3><p>쉬웠던 언어의 독서는 인과 관계에 대한 사람들의 믿음, 한 사회의 문화·기술·아이디어가 다른 곳으로 퍼지는 혁신의 확산, 1883년 백열전구를 개발하던 에디슨이 우연히 발견한 진공 속 전류에서 출발한 플레밍의 2극 진공관, 18세기부터 본격화한 음악의 '연주' 개념, 가볍게 걷다가 빠르게 뛸 때 몸에서 일어나는 운동 생리를 다뤘고, 문법은 높임의 정도에 따라 구별되는 비슷한 의미의 단어들이었습니다.</p><p>문학은 김동명 「파초」와 윤선도 「견회요」, 아들을 찾아 도시에 온 시골 노인을 그린 오영수 「화산댁이」, 보쌈당한 나인이 등장하는 김영현의 드라마 대본 「대장금」, 완판본 「심청전」의 수궁 대목이었습니다. 외국어에서는 1870년대 타자기 제조사 숄스가 받은 불만에서 시작된 자판 배열 이야기(32번), 얼음이 얼면 바다표범이 헤엄치는 구멍 근처에서 기다린다는 문장 삽입 44번, 혀를 적셔 맛 수용체가 따로 있음을 확인하는 실험을 요약하는 45번이 출제되었습니다.</p></section>
 
 
   </main>
