@@ -954,8 +954,17 @@ $('searchInput').addEventListener('input', e => {
     state.page = 1;
     render();
     syncUrl();
-    maybeSmartSearch(state.query);
   }, 180);
+  cancelSmartSearch();   // 치는 중엔 목록 검색만 — 필터로 바꾸는 건 Enter 를 눌렀을 때
+});
+// Enter(폰 키보드 '검색')를 눌러야 스마트 검색 — 입력 도중에 화면이 필터로 넘어가 버리지 않게
+$('searchInput').addEventListener('keydown', e => {
+  if (e.key !== 'Enter' || e.isComposing) return;
+  e.preventDefault();
+  clearTimeout(searchTimer);
+  const q = $('searchInput').value.trim();
+  if (q !== state.query) { state.query = q; state.page = 1; render(); syncUrl(); }
+  maybeSmartSearch(q, true);
 });
 $('clearSearch').addEventListener('click', () => {
   clearTimeout(searchTimer);
@@ -1706,15 +1715,18 @@ window.addEventListener('popstate', async () => {
 
 // ── 스마트 검색 ─────────────────────────────────────────────
 // "15개정 이후 고난도 수학이랑 국어" 같은 말을 필터로 바꾼다 (kicegg.com/api/search — 규칙 + JEV).
-// 목록 검색을 먼저 보여 주고, 자연어처럼 보이거나 결과가 없을 때만 묻는다.
+// 목록 검색을 먼저 보여 주고, Enter 를 눌렀을 때 자연어처럼 보이거나 결과가 없을 때만 묻는다(주소 ?q= 로 들어오면 바로).
 const NATURAL = /이후|이전|부터|까지|최근|작년|올해|재작년|어려|쉬운|쉬웠|쉽게|고난도|킬러|불\s*수능|물\s*수능|개정|이랑|하고|그리고|위주|역대|평이|변별|[가-힣]랑\s/;
 let smartTimer = 0, smartCtl = null, smartFrom = null;
-function maybeSmartSearch(q) {
+function cancelSmartSearch() {
   clearTimeout(smartTimer);
   smartCtl?.abort();
+}
+function maybeSmartSearch(q, now = false) {
+  cancelSmartSearch();
   if (q.length < 3 || q.length > 80) return;
   if (!NATURAL.test(q) && filtered().length) return;
-  smartTimer = setTimeout(() => runSmartSearch(q), 350);
+  smartTimer = setTimeout(() => runSmartSearch(q), now ? 0 : 350);
 }
 async function runSmartSearch(q) {
   smartCtl = new AbortController();
