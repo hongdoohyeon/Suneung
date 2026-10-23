@@ -622,7 +622,7 @@ a.dday-chip:hover { background: var(--fill); }
 .search input { flex: 1; min-width: 0; height: 100%; border: 0; outline: 0; background: none; font-size: 15px; font-weight: 500; color: var(--ink); }
 .search input::placeholder { color: var(--ink-4); }
 @media (pointer: coarse) { .search input { font-size: 16px; } }
-.search__clear { width: 32px; height: 32px; border-radius: var(--r-sm); display: grid; place-items: center; flex: none; color: var(--ink-4); }
+.search__clear { width: 32px; height: 32px; border-radius: var(--r-sm); display: grid; place-items: center; justify-content: center; align-items: center; flex: none; color: var(--ink-4); }   /* app.js 가 display:flex 로 켜도 가운데 */
 .search__clear:hover { background: var(--fill); color: var(--ink); }
 .topbar .btn { height: 44px; min-height: 44px; padding: 0 14px; flex: none; background: var(--glass-btn); box-shadow: var(--glass-btn-shadow); }
 .topbar .btn:hover { background: var(--glass-btn-hover); }
