@@ -420,7 +420,7 @@ async function loadTabUrls(tab, list) {
       a.setAttribute('download', name || '');
       a.removeAttribute('data-f');
       if (key === 'solutionUrl' && e.questionUrl === e.solutionUrl) a.remove();              // 문제지와 해설이 한 파일이면 해설 버튼은 없앤다
-      if (key === 'questionUrl' && e.questionUrl === e.solutionUrl) a.textContent = '문제·해설';
+      if (key === 'questionUrl' && e.questionUrl === e.solutionUrl) { a.title = '문제·해설 받기'; a.querySelector('.sr').textContent = '문제·해설'; }   // 아이콘은 그대로
     });
   } catch { /* 주소를 못 받아도 상세 페이지 링크로 쓸 수 있다 */ }
 }
@@ -1259,11 +1259,11 @@ const dlAttr = (exam, key, name) => `data-ga-subject="${escAttr(exam.subSubject 
 
 // 데스크톱 자료 칸: 회차 묶음 안에 있는 버튼 종류만 고정 폭 칸으로(13px 글자 기준 실측) — actionsHTML 의 act-* 와 짝
 function actsColumns(items) {
-  const has = { q: false, a: false, s: false, l: false }, wide = { q: false, a: false };
+  const has = { q: false, a: false, s: false, l: false }, wide = { a: false };
   for (const e of items) {
     if (e.searchOnly) { has.q = has.a = true; continue; }
     const sameQS = typeof e.questionUrl === 'string' && e.questionUrl === e.solutionUrl;
-    if (fileUrl(e, 'questionUrl')) { has.q = true; if (sameQS) wide.q = true; }
+    if (fileUrl(e, 'questionUrl')) has.q = true;
     if (fileUrl(e, 'answerUrl')) { has.a = true; if (e.answerIncludesSolution) wide.a = true; }
     if (fileUrl(e, 'solutionUrl') && !sameQS) has.s = true;
     if (fileUrl(e, 'listenUrl')) has.l = true;
