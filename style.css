@@ -510,6 +510,14 @@ main { flex: 1 0 auto; width: 100%; }
 .header-nav a:hover, .header-nav button:hover, .side-links a:hover { color: var(--ink); }
 .header-nav a[aria-current="page"], .header-nav a.is-active { color: var(--ink); font-weight: var(--ui-weight-strong); }
 .header-nav em { font-style: normal; font-size: 11px; font-weight: 600; color: var(--ink-4); }
+
+/* 문항 검색 베타 딱지 — PC 왼쪽 서비스 목록에서도, 모바일 아래 탭에서도 글자로 보이게 */
+.header-nav .nav-beta {
+  position: static; flex: none; display: inline-flex; align-items: center; justify-content: center;
+  width: auto; height: 18px; margin-left: auto; padding: 0 6px; border-radius: 5px;
+  background: var(--tb-suneung); color: var(--on-ink);
+  font-style: normal; font-size: 10.5px; font-weight: 700; line-height: 1; letter-spacing: 0; white-space: nowrap;
+}
 .header-tools { margin-left: auto; display: flex; align-items: center; gap: 2px; }
 
 /* 수능 D-day — 글자만(검정 칩 아님) */
@@ -553,6 +561,7 @@ a.dday-chip:hover { background: var(--fill); }
   .header-nav svg { width: 22px; height: 22px; }
   .header-nav a[aria-current="page"], .header-nav button[aria-expanded="true"] { background: var(--fill); color: var(--ink); }
   .header-nav em { position: absolute; top: 8px; left: calc(50% + 8px); width: 6px; height: 6px; border-radius: 2px; background: var(--tb-suneung); font-size: 0; }
+  .header-nav .nav-beta { position: absolute; top: 2px; right: 3px; left: auto; width: auto; height: 15px; margin: 0; padding: 0 5px; border-radius: 4px; font-size: 9px; line-height: 1; }
   .header-tools > .dday-chip { padding: 0 6px; }
 }
 @media (max-width: 359px) { .brand__name { font-size: 15px; } .dday-chip__label { display: none; } }
@@ -569,6 +578,7 @@ a.dday-chip:hover { background: var(--fill); }
   .header-nav a, .header-nav button { position: relative; flex-direction: column; justify-content: center; gap: 2px; min-height: 52px; border-radius: var(--r-md); font-size: 10px; text-align: center; white-space: normal; line-height: 1.2; }
   .header-nav a[aria-current="page"], .header-nav button[aria-expanded="true"] { background: var(--fill); }
   .header-nav em { position: absolute; top: 7px; right: 10px; width: 6px; height: 6px; border-radius: 2px; background: var(--tb-suneung); font-size: 0; }
+  .header-nav .nav-beta { position: absolute; top: 2px; right: 3px; left: auto; width: auto; height: 15px; margin: 0; padding: 0 4px; border-radius: 4px; font-size: 9px; line-height: 1; }
   .header-tools { margin: auto 0 0; flex-direction: column; gap: 4px; padding-top: 10px; border-top: 1px solid var(--line-soft); }
   .header-tools > .dday-chip { flex-direction: column; gap: 0; height: auto; padding: 4px 0; font-size: 10.5px; }
   .header-tools > .dday-chip .dday-chip__value { font-size: 12.5px; }
