@@ -104,6 +104,8 @@
 .qs-home { padding: 24px 0 8px; }
 .qs-home__title { font-size: 20px; font-weight: var(--h1-weight); letter-spacing: var(--h1-track); margin: 0 0 4px; }
 .qs-home__sub { margin: 0 0 18px; color: var(--ink-4); font-size: 14px; }
+.qs-home__notice { display: flex; align-items: flex-start; gap: 8px; margin: 0 0 18px; padding: 9px 11px; border-radius: var(--r-sm); background: var(--tb-suneung-bg); color: var(--ink-2); font-size: 13px; line-height: 1.55; }
+.qs-home__beta { flex: none; display: inline-flex; align-items: center; height: 20px; padding: 0 7px; border-radius: var(--r-xs); background: var(--tb-suneung); color: var(--on-ink); font-size: 11px; font-weight: var(--badge-weight); letter-spacing: .02em; }
 .qs-home__grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(260px, 100%), 1fr)); gap: 12px; }
 .qs-ex { padding: 14px; border: 1px solid var(--line); border-radius: var(--r); background: var(--surface); }
 .qs-ex h3 { margin: 0 0 2px; font-size: 15px; font-weight: var(--h2-weight); letter-spacing: var(--h2-track); }
