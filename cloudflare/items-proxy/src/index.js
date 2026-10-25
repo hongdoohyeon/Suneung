@@ -10,7 +10,7 @@ async function origin(env, path, timeout, ip = '') {
     // 접속자 IP도 넘김 — Cloudflare 요청 제한이 느슨해서 맥 서버가 IP당 분당 30회를 직접 셈
     const r = await fetch(base + path, { headers: { 'X-Items-Key': env.ITEMS_KEY, 'X-Client-IP': ip }, signal: AbortSignal.timeout(timeout) });
     if (r.status === 429) return r;
-    return r.status >= 500 || r.status === 403 || r.status === 530 ? null : r;   // 530 = 터널 끊김
+    return r.status >= 500 || r.status === 403 || r.status === 530 ? null : r;   // 530·502 = 터널 끊김·맥 꺼짐
   } catch { return null }
 }
 

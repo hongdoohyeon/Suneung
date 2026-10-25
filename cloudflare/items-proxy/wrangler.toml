@@ -1,5 +1,5 @@
-# 문항 검색 — kicegg.com/api/items/*, kicegg.com/qimg/* → 맥에서 도는 검색 서버(cloudflared 임시 터널)
-# 터널 주소는 맥이 켜질 때마다 바뀌어서 KV(CFG)의 origin 키에 맥이 직접 적는다(item-search/run_tunnel.sh).
+# 문항 검색 — kicegg.com/api/items/*, kicegg.com/qimg/* → 맥에서 도는 검색 서버
+# 맥 ↔ Cloudflare 는 고정 터널 kicegg-items(items-origin.kicegg.com). 주소는 KV(CFG)의 origin 키.
 # 맥이 꺼져 있으면 503 + maintenance → 화면이 '점검 중'을 띄움.
 name = "kicegg-items"
 main = "src/index.js"
