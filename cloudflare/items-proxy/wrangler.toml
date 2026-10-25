@@ -1,0 +1,38 @@
+# 문항 검색 — kicegg.com/api/items/*, kicegg.com/qimg/* → 맥에서 도는 검색 서버
+# 맥 ↔ Cloudflare 는 고정 터널 kicegg-items(items-origin.kicegg.com). 주소는 KV(CFG)의 origin 키.
+# 맥이 꺼져 있으면 503 + maintenance → 화면이 '점검 중'을 띄움.
+name = "kicegg-items"
+main = "src/index.js"
+compatibility_date = "2026-10-01"
+workers_dev = false
+preview_urls = false
+
+[[routes]]
+pattern = "kicegg.com/api/items*"
+zone_name = "kicegg.com"
+
+[[routes]]
+pattern = "kicegg.com/qimg/*"
+zone_name = "kicegg.com"
+
+[[kv_namespaces]]
+binding = "CFG"
+id = "9e6bc4f2d7a84a1fbaf9d57b3ebda5d9"
+
+# 검색 남용 막기: IP당 분당 30회(이미지는 캐시라 제한 없음)
+[[ratelimits]]
+name = "PER_IP"
+namespace_id = "2711"
+simple = { limit = 30, period = 60 }
+
+# 맥 보호: 전체 분당 300회(넘으면 잠시 후)
+[[ratelimits]]
+name = "GLOBAL"
+namespace_id = "2712"
+simple = { limit = 300, period = 60 }
+
+[observability]
+enabled = true
+head_sampling_rate = 0.05
+
+# 비밀값: npx wrangler secret put ITEMS_KEY  (맥 서버의 ITEMS_KEY 와 같은 값)
