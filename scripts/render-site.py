@@ -192,7 +192,7 @@ def render_sitemaps(items: list[dict], hubs=None) -> None:
         f'  <url><loc>{base}/about.html</loc><lastmod>{today}</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>',
         f'  <url><loc>{base}/blog.html</loc><lastmod>{today}</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>',
         f'  <url><loc>{base}/methodology.html</loc><lastmod>{today}</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>',
-        f'  <url><loc>{base}/privacy.html</loc><lastmod>2026-05-05</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>',
+        f'  <url><loc>{base}/privacy.html</loc><lastmod>2026-10-26</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>',
         f'  <url><loc>{base}/terms.html</loc><lastmod>2026-05-05</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>',
         f'  <url><loc>{base}/data-policy.html</loc><lastmod>{today}</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>',
         f'  <url><loc>{base}/calendar.html</loc><lastmod>{today}</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>',
