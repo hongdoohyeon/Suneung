@@ -40,13 +40,6 @@
 .qs-sug .pill { min-height: 30px; font-size: 12.5px; }
 .qs-low { flex: none; padding: 1px 6px; border: 1px solid var(--line); border-radius: var(--r-xs); color: var(--ink-4); font-size: 10.5px; font-weight: var(--ui-weight); letter-spacing: -.01em; white-space: nowrap; }
 .qs-card.is-low { box-shadow: inset 0 0 0 1px var(--line-soft); }
-.qs-fold { margin: 0 0 24px; border: 1px solid var(--line); border-radius: var(--r); background: var(--surface); }
-.qs-fold > summary { display: flex; align-items: center; gap: 6px; padding: 11px 14px; color: var(--ink-3); font-size: 13px; font-weight: var(--ui-weight); cursor: pointer; list-style: none; }
-.qs-fold > summary::-webkit-details-marker { display: none; }
-.qs-fold > summary::after { content: "›"; margin-left: auto; color: var(--ink-4); transition: transform .15s; }
-.qs-fold[open] > summary::after { transform: rotate(90deg); }
-.qs-fold > summary:hover { color: var(--ink); }
-.qs-fold .qs-pgrid { margin: 0 12px 12px; }
 
 /* 상세 서랍 — 머리(닫기·위치·확대) / 제목 / 탭 / 시험지 / 정답 / 비슷한 문항 / 아래 이전·다음 */
 .qs-drawer { border: 0; padding: 0; margin: 0 0 0 auto; height: 100dvh; max-height: none; max-width: none; width: min(600px, 100%); overflow: auto; background: var(--bg); color: var(--ink); --dz: 85; }
