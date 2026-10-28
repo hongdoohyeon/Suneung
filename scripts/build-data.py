@@ -1709,9 +1709,16 @@ def credit_note_html(it: dict) -> str:
         who = esc(c.get('name'))
         if c.get('url'):
             who = f'<a href="{html_escape(str(c["url"]), quote=True)}" rel="noopener" target="_blank">{who}</a>'
-        note = c.get('short') or c.get('note')
-        note = f' — {esc(note)}' if note else ''
-        parts.append(f'{role}{who}{note}')
+        bits = []
+        if c.get('via'):
+            via = esc(c['via'])
+            if c.get('url'):
+                via = f'<a href="{html_escape(str(c["url"]), quote=True)}" rel="noopener" target="_blank">{via}</a>'
+            bits.append(f'{via}에 올린')
+        if c.get('short'):
+            bits.append(esc(c['short']))
+        tail = f', {" ".join(bits)}' if bits else ''
+        parts.append(f'{role}{who}{tail}')
     return f'<p class="exam__credit">{" · ".join(parts)}</p>'
 
 
@@ -1739,13 +1746,22 @@ def source_note_html(it: dict) -> str:
         # 개인 제작 해설 등 — '발행 기관: 각 대학교 입학처'로 뭉뚱그리지 않고 작성자를 밝힌다.
         credit_html = []
         for c in credits:
+            href = html_escape(str(c['url']), quote=True) if c.get('url') else ''
             who = esc(c['name'])
-            if c.get('url'):
-                who = f'<a href="{html_escape(str(c["url"]), quote=True)}" rel="noopener" target="_blank">{who}</a>'
+            if href:
+                who = f'<a href="{href}" rel="noopener" target="_blank">{who}</a>'
             role = esc(c.get('role') or '자료')
-            note = f' {esc(c["note"])}.' if c.get('note') else ''
+            details = []
+            if c.get('via'):
+                via = esc(c['via'])
+                if href:
+                    via = f'<a href="{href}" rel="noopener" target="_blank">{via}</a>'
+                details.append(via)
+            if c.get('note'):
+                details.append(f'{esc(c["note"])}.')
+            detail = f' {" ".join(details)}' if details else ''
             rights = ' 해설 저작권은 작성자에게 있습니다.' if '해설' in str(c.get('role') or '') else ''
-            credit_html.append(f'<p>{role}의 출처는 {who}입니다.{note}{rights}</p>')
+            credit_html.append(f'<p>{role}의 출처는 {who}입니다.{detail}{rights}</p>')
         title = ' '.join(x for x in (it.get('subject'),
                                      '모의논술' if it.get('type') == 'essay_mock' else '논술',
                                      it.get('subSubject')) if x)

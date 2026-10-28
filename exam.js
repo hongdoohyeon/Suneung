@@ -147,8 +147,13 @@ function renderHead(exam) {
       const role = c.role ? `${escHtml(c.role)}의 출처: ` : '출처: ';
       const href = safeUrl(c.url);
       const who = href ? `<a href="${escAttr(href)}" target="_blank" rel="noopener">${escHtml(c.name)}</a>` : escHtml(c.name);
-      const note = c.short || c.note;
-      return `${role}${who}${note ? ` — ${escHtml(note)}` : ''}`;
+      const bits = [];
+      if (c.via) {
+        const via = escHtml(c.via);
+        bits.push(`${href ? `<a href="${escAttr(href)}" target="_blank" rel="noopener">${via}</a>` : via}에 올린`);
+      }
+      if (c.short) bits.push(escHtml(c.short));
+      return `${role}${who}${bits.length ? `, ${bits.join(' ')}` : ''}`;
     }).join(' · ') + '</p>';
   };
   const buttons = [];
