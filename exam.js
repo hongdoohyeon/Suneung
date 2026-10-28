@@ -139,6 +139,18 @@ function renderHead(exam) {
 
   // 다운로드 액션
   const dl = name => name ? `download="${escHtml(name)}"` : 'download';
+  // 자료 작성자 표기 — SSG 페이지는 이미 넣었으므로 동적 폴백에서만 쓴다.
+  const creditsHtml = () => {
+    const credits = (exam.credits || []).filter(c => c && c.name);
+    if (!credits.length) return '';
+    return '<p class="exam__credit">' + credits.map(c => {
+      const role = c.role ? `${escHtml(c.role)}의 출처: ` : '출처: ';
+      const href = safeUrl(c.url);
+      const who = href ? `<a href="${escAttr(href)}" target="_blank" rel="noopener">${escHtml(c.name)}</a>` : escHtml(c.name);
+      const note = c.short || c.note;
+      return `${role}${who}${note ? ` — ${escHtml(note)}` : ''}`;
+    }).join(' · ') + '</p>';
+  };
   const buttons = [];
   const questionUrl     = safeUrl(exam.questionUrl);
   const questionUrlEven = safeUrl(exam.questionUrlEven);
@@ -193,7 +205,7 @@ function renderHead(exam) {
       _actionsEl.insertAdjacentHTML('beforeend', shareBtnHtml);
     }
   } else {
-    _actionsEl.innerHTML = buttons.join('');
+    _actionsEl.innerHTML = buttons.join('') + creditsHtml();
   }
 
   mountExamDock();

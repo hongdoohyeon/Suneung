@@ -1030,6 +1030,11 @@ body:has(.selbar:not([hidden])) .pagination-wrap { margin-bottom: 72px; }
 .exam__actions { display: flex; flex-wrap: wrap; gap: 6px; }
 .exam__actions .btn { min-height: 44px; padding: 0 14px; font-size: 14px; border-radius: var(--r-md); }
 .exam__actions .btn--primary { font-size: 15px; font-weight: 700; }
+/* 받기 버튼 아래 자료 작성자 표기 — 개인 제작 해설 등 (한 줄 전체 차지) */
+.exam__credit { flex: 1 1 100%; margin: 2px 0 0; padding-top: 8px; border-top: 1px solid var(--line-soft);
+  font-size: 12px; line-height: 1.55; color: var(--ink-4); }
+.exam__credit a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
+.exam__credit a:hover { color: var(--ink); }
 .exam__actions .btn--primary::before { content: ""; width: 16px; height: 16px; flex: none; margin-left: -2px; background: currentColor;
   -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14'/%3E%3C/svg%3E") center / contain no-repeat;
           mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14'/%3E%3C/svg%3E") center / contain no-repeat; }

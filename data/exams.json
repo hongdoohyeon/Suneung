@@ -165832,7 +165832,16 @@
     "questionDownload": "2026학년도 동국대학교 모의논술 자연계열 문제.pdf",
     "answerDownload": null,
     "solutionDownload": "2026학년도 동국대학교 모의논술 자연계열 해설.pdf",
-    "source": "essay-mock-gap"
+    "source": "essay-mock-gap",
+    "credits": [
+      {
+        "role": "해설",
+        "name": "퍼플스타 님",
+        "url": "https://orbi.kr/00073511425",
+        "short": "오르비 · 개인 제작 해설(공식 해설 아님)",
+        "note": "오르비 게시물 73511425에 올린 개인 제작 해설로, 동국대학교 공식 해설은 아닙니다"
+      }
+    ]
   },
   {
     "id": 11165,

@@ -1692,6 +1692,29 @@ _PUBLISHERS = {
 }
 
 
+def _credits(it: dict) -> list[dict]:
+    """자료별 작성·제공자 표기 — 대학 공식 자료가 아닌 개인 제작 해설 등."""
+    return [c for c in (it.get('credits') or []) if isinstance(c, dict) and c.get('name')]
+
+
+def credit_note_html(it: dict) -> str:
+    """다운로드 버튼 아래 한 줄 출처 — 별도 작성자가 있을 때만."""
+    credits = _credits(it)
+    if not credits:
+        return ''
+    esc = lambda v: html_escape(str(v), quote=False)
+    parts = []
+    for c in credits:
+        role = f'{esc(c.get("role"))}의 출처: ' if c.get('role') else '출처: '
+        who = esc(c.get('name'))
+        if c.get('url'):
+            who = f'<a href="{html_escape(str(c["url"]), quote=True)}" rel="noopener" target="_blank">{who}</a>'
+        note = c.get('short') or c.get('note')
+        note = f' — {esc(note)}' if note else ''
+        parts.append(f'{role}{who}{note}')
+    return f'<p class="exam__credit">{" · ".join(parts)}</p>'
+
+
 def source_note_html(it: dict) -> str:
     """상세 페이지 '자료 출처' 섹션 — 발행기관과 파일 보관 위치(URL 호스트로 판별 가능한 사실만)."""
     pub = _PUBLISHERS.get(it.get('typeGroup'))
@@ -1711,6 +1734,27 @@ def source_note_html(it: dict) -> str:
     if ext:
         where.append('외부 서버 직접 링크(' + ', '.join(ext) + ')')
     pub_html = f'<a href="{url}" rel="noopener" target="_blank">{esc(name)}</a>' if url else esc(name)
+    credits = _credits(it)
+    if credits:
+        # 개인 제작 해설 등 — '발행 기관: 각 대학교 입학처'로 뭉뚱그리지 않고 작성자를 밝힌다.
+        credit_html = []
+        for c in credits:
+            who = esc(c['name'])
+            if c.get('url'):
+                who = f'<a href="{html_escape(str(c["url"]), quote=True)}" rel="noopener" target="_blank">{who}</a>'
+            role = esc(c.get('role') or '자료')
+            note = f' {esc(c["note"])}.' if c.get('note') else ''
+            rights = ' 해설 저작권은 작성자에게 있습니다.' if '해설' in str(c.get('role') or '') else ''
+            credit_html.append(f'<p>{role}의 출처는 {who}입니다.{note}{rights}</p>')
+        title = ' '.join(x for x in (it.get('subject'),
+                                     '모의논술' if it.get('type') == 'essay_mock' else '논술',
+                                     it.get('subSubject')) if x)
+        return ('<section class="exam-section exam-source" aria-labelledby="srcTitle"><div class="exam-section__head">'
+                '<h2 id="srcTitle">자료 출처</h2></div>'
+                f'<p>문제지는 {esc(title)} 문제이고, 파일은 {esc(" · ".join(where))}입니다.</p>'
+                + ''.join(credit_html) +
+                '<p>원본과 다르거나 게시 중단이 필요하시면 언제든 <a href="about.html#contact">연락처</a>로 알려 주세요. '
+                '등급컷 출처 구분은 <a href="data-policy.html#cuts">데이터 원칙</a>에서 확인하실 수 있습니다.</p></section>')
     return ('<section class="exam-section exam-source" aria-labelledby="srcTitle"><div class="exam-section__head">'
             '<h2 id="srcTitle">자료 출처</h2></div>'
             f'<p>발행 기관: {pub_html}. 파일 위치: {esc(" · ".join(where))}. 저작권은 발행 기관에 있습니다. '
@@ -2676,7 +2720,7 @@ def build_static_exam_pages(items: list[dict], template_path: Path, out_root: Pa
             '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" '
             'stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 8l5-5 5 5M5 14v5a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-5"/></svg>'
             '<span class="btn__label">공유</span></button>')
-        btns_html = ''.join(b for b in btns if b)
+        btns_html = ''.join(b for b in btns if b) + credit_note_html(it)
         html = re.sub(
             r'(<div class="exam__actions" id="examActions">)\s*(</div>)',
             lambda m: m.group(1) + btns_html + m.group(2),
