@@ -195,6 +195,11 @@ function renderHead(exam) {
   if (scriptUrl) buttons.push(
     `<a class="btn" href="${escHtml(scriptUrl)}" ${dl(exam.scriptDownload)}>듣기 대본 PDF</a>`
   );
+  const extras = (exam.extraFiles || []).filter(x => x && x.label && safeUrl(x.url));
+  extras.forEach(x => buttons.push(
+    `<a class="btn" href="${escHtml(safeUrl(x.url))}" ${dl(x.download)}>${escHtml(x.label)}</a>`
+  ));
+  const extraNotesHtml = extras.filter(x => x.note).map(x => `<p class="exam__credit">${escHtml(x.note)}</p>`).join('');
   // 공유 버튼 — 모바일 카톡·문자, 데스크톱 클립보드
   buttons.push(
     `<button type="button" class="btn" id="examShareBtn" aria-label="공유하기"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 8l5-5 5 5M5 14v5a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-5"/></svg><span class="btn__label">공유</span></button>`
@@ -210,7 +215,7 @@ function renderHead(exam) {
       _actionsEl.insertAdjacentHTML('beforeend', shareBtnHtml);
     }
   } else {
-    _actionsEl.innerHTML = buttons.join('') + creditsHtml();
+    _actionsEl.innerHTML = buttons.join('') + creditsHtml() + extraNotesHtml;
   }
 
   mountExamDock();

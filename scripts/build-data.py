@@ -2730,13 +2730,17 @@ def build_static_exam_pages(items: list[dict], template_path: Path, out_root: Pa
         if sol_url and not combined_document: btns.append(_btn('', sol_url, '해설지 PDF', it.get('solutionDownload')))
         if listen: btns.append(_btn('', listen, '듣기 MP3', it.get('listenDownload')))
         if script: btns.append(_btn('', script, '듣기 대본 PDF', it.get('scriptDownload')))
+        # 추가 자료(공식 문항카드 등) — 안내 문구는 버튼 아래 출처 줄에 붙인다
+        extras = [x for x in (it.get('extraFiles') or []) if isinstance(x, dict) and x.get('url') and x.get('label')]
+        for x in extras: btns.append(_btn('', x['url'], x['label'], x.get('download')))
         # 공유 버튼 자리까지 SSG 에서 확정 (JS 가 뒤늦게 넣으면 레이아웃이 밀림)
         btns.append(
             '<button type="button" class="btn" id="examShareBtn" aria-label="공유하기">'
             '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" '
             'stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 8l5-5 5 5M5 14v5a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-5"/></svg>'
             '<span class="btn__label">공유</span></button>')
-        btns_html = ''.join(b for b in btns if b) + credit_note_html(it)
+        btns_html = ''.join(b for b in btns if b) + credit_note_html(it) + ''.join(
+            f'<p class="exam__credit">{html_escape(str(x["note"]), quote=False)}</p>' for x in extras if x.get('note'))
         html = re.sub(
             r'(<div class="exam__actions" id="examActions">)\s*(</div>)',
             lambda m: m.group(1) + btns_html + m.group(2),

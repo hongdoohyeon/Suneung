@@ -165998,11 +165998,19 @@
     "credits": [
       {
         "role": "해설",
-        "name": "퍼플스타 님",
+        "name": "김진성 님",
         "url": "https://orbi.kr/00073511425",
         "via": "오르비",
         "short": "개인 제작 해설",
         "note": "게시물 73511425에 올린 개인 제작 해설로, 동국대학교 공식 해설은 아닙니다"
+      }
+    ],
+    "extraFiles": [
+      {
+        "label": "공식 문항카드 PDF",
+        "url": "https://suneung-files.hdh061224.workers.dev/essay-v16/mk_dongguk_2026_03_official.pdf?name=2026%ED%95%99%EB%85%84%EB%8F%84%20%EB%8F%99%EA%B5%AD%EB%8C%80%ED%95%99%EA%B5%90%20%EB%AA%A8%EC%9D%98%EB%85%BC%EC%88%A0%20%EC%9E%90%EC%97%B0%EA%B3%84%EC%97%B4%20%EA%B3%B5%EC%8B%9D%20%EB%AC%B8%ED%95%AD%EC%B9%B4%EB%93%9C%28%EB%AC%B8%EC%A0%9C%C2%B7%ED%95%B4%EC%84%A4%29.pdf",
+        "download": "2026학년도 동국대학교 모의논술 자연계열 공식 문항카드(문제·해설).pdf",
+        "note": "동국대학교가 공개한 공식 문항카드(문제·출제의도·예시답안)입니다. 단, 문제1 해설(예시답안)에 오류가 있으니 참고만 하세요."
       }
     ]
   },
