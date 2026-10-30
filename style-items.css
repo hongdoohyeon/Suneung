@@ -120,5 +120,7 @@
 .qs-ex__row { display: flex; flex-wrap: wrap; gap: 6px; }
 
 /* 시험 종류 탭: 자료가 아직 없는 탭은 흐리게, 누를 수 없게 */
-.qs-src .nav-tab[disabled] { opacity: .45; cursor: not-allowed; }
+.qs-src .nav-tab[disabled] { opacity: .5; cursor: not-allowed; }
+.qs-src .nav-tab[disabled] .nav-tab__title { text-decoration: line-through; text-decoration-thickness: 1.5px; }
 .qs-src .nav-tab[disabled]:hover { color: var(--ink-4); }
+.qs-src + .main { margin-top: 0; }   /* 탭 아래 여백은 탭 쪽(18px, 폰 12px)만 — 기출검색과 같게 */
