@@ -90,6 +90,32 @@
     </form>
   </div>
 
+  <!-- 시험 종류 — kicegg 기출검색과 같은 탭. 지금은 평가원만 있고 나머지는 자료를 넣으면 연다 -->
+  <nav class="curriculum-nav qs-src" id="srcTabs" aria-label="시험 종류">
+    <div class="curriculum-nav__inner hscroll">
+      <div class="nav-group">
+        <div class="nav-group__tabs">
+          <button type="button" class="nav-tab is-active" data-src="kice" aria-current="true">
+            <span class="nav-tab__title">평가원</span>
+            <span class="nav-tab__sub">수능·모의평가</span>
+          </button>
+          <button type="button" class="nav-tab" data-src="senior" disabled title="준비 중이에요">
+            <span class="nav-tab__title">교육청</span>
+            <span class="nav-tab__sub">고3 학력평가 · 준비 중</span>
+          </button>
+          <button type="button" class="nav-tab" data-src="junior" disabled title="준비 중이에요">
+            <span class="nav-tab__title">고1·2</span>
+            <span class="nav-tab__sub">학력평가 · 준비 중</span>
+          </button>
+          <button type="button" class="nav-tab" data-src="mp" disabled title="준비 중이에요">
+            <span class="nav-tab__title">사관·경찰</span>
+            <span class="nav-tab__sub">1차 시험 · 준비 중</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
   <main id="main" class="container main qs">
     <aside class="filter is-ready" id="filterPanel" aria-label="필터" role="region" aria-labelledby="filterSheetTitle">
       <div class="filter__sheet-head">

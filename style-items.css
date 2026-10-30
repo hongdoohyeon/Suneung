@@ -118,3 +118,7 @@
 .qs-ex h3 { margin: 0 0 2px; font-size: 15px; font-weight: var(--h2-weight); letter-spacing: var(--h2-track); }
 .qs-ex p { margin: 0 0 10px; font-size: 12.5px; color: var(--ink-4); }
 .qs-ex__row { display: flex; flex-wrap: wrap; gap: 6px; }
+
+/* 시험 종류 탭: 자료가 아직 없는 탭은 흐리게, 누를 수 없게 */
+.qs-src .nav-tab[disabled] { opacity: .45; cursor: not-allowed; }
+.qs-src .nav-tab[disabled]:hover { color: var(--ink-4); }
