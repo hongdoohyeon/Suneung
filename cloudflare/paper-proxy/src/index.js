@@ -31,6 +31,8 @@ export default {
     }
     const out = new Headers(r.headers);
     out.delete('set-cookie');
+    // 편집기 화면·스크립트는 고치면 바로 바뀌어야 해서 브라우저가 묵혀 두지 않게 (사이트 HTML 기본은 10분)
+    if (rest === '/' || rest === '/index.html' || rest === '/app.js') out.set('cache-control', 'no-cache');
     return new Response(r.body, { status: r.status, headers: out });
   },
 };
