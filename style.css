@@ -1885,3 +1885,7 @@ html:not(.is-ready-motion) .switch__knob, html:not(.is-ready-motion) .switch__kn
 @media (min-width: 1180px) {
   .topbar-wrap { padding-top: 16px; }
 }
+
+/* 임시 공지 (index.html #siteNotice, data-until 이후엔 app.js 가 제거) */
+.site-notice { grid-column: 1 / -1; margin: 0 0 12px; padding: 10px 14px; border: 1px solid var(--line-strong); border-radius: var(--r-sm); background: var(--t4-bg); color: var(--ink-2); font-size: 13px; line-height: 1.5; }
+.site-notice strong { color: var(--ink); }

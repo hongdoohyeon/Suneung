@@ -1834,3 +1834,6 @@ if (new URLSearchParams(location.search).get('focus') === 'search') {
 // 광고 슬롯 자동 렌더 (lib/ads.js — Publisher ID 미설정 시 no-op)
 if (document.readyState !== 'loading') renderAllAdSlots();
 else document.addEventListener('DOMContentLoaded', renderAllAdSlots);
+
+// 임시 공지: data-until(KST) 이 지나면 지운다
+{ const n = document.getElementById('siteNotice'); if (n && Date.now() >= Date.parse(n.dataset.until)) n.remove(); }
