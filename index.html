@@ -194,7 +194,7 @@
   </nav>
 
   <!-- ── Main ───────────────────────────────────────────── -->
-  <main id="main" class="container main">
+  <main id="main" class="container main has-rail">
 
     <!-- Sidebar / Mobile Bottom Sheet -->
     <!-- prerender:filter:start -->
@@ -264,10 +264,15 @@
     <div class="filter-backdrop" id="filterBackdrop" hidden></div>
 
     <!-- Content -->
-    <section class="content">
+    <section class="content content--rail">
 
-      <!-- 광고: 첫 화면 맨 위 -->
-      <div class="ad-slot ad-slot--banner" data-ad-position="archiveTop"></div>
+      <!-- 광고: 첫 화면. PC·태블릿(701px~)은 동시 노출 칸(큰 PC는 오른쪽 기둥, 그 아래 폭은 위쪽 가로 줄), 모바일은 얇은 배너 1개 -->
+      <aside class="ad-rail" aria-label="광고">
+        <div class="ad-slot ad-slot--rail" data-ad-position="homeRail1" data-ad-media="(min-width:701px)" data-ad-unique></div>
+        <div class="ad-slot ad-slot--rail" data-ad-position="homeRail2" data-ad-media="(min-width:701px)" data-ad-unique></div>
+        <div class="ad-slot ad-slot--rail" data-ad-position="homeRail3" data-ad-media="(min-width:1360px)" data-ad-unique></div>
+      </aside>
+      <div class="ad-slot ad-slot--banner" data-ad-position="archiveTop" data-ad-media="(max-width:700px)"></div>
 
       <!-- Toolbar -->
       <div class="controls">
@@ -328,7 +333,7 @@
       </div>
 
       <!-- Cards -->
-      <div id="cardsGrid" data-prerendered="1" class="results results--table" style="" data-sig="103582.1114042758"><section class="rgroup" data-group="2026년 10월 고3 학력평가" aria-label="2026년 10월 고3 학력평가" style="--acts: [l] 48px [a] 72px [q] 32px">
+      <div id="cardsGrid" data-prerendered="1" class="results results--table" style="" data-sig="103616.1940614941"><section class="rgroup" data-group="2026년 10월 고3 학력평가" aria-label="2026년 10월 고3 학력평가" style="--acts: [l] 48px [a] 72px [q] 32px">
       <header class="rgroup__head">
         <span class="type-badge type-badge--lg tg-education">10월 학평</span>
         <h2 class="rgroup__title"><a href="exam-set-kice-2027-oct-g3.html">2026년 10월 고3 학력평가</a></h2>
@@ -526,7 +531,7 @@
     <span class="rrow__meta"><span class="rrow__k">1컷</span><span class="rrow__na">—</span><span class="rrow__k">최고</span><span class="rrow__na">—</span><span class="rrow__tier"></span></span>
     <span class="rrow__acts"><a class="btn btn--primary act-q" href="https://kicegg.com/files/edu-2026-10/2026_10_g3_foreign_hanmun_q.pdf?name=2026%EB%85%84%2010%EC%9B%94%20%ED%95%99%EB%A0%A5%ED%8F%89%EA%B0%80%20%EC%A0%9C2%EC%99%B8%EA%B5%AD%EC%96%B4%28%ED%95%9C%EB%AC%B8%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf" title="문제지 받기" data-ga-subject="한문" data-eid="14567" download=""><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11m-5-5 5 5 5-5M5 20h14"></path></svg><span class="sr">문제지</span></a><a class="btn act-a" href="https://kicegg.com/files/edu-2026-10/2026_10_g3_foreign_hanmun_a.pdf?name=2026%EB%85%84%2010%EC%9B%94%20%ED%95%99%EB%A0%A5%ED%8F%89%EA%B0%80%20%EC%A0%9C2%EC%99%B8%EA%B5%AD%EC%96%B4%28%ED%95%9C%EB%AC%B8%29%20%EC%A0%95%EB%8B%B5%20%EB%B0%8F%20%ED%95%B4%EC%84%A4.pdf" data-ga-subject="한문" data-eid="14567" download="">정답·해설</a></span>
   </div></div></details>
-    </section><div class="ad-slot ad-slot--banner" data-ad-position="archiveGrid" style="display: none;"></div><section class="rgroup" data-group="2027학년도 9월 모의평가" aria-label="2027학년도 9월 모의평가" style="--acts: [l] 48px [a] 48px [s] 48px [q] 32px">
+    </section><div class="ad-slot ad-slot--banner" data-ad-position="archiveGrid" data-ad-media="(max-width:700px)" style="display: none;"></div><section class="rgroup" data-group="2027학년도 9월 모의평가" aria-label="2027학년도 9월 모의평가" style="--acts: [l] 48px [a] 48px [s] 48px [q] 32px">
       <header class="rgroup__head">
         <span class="type-badge type-badge--lg tg-suneung">9모</span>
         <h2 class="rgroup__title"><a href="exam-set-kice-2027-sept.html">2027학년도 9월 모의평가</a></h2>
@@ -872,7 +877,7 @@
       <div id="paginationWrap" class="pagination-wrap" style="display:none;"></div>
 
       <!-- 광고: 결과 그리드 하단 -->
-      <div class="ad-slot ad-slot--banner" data-ad-position="archiveBottom"></div>
+      <div class="ad-slot ad-slot--banner" data-ad-position="archiveBottom" data-ad-media="(max-width:700px)"></div>
 
       <!-- Empty -->
       <div id="emptyState" class="empty" style="display:none;" role="status" aria-live="polite">
@@ -942,7 +947,7 @@
       </ul>
       <!-- latest-sets:end -->
     </div>
-    <div class="ad-slot ad-slot--banner" data-ad-position="homeMid"></div>
+    <div class="ad-slot ad-slot--banner" data-ad-position="homeMid" data-ad-media="(max-width:700px)"></div>
     <div class="home-sec">
       <div class="sec-head"><h2 id="catTitle">시험 종류</h2></div>
       <!-- categories:start (render-site.py 가 채움) -->
@@ -966,7 +971,7 @@
       </div>
       <!-- subject-hubs:end -->
     </div>
-    <div class="ad-slot ad-slot--banner" data-ad-position="homeEnd"></div>
+    <div class="ad-slot ad-slot--banner" data-ad-position="homeEnd" data-ad-media="(max-width:700px)"></div>
     <div class="home-posts">
       <div class="sec-head"><h2 id="postsTitle">블로그</h2><a class="sec-head__more" href="blog.html">전체 글</a></div>
       <!-- home-posts:start (render-site.py 가 채움) -->
