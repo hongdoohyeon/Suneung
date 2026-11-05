@@ -932,6 +932,9 @@ html[data-urlstate] .content:has(#cardsGrid[data-prerendered]) #skeleton { displ
 .ad-slot--sidebar { min-height: 250px; margin: 0; }
 .ad-slot--filled { border-style: solid; border-color: var(--line); }
 .ad-slot:not(.ad-slot--filled) { display: none; }
+.ad-slot--adsense { min-height: 0; border: 0; overflow: visible; }
+.ad-slot--adsense.ad-slot--sidebar { min-height: 0; }
+.ad-slot:has(ins.adsbygoogle[data-ad-status="unfilled"]) { display: none; }   /* 채울 광고가 없으면 빈 칸을 남기지 않는다 */
 .ad-slot--direct { min-height: 0; border: 0; border-radius: 0; overflow: visible; text-align: center; }
 .ad-slot--banner.ad-slot--direct { margin-bottom: 8px; }
 .content > .ad-slot[data-ad-position="archiveTop"] { margin: 0 0 14px; }
