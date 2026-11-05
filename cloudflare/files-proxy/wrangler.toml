@@ -11,10 +11,7 @@ preview_urls = false
 pattern = "kicegg.com/files/*"
 zone_name = "kicegg.com"
 
-# 공개 인터넷을 거치지 않는 Worker 간 호출. 캐시 키도 기존과 같아 이미 쌓인 캐시를 그대로 쓴다.
-[[services]]
-binding = "FILES"
-service = "suneung-files"
+# 서비스 바인딩 제거 — suneung-files 로직을 src/index.js 에 합쳐 호출 1번으로 (기존 suneung-files 는 workers.dev 옛 주소용으로 유지)
 
 [observability]
 enabled = true
