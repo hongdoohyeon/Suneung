@@ -1395,7 +1395,7 @@ function tableHTML(groups) {
       }
       return rowHTML(r.exam);
     }).join('');
-    const ad = gi === 0 && groups.length > 1 ? '<div class="ad-slot ad-slot--banner" data-ad-position="archiveGrid"></div>' : '';
+    const ad = gi === 0 && groups.length > 1 ? '<div class="ad-slot ad-slot--banner" data-ad-position="archiveGrid" data-ad-media="(max-width:700px)"></div>' : '';
     const folded = rgroupFolded.has(title);
     return `<section class="rgroup${folded ? ' is-folded' : ''}" data-group="${escAttr(title)}" aria-label="${escAttr(title)}" style="--acts: ${actsColumns(g.items)}">
       <header class="rgroup__head">

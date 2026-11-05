@@ -935,6 +935,24 @@ html[data-urlstate] .content:has(#cardsGrid[data-prerendered]) #skeleton { displ
 .ad-slot--adsense { min-height: 0; border: 0; overflow: visible; }
 .ad-slot--adsense.ad-slot--sidebar { min-height: 0; }
 .ad-slot:has(ins.adsbygoogle[data-ad-status="unfilled"]) { display: none; }   /* 채울 광고가 없으면 빈 칸을 남기지 않는다 */
+/* 동시 노출 칸(.ad-rail): 홈은 큰 PC 오른쪽 기둥 3칸 · 그 아래 폭은 결과 위 가로 줄(2~3칸), 시험 상세는 오른쪽 기둥 3칸 */
+.ad-rail { display: flex; gap: 10px; margin: 0 0 14px; }
+.ad-rail:not(:has(.ad-slot--filled)) { display: none; }   /* 채워진 칸이 없으면 줄 자체를 없앤다 */
+.ad-rail .ad-slot { flex: 1 1 0; min-width: 0; margin: 0; min-height: 0; border: 0; border-radius: 0; overflow: visible; }
+.ad-rail .ad-direct__wrap { max-width: none; }
+.ad-rail .ad-direct__label { margin-bottom: 3px; font-size: 10.5px; }
+.ad-rail .ad-slot--adsense { min-height: 0; }
+@media (max-width: 700px) { .ad-rail { display: none; } }
+@media (min-width: 1560px) {
+  .main.has-rail { max-width: 1564px; }
+  .content--rail { display: grid; grid-template-columns: minmax(0, 1fr) 300px; column-gap: 24px; }
+  .content--rail > * { grid-column: 1; }
+  .content--rail > .ad-rail { grid-column: 2; grid-row: 1 / span 40; flex-direction: column; position: sticky; top: 84px; align-self: start; margin: 0; }
+  .content--rail > .ad-rail .ad-slot { flex: none; }
+}
+.ad-rail--detail { flex-direction: column; margin: 0; }
+.ad-rail--detail .ad-slot { flex: none; }
+
 .ad-slot--direct { min-height: 0; border: 0; border-radius: 0; overflow: visible; text-align: center; }
 .ad-slot--banner.ad-slot--direct { margin-bottom: 8px; }
 .content > .ad-slot[data-ad-position="archiveTop"] { margin: 0 0 14px; }

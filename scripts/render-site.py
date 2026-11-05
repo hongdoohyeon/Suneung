@@ -1198,7 +1198,7 @@ _HOME_MORE = """  <section class="container home-more" aria-label="최근 시험
       <!-- latest-sets:start (render-site.py 가 채움) -->
       <!-- latest-sets:end -->
     </div>
-    <div class="ad-slot ad-slot--banner" data-ad-position="homeMid"></div>
+    <div class="ad-slot ad-slot--banner" data-ad-position="homeMid" data-ad-media="(max-width:700px)"></div>
     <div class="home-sec">
       <div class="sec-head"><h2 id="catTitle">시험 종류</h2></div>
       <!-- categories:start (render-site.py 가 채움) -->
@@ -1209,7 +1209,7 @@ _HOME_MORE = """  <section class="container home-more" aria-label="최근 시험
       <!-- subject-hubs:start (render-site.py 가 채움) -->
       <!-- subject-hubs:end -->
     </div>
-    <div class="ad-slot ad-slot--banner" data-ad-position="homeEnd"></div>
+    <div class="ad-slot ad-slot--banner" data-ad-position="homeEnd" data-ad-media="(max-width:700px)"></div>
     <div class="home-posts">
       <div class="sec-head"><h2 id="postsTitle">블로그</h2><a class="sec-head__more" href="blog.html">전체 글</a></div>
       <!-- home-posts:start (render-site.py 가 채움) -->
