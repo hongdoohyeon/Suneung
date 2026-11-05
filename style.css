@@ -931,6 +931,19 @@ html[data-urlstate] .content:has(#cardsGrid[data-prerendered]) #skeleton { displ
 .ad-slot--banner { min-height: 100px; }
 .ad-slot--sidebar { min-height: 250px; margin: 0; }
 .ad-slot--filled { border-style: solid; border-color: var(--line); }
+.ad-slot:not(.ad-slot--filled) { display: none; }
+.ad-slot--direct { min-height: 0; border: 0; border-radius: 0; overflow: visible; text-align: center; }
+.ad-slot--banner.ad-slot--direct { margin-bottom: 8px; }
+.content > .ad-slot[data-ad-position="archiveTop"] { margin: 0 0 14px; }
+.ad-direct__wrap { width: 100%; max-width: 480px; margin: 0 auto; }
+@media (min-width: 701px) { .ad-direct__wrap { max-width: 900px; } }
+@media (min-width: 1180px) { .ad-direct__wrap { max-width: 728px; } }
+.ad-slot--sidebar .ad-direct__wrap { max-width: 300px; }
+.ad-direct__label { display: block; margin: 0 0 4px; font-size: 11px; line-height: 1.2; color: var(--ink-4); text-align: right; }
+.ad-direct { position: relative; display: block; border-radius: var(--r-md); overflow: hidden; }
+.ad-direct::after { content: ""; position: absolute; inset: 0; border-radius: inherit; box-shadow: inset 0 0 0 1px var(--line); pointer-events: none; }
+.ad-direct img { display: block; width: 100%; height: auto; }
+@media (max-width: 960px) { .ad-slot--sidebar { display: none; } }  /* 오른쪽 기둥이 없으면 바로 아래 본문 배너와 붙어 광고가 연달아 보인다 */
 .results > .ad-slot { margin: 0; }
 
 /* ═══ 여러 시험 선택 · 모아 받기 (lib/select.js) ═══════════════ */

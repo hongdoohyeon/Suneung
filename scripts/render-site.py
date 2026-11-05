@@ -337,7 +337,9 @@ def _hub_page(fname: str, h1: str, title: str, desc: str, intro: str,
       <p class="legal__sub">{bd.html_escape(stat, quote=False)}</p>
       <p class="hub-crumb"><a href="./">기출검색</a> · <a href="sets.html">전체 회차</a> · <a href="methodology.html">난이도 기준</a></p>
     </header>
+    <div class="ad-slot ad-slot--banner" data-ad-position="pageTop"></div>
     {''.join(sections)}
+    <div class="ad-slot ad-slot--banner" data-ad-position="pageBottom"></div>
   </main>
   <footer class="site-footer">
     <div class="container">
@@ -348,6 +350,7 @@ def _hub_page(fname: str, h1: str, title: str, desc: str, intro: str,
     </div>
   </footer>
   <script type="module" src="lib/dday-mount.js?v=20260718a"></script>
+  <script type="module" src="lib/ads-boot.js"></script>
   <script src="lib/measure.js?v=20260713c" defer></script>
 </body>
 </html>
@@ -746,7 +749,9 @@ def render_sets_directory(items: list[dict], essay_hubs=None, subject_hubs=None)
       <p class="legal__lead">수능·평가원·교육청·사관학교·경찰대·LEET·MEET 기출 회차를 학년도별로 모았습니다. 각 회차에서 영역별 문제지, 정답, 해설지, 등급컷 자료로 이동할 수 있습니다.</p>
       <p class="hub-crumb"><a href="./">기출검색</a> · <a href="calendar.html">학사 일정</a> · <a href="blog.html">블로그</a></p>
     </header>
+    <div class="ad-slot ad-slot--banner" data-ad-position="pageTop"></div>
     {''.join(sections)}
+    <div class="ad-slot ad-slot--banner" data-ad-position="pageBottom"></div>
   </main>
   <footer class="site-footer">
     <div class="container">
@@ -757,6 +762,7 @@ def render_sets_directory(items: list[dict], essay_hubs=None, subject_hubs=None)
     </div>
   </footer>
   <script type="module" src="lib/dday-mount.js?v=20260718a"></script>
+  <script type="module" src="lib/ads-boot.js"></script>
   <script src="lib/measure.js?v=20260713c" defer></script>
 </body>
 </html>
@@ -1192,6 +1198,7 @@ _HOME_MORE = """  <section class="container home-more" aria-label="최근 시험
       <!-- latest-sets:start (render-site.py 가 채움) -->
       <!-- latest-sets:end -->
     </div>
+    <div class="ad-slot ad-slot--banner" data-ad-position="homeMid"></div>
     <div class="home-sec">
       <div class="sec-head"><h2 id="catTitle">시험 종류</h2></div>
       <!-- categories:start (render-site.py 가 채움) -->
@@ -1202,6 +1209,7 @@ _HOME_MORE = """  <section class="container home-more" aria-label="최근 시험
       <!-- subject-hubs:start (render-site.py 가 채움) -->
       <!-- subject-hubs:end -->
     </div>
+    <div class="ad-slot ad-slot--banner" data-ad-position="homeEnd"></div>
     <div class="home-posts">
       <div class="sec-head"><h2 id="postsTitle">블로그</h2><a class="sec-head__more" href="blog.html">전체 글</a></div>
       <!-- home-posts:start (render-site.py 가 채움) -->

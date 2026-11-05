@@ -3495,6 +3495,8 @@ def build_static_set_pages(items: list[dict], template_path: Path, out_root: Pat
         if me:
             extra += set_related_html(me, catalog, sorted({e['subject'] for e in merged_exams if e.get('subject')}, key=lambda x: SUBJECT_ORDER.get(x, 99)))
         extra += article_html   # 회차 해설은 맨 아래 — 자료·표를 먼저 보게
+        if article_html:
+            extra += '\n\n    <div class="ad-slot ad-slot--banner" data-ad-position="examsetEnd"></div>'   # 해설 다 읽은 뒤 자리
         if extra:
             html = re.sub(r'(<div class="ad-slot ad-slot--banner" data-ad-position="examsetBottom"></div>)',
                           lambda m: m.group(1) + '\n\n    ' + extra, html, count=1)
