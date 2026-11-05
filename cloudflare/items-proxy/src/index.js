@@ -22,6 +22,8 @@ export default {
     // 이미지: 한 번 받으면 Cloudflare 캐시에 30일
     const im = url.pathname.match(/^\/qimg\/([\w-]{3,40})\.webp$/);
     if (im) {
+      // 이미지 긁어가기 대비: IP당 분당 900장 (목록 한 화면은 lazy-load 라 수십 장)
+      if (!(await env.IMG_IP.limit({ key: req.headers.get('cf-connecting-ip') || 'x' })).success) return new Response('', { status: 429, headers: { 'retry-after': '30' } });
       const cache = caches.default, key = new Request(url.origin + url.pathname + '?v=' + (url.searchParams.get('v') || ''));   // v를 올리면 크롭을 고친 이미지를 새로 받는다
       const hit = await cache.match(key); if (hit) return hit;
       const r = await origin(env, `/img/${im[1]}.webp?v=${encodeURIComponent(url.searchParams.get('v') || '2')}`, 20000);   // 원본 요청도 v별로(중간 캐시에 옛 크롭이 남지 않게)

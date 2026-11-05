@@ -1835,5 +1835,3 @@ if (new URLSearchParams(location.search).get('focus') === 'search') {
 if (document.readyState !== 'loading') renderAllAdSlots();
 else document.addEventListener('DOMContentLoaded', renderAllAdSlots);
 
-// 임시 공지: data-until(KST) 이 지나면 지운다
-{ const n = document.getElementById('siteNotice'); if (n && Date.now() >= Date.parse(n.dataset.until)) n.remove(); }

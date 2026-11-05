@@ -93,6 +93,10 @@ export default {
   async fetch(request, env, ctx) {
     const url = new URL(request.url);
     if (!url.pathname.startsWith('/files/')) return new Response('Not found', { status: 404 });
+    // 공격·스크래퍼 대비: IP당 분당 600회(병합 다운로드 200개도 통과). 넘으면 429 — 여기서 막혀도 호출은 1번만 센다
+    if (!(await env.PER_IP.limit({ key: request.headers.get('cf-connecting-ip') || 'x' })).success) {
+      return new Response('Too many requests', { status: 429, headers: { 'Retry-After': '30' } });
+    }
     // dl=1: iOS 사파리는 PDF 면 attachment 헤더여도 미리보기로 연다 → 형식을 숨겨 다운로드로만 받게
     const forceDownload = url.searchParams.get('dl') === '1';
     url.searchParams.delete('dl');

@@ -13,6 +13,12 @@ zone_name = "kicegg.com"
 
 # 서비스 바인딩 제거 — suneung-files 로직을 src/index.js 에 합쳐 호출 1번으로 (기존 suneung-files 는 workers.dev 옛 주소용으로 유지)
 
+# 공격 대비: IP당 분당 600회
+[[ratelimits]]
+name = "PER_IP"
+namespace_id = "2721"
+simple = { limit = 600, period = 60 }
+
 [observability]
 enabled = true
 head_sampling_rate = 0.01

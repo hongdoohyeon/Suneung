@@ -11,6 +11,10 @@ const DOWN_HTML = `<!doctype html><html lang="ko"><meta charset="utf-8"><meta na
 export default {
   async fetch(req, env) {
     const url = new URL(req.url);
+    // 공격·스크래퍼 대비: IP당 분당 900회(편집 중 문항·쪽 그림이 한꺼번에 오는 것을 넉넉히 통과). 넘으면 429
+    if (!(await env.PER_IP.limit({ key: req.headers.get('cf-connecting-ip') || 'x' })).success) {
+      return new Response(JSON.stringify({ error: '요청이 너무 많아요. 잠시 후 다시 시도해 주세요' }), { status: 429, headers: { 'content-type': 'application/json; charset=utf-8', 'retry-after': '30' } });
+    }
     if (url.pathname === '/paper') return Response.redirect(url.origin + '/paper/' + url.search + url.hash, 301);
     const rest = url.pathname.slice('/paper'.length) || '/';
     if (rest.startsWith('/k/')) return fetch(url.origin + rest.slice(2), { cf: { cacheTtl: 600 } });   // 사이트 자산

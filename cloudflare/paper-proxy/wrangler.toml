@@ -14,6 +14,12 @@ zone_name = "kicegg.com"
 [vars]
 ORIGIN = "https://paper-origin.kicegg.com"
 
+# 공격 대비: IP당 분당 900회
+[[ratelimits]]
+name = "PER_IP"
+namespace_id = "2731"
+simple = { limit = 900, period = 60 }
+
 [observability]
 enabled = true
 head_sampling_rate = 0.05
