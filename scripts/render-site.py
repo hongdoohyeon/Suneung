@@ -1458,10 +1458,11 @@ def _fig_series(items: list[dict], scores: dict) -> str:
         return ''
     key = max(ser, key=lambda k: len(ser[k]))
     pts = _dedupe_rounds(ser[key])
-    svg, five = _tier_dot_chart(pts, [scores[it['id']]['mean'] * 100 for it in pts], [scores[it['id']]['mean'] * 100 for it in ser[key]],
-                                scores, '추정 평균 점수율', '국어 역대 회차의 추정 평균 점수율과 난이도 등급')
+    adj = lambda i: (scores[i]['meanAdj'] if scores[i].get('meanAdj') is not None else scores[i]['mean']) * 100
+    svg, five = _tier_dot_chart(pts, [adj(it['id']) for it in pts], [adj(it['id']) for it in ser[key]],
+                                scores, '보정 평균 점수율', '국어 역대 회차의 표본 보정 평균 점수율과 난이도 등급')
     curr = key[1]
-    cap = (f'<figcaption>그림 3. 수능과 모의평가 국어({bd._CURR_LABEL.get(str(curr), str(curr))} 교육과정) {len(ser[key])}개 회차의 추정 평균 점수율입니다. '
+    cap = (f'<figcaption>그림 3. 수능과 모의평가 국어({bd._CURR_LABEL.get(str(curr), str(curr))} 교육과정) {len(ser[key])}개 회차의 표본 보정 평균 점수율입니다(추정 평균 점수율에서 졸업생 비율에 따른 표본 강도를 뺀 값). '
            f'점 색깔은 부여된 난이도이고 점선은 역대 값을 {"20, 40, 60, 80" if five else "33, 67"}퍼센트 지점에서 나눈 경계입니다. '
            f'점수율이 높을수록 쉬운 시험입니다. 점에 마우스를 올리면 회차와 값이 표시됩니다.</figcaption>')
     return f'<div>{svg}</div>{cap}'

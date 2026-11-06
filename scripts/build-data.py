@@ -1143,6 +1143,55 @@ def cut_moments(cut: dict, absolute: bool) -> dict:
     return out
 
 
+# ── 표본 구성 보정 — 평균 점수율을 '재학생 기준'으로 맞춘다 ─────────────────
+# 6모→9모→수능으로 갈수록 졸업생 비율이 늘고(공식: 6모 약 15~19%, 9모 17~24%, 수능 25~35%), 과탐Ⅱ는 6모 이후 응시자가 빠져나가
+# 남은 표본이 강해진다. 같은 평균이라도 표본이 강하면 시험은 더 어려웠던 것이므로 평균 점수율에서 표본 강도만큼 뺀다.
+#   보정 평균 = 평균 − S × sd,   S(σ 단위) = g × Δσ  (+ Ⅱ과목 이탈분)
+#   g : 응시자 중 졸업생 등 비율(평가원 채점결과 보도자료), Δσ : 졸업생-재학생 평균 격차(국어 0.62·수학 0.60·탐구 0.50 가정)
+#   Ⅱ과목 이탈분 = λ·φ(z_q)/(1−q), q = 1 − (국어 대비 Ⅱ응시비 ÷ 같은 해 6모 비) — 이탈이 하위권에서 일어난 정도 λ=0.5 가정
+# 입력은 data/sample-correction.json(scripts/build-sample-correction.py). 학평(고3 재학생만)·예비시험은 보정하지 않는다.
+_SC_CACHE: dict = {}
+_II_CODE = {'물리학Ⅱ': 'physics2', '화학Ⅱ': 'chem2', '생명과학Ⅱ': 'biology2', '지구과학Ⅱ': 'earth2', '물리Ⅱ': 'physics2'}
+
+
+def _load_sample_correction() -> dict:
+    if 'v' not in _SC_CACHE:
+        try:
+            _SC_CACHE['v'] = json.loads((ROOT / 'data' / 'sample-correction.json').read_text(encoding='utf-8'))
+        except Exception:
+            _SC_CACHE['v'] = {}
+    return _SC_CACHE['v']
+
+
+def sample_shift(it: dict) -> float | None:
+    """시험 하나의 표본 강도 S(σ 단위, 재학생 기준 대비). 보정 대상이 아니면 None."""
+    sc = _load_sample_correction()
+    if not sc or it.get('typeGroup') != 'suneung' or it.get('type') not in ('csat', 'june', 'sept'):
+        return None
+    gy, t = it.get('gradeYear'), it['type']
+    if not isinstance(gy, int):
+        return None
+    prm = sc['params']
+    g = sc['g'].get(f'{gy}|{t}')
+    if g is None:   # 공식 비율이 없으면 같은 해 수능 비율에 6모 0.5·9모 0.65를 곱하고, 수능도 없으면 기본값
+        cs = sc['g'].get(f'{gy}|csat', prm['defaultG']['csat'])
+        g = cs * {'csat': 1.0, 'june': 0.5, 'sept': 0.65}[t] if f'{gy}|csat' in sc['g'] else prm['defaultG'][t]
+    delta = prm['delta'].get(it.get('subject'), prm['delta']['default'])
+    s = g * delta
+    code = _II_CODE.get((it.get('subSubject') or '').strip())
+    if code and t != 'june':
+        tk = sc['takers']
+        ref = (tk.get(f'{gy}|june|{code}') or 0) / (tk.get(f'{gy}|june|korean') or 1) if tk.get(f'{gy}|june|korean') else None
+        cur_n, cur_k = tk.get(f'{gy}|{t}|{code}'), tk.get(f'{gy}|{t}|korean')
+        if ref and cur_n and cur_k:
+            q = 1 - (cur_n / cur_k) / ref
+            if q > 0:
+                from statistics import NormalDist
+                nd = NormalDist()
+                s += prm['lambda'] * nd.pdf(nd.inv_cdf(q)) / (1 - q)
+    return round(s, 4)
+
+
 def _series_tier(vals: list[float], v: float) -> int:
     """같은 묶음 역대 값(높을수록 쉬움) 안에서의 중간순위 백분위 → 난이도 등급(1 매우 쉬움 … 5 매우 어려움)."""
     below = sum(1 for x in vals if x < v)
@@ -1189,6 +1238,7 @@ def compute_exam_scores(items: list[dict], cuts: list[dict] | None = None) -> di
             'abs': absolute,
             'basis': cut.get('rawCutBasis'),
             'mean': None, 'sd': None, 'skew': None,
+            'meanAdj': None, 'shift': None,   # 표본 구성 보정 평균 점수율(0~1)·표본 강도 S(σ)
             'tier': None,
             'tierBasis': None,
             'tierN': None,
@@ -1205,6 +1255,10 @@ def compute_exam_scores(items: list[dict], cuts: list[dict] | None = None) -> di
             rec['ratios'] = er['ratios']
             rec['ratio'] = er['ratios'][0]
         rec.update(cut_moments(cut, absolute))
+        if rec['mean'] is not None:
+            s = sample_shift(it) if rec['sd'] is not None else None
+            rec['shift'] = s
+            rec['meanAdj'] = round(rec['mean'] - s * rec['sd'], 4) if s is not None else rec['mean']
         key = tier_series_key(it)
         if key:
             members.setdefault(key, []).append(it['id'])
@@ -1223,7 +1277,7 @@ def compute_exam_scores(items: list[dict], cuts: list[dict] | None = None) -> di
         if absolute:   # 절대평가: 1등급 비율(높을수록 쉬움)
             scales: list[tuple[str, dict]] = [('ratio', {i: out[i]['ratio'] for i in ids if out[i]['ratio'] is not None})]
         else:
-            scales = [('mean', {i: out[i]['mean'] for i in ids if out[i]['mean'] is not None})]
+            scales = [('mean', {i: out[i]['meanAdj'] for i in ids if out[i]['meanAdj'] is not None})]
         if not absolute:
             both = {i for i in ids if out[i]['skew'] is not None and out[i]['top'] is not None}
             zk = zscores({i: -out[i]['skew'] for i in both}) if both else {}
@@ -1419,6 +1473,8 @@ _TIER_BASIS_LABEL = {'ratio': '1등급 비율', 'mean': '추정 평균 점수율
 def _tier_stat_label(sc: dict) -> str:
     n = sc.get('tierN')
     b = _TIER_BASIS_LABEL.get(sc.get('tierBasis'), '')
+    if sc.get('tierBasis') == 'mean' and sc.get('shift'):
+        b = '표본 보정 평균 점수율'
     return f'난이도 (역대 {n}회, {b} 기준)' if n and b else '난이도'
 
 
@@ -1451,6 +1507,8 @@ def score_stats_html(sc: dict) -> str:
             cells.append(('1등급 누적 비율', f'{esc(sc["cum"])}<small>%</small>', True))
         if sc.get('mean') is not None:
             cells.append(('추정 평균 점수율', f'{esc(round(sc["mean"] * 100))}<small>%</small>', True))
+            if sc.get('shift') and sc.get('meanAdj') is not None:
+                cells.append(('재학생 기준 보정', f'{esc(round(sc["meanAdj"] * 100))}<small>%</small>', True))
         if sc.get('tier'):
             cells.append((_tier_stat_label(sc), TIER_LABELS[sc['tier']], True))
     return '<div class="stats">' + ''.join(
