@@ -180261,22 +180261,22 @@
     "subSubject": "생활과윤리",
     "standardCuts": [
       66,
-      62,
-      59,
+      63,
+      58,
       54,
       47,
       40,
-      36,
+      37,
       34
     ],
     "rawCuts": [
-      46,
+      45,
       41,
-      38,
+      35,
       31,
       23,
       14,
-      9,
+      11,
       7
     ],
     "standardPercentile": [
@@ -180301,14 +180301,12 @@
     ],
     "highestStandardScore": 69,
     "fullScore": 50,
-    "source": "ebsi-grdcut+academy-consensus",
+    "source": "academy-consensus+ebsi-grdcut+ebsi-live",
     "id": 4231,
     "studentGrade": 2,
     "rawCutBasis": "academy_consensus",
     "rawCutSources": [
-      "ebsi",
-      "megastudy",
-      "jongro"
+      "ebsi"
     ],
     "rawCutAgreement": [
       3,
@@ -180319,7 +180317,8 @@
       3,
       3,
       3
-    ]
+    ],
+    "rawCutSourceUrl": "https://cloud.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -209463,27 +209462,27 @@
     "subject": "국어",
     "subSubject": "가형",
     "rawCuts": [
-      96,
-      92,
+      98,
+      93,
       86,
-      76,
-      64,
-      49,
-      32,
+      75,
+      60,
+      44,
+      29,
       21
     ],
     "fullScore": 100,
     "standardCuts": [
-      126,
-      123,
+      129,
+      124,
       118,
       109,
-      98,
-      85,
+      96,
+      83,
       70,
-      60
+      63
     ],
-    "source": "ebsi-past-gradecuts",
+    "source": "ebsi-live+ebsi-past-gradecuts",
     "id": 4904,
     "standardPercentile": [
       95,
@@ -209496,7 +209495,11 @@
       3
     ],
     "highestStandardScore": 130,
-    "studentGrade": 2
+    "studentGrade": 2,
+    "rawCutSources": [
+      "ebsi"
+    ],
+    "rawCutSourceUrl": "https://cloud.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
   },
   {
     "curriculum": "2009",
@@ -217175,30 +217178,6 @@
     ]
   },
   {
-    "curriculum": "2009",
-    "gradeYear": 2014,
-    "examYear": 2013,
-    "month": 9,
-    "typeGroup": "suneung",
-    "type": "sept",
-    "subject": "제2외국어",
-    "subSubject": "독일어",
-    "standardCuts": [
-      64,
-      61,
-      59,
-      56,
-      48,
-      38,
-      36,
-      34
-    ],
-    "source": "kice-archive-2009",
-    "id": 5099,
-    "fullScore": 50,
-    "highestStandardScore": 65
-  },
-  {
     "curriculum": "2007개정",
     "gradeYear": 2014,
     "examYear": 2013,
@@ -217257,30 +217236,6 @@
     "id": 5101,
     "fullScore": 50,
     "highestStandardScore": 65
-  },
-  {
-    "curriculum": "2009",
-    "gradeYear": 2014,
-    "examYear": 2013,
-    "month": 9,
-    "typeGroup": "suneung",
-    "type": "sept",
-    "subject": "제2외국어",
-    "subSubject": "러시아어",
-    "standardCuts": [
-      68,
-      66,
-      62,
-      47,
-      44,
-      42,
-      40,
-      39
-    ],
-    "source": "kice-archive-2009",
-    "id": 5102,
-    "fullScore": 50,
-    "highestStandardScore": 69
   },
   {
     "curriculum": "2007개정",
@@ -217367,30 +217322,6 @@
     ]
   },
   {
-    "curriculum": "2009",
-    "gradeYear": 2014,
-    "examYear": 2013,
-    "month": 9,
-    "typeGroup": "suneung",
-    "type": "sept",
-    "subject": "제2외국어",
-    "subSubject": "스페인어",
-    "standardCuts": [
-      62,
-      60,
-      59,
-      56,
-      50,
-      39,
-      35,
-      33
-    ],
-    "source": "kice-archive-2009",
-    "id": 5105,
-    "fullScore": 50,
-    "highestStandardScore": 65
-  },
-  {
     "curriculum": "2007개정",
     "gradeYear": 2014,
     "examYear": 2013,
@@ -217475,30 +217406,6 @@
     ]
   },
   {
-    "curriculum": "2009",
-    "gradeYear": 2014,
-    "examYear": 2013,
-    "month": 9,
-    "typeGroup": "suneung",
-    "type": "sept",
-    "subject": "제2외국어",
-    "subSubject": "아랍어",
-    "standardCuts": [
-      73,
-      68,
-      55,
-      47,
-      45,
-      43,
-      41,
-      40
-    ],
-    "source": "kice-archive-2009",
-    "id": 5108,
-    "fullScore": 50,
-    "highestStandardScore": 77
-  },
-  {
     "curriculum": "2007개정",
     "gradeYear": 2014,
     "examYear": 2013,
@@ -217557,30 +217464,6 @@
     "id": 5110,
     "fullScore": 50,
     "highestStandardScore": 77
-  },
-  {
-    "curriculum": "2009",
-    "gradeYear": 2014,
-    "examYear": 2013,
-    "month": 9,
-    "typeGroup": "suneung",
-    "type": "sept",
-    "subject": "제2외국어",
-    "subSubject": "일본어",
-    "standardCuts": [
-      62,
-      61,
-      60,
-      56,
-      48,
-      39,
-      36,
-      34
-    ],
-    "source": "kice-archive-2009",
-    "id": 5111,
-    "fullScore": 50,
-    "highestStandardScore": 64
   },
   {
     "curriculum": "2007개정",
@@ -217739,30 +217622,6 @@
     ]
   },
   {
-    "curriculum": "2009",
-    "gradeYear": 2014,
-    "examYear": 2013,
-    "month": 9,
-    "typeGroup": "suneung",
-    "type": "sept",
-    "subject": "제2외국어",
-    "subSubject": "프랑스어",
-    "standardCuts": [
-      63,
-      61,
-      59,
-      56,
-      50,
-      39,
-      35,
-      33
-    ],
-    "source": "kice-archive-2009",
-    "id": 5116,
-    "fullScore": 50,
-    "highestStandardScore": 65
-  },
-  {
     "curriculum": "2007개정",
     "gradeYear": 2014,
     "examYear": 2013,
@@ -217843,54 +217702,6 @@
     ],
     "source": "kice-archive-2009+academy-consensus",
     "id": 5119,
-    "fullScore": 50,
-    "highestStandardScore": 66,
-    "rawCuts": [
-      48,
-      46,
-      42,
-      36,
-      27,
-      20,
-      15,
-      10
-    ],
-    "rawCutBasis": "academy_consensus",
-    "rawCutSources": [
-      "ebsi"
-    ],
-    "rawCutAgreement": [
-      1,
-      1,
-      1,
-      1,
-      1,
-      1,
-      1,
-      1
-    ]
-  },
-  {
-    "curriculum": "2007개정",
-    "gradeYear": 2014,
-    "examYear": 2013,
-    "month": 9,
-    "typeGroup": "suneung",
-    "type": "sept",
-    "subject": "제2외국어",
-    "subSubject": "한문",
-    "standardCuts": [
-      64,
-      62,
-      59,
-      54,
-      47,
-      41,
-      37,
-      33
-    ],
-    "source": "kice-archive-2009+ebsi-past-grdcut+academy-consensus",
-    "id": 5120,
     "fullScore": 50,
     "highestStandardScore": 66,
     "rawCuts": [
@@ -218855,30 +218666,6 @@
     ]
   },
   {
-    "curriculum": "2009",
-    "gradeYear": 2014,
-    "examYear": 2013,
-    "month": 6,
-    "typeGroup": "suneung",
-    "type": "june",
-    "subject": "제2외국어",
-    "subSubject": "독일어",
-    "standardCuts": [
-      64,
-      61,
-      59,
-      55,
-      49,
-      39,
-      35,
-      34
-    ],
-    "source": "kice-archive-2009",
-    "id": 5141,
-    "fullScore": 50,
-    "highestStandardScore": 65
-  },
-  {
     "curriculum": "2007개정",
     "gradeYear": 2014,
     "examYear": 2013,
@@ -218961,30 +218748,6 @@
       1,
       1
     ]
-  },
-  {
-    "curriculum": "2009",
-    "gradeYear": 2014,
-    "examYear": 2013,
-    "month": 6,
-    "typeGroup": "suneung",
-    "type": "june",
-    "subject": "제2외국어",
-    "subSubject": "러시아어",
-    "standardCuts": [
-      66,
-      64,
-      63,
-      48,
-      43,
-      42,
-      41,
-      39
-    ],
-    "source": "kice-archive-2009",
-    "id": 5144,
-    "fullScore": 50,
-    "highestStandardScore": 67
   },
   {
     "curriculum": "2007개정",
@@ -219095,30 +218858,6 @@
     "highestStandardScore": 63
   },
   {
-    "curriculum": "2007개정",
-    "gradeYear": 2014,
-    "examYear": 2013,
-    "month": 6,
-    "typeGroup": "suneung",
-    "type": "june",
-    "subject": "제2외국어",
-    "subSubject": "스페인어",
-    "standardCuts": [
-      62,
-      61,
-      59,
-      56,
-      48,
-      40,
-      35,
-      33
-    ],
-    "source": "kice-archive-2009",
-    "id": 5148,
-    "fullScore": 50,
-    "highestStandardScore": 63
-  },
-  {
     "curriculum": "2009",
     "gradeYear": 2014,
     "examYear": 2013,
@@ -219141,30 +218880,6 @@
     "id": 5149,
     "fullScore": 50,
     "highestStandardScore": 63
-  },
-  {
-    "curriculum": "2009",
-    "gradeYear": 2014,
-    "examYear": 2013,
-    "month": 6,
-    "typeGroup": "suneung",
-    "type": "june",
-    "subject": "제2외국어",
-    "subSubject": "아랍어",
-    "standardCuts": [
-      76,
-      60,
-      54,
-      49,
-      46,
-      43,
-      41,
-      38
-    ],
-    "source": "kice-archive-2009",
-    "id": 5150,
-    "fullScore": 50,
-    "highestStandardScore": 93
   },
   {
     "curriculum": "2007개정",
@@ -219249,30 +218964,6 @@
       1,
       1
     ]
-  },
-  {
-    "curriculum": "2009",
-    "gradeYear": 2014,
-    "examYear": 2013,
-    "month": 6,
-    "typeGroup": "suneung",
-    "type": "june",
-    "subject": "제2외국어",
-    "subSubject": "일본어",
-    "standardCuts": [
-      67,
-      63,
-      59,
-      54,
-      46,
-      40,
-      38,
-      35
-    ],
-    "source": "kice-archive-2009",
-    "id": 5153,
-    "fullScore": 50,
-    "highestStandardScore": 70
   },
   {
     "curriculum": "2007개정",
@@ -219451,30 +219142,6 @@
     ],
     "source": "kice-archive-2009",
     "id": 5158,
-    "fullScore": 50,
-    "highestStandardScore": 66
-  },
-  {
-    "curriculum": "2007개정",
-    "gradeYear": 2014,
-    "examYear": 2013,
-    "month": 6,
-    "typeGroup": "suneung",
-    "type": "june",
-    "subject": "제2외국어",
-    "subSubject": "프랑스어",
-    "standardCuts": [
-      64,
-      62,
-      60,
-      56,
-      46,
-      39,
-      37,
-      35
-    ],
-    "source": "kice-archive-2009",
-    "id": 5159,
     "fullScore": 50,
     "highestStandardScore": 66
   },
