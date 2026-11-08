@@ -11,7 +11,31 @@ const ALLOWED_TYPES = {
 
 // 기존 suneung-files Worker 로직을 그대로 옮김 — 서비스 바인딩 호출(=Worker 호출 2번)을 1번으로 줄이려고.
 // request.url 은 예전처럼 workers.dev 주소(/{tag}/{asset})로 들어온다. 캐시 키도 그 주소 기준.
-async function serveFile(request, ctx) {
+// GitHub releases/download 주소가 5xx(2026-11-08 장애)일 때 API 자산 주소로 우회. 태그별 자산 목록은 1시간 캐시.
+async function ghFetch(ghUrl, init, ctx, env) {
+  const r = await fetch(ghUrl, init);
+  if (r.status < 500) return r;
+  const [, tag, name] = new URL(ghUrl).pathname.match(/\/releases\/download\/([^/]+)\/(.+)$/) || [];
+  if (!tag) return r;
+  const api = `https://api.github.com/repos/hongdoohyeon/Suneung/releases/tags/${tag}`;
+  const auth = env && env.GH_TOKEN ? { Authorization: `Bearer ${env.GH_TOKEN}` } : {};
+  const key = new Request(api);
+  let list = await caches.default.match(key);
+  if (!list) {
+    const lr = await fetch(api, { headers: { "User-Agent": "kicegg-files", Accept: "application/vnd.github+json", ...auth } });
+    if (!lr.ok) return r;
+    list = new Response(lr.body, { headers: { "Content-Type": "application/json", "Cache-Control": "public, max-age=3600" } });
+    ctx.waitUntil(caches.default.put(key, list.clone()));
+  }
+  const asset = ((await list.json()).assets || []).find(a => a.name === decodeURIComponent(name));
+  if (!asset) return r;
+  const headers = new Headers(init.headers);
+  headers.set("Accept", "application/octet-stream");
+  for (const [k, v] of Object.entries(auth)) headers.set(k, v);
+  return fetch(asset.url, { ...init, headers });
+}
+
+async function serveFile(request, ctx, env) {
   const url = new URL(request.url);
   if (request.method !== "GET" && request.method !== "HEAD") {
     return new Response("Method not allowed", { status: 405, headers: { Allow: "GET, HEAD" } });
@@ -32,7 +56,7 @@ async function serveFile(request, ctx) {
   const ua = request.headers.get("User-Agent") || "Suneung-Download-Proxy";
 
   if (range) {
-    const originResp = await fetch(ghUrl, { method: request.method, redirect: "follow", headers: { Range: range, "User-Agent": ua } });
+    const originResp = await ghFetch(ghUrl, { method: request.method, redirect: "follow", headers: { Range: range, "User-Agent": ua } }, ctx, env);
     if (!originResp.ok && originResp.status !== 206) return new Response("Not found", { status: originResp.status });
     const out = buildResponseHeaders(originResp.headers, { fileName, isInline, ext, typeInfo });
     return new Response(request.method === "HEAD" ? null : originResp.body, { status: originResp.status, headers: out });
@@ -44,7 +68,7 @@ async function serveFile(request, ctx) {
   const cache = caches.default;
   let cached = await cache.match(cacheKey);
   if (!cached) {
-    const originResp = await fetch(ghUrl, { method: "GET", redirect: "follow", headers: { "User-Agent": ua } });
+    const originResp = await ghFetch(ghUrl, { method: "GET", redirect: "follow", headers: { "User-Agent": ua } }, ctx, env);
     if (!originResp.ok) return new Response("Not found", { status: originResp.status });
     const ch = new Headers(originResp.headers);
     ch.set("Cache-Control", `public, max-age=${CACHE_SECONDS}`);
@@ -78,11 +102,11 @@ function sanitizeFileName(name) {
   return name.replace(/[\/\\:*?"<>|]/g, "_").replace(/\s+/g, " ").trim().slice(0, 180);
 }
 
-async function assetLength(request, ctx) {
+async function assetLength(request, ctx, env) {
   const headers = new Headers(request.headers);
   headers.delete('Range');
   headers.delete('If-Range');
-  const head = await serveFile(new Request(request, { method: 'HEAD', headers }), ctx);
+  const head = await serveFile(new Request(request, { method: 'HEAD', headers }), ctx, env);
   const raw = head.headers.get('Content-Length');
   if (!head.ok || !/^\d+$/.test(raw || '')) return null;
   const length = Number(raw);
@@ -106,7 +130,7 @@ export default {
     const suffix = /^bytes=-(\d+)$/.exec(request.headers.get('Range') || '');
     // upstream 은 suffix Range 를 지원하지 않는다. 전체를 버퍼링하지 않고 길이만 확인해 명시 범위로 전달.
     if (request.method === 'GET' && suffix) {
-      length = await assetLength(forwarded, ctx);
+      length = await assetLength(forwarded, ctx, env);
       if (length !== null) {
         const count = Math.min(Number(suffix[1]), length);
         const headers = new Headers(forwarded.headers);
@@ -114,9 +138,9 @@ export default {
         forwarded = new Request(forwarded, { headers });
       }
     }
-    let response = await serveFile(forwarded, ctx);
+    let response = await serveFile(forwarded, ctx, env);
     if (response.status === 416 && !response.headers.has('Content-Range')) {
-      length ??= await assetLength(forwarded, ctx);
+      length ??= await assetLength(forwarded, ctx, env);
       if (length !== null) {
         const headers = new Headers(response.headers);
         headers.set('Content-Range', `bytes */${length}`);
