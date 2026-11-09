@@ -626,7 +626,9 @@
         "questionUrl": "https://suneung-files.hdh061224.workers.dev/hwp-pdf-v3/x6700_q.pdf?name=2008%EB%85%84%206%EC%9B%94%20%EA%B3%A03%20%EB%AA%A8%EC%9D%98%EA%B3%A0%EC%82%AC%20%EC%88%98%ED%95%99%EA%B0%80%ED%98%95%20%EB%AC%B8%EC%A0%9C.pdf",
         "questionDownload": "2008년 6월 고3 모의고사 수학가형 문제.pdf",
         "answerUrl": "https://suneung-files.hdh061224.workers.dev/hwp-pdf-v3/x6700_a.pdf?name=2009%ED%95%99%EB%85%84%EB%8F%84%206%EC%9B%94%20%EB%AA%A8%EC%9D%98%ED%8F%89%EA%B0%80%20%EC%88%98%ED%95%99%28%EA%B0%80%ED%98%95%29%20%EC%A0%95%EB%8B%B5.pdf",
-        "answerDownload": "2009학년도 6월 모의평가 수학(가형) 정답.pdf"
+        "answerDownload": "2009학년도 6월 모의평가 수학(가형) 정답.pdf",
+        "solutionUrl": null,
+        "solutionDownload": null
       }
     },
     {
@@ -636,7 +638,9 @@
         "questionUrl": "https://suneung-files.hdh061224.workers.dev/hwp-pdf-v3/x6701_q.pdf?name=2008%EB%85%84%206%EC%9B%94%20%EA%B3%A03%20%EB%AA%A8%EC%9D%98%EA%B3%A0%EC%82%AC%20%EC%88%98%ED%95%99%EB%82%98%ED%98%95%20%EB%AC%B8%EC%A0%9C.pdf",
         "questionDownload": "2008년 6월 고3 모의고사 수학나형 문제.pdf",
         "answerUrl": "https://suneung-files.hdh061224.workers.dev/hwp-pdf-v3/x6701_a.pdf?name=2008%EB%85%84%206%EC%9B%94%20%EA%B3%A03%20%EB%AA%A8%EC%9D%98%EA%B3%A0%EC%82%AC%20%EC%88%98%ED%95%99%EB%82%98%ED%98%95%20%EC%A0%95%EB%8B%B5%26%ED%95%B4%EC%84%A4.pdf",
-        "answerDownload": "2008년 6월 고3 모의고사 수학나형 정답&해설.pdf"
+        "answerDownload": "2008년 6월 고3 모의고사 수학나형 정답&해설.pdf",
+        "solutionUrl": null,
+        "solutionDownload": null
       }
     },
     {
@@ -1328,7 +1332,9 @@
       "replaceExisting": true,
       "set": {
         "answerUrl": "https://suneung-files.hdh061224.workers.dev/hwp-pdf-v3/x6967_a.pdf?name=2009%EB%85%84%209%EC%9B%94%20%EA%B3%A03%20%EB%AA%A8%EC%9D%98%EA%B3%A0%EC%82%AC%20%EB%86%8D%EC%97%85%EC%A0%95%EB%B3%B4%EA%B4%80%EB%A6%AC%20%EC%A0%95%EB%8B%B5%26%ED%95%B4%EC%84%A4.pdf",
-        "answerDownload": "2009년 9월 고3 모의고사 농업정보관리 정답&해설.pdf"
+        "answerDownload": "2009년 9월 고3 모의고사 농업정보관리 정답&해설.pdf",
+        "solutionUrl": null,
+        "solutionDownload": null
       }
     },
     {
@@ -1392,7 +1398,9 @@
       "replaceExisting": true,
       "set": {
         "answerUrl": "https://suneung-files.hdh061224.workers.dev/hwp-pdf-v3/x6977_a.pdf?name=2009%EB%85%84%209%EC%9B%94%20%EA%B3%A03%20%EB%AA%A8%EC%9D%98%EA%B3%A0%EC%82%AC%20%ED%95%B4%EC%96%91%EC%9D%BC%EB%B0%98%20%EC%A0%95%EB%8B%B5%26%ED%95%B4%EC%84%A4.pdf",
-        "answerDownload": "2009년 9월 고3 모의고사 해양일반 정답&해설.pdf"
+        "answerDownload": "2009년 9월 고3 모의고사 해양일반 정답&해설.pdf",
+        "solutionUrl": null,
+        "solutionDownload": null
       }
     },
     {
@@ -1808,7 +1816,9 @@
       "replaceExisting": true,
       "set": {
         "answerUrl": "https://suneung-files.hdh061224.workers.dev/hwp-pdf-v3/x7142_a.pdf?name=2007%ED%95%99%EB%85%84%EB%8F%84%206%EB%AA%A8%20%EC%A0%9C2%EC%99%B8%EA%B5%AD%EC%96%B4%28%ED%95%9C%EB%AC%B8%29%20%EC%A0%95%EB%8B%B5.pdf",
-        "answerDownload": "2007학년도 6모 제2외국어(한문) 정답.pdf"
+        "answerDownload": "2007학년도 6모 제2외국어(한문) 정답.pdf",
+        "solutionUrl": null,
+        "solutionDownload": null
       }
     },
     {
@@ -1816,7 +1826,9 @@
       "replaceExisting": true,
       "set": {
         "answerUrl": "https://suneung-files.hdh061224.workers.dev/hwp-pdf-v3/x7165_a.pdf?name=2008%ED%95%99%EB%85%84%EB%8F%84%206%EB%AA%A8%20%EC%A7%81%EC%97%85%ED%83%90%EA%B5%AC%28%EA%B3%B5%EC%97%85%EC%9E%85%EB%AC%B8%29%20%EC%A0%95%EB%8B%B5.pdf",
-        "answerDownload": "2008학년도 6모 직업탐구(공업입문) 정답.pdf"
+        "answerDownload": "2008학년도 6모 직업탐구(공업입문) 정답.pdf",
+        "solutionUrl": null,
+        "solutionDownload": null
       }
     },
     {
@@ -2037,80 +2049,100 @@
       "id": 7211,
       "replaceExisting": true,
       "set": {
-        "answerUrl": "https://suneung-files.hdh061224.workers.dev/hwp-pdf-v3/x7211_a.pdf?name=2004%EB%85%84%206%EC%9B%94%20%EA%B3%A03%20%EB%AA%A8%EC%9D%98%EA%B3%A0%EC%82%AC%20%EA%B2%BD%EC%A0%9C%20%EC%A0%95%EB%8B%B5.pdf",
-        "answerDownload": "2004년 6월 고3 모의고사 경제 정답.pdf"
+        "answerUrl": "https://suneung-files.hdh061224.workers.dev/hwp-pdf-v3/x7211_a.pdf?name=2005%ED%95%99%EB%85%84%EB%8F%84%206%EC%9B%94%20%EB%AA%A8%EC%9D%98%ED%8F%89%EA%B0%80%20%EC%82%AC%ED%9A%8C%ED%83%90%EA%B5%AC%28%EA%B2%BD%EC%A0%9C%29%20%EC%A0%95%EB%8B%B5.pdf",
+        "answerDownload": "2005학년도 6월 모의평가 사회탐구(경제) 정답.pdf",
+        "questionUrl": "https://suneung-files.hdh061224.workers.dev/hwp-pdf-v3/x7211_q.pdf?name=2005%ED%95%99%EB%85%84%EB%8F%84%206%EC%9B%94%20%EB%AA%A8%EC%9D%98%ED%8F%89%EA%B0%80%20%EC%82%AC%ED%9A%8C%ED%83%90%EA%B5%AC%28%EA%B2%BD%EC%A0%9C%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
+        "questionDownload": "2005학년도 6월 모의평가 사회탐구(경제) 문제지.pdf"
       }
     },
     {
       "id": 7212,
       "replaceExisting": true,
       "set": {
-        "answerUrl": "https://suneung-files.hdh061224.workers.dev/hwp-pdf-v3/x7212_a.pdf?name=2004%EB%85%84%206%EC%9B%94%20%EA%B3%A03%20%EB%AA%A8%EC%9D%98%EA%B3%A0%EC%82%AC%20%EA%B2%BD%EC%A0%9C%EC%A7%80%EB%A6%AC%20%EC%A0%95%EB%8B%B5.pdf",
-        "answerDownload": "2004년 6월 고3 모의고사 경제지리 정답.pdf"
+        "answerUrl": "https://suneung-files.hdh061224.workers.dev/hwp-pdf-v3/x7212_a.pdf?name=2005%ED%95%99%EB%85%84%EB%8F%84%206%EC%9B%94%20%EB%AA%A8%EC%9D%98%ED%8F%89%EA%B0%80%20%EC%82%AC%ED%9A%8C%ED%83%90%EA%B5%AC%28%EA%B2%BD%EC%A0%9C%EC%A7%80%EB%A6%AC%29%20%EC%A0%95%EB%8B%B5.pdf",
+        "answerDownload": "2005학년도 6월 모의평가 사회탐구(경제지리) 정답.pdf",
+        "questionUrl": "https://suneung-files.hdh061224.workers.dev/hwp-pdf-v3/x7212_q.pdf?name=2005%ED%95%99%EB%85%84%EB%8F%84%206%EC%9B%94%20%EB%AA%A8%EC%9D%98%ED%8F%89%EA%B0%80%20%EC%82%AC%ED%9A%8C%ED%83%90%EA%B5%AC%28%EA%B2%BD%EC%A0%9C%EC%A7%80%EB%A6%AC%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
+        "questionDownload": "2005학년도 6월 모의평가 사회탐구(경제지리) 문제지.pdf"
       }
     },
     {
       "id": 7213,
       "replaceExisting": true,
       "set": {
-        "answerUrl": "https://suneung-files.hdh061224.workers.dev/hwp-pdf-v3/x7213_a.pdf?name=2004%EB%85%84%206%EC%9B%94%20%EA%B3%A03%20%EB%AA%A8%EC%9D%98%EA%B3%A0%EC%82%AC%20%EA%B5%AD%EC%82%AC%20%EC%A0%95%EB%8B%B5.pdf",
-        "answerDownload": "2004년 6월 고3 모의고사 국사 정답.pdf"
+        "answerUrl": "https://suneung-files.hdh061224.workers.dev/hwp-pdf-v3/x7213_a.pdf?name=2005%ED%95%99%EB%85%84%EB%8F%84%206%EC%9B%94%20%EB%AA%A8%EC%9D%98%ED%8F%89%EA%B0%80%20%EC%82%AC%ED%9A%8C%ED%83%90%EA%B5%AC%28%EA%B5%AD%EC%82%AC%29%20%EC%A0%95%EB%8B%B5.pdf",
+        "answerDownload": "2005학년도 6월 모의평가 사회탐구(국사) 정답.pdf",
+        "questionUrl": "https://suneung-files.hdh061224.workers.dev/hwp-pdf-v3/x7213_q.pdf?name=2005%ED%95%99%EB%85%84%EB%8F%84%206%EC%9B%94%20%EB%AA%A8%EC%9D%98%ED%8F%89%EA%B0%80%20%EC%82%AC%ED%9A%8C%ED%83%90%EA%B5%AC%28%EA%B5%AD%EC%82%AC%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
+        "questionDownload": "2005학년도 6월 모의평가 사회탐구(국사) 문제지.pdf"
       }
     },
     {
       "id": 7214,
       "replaceExisting": true,
       "set": {
-        "answerUrl": "https://suneung-files.hdh061224.workers.dev/hwp-pdf-v3/x7214_a.pdf?name=2004%EB%85%84%206%EC%9B%94%20%EA%B3%A03%20%EB%AA%A8%EC%9D%98%EA%B3%A0%EC%82%AC%20%EB%B2%95%EA%B3%BC%EC%82%AC%ED%9A%8C%20%EC%A0%95%EB%8B%B5.pdf",
-        "answerDownload": "2004년 6월 고3 모의고사 법과사회 정답.pdf"
+        "answerUrl": "https://suneung-files.hdh061224.workers.dev/hwp-pdf-v3/x7214_a.pdf?name=2005%ED%95%99%EB%85%84%EB%8F%84%206%EC%9B%94%20%EB%AA%A8%EC%9D%98%ED%8F%89%EA%B0%80%20%EC%82%AC%ED%9A%8C%ED%83%90%EA%B5%AC%28%EB%B2%95%EA%B3%BC%EC%82%AC%ED%9A%8C%29%20%EC%A0%95%EB%8B%B5.pdf",
+        "answerDownload": "2005학년도 6월 모의평가 사회탐구(법과사회) 정답.pdf",
+        "questionUrl": "https://suneung-files.hdh061224.workers.dev/hwp-pdf-v3/x7214_q.pdf?name=2005%ED%95%99%EB%85%84%EB%8F%84%206%EC%9B%94%20%EB%AA%A8%EC%9D%98%ED%8F%89%EA%B0%80%20%EC%82%AC%ED%9A%8C%ED%83%90%EA%B5%AC%28%EB%B2%95%EA%B3%BC%EC%82%AC%ED%9A%8C%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
+        "questionDownload": "2005학년도 6월 모의평가 사회탐구(법과사회) 문제지.pdf"
       }
     },
     {
       "id": 7215,
       "replaceExisting": true,
       "set": {
-        "answerUrl": "https://suneung-files.hdh061224.workers.dev/hwp-pdf-v3/x7215_a.pdf?name=2004%EB%85%84%206%EC%9B%94%20%EA%B3%A03%20%EB%AA%A8%EC%9D%98%EA%B3%A0%EC%82%AC%20%EC%82%AC%ED%9A%8C%EB%AC%B8%ED%99%94%20%EC%A0%95%EB%8B%B5.pdf",
-        "answerDownload": "2004년 6월 고3 모의고사 사회문화 정답.pdf"
+        "answerUrl": "https://suneung-files.hdh061224.workers.dev/hwp-pdf-v3/x7215_a.pdf?name=2005%ED%95%99%EB%85%84%EB%8F%84%206%EC%9B%94%20%EB%AA%A8%EC%9D%98%ED%8F%89%EA%B0%80%20%EC%82%AC%ED%9A%8C%ED%83%90%EA%B5%AC%28%EC%82%AC%ED%9A%8C%C2%B7%EB%AC%B8%ED%99%94%29%20%EC%A0%95%EB%8B%B5.pdf",
+        "answerDownload": "2005학년도 6월 모의평가 사회탐구(사회·문화) 정답.pdf",
+        "questionUrl": "https://suneung-files.hdh061224.workers.dev/hwp-pdf-v3/x7215_q.pdf?name=2005%ED%95%99%EB%85%84%EB%8F%84%206%EC%9B%94%20%EB%AA%A8%EC%9D%98%ED%8F%89%EA%B0%80%20%EC%82%AC%ED%9A%8C%ED%83%90%EA%B5%AC%28%EC%82%AC%ED%9A%8C%C2%B7%EB%AC%B8%ED%99%94%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
+        "questionDownload": "2005학년도 6월 모의평가 사회탐구(사회·문화) 문제지.pdf"
       }
     },
     {
       "id": 7216,
       "replaceExisting": true,
       "set": {
-        "answerUrl": "https://suneung-files.hdh061224.workers.dev/hwp-pdf-v3/x7216_a.pdf?name=2004%EB%85%84%206%EC%9B%94%20%EA%B3%A03%20%EB%AA%A8%EC%9D%98%EA%B3%A0%EC%82%AC%20%EC%84%B8%EA%B3%84%EC%82%AC%20%EC%A0%95%EB%8B%B5.pdf",
-        "answerDownload": "2004년 6월 고3 모의고사 세계사 정답.pdf"
+        "answerUrl": "https://suneung-files.hdh061224.workers.dev/hwp-pdf-v3/x7216_a.pdf?name=2005%ED%95%99%EB%85%84%EB%8F%84%206%EC%9B%94%20%EB%AA%A8%EC%9D%98%ED%8F%89%EA%B0%80%20%EC%82%AC%ED%9A%8C%ED%83%90%EA%B5%AC%28%EC%84%B8%EA%B3%84%EC%82%AC%29%20%EC%A0%95%EB%8B%B5.pdf",
+        "answerDownload": "2005학년도 6월 모의평가 사회탐구(세계사) 정답.pdf",
+        "questionUrl": "https://suneung-files.hdh061224.workers.dev/hwp-pdf-v3/x7216_q.pdf?name=2005%ED%95%99%EB%85%84%EB%8F%84%206%EC%9B%94%20%EB%AA%A8%EC%9D%98%ED%8F%89%EA%B0%80%20%EC%82%AC%ED%9A%8C%ED%83%90%EA%B5%AC%28%EC%84%B8%EA%B3%84%EC%82%AC%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
+        "questionDownload": "2005학년도 6월 모의평가 사회탐구(세계사) 문제지.pdf"
       }
     },
     {
       "id": 7217,
       "replaceExisting": true,
       "set": {
-        "answerUrl": "https://suneung-files.hdh061224.workers.dev/hwp-pdf-v3/x7217_a.pdf?name=2004%EB%85%84%206%EC%9B%94%20%EA%B3%A03%20%EB%AA%A8%EC%9D%98%EA%B3%A0%EC%82%AC%20%EC%84%B8%EA%B3%84%EC%A7%80%EB%A6%AC%20%EC%A0%95%EB%8B%B5.pdf",
-        "answerDownload": "2004년 6월 고3 모의고사 세계지리 정답.pdf"
+        "answerUrl": "https://suneung-files.hdh061224.workers.dev/hwp-pdf-v3/x7217_a.pdf?name=2005%ED%95%99%EB%85%84%EB%8F%84%206%EC%9B%94%20%EB%AA%A8%EC%9D%98%ED%8F%89%EA%B0%80%20%EC%82%AC%ED%9A%8C%ED%83%90%EA%B5%AC%28%EC%84%B8%EA%B3%84%EC%A7%80%EB%A6%AC%29%20%EC%A0%95%EB%8B%B5.pdf",
+        "answerDownload": "2005학년도 6월 모의평가 사회탐구(세계지리) 정답.pdf",
+        "questionUrl": "https://suneung-files.hdh061224.workers.dev/hwp-pdf-v3/x7217_q.pdf?name=2005%ED%95%99%EB%85%84%EB%8F%84%206%EC%9B%94%20%EB%AA%A8%EC%9D%98%ED%8F%89%EA%B0%80%20%EC%82%AC%ED%9A%8C%ED%83%90%EA%B5%AC%28%EC%84%B8%EA%B3%84%EC%A7%80%EB%A6%AC%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
+        "questionDownload": "2005학년도 6월 모의평가 사회탐구(세계지리) 문제지.pdf"
       }
     },
     {
       "id": 7218,
       "replaceExisting": true,
       "set": {
-        "answerUrl": "https://suneung-files.hdh061224.workers.dev/hwp-pdf-v3/x7218_a.pdf?name=2004%EB%85%84%206%EC%9B%94%20%EA%B3%A03%20%EB%AA%A8%EC%9D%98%EA%B3%A0%EC%82%AC%20%EC%9C%A4%EB%A6%AC%20%EC%A0%95%EB%8B%B5.pdf",
-        "answerDownload": "2004년 6월 고3 모의고사 윤리 정답.pdf"
+        "answerUrl": "https://suneung-files.hdh061224.workers.dev/hwp-pdf-v3/x7218_a.pdf?name=2005%ED%95%99%EB%85%84%EB%8F%84%206%EC%9B%94%20%EB%AA%A8%EC%9D%98%ED%8F%89%EA%B0%80%20%EC%82%AC%ED%9A%8C%ED%83%90%EA%B5%AC%28%EC%9C%A4%EB%A6%AC%29%20%EC%A0%95%EB%8B%B5.pdf",
+        "answerDownload": "2005학년도 6월 모의평가 사회탐구(윤리) 정답.pdf",
+        "questionUrl": "https://suneung-files.hdh061224.workers.dev/hwp-pdf-v3/x7218_q.pdf?name=2005%ED%95%99%EB%85%84%EB%8F%84%206%EC%9B%94%20%EB%AA%A8%EC%9D%98%ED%8F%89%EA%B0%80%20%EC%82%AC%ED%9A%8C%ED%83%90%EA%B5%AC%28%EC%9C%A4%EB%A6%AC%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
+        "questionDownload": "2005학년도 6월 모의평가 사회탐구(윤리) 문제지.pdf"
       }
     },
     {
       "id": 7219,
       "replaceExisting": true,
       "set": {
-        "answerUrl": "https://suneung-files.hdh061224.workers.dev/hwp-pdf-v3/x7219_a.pdf?name=2004%EB%85%84%206%EC%9B%94%20%EA%B3%A03%20%EB%AA%A8%EC%9D%98%EA%B3%A0%EC%82%AC%20%EC%A0%95%EC%B9%98%20%EC%A0%95%EB%8B%B5.pdf",
-        "answerDownload": "2004년 6월 고3 모의고사 정치 정답.pdf"
+        "answerUrl": "https://suneung-files.hdh061224.workers.dev/hwp-pdf-v3/x7219_a.pdf?name=2005%ED%95%99%EB%85%84%EB%8F%84%206%EC%9B%94%20%EB%AA%A8%EC%9D%98%ED%8F%89%EA%B0%80%20%EC%82%AC%ED%9A%8C%ED%83%90%EA%B5%AC%28%EC%A0%95%EC%B9%98%29%20%EC%A0%95%EB%8B%B5.pdf",
+        "answerDownload": "2005학년도 6월 모의평가 사회탐구(정치) 정답.pdf",
+        "questionUrl": "https://suneung-files.hdh061224.workers.dev/hwp-pdf-v3/x7219_q.pdf?name=2005%ED%95%99%EB%85%84%EB%8F%84%206%EC%9B%94%20%EB%AA%A8%EC%9D%98%ED%8F%89%EA%B0%80%20%EC%82%AC%ED%9A%8C%ED%83%90%EA%B5%AC%28%EC%A0%95%EC%B9%98%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
+        "questionDownload": "2005학년도 6월 모의평가 사회탐구(정치) 문제지.pdf"
       }
     },
     {
       "id": 7220,
       "replaceExisting": true,
       "set": {
-        "answerUrl": "https://suneung-files.hdh061224.workers.dev/hwp-pdf-v3/x7220_a.pdf?name=2004%EB%85%84%206%EC%9B%94%20%EA%B3%A03%20%EB%AA%A8%EC%9D%98%EA%B3%A0%EC%82%AC%20%ED%95%9C%EA%B5%AD%EA%B7%BC%ED%98%84%EB%8C%80%EC%82%AC%20%EC%A0%95%EB%8B%B5.pdf",
-        "answerDownload": "2004년 6월 고3 모의고사 한국근현대사 정답.pdf"
+        "answerUrl": "https://suneung-files.hdh061224.workers.dev/hwp-pdf-v3/x7220_a.pdf?name=2005%ED%95%99%EB%85%84%EB%8F%84%206%EC%9B%94%20%EB%AA%A8%EC%9D%98%ED%8F%89%EA%B0%80%20%EC%82%AC%ED%9A%8C%ED%83%90%EA%B5%AC%28%ED%95%9C%EA%B5%AD%EA%B7%BC%ED%98%84%EB%8C%80%EC%82%AC%29%20%EC%A0%95%EB%8B%B5.pdf",
+        "answerDownload": "2005학년도 6월 모의평가 사회탐구(한국근현대사) 정답.pdf",
+        "questionUrl": "https://suneung-files.hdh061224.workers.dev/hwp-pdf-v3/x7220_q.pdf?name=2005%ED%95%99%EB%85%84%EB%8F%84%206%EC%9B%94%20%EB%AA%A8%EC%9D%98%ED%8F%89%EA%B0%80%20%EC%82%AC%ED%9A%8C%ED%83%90%EA%B5%AC%28%ED%95%9C%EA%B5%AD%EA%B7%BC%ED%98%84%EB%8C%80%EC%82%AC%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
+        "questionDownload": "2005학년도 6월 모의평가 사회탐구(한국근현대사) 문제지.pdf"
       }
     },
     {
@@ -2125,48 +2157,60 @@
       "id": 7222,
       "replaceExisting": true,
       "set": {
-        "answerUrl": "https://suneung-files.hdh061224.workers.dev/hwp-pdf-v3/x7222_a.pdf?name=2004%EB%85%84%206%EC%9B%94%20%EA%B3%A03%20%EB%AA%A8%EC%9D%98%EA%B3%A0%EC%82%AC%20%EB%AC%BC%EB%A6%AC1%20%EC%A0%95%EB%8B%B5.pdf",
-        "answerDownload": "2004년 6월 고3 모의고사 물리1 정답.pdf"
+        "answerUrl": "https://suneung-files.hdh061224.workers.dev/hwp-pdf-v3/x7222_a.pdf?name=2005%ED%95%99%EB%85%84%EB%8F%84%206%EC%9B%94%20%EB%AA%A8%EC%9D%98%ED%8F%89%EA%B0%80%20%EA%B3%BC%ED%95%99%ED%83%90%EA%B5%AC%28%EB%AC%BC%EB%A6%AC%E2%85%A0%29%20%EC%A0%95%EB%8B%B5.pdf",
+        "answerDownload": "2005학년도 6월 모의평가 과학탐구(물리Ⅰ) 정답.pdf",
+        "questionUrl": "https://suneung-files.hdh061224.workers.dev/hwp-pdf-v3/x7222_q.pdf?name=2005%ED%95%99%EB%85%84%EB%8F%84%206%EC%9B%94%20%EB%AA%A8%EC%9D%98%ED%8F%89%EA%B0%80%20%EA%B3%BC%ED%95%99%ED%83%90%EA%B5%AC%28%EB%AC%BC%EB%A6%AC%E2%85%A0%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
+        "questionDownload": "2005학년도 6월 모의평가 과학탐구(물리Ⅰ) 문제지.pdf"
       }
     },
     {
       "id": 7223,
       "replaceExisting": true,
       "set": {
-        "answerUrl": "https://suneung-files.hdh061224.workers.dev/hwp-pdf-v3/x7223_a.pdf?name=2004%EB%85%84%206%EC%9B%94%20%EA%B3%A03%20%EB%AA%A8%EC%9D%98%EA%B3%A0%EC%82%AC%20%EB%AC%BC%EB%A6%AC2%20%EC%A0%95%EB%8B%B5.pdf",
-        "answerDownload": "2004년 6월 고3 모의고사 물리2 정답.pdf"
+        "answerUrl": "https://suneung-files.hdh061224.workers.dev/hwp-pdf-v3/x7223_a.pdf?name=2005%ED%95%99%EB%85%84%EB%8F%84%206%EC%9B%94%20%EB%AA%A8%EC%9D%98%ED%8F%89%EA%B0%80%20%EA%B3%BC%ED%95%99%ED%83%90%EA%B5%AC%28%EB%AC%BC%EB%A6%AC%E2%85%A1%29%20%EC%A0%95%EB%8B%B5.pdf",
+        "answerDownload": "2005학년도 6월 모의평가 과학탐구(물리Ⅱ) 정답.pdf",
+        "questionUrl": "https://suneung-files.hdh061224.workers.dev/hwp-pdf-v3/x7223_q.pdf?name=2005%ED%95%99%EB%85%84%EB%8F%84%206%EC%9B%94%20%EB%AA%A8%EC%9D%98%ED%8F%89%EA%B0%80%20%EA%B3%BC%ED%95%99%ED%83%90%EA%B5%AC%28%EB%AC%BC%EB%A6%AC%E2%85%A1%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
+        "questionDownload": "2005학년도 6월 모의평가 과학탐구(물리Ⅱ) 문제지.pdf"
       }
     },
     {
       "id": 7224,
       "replaceExisting": true,
       "set": {
-        "answerUrl": "https://suneung-files.hdh061224.workers.dev/hwp-pdf-v3/x7224_a.pdf?name=2004%EB%85%84%206%EC%9B%94%20%EA%B3%A03%20%EB%AA%A8%EC%9D%98%EA%B3%A0%EC%82%AC%20%EC%83%9D%EB%AA%85%EA%B3%BC%ED%95%991%20%EC%A0%95%EB%8B%B5.pdf",
-        "answerDownload": "2004년 6월 고3 모의고사 생명과학1 정답.pdf"
+        "answerUrl": "https://suneung-files.hdh061224.workers.dev/hwp-pdf-v3/x7224_a.pdf?name=2005%ED%95%99%EB%85%84%EB%8F%84%206%EC%9B%94%20%EB%AA%A8%EC%9D%98%ED%8F%89%EA%B0%80%20%EA%B3%BC%ED%95%99%ED%83%90%EA%B5%AC%28%EC%83%9D%EB%AA%85%EA%B3%BC%ED%95%99%E2%85%A0%29%20%EC%A0%95%EB%8B%B5.pdf",
+        "answerDownload": "2005학년도 6월 모의평가 과학탐구(생명과학Ⅰ) 정답.pdf",
+        "questionUrl": "https://suneung-files.hdh061224.workers.dev/hwp-pdf-v3/x7224_q.pdf?name=2005%ED%95%99%EB%85%84%EB%8F%84%206%EC%9B%94%20%EB%AA%A8%EC%9D%98%ED%8F%89%EA%B0%80%20%EA%B3%BC%ED%95%99%ED%83%90%EA%B5%AC%28%EC%83%9D%EB%AA%85%EA%B3%BC%ED%95%99%E2%85%A0%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
+        "questionDownload": "2005학년도 6월 모의평가 과학탐구(생명과학Ⅰ) 문제지.pdf"
       }
     },
     {
       "id": 7225,
       "replaceExisting": true,
       "set": {
-        "answerUrl": "https://suneung-files.hdh061224.workers.dev/hwp-pdf-v3/x7225_a.pdf?name=2004%EB%85%84%206%EC%9B%94%20%EA%B3%A03%20%EB%AA%A8%EC%9D%98%EA%B3%A0%EC%82%AC%20%EC%A7%80%EA%B5%AC%EA%B3%BC%ED%95%991%20%EC%A0%95%EB%8B%B5.pdf",
-        "answerDownload": "2004년 6월 고3 모의고사 지구과학1 정답.pdf"
+        "answerUrl": "https://suneung-files.hdh061224.workers.dev/hwp-pdf-v3/x7225_a.pdf?name=2005%ED%95%99%EB%85%84%EB%8F%84%206%EC%9B%94%20%EB%AA%A8%EC%9D%98%ED%8F%89%EA%B0%80%20%EA%B3%BC%ED%95%99%ED%83%90%EA%B5%AC%28%EC%A7%80%EA%B5%AC%EA%B3%BC%ED%95%99%E2%85%A0%29%20%EC%A0%95%EB%8B%B5.pdf",
+        "answerDownload": "2005학년도 6월 모의평가 과학탐구(지구과학Ⅰ) 정답.pdf",
+        "questionUrl": "https://suneung-files.hdh061224.workers.dev/hwp-pdf-v3/x7225_q.pdf?name=2005%ED%95%99%EB%85%84%EB%8F%84%206%EC%9B%94%20%EB%AA%A8%EC%9D%98%ED%8F%89%EA%B0%80%20%EA%B3%BC%ED%95%99%ED%83%90%EA%B5%AC%28%EC%A7%80%EA%B5%AC%EA%B3%BC%ED%95%99%E2%85%A0%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
+        "questionDownload": "2005학년도 6월 모의평가 과학탐구(지구과학Ⅰ) 문제지.pdf"
       }
     },
     {
       "id": 7226,
       "replaceExisting": true,
       "set": {
-        "answerUrl": "https://suneung-files.hdh061224.workers.dev/hwp-pdf-v3/x7226_a.pdf?name=2004%EB%85%84%206%EC%9B%94%20%EA%B3%A03%20%EB%AA%A8%EC%9D%98%EA%B3%A0%EC%82%AC%20%ED%99%94%ED%95%991%20%EC%A0%95%EB%8B%B5.pdf",
-        "answerDownload": "2004년 6월 고3 모의고사 화학1 정답.pdf"
+        "answerUrl": "https://suneung-files.hdh061224.workers.dev/hwp-pdf-v3/x7226_a.pdf?name=2005%ED%95%99%EB%85%84%EB%8F%84%206%EC%9B%94%20%EB%AA%A8%EC%9D%98%ED%8F%89%EA%B0%80%20%EA%B3%BC%ED%95%99%ED%83%90%EA%B5%AC%28%ED%99%94%ED%95%99%E2%85%A0%29%20%EC%A0%95%EB%8B%B5.pdf",
+        "answerDownload": "2005학년도 6월 모의평가 과학탐구(화학Ⅰ) 정답.pdf",
+        "questionUrl": "https://suneung-files.hdh061224.workers.dev/hwp-pdf-v3/x7226_q.pdf?name=2005%ED%95%99%EB%85%84%EB%8F%84%206%EC%9B%94%20%EB%AA%A8%EC%9D%98%ED%8F%89%EA%B0%80%20%EA%B3%BC%ED%95%99%ED%83%90%EA%B5%AC%28%ED%99%94%ED%95%99%E2%85%A0%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
+        "questionDownload": "2005학년도 6월 모의평가 과학탐구(화학Ⅰ) 문제지.pdf"
       }
     },
     {
       "id": 7227,
       "replaceExisting": true,
       "set": {
-        "answerUrl": "https://suneung-files.hdh061224.workers.dev/hwp-pdf-v3/x7227_a.pdf?name=2004%EB%85%84%206%EC%9B%94%20%EA%B3%A03%20%EB%AA%A8%EC%9D%98%EA%B3%A0%EC%82%AC%20%ED%99%94%ED%95%992%20%EC%A0%95%EB%8B%B5.pdf",
-        "answerDownload": "2004년 6월 고3 모의고사 화학2 정답.pdf"
+        "answerUrl": "https://suneung-files.hdh061224.workers.dev/hwp-pdf-v3/x7227_a.pdf?name=2005%ED%95%99%EB%85%84%EB%8F%84%206%EC%9B%94%20%EB%AA%A8%EC%9D%98%ED%8F%89%EA%B0%80%20%EA%B3%BC%ED%95%99%ED%83%90%EA%B5%AC%28%ED%99%94%ED%95%99%E2%85%A1%29%20%EC%A0%95%EB%8B%B5.pdf",
+        "answerDownload": "2005학년도 6월 모의평가 과학탐구(화학Ⅱ) 정답.pdf",
+        "questionUrl": "https://suneung-files.hdh061224.workers.dev/hwp-pdf-v3/x7227_q.pdf?name=2005%ED%95%99%EB%85%84%EB%8F%84%206%EC%9B%94%20%EB%AA%A8%EC%9D%98%ED%8F%89%EA%B0%80%20%EA%B3%BC%ED%95%99%ED%83%90%EA%B5%AC%28%ED%99%94%ED%95%99%E2%85%A1%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
+        "questionDownload": "2005학년도 6월 모의평가 과학탐구(화학Ⅱ) 문제지.pdf"
       }
     },
     {
@@ -3633,6 +3677,89 @@
         "questionDownload": "2018학년도 사관학교 1차 영어 문제지.pdf",
         "answerUrl": "https://suneung-files.hdh061224.workers.dev/hwp-pdf-v3/x2774_a.pdf?name=2018%ED%95%99%EB%85%84%EB%8F%84%20%EC%82%AC%EA%B4%80%ED%95%99%EA%B5%90%201%EC%B0%A8%20%EC%98%81%EC%96%B4%20%EC%A0%95%EB%8B%B5.pdf",
         "answerDownload": "2018학년도 사관학교 1차 영어 정답.pdf"
+      }
+    },
+    {
+      "id": 6663,
+      "replaceExisting": true,
+      "set": {
+        "solutionUrl": null,
+        "solutionDownload": null
+      },
+      "_note": "다른 학년도 해설이 연결돼 있던 것 제거 (2026-11-09 전수검사)"
+    },
+    {
+      "id": 6979,
+      "replaceExisting": true,
+      "set": {
+        "solutionUrl": null,
+        "solutionDownload": null
+      },
+      "_note": "다른 학년도 해설이 연결돼 있던 것 제거 (2026-11-09 전수검사)"
+    },
+    {
+      "id": 13093,
+      "replaceExisting": true,
+      "set": {
+        "solutionUrl": null,
+        "solutionDownload": null
+      },
+      "_note": "다른 학년도 해설이 연결돼 있던 것 제거 (2026-11-09 전수검사)"
+    },
+    {
+      "id": 13105,
+      "replaceExisting": true,
+      "set": {
+        "solutionUrl": null,
+        "solutionDownload": null
+      },
+      "_note": "다른 학년도 해설이 연결돼 있던 것 제거 (2026-11-09 전수검사)"
+    },
+    {
+      "id": 13108,
+      "replaceExisting": true,
+      "set": {
+        "solutionUrl": null,
+        "solutionDownload": null
+      },
+      "_note": "다른 학년도 해설이 연결돼 있던 것 제거 (2026-11-09 전수검사)"
+    },
+    {
+      "id": 13138,
+      "replaceExisting": true,
+      "set": {
+        "solutionUrl": null,
+        "solutionDownload": null
+      },
+      "_note": "다른 학년도 해설이 연결돼 있던 것 제거 (2026-11-09 전수검사)"
+    },
+    {
+      "id": 13838,
+      "replaceExisting": true,
+      "set": {
+        "solutionUrl": null,
+        "solutionDownload": null
+      },
+      "_note": "다른 학년도 해설이 연결돼 있던 것 제거 (2026-11-09 전수검사)"
+    },
+    {
+      "id": 4239,
+      "replaceExisting": true,
+      "set": {
+        "answerUrl": "https://suneung-files.hdh061224.workers.dev/hwp-pdf-v3/x4239_a.pdf?name=2012%ED%95%99%EB%85%84%EB%8F%84%206%EC%9B%94%20%EB%AA%A8%EC%9D%98%ED%8F%89%EA%B0%80%20%EA%B3%BC%ED%95%99%ED%83%90%EA%B5%AC%28%EC%83%9D%EB%AA%85%EA%B3%BC%ED%95%99%E2%85%A1%29%20%EC%A0%95%EB%8B%B5.pdf",
+        "answerDownload": "2012학년도 6월 모의평가 과학탐구(생명과학Ⅱ) 정답.pdf",
+        "questionUrl": "https://suneung-files.hdh061224.workers.dev/hwp-pdf-v3/x4239_q.pdf?name=2012%ED%95%99%EB%85%84%EB%8F%84%206%EC%9B%94%20%EB%AA%A8%EC%9D%98%ED%8F%89%EA%B0%80%20%EA%B3%BC%ED%95%99%ED%83%90%EA%B5%AC%28%EC%83%9D%EB%AA%85%EA%B3%BC%ED%95%99%E2%85%A1%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
+        "questionDownload": "2012학년도 6월 모의평가 과학탐구(생명과학Ⅱ) 문제지.pdf"
+      }
+    },
+    {
+      "id": 4539,
+      "replaceExisting": true,
+      "set": {
+        "answerUrl": "https://suneung-files.hdh061224.workers.dev/hwp-pdf-v3/x4539_a.pdf?name=2007%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EA%B5%AD%EC%96%B4%20%EC%A0%95%EB%8B%B5.pdf",
+        "answerDownload": "2007학년도 수능 국어 정답.pdf",
+        "questionUrl": "https://suneung-files.hdh061224.workers.dev/hwp-pdf-v3/x4539_q.pdf?name=2007%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EA%B5%AD%EC%96%B4%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
+        "questionDownload": "2007학년도 수능 국어 문제지.pdf"
       }
     }
   ]
