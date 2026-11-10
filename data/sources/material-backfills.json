@@ -3761,6 +3761,24 @@
         "questionUrl": "https://suneung-files.hdh061224.workers.dev/hwp-pdf-v3/x4539_q.pdf?name=2007%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EA%B5%AD%EC%96%B4%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
         "questionDownload": "2007학년도 수능 국어 문제지.pdf"
       }
+    },
+    {
+      "id": 4625,
+      "replaceExisting": true,
+      "set": {
+        "questionUrl": "https://suneung-files.hdh061224.workers.dev/hwp-pdf-v3/x4625_q.pdf?name=2006%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EC%88%98%ED%95%99%28%EA%B0%80%ED%98%95%C2%B7%EB%82%98%ED%98%95%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
+        "questionDownload": "2006학년도 수능 수학(가형·나형) 문제지.pdf",
+        "answerUrl": "https://suneung-files.hdh061224.workers.dev/hwp-pdf-v3/x4625_a.pdf?name=2006%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EC%88%98%ED%95%99%28%EA%B0%80%ED%98%95%C2%B7%EB%82%98%ED%98%95%29%20%EC%A0%95%EB%8B%B5.pdf",
+        "answerDownload": "2006학년도 수능 수학(가형·나형) 정답.pdf"
+      }
+    },
+    {
+      "id": 3980,
+      "replaceExisting": true,
+      "set": {
+        "solutionUrl": null,
+        "solutionDownload": null
+      }
     }
   ]
 }
