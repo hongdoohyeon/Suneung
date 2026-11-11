@@ -111742,5 +111742,1589 @@
   },
   "url": "https://www.megastudy.net/Entinfo/total_rankCut/main.asp",
   "fetchedAt": "2026-10-03"
+ },
+ {
+  "source": "megastudy",
+  "examYear": 2026,
+  "month": 10,
+  "studentGrade": 1,
+  "typeGroup": "education",
+  "type": "oct",
+  "gradeYear": 2026,
+  "subject": "과학탐구",
+  "subSubject": "통합과학",
+  "rawCuts": [
+   47.5,
+   41.5,
+   34.5,
+   27,
+   20,
+   14,
+   10.5,
+   8.5
+  ],
+  "standardCuts": [
+   69,
+   64,
+   58,
+   52,
+   46,
+   41,
+   38,
+   36
+  ],
+  "percentiles": [
+   97,
+   88,
+   76,
+   60,
+   40,
+   23,
+   12,
+   5
+  ],
+  "top": {
+   "raw": 50,
+   "std": 71,
+   "pct": 99
+  },
+  "url": "https://www.megastudy.net/Entinfo/total_rankCut/main.asp",
+  "fetchedAt": "2026-11-11"
+ },
+ {
+  "source": "megastudy",
+  "examYear": 2026,
+  "month": 10,
+  "studentGrade": 1,
+  "typeGroup": "education",
+  "type": "oct",
+  "gradeYear": 2026,
+  "subject": "국어",
+  "subSubject": null,
+  "rawCuts": [
+   83,
+   74,
+   63,
+   52,
+   39,
+   29,
+   24,
+   17
+  ],
+  "standardCuts": [
+   136,
+   127,
+   116,
+   105,
+   92,
+   82,
+   77,
+   70
+  ],
+  "percentiles": [
+   96,
+   89,
+   77,
+   60,
+   40,
+   24,
+   11,
+   4
+  ],
+  "top": {
+   "raw": 100,
+   "std": 153,
+   "pct": 100
+  },
+  "url": "https://www.megastudy.net/Entinfo/total_rankCut/main.asp",
+  "fetchedAt": "2026-11-11"
+ },
+ {
+  "source": "megastudy",
+  "examYear": 2026,
+  "month": 10,
+  "studentGrade": 1,
+  "typeGroup": "education",
+  "type": "oct",
+  "gradeYear": 2026,
+  "subject": "사회탐구",
+  "subSubject": "통합사회",
+  "rawCuts": [
+   47,
+   46,
+   43.5,
+   38.5,
+   32,
+   22,
+   12,
+   8.5
+  ],
+  "standardCuts": [
+   62,
+   61,
+   59,
+   55,
+   50,
+   42,
+   34,
+   31
+  ],
+  "percentiles": [
+   95,
+   90,
+   80,
+   59,
+   40,
+   23,
+   11,
+   4
+  ],
+  "top": {
+   "raw": 50,
+   "std": 64,
+   "pct": 99
+  },
+  "url": "https://www.megastudy.net/Entinfo/total_rankCut/main.asp",
+  "fetchedAt": "2026-11-11"
+ },
+ {
+  "source": "megastudy",
+  "examYear": 2026,
+  "month": 10,
+  "studentGrade": 1,
+  "typeGroup": "education",
+  "type": "oct",
+  "gradeYear": 2026,
+  "subject": "수학",
+  "subSubject": null,
+  "rawCuts": [
+   80,
+   68,
+   57,
+   46,
+   33,
+   21,
+   15,
+   11
+  ],
+  "standardCuts": [
+   138,
+   127,
+   116,
+   106,
+   93,
+   81,
+   76,
+   72
+  ],
+  "percentiles": [
+   96,
+   89,
+   78,
+   62,
+   40,
+   23,
+   11,
+   4
+  ],
+  "top": {
+   "raw": 100,
+   "std": 158,
+   "pct": 100
+  },
+  "url": "https://www.megastudy.net/Entinfo/total_rankCut/main.asp",
+  "fetchedAt": "2026-11-11"
+ },
+ {
+  "source": "megastudy",
+  "examYear": 2026,
+  "month": 10,
+  "studentGrade": 1,
+  "typeGroup": "education",
+  "type": "oct",
+  "gradeYear": 2026,
+  "subject": "영어",
+  "subSubject": null,
+  "rawCuts": [
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "standardCuts": [
+   90,
+   80,
+   70,
+   60,
+   50,
+   40,
+   30,
+   20
+  ],
+  "percentiles": [
+   7.74,
+   17.62,
+   31.61,
+   47.05,
+   61.41,
+   74.61,
+   85.74,
+   96.49
+  ],
+  "top": {
+   "raw": null,
+   "std": 100,
+   "pct": null
+  },
+  "url": "https://www.megastudy.net/Entinfo/total_rankCut/main.asp",
+  "fetchedAt": "2026-11-11"
+ },
+ {
+  "source": "megastudy",
+  "examYear": 2026,
+  "month": 10,
+  "studentGrade": 1,
+  "typeGroup": "education",
+  "type": "oct",
+  "gradeYear": 2026,
+  "subject": "한국사",
+  "subSubject": null,
+  "rawCuts": [
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "standardCuts": [
+   40,
+   35,
+   30,
+   25,
+   20,
+   15,
+   10,
+   5
+  ],
+  "percentiles": [
+   21.52,
+   35.34,
+   49.18,
+   61.94,
+   72.88,
+   82.14,
+   92.72,
+   98.96
+  ],
+  "top": {
+   "raw": null,
+   "std": 50,
+   "pct": null
+  },
+  "url": "https://www.megastudy.net/Entinfo/total_rankCut/main.asp",
+  "fetchedAt": "2026-11-11"
+ },
+ {
+  "source": "megastudy",
+  "examYear": 2026,
+  "month": 10,
+  "studentGrade": 2,
+  "typeGroup": "education",
+  "type": "oct",
+  "gradeYear": 2026,
+  "subject": "과학탐구",
+  "subSubject": "통합과학",
+  "rawCuts": [
+   45.5,
+   40.5,
+   34.5,
+   26,
+   19,
+   13,
+   9.5,
+   7
+  ],
+  "standardCuts": [
+   68,
+   64,
+   59,
+   52,
+   46,
+   41,
+   38,
+   36
+  ],
+  "percentiles": [
+   96,
+   89,
+   78,
+   59,
+   40,
+   25,
+   11,
+   5
+  ],
+  "top": {
+   "raw": 50,
+   "std": 72,
+   "pct": 99
+  },
+  "url": "https://www.megastudy.net/Entinfo/total_rankCut/main.asp",
+  "fetchedAt": "2026-11-11"
+ },
+ {
+  "source": "megastudy",
+  "examYear": 2026,
+  "month": 10,
+  "studentGrade": 2,
+  "typeGroup": "education",
+  "type": "oct",
+  "gradeYear": 2026,
+  "subject": "국어",
+  "subSubject": null,
+  "rawCuts": [
+   93,
+   86,
+   77,
+   65,
+   48,
+   29,
+   19,
+   17
+  ],
+  "standardCuts": [
+   131,
+   126,
+   118,
+   109,
+   95,
+   80,
+   72,
+   70
+  ],
+  "percentiles": [
+   96,
+   90,
+   77,
+   61,
+   40,
+   24,
+   10,
+   4
+  ],
+  "top": {
+   "raw": 100,
+   "std": 137,
+   "pct": 100
+  },
+  "url": "https://www.megastudy.net/Entinfo/total_rankCut/main.asp",
+  "fetchedAt": "2026-11-11"
+ },
+ {
+  "source": "megastudy",
+  "examYear": 2026,
+  "month": 10,
+  "studentGrade": 2,
+  "typeGroup": "education",
+  "type": "oct",
+  "gradeYear": 2026,
+  "subject": "사회탐구",
+  "subSubject": "통합사회",
+  "rawCuts": [
+   42.5,
+   39,
+   34.5,
+   28.5,
+   20.5,
+   12.5,
+   9.5,
+   7
+  ],
+  "standardCuts": [
+   66,
+   63,
+   59,
+   54,
+   47,
+   40,
+   37,
+   35
+  ],
+  "percentiles": [
+   96,
+   90,
+   78,
+   61,
+   40,
+   24,
+   11,
+   4
+  ],
+  "top": {
+   "raw": 50,
+   "std": 72,
+   "pct": 100
+  },
+  "url": "https://www.megastudy.net/Entinfo/total_rankCut/main.asp",
+  "fetchedAt": "2026-11-11"
+ },
+ {
+  "source": "megastudy",
+  "examYear": 2026,
+  "month": 10,
+  "studentGrade": 2,
+  "typeGroup": "education",
+  "type": "oct",
+  "gradeYear": 2026,
+  "subject": "수학",
+  "subSubject": null,
+  "rawCuts": [
+   78,
+   67,
+   53,
+   35,
+   22,
+   16,
+   11,
+   8
+  ],
+  "standardCuts": [
+   140,
+   130,
+   117,
+   101,
+   89,
+   83,
+   79,
+   76
+  ],
+  "percentiles": [
+   96,
+   89,
+   77,
+   59,
+   41,
+   25,
+   11,
+   4
+  ],
+  "top": {
+   "raw": 100,
+   "std": 160,
+   "pct": 100
+  },
+  "url": "https://www.megastudy.net/Entinfo/total_rankCut/main.asp",
+  "fetchedAt": "2026-11-11"
+ },
+ {
+  "source": "megastudy",
+  "examYear": 2026,
+  "month": 10,
+  "studentGrade": 2,
+  "typeGroup": "education",
+  "type": "oct",
+  "gradeYear": 2026,
+  "subject": "영어",
+  "subSubject": null,
+  "rawCuts": [
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "standardCuts": [
+   90,
+   80,
+   70,
+   60,
+   50,
+   40,
+   30,
+   20
+  ],
+  "percentiles": [
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "top": {
+   "raw": null,
+   "std": 100,
+   "pct": null
+  },
+  "url": "https://www.megastudy.net/Entinfo/total_rankCut/main.asp",
+  "fetchedAt": "2026-11-11"
+ },
+ {
+  "source": "megastudy",
+  "examYear": 2026,
+  "month": 10,
+  "studentGrade": 2,
+  "typeGroup": "education",
+  "type": "oct",
+  "gradeYear": 2026,
+  "subject": "한국사",
+  "subSubject": null,
+  "rawCuts": [
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "standardCuts": [
+   40,
+   35,
+   30,
+   25,
+   20,
+   15,
+   10,
+   5
+  ],
+  "percentiles": [
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "top": {
+   "raw": null,
+   "std": 50,
+   "pct": null
+  },
+  "url": "https://www.megastudy.net/Entinfo/total_rankCut/main.asp",
+  "fetchedAt": "2026-11-11"
+ },
+ {
+  "source": "megastudy",
+  "examYear": 2026,
+  "month": 10,
+  "studentGrade": 3,
+  "typeGroup": "education",
+  "type": "oct",
+  "gradeYear": 2027,
+  "subject": "과학탐구",
+  "subSubject": "물리학 I",
+  "rawCuts": [
+   47,
+   43,
+   35,
+   24,
+   16,
+   11,
+   8,
+   5
+  ],
+  "standardCuts": [
+   68,
+   65,
+   59,
+   51,
+   45,
+   41,
+   39,
+   37
+  ],
+  "percentiles": [
+   94,
+   88,
+   77,
+   59,
+   42,
+   23,
+   11,
+   3
+  ],
+  "top": {
+   "raw": 50,
+   "std": 70,
+   "pct": 98
+  },
+  "url": "https://www.megastudy.net/Entinfo/total_rankCut/main.asp",
+  "fetchedAt": "2026-11-11"
+ },
+ {
+  "source": "megastudy",
+  "examYear": 2026,
+  "month": 10,
+  "studentGrade": 3,
+  "typeGroup": "education",
+  "type": "oct",
+  "gradeYear": 2027,
+  "subject": "과학탐구",
+  "subSubject": "물리학 II",
+  "rawCuts": [
+   43,
+   33,
+   18,
+   12,
+   10,
+   7,
+   null,
+   4
+  ],
+  "standardCuts": [
+   75,
+   66,
+   53,
+   47,
+   45,
+   43,
+   null,
+   40
+  ],
+  "percentiles": [
+   96,
+   89,
+   76,
+   57,
+   41,
+   17,
+   null,
+   4
+  ],
+  "top": {
+   "raw": 50,
+   "std": 81,
+   "pct": 100
+  },
+  "url": "https://www.megastudy.net/Entinfo/total_rankCut/main.asp",
+  "fetchedAt": "2026-11-11"
+ },
+ {
+  "source": "megastudy",
+  "examYear": 2026,
+  "month": 10,
+  "studentGrade": 3,
+  "typeGroup": "education",
+  "type": "oct",
+  "gradeYear": 2027,
+  "subject": "과학탐구",
+  "subSubject": "생명과학 I",
+  "rawCuts": [
+   46,
+   44,
+   37,
+   29,
+   20,
+   13,
+   10,
+   7
+  ],
+  "standardCuts": [
+   66,
+   64,
+   59,
+   53,
+   46,
+   40,
+   38,
+   36
+  ],
+  "percentiles": [
+   95,
+   90,
+   76,
+   59,
+   41,
+   22,
+   12,
+   5
+  ],
+  "top": {
+   "raw": 50,
+   "std": 69,
+   "pct": 99
+  },
+  "url": "https://www.megastudy.net/Entinfo/total_rankCut/main.asp",
+  "fetchedAt": "2026-11-11"
+ },
+ {
+  "source": "megastudy",
+  "examYear": 2026,
+  "month": 10,
+  "studentGrade": 3,
+  "typeGroup": "education",
+  "type": "oct",
+  "gradeYear": 2027,
+  "subject": "과학탐구",
+  "subSubject": "생명과학 II",
+  "rawCuts": [
+   42,
+   32,
+   21,
+   14,
+   11,
+   10,
+   8,
+   5
+  ],
+  "standardCuts": [
+   75,
+   65,
+   55,
+   48,
+   45,
+   44,
+   42,
+   39
+  ],
+  "percentiles": [
+   96,
+   89,
+   78,
+   58,
+   36,
+   23,
+   13,
+   4
+  ],
+  "top": {
+   "raw": 50,
+   "std": 83,
+   "pct": 100
+  },
+  "url": "https://www.megastudy.net/Entinfo/total_rankCut/main.asp",
+  "fetchedAt": "2026-11-11"
+ },
+ {
+  "source": "megastudy",
+  "examYear": 2026,
+  "month": 10,
+  "studentGrade": 3,
+  "typeGroup": "education",
+  "type": "oct",
+  "gradeYear": 2027,
+  "subject": "과학탐구",
+  "subSubject": "지구과학 I",
+  "rawCuts": [
+   47,
+   44,
+   38,
+   30,
+   16,
+   11,
+   9,
+   6
+  ],
+  "standardCuts": [
+   66,
+   64,
+   60,
+   54,
+   44,
+   40,
+   39,
+   37
+  ],
+  "percentiles": [
+   96,
+   89,
+   77,
+   60,
+   39,
+   24,
+   16,
+   6
+  ],
+  "top": {
+   "raw": 50,
+   "std": 68,
+   "pct": 99
+  },
+  "url": "https://www.megastudy.net/Entinfo/total_rankCut/main.asp",
+  "fetchedAt": "2026-11-11"
+ },
+ {
+  "source": "megastudy",
+  "examYear": 2026,
+  "month": 10,
+  "studentGrade": 3,
+  "typeGroup": "education",
+  "type": "oct",
+  "gradeYear": 2027,
+  "subject": "과학탐구",
+  "subSubject": "지구과학 II",
+  "rawCuts": [
+   47,
+   31,
+   17,
+   13,
+   8,
+   6,
+   null,
+   4
+  ],
+  "standardCuts": [
+   78,
+   64,
+   52,
+   49,
+   45,
+   43,
+   null,
+   41
+  ],
+  "percentiles": [
+   96,
+   89,
+   78,
+   63,
+   36,
+   17,
+   null,
+   5
+  ],
+  "top": {
+   "raw": 50,
+   "std": 80,
+   "pct": 99
+  },
+  "url": "https://www.megastudy.net/Entinfo/total_rankCut/main.asp",
+  "fetchedAt": "2026-11-11"
+ },
+ {
+  "source": "megastudy",
+  "examYear": 2026,
+  "month": 10,
+  "studentGrade": 3,
+  "typeGroup": "education",
+  "type": "oct",
+  "gradeYear": 2027,
+  "subject": "과학탐구",
+  "subSubject": "화학 I",
+  "rawCuts": [
+   50,
+   46,
+   39,
+   28,
+   17,
+   10,
+   9,
+   7
+  ],
+  "standardCuts": [
+   67,
+   65,
+   60,
+   52,
+   45,
+   40,
+   39,
+   38
+  ],
+  "percentiles": [
+   97,
+   90,
+   77,
+   60,
+   42,
+   19,
+   11,
+   7
+  ],
+  "top": {
+   "raw": 50,
+   "std": 67,
+   "pct": 97
+  },
+  "url": "https://www.megastudy.net/Entinfo/total_rankCut/main.asp",
+  "fetchedAt": "2026-11-11"
+ },
+ {
+  "source": "megastudy",
+  "examYear": 2026,
+  "month": 10,
+  "studentGrade": 3,
+  "typeGroup": "education",
+  "type": "oct",
+  "gradeYear": 2027,
+  "subject": "과학탐구",
+  "subSubject": "화학 II",
+  "rawCuts": [
+   47,
+   37,
+   22,
+   15,
+   11,
+   10,
+   7,
+   5
+  ],
+  "standardCuts": [
+   75,
+   67,
+   54,
+   48,
+   45,
+   44,
+   41,
+   40
+  ],
+  "percentiles": [
+   97,
+   89,
+   77,
+   61,
+   36,
+   25,
+   11,
+   7
+  ],
+  "top": {
+   "raw": 50,
+   "std": 78,
+   "pct": 99
+  },
+  "url": "https://www.megastudy.net/Entinfo/total_rankCut/main.asp",
+  "fetchedAt": "2026-11-11"
+ },
+ {
+  "source": "megastudy",
+  "examYear": 2026,
+  "month": 10,
+  "studentGrade": 3,
+  "typeGroup": "education",
+  "type": "oct",
+  "gradeYear": 2027,
+  "subject": "국어",
+  "subSubject": null,
+  "rawCuts": [
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "standardCuts": [
+   129,
+   124,
+   117,
+   109,
+   97,
+   81,
+   71,
+   67
+  ],
+  "percentiles": [
+   96,
+   89,
+   76,
+   60,
+   40,
+   23,
+   12,
+   4
+  ],
+  "top": {
+   "raw": null,
+   "std": 137,
+   "pct": 100
+  },
+  "url": "https://www.megastudy.net/Entinfo/total_rankCut/main.asp",
+  "fetchedAt": "2026-11-11"
+ },
+ {
+  "source": "megastudy",
+  "examYear": 2026,
+  "month": 10,
+  "studentGrade": 3,
+  "typeGroup": "education",
+  "type": "oct",
+  "gradeYear": 2027,
+  "subject": "사회탐구",
+  "subSubject": "경제",
+  "rawCuts": [
+   48,
+   44,
+   35,
+   21,
+   13,
+   10,
+   7,
+   6
+  ],
+  "standardCuts": [
+   69,
+   66,
+   60,
+   50,
+   44,
+   42,
+   40,
+   39
+  ],
+  "percentiles": [
+   96,
+   89,
+   77,
+   61,
+   39,
+   24,
+   13,
+   5
+  ],
+  "top": {
+   "raw": 50,
+   "std": 70,
+   "pct": 98
+  },
+  "url": "https://www.megastudy.net/Entinfo/total_rankCut/main.asp",
+  "fetchedAt": "2026-11-11"
+ },
+ {
+  "source": "megastudy",
+  "examYear": 2026,
+  "month": 10,
+  "studentGrade": 3,
+  "typeGroup": "education",
+  "type": "oct",
+  "gradeYear": 2027,
+  "subject": "사회탐구",
+  "subSubject": "동아시아사",
+  "rawCuts": [
+   50,
+   48,
+   43,
+   31,
+   19,
+   11,
+   8,
+   7
+  ],
+  "standardCuts": [
+   65,
+   64,
+   61,
+   53,
+   45,
+   40,
+   38,
+   37
+  ],
+  "percentiles": [
+   95,
+   89,
+   77,
+   60,
+   41,
+   22,
+   11,
+   5
+  ],
+  "top": {
+   "raw": 50,
+   "std": 65,
+   "pct": 95
+  },
+  "url": "https://www.megastudy.net/Entinfo/total_rankCut/main.asp",
+  "fetchedAt": "2026-11-11"
+ },
+ {
+  "source": "megastudy",
+  "examYear": 2026,
+  "month": 10,
+  "studentGrade": 3,
+  "typeGroup": "education",
+  "type": "oct",
+  "gradeYear": 2027,
+  "subject": "사회탐구",
+  "subSubject": "사회문화",
+  "rawCuts": [
+   47,
+   45,
+   41,
+   36,
+   27,
+   17,
+   13,
+   8
+  ],
+  "standardCuts": [
+   63,
+   62,
+   59,
+   55,
+   48,
+   40,
+   37,
+   33
+  ],
+  "percentiles": [
+   94,
+   90,
+   76,
+   59,
+   41,
+   24,
+   12,
+   4
+  ],
+  "top": {
+   "raw": 50,
+   "std": 66,
+   "pct": 99
+  },
+  "url": "https://www.megastudy.net/Entinfo/total_rankCut/main.asp",
+  "fetchedAt": "2026-11-11"
+ },
+ {
+  "source": "megastudy",
+  "examYear": 2026,
+  "month": 10,
+  "studentGrade": 3,
+  "typeGroup": "education",
+  "type": "oct",
+  "gradeYear": 2027,
+  "subject": "사회탐구",
+  "subSubject": "생활과윤리",
+  "rawCuts": [
+   47,
+   44,
+   41,
+   30,
+   20,
+   12,
+   9,
+   6
+  ],
+  "standardCuts": [
+   65,
+   63,
+   61,
+   53,
+   46,
+   40,
+   38,
+   36
+  ],
+  "percentiles": [
+   94,
+   87,
+   80,
+   59,
+   42,
+   23,
+   14,
+   4
+  ],
+  "top": {
+   "raw": 50,
+   "std": 67,
+   "pct": 99
+  },
+  "url": "https://www.megastudy.net/Entinfo/total_rankCut/main.asp",
+  "fetchedAt": "2026-11-11"
+ },
+ {
+  "source": "megastudy",
+  "examYear": 2026,
+  "month": 10,
+  "studentGrade": 3,
+  "typeGroup": "education",
+  "type": "oct",
+  "gradeYear": 2027,
+  "subject": "사회탐구",
+  "subSubject": "세계사",
+  "rawCuts": [
+   50,
+   null,
+   45,
+   31,
+   17,
+   12,
+   9,
+   6
+  ],
+  "standardCuts": [
+   65,
+   null,
+   62,
+   53,
+   44,
+   41,
+   39,
+   37
+  ],
+  "percentiles": [
+   93,
+   null,
+   78,
+   61,
+   40,
+   26,
+   14,
+   4
+  ],
+  "top": {
+   "raw": 50,
+   "std": 65,
+   "pct": 93
+  },
+  "url": "https://www.megastudy.net/Entinfo/total_rankCut/main.asp",
+  "fetchedAt": "2026-11-11"
+ },
+ {
+  "source": "megastudy",
+  "examYear": 2026,
+  "month": 10,
+  "studentGrade": 3,
+  "typeGroup": "education",
+  "type": "oct",
+  "gradeYear": 2027,
+  "subject": "사회탐구",
+  "subSubject": "세계지리",
+  "rawCuts": [
+   50,
+   46,
+   41,
+   29,
+   20,
+   14,
+   11,
+   7
+  ],
+  "standardCuts": [
+   67,
+   64,
+   60,
+   52,
+   45,
+   41,
+   39,
+   36
+  ],
+  "percentiles": [
+   97,
+   88,
+   77,
+   58,
+   41,
+   24,
+   14,
+   4
+  ],
+  "top": {
+   "raw": 50,
+   "std": 67,
+   "pct": 97
+  },
+  "url": "https://www.megastudy.net/Entinfo/total_rankCut/main.asp",
+  "fetchedAt": "2026-11-11"
+ },
+ {
+  "source": "megastudy",
+  "examYear": 2026,
+  "month": 10,
+  "studentGrade": 3,
+  "typeGroup": "education",
+  "type": "oct",
+  "gradeYear": 2027,
+  "subject": "사회탐구",
+  "subSubject": "윤리와사상",
+  "rawCuts": [
+   45,
+   40,
+   34,
+   26,
+   16,
+   10,
+   8,
+   7
+  ],
+  "standardCuts": [
+   68,
+   64,
+   59,
+   53,
+   45,
+   40,
+   38,
+   37
+  ],
+  "percentiles": [
+   97,
+   89,
+   77,
+   61,
+   40,
+   22,
+   10,
+   4
+  ],
+  "top": {
+   "raw": 50,
+   "std": 72,
+   "pct": 100
+  },
+  "url": "https://www.megastudy.net/Entinfo/total_rankCut/main.asp",
+  "fetchedAt": "2026-11-11"
+ },
+ {
+  "source": "megastudy",
+  "examYear": 2026,
+  "month": 10,
+  "studentGrade": 3,
+  "typeGroup": "education",
+  "type": "oct",
+  "gradeYear": 2027,
+  "subject": "사회탐구",
+  "subSubject": "정치와법",
+  "rawCuts": [
+   50,
+   47,
+   44,
+   33,
+   19,
+   10,
+   null,
+   7
+  ],
+  "standardCuts": [
+   65,
+   63,
+   61,
+   54,
+   45,
+   39,
+   null,
+   37
+  ],
+  "percentiles": [
+   96,
+   86,
+   77,
+   60,
+   42,
+   17,
+   null,
+   6
+  ],
+  "top": {
+   "raw": 50,
+   "std": 65,
+   "pct": 96
+  },
+  "url": "https://www.megastudy.net/Entinfo/total_rankCut/main.asp",
+  "fetchedAt": "2026-11-11"
+ },
+ {
+  "source": "megastudy",
+  "examYear": 2026,
+  "month": 10,
+  "studentGrade": 3,
+  "typeGroup": "education",
+  "type": "oct",
+  "gradeYear": 2027,
+  "subject": "사회탐구",
+  "subSubject": "한국지리",
+  "rawCuts": [
+   46,
+   41,
+   35,
+   27,
+   17,
+   12,
+   8,
+   7
+  ],
+  "standardCuts": [
+   68,
+   64,
+   59,
+   53,
+   45,
+   41,
+   38,
+   37
+  ],
+  "percentiles": [
+   96,
+   88,
+   76,
+   62,
+   39,
+   24,
+   8,
+   4
+  ],
+  "top": {
+   "raw": 50,
+   "std": 71,
+   "pct": 99
+  },
+  "url": "https://www.megastudy.net/Entinfo/total_rankCut/main.asp",
+  "fetchedAt": "2026-11-11"
+ },
+ {
+  "source": "megastudy",
+  "examYear": 2026,
+  "month": 10,
+  "studentGrade": 3,
+  "typeGroup": "education",
+  "type": "oct",
+  "gradeYear": 2027,
+  "subject": "수학",
+  "subSubject": null,
+  "rawCuts": [
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "standardCuts": [
+   130,
+   124,
+   119,
+   110,
+   91,
+   79,
+   75,
+   71
+  ],
+  "percentiles": [
+   96,
+   89,
+   77,
+   60,
+   40,
+   24,
+   11,
+   3
+  ],
+  "top": {
+   "raw": null,
+   "std": 142,
+   "pct": 100
+  },
+  "url": "https://www.megastudy.net/Entinfo/total_rankCut/main.asp",
+  "fetchedAt": "2026-11-11"
+ },
+ {
+  "source": "megastudy",
+  "examYear": 2026,
+  "month": 10,
+  "studentGrade": 3,
+  "typeGroup": "education",
+  "type": "oct",
+  "gradeYear": 2027,
+  "subject": "영어",
+  "subSubject": null,
+  "rawCuts": [
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "standardCuts": [
+   90,
+   80,
+   70,
+   60,
+   50,
+   40,
+   30,
+   20
+  ],
+  "percentiles": [
+   11.52,
+   31.9,
+   52.19,
+   66.98,
+   76.14,
+   82.3,
+   87.22,
+   95.19
+  ],
+  "top": {
+   "raw": null,
+   "std": 100,
+   "pct": null
+  },
+  "url": "https://www.megastudy.net/Entinfo/total_rankCut/main.asp",
+  "fetchedAt": "2026-11-11"
+ },
+ {
+  "source": "megastudy",
+  "examYear": 2026,
+  "month": 10,
+  "studentGrade": 3,
+  "typeGroup": "education",
+  "type": "oct",
+  "gradeYear": 2027,
+  "subject": "한국사",
+  "subSubject": null,
+  "rawCuts": [
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "standardCuts": [
+   40,
+   35,
+   30,
+   25,
+   20,
+   15,
+   10,
+   5
+  ],
+  "percentiles": [
+   17.91,
+   29.5,
+   42.83,
+   57.15,
+   70.47,
+   81.62,
+   94.65,
+   98.83
+  ],
+  "top": {
+   "raw": null,
+   "std": 50,
+   "pct": null
+  },
+  "url": "https://www.megastudy.net/Entinfo/total_rankCut/main.asp",
+  "fetchedAt": "2026-11-11"
  }
 ]
