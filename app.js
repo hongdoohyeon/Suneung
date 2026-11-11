@@ -16,7 +16,7 @@ import {
 import { renderAllAdSlots, renderAdSlot } from './lib/ads.js?v=9d7475e456a7e7e5c0ee';
 import { recentItems, clearRecent } from './lib/recent.js?v=9d7475e456a7e7e5c0ee';
 import { initSelect, isSelecting, checkboxHTML } from './lib/select.js?v=9d7475e456a7e7e5c0ee';
-import { vt, flipChips, resize, underline, onSwipe, EASE as M } from './lib/motion.js?v=9d7475e456a7e7e5c0ee';
+import { vt, flipChips, resize, underline, onSwipe, settled, EASE as M } from './lib/motion.js?v=9d7475e456a7e7e5c0ee';
 let placeTabInk = null;   // 시험 종류 탭 밑줄 옮기기(아래 markActiveNavTab) — 모듈 초기에 탭 표시가 먼저 불릴 수 있어 맨 위에 선언
 
 const tabConf = () => getTabConf(state.tab);
@@ -107,8 +107,8 @@ const EASE_FOLD = 'cubic-bezier(.65,0,.35,1)';
 function slideHeight(el, from, to, duration = 300) {
   if (reduceMotion.matches || from === to) return Promise.resolve();
   el.style.overflow = 'hidden';
-  return el.animate([{ height: `${from}px` }, { height: `${to}px` }], { duration, easing: EASE_FOLD }).finished
-    .catch(() => {}).finally(() => { el.style.overflow = ''; });
+  return settled(el.animate([{ height: `${from}px` }, { height: `${to}px` }], { duration, easing: EASE_FOLD }))
+    .finally(() => { el.style.overflow = ''; });
 }
 document.addEventListener('click', e => {
   const sum = e.target.closest('details.rfold > summary');
@@ -1001,8 +1001,8 @@ function setSheetOpen(open, trigger = null) {
     const wide = matchMedia('(min-width: 961px)').matches;
     panel.dataset.closing = '1';
     $('filterBackdrop')?.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 200, fill: 'forwards' });
-    panel.animate([{ translate: '0 0' }, { translate: wide ? '-100% 0' : '0 100%' }], { duration: 220, easing: M.in, fill: 'forwards' })
-      .finished.catch(() => {}).finally(() => {
+    settled(panel.animate([{ translate: '0 0' }, { translate: wide ? '-100% 0' : '0 100%' }], { duration: 220, easing: M.in, fill: 'forwards' }))
+      .finally(() => {
         delete panel.dataset.closing;
         applySheet(false, trigger);
         panel.getAnimations().forEach(a => a.cancel());

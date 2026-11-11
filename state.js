@@ -103,6 +103,18 @@ function expandYYMM(t) {
   return [m[1], round];
 }
 
+// "25 6"·"2024 9" — 학년도 바로 뒤에 숫자만 적은 달을 회차로 읽는다 ("25 6" → ['25','6모']).
+// 전에는 숫자 6 하나가 어느 시험에도 걸리지 않아 0건이었다(0건 검색어 상위에 "25 6"·"24 9"·"26 6" 등).
+function monthAfterYear(tokens) {
+  return tokens.map((t, i) => {
+    if (i === 0 || !/^\d{1,2}$/.test(t)) return t;
+    const prev = tokens[i - 1];
+    const year = /^\d{2}$/.test(prev) ? +prev : /^20\d{2}$/.test(prev) ? +prev - 2000 : NaN;
+    if (!(year >= 18 && year <= 30)) return t;
+    return YYMM_TO_TYPE[t.padStart(2, '0')] || t;
+  });
+}
+
 // 사용자 query 를 토큰(공백/쉼표/슬래시/하이픈 단위)으로 분해.
 // 각 토큰은 매칭 단계에서 다시 (숫자)↔(한글/영문) 경계로 분해될 수 있음 (matchToken 참고).
 function tokenize(query) {
@@ -117,7 +129,7 @@ function tokenize(query) {
     const exp = expandYYMM(t);
     if (exp) out.push(...exp); else out.push(t);
   }
-  return out;
+  return monthAfterYear(out);
 }
 
 // hay 캐시 — exam 객체별로 한 번만 빌드.
@@ -248,7 +260,9 @@ function getHay(e) {
 //   정확 단어 1.0 / 정확 substring 0.95 / prefix 0.85 / alias 0.85 /
 //   초성 0.8 / 토큰 분해 (숫자+한글) 0.75 / 자모 단위 거리 ≤1: 0.6 /
 //   음절 단위 거리 ≤1: 0.5 / 그 외 0.
+let _typoOnly = false;   // 직전 scoreToken 이 오타 보정(7·8번)으로만 걸렸는지 — scoreQuery 가 읽는다
 function scoreToken(hayObj, tok) {
+  _typoOnly = false;
   const t = normQ(tok);
   if (!t) return 1;
   const { norm: hay, chos, jamo, wordsSet } = hayObj;
@@ -349,11 +363,11 @@ function scoreToken(hayObj, tok) {
   //    숫자 포함 토큰("5월" 등)은 거부 — "11월"같은 다른 월에 1자모 거리로 매칭되는 것 방지
   if (/^[가-힣]+$/.test(t) && t.length >= 2) {
     const tj = toJamo(t);
-    if (tj.length >= 4 && fuzzyContains(jamo, tj, 1)) return 0.6;
+    if (tj.length >= 4 && fuzzyContains(jamo, tj, 1)) { _typoOnly = true; return 0.6; }
   }
 
   // 8) 음절 단위 편집거리 ≤ 1 — 영숫자 오타 또는 한글 1음절 변경 (숫자 포함시 거부)
-  if (t.length >= 3 && /^[가-힣a-z]+$/.test(t) && fuzzyContains(hay, t, 1)) return 0.5;
+  if (t.length >= 3 && /^[가-힣a-z]+$/.test(t) && fuzzyContains(hay, t, 1)) { _typoOnly = true; return 0.5; }
 
   return 0;
 }
@@ -388,9 +402,13 @@ function parseQuery(query) {
     if (exp) include.push(...exp); else include.push(t);
   }
   _queryCacheKey = cacheKey;
-  _queryCacheValue = { include, exclude, phrases };
+  _queryCacheValue = { include: monthAfterYear(include), exclude, phrases };
   return _queryCacheValue;
 }
+
+// 오타 보정으로만 걸린 시험 — 제대로 맞은 결과가 있으면 목록에서 뺀다(filtered).
+// 전에는 "사문"에 사회·문화 뒤로 화법과작문·확률과통계 등 2천 건이, "화작"에 화학Ⅰ이 딸려 나왔다.
+const _typoMatched = new WeakSet();
 
 // 쿼리 매칭 점수 — 0(제외) 또는 양수(랭킹 정렬용).
 //   AND 모드: include 토큰 모두 score>0 / 구문 모두 정확 매칭 / exclude 모두 매칭 안됨.
@@ -416,11 +434,15 @@ function scoreQuery(e, query) {
   }
   // 포함 토큰 모두 매칭
   let total = 0;
+  let typo = false;
   for (const tok of parsed.include) {
+    _typoOnly = false;
     const s = scoreExamToken(e, hayObj, tok);
     if (s === 0) return 0;  // AND
+    if (_typoOnly) typo = true;
     total += s;
   }
+  if (typo) _typoMatched.add(e); else _typoMatched.delete(e);
   // 정확 매칭이 다수면 랭킹 보너스
   return parsed.include.length === 0 ? 1 : (total / parsed.include.length);
 }
@@ -675,9 +697,11 @@ export function filtered() {
   // 영역 필터·아카이브 일반 보기는 그대로 (필터·분류 본래 의도 유지).
   const dedupedItems = (() => {
     if (!hasQuery) return items;
+    // 오타 보정은 제대로 맞은 결과가 하나도 없을 때만 쓴다
+    const exact = items.filter(e => !_typoMatched.has(e));
     const seen = new Set();
     const out = [];
-    for (const e of items) {
+    for (const e of exact.length ? exact : items) {
       const u = e.questionKey || (typeof e.questionUrl === 'string' ? e.questionUrl : null);
       if (u && seen.has(u)) continue;
       if (u) seen.add(u);

@@ -1166,6 +1166,7 @@ body[data-exam-tab="obj"] #main > :not(.exam__crumb):not(.exam__top):not(.exam__
 .lp__ch:hover { background: var(--fill-2); color: var(--ink); }
 .lp__ch.is-on { background: var(--ink); color: var(--on-ink); }
 .lp__hint { margin: -4px 0 0; font-size: 12px; color: var(--ink-4); }
+.lp__fail { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; margin: 0; font-size: 13px; color: var(--ink-2); }
 .lp__links { display: flex; flex-wrap: wrap; gap: 4px 14px; }
 .listen-layout { display: grid; grid-template-columns: minmax(300px, 380px) minmax(0, 1fr); gap: 20px; align-items: start; margin-top: 4px; }
 .listen-layout__player { position: sticky; top: 16px; }

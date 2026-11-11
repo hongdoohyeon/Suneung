@@ -55,35 +55,51 @@ async function serveFile(request, ctx, env) {
   const range = request.headers.get("Range");
   const ua = request.headers.get("User-Agent") || "Suneung-Download-Proxy";
 
-  if (range) {
-    const originResp = await ghFetch(ghUrl, { method: request.method, redirect: "follow", headers: { Range: range, "User-Agent": ua } }, ctx, env);
-    if (!originResp.ok && originResp.status !== 206) return new Response("Not found", { status: originResp.status });
-    const out = buildResponseHeaders(originResp.headers, { fileName, isInline, ext, typeInfo });
-    return new Response(request.method === "HEAD" ? null : originResp.body, { status: originResp.status, headers: out });
-  }
-
   const cacheKeyUrl = new URL(request.url);
   for (const k of ["name", "preview", "inline", "download"]) cacheKeyUrl.searchParams.delete(k);
   const cacheKey = new Request(cacheKeyUrl.toString(), { method: "GET" });
   const cache = caches.default;
+
+  if (range) {
+    // 전체 파일이 캐시에 있으면 거기서 잘라 준다(Cloudflare 캐시는 Range 를 붙여 찾으면 206 을 만들어 준다) → GitHub 를 안 거침
+    const hit = await cache.match(new Request(cacheKey, { headers: { Range: range } }));
+    if (hit) {
+      const out = buildResponseHeaders(hit.headers, { fileName, isInline, ext, typeInfo });
+      return new Response(request.method === "HEAD" ? null : hit.body, { status: hit.status, headers: out });
+    }
+    const originResp = await ghFetch(ghUrl, { method: request.method, redirect: "follow", headers: { Range: range, "User-Agent": ua } }, ctx, env);
+    if (!originResp.ok && originResp.status !== 206) return new Response("Not found", { status: originResp.status });
+    // 듣기 음원처럼 Range 로만 받는 파일은 캐시에 들어갈 기회가 없다 → 응답과 별개로 전체를 받아 캐시에 넣어 둔다(다음 Range 부터 캐시)
+    ctx.waitUntil(ghFetch(ghUrl, { method: "GET", redirect: "follow", headers: { "User-Agent": ua } }, ctx, env)
+      .then(full => full.ok && full.status === 200 ? cache.put(cacheKey, new Response(full.body, { headers: cacheHeaders(full.headers, typeInfo) })) : full.body?.cancel())
+      .catch(() => {}));
+    const out = buildResponseHeaders(originResp.headers, { fileName, isInline, ext, typeInfo });
+    return new Response(request.method === "HEAD" ? null : originResp.body, { status: originResp.status, headers: out });
+  }
+
   let cached = await cache.match(cacheKey);
   if (!cached) {
     const originResp = await ghFetch(ghUrl, { method: "GET", redirect: "follow", headers: { "User-Agent": ua } }, ctx, env);
     if (!originResp.ok) return new Response("Not found", { status: originResp.status });
-    const ch = new Headers(originResp.headers);
-    ch.set("Cache-Control", `public, max-age=${CACHE_SECONDS}`);
-    ch.set("Access-Control-Allow-Origin", "*");
-    ch.set("Accept-Ranges", "bytes");
-    ch.set("Content-Type", typeInfo.contentType);
-    ch.delete("Content-Disposition");
-    ch.delete("Set-Cookie");
-    ch.delete("Content-Security-Policy");
-    cached = new Response(originResp.body, { status: originResp.status, headers: ch });
+    cached = new Response(originResp.body, { status: originResp.status, headers: cacheHeaders(originResp.headers, typeInfo) });
     ctx.waitUntil(cache.put(cacheKey, cached.clone()));
   }
   const out = buildResponseHeaders(cached.headers, { fileName, isInline, ext, typeInfo });
   if (request.method === "HEAD") return new Response(null, { status: cached.status, headers: out });
   return new Response(cached.body, { status: cached.status, headers: out });
+}
+
+// 캐시에 넣을 때의 헤더(파일명·Disposition 은 응답 때 붙인다)
+function cacheHeaders(originHeaders, typeInfo) {
+  const ch = new Headers(originHeaders);
+  ch.set("Cache-Control", `public, max-age=${CACHE_SECONDS}`);
+  ch.set("Access-Control-Allow-Origin", "*");
+  ch.set("Accept-Ranges", "bytes");
+  ch.set("Content-Type", typeInfo.contentType);
+  ch.delete("Content-Disposition");
+  ch.delete("Set-Cookie");
+  ch.delete("Content-Security-Policy");
+  return ch;
 }
 
 function buildResponseHeaders(baseHeaders, { fileName, isInline, ext, typeInfo }) {
