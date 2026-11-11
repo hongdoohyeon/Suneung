@@ -29,7 +29,9 @@ if (recentEducation.some(e => !e.answerIncludesSolution)) {
 
 const modernKice = exams.filter(e => e.typeGroup === 'suneung' && e.gradeYear >= 2022
   && ['csat', 'june', 'sept'].includes(e.type));
-const missingModernKiceSolutions = modernKice.filter(e => !e.solutionUrl);
+// 전수검사(2026-11-09)에서 다른 학년도 해설이 연결돼 있어 링크를 내린 항목 — 맞는 해설을 구하면 여기서 뺀다
+const MODERN_KICE_SOLUTION_WITHDRAWN = new Set([13838]);   // 2022학년도 6모 제2외국어(러시아어)
+const missingModernKiceSolutions = modernKice.filter(e => !e.solutionUrl && !MODERN_KICE_SOLUTION_WITHDRAWN.has(e.id));
 if (missingModernKiceSolutions.length) {
   errors.push(`2022학년도 이후 평가원 정답·해설 누락 ${missingModernKiceSolutions.length}건`);
 }
@@ -44,7 +46,12 @@ if (historicalKiceSolutions.count !== 1585
   || historicalKiceSolutionIds.size !== historicalKiceSolutions.count) {
   errors.push(`2007~2021학년도 EBSi 평가원 해설 출처 ${historicalKiceSolutions.records.length}건 무결성 불일치`);
 }
-if (historicalKiceSolutions.records.some(record => {
+// withdrawn: EBSi 목록에는 있지만 검수에서 틀린 연결로 확인돼 내렸거나 항목을 지운 것 — 다시 연결되면 안 된다
+const withdrawnKiceSolutions = new Set((historicalKiceSolutions.withdrawn ?? []).map(item => item.id));
+if ([...withdrawnKiceSolutions].some(id => !historicalKiceSolutionIds.has(id) || exams.find(item => item.id === id)?.solutionUrl)) {
+  errors.push('2007~2021학년도 EBSi 평가원 해설: 내린 항목(withdrawn)이 목록에 없거나 다시 연결됨');
+}
+if (historicalKiceSolutions.records.filter(record => !withdrawnKiceSolutions.has(record.id)).some(record => {
   const exam = exams.find(item => item.id === record.id);
   return !exam || exam.solutionUrl !== record.solutionUrl || exam.solutionSource !== 'EBSi'
     || exam.gradeYear !== record.gradeYear || exam.type !== record.type
@@ -440,7 +447,7 @@ ${ratioSupplementLines.join('\n')}
 
 console.log(`고1 ${exams.filter(e => e.typeGroup === 'education' && e.studentGrade === 1).length}건 / 고2 ${exams.filter(e => e.typeGroup === 'education' && e.studentGrade === 2).length}건`);
 console.log(`2025년 이후 학평 ${recentEducation.length}건 문제지·정답·해설 분류 완전`);
-console.log(`2022학년도 이후 평가원 ${modernKice.length}건 중 정답·해설 ${modernKice.filter(e => e.solutionUrl).length}건 (2022 수능 과탐 합본 1건 제외 완전)`);
+console.log(`2022학년도 이후 평가원 ${modernKice.length}건 중 정답·해설 ${modernKice.filter(e => e.solutionUrl).length}건 (링크를 내린 ${MODERN_KICE_SOLUTION_WITHDRAWN.size}건 제외 완전)`);
 console.log(`2027학년도 LEET ${leet2027.records.length}과목 공식 문제지 · 객관식 정답 ${leet2027.records.filter(record => record.answers).length}과목`);
 console.log(`논술 ${essays.length}건 / ${essaySchools.length}개교 / 문제만 ${questionOnly.length}회차 / 2027학년도 ${essays.filter(e => e.gradeYear === 2027).length}건`);
 console.log(`2027 시행대학 전체 이력 ${representedTargetSchools.size}/${essayTarget.expectedUniversityCount}개교 / 2026 기출 ${represented2026TargetSchools.size}/${essayTarget.expectedUniversityCount}개교`);
