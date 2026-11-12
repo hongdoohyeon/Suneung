@@ -2,7 +2,12 @@
 import {
   CURRICULUM_CONFIG, EXAM_TYPE_CONFIG, TAB_CONFIG,
   getTypeConf, getTabConf, prettySub, searchAliasOf, ALIAS_KEYS_DESC,
+<<<<<<< Updated upstream
 } from './config.js?v=97d0fe50ab78a4124f9d';
+=======
+} from './config.js?v=71ba21be4189c902eb94';
+import { schoolOf } from './lib/search-vocab.js?v=71ba21be4189c902eb94';
+>>>>>>> Stashed changes
 
 // ── 검색 정규화 ─────────────────────────────────────────────
 // 로마자 숫자(Ⅰ/Ⅱ/Ⅲ) → 아라비아, 한자(一/二/三) → 아라비아, 소문자, 공백 제거.
@@ -68,24 +73,6 @@ const isChosungOnly = s => /^[ㄱ-ㅎ]+$/.test(String(s ?? ''));
 // 정규식 메타문자 이스케이프
 function escapeRe(s) { return String(s).replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }
 
-// 윈도우 + 자모 단위 편집거리 (≤ maxDiff 매칭 위치 발견하면 즉시 true)
-function fuzzyContains(hay, needle, maxDiff) {
-  const nLen = needle.length;
-  if (nLen === 0) return true;
-  if (nLen > hay.length + maxDiff) return false;
-  // O(N×nLen) Levenshtein, needle 짧을 때만 호출되므로 충분.
-  for (let i = 0; i + nLen - maxDiff <= hay.length; i++) {
-    let diff = 0;
-    let j = 0;
-    while (j < nLen && diff <= maxDiff) {
-      if (hay[i + j] === needle[j]) j++;
-      else { diff++; j++; }
-    }
-    if (diff <= maxDiff) return true;
-  }
-  return false;
-}
-
 // "YYMM" 4자리 숫자 → [학년도2자리, 회차] 자동 분해
 //  2506 → ['25','6모'] / 2511 → ['25','수능'] / 2509 → ['25','9모']
 const YYMM_TO_TYPE = {
@@ -93,24 +80,38 @@ const YYMM_TO_TYPE = {
   '03': '3모', '04': '4모', '05': '5모',
   '07': '7모', '08': '8모', '10': '10모',
 };
+// 올해 치르는 수능의 학년도 (KST)
+const NOW_GRADE_YEAR = new Date(Date.now() + 9 * 3600e3).getUTCFullYear() + 1;
+const isYY = yy => yy <= 30 || yy >= 94;                       // 두 자리 학년도로 읽을 수 있는 수 (1994~2030)
+const isYYYY = n => n >= 1994 && n <= NOW_GRADE_YEAR + 1;
 function expandYYMM(t) {
   const m = t.match(/^(\d{2})(0[1-9]|1[0-2])$/);
   if (!m) return null;
-  const yy = +m[1];
-  if (yy < 18 || yy > 30) return null;       // 합리적 학년도 범위
+  // 1994~내년 학년도로 읽히는 네 자리(2011·2008)는 학년도 — 전엔 "20학년도 11월(수능)"로 읽어 엉뚱한 시험이 나왔다
+  if (isYYYY(+t)) return null;
+  if (!isYY(+m[1])) return null;
   const round = YYMM_TO_TYPE[m[2]];
   if (!round) return null;
   return [m[1], round];
 }
 
-// "25 6"·"2024 9" — 학년도 바로 뒤에 숫자만 적은 달을 회차로 읽는다 ("25 6" → ['25','6모']).
+// 숫자 낱말 하나를 검색 토큰으로 풀기 — "2506"(학년도+달), "256월"(붙여 쓴 달)
+function expandNumberToken(t) {
+  const yymm = expandYYMM(t);
+  if (yymm) return yymm;
+  let m = t.match(/^(\d{2})(\d{1,2})월$/);
+  if (m && isYY(+m[1]) && YYMM_TO_TYPE[m[2].padStart(2, '0')]) return [m[1], YYMM_TO_TYPE[m[2].padStart(2, '0')]];
+  return [t];
+}
+
+// "25 6"·"2024 9"·"22학년도 6" — 학년도 바로 뒤에 숫자만 적은 달을 회차로 읽는다 ("25 6" → ['25','6모']).
 // 전에는 숫자 6 하나가 어느 시험에도 걸리지 않아 0건이었다(0건 검색어 상위에 "25 6"·"24 9"·"26 6" 등).
 function monthAfterYear(tokens) {
   return tokens.map((t, i) => {
     if (i === 0 || !/^\d{1,2}$/.test(t)) return t;
-    const prev = tokens[i - 1];
-    const year = /^\d{2}$/.test(prev) ? +prev : /^20\d{2}$/.test(prev) ? +prev - 2000 : NaN;
-    if (!(year >= 18 && year <= 30)) return t;
+    const prev = tokens[i - 1].replace(/학년도$/, '');
+    const ok = /^\d{2}$/.test(prev) ? isYY(+prev) : /^\d{4}$/.test(prev) ? isYYYY(+prev) : false;
+    if (!ok) return t;
     return YYMM_TO_TYPE[t.padStart(2, '0')] || t;
   });
 }
@@ -123,13 +124,8 @@ function tokenize(query) {
     .split(/\s+/)
     .filter(Boolean)
     .map(c => c.replace(/\s+/g, ''));
-  // 4자리 YYMM 토큰 자동 분해
-  const out = [];
-  for (const t of raw) {
-    const exp = expandYYMM(t);
-    if (exp) out.push(...exp); else out.push(t);
-  }
-  return monthAfterYear(out);
+  // 숫자 토큰 풀기(YYMM·붙여 쓴 달·두 자리+년)
+  return monthAfterYear(raw.flatMap(expandNumberToken));
 }
 
 // hay 캐시 — exam 객체별로 한 번만 빌드.
@@ -141,6 +137,15 @@ const SUBJECT_TERMS = new Set(Object.values(CURRICULUM_CONFIG)
 function scoreExamToken(e, hay, token) {
   const term = normQ(token);
   if (term === '논술' && e.typeGroup === 'essay') return 1;
+  // 대학 이름·줄임말(연대·이대·단국 …)은 논술 시험에만 — 전엔 고3 탭에서 오타 보정으로 엉뚱한 시험 수천 건이 걸렸다
+  const school = schoolOf(term);
+  if (school) return e.typeGroup === 'essay' && normQ(e.subject).includes(school) ? 1 : 0;
+  // "23년" — 두 자리+년은 시행 연도(2023년)와 학년도(2023학년도) 둘 다로 본다. 실제 검색에서 학년도를 뜻한 경우가 많았다
+  const yr = term.match(/^(\d{2})년$/);
+  if (yr && isYY(+yr[1])) {
+    const y = +yr[1] >= 94 ? 1900 + +yr[1] : 2000 + +yr[1];
+    return e.examYear === y || e.gradeYear === y ? 1 : 0;
+  }
   if (/^고[123]$/.test(term)) {
     const grade = e.studentGrade || (e.typeGroup === 'suneung' ? 3 : null);
     return grade === Number(term.slice(1)) ? 1 : 0;
@@ -148,8 +153,9 @@ function scoreExamToken(e, hay, token) {
   // 대학 논술의 과목·계열은 학교명이 아닌 세부 시험명 안에 들어 있다.
   if (e.typeGroup === 'essay') return scoreToken(hay, token);
   if (SUBJECT_TERMS.has(term)) {
+    // '사회'·'과학'은 지금 영역 이름 '사회탐구'·'과학탐구'도 같은 뜻
     return [e.subject, e.subSubject, prettySub(e.subSubject || '')]
-      .some(value => normQ(value) === term) ? 1 : 0;
+      .some(value => normQ(value) === term || normQ(value) === term + '탐구') ? 1 : 0;
   }
   return scoreToken(hay, token);
 }
@@ -235,8 +241,6 @@ function buildHay(e) {
   const norm = normQ(joined);
   // 초성 hay (예: "한국사" → "ㅎㄱㅅ") — 초성만 입력시 매칭
   const chos = toChosung(joined);
-  // 자모 풀분해 hay — 자모 단위 편집거리 매칭
-  const jamo = toJamo(norm);
   // 단어 시작 위치 인덱스 — prefix 가산점용
   const wordStarts = new Set([0]);
   for (let i = 1; i < norm.length; i++) {
@@ -246,7 +250,7 @@ function buildHay(e) {
   // joined를 공백/구두점 단위로 잘라 단어 배열을 만들면 prefix·정확단어 일치 판정 가능
   const words = fold(joined).split(/[\s,/.()[\]{}<>]+/).filter(Boolean).map(w => w.replace(/\s+/g,''));
   const wordsSet = new Set(words);
-  return { norm, chos, jamo, words, wordsSet };
+  return { norm, chos, words, wordsSet };
 }
 
 function getHay(e) {
@@ -258,14 +262,13 @@ function getHay(e) {
 // 토큰 단일 매칭 — 0(없음) ~ 1.0(정확) 점수 반환.
 // 시도 순서:
 //   정확 단어 1.0 / 정확 substring 0.95 / prefix 0.85 / alias 0.85 /
-//   초성 0.8 / 토큰 분해 (숫자+한글) 0.75 / 자모 단위 거리 ≤1: 0.6 /
-//   음절 단위 거리 ≤1: 0.5 / 그 외 0.
-let _typoOnly = false;   // 직전 scoreToken 이 오타 보정(7·8번)으로만 걸렸는지 — scoreQuery 가 읽는다
-function scoreToken(hayObj, tok) {
+//   초성 0.8 / 토큰 분해 (숫자+한글) 0.75 / 아는 낱말로 오타 보정: 0.6×그 낱말 점수 / 그 외 0.
+let _typoOnly = false;   // 직전 scoreToken 이 오타 보정(7번)으로만 걸렸는지 — scoreQuery 가 읽는다
+function scoreToken(hayObj, tok, noTypo = false) {
   _typoOnly = false;
   const t = normQ(tok);
   if (!t) return 1;
-  const { norm: hay, chos, jamo, wordsSet } = hayObj;
+  const { norm: hay, chos, wordsSet } = hayObj;
 
   // 1) 초성만 입력
   if (isChosungOnly(tok)) {
@@ -282,17 +285,20 @@ function scoreToken(hayObj, tok) {
   // 짧은 숫자 토큰(2~3자리)은 정확 단어 매칭만 — "25"가 "2025년" substring 매칭되는 것 방지
   if (/^\d+$/.test(t) && t.length <= 3) return 0;
 
-  // 3) 정확 substring
-  if (hay.includes(t)) return 0.95;
+  // 3) 줄임말(물1·사탐·정법 …)은 별칭으로만 — 글자 그대로 찾으면 "물1"이 생물Ⅰ(생물1)에 걸린다
+  const aliases = searchAliasOf(t);
+  if (aliases && !aliases.flat().some(a => normQ(a) === t)) {
+    if (!aliasHit(aliases, hay)) return 0;
+    return aliases.flat().some(a => wordsSet.has(normQ(a))) ? 0.9 : 0.85;
+  }
+
+  // 3-b) 정확 substring — 네 자리 숫자는 시행 연도("2024년" 안의 2024)라 학년도 정확 일치(1.0)보다 낮게
+  if (hay.includes(t)) return /^\d{4}$/.test(t) ? 0.8 : 0.95;
 
   // 4) alias (수능, 5모, 듣기 등 매핑) — alias 배열 모두가 hay 에 있어야 정확 매칭
-  const aliases = searchAliasOf(t);
-  if (aliases) {
-    const allIn = aliases.every(a => hay.includes(normQ(a)));
-    if (allIn) {
-      // 정확 단어 매칭이 하나라도 있으면 0.9, 부분 substring 만 있으면 0.85
-      return aliases.some(a => wordsSet.has(normQ(a))) ? 0.9 : 0.85;
-    }
+  if (aliases && aliasHit(aliases, hay)) {
+    // 정확 단어 매칭이 하나라도 있으면 0.9, 부분 substring 만 있으면 0.85
+    return aliases.flat().some(a => wordsSet.has(normQ(a))) ? 0.9 : 0.85;
   }
 
   // 5) prefix — 어떤 단어의 시작이 토큰
@@ -312,7 +318,7 @@ function scoreToken(hayObj, tok) {
       if (/^\d+$/.test(p)) { if (wordsSet.has(p)) { total += 1; continue; } ok = false; break; }
       if (hay.includes(p)) { total += 1; continue; }
       const al = searchAliasOf(p);
-      if (al && al.every(a => hay.includes(normQ(a)))) { total += 0.85; continue; }
+      if (al && aliasHit(al, hay)) { total += 0.85; continue; }
       ok = false; break;
     }
     if (ok) return 0.7 * (total / parts.length);
@@ -352,24 +358,73 @@ function scoreToken(hayObj, tok) {
         if (/^\d+$/.test(s)) { if (wordsSet.has(s)) { total += 0.9; continue; } ok = false; break; }
         if (hay.includes(s)) { total += 0.9; continue; }
         const al = searchAliasOf(s);
-        if (al && al.every(a => hay.includes(normQ(a)))) { total += 0.85; continue; }
+        if (al && aliasHit(al, hay)) { total += 0.85; continue; }
         ok = false; break;
       }
       if (ok) return 0.7 * (total / segs.length);
     }
   }
 
-  // 7) 자모 단위 편집거리 ≤ 1 (한글 오타: "수능" → "스능", "기출" → "기풀")
-  //    숫자 포함 토큰("5월" 등)은 거부 — "11월"같은 다른 월에 1자모 거리로 매칭되는 것 방지
-  if (/^[가-힣]+$/.test(t) && t.length >= 2) {
-    const tj = toJamo(t);
-    if (tj.length >= 4 && fuzzyContains(jamo, tj, 1)) { _typoOnly = true; return 0.6; }
+  // 7) 오타 보정 — 시험 목록이 아는 낱말 중 가장 가까운 것(자모 편집거리 1)으로 고쳐 정확히 다시 맞춘다.
+  //    전엔 목록 글 전체에서 비슷한 곳을 찾아, 고3 탭의 "수원대"가 엉뚱한 시험 1천여 건에 걸렸다.
+  //    숫자 포함 토큰("5월" 등)은 고치지 않는다 — "11월"같은 다른 월로 바뀌는 것 방지
+  const fix = noTypo ? null : typoFix(t);
+  if (fix) {
+    const s = scoreToken(hayObj, fix, true);
+    _typoOnly = s > 0;
+    return s ? 0.6 * s : 0;
   }
 
-  // 8) 음절 단위 편집거리 ≤ 1 — 영숫자 오타 또는 한글 1음절 변경 (숫자 포함시 거부)
-  if (t.length >= 3 && /^[가-힣a-z]+$/.test(t) && fuzzyContains(hay, t, 1)) { _typoOnly = true; return 0.5; }
-
   return 0;
+}
+
+// 별칭 값: 문자열은 '모두 있어야', 배열은 '그중 하나만 있어도'(옛 이름 묶음 — 정치와법·법과정치)
+function aliasHit(aliases, hay) {
+  return aliases.every(a => Array.isArray(a) ? a.some(x => hay.includes(normQ(x))) : hay.includes(normQ(a)));
+}
+
+// ── 오타 보정용 낱말 목록: 지금 목록(state.exams 또는 탭별 건수 계산 대상)의 낱말 + 별칭 ──
+const _vocabCache = new WeakMap();
+let _vocab = null;
+function prepareVocab(exams) {
+  let v = _vocabCache.get(exams);
+  if (!v) {
+    const freq = new Map(ALIAS_KEYS_DESC.map(k => [k, 1000]));   // 별칭은 흔한 말로 친다
+    for (const e of exams) for (const w of getHay(e).wordsSet) if (w.length >= 2 && /[가-힣a-z]/.test(w) && !/\d/.test(w)) freq.set(w, (freq.get(w) || 0) + 1);
+    v = { words: freq, list: [...freq].map(([w, n]) => [w, toJamo(w), n]), fixes: new Map() };
+    _vocabCache.set(exams, v);
+  }
+  _vocab = v;
+}
+// 자모 편집거리 (작은 문자열용)
+function editDistance(a, b, cap) {
+  if (Math.abs(a.length - b.length) > cap) return cap + 1;
+  let prev = Array.from({ length: b.length + 1 }, (_, j) => j);
+  for (let i = 1; i <= a.length; i++) {
+    const cur = [i];
+    let best = i;
+    for (let j = 1; j <= b.length; j++) {
+      cur[j] = Math.min(prev[j] + 1, cur[j - 1] + 1, prev[j - 1] + (a[i - 1] === b[j - 1] ? 0 : 1));
+      if (cur[j] < best) best = cur[j];
+    }
+    if (best > cap) return cap + 1;
+    prev = cur;
+  }
+  return prev[b.length];
+}
+function typoFix(t) {
+  if (!_vocab || !/^[가-힣a-z]+$/.test(t) || _vocab.words.has(t)) return null;   // 아는 낱말은 고치지 않는다
+  if (_vocab.fixes.has(t)) return _vocab.fixes.get(t);
+  const tj = toJamo(t);
+  // 두 글자 이하는 흔한 말(50회 이상)로만 고친다 — "이화"가 직업탐구 '농업 이해'로 바뀌던 것 방지. 후보가 여럿이면 흔한 쪽
+  let fix = null, best = 0;
+  if (tj.length >= 4) {
+    for (const [w, wj, n] of _vocab.list) {
+      if (n > best && (t.length > 2 || n >= 50) && editDistance(tj, wj, 1) <= 1) { fix = w; best = n; }
+    }
+  }
+  _vocab.fixes.set(t, fix);
+  return fix;
 }
 
 // 쿼리 파싱 — 같은 검색어로 9천 건을 검사할 때 매 항목마다 다시 파싱하지 않는다.
@@ -397,13 +452,26 @@ function parseQuery(query) {
     return seg.replace(/[-_/]+/g, ' ');
   }).filter(Boolean).join(' ');
   for (const raw of cleaned.split(/[\s,]+/).filter(Boolean)) {
-    const t = raw.replace(/\s+/g,'');
-    const exp = expandYYMM(t);
-    if (exp) include.push(...exp); else include.push(t);
+    include.push(...expandNumberToken(raw.replace(/\s+/g,'')));
   }
   _queryCacheKey = cacheKey;
-  _queryCacheValue = { include: monthAfterYear(include), exclude, phrases };
+  _queryCacheValue = { include: joinSubjectWords(monthAfterYear(include)), exclude, phrases };
   return _queryCacheValue;
+}
+
+// 띄어 쓴 과목 이름을 한 낱말로 — "생활과 윤리" → "생활과윤리".
+// 전엔 '윤리'가 옛 과목 이름이라 영역·세부 과목과 정확히 같아야 해서 생활과윤리가 빠졌다(0건).
+function joinSubjectWords(tokens) {
+  const out = [];
+  for (let i = 0; i < tokens.length; i++) {
+    let joined = null;
+    for (let j = Math.min(tokens.length, i + 3); j > i + 1; j--) {
+      const w = normQ(tokens.slice(i, j).join(''));
+      if (SUBJECT_TERMS.has(w) || searchAliasOf(w)) { joined = w; out.push(w); i = j - 1; break; }
+    }
+    if (!joined) out.push(tokens[i]);
+  }
+  return out;
 }
 
 // 오타 보정으로만 걸린 시험 — 제대로 맞은 결과가 있으면 목록에서 뺀다(filtered).
@@ -638,13 +706,15 @@ export function filtered() {
 
   // query 있을 때는 score 계산 + score>0 필터, 없으면 score 생략(빠름)
   const scoreCache = hasQuery ? new WeakMap() : null;
+  if (hasQuery) prepareVocab(state.exams);
+  const showPrelim = wantsPrelim(state.query);
   // 예비/예시 시험(prelim) — type=prelim 명시 선택 시에만 노출. type='all' 이면 숨김.
   const typeIsAll = state.type === 'all' || (Array.isArray(state.type) && state.type.length === 0);
   const items = state.exams.filter(e => {
     if (!allowed.includes(e.curriculum))                                       return false;
     if (!passesTabEduFilter(e, tabConf))                                       return false;
     if (state.typeGroup  !== 'all' && e.typeGroup  !== state.typeGroup)       return false;
-    if (e.type === 'prelim' && typeIsAll) return false;   // 예비 분리 정책
+    if (e.type === 'prelim' && typeIsAll && !showPrelim) return false;   // 예비 분리 정책 (검색어로 '예비'를 찾으면 보여 줌)
     if (!matchMulti(state.type, e.type)) return false;
     if (!matchMulti(state.gradeYear, String(e.gradeYear))) return false;
     if (state.subject    !== 'all' && e.subject    !== state.subject)          return false;
@@ -715,8 +785,8 @@ export function filtered() {
     if (hasQuery) {
       const sa = scoreCache.get(a) ?? 0;
       const sb = scoreCache.get(b) ?? 0;
-      // 0.05 이상 차이 시 점수 우선, 그 안쪽은 학년도/월 보조정렬
-      if (Math.abs(sa - sb) > 0.05) return sb - sa;
+      // 0.02 넘게 차이 나면 점수 우선(학년도 정확 1.0 > 시행 연도 0.95), 그 안쪽은 학년도/월 보조정렬
+      if (Math.abs(sa - sb) > 0.02) return sb - sa;
     }
     // 1.5) 정렬 요청(스마트 검색: 어려운 순·쉬운 순·오래된 순)
     if (state.sort) {
@@ -748,7 +818,36 @@ export function filtered() {
   });
 }
 
+// 검색어가 예비 시험을 직접 찾는지 ("예비시행", "28 예비")
+const wantsPrelim = q => /예비|예시/.test(q || '');
+
+// 검색어 하나로 탭별 결과 수 — 지금 탭이 0건일 때 다른 탭을 알려 주거나 옮겨 가는 데 쓴다(app.js).
+// exams 는 전체 목록(data/archive/all.json). 목록 화면과 같게 오타 보정은 맞는 게 없을 때만, 같은 문제지는 하나로 센다.
+export function tabCounts(exams, query) {
+  if (!query) return {};
+  prepareVocab(exams);
+  const prelim = wantsPrelim(query);
+  const hits = exams.filter(e => (e.type !== 'prelim' || prelim) && scoreQuery(e, query) > 0);
+  const exact = hits.filter(e => !_typoMatched.has(e));
+  const out = {};
+  for (const t of TAB_CONFIG) {
+    if (t.key === 'all' || t.placeholder) continue;
+    const seen = new Set();
+    let n = 0;
+    for (const e of exact.length ? exact : hits) {
+      if (!t.curriculums.includes(e.curriculum) || !passesTabEduFilter(e, t)) continue;
+      const u = e.questionKey || (typeof e.questionUrl === 'string' ? e.questionUrl : null);
+      if (u && seen.has(u)) continue;
+      if (u) seen.add(u);
+      n++;
+    }
+    if (n) out[t.key] = n;
+  }
+  return out;
+}
+
 export function subjectCounts() {
+  if (state.query) prepareVocab(state.exams);
   const allowed = tabCurriculums();
   const tabConf = getTabConf(state.tab);
   const typeIsAll = state.type === 'all' || (Array.isArray(state.type) && state.type.length === 0);
@@ -756,7 +855,7 @@ export function subjectCounts() {
     if (!allowed.includes(e.curriculum)) return false;
     if (!passesTabEduFilter(e, tabConf)) return false;
     if (state.typeGroup !== 'all' && e.typeGroup !== state.typeGroup) return false;
-    if (e.type === 'prelim' && typeIsAll) return false;   // 예비 분리 정책 일관성
+    if (e.type === 'prelim' && typeIsAll && !wantsPrelim(state.query)) return false;   // 예비 분리 정책 일관성
     if (!matchMulti(state.type, e.type)) return false;
     if (!matchMulti(state.gradeYear, String(e.gradeYear))) return false;
     if (state.query && !matchesQuery(e, state.query)) return false;

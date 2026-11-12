@@ -58,6 +58,7 @@
 .qs-dhead__subj { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: var(--ui-weight); color: var(--ink-2); }
 .qs-dhead__subj::before { content: ""; width: 8px; height: 8px; border-radius: 2px; background: var(--subject-color); }
 .qs-dhead__t { margin: 0; font-size: 22px; font-weight: var(--h1-weight); letter-spacing: var(--h1-track); }
+.qs-topaper { align-self: flex-start; }
 .qs-tabs { align-self: stretch; }
 .qs-tabs > button { flex: 1; }
 .qs-zoom { display: flex; align-items: center; gap: 2px; height: 32px; padding: 2px; border-radius: var(--r-md); background: var(--fill); }

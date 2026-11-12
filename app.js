@@ -10,7 +10,7 @@ import {
   state, PAGE_SIZE,
   resetFilters, toggleMulti,
   getDisplayYear, availableGradeYears,
-  filtered, subjectCounts,
+  filtered, subjectCounts, tabCounts,
   tabCurriculums, tabCurriculumConfs, tabSubjects, curriculumOfGradeYear,
 } from './state.js?v=97d0fe50ab78a4124f9d';
 import { renderAllAdSlots, renderAdSlot } from './lib/ads.js?v=97d0fe50ab78a4124f9d';
@@ -503,7 +503,7 @@ async function loadExams() {
   persistArchiveState();
   loadArchiveMeta();
   // 헤더 검색창(/?q=…)으로 들어와도 입력창에 친 것과 똑같이 스마트 검색을 건다
-  if (state.query) maybeSmartSearch(state.query);
+  if (state.query) searchOrMoveTab(state.query, false);
 }
 
 // ── 렌더링 조율 ────────────────────────────────────────────
@@ -582,6 +582,7 @@ $('curriculumTabs').addEventListener('click', e => {
 
 async function switchTab(tab) {
   clearTimeout(searchTimer);
+  { const n = $('tabMoveNote'); if (n) n.hidden = true; }
   // 방향 = 탭이 놓인 순서(같은 탭 묶음 안 학년 전환은 학년 버튼 순서)
   const order = navOrder(), from = order.indexOf(navTabKey(state.tab)), to = order.indexOf(navTabKey(tab));
   const sibs = navSiblings(tab).map(t => t.key);
@@ -956,6 +957,7 @@ $('searchInput').addEventListener('input', e => {
     syncUrl();
   }, 180);
   cancelSmartSearch();   // 치는 중엔 목록 검색만 — 필터로 바꾸는 건 Enter 를 눌렀을 때
+  { const n = $('tabMoveNote'); if (n) n.hidden = true; }
 });
 // Enter(폰 키보드 '검색')를 눌러야 스마트 검색 — 입력 도중에 화면이 필터로 넘어가 버리지 않게
 $('searchInput').addEventListener('keydown', e => {
@@ -964,7 +966,8 @@ $('searchInput').addEventListener('keydown', e => {
   clearTimeout(searchTimer);
   const q = $('searchInput').value.trim();
   if (q !== state.query) { state.query = q; state.page = 1; render(); syncUrl(); }
-  maybeSmartSearch(q, true);
+  setTimeout(() => window.kgTrack?.searchCommit?.(), 1600);   // Enter 로 확정한 검색어는 바로 기록(주소 반영 1.5초 뒤)
+  searchOrMoveTab(q);
 });
 $('clearSearch').addEventListener('click', () => {
   clearTimeout(searchTimer);
@@ -1137,6 +1140,8 @@ function renderCards() {
     const setLink = $('examSetLink');
     if (setLink) setLink.hidden = true;
     updateEmptyState(isPlaceholder);
+    for (const id of ['emptyTabs', 'itemSearchLink']) { const el = $(id); if (el) el.hidden = true; }   // 옛 index.html(렌더 전)엔 없을 수 있다
+    if (!isPlaceholder && state.query) showOtherTabs(state.query);
     return;
   }
   empty.style.display = 'none';
@@ -1714,6 +1719,97 @@ window.addEventListener('popstate', async () => {
 });
 
 // ── 스마트 검색 ─────────────────────────────────────────────
+// ── 탭을 넘는 검색 ─────────────────────────────────────────
+// 브라우저는 탭별 목록만 받아서 검색도 지금 탭 안에서만 됐다. 기본 탭(고3)에서 대학 이름·고1 등을 치면
+// 다른 탭에 있어도 0건이었다(2026-11 실제 검색의 약 7%). 지금 탭이 0건이면 전체 목록(all.json, 한 번만 받음)에서
+// 탭별 건수를 세어, Enter·주소로 온 검색은 결과가 한 탭에만 있을 때 그 탭으로 옮기고, 아니면 0건 화면에 탭 칩을 띄운다.
+let otherTabsSeq = 0;
+async function otherTabCounts(q) {
+  const all = await fetchTabData('all');
+  const counts = tabCounts(all, q);
+  delete counts[state.tab];
+  return counts;
+}
+async function showOtherTabs(q) {
+  const my = ++otherTabsSeq;
+  const box = $('emptyTabs'), items = $('itemSearchLink'), allLink = $('searchAllLink');
+  if (!box || !items) return;
+  box.hidden = true; items.hidden = true;
+  let counts = {};
+  try { counts = await otherTabCounts(q); } catch { return; }
+  if (my !== otherTabsSeq || state.query !== q || filtered().length) return;
+  const keys = Object.keys(counts);
+  if (keys.length) {
+    box.innerHTML = '<span class="empty__tabs-label">다른 탭에서 찾았어요</span>' + keys.map(k =>
+      `<a class="pill" href="/?tab=${encodeURIComponent(k)}&q=${encodeURIComponent(q)}" data-tab-move="${escAttr(k)}">${escHtml(getTabConf(k).label)} <b>${counts[k].toLocaleString()}</b>건</a>`).join('');
+    box.hidden = false;
+    allLink.hidden = true; allLink.style.display = 'none';
+    return;
+  }
+  // 어느 탭에도 없음 — 아직 치르지 않은 시험이면 알리고, 글자가 있으면 문항 검색(지문 본문)으로 넘긴다
+  const sub = $('emptyState').querySelector('.empty__sub');
+  const soon = upcomingExamNote(q);
+  if (soon && sub) sub.textContent = soon;
+  if (!soon && /[가-힣a-z]{2}/i.test(q)) {
+    items.href = `items.html?q=${encodeURIComponent(q)}`;
+    items.textContent = `문항 검색에서 ‘${q.length > 14 ? q.slice(0, 14) + '…' : q}’ 찾기`;
+    items.hidden = false;
+  }
+}
+// "27 수능"처럼 아직 치르지 않은 학년도 시험 — 0건 화면 안내 문구
+function upcomingExamNote(q) {
+  const m = q.match(/(?:^|\D)(\d{2}|20\d{2})(?:학년도)?\s*(수능|6\s*[모평]|9\s*[모평])/);
+  if (!m) return '';
+  const gy = m[1].length === 2 ? 2000 + +m[1] : +m[1];
+  const nowGy = new Date(Date.now() + 9 * 3600e3).getUTCFullYear() + 1;
+  if (gy < nowGy || gy > nowGy + 1) return '';
+  const name = /수능/.test(m[2]) ? '수능' : /6/.test(m[2]) ? '6월 모의평가' : '9월 모의평가';
+  return `${gy}학년도 ${name}은 아직 치르지 않았어요. 시행하면 바로 올라와요.`;
+}
+async function moveTabForQuery(tab, q) {
+  const from = state.tab;
+  clearTimeout(searchTimer);
+  cancelSmartSearch();
+  state.tab = tab;
+  markActiveNavTab();
+  resetFilters();
+  state.yearExpanded = false;
+  if (tabIsSingleGroup()) { state.typeGroup = tabAvailableTypeGroups()[0]; state.type = 'all'; }
+  else if (tabConf()?.defaultTypeGroup) state.typeGroup = tabConf().defaultTypeGroup;
+  state.query = q;
+  $('searchInput').value = q;
+  $('clearSearch').style.display = 'flex';
+  pushUrl();
+  if (!await replaceExamsForTab(tab)) return;
+  renderFilterPanel();
+  render();
+  const note = $('tabMoveNote');
+  if (note) {
+    note.querySelector('b').textContent = getTabConf(tab)?.label ?? '';
+    note.querySelector('small').textContent = `${getTabConf(from)?.label ?? ''} 탭에는 없어서 옮겼어요`;
+    note.hidden = false;
+  }
+  window.kgTrack?.('search_tab_move', { search_term: q.slice(0, 100), from, to: tab });
+}
+// Enter·주소(?q=)로 온 검색: 지금 탭이 0건이고 결과가 한 탭에만 있으면 옮기고, 아니면 스마트 검색(자연어)으로
+async function searchOrMoveTab(q, now = true) {
+  if (q && !filtered().length) {
+    try {
+      const keys = Object.keys(await otherTabCounts(q));
+      if (state.query !== q) return;
+      if (keys.length === 1) { await moveTabForQuery(keys[0], q); return; }
+      if (keys.length > 1) return;          // 여러 탭 — 0건 화면의 탭 칩에서 고른다
+    } catch { /* 전체 목록을 못 받으면 예전처럼 */ }
+  }
+  maybeSmartSearch(q, now);
+}
+$('emptyTabs')?.addEventListener('click', e => {
+  const a = e.target.closest('[data-tab-move]');
+  if (!a || e.metaKey || e.ctrlKey || e.shiftKey) return;
+  e.preventDefault();
+  moveTabForQuery(a.dataset.tabMove, state.query);
+});
+
 // "15개정 이후 고난도 수학이랑 국어" 같은 말을 필터로 바꾼다 (kicegg.com/api/search — 규칙 + JEV).
 // 목록 검색을 먼저 보여 주고, Enter 를 눌렀을 때 자연어처럼 보이거나 결과가 없을 때만 묻는다(주소 ?q= 로 들어오면 바로).
 const NATURAL = /이후|이전|부터|까지|최근|작년|올해|재작년|어려|쉬운|쉬웠|쉽게|고난도|킬러|불\s*수능|물\s*수능|개정|이랑|하고|그리고|위주|역대|평이|변별|[가-힣]랑\s/;

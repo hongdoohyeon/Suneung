@@ -1,5 +1,7 @@
 // 검색어 → 필터. 규칙(코드)으로 먼저 풀고, 규칙이 못 잡는 뜻만 JEV 에 묻는다.
 // JEV 는 숫자·날짜에 약하므로 연도는 전부 여기서 코드로 처리한다.
+// 대학 이름 사전은 사이트 목록 검색과 같은 파일(lib/search-vocab.js)을 쓴다.
+import { schoolOf } from '../../../lib/search-vocab.js';
 
 export const NOW_GRADE_YEAR = () => {
   const d = new Date(Date.now() + 9 * 3600e3);            // KST
@@ -109,8 +111,10 @@ export function ruleParse(q) {
     if (v === 'education') out.typeGroup = 'education';
     else { out.typeGroup = 'suneung'; out.type = [...new Set([...(out.type || []), ...v])]; }
   }
-  // 학교 이름(연세대·고려대학교 …)은 검색어로 — 논술 목록에서 좁혀진다
-  for (const w of s.match(/[가-힣]{1,8}(대학교|대학|대)(?=\s)/g) || []) { out.text.push(w); s = s.replace(w, ' '); }
+  // 학교 이름(연세대·고려대학교 …)·줄임말(연대·이대·단국 …)은 검색어로 남기고 탭은 논술로 — 전엔 탭을 안 정해
+  // "단국대"만 치면 스마트 검색이 아무것도 바꾸지 못했다(고3 탭 0건 그대로)
+  for (const w of s.match(/[가-힣]{1,8}(대학교|대학|대)(?=\s)/g) || []) { out.text.push(w); s = s.replace(w, ' '); if (schoolOf(w)) out.tab ||= 'essay'; }
+  for (const w of s.trim().split(/\s+/)) if (w && schoolOf(w)) { out.text.push(w); s = s.replace(w, ' '); out.tab ||= 'essay'; }
   const subs = [];
   for (const [re, v] of SUBJECT_RULES) {
     const g = new RegExp(re.source, re.flags + 'g');
@@ -281,6 +285,8 @@ export function toFilters(rule, ans) {
 
   // 필터로 못 바꾼 말(물리·미적분·학교 이름 등)은 목록 검색어로. 학교 이름(○○대)은 JEV 가 답해도 남긴다
   const text = [...rule.text, ...(rule.unknown || []).filter(w => !ans || /(대|대학|대학교)$/.test(w))];
+  // 논술 목록의 '영역'은 대학이다 — "경희대 수학"의 수학은 영역 필터가 아니라 검색어로(대학 시험 이름 안의 계열)
+  if (f.tab === 'essay' && f.subjects) { text.push(...f.subjects); delete f.subjects; }
   if (text.length) f.text = text.join(' ');
   return f;
 }
