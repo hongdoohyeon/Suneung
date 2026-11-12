@@ -305,6 +305,10 @@
         <span><small>검색어를 필터로 바꿔 찾았어요</small><b></b></span>
         <button type="button" class="btn btn--sm" data-smart-undo>원래 검색어로 보기</button>
       </p>
+      <p class="smart-note" id="tabMoveNote" hidden>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+        <span><small></small><b></b></span>
+      </p>
 
       <!-- 회차 단위 진입 (filter가 (curriculum, gradeYear, type) 까지 좁혀졌을 때 표시) -->
       <a id="examSetLink" class="examset-link" hidden href="sets.html">
@@ -904,6 +908,8 @@
         <p class="empty__sub">필터를 줄이거나 다른 검색어로 찾아보세요.</p>
         <button class="btn btn--ghost" id="emptyResetBtn" type="button">필터 초기화</button>
         <a class="btn btn--ghost" id="searchAllLink" href="/?tab=all" hidden>모든 시험에서 찾기</a>
+        <div class="empty__tabs" id="emptyTabs" hidden></div>
+        <a class="btn btn--ghost" id="itemSearchLink" href="items.html" hidden>문항 검색에서 찾기</a>
       </div>
 
     </section>
