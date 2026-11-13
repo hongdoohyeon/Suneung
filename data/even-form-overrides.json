@@ -1034,5 +1034,155 @@
     },
     "questionUrlEven": "https://suneung-files.hdh061224.workers.dev/kice-archive-v6/2022_csat_kfa5ebfcf_q_even.pdf?name=2022%ED%95%99%EB%85%84%EB%8F%84_csat_%EC%88%98%ED%95%99_%EB%AC%B8%EC%A0%9C%EC%A7%80%28%EC%A7%9D%EC%88%98%ED%98%95%29.pdf",
     "questionDownloadEven": "2022학년도_csat_수학_문제지(짝수형).pdf"
+  },
+  {
+    "match": {
+      "gradeYear": 2026,
+      "type": "csat",
+      "subject": "수학",
+      "subSubject": "기하"
+    },
+    "questionUrlEven": "https://suneung-files.hdh061224.workers.dev/kice-fix-v10/2026_csat_math_giha_q_even.pdf?name=2026%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EC%88%98%ED%95%99%28%EA%B8%B0%ED%95%98%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80%28%EC%A7%9D%EC%88%98%ED%98%95%29.pdf",
+    "questionDownloadEven": "2026학년도 수능 수학(기하) 문제지(짝수형).pdf"
+  },
+  {
+    "match": {
+      "gradeYear": 2026,
+      "type": "csat",
+      "subject": "수학",
+      "subSubject": "미적분"
+    },
+    "questionUrlEven": "https://suneung-files.hdh061224.workers.dev/kice-fix-v10/2026_csat_math_mijeok_q_even.pdf?name=2026%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EC%88%98%ED%95%99%28%EB%AF%B8%EC%A0%81%EB%B6%84%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80%28%EC%A7%9D%EC%88%98%ED%98%95%29.pdf",
+    "questionDownloadEven": "2026학년도 수능 수학(미적분) 문제지(짝수형).pdf"
+  },
+  {
+    "match": {
+      "gradeYear": 2026,
+      "type": "csat",
+      "subject": "수학",
+      "subSubject": "확률과통계"
+    },
+    "questionUrlEven": "https://suneung-files.hdh061224.workers.dev/kice-fix-v10/2026_csat_math_hwakton_q_even.pdf?name=2026%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EC%88%98%ED%95%99%28%ED%99%95%EB%A5%A0%EA%B3%BC%ED%86%B5%EA%B3%84%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80%28%EC%A7%9D%EC%88%98%ED%98%95%29.pdf",
+    "questionDownloadEven": "2026학년도 수능 수학(확률과통계) 문제지(짝수형).pdf"
+  },
+  {
+    "match": {
+      "gradeYear": 2025,
+      "type": "csat",
+      "subject": "수학",
+      "subSubject": "기하"
+    },
+    "questionUrlEven": "https://suneung-files.hdh061224.workers.dev/kice-fix-v10/2025_csat_math_giha_q_even.pdf?name=2025%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EC%88%98%ED%95%99%28%EA%B8%B0%ED%95%98%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80%28%EC%A7%9D%EC%88%98%ED%98%95%29.pdf",
+    "questionDownloadEven": "2025학년도 수능 수학(기하) 문제지(짝수형).pdf"
+  },
+  {
+    "match": {
+      "gradeYear": 2025,
+      "type": "csat",
+      "subject": "수학",
+      "subSubject": "미적분"
+    },
+    "questionUrlEven": "https://suneung-files.hdh061224.workers.dev/kice-fix-v10/2025_csat_math_mijeok_q_even.pdf?name=2025%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EC%88%98%ED%95%99%28%EB%AF%B8%EC%A0%81%EB%B6%84%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80%28%EC%A7%9D%EC%88%98%ED%98%95%29.pdf",
+    "questionDownloadEven": "2025학년도 수능 수학(미적분) 문제지(짝수형).pdf"
+  },
+  {
+    "match": {
+      "gradeYear": 2025,
+      "type": "csat",
+      "subject": "수학",
+      "subSubject": "확률과통계"
+    },
+    "questionUrlEven": "https://suneung-files.hdh061224.workers.dev/kice-fix-v10/2025_csat_math_hwakton_q_even.pdf?name=2025%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EC%88%98%ED%95%99%28%ED%99%95%EB%A5%A0%EA%B3%BC%ED%86%B5%EA%B3%84%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80%28%EC%A7%9D%EC%88%98%ED%98%95%29.pdf",
+    "questionDownloadEven": "2025학년도 수능 수학(확률과통계) 문제지(짝수형).pdf"
+  },
+  {
+    "match": {
+      "gradeYear": 2024,
+      "type": "csat",
+      "subject": "수학",
+      "subSubject": "기하"
+    },
+    "questionUrlEven": "https://suneung-files.hdh061224.workers.dev/kice-fix-v10/2024_csat_math_giha_q_even.pdf?name=2024%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EC%88%98%ED%95%99%28%EA%B8%B0%ED%95%98%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80%28%EC%A7%9D%EC%88%98%ED%98%95%29.pdf",
+    "questionDownloadEven": "2024학년도 수능 수학(기하) 문제지(짝수형).pdf"
+  },
+  {
+    "match": {
+      "gradeYear": 2024,
+      "type": "csat",
+      "subject": "수학",
+      "subSubject": "미적분"
+    },
+    "questionUrlEven": "https://suneung-files.hdh061224.workers.dev/kice-fix-v10/2024_csat_math_mijeok_q_even.pdf?name=2024%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EC%88%98%ED%95%99%28%EB%AF%B8%EC%A0%81%EB%B6%84%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80%28%EC%A7%9D%EC%88%98%ED%98%95%29.pdf",
+    "questionDownloadEven": "2024학년도 수능 수학(미적분) 문제지(짝수형).pdf"
+  },
+  {
+    "match": {
+      "gradeYear": 2024,
+      "type": "csat",
+      "subject": "수학",
+      "subSubject": "확률과통계"
+    },
+    "questionUrlEven": "https://suneung-files.hdh061224.workers.dev/kice-fix-v10/2024_csat_math_hwakton_q_even.pdf?name=2024%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EC%88%98%ED%95%99%28%ED%99%95%EB%A5%A0%EA%B3%BC%ED%86%B5%EA%B3%84%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80%28%EC%A7%9D%EC%88%98%ED%98%95%29.pdf",
+    "questionDownloadEven": "2024학년도 수능 수학(확률과통계) 문제지(짝수형).pdf"
+  },
+  {
+    "match": {
+      "gradeYear": 2023,
+      "type": "csat",
+      "subject": "수학",
+      "subSubject": "기하"
+    },
+    "questionUrlEven": "https://suneung-files.hdh061224.workers.dev/kice-fix-v10/2023_csat_math_giha_q_even.pdf?name=2023%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EC%88%98%ED%95%99%28%EA%B8%B0%ED%95%98%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80%28%EC%A7%9D%EC%88%98%ED%98%95%29.pdf",
+    "questionDownloadEven": "2023학년도 수능 수학(기하) 문제지(짝수형).pdf"
+  },
+  {
+    "match": {
+      "gradeYear": 2023,
+      "type": "csat",
+      "subject": "수학",
+      "subSubject": "미적분"
+    },
+    "questionUrlEven": "https://suneung-files.hdh061224.workers.dev/kice-fix-v10/2023_csat_math_mijeok_q_even.pdf?name=2023%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EC%88%98%ED%95%99%28%EB%AF%B8%EC%A0%81%EB%B6%84%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80%28%EC%A7%9D%EC%88%98%ED%98%95%29.pdf",
+    "questionDownloadEven": "2023학년도 수능 수학(미적분) 문제지(짝수형).pdf"
+  },
+  {
+    "match": {
+      "gradeYear": 2023,
+      "type": "csat",
+      "subject": "수학",
+      "subSubject": "확률과통계"
+    },
+    "questionUrlEven": "https://suneung-files.hdh061224.workers.dev/kice-fix-v10/2023_csat_math_hwakton_q_even.pdf?name=2023%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EC%88%98%ED%95%99%28%ED%99%95%EB%A5%A0%EA%B3%BC%ED%86%B5%EA%B3%84%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80%28%EC%A7%9D%EC%88%98%ED%98%95%29.pdf",
+    "questionDownloadEven": "2023학년도 수능 수학(확률과통계) 문제지(짝수형).pdf"
+  },
+  {
+    "match": {
+      "gradeYear": 2022,
+      "type": "csat",
+      "subject": "수학",
+      "subSubject": "기하"
+    },
+    "questionUrlEven": "https://suneung-files.hdh061224.workers.dev/kice-fix-v10/2022_csat_math_giha_q_even.pdf?name=2022%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EC%88%98%ED%95%99%28%EA%B8%B0%ED%95%98%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80%28%EC%A7%9D%EC%88%98%ED%98%95%29.pdf",
+    "questionDownloadEven": "2022학년도 수능 수학(기하) 문제지(짝수형).pdf"
+  },
+  {
+    "match": {
+      "gradeYear": 2022,
+      "type": "csat",
+      "subject": "수학",
+      "subSubject": "미적분"
+    },
+    "questionUrlEven": "https://suneung-files.hdh061224.workers.dev/kice-fix-v10/2022_csat_math_mijeok_q_even.pdf?name=2022%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EC%88%98%ED%95%99%28%EB%AF%B8%EC%A0%81%EB%B6%84%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80%28%EC%A7%9D%EC%88%98%ED%98%95%29.pdf",
+    "questionDownloadEven": "2022학년도 수능 수학(미적분) 문제지(짝수형).pdf"
+  },
+  {
+    "match": {
+      "gradeYear": 2022,
+      "type": "csat",
+      "subject": "수학",
+      "subSubject": "확률과통계"
+    },
+    "questionUrlEven": "https://suneung-files.hdh061224.workers.dev/kice-fix-v10/2022_csat_math_hwakton_q_even.pdf?name=2022%ED%95%99%EB%85%84%EB%8F%84%20%EC%88%98%EB%8A%A5%20%EC%88%98%ED%95%99%28%ED%99%95%EB%A5%A0%EA%B3%BC%ED%86%B5%EA%B3%84%29%20%EB%AC%B8%EC%A0%9C%EC%A7%80%28%EC%A7%9D%EC%88%98%ED%98%95%29.pdf",
+    "questionDownloadEven": "2022학년도 수능 수학(확률과통계) 문제지(짝수형).pdf"
   }
 ]
