@@ -57,6 +57,10 @@ jobs:
       - name: exams.json business rules
         run: npm run validate
 
+      # PDF 쪽수 검증 — 홀수 쪽 문제지·홀짝 불일치·미측정 PDF 차단 (data/pdf-pages*.json, scripts/validate-pdf-pages.py)
+      - name: PDF page-count rules
+        run: python3 scripts/validate-pdf-pages.py
+
       - name: Search regression tests
         run: node --test scripts/test-search.mjs
 

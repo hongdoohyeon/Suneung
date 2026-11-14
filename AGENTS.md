@@ -60,3 +60,10 @@
 
 - **영어 듣기(2026-10 보강)**: 음원·대본은 릴리즈 `kice-listening-v1`(평가원 게시판 suneung.re.kr + EBSi 모평·수능) / `edu-listening-v1`(EBSi 학평). 출처 = 평가원 게시판 첨부(문항별 트랙 zip은 ffmpeg로 이어 붙임) → 없으면 EBSi 기출 목록의 `goDownLoadR`(mp3)·`goDownLoadD`(대본) = `https://wdown.ebsi.co.kr/W61001/01exam` + 경로. 2005년 이전 수능·모평·학평은 어디에도 공개 음원이 없음. 대본이 .hwp 인 3회차(2005·2006·2008 수능)는 워커가 거부 → 릴리즈 직링크. **`listenChapters`** = 문항 시작 시점 `"초:라벨,…"`(문항별 트랙이 있던 회차는 실제 경계, 나머지는 `scripts/listening-chapters.py` 무음 감지, 그래도 안 잡히는 회차는 Whisper 음성 인식으로 'N번' 안내 시각을 찾아 수동 입력 — 2026-10 기준 329/329) → 상세 페이지 **'듣기' 탭**(SSG `build-data.py listening_tab_html`, 탭 전환 `lib/exam-tabs.js` `#listening`) 안의 플레이어 `lib/listen-player.js`(문항 바로가기·한 문항 반복·배속 0.8~2·이어 듣기·잠금화면 조작) + 대본 PDF 뷰어(exam.js `mountListenScript`). 사이드바엔 탭 바로가기만. 다운로드 버튼은 영어도 문제지가 맨 앞.
 - **교육과정 데이터(2026-10)**: `data/curriculum/`(README 참고) — 2022·2015·2009 개정 고시 원문 단원·성취기준, 영역별 수능 시기표(`csat-subject-eras.json`), 2028 범위(`csat-2028.json`), 구 단원→2022 단원 대응표(`crosswalk-to-2022.json`). 재생성·검증은 `scripts/curriculum/`(`extract-official.py` → `make-curated.py` → `validate-curriculum.py`). exams.json 의 `curriculum` 라벨은 영역별 시기와 다르다(2021 전 영역=2015개정, 2014~16 수학·국어·영어=2007개정) — 단원 태깅은 `csat-subject-eras.json` 기준.
+
+## PDF 쪽수 규칙 (2026-11 확통 짝수형 3쪽 누락 제보 이후)
+- 문제지 PDF는 **짝수 쪽**이어야 한다(홀수 쪽 = 쪽 누락·합본·뒤에 붙은 OMR 답안지/'확인사항'만 있는 쪽 의심). 홀수형·짝수형 쪽수는 같아야 한다.
+- 검증: `python3 scripts/validate-pdf-pages.py` (CI `validate.yml`). 매니페스트 `data/pdf-pages.json`.
+- **PDF 주소를 새로 올리거나 바꿨다면** `python3 scripts/validate-pdf-pages.py --update` 로 쪽수를 재서 같이 커밋한다(매니페스트에 없으면 CI 실패).
+- 원본이 원래 홀수면 `data/pdf-pages-allow.json` 에 **사유와 함께** 올린다. 원본 대조가 끝나지 않은 것은 `pdf-pages-review.json`(경고만, 새로 추가 금지).
+- 합본 분리·쪽 제거는 평가원 원본에서 하고 `kice-fix-v*` 릴리즈에 올린다(자산명 ASCII). 선택과목이 있는 시험은 공통+선택과목만 담은 파일이어야 한다.
