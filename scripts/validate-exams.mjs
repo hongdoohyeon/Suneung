@@ -248,7 +248,7 @@ function validateBusinessRules(data) {
   )) {
     // 평가원 게시판 원본으로 교체한 문제지(questionUrl_source_original)는 공식 원본이므로 허용
     const officialReplaced = ex.questionUrl_source_original?.startsWith('https://suneung.re.kr/')
-      && ex.questionUrl?.includes('/kice-official-v1/');
+      && (ex.questionUrl?.includes('/kice-official-v1/') || ex.questionUrl?.includes('/kice-orig94-v1/'));
     if (!officialReplaced && (
       ex.source !== 'legacy-csat-v2'
       || !ex.questionUrl?.includes('/legacy-csat-v2/')
