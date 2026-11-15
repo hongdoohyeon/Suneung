@@ -109,7 +109,7 @@
       "id": 4675,
       "replaceExisting": true,
       "set": {
-        "questionUrl": "https://suneung-files.hdh061224.workers.dev/hwp-pdf-v3/x4675_q.pdf?name=2006%ED%95%99%EB%85%84%EB%8F%84%20%EA%B2%BD%EC%B0%B0%EB%8C%80%ED%95%99%201%EC%B0%A8%20%EC%88%98%ED%95%99%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
+        "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-fix-v10/fix_4675_q.pdf?name=2006%ED%95%99%EB%85%84%EB%8F%84%20%EA%B2%BD%EC%B0%B0%EB%8C%80%ED%95%99%201%EC%B0%A8%20%EC%88%98%ED%95%99%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
         "questionDownload": "2006학년도 경찰대학 1차 수학 문제지.pdf",
         "answerUrl": "https://suneung-files.hdh061224.workers.dev/hwp-pdf-v3/x4675_a.pdf?name=2006%ED%95%99%EB%85%84%EB%8F%84%20%EA%B2%BD%EC%B0%B0%EB%8C%80%ED%95%99%201%EC%B0%A8%20%EC%88%98%ED%95%99%20%EC%A0%95%EB%8B%B5.pdf",
         "answerDownload": "2006학년도 경찰대학 1차 수학 정답.pdf"
@@ -615,7 +615,7 @@
       "id": 6670,
       "replaceExisting": true,
       "set": {
-        "questionUrl": "https://suneung-files.hdh061224.workers.dev/hwp-pdf-v3/x6670_q.pdf?name=2003%EB%85%84%209%EC%9B%94%20%EA%B3%A03%20%EB%AA%A8%EC%9D%98%EA%B3%A0%EC%82%AC%20%EC%98%81%EC%96%B4%20%EB%AC%B8%EC%A0%9C.pdf",
+        "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-fix-v10/fix_6670_q.pdf?name=2003%EB%85%84%209%EC%9B%94%20%EA%B3%A03%20%EB%AA%A8%EC%9D%98%EA%B3%A0%EC%82%AC%20%EC%98%81%EC%96%B4%20%EB%AC%B8%EC%A0%9C.pdf",
         "questionDownload": "2003년 9월 고3 모의고사 영어 문제.pdf"
       }
     },
@@ -747,7 +747,7 @@
       "id": 6714,
       "replaceExisting": true,
       "set": {
-        "questionUrl": "https://suneung-files.hdh061224.workers.dev/hwp-pdf-v3/x6714_q.pdf?name=2008%EB%85%84%206%EC%9B%94%20%EA%B3%A03%20%EB%AA%A8%EC%9D%98%EA%B3%A0%EC%82%AC%20%EB%AC%BC%EB%A6%AC1%20%EB%AC%B8%EC%A0%9C.pdf",
+        "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-fix-v10/fix_6714_q.pdf?name=2008%EB%85%84%206%EC%9B%94%20%EA%B3%A03%20%EB%AA%A8%EC%9D%98%EA%B3%A0%EC%82%AC%20%EB%AC%BC%EB%A6%AC1%20%EB%AC%B8%EC%A0%9C.pdf",
         "questionDownload": "2008년 6월 고3 모의고사 물리1 문제.pdf",
         "answerUrl": "https://suneung-files.hdh061224.workers.dev/hwp-pdf-v3/x6714_a.pdf?name=2008%EB%85%84%206%EC%9B%94%20%EA%B3%A03%20%EB%AA%A8%EC%9D%98%EA%B3%A0%EC%82%AC%20%EB%AC%BC%EB%A6%AC1%20%EC%A0%95%EB%8B%B5%26%ED%95%B4%EC%84%A4.pdf",
         "answerDownload": "2008년 6월 고3 모의고사 물리1 정답&해설.pdf"
@@ -777,7 +777,7 @@
       "id": 6717,
       "replaceExisting": true,
       "set": {
-        "questionUrl": "https://suneung-files.hdh061224.workers.dev/hwp-pdf-v3/x6717_q.pdf?name=2008%EB%85%84%206%EC%9B%94%20%EA%B3%A03%20%EB%AA%A8%EC%9D%98%EA%B3%A0%EC%82%AC%20%EC%A7%80%EA%B5%AC%EA%B3%BC%ED%95%991%20%EB%AC%B8%EC%A0%9C.pdf",
+        "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-fix-v10/fix_6717_q.pdf?name=2008%EB%85%84%206%EC%9B%94%20%EA%B3%A03%20%EB%AA%A8%EC%9D%98%EA%B3%A0%EC%82%AC%20%EC%A7%80%EA%B5%AC%EA%B3%BC%ED%95%991%20%EB%AC%B8%EC%A0%9C.pdf",
         "questionDownload": "2008년 6월 고3 모의고사 지구과학1 문제.pdf",
         "answerUrl": "https://suneung-files.hdh061224.workers.dev/hwp-pdf-v3/x6717_a.pdf?name=2008%EB%85%84%206%EC%9B%94%20%EA%B3%A03%20%EB%AA%A8%EC%9D%98%EA%B3%A0%EC%82%AC%20%EC%A7%80%EA%B5%AC%EA%B3%BC%ED%95%991%20%EC%A0%95%EB%8B%B5%26%ED%95%B4%EC%84%A4.pdf",
         "answerDownload": "2008년 6월 고3 모의고사 지구과학1 정답&해설.pdf"
@@ -847,7 +847,7 @@
       "id": 6724,
       "replaceExisting": true,
       "set": {
-        "questionUrl": "https://suneung-files.hdh061224.workers.dev/hwp-pdf-v3/x6724_q.pdf?name=2008%EB%85%84%206%EC%9B%94%20%EA%B3%A03%20%EB%AA%A8%EC%9D%98%EA%B3%A0%EC%82%AC%20%EB%86%8D%EC%97%85%EC%A0%95%EB%B3%B4%EA%B4%80%EB%A6%AC%20%EB%AC%B8%EC%A0%9C.pdf",
+        "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-fix-v10/fix_6724_q.pdf?name=2008%EB%85%84%206%EC%9B%94%20%EA%B3%A03%20%EB%AA%A8%EC%9D%98%EA%B3%A0%EC%82%AC%20%EB%86%8D%EC%97%85%EC%A0%95%EB%B3%B4%EA%B4%80%EB%A6%AC%20%EB%AC%B8%EC%A0%9C.pdf",
         "questionDownload": "2008년 6월 고3 모의고사 농업정보관리 문제.pdf",
         "answerUrl": "https://suneung-files.hdh061224.workers.dev/hwp-pdf-v3/x6724_a.pdf?name=2008%EB%85%84%206%EC%9B%94%20%EA%B3%A03%20%EB%AA%A8%EC%9D%98%EA%B3%A0%EC%82%AC%20%EB%86%8D%EC%97%85%EC%A0%95%EB%B3%B4%EA%B4%80%EB%A6%AC%20%EC%A0%95%EB%8B%B5%26%ED%95%B4%EC%84%A4.pdf",
         "answerDownload": "2008년 6월 고3 모의고사 농업정보관리 정답&해설.pdf"
@@ -3213,7 +3213,7 @@
       "id": 4479,
       "replaceExisting": true,
       "set": {
-        "questionUrl": "https://suneung-files.hdh061224.workers.dev/hwp-pdf-v3/x4479_q.pdf?name=2009%EC%98%88%EB%B9%84%20%EB%85%BC%EC%88%A0%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
+        "questionUrl": "https://suneung-files.hdh061224.workers.dev/kice-fix-v10/fix_4479_q.pdf?name=2009%EC%98%88%EB%B9%84%20%EB%85%BC%EC%88%A0%20%EB%AC%B8%EC%A0%9C%EC%A7%80.pdf",
         "questionDownload": "2009예비 논술 문제지.pdf"
       }
     },
