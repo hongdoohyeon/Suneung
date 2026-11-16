@@ -70,7 +70,10 @@ def parse_table(path: Path):
         blocks = [c for c in range(0, len(r), 5) if r[c].strip() == "표준점수"]
         k = i + 1
         data = {c: {} for c in blocks}
-        while k < len(rows) and rows[k] and num(rows[k][0]) is not None:
+        # 한 표에 과목 여러 개가 나란히 있고 과목마다 점수 범위가 다르다. 첫 열(맨 왼쪽 과목)의 점수가 비었다고 표가
+        # 끝난 게 아니다 — 점수 범위가 더 넓은 과목의 낮은 점수 꼬리가 잘려 나갔었다(예: 2027 9월 지구과학Ⅰ 38점 이하).
+        # 어느 과목 열이든 점수가 남아 있는 동안 계속 읽는다.
+        while k < len(rows) and rows[k] and any(c < len(rows[k]) and num(rows[k][c]) is not None for c in blocks):
             for c in blocks:
                 if c + 3 >= len(rows[k]):
                     continue
