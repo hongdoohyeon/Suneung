@@ -947,6 +947,7 @@ html[data-urlstate] .content:has(#cardsGrid[data-prerendered]) #skeleton { displ
 .ad-rail .ad-direct__wrap { max-width: none; }
 .ad-rail .ad-direct__label { margin-bottom: 3px; font-size: 10.5px; }
 .ad-rail .ad-slot--adsense { min-height: 0; }
+.ad-rail:not(:has(.ad-slot--filled ~ .ad-slot--filled)) .ad-slot--filled { max-width: 480px; }   /* 광고주가 하나뿐이면 칸이 가로로 끝까지 늘어나 너무 커진다 */
 @media (max-width: 700px) { .ad-rail { display: none; } }
 @media (min-width: 1560px) {
   .main.has-rail { max-width: 1564px; }

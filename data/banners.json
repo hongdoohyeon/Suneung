@@ -1,1 +1,9 @@
-{"banners": []}
+{"banners": [
+  {
+    "id": "cheat-sim",
+    "href": "https://kicegg.com/cheat-sim.html",
+    "alt": "부정행위자가 N명이었다면 내 정상 등급은? — 2026 수능 시뮬레이터(임시)",
+    "slots": ["homeRail1", "homeRail2", "homeRail3", "archiveTop", "archiveBottom", "homeMid", "homeEnd"],
+    "img": { "m": "banners/cheat-sim-m.svg", "t": "banners/cheat-sim-t.svg", "d": "banners/cheat-sim-d.svg", "r": "banners/cheat-sim-r.svg" }
+  }
+]}
