@@ -2,8 +2,8 @@
 import {
   CURRICULUM_CONFIG, EXAM_TYPE_CONFIG, TAB_CONFIG,
   getTypeConf, getTabConf, prettySub, searchAliasOf, ALIAS_KEYS_DESC,
-} from './config.js?v=cccff8d8c29c061c0ba0';
-import { schoolOf } from './lib/search-vocab.js?v=cccff8d8c29c061c0ba0';
+} from './config.js?v=4cf3bdd61e9ece914031';
+import { schoolOf } from './lib/search-vocab.js?v=4cf3bdd61e9ece914031';
 
 // ── 검색 정규화 ─────────────────────────────────────────────
 // 로마자 숫자(Ⅰ/Ⅱ/Ⅲ) → 아라비아, 한자(一/二/三) → 아라비아, 소문자, 공백 제거.
