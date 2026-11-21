@@ -1,9 +1,1 @@
-{"banners": [
-  {
-    "id": "suneung-cheer",
-    "href": "#",
-    "alt": "수능 잘 보시길 바랍니다 — 기출해체분석기가 응원합니다",
-    "slots": ["homeRail1", "homeRail2", "homeRail3", "archiveTop", "archiveBottom", "homeMid", "homeEnd"],
-    "img": { "m": "banners/suneung-cheer-m.svg", "t": "banners/suneung-cheer-t.svg", "d": "banners/suneung-cheer-d.svg", "r": "banners/suneung-cheer-r.svg" }
-  }
-]}
+{"banners": []}
