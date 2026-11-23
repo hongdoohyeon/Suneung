@@ -15,6 +15,13 @@
 ## 검증
 - CI `validate.yml`: `validate-exams.mjs`(schema·중복·외부호스트) + `regen-exam-splits.py --check`. **github.com 외부호스트 경고는 hwp 직링크라 정상**(차단 사유 아님).
 - 로컬에서 검증만: `node scripts/validate-exams.mjs && python3 scripts/regen-exam-splits.py --check`.
+- **validate 가 빨간불이면 다음 작업 전에 먼저 고친다.** 2026-11-14~23 PDF 매니페스트 누락(215개)으로 열흘 내내 실패했는데, 실패 메일만 쌓이고 그 사이 들어간 오류가 가려졌다. PDF 를 올린 커밋에서 `validate-pdf-pages.py --update` 를 빠뜨리지 말 것.
+
+## 등급컷 원점수 갱신 (2026-11 exam-12736 '9모 수학 1컷 88' 제보 이후)
+- 평가원은 원점수 컷을 내지 않는다 → 원점수는 입시기관 표 합의값. 원본 `data/raw/academy-cuts/{ebsi,megastudy,etoos,jongro,daesung}.json` → `scripts/academy-cuts/consensus.py` → `apply_consensus.py`(로컬 전용, kice_archive 공식 분포 대조).
+- **공식 발표 당일에 넣는 원점수는 임시값**(`rawCutBasis: academy_consensus_estimate` — 발표 전 기관 추정 곡선 역산). 2027 9모는 이 값이 확정표보다 1~10점 낮은 채 두 달 남았다. 기관 확정표가 올라오면(보통 발표 후 1~3일) 수집기(`collect_sep2026.py`·`collect_oct2026.py` 를 본떠 회차별로) → consensus → apply 를 돌린다. apply 는 임시값을 기관 2곳 이상(또는 EBSi·메가 단독)이면 덮는다.
+- CI `check_consensus_gap.py`: 기관 전원 일치 합의값이 사이트와 다르면 실패, 임시값이 시행 후 45일 넘으면 경고.
+- EBSi 는 국어·수학 원점수를 내지 않는다(공식 표점만) → 국·수 선택과목은 이투스(sub14)·대성(groupNo)·메가(로그인 필요)에서.
 
 ## 새 파일 자료 추가
 - PDF는 `gh release upload {tag} *.pdf`로 GitHub 릴리즈에 올린다. **자산명 ASCII만(한글 불가)**. 워커가 `discover_release_tags()`로 자동 인덱싱.

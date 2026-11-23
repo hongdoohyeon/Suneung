@@ -35858,6 +35858,1062 @@
  {
   "source": "etoos",
   "examYear": 2026,
+  "month": 9,
+  "studentGrade": 3,
+  "typeGroup": "suneung",
+  "type": "sept",
+  "gradeYear": 2027,
+  "subject": "과학탐구",
+  "subSubject": "물리학Ⅰ",
+  "rawCuts": [
+   50,
+   47,
+   43,
+   35,
+   22,
+   12,
+   9,
+   6
+  ],
+  "standardCuts": [
+   65,
+   63,
+   60,
+   55,
+   46,
+   39,
+   37,
+   35
+  ],
+  "percentiles": [
+   97,
+   91,
+   78,
+   60,
+   40,
+   21,
+   12,
+   5
+  ],
+  "top": {
+   "raw": 50,
+   "std": 65,
+   "pct": 97
+  },
+  "url": "https://www.etoos.com/report/exam/20260902/sub14.asp?Grd=3",
+  "fetchedAt": "2026-11-23"
+ },
+ {
+  "source": "etoos",
+  "examYear": 2026,
+  "month": 9,
+  "studentGrade": 3,
+  "typeGroup": "suneung",
+  "type": "sept",
+  "gradeYear": 2027,
+  "subject": "과학탐구",
+  "subSubject": "물리학Ⅱ",
+  "rawCuts": [
+   50,
+   44,
+   37,
+   23,
+   14,
+   10,
+   9,
+   6
+  ],
+  "standardCuts": [
+   69,
+   65,
+   60,
+   50,
+   44,
+   41,
+   40,
+   38
+  ],
+  "percentiles": [
+   98,
+   88,
+   76,
+   59,
+   41,
+   21,
+   12,
+   4
+  ],
+  "top": {
+   "raw": 50,
+   "std": 69,
+   "pct": 98
+  },
+  "url": "https://www.etoos.com/report/exam/20260902/sub14.asp?Grd=3",
+  "fetchedAt": "2026-11-23"
+ },
+ {
+  "source": "etoos",
+  "examYear": 2026,
+  "month": 9,
+  "studentGrade": 3,
+  "typeGroup": "suneung",
+  "type": "sept",
+  "gradeYear": 2027,
+  "subject": "과학탐구",
+  "subSubject": "생명과학Ⅰ",
+  "rawCuts": [
+   48,
+   44,
+   41,
+   36,
+   27,
+   19,
+   13,
+   9
+  ],
+  "standardCuts": [
+   65,
+   62,
+   59,
+   55,
+   47,
+   41,
+   36,
+   32
+  ],
+  "percentiles": [
+   97,
+   89,
+   78,
+   61,
+   39,
+   23,
+   11,
+   4
+  ],
+  "top": {
+   "raw": 50,
+   "std": 67,
+   "pct": 99
+  },
+  "url": "https://www.etoos.com/report/exam/20260902/sub14.asp?Grd=3",
+  "fetchedAt": "2026-11-23"
+ },
+ {
+  "source": "etoos",
+  "examYear": 2026,
+  "month": 9,
+  "studentGrade": 3,
+  "typeGroup": "suneung",
+  "type": "sept",
+  "gradeYear": 2027,
+  "subject": "과학탐구",
+  "subSubject": "생명과학Ⅱ",
+  "rawCuts": [
+   46,
+   41,
+   34,
+   23,
+   14,
+   10,
+   9,
+   5
+  ],
+  "standardCuts": [
+   69,
+   65,
+   59,
+   51,
+   44,
+   41,
+   40,
+   37
+  ],
+  "percentiles": [
+   96,
+   89,
+   77,
+   61,
+   38,
+   19,
+   12,
+   4
+  ],
+  "top": {
+   "raw": 50,
+   "std": 72,
+   "pct": 99
+  },
+  "url": "https://www.etoos.com/report/exam/20260902/sub14.asp?Grd=3",
+  "fetchedAt": "2026-11-23"
+ },
+ {
+  "source": "etoos",
+  "examYear": 2026,
+  "month": 9,
+  "studentGrade": 3,
+  "typeGroup": "suneung",
+  "type": "sept",
+  "gradeYear": 2027,
+  "subject": "과학탐구",
+  "subSubject": "지구과학Ⅰ",
+  "rawCuts": [
+   42,
+   39,
+   34,
+   29,
+   22,
+   15,
+   10,
+   6
+  ],
+  "standardCuts": [
+   66,
+   63,
+   58,
+   54,
+   47,
+   41,
+   36,
+   33
+  ],
+  "percentiles": [
+   96,
+   90,
+   76,
+   60,
+   40,
+   23,
+   10,
+   4
+  ],
+  "top": {
+   "raw": 50,
+   "std": 73,
+   "pct": 100
+  },
+  "url": "https://www.etoos.com/report/exam/20260902/sub14.asp?Grd=3",
+  "fetchedAt": "2026-11-23"
+ },
+ {
+  "source": "etoos",
+  "examYear": 2026,
+  "month": 9,
+  "studentGrade": 3,
+  "typeGroup": "suneung",
+  "type": "sept",
+  "gradeYear": 2027,
+  "subject": "과학탐구",
+  "subSubject": "지구과학Ⅱ",
+  "rawCuts": [
+   47,
+   42,
+   32,
+   19,
+   13,
+   10,
+   7,
+   5
+  ],
+  "standardCuts": [
+   70,
+   66,
+   59,
+   49,
+   44,
+   42,
+   40,
+   38
+  ],
+  "percentiles": [
+   96,
+   89,
+   76,
+   61,
+   42,
+   22,
+   9,
+   3
+  ],
+  "top": {
+   "raw": 50,
+   "std": 72,
+   "pct": 99
+  },
+  "url": "https://www.etoos.com/report/exam/20260902/sub14.asp?Grd=3",
+  "fetchedAt": "2026-11-23"
+ },
+ {
+  "source": "etoos",
+  "examYear": 2026,
+  "month": 9,
+  "studentGrade": 3,
+  "typeGroup": "suneung",
+  "type": "sept",
+  "gradeYear": 2027,
+  "subject": "과학탐구",
+  "subSubject": "화학Ⅰ",
+  "rawCuts": [
+   48,
+   44,
+   38,
+   31,
+   21,
+   14,
+   9,
+   7
+  ],
+  "standardCuts": [
+   67,
+   64,
+   59,
+   54,
+   46,
+   41,
+   37,
+   35
+  ],
+  "percentiles": [
+   96,
+   90,
+   77,
+   62,
+   41,
+   25,
+   10,
+   4
+  ],
+  "top": {
+   "raw": 50,
+   "std": 68,
+   "pct": 98
+  },
+  "url": "https://www.etoos.com/report/exam/20260902/sub14.asp?Grd=3",
+  "fetchedAt": "2026-11-23"
+ },
+ {
+  "source": "etoos",
+  "examYear": 2026,
+  "month": 9,
+  "studentGrade": 3,
+  "typeGroup": "suneung",
+  "type": "sept",
+  "gradeYear": 2027,
+  "subject": "과학탐구",
+  "subSubject": "화학Ⅱ",
+  "rawCuts": [
+   50,
+   45,
+   36,
+   22,
+   14,
+   11,
+   8,
+   6
+  ],
+  "standardCuts": [
+   70,
+   66,
+   60,
+   50,
+   44,
+   42,
+   40,
+   38
+  ],
+  "percentiles": [
+   98,
+   89,
+   78,
+   61,
+   39,
+   25,
+   12,
+   4
+  ],
+  "top": {
+   "raw": 50,
+   "std": 70,
+   "pct": 98
+  },
+  "url": "https://www.etoos.com/report/exam/20260902/sub14.asp?Grd=3",
+  "fetchedAt": "2026-11-23"
+ },
+ {
+  "source": "etoos",
+  "examYear": 2026,
+  "month": 9,
+  "studentGrade": 3,
+  "typeGroup": "suneung",
+  "type": "sept",
+  "gradeYear": 2027,
+  "subject": "국어",
+  "subSubject": "언어와매체",
+  "rawCuts": [
+   86,
+   79,
+   71,
+   62,
+   49,
+   36,
+   23,
+   17
+  ],
+  "standardCuts": [
+   131,
+   124,
+   117,
+   108,
+   96,
+   83,
+   71,
+   65
+  ],
+  "percentiles": [
+   96,
+   89,
+   77,
+   60,
+   40,
+   23,
+   11,
+   4
+  ],
+  "top": {
+   "raw": 100,
+   "std": 144,
+   "pct": 100
+  },
+  "url": "https://www.etoos.com/report/exam/20260902/sub14.asp?Grd=3",
+  "fetchedAt": "2026-11-23"
+ },
+ {
+  "source": "etoos",
+  "examYear": 2026,
+  "month": 9,
+  "studentGrade": 3,
+  "typeGroup": "suneung",
+  "type": "sept",
+  "gradeYear": 2027,
+  "subject": "국어",
+  "subSubject": "화법과작문",
+  "rawCuts": [
+   90,
+   82,
+   73,
+   64,
+   51,
+   38,
+   25,
+   19
+  ],
+  "standardCuts": [
+   131,
+   124,
+   117,
+   108,
+   96,
+   83,
+   71,
+   65
+  ],
+  "percentiles": [
+   96,
+   89,
+   77,
+   60,
+   40,
+   23,
+   11,
+   4
+  ],
+  "top": {
+   "raw": 100,
+   "std": 139,
+   "pct": 100
+  },
+  "url": "https://www.etoos.com/report/exam/20260902/sub14.asp?Grd=3",
+  "fetchedAt": "2026-11-23"
+ },
+ {
+  "source": "etoos",
+  "examYear": 2026,
+  "month": 9,
+  "studentGrade": 3,
+  "typeGroup": "suneung",
+  "type": "sept",
+  "gradeYear": 2027,
+  "subject": "사회탐구",
+  "subSubject": "경제",
+  "rawCuts": [
+   45,
+   40,
+   33,
+   24,
+   16,
+   13,
+   9,
+   6
+  ],
+  "standardCuts": [
+   69,
+   65,
+   59,
+   51,
+   45,
+   42,
+   39,
+   36
+  ],
+  "percentiles": [
+   96,
+   90,
+   77,
+   60,
+   40,
+   27,
+   11,
+   4
+  ],
+  "top": {
+   "raw": 50,
+   "std": 73,
+   "pct": 100
+  },
+  "url": "https://www.etoos.com/report/exam/20260902/sub14.asp?Grd=3",
+  "fetchedAt": "2026-11-23"
+ },
+ {
+  "source": "etoos",
+  "examYear": 2026,
+  "month": 9,
+  "studentGrade": 3,
+  "typeGroup": "suneung",
+  "type": "sept",
+  "gradeYear": 2027,
+  "subject": "사회탐구",
+  "subSubject": "동아시아사",
+  "rawCuts": [
+   50,
+   47,
+   41,
+   36,
+   24,
+   16,
+   9,
+   7
+  ],
+  "standardCuts": [
+   65,
+   63,
+   59,
+   55,
+   47,
+   41,
+   36,
+   35
+  ],
+  "percentiles": [
+   97,
+   90,
+   74,
+   61,
+   41,
+   25,
+   11,
+   6
+  ],
+  "top": {
+   "raw": 50,
+   "std": 65,
+   "pct": 97
+  },
+  "url": "https://www.etoos.com/report/exam/20260902/sub14.asp?Grd=3",
+  "fetchedAt": "2026-11-23"
+ },
+ {
+  "source": "etoos",
+  "examYear": 2026,
+  "month": 9,
+  "studentGrade": 3,
+  "typeGroup": "suneung",
+  "type": "sept",
+  "gradeYear": 2027,
+  "subject": "사회탐구",
+  "subSubject": "사회·문화",
+  "rawCuts": [
+   42,
+   39,
+   36,
+   33,
+   28,
+   21,
+   13,
+   8
+  ],
+  "standardCuts": [
+   64,
+   61,
+   58,
+   55,
+   50,
+   43,
+   35,
+   30
+  ],
+  "percentiles": [
+   96,
+   89,
+   77,
+   62,
+   41,
+   23,
+   12,
+   4
+  ],
+  "top": {
+   "raw": 50,
+   "std": 72,
+   "pct": 100
+  },
+  "url": "https://www.etoos.com/report/exam/20260902/sub14.asp?Grd=3",
+  "fetchedAt": "2026-11-23"
+ },
+ {
+  "source": "etoos",
+  "examYear": 2026,
+  "month": 9,
+  "studentGrade": 3,
+  "typeGroup": "suneung",
+  "type": "sept",
+  "gradeYear": 2027,
+  "subject": "사회탐구",
+  "subSubject": "생활과윤리",
+  "rawCuts": [
+   46,
+   43,
+   38,
+   32,
+   24,
+   17,
+   11,
+   9
+  ],
+  "standardCuts": [
+   66,
+   63,
+   59,
+   54,
+   47,
+   41,
+   36,
+   34
+  ],
+  "percentiles": [
+   96,
+   90,
+   76,
+   60,
+   39,
+   22,
+   9,
+   4
+  ],
+  "top": {
+   "raw": 50,
+   "std": 69,
+   "pct": 100
+  },
+  "url": "https://www.etoos.com/report/exam/20260902/sub14.asp?Grd=3",
+  "fetchedAt": "2026-11-23"
+ },
+ {
+  "source": "etoos",
+  "examYear": 2026,
+  "month": 9,
+  "studentGrade": 3,
+  "typeGroup": "suneung",
+  "type": "sept",
+  "gradeYear": 2027,
+  "subject": "사회탐구",
+  "subSubject": "세계사",
+  "rawCuts": [
+   48,
+   43,
+   38,
+   25,
+   15,
+   11,
+   8,
+   6
+  ],
+  "standardCuts": [
+   67,
+   64,
+   60,
+   51,
+   44,
+   41,
+   39,
+   37
+  ],
+  "percentiles": [
+   94,
+   88,
+   77,
+   59,
+   38,
+   25,
+   13,
+   4
+  ],
+  "top": {
+   "raw": 50,
+   "std": 69,
+   "pct": 98
+  },
+  "url": "https://www.etoos.com/report/exam/20260902/sub14.asp?Grd=3",
+  "fetchedAt": "2026-11-23"
+ },
+ {
+  "source": "etoos",
+  "examYear": 2026,
+  "month": 9,
+  "studentGrade": 3,
+  "typeGroup": "suneung",
+  "type": "sept",
+  "gradeYear": 2027,
+  "subject": "사회탐구",
+  "subSubject": "세계지리",
+  "rawCuts": [
+   50,
+   47,
+   43,
+   36,
+   23,
+   15,
+   9,
+   8
+  ],
+  "standardCuts": [
+   65,
+   63,
+   60,
+   55,
+   46,
+   40,
+   36,
+   35
+  ],
+  "percentiles": [
+   97,
+   89,
+   77,
+   60,
+   39,
+   23,
+   9,
+   5
+  ],
+  "top": {
+   "raw": 50,
+   "std": 65,
+   "pct": 97
+  },
+  "url": "https://www.etoos.com/report/exam/20260902/sub14.asp?Grd=3",
+  "fetchedAt": "2026-11-23"
+ },
+ {
+  "source": "etoos",
+  "examYear": 2026,
+  "month": 9,
+  "studentGrade": 3,
+  "typeGroup": "suneung",
+  "type": "sept",
+  "gradeYear": 2027,
+  "subject": "사회탐구",
+  "subSubject": "윤리와사상",
+  "rawCuts": [
+   44,
+   41,
+   36,
+   28,
+   19,
+   13,
+   9,
+   7
+  ],
+  "standardCuts": [
+   66,
+   64,
+   60,
+   53,
+   46,
+   41,
+   37,
+   36
+  ],
+  "percentiles": [
+   95,
+   89,
+   78,
+   60,
+   40,
+   25,
+   9,
+   4
+  ],
+  "top": {
+   "raw": 50,
+   "std": 71,
+   "pct": 100
+  },
+  "url": "https://www.etoos.com/report/exam/20260902/sub14.asp?Grd=3",
+  "fetchedAt": "2026-11-23"
+ },
+ {
+  "source": "etoos",
+  "examYear": 2026,
+  "month": 9,
+  "studentGrade": 3,
+  "typeGroup": "suneung",
+  "type": "sept",
+  "gradeYear": 2027,
+  "subject": "사회탐구",
+  "subSubject": "정치와법",
+  "rawCuts": [
+   42,
+   39,
+   33,
+   26,
+   16,
+   11,
+   8,
+   6
+  ],
+  "standardCuts": [
+   67,
+   64,
+   59,
+   53,
+   45,
+   40,
+   38,
+   36
+  ],
+  "percentiles": [
+   95,
+   90,
+   77,
+   61,
+   39,
+   22,
+   10,
+   4
+  ],
+  "top": {
+   "raw": 50,
+   "std": 74,
+   "pct": 100
+  },
+  "url": "https://www.etoos.com/report/exam/20260902/sub14.asp?Grd=3",
+  "fetchedAt": "2026-11-23"
+ },
+ {
+  "source": "etoos",
+  "examYear": 2026,
+  "month": 9,
+  "studentGrade": 3,
+  "typeGroup": "suneung",
+  "type": "sept",
+  "gradeYear": 2027,
+  "subject": "사회탐구",
+  "subSubject": "한국지리",
+  "rawCuts": [
+   50,
+   46,
+   42,
+   34,
+   23,
+   15,
+   11,
+   8
+  ],
+  "standardCuts": [
+   65,
+   63,
+   60,
+   54,
+   46,
+   40,
+   37,
+   35
+  ],
+  "percentiles": [
+   97,
+   88,
+   77,
+   60,
+   39,
+   23,
+   11,
+   5
+  ],
+  "top": {
+   "raw": 50,
+   "std": 65,
+   "pct": 97
+  },
+  "url": "https://www.etoos.com/report/exam/20260902/sub14.asp?Grd=3",
+  "fetchedAt": "2026-11-23"
+ },
+ {
+  "source": "etoos",
+  "examYear": 2026,
+  "month": 9,
+  "studentGrade": 3,
+  "typeGroup": "suneung",
+  "type": "sept",
+  "gradeYear": 2027,
+  "subject": "수학",
+  "subSubject": "기하",
+  "rawCuts": [
+   88,
+   80,
+   76,
+   67,
+   46,
+   24,
+   15,
+   11
+  ],
+  "standardCuts": [
+   128,
+   122,
+   118,
+   111,
+   96,
+   78,
+   72,
+   69
+  ],
+  "percentiles": [
+   95,
+   88,
+   78,
+   60,
+   40,
+   23,
+   11,
+   4
+  ],
+  "top": {
+   "raw": 100,
+   "std": 137,
+   "pct": 100
+  },
+  "url": "https://www.etoos.com/report/exam/20260902/sub14.asp?Grd=3",
+  "fetchedAt": "2026-11-23"
+ },
+ {
+  "source": "etoos",
+  "examYear": 2026,
+  "month": 9,
+  "studentGrade": 3,
+  "typeGroup": "suneung",
+  "type": "sept",
+  "gradeYear": 2027,
+  "subject": "수학",
+  "subSubject": "미적분",
+  "rawCuts": [
+   88,
+   80,
+   74,
+   65,
+   44,
+   20,
+   11,
+   7
+  ],
+  "standardCuts": [
+   128,
+   122,
+   118,
+   111,
+   96,
+   78,
+   72,
+   69
+  ],
+  "percentiles": [
+   95,
+   88,
+   78,
+   60,
+   40,
+   23,
+   11,
+   4
+  ],
+  "top": {
+   "raw": 100,
+   "std": 137,
+   "pct": 100
+  },
+  "url": "https://www.etoos.com/report/exam/20260902/sub14.asp?Grd=3",
+  "fetchedAt": "2026-11-23"
+ },
+ {
+  "source": "etoos",
+  "examYear": 2026,
+  "month": 9,
+  "studentGrade": 3,
+  "typeGroup": "suneung",
+  "type": "sept",
+  "gradeYear": 2027,
+  "subject": "수학",
+  "subSubject": "확률과통계",
+  "rawCuts": [
+   88,
+   80,
+   75,
+   65,
+   44,
+   22,
+   14,
+   11
+  ],
+  "standardCuts": [
+   128,
+   122,
+   118,
+   111,
+   96,
+   78,
+   72,
+   69
+  ],
+  "percentiles": [
+   95,
+   88,
+   78,
+   60,
+   40,
+   23,
+   11,
+   4
+  ],
+  "top": {
+   "raw": 100,
+   "std": 137,
+   "pct": 100
+  },
+  "url": "https://www.etoos.com/report/exam/20260902/sub14.asp?Grd=3",
+  "fetchedAt": "2026-11-23"
+ },
+ {
+  "source": "etoos",
+  "examYear": 2026,
   "month": 10,
   "studentGrade": 3,
   "typeGroup": "education",

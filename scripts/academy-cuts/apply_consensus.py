@@ -25,7 +25,10 @@ from common import OUT_DIR, ROOT  # noqa: E402
 
 GRADECUTS = ROOT / "data/gradecuts.json"
 KICE = Path.home() / "Workspace/kice_archive"
-PROTECT_BASIS = {"public_dist_verified", "academy_consensus_estimate", "academy_reverse_calculated"}
+PROTECT_BASIS = {"public_dist_verified", "academy_reverse_calculated"}
+# 공식 발표 전 기관 추정 곡선 역산값 — 임시값이다. 기관 확정표가 2곳 이상 모이면 합의값으로 덮는다
+# (2026-11 exam-12736 제보: 9/28 역산 1컷 84 ↔ 확정표 88. 보호하던 탓에 두 달간 안 바뀜)
+PROVISIONAL_BASIS = {"academy_consensus_estimate"}
 TRUSTED_SINGLE = {"ebsi", "megastudy"}
 ORDER = ["ebsi", "megastudy", "etoos", "jongro", "daesung"]
 ET = {"csat": "csat", "june": "mock06", "sept": "mock09"}
@@ -106,6 +109,8 @@ def main():
             continue
         srcs = [k for k in ORDER if k in x["sources"]]
         if len(srcs) == 1 and (elective(c) or srcs[0] not in TRUSTED_SINGLE):
+            continue
+        if c.get("rawCutBasis") in PROVISIONAL_BASIS and len(srcs) < 2 and srcs[0] not in TRUSTED_SINGLE:
             continue
         if (c.get("rawCuts") or [])[:8] == final and c.get("rawCutBasis") == "academy_consensus" and c.get("rawCutSources") == srcs:
             continue

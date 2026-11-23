@@ -224752,6 +224752,1110 @@
  {
   "source": "ebsi",
   "examYear": 2026,
+  "month": 9,
+  "studentGrade": 3,
+  "typeGroup": "suneung",
+  "type": "sept",
+  "gradeYear": 2027,
+  "subject": "과학탐구",
+  "subSubject": "물리학Ⅰ",
+  "rawCuts": [
+   50,
+   47,
+   43,
+   35,
+   22,
+   12,
+   9,
+   6
+  ],
+  "standardCuts": [
+   65,
+   63,
+   60,
+   55,
+   46,
+   39,
+   37,
+   35
+  ],
+  "percentiles": [
+   97,
+   91,
+   78,
+   60,
+   40,
+   21,
+   12,
+   5
+  ],
+  "top": {
+   "raw": 50,
+   "std": 65,
+   "pct": 97
+  },
+  "url": "https://www.ebsi.co.kr/ebs/xip/xipa/retrieveGrdCut.ajax?irecord=202609023&confYn=Y",
+  "fetchedAt": "2026-11-23"
+ },
+ {
+  "source": "ebsi",
+  "examYear": 2026,
+  "month": 9,
+  "studentGrade": 3,
+  "typeGroup": "suneung",
+  "type": "sept",
+  "gradeYear": 2027,
+  "subject": "과학탐구",
+  "subSubject": "물리학Ⅱ",
+  "rawCuts": [
+   50,
+   44,
+   37,
+   23,
+   14,
+   10,
+   8,
+   6
+  ],
+  "standardCuts": [
+   69,
+   65,
+   60,
+   50,
+   44,
+   41,
+   40,
+   38
+  ],
+  "percentiles": [
+   98,
+   88,
+   76,
+   59,
+   41,
+   21,
+   12,
+   4
+  ],
+  "top": {
+   "raw": 50,
+   "std": 69,
+   "pct": 98
+  },
+  "url": "https://www.ebsi.co.kr/ebs/xip/xipa/retrieveGrdCut.ajax?irecord=202609023&confYn=Y",
+  "fetchedAt": "2026-11-23"
+ },
+ {
+  "source": "ebsi",
+  "examYear": 2026,
+  "month": 9,
+  "studentGrade": 3,
+  "typeGroup": "suneung",
+  "type": "sept",
+  "gradeYear": 2027,
+  "subject": "과학탐구",
+  "subSubject": "생명과학Ⅰ",
+  "rawCuts": [
+   48,
+   44,
+   41,
+   36,
+   27,
+   19,
+   14,
+   9
+  ],
+  "standardCuts": [
+   65,
+   62,
+   59,
+   55,
+   47,
+   41,
+   36,
+   32
+  ],
+  "percentiles": [
+   97,
+   89,
+   78,
+   61,
+   39,
+   23,
+   11,
+   4
+  ],
+  "top": {
+   "raw": 50,
+   "std": 67,
+   "pct": 99
+  },
+  "url": "https://www.ebsi.co.kr/ebs/xip/xipa/retrieveGrdCut.ajax?irecord=202609023&confYn=Y",
+  "fetchedAt": "2026-11-23"
+ },
+ {
+  "source": "ebsi",
+  "examYear": 2026,
+  "month": 9,
+  "studentGrade": 3,
+  "typeGroup": "suneung",
+  "type": "sept",
+  "gradeYear": 2027,
+  "subject": "과학탐구",
+  "subSubject": "생명과학Ⅱ",
+  "rawCuts": [
+   46,
+   41,
+   34,
+   23,
+   14,
+   10,
+   9,
+   5
+  ],
+  "standardCuts": [
+   69,
+   65,
+   59,
+   51,
+   44,
+   41,
+   40,
+   37
+  ],
+  "percentiles": [
+   96,
+   89,
+   77,
+   61,
+   38,
+   19,
+   12,
+   4
+  ],
+  "top": {
+   "raw": 50,
+   "std": 72,
+   "pct": 99
+  },
+  "url": "https://www.ebsi.co.kr/ebs/xip/xipa/retrieveGrdCut.ajax?irecord=202609023&confYn=Y",
+  "fetchedAt": "2026-11-23"
+ },
+ {
+  "source": "ebsi",
+  "examYear": 2026,
+  "month": 9,
+  "studentGrade": 3,
+  "typeGroup": "suneung",
+  "type": "sept",
+  "gradeYear": 2027,
+  "subject": "과학탐구",
+  "subSubject": "지구과학Ⅰ",
+  "rawCuts": [
+   42,
+   39,
+   34,
+   29,
+   22,
+   15,
+   10,
+   7
+  ],
+  "standardCuts": [
+   66,
+   63,
+   58,
+   54,
+   47,
+   41,
+   36,
+   33
+  ],
+  "percentiles": [
+   96,
+   90,
+   76,
+   60,
+   40,
+   23,
+   10,
+   4
+  ],
+  "top": {
+   "raw": 50,
+   "std": 73,
+   "pct": 100
+  },
+  "url": "https://www.ebsi.co.kr/ebs/xip/xipa/retrieveGrdCut.ajax?irecord=202609023&confYn=Y",
+  "fetchedAt": "2026-11-23"
+ },
+ {
+  "source": "ebsi",
+  "examYear": 2026,
+  "month": 9,
+  "studentGrade": 3,
+  "typeGroup": "suneung",
+  "type": "sept",
+  "gradeYear": 2027,
+  "subject": "과학탐구",
+  "subSubject": "지구과학Ⅱ",
+  "rawCuts": [
+   47,
+   42,
+   32,
+   19,
+   13,
+   10,
+   7,
+   5
+  ],
+  "standardCuts": [
+   70,
+   66,
+   59,
+   49,
+   44,
+   42,
+   40,
+   38
+  ],
+  "percentiles": [
+   96,
+   89,
+   76,
+   61,
+   42,
+   22,
+   9,
+   3
+  ],
+  "top": {
+   "raw": 50,
+   "std": 72,
+   "pct": 99
+  },
+  "url": "https://www.ebsi.co.kr/ebs/xip/xipa/retrieveGrdCut.ajax?irecord=202609023&confYn=Y",
+  "fetchedAt": "2026-11-23"
+ },
+ {
+  "source": "ebsi",
+  "examYear": 2026,
+  "month": 9,
+  "studentGrade": 3,
+  "typeGroup": "suneung",
+  "type": "sept",
+  "gradeYear": 2027,
+  "subject": "과학탐구",
+  "subSubject": "화학Ⅰ",
+  "rawCuts": [
+   48,
+   44,
+   38,
+   31,
+   21,
+   14,
+   9,
+   7
+  ],
+  "standardCuts": [
+   67,
+   64,
+   59,
+   54,
+   46,
+   41,
+   37,
+   35
+  ],
+  "percentiles": [
+   96,
+   90,
+   77,
+   62,
+   41,
+   25,
+   10,
+   4
+  ],
+  "top": {
+   "raw": 50,
+   "std": 68,
+   "pct": 98
+  },
+  "url": "https://www.ebsi.co.kr/ebs/xip/xipa/retrieveGrdCut.ajax?irecord=202609023&confYn=Y",
+  "fetchedAt": "2026-11-23"
+ },
+ {
+  "source": "ebsi",
+  "examYear": 2026,
+  "month": 9,
+  "studentGrade": 3,
+  "typeGroup": "suneung",
+  "type": "sept",
+  "gradeYear": 2027,
+  "subject": "과학탐구",
+  "subSubject": "화학Ⅱ",
+  "rawCuts": [
+   50,
+   45,
+   36,
+   22,
+   14,
+   11,
+   8,
+   6
+  ],
+  "standardCuts": [
+   70,
+   66,
+   60,
+   50,
+   44,
+   42,
+   40,
+   38
+  ],
+  "percentiles": [
+   98,
+   89,
+   78,
+   61,
+   39,
+   25,
+   12,
+   4
+  ],
+  "top": {
+   "raw": 50,
+   "std": 70,
+   "pct": 98
+  },
+  "url": "https://www.ebsi.co.kr/ebs/xip/xipa/retrieveGrdCut.ajax?irecord=202609023&confYn=Y",
+  "fetchedAt": "2026-11-23"
+ },
+ {
+  "source": "ebsi",
+  "examYear": 2026,
+  "month": 9,
+  "studentGrade": 3,
+  "typeGroup": "suneung",
+  "type": "sept",
+  "gradeYear": 2027,
+  "subject": "사회탐구",
+  "subSubject": "경제",
+  "rawCuts": [
+   45,
+   40,
+   33,
+   24,
+   16,
+   13,
+   9,
+   6
+  ],
+  "standardCuts": [
+   69,
+   65,
+   59,
+   51,
+   45,
+   42,
+   39,
+   36
+  ],
+  "percentiles": [
+   96,
+   90,
+   77,
+   60,
+   40,
+   27,
+   11,
+   4
+  ],
+  "top": {
+   "raw": 50,
+   "std": 73,
+   "pct": 100
+  },
+  "url": "https://www.ebsi.co.kr/ebs/xip/xipa/retrieveGrdCut.ajax?irecord=202609023&confYn=Y",
+  "fetchedAt": "2026-11-23"
+ },
+ {
+  "source": "ebsi",
+  "examYear": 2026,
+  "month": 9,
+  "studentGrade": 3,
+  "typeGroup": "suneung",
+  "type": "sept",
+  "gradeYear": 2027,
+  "subject": "사회탐구",
+  "subSubject": "동아시아사",
+  "rawCuts": [
+   50,
+   47,
+   41,
+   35,
+   24,
+   15,
+   8,
+   7
+  ],
+  "standardCuts": [
+   65,
+   63,
+   59,
+   55,
+   47,
+   41,
+   36,
+   35
+  ],
+  "percentiles": [
+   97,
+   90,
+   74,
+   61,
+   41,
+   25,
+   11,
+   6
+  ],
+  "top": {
+   "raw": 50,
+   "std": 65,
+   "pct": 97
+  },
+  "url": "https://www.ebsi.co.kr/ebs/xip/xipa/retrieveGrdCut.ajax?irecord=202609023&confYn=Y",
+  "fetchedAt": "2026-11-23"
+ },
+ {
+  "source": "ebsi",
+  "examYear": 2026,
+  "month": 9,
+  "studentGrade": 3,
+  "typeGroup": "suneung",
+  "type": "sept",
+  "gradeYear": 2027,
+  "subject": "사회탐구",
+  "subSubject": "사회·문화",
+  "rawCuts": [
+   42,
+   39,
+   36,
+   33,
+   28,
+   21,
+   13,
+   8
+  ],
+  "standardCuts": [
+   64,
+   61,
+   58,
+   55,
+   50,
+   43,
+   35,
+   30
+  ],
+  "percentiles": [
+   96,
+   89,
+   77,
+   62,
+   41,
+   23,
+   12,
+   4
+  ],
+  "top": {
+   "raw": 50,
+   "std": 72,
+   "pct": 100
+  },
+  "url": "https://www.ebsi.co.kr/ebs/xip/xipa/retrieveGrdCut.ajax?irecord=202609023&confYn=Y",
+  "fetchedAt": "2026-11-23"
+ },
+ {
+  "source": "ebsi",
+  "examYear": 2026,
+  "month": 9,
+  "studentGrade": 3,
+  "typeGroup": "suneung",
+  "type": "sept",
+  "gradeYear": 2027,
+  "subject": "사회탐구",
+  "subSubject": "생활과윤리",
+  "rawCuts": [
+   46,
+   43,
+   38,
+   32,
+   24,
+   17,
+   11,
+   9
+  ],
+  "standardCuts": [
+   66,
+   63,
+   59,
+   54,
+   47,
+   41,
+   36,
+   34
+  ],
+  "percentiles": [
+   96,
+   90,
+   76,
+   60,
+   39,
+   22,
+   9,
+   4
+  ],
+  "top": {
+   "raw": 50,
+   "std": 69,
+   "pct": 100
+  },
+  "url": "https://www.ebsi.co.kr/ebs/xip/xipa/retrieveGrdCut.ajax?irecord=202609023&confYn=Y",
+  "fetchedAt": "2026-11-23"
+ },
+ {
+  "source": "ebsi",
+  "examYear": 2026,
+  "month": 9,
+  "studentGrade": 3,
+  "typeGroup": "suneung",
+  "type": "sept",
+  "gradeYear": 2027,
+  "subject": "사회탐구",
+  "subSubject": "세계사",
+  "rawCuts": [
+   47,
+   43,
+   38,
+   25,
+   15,
+   11,
+   8,
+   6
+  ],
+  "standardCuts": [
+   67,
+   64,
+   60,
+   51,
+   44,
+   41,
+   39,
+   37
+  ],
+  "percentiles": [
+   94,
+   88,
+   77,
+   59,
+   38,
+   25,
+   13,
+   4
+  ],
+  "top": {
+   "raw": 50,
+   "std": 69,
+   "pct": 98
+  },
+  "url": "https://www.ebsi.co.kr/ebs/xip/xipa/retrieveGrdCut.ajax?irecord=202609023&confYn=Y",
+  "fetchedAt": "2026-11-23"
+ },
+ {
+  "source": "ebsi",
+  "examYear": 2026,
+  "month": 9,
+  "studentGrade": 3,
+  "typeGroup": "suneung",
+  "type": "sept",
+  "gradeYear": 2027,
+  "subject": "사회탐구",
+  "subSubject": "세계지리",
+  "rawCuts": [
+   50,
+   47,
+   43,
+   36,
+   23,
+   15,
+   9,
+   8
+  ],
+  "standardCuts": [
+   65,
+   63,
+   60,
+   55,
+   46,
+   40,
+   36,
+   35
+  ],
+  "percentiles": [
+   97,
+   89,
+   77,
+   60,
+   39,
+   23,
+   9,
+   5
+  ],
+  "top": {
+   "raw": 50,
+   "std": 65,
+   "pct": 97
+  },
+  "url": "https://www.ebsi.co.kr/ebs/xip/xipa/retrieveGrdCut.ajax?irecord=202609023&confYn=Y",
+  "fetchedAt": "2026-11-23"
+ },
+ {
+  "source": "ebsi",
+  "examYear": 2026,
+  "month": 9,
+  "studentGrade": 3,
+  "typeGroup": "suneung",
+  "type": "sept",
+  "gradeYear": 2027,
+  "subject": "사회탐구",
+  "subSubject": "윤리와사상",
+  "rawCuts": [
+   44,
+   41,
+   36,
+   28,
+   19,
+   13,
+   9,
+   7
+  ],
+  "standardCuts": [
+   66,
+   64,
+   60,
+   53,
+   46,
+   41,
+   37,
+   36
+  ],
+  "percentiles": [
+   95,
+   89,
+   78,
+   60,
+   40,
+   25,
+   9,
+   4
+  ],
+  "top": {
+   "raw": 50,
+   "std": 71,
+   "pct": 100
+  },
+  "url": "https://www.ebsi.co.kr/ebs/xip/xipa/retrieveGrdCut.ajax?irecord=202609023&confYn=Y",
+  "fetchedAt": "2026-11-23"
+ },
+ {
+  "source": "ebsi",
+  "examYear": 2026,
+  "month": 9,
+  "studentGrade": 3,
+  "typeGroup": "suneung",
+  "type": "sept",
+  "gradeYear": 2027,
+  "subject": "사회탐구",
+  "subSubject": "정치와법",
+  "rawCuts": [
+   42,
+   39,
+   33,
+   26,
+   16,
+   11,
+   8,
+   6
+  ],
+  "standardCuts": [
+   67,
+   64,
+   59,
+   53,
+   45,
+   40,
+   38,
+   36
+  ],
+  "percentiles": [
+   95,
+   90,
+   77,
+   61,
+   39,
+   22,
+   10,
+   4
+  ],
+  "top": {
+   "raw": 50,
+   "std": 74,
+   "pct": 100
+  },
+  "url": "https://www.ebsi.co.kr/ebs/xip/xipa/retrieveGrdCut.ajax?irecord=202609023&confYn=Y",
+  "fetchedAt": "2026-11-23"
+ },
+ {
+  "source": "ebsi",
+  "examYear": 2026,
+  "month": 9,
+  "studentGrade": 3,
+  "typeGroup": "suneung",
+  "type": "sept",
+  "gradeYear": 2027,
+  "subject": "사회탐구",
+  "subSubject": "한국지리",
+  "rawCuts": [
+   50,
+   46,
+   42,
+   34,
+   23,
+   15,
+   11,
+   8
+  ],
+  "standardCuts": [
+   65,
+   63,
+   60,
+   54,
+   46,
+   40,
+   37,
+   35
+  ],
+  "percentiles": [
+   97,
+   88,
+   77,
+   60,
+   39,
+   23,
+   11,
+   5
+  ],
+  "top": {
+   "raw": 50,
+   "std": 65,
+   "pct": 97
+  },
+  "url": "https://www.ebsi.co.kr/ebs/xip/xipa/retrieveGrdCut.ajax?irecord=202609023&confYn=Y",
+  "fetchedAt": "2026-11-23"
+ },
+ {
+  "source": "ebsi",
+  "examYear": 2026,
+  "month": 9,
+  "studentGrade": 3,
+  "typeGroup": "suneung",
+  "type": "sept",
+  "gradeYear": 2027,
+  "subject": "직업탐구",
+  "subSubject": "공업 일반",
+  "rawCuts": [
+   50,
+   45,
+   38,
+   24,
+   12,
+   9,
+   6,
+   4
+  ],
+  "standardCuts": [
+   68,
+   65,
+   60,
+   51,
+   43,
+   41,
+   39,
+   38
+  ],
+  "percentiles": [
+   98,
+   89,
+   76,
+   60,
+   38,
+   23,
+   9,
+   4
+  ],
+  "top": {
+   "raw": 50,
+   "std": 68,
+   "pct": 98
+  },
+  "url": "https://www.ebsi.co.kr/ebs/xip/xipa/retrieveGrdCut.ajax?irecord=202609023&confYn=Y",
+  "fetchedAt": "2026-11-23"
+ },
+ {
+  "source": "ebsi",
+  "examYear": 2026,
+  "month": 9,
+  "studentGrade": 3,
+  "typeGroup": "suneung",
+  "type": "sept",
+  "gradeYear": 2027,
+  "subject": "직업탐구",
+  "subSubject": "농업 기초 기술",
+  "rawCuts": [
+   42,
+   33,
+   21,
+   14,
+   11,
+   10,
+   7,
+   5
+  ],
+  "standardCuts": [
+   75,
+   66,
+   55,
+   48,
+   45,
+   44,
+   41,
+   39
+  ],
+  "percentiles": [
+   96,
+   89,
+   78,
+   61,
+   39,
+   26,
+   12,
+   5
+  ],
+  "top": {
+   "raw": 50,
+   "std": 83,
+   "pct": 100
+  },
+  "url": "https://www.ebsi.co.kr/ebs/xip/xipa/retrieveGrdCut.ajax?irecord=202609023&confYn=Y",
+  "fetchedAt": "2026-11-23"
+ },
+ {
+  "source": "ebsi",
+  "examYear": 2026,
+  "month": 9,
+  "studentGrade": 3,
+  "typeGroup": "suneung",
+  "type": "sept",
+  "gradeYear": 2027,
+  "subject": "직업탐구",
+  "subSubject": "상업 경제",
+  "rawCuts": [
+   46,
+   41,
+   31,
+   21,
+   15,
+   10,
+   9,
+   5
+  ],
+  "standardCuts": [
+   70,
+   66,
+   58,
+   50,
+   45,
+   41,
+   40,
+   37
+  ],
+  "percentiles": [
+   96,
+   90,
+   77,
+   60,
+   41,
+   19,
+   12,
+   3
+  ],
+  "top": {
+   "raw": 50,
+   "std": 73,
+   "pct": 99
+  },
+  "url": "https://www.ebsi.co.kr/ebs/xip/xipa/retrieveGrdCut.ajax?irecord=202609023&confYn=Y",
+  "fetchedAt": "2026-11-23"
+ },
+ {
+  "source": "ebsi",
+  "examYear": 2026,
+  "month": 9,
+  "studentGrade": 3,
+  "typeGroup": "suneung",
+  "type": "sept",
+  "gradeYear": 2027,
+  "subject": "직업탐구",
+  "subSubject": "성공적인 직업 생활",
+  "rawCuts": [
+   44,
+   37,
+   30,
+   23,
+   15,
+   9,
+   8,
+   6
+  ],
+  "standardCuts": [
+   70,
+   64,
+   58,
+   52,
+   45,
+   40,
+   39,
+   37
+  ],
+  "percentiles": [
+   97,
+   89,
+   77,
+   60,
+   39,
+   22,
+   15,
+   4
+  ],
+  "top": {
+   "raw": 50,
+   "std": 75,
+   "pct": 100
+  },
+  "url": "https://www.ebsi.co.kr/ebs/xip/xipa/retrieveGrdCut.ajax?irecord=202609023&confYn=Y",
+  "fetchedAt": "2026-11-23"
+ },
+ {
+  "source": "ebsi",
+  "examYear": 2026,
+  "month": 9,
+  "studentGrade": 3,
+  "typeGroup": "suneung",
+  "type": "sept",
+  "gradeYear": 2027,
+  "subject": "직업탐구",
+  "subSubject": "수산·해운 산업 기초",
+  "rawCuts": [
+   39,
+   34,
+   23,
+   22,
+   15,
+   10,
+   9,
+   5
+  ],
+  "standardCuts": [
+   69,
+   64,
+   54,
+   53,
+   46,
+   41,
+   40,
+   37
+  ],
+  "percentiles": [
+   96,
+   88,
+   79,
+   63,
+   38,
+   23,
+   15,
+   4
+  ],
+  "top": {
+   "raw": 50,
+   "std": 79,
+   "pct": 99
+  },
+  "url": "https://www.ebsi.co.kr/ebs/xip/xipa/retrieveGrdCut.ajax?irecord=202609023&confYn=Y",
+  "fetchedAt": "2026-11-23"
+ },
+ {
+  "source": "ebsi",
+  "examYear": 2026,
+  "month": 9,
+  "studentGrade": 3,
+  "typeGroup": "suneung",
+  "type": "sept",
+  "gradeYear": 2027,
+  "subject": "직업탐구",
+  "subSubject": "인간 발달",
+  "rawCuts": [
+   44,
+   36,
+   28,
+   22,
+   15,
+   9,
+   6,
+   5
+  ],
+  "standardCuts": [
+   71,
+   64,
+   57,
+   52,
+   46,
+   41,
+   38,
+   37
+  ],
+  "percentiles": [
+   96,
+   88,
+   77,
+   60,
+   39,
+   23,
+   9,
+   4
+  ],
+  "top": {
+   "raw": 50,
+   "std": 76,
+   "pct": 100
+  },
+  "url": "https://www.ebsi.co.kr/ebs/xip/xipa/retrieveGrdCut.ajax?irecord=202609023&confYn=Y",
+  "fetchedAt": "2026-11-23"
+ },
+ {
+  "source": "ebsi",
+  "examYear": 2026,
   "month": 10,
   "studentGrade": 1,
   "typeGroup": "education",

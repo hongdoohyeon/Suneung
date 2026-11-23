@@ -16542,9 +16542,25 @@
     ],
     "highestStandardScore": 77,
     "fullScore": 50,
-    "source": "ebsi-grdcut",
+    "source": "ebsi-grdcut+academy-consensus",
     "id": 405,
-    "studentGrade": 2
+    "studentGrade": 2,
+    "rawCutBasis": "academy_consensus",
+    "rawCutSources": [
+      "ebsi",
+      "megastudy",
+      "daesung"
+    ],
+    "rawCutAgreement": [
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3
+    ]
   },
   {
     "curriculum": "2015",
@@ -17221,17 +17237,18 @@
     "studentGrade": 2,
     "rawCutBasis": "academy_consensus",
     "rawCutSources": [
-      "ebsi"
+      "megastudy",
+      "daesung"
     ],
     "rawCutAgreement": [
-      1,
-      1,
-      1,
-      1,
-      1,
-      1,
-      1,
-      1
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2
     ]
   },
   {
@@ -18463,7 +18480,7 @@
       39,
       37
     ],
-    "source": "ebsi-grdcut",
+    "source": "ebsi-grdcut+academy-consensus",
     "id": 439,
     "fullScore": 50,
     "studentGrade": 2,
@@ -18487,7 +18504,22 @@
       9,
       3
     ],
-    "highestStandardScore": 78
+    "highestStandardScore": 78,
+    "rawCutBasis": "academy_consensus",
+    "rawCutSources": [
+      "ebsi",
+      "daesung"
+    ],
+    "rawCutAgreement": [
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2
+    ]
   },
   {
     "curriculum": "2015",
@@ -25748,7 +25780,7 @@
     ],
     "highestStandardScore": 71,
     "fullScore": 50,
-    "source": "ebsi-grdcut",
+    "source": "ebsi-grdcut+academy-consensus",
     "id": 667,
     "studentGrade": 1,
     "rawCuts": [
@@ -25760,6 +25792,21 @@
       14.5,
       10,
       7.5
+    ],
+    "rawCutBasis": "academy_consensus",
+    "rawCutSources": [
+      "megastudy",
+      "daesung"
+    ],
+    "rawCutAgreement": [
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2
     ]
   },
   {
@@ -26839,7 +26886,7 @@
     ],
     "highestStandardScore": 70,
     "fullScore": 50,
-    "source": "ebsi-grdcut",
+    "source": "ebsi-grdcut+academy-consensus",
     "id": 684,
     "studentGrade": 1,
     "rawCuts": [
@@ -26851,6 +26898,21 @@
       15,
       9,
       7
+    ],
+    "rawCutBasis": "academy_consensus",
+    "rawCutSources": [
+      "megastudy",
+      "daesung"
+    ],
+    "rawCutAgreement": [
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2
     ]
   },
   {
@@ -34333,8 +34395,8 @@
     "studentGrade": 1,
     "rawCutBasis": "academy_consensus",
     "rawCutSources": [
-      "ebsi",
-      "jongro"
+      "megastudy",
+      "daesung"
     ],
     "rawCutAgreement": [
       2,
@@ -34393,8 +34455,8 @@
     "studentGrade": 1,
     "rawCutBasis": "academy_consensus",
     "rawCutSources": [
-      "ebsi",
-      "jongro"
+      "megastudy",
+      "daesung"
     ],
     "rawCutAgreement": [
       2,
@@ -35299,17 +35361,18 @@
     "studentGrade": 1,
     "rawCutBasis": "academy_consensus",
     "rawCutSources": [
-      "ebsi"
+      "megastudy",
+      "daesung"
     ],
     "rawCutAgreement": [
-      1,
-      1,
-      1,
-      1,
-      1,
-      1,
-      1,
-      1
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2
     ]
   },
   {
@@ -35358,17 +35421,18 @@
     "studentGrade": 1,
     "rawCutBasis": "academy_consensus",
     "rawCutSources": [
-      "ebsi"
+      "megastudy",
+      "daesung"
     ],
     "rawCutAgreement": [
-      1,
-      1,
-      1,
-      1,
-      1,
-      1,
-      1,
-      1
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2
     ]
   },
   {
@@ -180270,13 +180334,13 @@
       34
     ],
     "rawCuts": [
-      45,
+      46,
       41,
-      35,
+      38,
       31,
       23,
       14,
-      11,
+      9,
       7
     ],
     "standardPercentile": [
@@ -180306,7 +180370,9 @@
     "studentGrade": 2,
     "rawCutBasis": "academy_consensus",
     "rawCutSources": [
-      "ebsi"
+      "ebsi",
+      "megastudy",
+      "jongro"
     ],
     "rawCutAgreement": [
       3,
@@ -180317,8 +180383,7 @@
       3,
       3,
       3
-    ],
-    "rawCutSourceUrl": "https://cloud.ebsi.co.kr/ebs/xip/xipa/retrievePastGrdCutWrongAnswerRate.ebs?tab=1"
+    ]
   },
   {
     "curriculum": "2009",
@@ -231325,13 +231390,13 @@
     ],
     "rawCuts": [
       50,
-      46,
-      42,
-      36,
-      24,
-      14,
+      47,
+      43,
+      35,
+      22,
       12,
-      10
+      9,
+      6
     ],
     "fullScore": 50,
     "cumulativePercent": [
@@ -231344,8 +231409,8 @@
       91.18,
       97.2
     ],
-    "source": "kice-official-20260928+daesung-est+ebsi-est+etoos-est+mega-est",
-    "rawCutBasis": "academy_consensus_estimate",
+    "source": "kice-official-20260928+daesung-est+ebsi-est+etoos-est+mega-est+academy-consensus",
+    "rawCutBasis": "academy_consensus",
     "highestStandardScore": 65,
     "id": 5573,
     "officialGradeBoundarySource": "https://www.moe.go.kr/boardCnts/viewRenew.do?boardID=294&boardSeq=107307&lev=0&m=020402&opType=N&page=1&s=moe&searchType=null&statusYN=W",
@@ -231354,6 +231419,21 @@
       "https://www.ebsi.co.kr/ebs/xip/xipa/retrieveGrdCut.ajax?irecord=202609023&confYn=Y",
       "https://www.etoos.com/report/exam/20260902/sub14.asp?Grd=3",
       "https://www.megastudy.net/Entinfo/2027_jungsi/exam/rank_cut/jungsi_real.asp?seq=360"
+    ],
+    "rawCutSources": [
+      "ebsi",
+      "etoos",
+      "daesung"
+    ],
+    "rawCutAgreement": [
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3
     ]
   },
   {
@@ -231377,13 +231457,13 @@
     ],
     "rawCuts": [
       50,
-      42,
-      35,
+      44,
+      37,
       23,
-      15,
-      11,
+      14,
       10,
-      7
+      8,
+      6
     ],
     "fullScore": 50,
     "cumulativePercent": [
@@ -231396,8 +231476,8 @@
       92.8,
       96.71
     ],
-    "source": "kice-official-20260928+daesung-est+ebsi-est+etoos-est+mega-est",
-    "rawCutBasis": "academy_consensus_estimate",
+    "source": "kice-official-20260928+daesung-est+ebsi-est+etoos-est+mega-est+academy-consensus",
+    "rawCutBasis": "academy_consensus",
     "highestStandardScore": 69,
     "id": 5574,
     "officialGradeBoundarySource": "https://www.moe.go.kr/boardCnts/viewRenew.do?boardID=294&boardSeq=107307&lev=0&m=020402&opType=N&page=1&s=moe&searchType=null&statusYN=W",
@@ -231406,6 +231486,21 @@
       "https://www.ebsi.co.kr/ebs/xip/xipa/retrieveGrdCut.ajax?irecord=202609023&confYn=Y",
       "https://www.etoos.com/report/exam/20260902/sub14.asp?Grd=3",
       "https://www.megastudy.net/Entinfo/2027_jungsi/exam/rank_cut/jungsi_real.asp?seq=360"
+    ],
+    "rawCutSources": [
+      "ebsi",
+      "etoos",
+      "daesung"
+    ],
+    "rawCutAgreement": [
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      2,
+      3
     ]
   },
   {
@@ -231433,7 +231528,7 @@
       41,
       36,
       27,
-      20,
+      19,
       14,
       9
     ],
@@ -231448,8 +231543,8 @@
       89.93,
       96.85
     ],
-    "source": "kice-official-20260928+daesung-est+ebsi-est+etoos-est+mega-est",
-    "rawCutBasis": "academy_consensus_estimate",
+    "source": "kice-official-20260928+daesung-est+ebsi-est+etoos-est+mega-est+academy-consensus",
+    "rawCutBasis": "academy_consensus",
     "highestStandardScore": 67,
     "id": 5575,
     "officialGradeBoundarySource": "https://www.moe.go.kr/boardCnts/viewRenew.do?boardID=294&boardSeq=107307&lev=0&m=020402&opType=N&page=1&s=moe&searchType=null&statusYN=W",
@@ -231458,6 +231553,21 @@
       "https://www.ebsi.co.kr/ebs/xip/xipa/retrieveGrdCut.ajax?irecord=202609023&confYn=Y",
       "https://www.etoos.com/report/exam/20260902/sub14.asp?Grd=3",
       "https://www.megastudy.net/Entinfo/2027_jungsi/exam/rank_cut/jungsi_real.asp?seq=360"
+    ],
+    "rawCutSources": [
+      "ebsi",
+      "etoos",
+      "daesung"
+    ],
+    "rawCutAgreement": [
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      2,
+      3
     ]
   },
   {
@@ -231480,11 +231590,11 @@
       37
     ],
     "rawCuts": [
-      44,
-      39,
-      32,
-      22,
-      13,
+      46,
+      41,
+      34,
+      23,
+      14,
       10,
       9,
       5
@@ -231500,8 +231610,8 @@
       89.51,
       98.02
     ],
-    "source": "kice-official-20260928+daesung-est+ebsi-est+etoos-est+mega-est",
-    "rawCutBasis": "academy_consensus_estimate",
+    "source": "kice-official-20260928+daesung-est+ebsi-est+etoos-est+mega-est+academy-consensus",
+    "rawCutBasis": "academy_consensus",
     "highestStandardScore": 72,
     "id": 5576,
     "officialGradeBoundarySource": "https://www.moe.go.kr/boardCnts/viewRenew.do?boardID=294&boardSeq=107307&lev=0&m=020402&opType=N&page=1&s=moe&searchType=null&statusYN=W",
@@ -231510,6 +231620,21 @@
       "https://www.ebsi.co.kr/ebs/xip/xipa/retrieveGrdCut.ajax?irecord=202609023&confYn=Y",
       "https://www.etoos.com/report/exam/20260902/sub14.asp?Grd=3",
       "https://www.megastudy.net/Entinfo/2027_jungsi/exam/rank_cut/jungsi_real.asp?seq=360"
+    ],
+    "rawCutSources": [
+      "ebsi",
+      "etoos",
+      "daesung"
+    ],
+    "rawCutAgreement": [
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3
     ]
   },
   {
@@ -231534,12 +231659,12 @@
     "rawCuts": [
       42,
       39,
-      33,
+      34,
       29,
-      21,
+      22,
       15,
-      9,
-      8
+      10,
+      7
     ],
     "fullScore": 50,
     "cumulativePercent": [
@@ -231552,8 +231677,8 @@
       91.71,
       96.26
     ],
-    "source": "kice-official-20260928+daesung-est+ebsi-est+etoos-est+mega-est",
-    "rawCutBasis": "academy_consensus_estimate",
+    "source": "kice-official-20260928+daesung-est+ebsi-est+etoos-est+mega-est+academy-consensus",
+    "rawCutBasis": "academy_consensus",
     "highestStandardScore": 73,
     "id": 5577,
     "officialGradeBoundarySource": "https://www.moe.go.kr/boardCnts/viewRenew.do?boardID=294&boardSeq=107307&lev=0&m=020402&opType=N&page=1&s=moe&searchType=null&statusYN=W",
@@ -231562,6 +231687,21 @@
       "https://www.ebsi.co.kr/ebs/xip/xipa/retrieveGrdCut.ajax?irecord=202609023&confYn=Y",
       "https://www.etoos.com/report/exam/20260902/sub14.asp?Grd=3",
       "https://www.megastudy.net/Entinfo/2027_jungsi/exam/rank_cut/jungsi_real.asp?seq=360"
+    ],
+    "rawCutSources": [
+      "ebsi",
+      "etoos",
+      "daesung"
+    ],
+    "rawCutAgreement": [
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      2
     ]
   },
   {
@@ -231584,12 +231724,12 @@
       38
     ],
     "rawCuts": [
-      45,
-      40,
-      31,
+      47,
+      42,
+      32,
       19,
       13,
-      9,
+      10,
       7,
       5
     ],
@@ -231604,8 +231744,8 @@
       94.64,
       97.66
     ],
-    "source": "kice-official-20260928+daesung-est+ebsi-est+etoos-est+mega-est",
-    "rawCutBasis": "academy_consensus_estimate",
+    "source": "kice-official-20260928+daesung-est+ebsi-est+etoos-est+mega-est+academy-consensus",
+    "rawCutBasis": "academy_consensus",
     "highestStandardScore": 72,
     "id": 5578,
     "officialGradeBoundarySource": "https://www.moe.go.kr/boardCnts/viewRenew.do?boardID=294&boardSeq=107307&lev=0&m=020402&opType=N&page=1&s=moe&searchType=null&statusYN=W",
@@ -231614,6 +231754,21 @@
       "https://www.ebsi.co.kr/ebs/xip/xipa/retrieveGrdCut.ajax?irecord=202609023&confYn=Y",
       "https://www.etoos.com/report/exam/20260902/sub14.asp?Grd=3",
       "https://www.megastudy.net/Entinfo/2027_jungsi/exam/rank_cut/jungsi_real.asp?seq=360"
+    ],
+    "rawCutSources": [
+      "ebsi",
+      "etoos",
+      "daesung"
+    ],
+    "rawCutAgreement": [
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3
     ]
   },
   {
@@ -231636,14 +231791,14 @@
       35
     ],
     "rawCuts": [
-      49,
-      45,
-      39,
-      32,
-      22,
-      16,
-      11,
-      8
+      48,
+      44,
+      38,
+      31,
+      21,
+      14,
+      9,
+      7
     ],
     "fullScore": 50,
     "cumulativePercent": [
@@ -231656,8 +231811,8 @@
       93.35,
       97.2
     ],
-    "source": "kice-official-20260928+daesung-est+ebsi-est+etoos-est+mega-est",
-    "rawCutBasis": "academy_consensus_estimate",
+    "source": "kice-official-20260928+daesung-est+ebsi-est+etoos-est+mega-est+academy-consensus",
+    "rawCutBasis": "academy_consensus",
     "highestStandardScore": 68,
     "id": 5579,
     "officialGradeBoundarySource": "https://www.moe.go.kr/boardCnts/viewRenew.do?boardID=294&boardSeq=107307&lev=0&m=020402&opType=N&page=1&s=moe&searchType=null&statusYN=W",
@@ -231666,6 +231821,21 @@
       "https://www.ebsi.co.kr/ebs/xip/xipa/retrieveGrdCut.ajax?irecord=202609023&confYn=Y",
       "https://www.etoos.com/report/exam/20260902/sub14.asp?Grd=3",
       "https://www.megastudy.net/Entinfo/2027_jungsi/exam/rank_cut/jungsi_real.asp?seq=360"
+    ],
+    "rawCutSources": [
+      "ebsi",
+      "etoos",
+      "daesung"
+    ],
+    "rawCutAgreement": [
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3
     ]
   },
   {
@@ -231689,13 +231859,13 @@
     ],
     "rawCuts": [
       50,
-      42,
-      35,
+      45,
+      36,
       22,
       14,
-      12,
-      10,
-      7
+      11,
+      8,
+      6
     ],
     "fullScore": 50,
     "cumulativePercent": [
@@ -231708,8 +231878,8 @@
       92.58,
       96.34
     ],
-    "source": "kice-official-20260928+daesung-est+ebsi-est+etoos-est+mega-est",
-    "rawCutBasis": "academy_consensus_estimate",
+    "source": "kice-official-20260928+daesung-est+ebsi-est+etoos-est+mega-est+academy-consensus",
+    "rawCutBasis": "academy_consensus",
     "highestStandardScore": 70,
     "id": 5580,
     "officialGradeBoundarySource": "https://www.moe.go.kr/boardCnts/viewRenew.do?boardID=294&boardSeq=107307&lev=0&m=020402&opType=N&page=1&s=moe&searchType=null&statusYN=W",
@@ -231718,6 +231888,21 @@
       "https://www.ebsi.co.kr/ebs/xip/xipa/retrieveGrdCut.ajax?irecord=202609023&confYn=Y",
       "https://www.etoos.com/report/exam/20260902/sub14.asp?Grd=3",
       "https://www.megastudy.net/Entinfo/2027_jungsi/exam/rank_cut/jungsi_real.asp?seq=360"
+    ],
+    "rawCutSources": [
+      "ebsi",
+      "etoos",
+      "daesung"
+    ],
+    "rawCutAgreement": [
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3
     ]
   },
   {
@@ -231740,8 +231925,8 @@
       65
     ],
     "rawCuts": [
-      86,
-      79,
+      85,
+      78,
       71,
       61,
       49,
@@ -231760,8 +231945,8 @@
       89.14,
       96.63
     ],
-    "source": "kice-official-20260928+daesung-est+ebsi-est+etoos-est+mega-est",
-    "rawCutBasis": "academy_consensus_estimate",
+    "source": "kice-official-20260928+daesung-est+ebsi-est+etoos-est+mega-est+academy-consensus",
+    "rawCutBasis": "academy_consensus",
     "highestStandardScore": 144,
     "id": 5581,
     "officialGradeBoundarySource": "https://www.moe.go.kr/boardCnts/viewRenew.do?boardID=294&boardSeq=107307&lev=0&m=020402&opType=N&page=1&s=moe&searchType=null&statusYN=W",
@@ -231770,6 +231955,20 @@
       "https://www.ebsi.co.kr/ebs/xip/xipa/retrieveGrdCut.ajax?irecord=202609023&confYn=Y",
       "https://www.etoos.com/report/exam/20260902/sub14.asp?Grd=3",
       "https://www.megastudy.net/Entinfo/2027_jungsi/exam/rank_cut/jungsi_real.asp?seq=360"
+    ],
+    "rawCutSources": [
+      "etoos",
+      "daesung"
+    ],
+    "rawCutAgreement": [
+      1,
+      1,
+      2,
+      1,
+      2,
+      1,
+      2,
+      1
     ]
   },
   {
@@ -231793,13 +231992,13 @@
     ],
     "rawCuts": [
       90,
-      83,
-      75,
-      66,
-      53,
-      40,
-      27,
-      21
+      82,
+      73,
+      64,
+      51,
+      38,
+      25,
+      19
     ],
     "fullScore": 100,
     "cumulativePercent": [
@@ -231812,8 +232011,8 @@
       89.14,
       96.63
     ],
-    "source": "kice-official-20260928+daesung-est+ebsi-est+etoos-est+mega-est",
-    "rawCutBasis": "academy_consensus_estimate",
+    "source": "kice-official-20260928+daesung-est+ebsi-est+etoos-est+mega-est+academy-consensus",
+    "rawCutBasis": "academy_consensus",
     "highestStandardScore": 144,
     "id": 5582,
     "officialGradeBoundarySource": "https://www.moe.go.kr/boardCnts/viewRenew.do?boardID=294&boardSeq=107307&lev=0&m=020402&opType=N&page=1&s=moe&searchType=null&statusYN=W",
@@ -231822,6 +232021,20 @@
       "https://www.ebsi.co.kr/ebs/xip/xipa/retrieveGrdCut.ajax?irecord=202609023&confYn=Y",
       "https://www.etoos.com/report/exam/20260902/sub14.asp?Grd=3",
       "https://www.megastudy.net/Entinfo/2027_jungsi/exam/rank_cut/jungsi_real.asp?seq=360"
+    ],
+    "rawCutSources": [
+      "etoos",
+      "daesung"
+    ],
+    "rawCutAgreement": [
+      2,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
     ]
   },
   {
@@ -231864,8 +232077,8 @@
       91.63,
       96.63
     ],
-    "source": "kice-official-20260928+daesung-est+ebsi-est+etoos-est+mega-est",
-    "rawCutBasis": "academy_consensus_estimate",
+    "source": "kice-official-20260928+daesung-est+ebsi-est+etoos-est+mega-est+academy-consensus",
+    "rawCutBasis": "academy_consensus",
     "highestStandardScore": 73,
     "id": 5583,
     "officialGradeBoundarySource": "https://www.moe.go.kr/boardCnts/viewRenew.do?boardID=294&boardSeq=107307&lev=0&m=020402&opType=N&page=1&s=moe&searchType=null&statusYN=W",
@@ -231874,6 +232087,21 @@
       "https://www.ebsi.co.kr/ebs/xip/xipa/retrieveGrdCut.ajax?irecord=202609023&confYn=Y",
       "https://www.etoos.com/report/exam/20260902/sub14.asp?Grd=3",
       "https://www.megastudy.net/Entinfo/2027_jungsi/exam/rank_cut/jungsi_real.asp?seq=360"
+    ],
+    "rawCutSources": [
+      "ebsi",
+      "etoos",
+      "daesung"
+    ],
+    "rawCutAgreement": [
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3
     ]
   },
   {
@@ -231897,13 +232125,13 @@
     ],
     "rawCuts": [
       50,
-      46,
+      47,
       41,
       35,
       24,
-      16,
-      9,
-      8
+      15,
+      8,
+      7
     ],
     "fullScore": 50,
     "cumulativePercent": [
@@ -231916,8 +232144,8 @@
       90.91,
       96.88
     ],
-    "source": "kice-official-20260928+daesung-est+ebsi-est+etoos-est+mega-est",
-    "rawCutBasis": "academy_consensus_estimate",
+    "source": "kice-official-20260928+daesung-est+ebsi-est+etoos-est+mega-est+academy-consensus",
+    "rawCutBasis": "academy_consensus",
     "highestStandardScore": 65,
     "id": 5584,
     "officialGradeBoundarySource": "https://www.moe.go.kr/boardCnts/viewRenew.do?boardID=294&boardSeq=107307&lev=0&m=020402&opType=N&page=1&s=moe&searchType=null&statusYN=W",
@@ -231926,6 +232154,21 @@
       "https://www.ebsi.co.kr/ebs/xip/xipa/retrieveGrdCut.ajax?irecord=202609023&confYn=Y",
       "https://www.etoos.com/report/exam/20260902/sub14.asp?Grd=3",
       "https://www.megastudy.net/Entinfo/2027_jungsi/exam/rank_cut/jungsi_real.asp?seq=360"
+    ],
+    "rawCutSources": [
+      "ebsi",
+      "etoos",
+      "daesung"
+    ],
+    "rawCutAgreement": [
+      3,
+      3,
+      3,
+      2,
+      3,
+      2,
+      2,
+      3
     ]
   },
   {
@@ -231948,14 +232191,14 @@
       30
     ],
     "rawCuts": [
-      41,
-      38,
-      35,
-      32,
-      26,
-      19,
-      11,
-      7
+      42,
+      39,
+      36,
+      33,
+      28,
+      21,
+      13,
+      8
     ],
     "fullScore": 50,
     "cumulativePercent": [
@@ -231968,8 +232211,8 @@
       89.06,
       97.3
     ],
-    "source": "kice-official-20260928+daesung-est+ebsi-est+etoos-est+mega-est",
-    "rawCutBasis": "academy_consensus_estimate",
+    "source": "kice-official-20260928+daesung-est+ebsi-est+etoos-est+mega-est+academy-consensus",
+    "rawCutBasis": "academy_consensus",
     "highestStandardScore": 72,
     "id": 5585,
     "officialGradeBoundarySource": "https://www.moe.go.kr/boardCnts/viewRenew.do?boardID=294&boardSeq=107307&lev=0&m=020402&opType=N&page=1&s=moe&searchType=null&statusYN=W",
@@ -231978,6 +232221,21 @@
       "https://www.ebsi.co.kr/ebs/xip/xipa/retrieveGrdCut.ajax?irecord=202609023&confYn=Y",
       "https://www.etoos.com/report/exam/20260902/sub14.asp?Grd=3",
       "https://www.megastudy.net/Entinfo/2027_jungsi/exam/rank_cut/jungsi_real.asp?seq=360"
+    ],
+    "rawCutSources": [
+      "ebsi",
+      "etoos",
+      "daesung"
+    ],
+    "rawCutAgreement": [
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3
     ]
   },
   {
@@ -232000,12 +232258,12 @@
       34
     ],
     "rawCuts": [
-      45,
-      42,
-      37,
+      46,
+      43,
+      38,
       32,
       24,
-      16,
+      17,
       11,
       9
     ],
@@ -232020,8 +232278,8 @@
       93.21,
       96.16
     ],
-    "source": "kice-official-20260928+daesung-est+ebsi-est+etoos-est+mega-est",
-    "rawCutBasis": "academy_consensus_estimate",
+    "source": "kice-official-20260928+daesung-est+ebsi-est+etoos-est+mega-est+academy-consensus",
+    "rawCutBasis": "academy_consensus",
     "highestStandardScore": 69,
     "id": 5586,
     "officialGradeBoundarySource": "https://www.moe.go.kr/boardCnts/viewRenew.do?boardID=294&boardSeq=107307&lev=0&m=020402&opType=N&page=1&s=moe&searchType=null&statusYN=W",
@@ -232030,6 +232288,21 @@
       "https://www.ebsi.co.kr/ebs/xip/xipa/retrieveGrdCut.ajax?irecord=202609023&confYn=Y",
       "https://www.etoos.com/report/exam/20260902/sub14.asp?Grd=3",
       "https://www.megastudy.net/Entinfo/2027_jungsi/exam/rank_cut/jungsi_real.asp?seq=360"
+    ],
+    "rawCutSources": [
+      "ebsi",
+      "etoos",
+      "daesung"
+    ],
+    "rawCutAgreement": [
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3
     ]
   },
   {
@@ -232054,12 +232327,12 @@
     "rawCuts": [
       47,
       43,
-      37,
+      38,
       25,
-      16,
-      12,
-      10,
-      7
+      15,
+      11,
+      8,
+      6
     ],
     "fullScore": 50,
     "cumulativePercent": [
@@ -232072,8 +232345,8 @@
       92.36,
       96.39
     ],
-    "source": "kice-official-20260928+daesung-est+ebsi-est+etoos-est+mega-est",
-    "rawCutBasis": "academy_consensus_estimate",
+    "source": "kice-official-20260928+daesung-est+ebsi-est+etoos-est+mega-est+academy-consensus",
+    "rawCutBasis": "academy_consensus",
     "highestStandardScore": 69,
     "id": 5587,
     "officialGradeBoundarySource": "https://www.moe.go.kr/boardCnts/viewRenew.do?boardID=294&boardSeq=107307&lev=0&m=020402&opType=N&page=1&s=moe&searchType=null&statusYN=W",
@@ -232082,6 +232355,21 @@
       "https://www.ebsi.co.kr/ebs/xip/xipa/retrieveGrdCut.ajax?irecord=202609023&confYn=Y",
       "https://www.etoos.com/report/exam/20260902/sub14.asp?Grd=3",
       "https://www.megastudy.net/Entinfo/2027_jungsi/exam/rank_cut/jungsi_real.asp?seq=360"
+    ],
+    "rawCutSources": [
+      "ebsi",
+      "etoos",
+      "daesung"
+    ],
+    "rawCutAgreement": [
+      2,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3
     ]
   },
   {
@@ -232105,12 +232393,12 @@
     ],
     "rawCuts": [
       50,
-      46,
-      42,
-      35,
+      47,
+      43,
+      36,
       23,
       15,
-      10,
+      9,
       8
     ],
     "fullScore": 50,
@@ -232124,8 +232412,8 @@
       94.43,
       96.15
     ],
-    "source": "kice-official-20260928+daesung-est+ebsi-est+etoos-est+mega-est",
-    "rawCutBasis": "academy_consensus_estimate",
+    "source": "kice-official-20260928+daesung-est+ebsi-est+etoos-est+mega-est+academy-consensus",
+    "rawCutBasis": "academy_consensus",
     "highestStandardScore": 65,
     "id": 5588,
     "officialGradeBoundarySource": "https://www.moe.go.kr/boardCnts/viewRenew.do?boardID=294&boardSeq=107307&lev=0&m=020402&opType=N&page=1&s=moe&searchType=null&statusYN=W",
@@ -232134,6 +232422,21 @@
       "https://www.ebsi.co.kr/ebs/xip/xipa/retrieveGrdCut.ajax?irecord=202609023&confYn=Y",
       "https://www.etoos.com/report/exam/20260902/sub14.asp?Grd=3",
       "https://www.megastudy.net/Entinfo/2027_jungsi/exam/rank_cut/jungsi_real.asp?seq=360"
+    ],
+    "rawCutSources": [
+      "ebsi",
+      "etoos",
+      "daesung"
+    ],
+    "rawCutAgreement": [
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3
     ]
   },
   {
@@ -232156,13 +232459,13 @@
       36
     ],
     "rawCuts": [
-      42,
-      40,
-      35,
-      27,
+      44,
+      41,
+      36,
+      28,
       19,
       13,
-      8,
+      9,
       7
     ],
     "fullScore": 50,
@@ -232176,8 +232479,8 @@
       94.5,
       97.18
     ],
-    "source": "kice-official-20260928+daesung-est+ebsi-est+etoos-est+mega-est",
-    "rawCutBasis": "academy_consensus_estimate",
+    "source": "kice-official-20260928+daesung-est+ebsi-est+etoos-est+mega-est+academy-consensus",
+    "rawCutBasis": "academy_consensus",
     "highestStandardScore": 71,
     "id": 5589,
     "officialGradeBoundarySource": "https://www.moe.go.kr/boardCnts/viewRenew.do?boardID=294&boardSeq=107307&lev=0&m=020402&opType=N&page=1&s=moe&searchType=null&statusYN=W",
@@ -232186,6 +232489,21 @@
       "https://www.ebsi.co.kr/ebs/xip/xipa/retrieveGrdCut.ajax?irecord=202609023&confYn=Y",
       "https://www.etoos.com/report/exam/20260902/sub14.asp?Grd=3",
       "https://www.megastudy.net/Entinfo/2027_jungsi/exam/rank_cut/jungsi_real.asp?seq=360"
+    ],
+    "rawCutSources": [
+      "ebsi",
+      "etoos",
+      "daesung"
+    ],
+    "rawCutAgreement": [
+      2,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3
     ]
   },
   {
@@ -232208,14 +232526,14 @@
       36
     ],
     "rawCuts": [
-      41,
-      38,
+      42,
+      39,
       33,
       26,
-      18,
-      12,
-      10,
-      8
+      16,
+      11,
+      8,
+      6
     ],
     "fullScore": 50,
     "cumulativePercent": [
@@ -232228,8 +232546,8 @@
       92.7,
       96.55
     ],
-    "source": "kice-official-20260928+daesung-est+ebsi-est+etoos-est+mega-est",
-    "rawCutBasis": "academy_consensus_estimate",
+    "source": "kice-official-20260928+daesung-est+ebsi-est+etoos-est+mega-est+academy-consensus",
+    "rawCutBasis": "academy_consensus",
     "highestStandardScore": 74,
     "id": 5590,
     "officialGradeBoundarySource": "https://www.moe.go.kr/boardCnts/viewRenew.do?boardID=294&boardSeq=107307&lev=0&m=020402&opType=N&page=1&s=moe&searchType=null&statusYN=W",
@@ -232238,6 +232556,21 @@
       "https://www.ebsi.co.kr/ebs/xip/xipa/retrieveGrdCut.ajax?irecord=202609023&confYn=Y",
       "https://www.etoos.com/report/exam/20260902/sub14.asp?Grd=3",
       "https://www.megastudy.net/Entinfo/2027_jungsi/exam/rank_cut/jungsi_real.asp?seq=360"
+    ],
+    "rawCutSources": [
+      "ebsi",
+      "etoos",
+      "daesung"
+    ],
+    "rawCutAgreement": [
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3
     ]
   },
   {
@@ -232261,13 +232594,13 @@
     ],
     "rawCuts": [
       50,
-      44,
-      40,
-      32,
-      22,
-      13,
-      9,
-      7
+      46,
+      42,
+      34,
+      23,
+      15,
+      11,
+      8
     ],
     "fullScore": 50,
     "cumulativePercent": [
@@ -232280,8 +232613,8 @@
       89.56,
       96.28
     ],
-    "source": "kice-official-20260928+daesung-est+ebsi-est+etoos-est+mega-est",
-    "rawCutBasis": "academy_consensus_estimate",
+    "source": "kice-official-20260928+daesung-est+ebsi-est+etoos-est+mega-est+academy-consensus",
+    "rawCutBasis": "academy_consensus",
     "highestStandardScore": 65,
     "id": 5591,
     "officialGradeBoundarySource": "https://www.moe.go.kr/boardCnts/viewRenew.do?boardID=294&boardSeq=107307&lev=0&m=020402&opType=N&page=1&s=moe&searchType=null&statusYN=W",
@@ -232290,6 +232623,21 @@
       "https://www.ebsi.co.kr/ebs/xip/xipa/retrieveGrdCut.ajax?irecord=202609023&confYn=Y",
       "https://www.etoos.com/report/exam/20260902/sub14.asp?Grd=3",
       "https://www.megastudy.net/Entinfo/2027_jungsi/exam/rank_cut/jungsi_real.asp?seq=360"
+    ],
+    "rawCutSources": [
+      "ebsi",
+      "etoos",
+      "daesung"
+    ],
+    "rawCutAgreement": [
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3
     ]
   },
   {
@@ -232312,14 +232660,14 @@
       69
     ],
     "rawCuts": [
-      85,
-      77,
-      72,
-      63,
-      42,
-      18,
-      11,
-      7
+      88,
+      80,
+      76,
+      67,
+      46,
+      23,
+      15,
+      11
     ],
     "fullScore": 100,
     "cumulativePercent": [
@@ -232332,8 +232680,8 @@
       90.63,
       96.29
     ],
-    "source": "kice-official-20260928+daesung-est+ebsi-est+etoos-est+mega-est",
-    "rawCutBasis": "academy_consensus_estimate",
+    "source": "kice-official-20260928+daesung-est+ebsi-est+etoos-est+mega-est+academy-consensus",
+    "rawCutBasis": "academy_consensus",
     "highestStandardScore": 137,
     "id": 5592,
     "officialGradeBoundarySource": "https://www.moe.go.kr/boardCnts/viewRenew.do?boardID=294&boardSeq=107307&lev=0&m=020402&opType=N&page=1&s=moe&searchType=null&statusYN=W",
@@ -232342,6 +232690,20 @@
       "https://www.ebsi.co.kr/ebs/xip/xipa/retrieveGrdCut.ajax?irecord=202609023&confYn=Y",
       "https://www.etoos.com/report/exam/20260902/sub14.asp?Grd=3",
       "https://www.megastudy.net/Entinfo/2027_jungsi/exam/rank_cut/jungsi_real.asp?seq=360"
+    ],
+    "rawCutSources": [
+      "etoos",
+      "daesung"
+    ],
+    "rawCutAgreement": [
+      2,
+      1,
+      1,
+      1,
+      1,
+      1,
+      2,
+      1
     ]
   },
   {
@@ -232364,14 +232726,14 @@
       69
     ],
     "rawCuts": [
-      84,
-      76,
-      71,
-      61,
-      40,
-      16,
-      8,
-      4
+      88,
+      80,
+      74,
+      65,
+      44,
+      20,
+      11,
+      7
     ],
     "fullScore": 100,
     "cumulativePercent": [
@@ -232384,8 +232746,8 @@
       90.63,
       96.29
     ],
-    "source": "kice-official-20260928+daesung-est+ebsi-est+etoos-est+mega-est",
-    "rawCutBasis": "academy_consensus_estimate",
+    "source": "kice-official-20260928+daesung-est+ebsi-est+etoos-est+mega-est+academy-consensus",
+    "rawCutBasis": "academy_consensus",
     "highestStandardScore": 137,
     "id": 5593,
     "officialGradeBoundarySource": "https://www.moe.go.kr/boardCnts/viewRenew.do?boardID=294&boardSeq=107307&lev=0&m=020402&opType=N&page=1&s=moe&searchType=null&statusYN=W",
@@ -232394,6 +232756,20 @@
       "https://www.ebsi.co.kr/ebs/xip/xipa/retrieveGrdCut.ajax?irecord=202609023&confYn=Y",
       "https://www.etoos.com/report/exam/20260902/sub14.asp?Grd=3",
       "https://www.megastudy.net/Entinfo/2027_jungsi/exam/rank_cut/jungsi_real.asp?seq=360"
+    ],
+    "rawCutSources": [
+      "etoos",
+      "daesung"
+    ],
+    "rawCutAgreement": [
+      2,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
     ]
   },
   {
@@ -232416,14 +232792,14 @@
       69
     ],
     "rawCuts": [
-      86,
-      78,
-      73,
-      63,
-      43,
-      19,
-      11,
-      7
+      88,
+      80,
+      75,
+      65,
+      44,
+      22,
+      14,
+      11
     ],
     "fullScore": 100,
     "cumulativePercent": [
@@ -232436,8 +232812,8 @@
       90.63,
       96.29
     ],
-    "source": "kice-official-20260928+daesung-est+ebsi-est+etoos-est+mega-est",
-    "rawCutBasis": "academy_consensus_estimate",
+    "source": "kice-official-20260928+daesung-est+ebsi-est+etoos-est+mega-est+academy-consensus",
+    "rawCutBasis": "academy_consensus",
     "highestStandardScore": 137,
     "id": 5594,
     "officialGradeBoundarySource": "https://www.moe.go.kr/boardCnts/viewRenew.do?boardID=294&boardSeq=107307&lev=0&m=020402&opType=N&page=1&s=moe&searchType=null&statusYN=W",
@@ -232446,6 +232822,20 @@
       "https://www.ebsi.co.kr/ebs/xip/xipa/retrieveGrdCut.ajax?irecord=202609023&confYn=Y",
       "https://www.etoos.com/report/exam/20260902/sub14.asp?Grd=3",
       "https://www.megastudy.net/Entinfo/2027_jungsi/exam/rank_cut/jungsi_real.asp?seq=360"
+    ],
+    "rawCutSources": [
+      "etoos",
+      "daesung"
+    ],
+    "rawCutAgreement": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
     ]
   },
   {
@@ -232469,12 +232859,12 @@
     ],
     "rawCuts": [
       50,
-      35,
-      29,
-      19,
-      10,
-      7,
-      5,
+      45,
+      38,
+      24,
+      12,
+      9,
+      6,
       4
     ],
     "fullScore": 50,
@@ -232488,13 +232878,26 @@
       95.47,
       96.89
     ],
-    "source": "kice-official-20260928+ebsi-est",
-    "rawCutBasis": "academy_consensus_estimate",
+    "source": "kice-official-20260928+ebsi-est+academy-consensus",
+    "rawCutBasis": "academy_consensus",
     "highestStandardScore": 68,
     "id": 5595,
     "officialGradeBoundarySource": "https://www.moe.go.kr/boardCnts/viewRenew.do?boardID=294&boardSeq=107307&lev=0&m=020402&opType=N&page=1&s=moe&searchType=null&statusYN=W",
     "rawCutSourceUrls": [
       "https://www.ebsi.co.kr/ebs/xip/xipa/retrieveGrdCut.ajax?irecord=202609023&confYn=Y"
+    ],
+    "rawCutSources": [
+      "ebsi"
+    ],
+    "rawCutAgreement": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
     ]
   },
   {
@@ -232517,9 +232920,9 @@
       39
     ],
     "rawCuts": [
-      38,
-      30,
-      20,
+      42,
+      33,
+      21,
       14,
       11,
       10,
@@ -232537,13 +232940,26 @@
       90.54,
       96.46
     ],
-    "source": "kice-official-20260928+ebsi-est",
-    "rawCutBasis": "academy_consensus_estimate",
+    "source": "kice-official-20260928+ebsi-est+academy-consensus",
+    "rawCutBasis": "academy_consensus",
     "highestStandardScore": 83,
     "id": 5596,
     "officialGradeBoundarySource": "https://www.moe.go.kr/boardCnts/viewRenew.do?boardID=294&boardSeq=107307&lev=0&m=020402&opType=N&page=1&s=moe&searchType=null&statusYN=W",
     "rawCutSourceUrls": [
       "https://www.ebsi.co.kr/ebs/xip/xipa/retrieveGrdCut.ajax?irecord=202609023&confYn=Y"
+    ],
+    "rawCutSources": [
+      "ebsi"
+    ],
+    "rawCutAgreement": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
     ]
   },
   {
@@ -232566,14 +232982,14 @@
       37
     ],
     "rawCuts": [
-      44,
-      39,
-      29,
-      20,
-      13,
+      46,
+      41,
+      31,
+      21,
+      15,
+      10,
       9,
-      7,
-      3
+      5
     ],
     "fullScore": 50,
     "cumulativePercent": [
@@ -232586,13 +233002,26 @@
       89.75,
       98.42
     ],
-    "source": "kice-official-20260928+ebsi-est",
-    "rawCutBasis": "academy_consensus_estimate",
+    "source": "kice-official-20260928+ebsi-est+academy-consensus",
+    "rawCutBasis": "academy_consensus",
     "highestStandardScore": 73,
     "id": 5597,
     "officialGradeBoundarySource": "https://www.moe.go.kr/boardCnts/viewRenew.do?boardID=294&boardSeq=107307&lev=0&m=020402&opType=N&page=1&s=moe&searchType=null&statusYN=W",
     "rawCutSourceUrls": [
       "https://www.ebsi.co.kr/ebs/xip/xipa/retrieveGrdCut.ajax?irecord=202609023&confYn=Y"
+    ],
+    "rawCutSources": [
+      "ebsi"
+    ],
+    "rawCutAgreement": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
     ]
   },
   {
@@ -232615,13 +233044,13 @@
       37
     ],
     "rawCuts": [
-      34,
-      29,
-      24,
-      19,
-      12,
+      44,
+      37,
+      30,
+      23,
+      15,
+      9,
       8,
-      7,
       6
     ],
     "fullScore": 50,
@@ -232635,13 +233064,26 @@
       90.22,
       96.33
     ],
-    "source": "kice-official-20260928+ebsi-est",
-    "rawCutBasis": "academy_consensus_estimate",
+    "source": "kice-official-20260928+ebsi-est+academy-consensus",
+    "rawCutBasis": "academy_consensus",
     "highestStandardScore": 75,
     "id": 5598,
     "officialGradeBoundarySource": "https://www.moe.go.kr/boardCnts/viewRenew.do?boardID=294&boardSeq=107307&lev=0&m=020402&opType=N&page=1&s=moe&searchType=null&statusYN=W",
     "rawCutSourceUrls": [
       "https://www.ebsi.co.kr/ebs/xip/xipa/retrieveGrdCut.ajax?irecord=202609023&confYn=Y"
+    ],
+    "rawCutSources": [
+      "ebsi"
+    ],
+    "rawCutAgreement": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
     ]
   },
   {
@@ -232664,14 +233106,14 @@
       37
     ],
     "rawCuts": [
-      38,
-      32,
-      21,
-      20,
-      12,
-      7,
-      6,
-      2
+      39,
+      34,
+      23,
+      22,
+      15,
+      10,
+      9,
+      5
     ],
     "fullScore": 50,
     "cumulativePercent": [
@@ -232684,13 +233126,26 @@
       89.28,
       96.42
     ],
-    "source": "kice-official-20260928+ebsi-est",
-    "rawCutBasis": "academy_consensus_estimate",
+    "source": "kice-official-20260928+ebsi-est+academy-consensus",
+    "rawCutBasis": "academy_consensus",
     "highestStandardScore": 79,
     "id": 5599,
     "officialGradeBoundarySource": "https://www.moe.go.kr/boardCnts/viewRenew.do?boardID=294&boardSeq=107307&lev=0&m=020402&opType=N&page=1&s=moe&searchType=null&statusYN=W",
     "rawCutSourceUrls": [
       "https://www.ebsi.co.kr/ebs/xip/xipa/retrieveGrdCut.ajax?irecord=202609023&confYn=Y"
+    ],
+    "rawCutSources": [
+      "ebsi"
+    ],
+    "rawCutAgreement": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
     ]
   },
   {
@@ -232713,14 +233168,14 @@
       37
     ],
     "rawCuts": [
-      45,
-      37,
-      29,
-      24,
-      17,
-      11,
-      8,
-      7
+      44,
+      36,
+      28,
+      22,
+      15,
+      9,
+      6,
+      5
     ],
     "fullScore": 50,
     "cumulativePercent": [
@@ -232733,13 +233188,26 @@
       94.77,
       96.4
     ],
-    "source": "kice-official-20260928+ebsi-est",
-    "rawCutBasis": "academy_consensus_estimate",
+    "source": "kice-official-20260928+ebsi-est+academy-consensus",
+    "rawCutBasis": "academy_consensus",
     "highestStandardScore": 76,
     "id": 5600,
     "officialGradeBoundarySource": "https://www.moe.go.kr/boardCnts/viewRenew.do?boardID=294&boardSeq=107307&lev=0&m=020402&opType=N&page=1&s=moe&searchType=null&statusYN=W",
     "rawCutSourceUrls": [
       "https://www.ebsi.co.kr/ebs/xip/xipa/retrieveGrdCut.ajax?irecord=202609023&confYn=Y"
+    ],
+    "rawCutSources": [
+      "ebsi"
+    ],
+    "rawCutAgreement": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
     ]
   },
   {
