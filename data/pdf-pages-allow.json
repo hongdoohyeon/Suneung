@@ -1534,5 +1534,12 @@
 "https://suneung-files.hdh061224.workers.dev/ebsi-edu-v1/20080919_7f1b6ac91b_q.pdf": "육안: 마지막 쪽의 인쇄 쪽번호가 파일 쪽수와 일치하고 확인 사항으로 끝남(원본 완결)",
 "https://suneung-files.hdh061224.workers.dev/ebsi-edu-v1/20110615_e7375d3a21_q.pdf": "육안: 마지막 쪽의 인쇄 쪽번호가 파일 쪽수와 일치하고 확인 사항으로 끝남(원본 완결)",
 "https://suneung-files.hdh061224.workers.dev/peet-v1/2012_main_verbal_q.pdf": "육안: 마지막 쪽의 인쇄 쪽번호가 파일 쪽수와 일치하고 확인 사항으로 끝남(원본 완결)",
-"https://suneung-files.hdh061224.workers.dev/hwp-pdf-v3/x7019_q.pdf": "육안: 마지막 5쪽에 문항(발표 계획 표)이 있음 — 쪽 제거 대상 아님(2026-11 오제거 복구)"
+"https://suneung-files.hdh061224.workers.dev/hwp-pdf-v3/x7019_q.pdf": "육안: 마지막 5쪽에 문항(발표 계획 표)이 있음 — 쪽 제거 대상 아님(2026-11 오제거 복구)",
+"https://suneung-files.hdh061224.workers.dev/essay-v5/ku_2025_annual_inmun_q_v2.pdf": "선행학습영향평가 보고서 문항카드 2개(84~88·94~97쪽, 5+4쪽) — 각 카드 문항정보·제시문·문제 전부 있음(원본이 홀수 쪽)",
+"https://suneung-files.hdh061224.workers.dev/kice-orig94-v1/kofc_14629_q.pdf": "인쇄 쪽번호 1~15 연속, 마지막 쪽 확인사항 확인(원본이 홀수 쪽)",
+"https://suneung-files.hdh061224.workers.dev/kice-orig94-v1/kofc_14643_q.pdf": "원본 스캔이 7쪽을 왼·오른 단 두 장으로 나눠 16쪽→17장 — 인쇄 쪽번호 1~16·문항 연속 확인(누락 없음)",
+"https://suneung-files.hdh061224.workers.dev/kice-orig94-v1/kofc_4851_q.pdf": "원본 스캔이 7쪽을 왼·오른 단 두 장으로 나눠 24쪽→25장 — 인쇄 쪽번호·문항 31~34 연속 확인(누락 없음)",
+"https://suneung-files.hdh061224.workers.dev/kice-orig94-v1/kofc_14659_q.pdf": "공통 1~70번 15쪽 + 선택 71~80번 5과목×2쪽 — 문항 연속 확인(원본이 홀수 쪽)",
+"https://suneung-files.hdh061224.workers.dev/kice-orig94-v1/kofc_14660_q.pdf": "공통 1~80번 21쪽 + 선택 65~80번 3과목×4쪽 — 문항 연속 확인(원본이 홀수 쪽)",
+"https://suneung-files.hdh061224.workers.dev/kice-orig94-v1/kofc_14661_q.pdf": "1~80번 17쪽 — 문항 연속 확인(원본이 홀수 쪽)"
 }
