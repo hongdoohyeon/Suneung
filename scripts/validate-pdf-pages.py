@@ -11,6 +11,10 @@
   2. 문제지 쪽수는 짝수여야 한다. 원본이 원래 홀수인 파일은 data/pdf-pages-allow.json 에
      {쿼리 뺀 URL: "사유"} 로 올려야 통과한다 (사유 없이 예외 금지).
   3. 같은 시험의 홀수형·짝수형 문제지/정답표 쪽수는 같아야 한다.
+  4. 내용이 같은 문제지(sha256)가 서로 다른 항목에 걸려 있으면 실패 — data/pdf-dup-allow.json 에
+     {sha256: {"ids": [...], "reason": "사유"}} 로 올린 묶음만 통과 (묶음에 새 항목이 끼면 다시 실패).
+     배경: 2026-11 제보(exam-14371) — 경기대 2025 예시문항이 '본논술'과 '모의논술' 두 항목에,
+     광운대 2018 인문(오후)·자연(오전) 칸에 다른 시간대 파일이 들어가 있었다. 라벨만 보고 넣으면 안 잡힌다.
 
 사용:
   python3 scripts/validate-pdf-pages.py            # 검사 (CI)
@@ -25,6 +29,7 @@ ROOT = Path(__file__).resolve().parent.parent
 MANIFEST = ROOT / 'data' / 'pdf-pages.json'
 ALLOW = ROOT / 'data' / 'pdf-pages-allow.json'
 REVIEW = ROOT / 'data' / 'pdf-pages-review.json'  # 원본 대조 대기 목록(경고만, 새 항목 추가 금지)
+DUP_ALLOW = ROOT / 'data' / 'pdf-dup-allow.json'  # 같은 문제지를 여러 항목이 쓰는 게 맞는 묶음(사유 필수)
 KEYS_Q = ('questionUrl', 'questionUrlEven')
 KEYS_A = ('answerUrl', 'answerUrlEven')
 
@@ -60,7 +65,19 @@ def probe(u: str):
         pg = [int(l.split()[1]) for l in out.splitlines() if l.startswith('Pages:')]
         if not pg:
             return None
-        return {'pages': pg[0], 'sha': hashlib.sha1(open(f, 'rb').read()).hexdigest()[:16]}
+        data = open(f, 'rb').read()
+        return {'pages': pg[0], 'sha': hashlib.sha1(data).hexdigest()[:16], 'sha256': hashlib.sha256(data).hexdigest()}
+
+
+def dup_groups(exams, manifest):
+    """문제지 내용(sha256)별로 그 파일을 문제지로 쓰는 항목 id — 2개 이상인 것만."""
+    by = {}
+    for e in exams:
+        for k in KEYS_Q:
+            h = (manifest.get(norm(e[k])) or {}).get('sha256') if e.get(k) else None
+            if h:
+                by.setdefault(h, set()).add(e['id'])
+    return {h: sorted(ids) for h, ids in by.items() if len(ids) > 1}
 
 
 def main():
@@ -96,6 +113,13 @@ def main():
                 ma, mb = manifest.get(norm(e[a])), manifest.get(norm(e[b]))
                 if ma and mb and ma['pages'] != mb['pages'] and norm(e[b]) not in allow and norm(e[a]) not in allow and norm(e[b]) not in review and norm(e[a]) not in review:
                     errs.append(f'홀·짝수형 쪽수 불일치 id={e["id"]} {a}={ma["pages"]} / {b}={mb["pages"]}')
+    dup_allow = json.loads(DUP_ALLOW.read_text(encoding='utf-8')) if DUP_ALLOW.exists() else {}
+    groups = dup_groups(exams, manifest)
+    for h, ids in sorted(groups.items(), key=lambda kv: kv[1]):
+        ok = dup_allow.get(h)
+        if not ok or not ok.get('reason') or not set(ids) <= set(ok['ids']):
+            errs.append(f'같은 문제지가 여러 항목에 걸림 ids={ids} sha256={h[:12]} — 한쪽이 잘못 올라갔는지 원본 확인. '
+                        '맞다면 data/pdf-dup-allow.json 에 사유와 함께 등록')
     stale = [n for n in allow if n not in urls]
     if errs:
         print(f'✗ PDF 쪽수 검증 실패 {len(errs)}건')

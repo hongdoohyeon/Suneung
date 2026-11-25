@@ -61,9 +61,13 @@ jobs:
       - name: Grade-cut consensus gap
         run: python3 scripts/academy-cuts/check_consensus_gap.py
 
-      # PDF 쪽수 검증 — 홀수 쪽 문제지·홀짝 불일치·미측정 PDF 차단 (data/pdf-pages*.json, scripts/validate-pdf-pages.py)
-      - name: PDF page-count rules
-        run: python3 scripts/validate-pdf-pages.py
+      # PDF 쪽수·중복 검증 — 홀수 쪽 문제지·홀짝 불일치·같은 문제지 여러 항목 차단 (data/pdf-pages*.json, pdf-dup-allow.json)
+      # 매니페스트에 없는 새 PDF 는 여기서 내려받아 쪽수·sha256 을 잰 뒤 검사한다 — 커밋에서 --update 를 빠뜨려
+      # validate 가 며칠씩 빨간불로 방치되던 일(2026-11-14~23, 11-23~25) 재발 방지.
+      - name: PDF page-count and duplicate rules
+        run: |
+          command -v pdfinfo >/dev/null || (sudo apt-get update -qq && sudo apt-get install -y -qq poppler-utils)
+          python3 scripts/validate-pdf-pages.py --update
 
       - name: Search regression tests
         run: node --test scripts/test-search.mjs
